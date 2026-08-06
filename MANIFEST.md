@@ -401,4 +401,4 @@
 | `70_TOOLS/scan_secrets.py` | 2,837 | 생성·검증 도구 | `5037ead8b0ad9c669339a0838c4bcfd084a3a30e7ff563df8ccf17f7a04b45c0` |
 | `70_TOOLS/verify_public_pc_v2_5.py` | 4,647 | 생성·검증 도구 | `d305ef4e9a99d0902e13133115393d264a6a2907e74b8534ae6ea00b9e954a3a` |
 | `AGENTS.md` | 962 | 프로젝트 작업 규칙 | `adf6f9f96e60f3abd65ae08498f323f7850d5f177107466dc4703d2361f80a15` |
-| `requirements-dev.txt` | 176 | 분류 확인 필요 | `5c4259b5d5693dff88c5662a5cc1db85cc873a06ae6676a77923c7accf6b93a6` |
+| `requirements-dev.txt` | 176 | 분류 확인 필요 | `fbe3ca70753cfd98410986c7c8d6c284c743ead8904beaa62094d9abf8fd2c3c` |
