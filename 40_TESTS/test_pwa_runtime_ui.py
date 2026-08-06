@@ -103,6 +103,11 @@ async def run() -> None:
                 mode = await page.get_attribute("html", "data-api-mode")
                 banner = await page.text_content("#runtimeBanner")
                 raise AssertionError(f"api mode={mode!r}; banner={banner!r}; errors={errors!r}; requests={requests!r}")
+            await page.wait_for_function(
+                "document.getElementById('walletTotalValue').textContent === '4.40' "
+                "&& !document.getElementById('createProfileButton').disabled",
+                timeout=10_000,
+            )
             check("fragment claim URL이 즉시 제거됨", "claim=" not in page.url, page.url)
             check("실제 API 모드 전환", await page.get_attribute("html", "data-api-mode") == "live")
             check("health 서버 1대 렌더", await page.get_attribute("#serverCatalog", "data-server-count") == "1")

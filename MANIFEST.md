@@ -3,7 +3,7 @@
 | 항목 | 값 |
 |---|---|
 | 파일 수 | 379 |
-| 총 바이트 | 9,927,897 |
+| 총 바이트 | 9,928,150 |
 
 ## 지문 규칙
 
@@ -286,7 +286,7 @@
 | `40_TESTS/test_protection_status_ui.py` | 2,754 | 검사 | `44675d374f99911e5cf9e85836a7b1ce9936e30d4f946ffd79345a294fb3742c` |
 | `40_TESTS/test_public_qr.py` | 1,391 | 검사 | `e2fd83c8718584aa783e4362afddcd874acabe26db9f39efbf22a21715fcf875` |
 | `40_TESTS/test_pwa_api_client.py` | 6,567 | 검사 | `efa3d15bc87e22bdf595fa310ab0525845726503f1e56583a556957949c5cbeb` |
-| `40_TESTS/test_pwa_runtime_ui.py` | 11,581 | 검사 | `f62d370e75c448c07552169161848d57effb6c7add427ccf849e025142320fc3` |
+| `40_TESTS/test_pwa_runtime_ui.py` | 11,834 | 검사 | `7c3f0fc338e4cfbba5a3f3ada7267b3642c2c783486b826254956a7627a715b1` |
 | `40_TESTS/test_quota_agent.py` | 10,013 | 검사 | `190442d544b65640143177ced219afbee8abdb14f819242aaa7d7542a58f4547` |
 | `40_TESTS/test_quota_ledger.py` | 4,296 | 검사 | `ae6c677e372d4a2a1c5d06fcdd5aa9f2125689b1f89c2f1ee4698dab9c7a4f5d` |
 | `40_TESTS/test_r6_preflight.py` | 6,283 | 검사 | `048589f7f2f82be543fd3189fa86ec12c7493eec546a298f061d8ca0df630185` |
