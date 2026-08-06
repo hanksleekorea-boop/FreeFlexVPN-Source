@@ -2,7 +2,7 @@
 
 > 이 파일이 최신 정본입니다 (통합일: 2026-08-06 · 통합한 판: 서비스 기획서 v2.0~v4.0).
 >
-> 원본은 변경하거나 삭제하지 않았다. 상세한 당시 문장과 증거는 `10_STATE/APP_SERVICE_PLAN_v2.0_2026-08-01.md`, `10_STATE/APP_SERVICE_PLAN_v3.0_2026-08-05.md`, `10_STATE/APP_SERVICE_PLAN_v4.0_2026-08-06.md`에 보존한다. 이 파일과 연결된 실행 정본은 `10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md`다.
+> 원본은 변경하거나 삭제하지 않았다. 상세한 당시 문장과 증거는 `90_ARCHIVE/10_STATE_plans/APP_SERVICE_PLAN_v2.0_2026-08-01.md`, `90_ARCHIVE/10_STATE_plans/APP_SERVICE_PLAN_v3.0_2026-08-05.md`, `90_ARCHIVE/10_STATE_plans/APP_SERVICE_PLAN_v4.0_2026-08-06.md`에 보존한다. 이 파일과 연결된 실행 정본은 `10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md`다.
 
 ## 1. 제품의 한 문장
 

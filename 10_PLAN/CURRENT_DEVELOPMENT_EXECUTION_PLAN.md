@@ -2,7 +2,7 @@
 
 > 이 파일이 최신 정본입니다 (통합일: 2026-08-06 · 통합한 판: 상세 개발실행계획 v2.0~v4.0).
 >
-> 원본은 변경하거나 삭제하지 않았다. 이전 판의 상세 문장과 당시 근거는 `10_STATE/DEV_EXECUTION_PLAN_v2.0_2026-08-01.md`, `10_STATE/DEV_EXECUTION_PLAN_v3.0_2026-08-05.md`, `10_STATE/DEV_EXECUTION_PLAN_v4.0_2026-08-06.md`에 보존한다. 제품 방향은 `10_PLAN/CURRENT_SERVICE_PLAN.md`를 따른다.
+> 원본은 변경하거나 삭제하지 않았다. 이전 판의 상세 문장과 당시 근거는 `90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v2.0_2026-08-01.md`, `90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v3.0_2026-08-05.md`, `90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v4.0_2026-08-06.md`에 보존한다. 제품 방향은 `10_PLAN/CURRENT_SERVICE_PLAN.md`를 따른다.
 
 ## 1. 실행 순서와 우선 규칙
 

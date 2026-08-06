@@ -18,7 +18,14 @@ import time
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SUMMARY = re.compile(r"(\d+)/(\d+)(?:\s*(?:통과|PASS))?")
-SERIAL_FIRST = ("test_app_v2_contract.py", "test_github_pages.py")
+# These tests rebuild shared 30_DEPLOY assets.  Keep every writer out of the
+# parallel pool so a fast machine cannot read a half-written app shell.
+SERIAL_FIRST = (
+    "test_app_v2_contract.py",
+    "test_github_pages.py",
+    "test_service_ui_v2_6.py",
+    "test_service_ui_v3.py",
+)
 REQUIRED_MODULES = {
     "playwright": "브라우저 계약 검사",
     "cv2": "QR 디코딩 검사",

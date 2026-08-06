@@ -147,6 +147,10 @@ async def run() -> None:
             device_posts = [item for item in requests if item["path"] == "/v1/devices" and item["method"] == "POST"]
             check("WireGuard 구성에 로컬 개인키 포함", "PrivateKey = " in config and "[Peer]" in config)
             check("기기 요청에 개인키 미전송", len(device_posts) == 1 and "private" not in device_posts[0]["body"].lower(), str(device_posts))
+            await page.wait_for_function(
+                "document.getElementById('deviceCountValue').textContent === '1 / 2'",
+                timeout=10_000,
+            )
             check("생성 뒤 기기 1/2 동기화", await page.text_content("#deviceCountValue") == "1 / 2")
             print("PWA UI 단계 3/4: 기기 키·구성 생성", flush=True)
 

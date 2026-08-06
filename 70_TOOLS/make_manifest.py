@@ -13,9 +13,19 @@ import fkvpaths
 
 EXCLUDE_DIRS  = {"__pycache__", ".git", "node_modules", ".test-venv", ".chrome-ci", ".chrome-ci2", ".pytest_cache"}
 EXCLUDE_NAMES = {"MANIFEST.md"}
-EXCLUDE_GLOBS = ["60_OUTPUTS/checks/**/*", ".project-continuity/LOCK*.json", "*.pyc", "*.log", "*.tmp"]
+EXCLUDE_GLOBS = ["60_OUTPUTS/checks/*", "60_OUTPUTS/checks/**/*", ".project-continuity/LOCK*.json", "*.pyc", "*.log", "*.tmp"]
 TEXT_SUFFIXES = {".css", ".html", ".ini", ".js", ".json", ".md", ".ps1", ".py", ".sh", ".toml", ".txt", ".yaml", ".yml"}
 TEXT_NAMES = {".gitattributes", ".gitignore", "AGENTS.md", "LICENSE", "README"}
+MOVE_HISTORY = (
+    ("00_START/HANDOFF_V2_2026-08-01.md", "90_ARCHIVE/00_START_legacy/HANDOFF_V2_2026-08-01.md", 2352, "이전 시작 안내"),
+    ("00_START/README.md", "90_ARCHIVE/00_START_legacy/README.md", 5242, "이전 시작 안내"),
+    ("10_STATE/APP_SERVICE_PLAN_v2.0_2026-08-01.md", "90_ARCHIVE/10_STATE_plans/APP_SERVICE_PLAN_v2.0_2026-08-01.md", 24251, "과거 제품 기획"),
+    ("10_STATE/APP_SERVICE_PLAN_v3.0_2026-08-05.md", "90_ARCHIVE/10_STATE_plans/APP_SERVICE_PLAN_v3.0_2026-08-05.md", 8313, "과거 제품 기획"),
+    ("10_STATE/APP_SERVICE_PLAN_v4.0_2026-08-06.md", "90_ARCHIVE/10_STATE_plans/APP_SERVICE_PLAN_v4.0_2026-08-06.md", 8941, "과거 제품 기획"),
+    ("10_STATE/DEV_EXECUTION_PLAN_v2.0_2026-08-01.md", "90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v2.0_2026-08-01.md", 26975, "과거 상세 실행계획"),
+    ("10_STATE/DEV_EXECUTION_PLAN_v3.0_2026-08-05.md", "90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v3.0_2026-08-05.md", 11921, "과거 상세 실행계획"),
+    ("10_STATE/DEV_EXECUTION_PLAN_v4.0_2026-08-06.md", "90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v4.0_2026-08-06.md", 15009, "과거 상세 실행계획"),
+)
 
 def files(root):
     out = []
@@ -66,6 +76,8 @@ def build(root):
              "", "## 제외 (검사 실행 시 재생성)", ""]
     lines += [f"- `{g}`" for g in EXCLUDE_GLOBS]
     lines += [f"- `{n}` (자기 자신)" for n in sorted(EXCLUDE_NAMES)]
+    lines += ["", "## 대청소 이동 기록", "", "| 원래 위치 | 새 위치 | 바이트 | 용도 |", "|---|---|---:|---|"]
+    lines += [f"| `{old}` | `{new}` | {size:,} | {label} |" for old, new, size, label in MOVE_HISTORY]
     lines += ["", "## 파일별 목록", "", "| 파일 | 바이트 | 용도 | sha256 |", "|---|---:|---|---|"]
     lines += [f"| `{p}` | {s:,} | {purpose(pathlib.Path(p))} | `{h}` |" for p, h, s in rows]
     return "\n".join(lines) + "\n", rows

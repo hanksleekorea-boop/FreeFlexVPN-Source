@@ -1,6 +1,6 @@
 # 현재 작업 상태
 
-- 현재 버전/단계: v4.0 F0-2 완료 · GitHub 원본·배포 보관소 비공개 · 새 PC 복제·자동 준비·원격 자동 검사까지 확인 완료 · 전역 규칙 v9 적용
+- 현재 버전/단계: v4.0 F0-2 완료 · 프로젝트 대청소 A·B 완료 · GitHub 원본·배포 보관소 비공개 · 새 PC 복제·자동 준비·원격 자동 검사까지 확인 완료 · 전역 규칙 v9 적용
 - 마지막 작업자 라벨: codex
 - 마지막 갱신 시각: 2026-08-06T15:55:00+07:00
 - GitHub 원격: 비공개 `hanksleekorea-boop/FreeFlexVPN-Source` · HTTPS · `feature/source-bootstrap` 기능 갈래 · 최신 원격 읽기·새 복제본 지문값·GitHub Actions 자동 검사 확인됨
