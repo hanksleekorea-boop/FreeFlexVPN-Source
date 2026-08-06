@@ -1,0 +1,96 @@
+{
+  "schema": "FreeFlexVPNGCPProviderReadbackLocalEvidenceV1",
+  "candidate": "v2.11-provider-readback-hardened",
+  "date": "2026-08-03",
+  "status": "VERIFIED_LOCAL_NOT_DEPLOYED",
+  "provider_readback_contract": {
+    "schema": "FreeFlexVPNGCPProviderReadbackV2",
+    "verified_fields": [
+      "instance name, zone, RUNNING status and e2-micro machine type",
+      "IP forwarding enabled and no service account",
+      "Shielded VM secure boot, vTPM and integrity monitoring",
+      "one 10GB pd-standard boot disk",
+      "one default-network interface and one external access config",
+      "reserved external public IPv4 attached as the VM NAT IP",
+      "exact cloud-init user-data SHA-256",
+      "exact default-network SSH tcp/22 from admin /32",
+      "exact default-network WireGuard udp/51820 from 0.0.0.0/0",
+      "exact freeflexvpn-exit instance and firewall target tag"
+    ],
+    "provider_configuration_verified": true,
+    "admission_ready": false,
+    "r6_ready": false,
+    "contains_secrets": false
+  },
+  "cloud_shell_bundle": {
+    "path": "60_OUTPUTS/infra/FreeFlexVPN_gcp_cloud_shell_bundle_v2_EXAMPLE",
+    "schema": "FreeFlexVPNGCPCloudShellBundleV2",
+    "mode": "EXAMPLE_ONLY",
+    "files": 8,
+    "hashed_payload_files": "7/7 PASS",
+    "verifier_equals_source": "PASS",
+    "bash_syntax": "4/4 PASS with Git Bash",
+    "example_guard": "PASS: readback exits 64 before any gcloud command",
+    "provider_readback_is_admission": false,
+    "r6_ready": false
+  },
+  "verification": {
+    "new_negative_control_tests": "14/14 PASS: provider readback 7 plus Cloud Shell bundle 7",
+    "connected_safety_regression": "106/106 PASS: cloud-init 27/27 plus Python unittest 79/79",
+    "full_regression": "NOT_STARTED: current Python lacks playwright and cv2; prior 394/394 baseline was not refreshed",
+    "secret_scan": "PASS: unallowlisted findings 0; allowlist matches 17",
+    "dashboard": {
+      "actual_percent": 58.3,
+      "planned_percent": 58.3,
+      "schedule_delta_days": 0.0,
+      "completed_milestones": 7,
+      "total_milestones": 12,
+      "remaining_milestones": 5,
+      "config_canonical_sha256_match": "PASS",
+      "html_sha256_match": "PASS"
+    },
+    "browser": {
+      "desktop_dom": "PASS",
+      "mobile_viewport": "PASS: 390x844",
+      "horizontal_overflow": 0,
+      "theme_toggle": "PASS: dark",
+      "console_warning_or_error": 0
+    },
+    "deployment_probe": "10_STATE/DEPLOYMENT_BLOCK_PROBE_V2_11_2026-08-03.json"
+  },
+  "current_external_state": {
+    "measured_at": "2026-08-03T10:48:04+07:00",
+    "public_app": "HTTP 200, 146845 bytes, ETag 6a6f1cf8-23d9d",
+    "gcp_console": "HTTP 302 to Google ServiceLogin",
+    "gcp_cloud_shell": "HTTP 302 to Google ServiceLogin",
+    "authenticated_project_or_billing_readback": false,
+    "actual_gcp_vms": 0,
+    "actual_vpn_servers": 0,
+    "device_tunnels": 0
+  },
+  "sha256": {
+    "20_SRC/infra/gcp_provider_readback.py": "6D9BCA09E3938A775AF3B861A2DB633D0C62235888D5CEFBE6F9983478B61FBE",
+    "20_SRC/infra/gcp_cloud_shell_bundle.py": "DF6F4C14B19E0035D4B8019D6D2DD5EB6EBF235C1B290C6258BBF13941B12ED9",
+    "40_TESTS/test_gcp_provider_readback.py": "81B3039E1E434CB29EFE9F2EB1A256C972C5101E5FE78C8FB79E9E84FCCB01E0",
+    "40_TESTS/test_gcp_cloud_shell_bundle.py": "145FE5B962FB4078898E8CD1ECE44A291D1D3BB8AF2C20002C8D9A6E697D7E7B",
+    "10_STATE/progress_dashboard_v2.11.json": "85F2A04D661A2AD1CE181458D56EB8AE2677EDE6EC24B4328D9D0C2837546459",
+    "10_STATE/GENERATED_PROGRESS_V2_11_2026-08-03.json": "A31030091A01112800FE1DD0B6F983742ACC4981C65345FED9702E14E44BDF67",
+    "10_STATE/DEPLOYMENT_BLOCK_PROBE_V2_11_2026-08-03.json": "AC267373C0F45712808ABA7529A84ACD5823ADBD005659FFF9DD182C3C71F7A4",
+    "60_OUTPUTS/FreeFlexVPN_progress_dashboard_v2.11_2026-08-03.html": "2EABE473E32C7074A5DB77DC1550C6654F53B0E436A3001E33E35A424D390D3D",
+    "60_OUTPUTS/infra/FreeFlexVPN_gcp_cloud_shell_bundle_v2_EXAMPLE/bundle-manifest.json": "6BD2084D6A1FE325608B9A3ABA9732B44A157BB515CE800382E2B481E60E293A",
+    "10_STATE/DECISIONS.md": "199F80A8D451C878051961F1BC4553FDFBA3DF78BEDAE840A122F257981951C7",
+    "10_STATE/PRIORITIES_v2_2026-08-01.md": "85BA527B9551D1FEA8085915FD4FB7C163E867CF26E4A994C3F11FA695C57F43",
+    "20_SRC/infra/README.md": "1DD11746955FE20B7C7492F2D77E6F61CCE89EB94A0F85963A1405AADCCF646D"
+  },
+  "evidence_boundary": {
+    "implementation": true,
+    "local": true,
+    "build": true,
+    "public_app": true,
+    "public_dashboard": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  },
+  "contains_secrets": false
+}

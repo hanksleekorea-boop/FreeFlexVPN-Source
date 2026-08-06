@@ -1,0 +1,98 @@
+{
+  "schema": "FreeFlexVPNGCPFirstNodeLocalEvidenceV1",
+  "candidate": "v2.8",
+  "date": "2026-08-02",
+  "status": "VERIFIED_IMPLEMENTED_LOCAL",
+  "decision": "GCP is the first real-node provider; a different second provider remains mandatory for R6",
+  "evidence_level": {
+    "implementation": true,
+    "local": true,
+    "build": false,
+    "public": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  },
+  "implemented": [
+    "secret-free GCP e2-micro deployment plan and cloud-init generation",
+    "one-IP SSH ingress and WireGuard UDP firewall plan",
+    "no service account, no API scopes, IP forwarding, and Shielded VM flags",
+    "external runtime config generator with atomic no-overwrite behavior",
+    "network-free GCP configuration preflight",
+    "same-candidate and same-config evidence chain before live SSH",
+    "single-provider GCP admission that always keeps ready=false and r6_ready=false"
+  ],
+  "verification": {
+    "related_checks_passed": 87,
+    "related_checks_total": 87,
+    "test_files": {
+      "test_test_runner.py": "2/2",
+      "test_cloud_init.py": "27/27",
+      "test_gcp_node_plan.py": "5/5",
+      "test_gcp_runtime_config.py": "3/3",
+      "test_gcp_node_admission.py": "5/5",
+      "test_gcp_node_admission_cli.py": "3/3",
+      "test_r6_preflight_cli.py": "5/5",
+      "test_r6_preflight.py": "9/9",
+      "test_control_runtime.py": "8/8",
+      "test_server_catalog.py": "10/10",
+      "test_ssh_node_adapter.py": "10/10"
+    },
+    "whole_regression": {
+      "status": "NOT_RUN_IN_CURRENT_BUNDLED_PYTHON",
+      "reason": "playwright and cv2 are missing; the full runner stops before launch",
+      "last_verified_baseline": "v2.5 30 files 394/394",
+      "claim": "not a current full-regression PASS"
+    }
+  },
+  "environment": {
+    "wsl2_ubuntu": "AVAILABLE",
+    "gcloud_cli": {
+      "status": "PORTABLE_FILES_PRESENT_EXECUTION_UNVERIFIED",
+      "requested_version": "578.0.0",
+      "archive": "C:\\tmp\\google-cloud-cli-578.0.0-windows-x86_64.zip",
+      "archive_bytes": 84629589,
+      "archive_sha256": "7AB6AC62A5AEEF41F40CD517E1B397F7901F9DF630CA71CF6D225614C7D7367E",
+      "extracted_root": "C:\\tmp\\freeflex-gcloud-578.0.0\\google-cloud-sdk",
+      "required_files_present": true,
+      "execution_checks": [
+        "bundled Python --version timed out after 30 seconds",
+        "gcloud version with bundled runtime timed out after 60 seconds",
+        "gcloud version with verified Python 3.12.13 timed out after 120 seconds"
+      ],
+      "claim": "not authenticated and not proven executable"
+    },
+    "gcp_account_or_project": "NOT_CONFIGURED",
+    "actual_gcp_vm_count": 0
+  },
+  "cost_boundaries": {
+    "free_tier": "must be verified in the selected GCP account before create",
+    "budget_alert": "required but is not a hard spending cap",
+    "external_ipv4_and_egress": "may be billable",
+    "official_reference": "https://cloud.google.com/free/docs/free-cloud-features"
+  },
+  "sha256": {
+    "20_SRC/app/preflight_evidence.py": "0F8E84F13007CA27ED71E4FAF96EBD5FFFAD37620DDE54DE857795BBFD3715E5",
+    "70_TOOLS/run_r6_server_preflight.py": "F8CE98F6DF5C699B9586648A8CDC83FD4E244FBA4C051E8FE776F29779FF49F7",
+    "20_SRC/infra/gcp_node_plan.py": "04028DD4804D65BCDFF17D306C8794B9BFE0AD1E3A3564EA108D298F3EE24F49",
+    "70_TOOLS/build_gcp_node_plan.py": "845B9AAEA42BFEEA6F03275732E18B4366D793478D1761233FE7658F73350012",
+    "20_SRC/app/gcp_node_admission.py": "327D13B9E2910B822195521DB12CC6156073DBD172243E8FC0EB66F5E81CEB55",
+    "70_TOOLS/run_gcp_node_admission.py": "B3312DE7022A967B5E9570538D7F10DF7500B6A41212F5EA23E44EAD8FFDE0F4",
+    "70_TOOLS/build_gcp_runtime_config.py": "AD171422FD5AD1C330FBF48FA08EDB9A616762D133B27782ECB87735B53388CA",
+    "40_TESTS/test_gcp_node_plan.py": "FE51DB5A0EF81C2BE2A7BAC43DE9127B0CA0606DE48587361344540FB919C2C6",
+    "40_TESTS/test_gcp_runtime_config.py": "9CDFE3C9606577D2364BA5BE6F77C1172715727B6D8478BEF027066F503D883A",
+    "40_TESTS/test_gcp_node_admission.py": "BF3F289C98249A2C827653505E9A61FC85FD77E41FA91F04DC1B4BA9398C996C",
+    "40_TESTS/test_gcp_node_admission_cli.py": "3D1FE9555D7B6524078DB27C0F6A3356132FDACE2B0C66C5DDEB11089640CCBC",
+    "20_SRC/infra/README.md": "2BA8D9AE4A74E502CFD32C35286FAE3507AE02DB58649207AA31D84A5978747A",
+    "60_OUTPUTS/infra/FreeFlexVPN_gcp_node_plan_v1_EXAMPLE.json": "6230A9816BA5E690433D03D897F037C8209F99FEADE44A70E1F86440066DCC91",
+    "60_OUTPUTS/infra/FreeFlexVPN_gcp_node_cloud_init_v1_EXAMPLE.yaml": "C415D18F3B0CF59AC8364D00F8B4C9DEF4CD7D4A28B7736FDF8C111D9FE027EA"
+  },
+  "baseline": {
+    "completed_milestones": 7,
+    "total_milestones": 12,
+    "percent": 58.3,
+    "actual_vpn_servers": 0
+  },
+  "contains_secrets": false,
+  "next_gate": "resolve portable gcloud startup or use Cloud Shell, authenticate, verify free-tier and billing controls, then create the first GCP VM"
+}

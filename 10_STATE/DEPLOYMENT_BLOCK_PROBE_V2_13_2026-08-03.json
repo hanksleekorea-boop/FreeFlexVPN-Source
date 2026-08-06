@@ -1,0 +1,46 @@
+{
+  "schema": "FreeFlexVPNDeploymentBlockProbeV1",
+  "candidate": "v2.13-gcp-billing-review-helper",
+  "measured_at": "2026-08-03T11:34:49.6447456+07:00",
+  "matrix": [
+    {
+      "target": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+      "classification": "available",
+      "measured_result": "HTTP 200, 146845 bytes, SHA-256 8A906F32DFA74B734F2630937339408A509F6C422A6E103122BD086509B4886A",
+      "works": "anonymous no-cache public readback and exact local FreeFlexVPN-Pages/app.html hash match",
+      "blocked": "none for the existing public v2.3 app; it still has no VPN server"
+    },
+    {
+      "target": "local v2.13 GCP billing review helper",
+      "classification": "available",
+      "measured_result": "build 28792 bytes; contract 7/7; inline JavaScript syntax 1/1; localhost HTTP 200",
+      "works": "cost floor calculation, six checks, memory fallback, honest storage notice, JSON export/import, inline PWA manifest",
+      "blocked": "visual and interactive browser evidence"
+    },
+    {
+      "target": "in-app Browser local visual QA",
+      "classification": "tool_unresponsive",
+      "measured_result": "webview attach timed out twice before DOM or screenshot readback",
+      "works": "browser discovery, localhost reachability, two fresh-tab attempts",
+      "blocked": "desktop, mobile, and forced storage-failure screen verification",
+      "assistant_resolution": "did not claim browser PASS; retained structural and syntax evidence only"
+    },
+    {
+      "target": "authenticated Google Cloud billing and project readback",
+      "classification": "permission",
+      "measured_result": "no authenticated project, billing, credit, or account-currency response",
+      "works": "local helper reduces the readback to six non-secret checks",
+      "blocked": "account-specific eligibility and billable VM creation",
+      "minimal_user_action": "S-1 대행동: 로그인된 GCP 콘솔과 로컬 v2.13 도우미를 나란히 열어 6개 항목 확인"
+    },
+    {
+      "target": "first GCP WireGuard VM",
+      "classification": "physical_absence",
+      "measured_result": "latest provider evidence records actual VM 0, server readback 0, device tunnel 0",
+      "works": "plan, Cloud Shell v2 bundle, provider readback, rollback, cost calculator, billing review helper",
+      "blocked": "live VM, SSH, WireGuard, exit IP, counter, catalog, and device evidence",
+      "minimal_user_action": "S-2 대행동: S-1 확인 뒤 비용 발생을 승인하고 first-node create"
+    }
+  ],
+  "contains_secrets": false
+}

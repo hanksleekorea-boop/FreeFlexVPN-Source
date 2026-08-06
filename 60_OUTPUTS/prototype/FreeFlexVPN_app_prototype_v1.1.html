@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07111e">
+  <title>FreeFlexVPN 공식 채택 UI · UX v1.1</title>
+  <style>
+    :root{
+      color-scheme:dark;
+      --ink:#f5f8ff;--muted:#8fa1b8;--muted2:#60738d;
+      --bg:#050b13;--panel:#0a1422;--panel2:#0d1929;--line:#1d3045;
+      --mint:#5be6ba;--mint2:#22bd91;--blue:#78aefc;--violet:#9b8cff;
+      --danger:#ff7b83;--warning:#ffc766;--shadow:0 30px 90px rgba(0,0,0,.48);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;font-family:Inter,"Pretendard","Noto Sans KR",system-ui,sans-serif;background:
+      radial-gradient(circle at 12% 8%,rgba(91,230,186,.10),transparent 24rem),
+      radial-gradient(circle at 86% 18%,rgba(120,174,252,.11),transparent 28rem),var(--bg);color:var(--ink)}
+    button{font:inherit;color:inherit}button:focus-visible{outline:3px solid rgba(91,230,186,.42);outline-offset:3px}
+    .page{width:min(1380px,calc(100% - 36px));margin:0 auto;padding:24px 0 54px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:-.035em;font-size:20px}
+    .brand-mark{width:36px;height:36px;border-radius:12px;background:var(--mint);color:#03251b;display:grid;place-items:center;box-shadow:0 10px 35px rgba(91,230,186,.22)}
+    .brand-mark svg{width:22px;height:22px}.top-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+    .tag,.ghost{border:1px solid var(--line);background:rgba(13,25,41,.72);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px;font-weight:700}
+    .tag strong{color:var(--mint)}.ghost{cursor:pointer;color:var(--ink)}.ghost:hover{border-color:#426482}
+    .workspace{display:grid;grid-template-columns:300px minmax(430px,1fr) 310px;gap:22px;align-items:start}
+    .rail,.notes{border:1px solid var(--line);background:rgba(9,19,32,.76);backdrop-filter:blur(20px);border-radius:24px;padding:20px;position:sticky;top:18px;max-height:calc(100vh - 36px);overflow:auto}
+    .section-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);font-weight:800;margin-bottom:8px}
+    .rail h1{font-size:27px;line-height:1.16;letter-spacing:-.045em;margin:0 0 10px}.rail-intro{color:var(--muted);font-size:13px;line-height:1.65;margin:0 0 18px}
+    .screen-list{display:grid;gap:8px}.screen-link{width:100%;display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:10px;text-align:left;border:1px solid transparent;background:transparent;border-radius:14px;padding:9px;cursor:pointer}
+    .screen-link:hover{background:#0e1c2d}.screen-link.active{background:#102336;border-color:#28435c}.screen-no{height:36px;border-radius:11px;background:#112236;color:var(--blue);display:grid;place-items:center;font-size:12px;font-weight:900}
+    .screen-link.active .screen-no{background:var(--mint);color:#04251b}.screen-link b{display:block;font-size:13px}.screen-link small{display:block;color:var(--muted2);margin-top:2px}.screen-link .arrow{color:#4e6884}
+    .stage{min-height:790px;border:1px solid var(--line);border-radius:30px;background:
+      linear-gradient(145deg,rgba(13,26,43,.94),rgba(7,15,26,.96));position:relative;overflow:hidden;display:grid;place-items:center;padding:38px}
+    .stage::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(91,230,186,.07);filter:blur(5px);top:-190px;right:-90px}
+    .stage::after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;border:1px solid rgba(120,174,252,.09);bottom:-170px;left:-100px}
+    .phone{width:390px;height:780px;background:#07111e;border:1px solid #294058;border-radius:46px;padding:10px;box-shadow:var(--shadow);position:relative;z-index:2}
+    .phone::before{content:"";position:absolute;left:50%;top:17px;transform:translateX(-50%);width:92px;height:23px;border-radius:20px;background:#03080e;z-index:20}
+    .viewport{height:100%;border-radius:37px;overflow:hidden;position:relative;background:#081321}
+    .screen{display:none;height:100%;overflow:auto;background:
+      radial-gradient(circle at 85% 0,rgba(120,174,252,.13),transparent 18rem),#081321;padding:50px 22px 92px;scrollbar-width:none}
+    .screen::-webkit-scrollbar{display:none}.screen.active{display:block;animation:screenIn .28s ease both}@keyframes screenIn{from{opacity:.2;transform:translateY(7px)}to{opacity:1;transform:none}}
+    .screen.flush{padding:0}.statusbar{position:absolute;top:15px;left:24px;right:24px;z-index:12;display:flex;justify-content:space-between;color:#d6dfeb;font-size:11px;font-weight:750;pointer-events:none}
+    .app-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.app-brand{font-weight:900;letter-spacing:-.04em}.app-brand em{font-style:normal;color:var(--mint)}
+    .icon-btn{width:40px;height:40px;border-radius:14px;border:1px solid var(--line);background:#0e1b2b;display:grid;place-items:center;cursor:pointer}.icon-btn:hover{border-color:#426482}.icon-btn svg{width:19px;height:19px}
+    .eyebrow{color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.05em}.title{font-size:29px;line-height:1.14;letter-spacing:-.05em;margin:8px 0 10px}.sub{color:var(--muted);font-size:14px;line-height:1.65}.fine{color:var(--muted2);font-size:11px;line-height:1.5}
+    .primary,.secondary,.danger-btn{width:100%;min-height:52px;border-radius:16px;border:0;font-weight:850;cursor:pointer}.primary{background:var(--mint);color:#03231a;box-shadow:0 12px 30px rgba(91,230,186,.18)}.primary:hover{background:#6df0c7}.primary:disabled{opacity:.4;cursor:not-allowed}
+    .secondary{background:#112236;border:1px solid #263d55;color:var(--ink)}.danger-btn{background:rgba(255,123,131,.10);border:1px solid rgba(255,123,131,.3);color:#ff9ca2}
+    .text-btn{border:0;background:none;color:var(--blue);font-weight:760;cursor:pointer;padding:8px}.stack{display:grid;gap:11px}.push{margin-top:auto}.mt8{margin-top:8px}.mt16{margin-top:16px}.mt24{margin-top:24px}.mt32{margin-top:32px}
+    .welcome{height:100%;padding:76px 25px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden;background:#07111e}.welcome::before{content:"";position:absolute;inset:-20% -25% auto 30%;height:420px;background:radial-gradient(circle,rgba(91,230,186,.25),transparent 65%)}
+    .hero-orb{width:210px;height:210px;border-radius:50%;margin:28px auto 38px;position:relative;display:grid;place-items:center;background:rgba(91,230,186,.06);border:1px solid rgba(91,230,186,.22);box-shadow:inset 0 0 60px rgba(91,230,186,.08)}
+    .hero-orb::before,.hero-orb::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(120,174,252,.18)}.hero-orb::before{inset:20px}.hero-orb::after{inset:47px}.hero-shield{width:86px;height:100px;position:relative;z-index:2;color:var(--mint);filter:drop-shadow(0 0 26px rgba(91,230,186,.38))}
+    .welcome-copy{position:relative;z-index:2}.welcome .title{font-size:37px}.promise-row{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 26px}.promise{padding:7px 10px;border-radius:999px;background:#0f2132;border:1px solid #213b50;color:#bad0e3;font-size:11px;font-weight:750}
+    .policy{padding:16px;border:1px solid var(--line);border-radius:18px;background:#0d1a2a}.policy-row{display:flex;gap:12px;align-items:flex-start}.policy-row+.policy-row{margin-top:15px;padding-top:15px;border-top:1px solid #182b3f}.policy-icon{width:34px;height:34px;flex:none;border-radius:11px;background:#112a32;color:var(--mint);display:grid;place-items:center}.policy b{display:block;font-size:13px}.policy span{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:3px}
+    .check-row{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);padding:14px;border-radius:16px;background:#0d1a29;cursor:pointer}.check-row input{width:19px;height:19px;accent-color:var(--mint);margin:1px 0 0}.check-row b{font-size:13px}.check-row p{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
+    .stepper{display:flex;gap:7px;margin:19px 0 25px}.stepper span{height:5px;border-radius:99px;background:#203248;flex:1}.stepper span.on{background:var(--mint)}
+    .setup-card{border:1px solid var(--line);border-radius:22px;background:#0d1a2a;padding:18px}.setup-visual{height:170px;border-radius:18px;background:linear-gradient(145deg,#10253a,#0a1725);display:grid;place-items:center;margin-bottom:17px;position:relative;overflow:hidden}.setup-visual::before{content:"";width:120px;height:120px;border:1px solid rgba(91,230,186,.24);border-radius:28px;transform:rotate(12deg)}.setup-visual svg{position:absolute;width:66px;color:var(--mint)}
+    .numbered{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}.numbered+.numbered{margin-top:13px}.num{width:28px;height:28px;border-radius:9px;background:#153044;color:var(--mint);display:grid;place-items:center;font-size:11px;font-weight:900}.numbered b{font-size:12px}.numbered p{margin:2px 0 0;color:var(--muted);font-size:10px;line-height:1.45}
+    .demo-ribbon{background:#122338;border:1px solid #25425c;border-radius:13px;padding:9px 12px;color:#93abc1;font-size:10px;line-height:1.45;margin-bottom:15px}.demo-ribbon strong{color:var(--warning)}
+    .balance-card{background:linear-gradient(145deg,#10283a,#0d1b2c);border:1px solid #254154;border-radius:22px;padding:18px}.balance-top{display:flex;justify-content:space-between;align-items:start}.balance-top small{color:var(--muted)}.balance-top strong{font-size:13px}.balance-number{font-size:35px;font-weight:900;letter-spacing:-.055em;margin:6px 0}.balance-number span{font-size:15px;color:var(--muted);letter-spacing:0}.meter{height:8px;border-radius:99px;background:#213348;overflow:hidden;margin:14px 0 9px}.meter span{display:block;width:74%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--mint),var(--blue))}.balance-split{display:flex;justify-content:space-between;color:var(--muted);font-size:10px}.balance-split b{color:#dce8f5}
+    .connect-wrap{display:grid;place-items:center;padding:10px 0 8px}.connect-orb{width:150px;height:150px;border-radius:50%;border:1px solid #294059;background:#0d1d2e;display:grid;place-items:center;position:relative;cursor:pointer;transition:.35s;box-shadow:inset 0 0 60px rgba(0,0,0,.18)}.connect-orb::before{content:"";position:absolute;inset:13px;border:1px solid #1f354b;border-radius:50%}.connect-orb:hover{transform:scale(1.018);border-color:#45627d}.connect-orb.connected{background:rgba(33,143,112,.16);border-color:rgba(91,230,186,.55);box-shadow:0 0 52px rgba(91,230,186,.13),inset 0 0 60px rgba(91,230,186,.08)}.power{width:44px;height:44px;color:#7f93a9;position:relative;z-index:3}.connected .power{color:var(--mint);filter:drop-shadow(0 0 12px rgba(91,230,186,.5))}.connect-label{position:absolute;bottom:30px;font-size:10px;font-weight:850;letter-spacing:.08em;color:#869aae}.connected .connect-label{color:var(--mint)}
+    .location-card{display:flex;width:100%;align-items:center;gap:12px;border:1px solid var(--line);background:#0c1928;padding:13px;border-radius:17px;cursor:pointer}.location-card:hover{border-color:#34516d}.flag{width:38px;height:38px;border-radius:12px;background:#14273a;display:grid;place-items:center;font-size:19px}.location-card .grow{flex:1}.location-card b{font-size:12px}.location-card small{display:block;color:var(--muted);margin-top:3px;font-size:10px}.chev{color:#5d7289}
+    .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.quick{border:1px solid var(--line);background:#0c1928;border-radius:17px;padding:14px;text-align:left;cursor:pointer}.quick:hover{border-color:#34516d}.quick .q-icon{width:32px;height:32px;border-radius:10px;background:#122a37;color:var(--mint);display:grid;place-items:center;margin-bottom:12px}.quick b{font-size:12px}.quick small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+    .bottom-nav{position:relative;height:72px;margin:18px -12px -82px;border-radius:0 0 36px 36px;background:rgba(8,19,33,.94);border-top:1px solid #1b2d41;backdrop-filter:blur(18px);display:grid;grid-template-columns:repeat(4,1fr);z-index:10}.nav-btn{border:0;background:none;color:#61758c;display:grid;place-items:center;align-content:center;gap:4px;cursor:pointer;font-size:9px}.nav-btn svg{width:20px;height:20px}.nav-btn.active{color:var(--mint)}
+    .search{display:flex;align-items:center;gap:9px;background:#0d1a2a;border:1px solid var(--line);border-radius:15px;padding:12px 13px;color:var(--muted);font-size:12px}.search svg{width:17px}.region-label{font-size:10px;color:var(--muted2);font-weight:800;letter-spacing:.1em;margin:22px 0 9px}.server-list{display:grid;gap:8px}.server{display:flex;align-items:center;gap:11px;border:1px solid transparent;padding:11px;border-radius:15px;cursor:pointer;background:#0b1726}.server:hover,.server.selected{border-color:#31516c;background:#0f2031}.server .flag{width:36px;height:36px}.server .grow{flex:1}.server b{font-size:12px}.server small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.ping{font-size:10px;color:var(--mint);font-weight:800}.radio{width:18px;height:18px;border:1px solid #496077;border-radius:50%}.selected .radio{border:5px solid var(--mint)}
+    .plan-balance{text-align:center;padding:10px 0 18px}.plan-balance small{color:var(--muted)}.plan-balance strong{display:block;font-size:34px;letter-spacing:-.05em;margin-top:5px}.amounts{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.amount{border:1px solid var(--line);background:#0c1928;border-radius:17px;padding:15px 12px;cursor:pointer;text-align:left}.amount.selected{border-color:var(--mint);box-shadow:inset 0 0 0 1px var(--mint);background:#102629}.amount b{display:block;font-size:19px}.amount span{display:block;color:var(--muted);font-size:10px;margin-top:4px}.amount em{display:inline-block;margin-top:10px;font-size:11px;font-style:normal;color:var(--blue)}.benefit{display:flex;gap:10px;align-items:flex-start;padding:13px;background:#102335;border-radius:15px;border:1px solid #203c53}.benefit svg{width:20px;flex:none;color:var(--mint)}.benefit b{font-size:11px}.benefit p{font-size:9px;color:var(--muted);margin:3px 0 0;line-height:1.5}
+    .device-count{display:flex;align-items:end;justify-content:space-between;padding:15px 0}.device-count strong{font-size:31px;letter-spacing:-.05em}.device-count span{color:var(--muted);font-size:11px}.device{border:1px solid var(--line);background:#0c1928;border-radius:18px;padding:15px}.device+.device{margin-top:9px}.device-top{display:flex;align-items:center;gap:11px}.device-icon{width:40px;height:40px;border-radius:13px;background:#11283a;color:var(--blue);display:grid;place-items:center}.device-icon svg{width:21px}.device .grow{flex:1}.device b{font-size:12px}.device small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.online{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint)}.device-actions{display:flex;gap:8px;margin-top:13px}.mini{flex:1;border:1px solid #294057;background:#102033;border-radius:11px;padding:8px;font-size:10px;font-weight:700;cursor:pointer}.mini.warn{color:#ff9da3;border-color:#52323b;background:#221720}.limit-note{padding:12px;border-left:3px solid var(--warning);background:#1b1b1c;color:#c8b990;font-size:10px;line-height:1.55;margin-top:12px}
+    .usage-hero{border:1px solid var(--line);border-radius:22px;padding:18px;background:#0d1a2a}.usage-hero .big{font-size:34px;font-weight:900;letter-spacing:-.05em}.usage-hero .big span{font-size:13px;color:var(--muted)}.usage-hero small{color:var(--muted)}.chart{height:125px;display:flex;align-items:end;gap:8px;padding-top:16px}.bar-col{flex:1;display:grid;align-items:end;gap:5px;height:100%}.bar-col i{display:block;width:100%;background:linear-gradient(var(--mint),#268ba6);border-radius:6px 6px 3px 3px;min-height:8px}.bar-col span{text-align:center;color:var(--muted2);font-size:8px}.usage-row{display:flex;align-items:center;gap:11px;padding:13px 2px;border-bottom:1px solid #15273a}.usage-dot{width:9px;height:9px;border-radius:50%;background:var(--mint)}.usage-dot.paid{background:var(--blue)}.usage-row .grow{flex:1}.usage-row b{font-size:11px}.usage-row small{display:block;color:var(--muted);font-size:9px}.usage-row strong{font-size:11px}
+    .account-card{text-align:center;padding:15px 0 25px}.avatar{width:68px;height:68px;border-radius:23px;margin:auto;background:linear-gradient(145deg,#183a49,#172543);display:grid;place-items:center;color:var(--mint);font-size:24px;font-weight:900}.account-card b{display:block;margin-top:12px}.account-card span{display:block;color:var(--muted);font-size:10px;margin-top:4px}.menu{display:grid;gap:8px}.menu-item{display:flex;align-items:center;gap:11px;border:1px solid var(--line);background:#0c1928;border-radius:15px;padding:12px;text-align:left;cursor:pointer}.menu-icon{width:34px;height:34px;border-radius:11px;background:#112538;display:grid;place-items:center;color:var(--blue)}.menu-icon svg{width:18px}.menu-item .grow{flex:1}.menu-item b{font-size:11px}.menu-item small{display:block;color:var(--muted);font-size:9px;margin-top:2px}.build-info{text-align:center;color:#50647b;font-size:9px;margin-top:18px}
+    .notes h2{font-size:18px;letter-spacing:-.03em;margin:0 0 8px}.note-copy{font-size:12px;color:var(--muted);line-height:1.65;margin:0 0 18px}.note-card{border:1px solid var(--line);background:#0c1928;border-radius:16px;padding:14px}.note-card+.note-card{margin-top:9px}.note-card b{font-size:12px}.note-card p{font-size:10px;color:var(--muted);line-height:1.55;margin:5px 0 0}.note-card.good{border-color:#275548}.note-card.warn{border-color:#514429}.legend{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:10px;margin-top:12px}.legend i{width:8px;height:8px;border-radius:50%;background:var(--mint)}
+    .toast{position:absolute;left:22px;right:22px;bottom:89px;z-index:30;padding:13px 14px;border-radius:14px;background:#e9fff8;color:#0c3c2f;font-size:11px;font-weight:800;box-shadow:0 18px 45px #0008;transform:translateY(20px);opacity:0;pointer-events:none;transition:.25s}.toast.show{transform:none;opacity:1}
+    .storyboard{margin-top:24px;border:1px solid var(--line);border-radius:26px;background:#081421;padding:22px}.storyboard-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:15px}.storyboard h2{margin:0;font-size:22px}.storyboard p{margin:6px 0 0;color:var(--muted);font-size:12px}.thumbs{display:grid;grid-template-columns:repeat(9,minmax(110px,1fr));gap:9px;overflow:auto;padding-bottom:4px}.thumb{border:1px solid var(--line);background:#0d1a29;border-radius:15px;padding:11px;text-align:left;cursor:pointer;min-height:116px}.thumb:hover{border-color:#42627c}.thumb span{display:grid;place-items:center;width:29px;height:29px;border-radius:9px;background:#13283a;color:var(--mint);font-weight:900;font-size:10px}.thumb b{display:block;margin-top:17px;font-size:11px}.thumb small{display:block;color:var(--muted2);font-size:9px;margin-top:4px;line-height:1.4}
+    @media(max-width:1120px){.workspace{grid-template-columns:250px 1fr}.notes{position:static;grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.notes>h2,.notes>.note-copy{grid-column:1/-1}.note-card+.note-card{margin-top:0}}
+    @media(max-width:780px){.page{width:min(100% - 20px,540px);padding-top:14px}.topbar{align-items:flex-start}.top-actions .tag{display:none}.workspace{display:flex;flex-direction:column}.rail{position:static;width:100%;padding:16px;overflow:hidden}.rail h1{font-size:22px}.screen-list{display:flex;overflow:auto;padding-bottom:4px}.screen-link{min-width:150px}.stage{width:100%;min-height:auto;padding:18px 4px;border-radius:24px}.phone{width:min(390px,100%);height:780px}.notes{display:block;width:100%}.note-card+.note-card{margin-top:9px}.storyboard-head{display:block}.thumbs{grid-template-columns:repeat(9,120px)}}
+    @media(max-height:850px) and (min-width:781px){.phone{height:720px}.stage{min-height:730px}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.7 20 6v5.2c0 5-3.2 8.6-8 10.1-4.8-1.5-8-5.1-8-10.1V6l8-3.3Z" fill="currentColor"/><path d="m8.4 12.1 2.1 2.1 5-5" stroke="#05251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>FreeFlexVPN</div>
+      <div class="top-actions"><span class="tag"><strong>ADOPTED</strong> UI · UX v1.1</span><span class="tag">화면 9개</span><button class="ghost" type="button" data-go="welcome">처음부터 보기</button></div>
+    </header>
+
+    <main class="workspace">
+      <aside class="rail">
+        <div class="section-label">App service map</div>
+        <h1>필요할 때만 쓰는 VPN의 전체 여정</h1>
+        <p class="rail-intro">왼쪽 화면 이름을 누르거나 앱 안의 버튼을 눌러 흐름을 확인하세요. 모든 결제·연결은 시각 시뮬레이션입니다.</p>
+        <nav class="screen-list" aria-label="프로토타입 화면 목록">
+          <button class="screen-link" type="button" data-go="welcome"><span class="screen-no">01</span><span><b>시작</b><small>가치 제안</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="consent"><span class="screen-no">02</span><span><b>동의</b><small>최소 정보</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="setup"><span class="screen-no">03</span><span><b>설정</b><small>WireGuard</small></span><span class="arrow">›</span></button>
+          <button class="screen-link active" type="button" data-go="home"><span class="screen-no">04</span><span><b>홈</b><small>연결·잔액</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="locations"><span class="screen-no">05</span><span><b>국가 선택</b><small>가까운 서버</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="topup"><span class="screen-no">06</span><span><b>용량 충전</b><small>자동결제 없음</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="devices"><span class="screen-no">07</span><span><b>기기 관리</b><small>최대 2대</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="usage"><span class="screen-no">08</span><span><b>사용량</b><small>무료분 우선</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="account"><span class="screen-no">09</span><span><b>내 정보</b><small>정책·상태</small></span><span class="arrow">›</span></button>
+        </nav>
+      </aside>
+
+      <section class="stage" aria-label="FreeFlexVPN 모바일 프로토타입">
+        <div class="phone">
+          <div class="viewport">
+            <div class="statusbar"><span>9:41</span><span>● ● ●  100%</span></div>
+
+            <section class="screen flush" data-screen="welcome" aria-label="시작 화면">
+              <div class="welcome">
+                <div class="welcome-copy"><div class="eyebrow">VPN이 가끔 필요한 사람을 위해</div><h2 class="title">매달 내지 말고,<br>필요할 때만.</h2><p class="sub">매월 1GB는 무료. 더 필요하면 원하는 만큼 충전하고 남은 용량은 계속 보관하세요.</p></div>
+                <div class="hero-orb" aria-hidden="true"><svg class="hero-shield" viewBox="0 0 64 76" fill="none"><path d="M32 3 59 14v18c0 19-11 34-27 40C16 66 5 51 5 32V14L32 3Z" stroke="currentColor" stroke-width="3"/><path d="m20 37 8 8 17-19" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="promise-row"><span class="promise">월 1GB 무료</span><span class="promise">충전분 무기한</span><span class="promise">자동결제 없음</span></div>
+                <div class="stack push"><button class="primary" type="button" data-go="consent">무료로 시작하기</button><button class="text-btn" type="button" data-go="home">먼저 둘러보기</button></div>
+              </div>
+            </section>
+
+            <section class="screen" data-screen="consent" aria-label="동의 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="welcome" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="fine">1 / 2</span></div>
+              <div class="eyebrow">시작 전 확인</div><h2 class="title">필요한 정보만<br>사용합니다.</h2><p class="sub">개인키와 VPN 설정 QR은 Telegram으로 보내거나 서버에 저장하지 않습니다.</p>
+              <div class="policy mt24">
+                <div class="policy-row"><span class="policy-icon">✓</span><div><b>저장하는 것</b><span>가명 계정 ID, 동의 시각, 피어 공개키, 잔액과 사용량</span></div></div>
+                <div class="policy-row"><span class="policy-icon">×</span><div><b>저장하지 않는 것</b><span>Telegram 원본 ID, 전화번호, 메시지, WireGuard 개인키</span></div></div>
+              </div>
+              <label class="check-row mt16"><input id="consentCheck" type="checkbox"><span><b>서비스 운영 정책에 동의합니다.</b><p>월 1GB 무료, 충전 데이터 무기한, 계정당 활성 기기 2대 정책을 확인했습니다.</p></span></label>
+              <div class="stack mt24"><button id="consentNext" class="primary" type="button" data-go="setup" disabled>동의하고 계속</button><button class="text-btn" type="button" data-go="welcome">동의하지 않음</button></div>
+            </section>
+
+            <section class="screen" data-screen="setup" aria-label="WireGuard 설정 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="consent" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="fine">2 / 2</span></div>
+              <div class="eyebrow">안전한 연결 준비</div><h2 class="title">WireGuard 앱에<br>한 번만 추가하세요.</h2><div class="stepper"><span class="on"></span><span class="on"></span></div>
+              <div class="setup-card"><div class="setup-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M9 6h6M10 18h4"/></svg></div>
+                <div class="numbered"><span class="num">1</span><div><b>공식 WireGuard 앱 설치</b><p>앱스토어에서 공식 앱을 설치합니다.</p></div></div>
+                <div class="numbered"><span class="num">2</span><div><b>10분짜리 수령 링크 열기</b><p>기기 안에서 키를 만들고 구성 QR을 가져옵니다.</p></div></div>
+                <div class="numbered"><span class="num">3</span><div><b>연결은 홈에서 확인</b><p>개인키는 이 기기 밖으로 보내지 않습니다.</p></div></div>
+              </div>
+              <div class="demo-ribbon mt16"><strong>프로토타입 안내</strong> — 실제 수령 링크나 개인키는 생성하지 않습니다.</div>
+              <button class="primary" type="button" data-go="home">설정 흐름 확인 완료</button>
+            </section>
+
+            <section class="screen active" data-screen="home" aria-label="홈 화면">
+              <div class="app-head"><div class="app-brand">FreeFlex<em>VPN</em></div><button class="icon-btn" type="button" data-go="account" aria-label="내 정보"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M5 20c.8-4 3.1-6 7-6s6.2 2 7 6"/></svg></button></div>
+              <div class="demo-ribbon"><strong>시각 프로토타입</strong> — 실제 VPN 연결·결제는 발생하지 않으며 새로고침하면 초기화됩니다.</div>
+              <div class="balance-card"><div class="balance-top"><div><small>사용 가능한 데이터</small><div class="balance-number"><b id="balanceValue">3.74</b> <span>GB</span></div></div><strong>8월</strong></div><div class="meter"><span id="balanceMeter"></span></div><div class="balance-split"><span>무료 <b>0.74GB</b></span><span>충전 <b id="paidBalance">3.00GB</b> · 무기한</span></div></div>
+              <div class="connect-wrap"><button id="connectOrb" class="connect-orb" type="button" aria-label="VPN 연결 전환"><svg class="power" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10"/><path d="M6.3 5.7a8 8 0 1 0 11.4 0"/></svg><span id="connectLabel" class="connect-label">눌러서 연결</span></button></div>
+              <button id="locationCard" class="location-card" type="button" data-go="locations"><span id="homeFlag" class="flag">🇯🇵</span><span class="grow"><b id="homeLocation">일본 · 도쿄</b><small id="connectionDetail">자동 선택 · 예상 42ms</small></span><span class="chev">›</span></button>
+              <div class="quick-grid"><button class="quick" type="button" data-go="topup"><span class="q-icon">＋</span><b>용량 충전</b><small>필요한 만큼만</small></button><button class="quick" type="button" data-go="usage"><span class="q-icon">↗</span><b>사용량</b><small>무료분 우선</small></button></div>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn active" type="button" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 9-8 9 8v9H5v-9"/></svg>홈</button><button class="nav-btn" type="button" data-go="usage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19V9m7 10V4m7 15v-6"/></svg>사용량</button><button class="nav-btn" type="button" data-go="devices"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 18h4"/></svg>기기</button><button class="nav-btn" type="button" data-go="account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M5 20c.8-4 3.1-6 7-6s6.2 2 7 6"/></svg>내 정보</button></nav>
+            </section>
+
+            <section class="screen" data-screen="locations" aria-label="국가 선택 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="home" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><b>접속 국가</b><span style="width:40px"></span></div>
+              <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>국가 또는 도시 검색</div>
+              <div class="region-label">추천</div><div class="server-list">
+                <button class="server selected" type="button" data-location="일본 · 도쿄" data-flag="🇯🇵" data-ping="42"><span class="flag">🇯🇵</span><span class="grow"><b>일본 · 도쿄</b><small>가장 빠른 서버</small></span><span class="ping">42ms</span><span class="radio"></span></button>
+                <button class="server" type="button" data-location="싱가포르" data-flag="🇸🇬" data-ping="58"><span class="flag">🇸🇬</span><span class="grow"><b>싱가포르</b><small>안정적인 연결</small></span><span class="ping">58ms</span><span class="radio"></span></button>
+              </div>
+              <div class="region-label">아시아</div><div class="server-list">
+                <button class="server" type="button" data-location="대한민국 · 서울" data-flag="🇰🇷" data-ping="64"><span class="flag">🇰🇷</span><span class="grow"><b>대한민국 · 서울</b><small>표준 서버</small></span><span class="ping">64ms</span><span class="radio"></span></button>
+                <button class="server" type="button" data-location="홍콩" data-flag="🇭🇰" data-ping="71"><span class="flag">🇭🇰</span><span class="grow"><b>홍콩</b><small>표준 서버</small></span><span class="ping">71ms</span><span class="radio"></span></button>
+                <button class="server" type="button" data-location="미국 · 로스앤젤레스" data-flag="🇺🇸" data-ping="146"><span class="flag">🇺🇸</span><span class="grow"><b>미국 · 로스앤젤레스</b><small>장거리 연결</small></span><span class="ping">146ms</span><span class="radio"></span></button>
+              </div>
+              <p class="fine mt16">표시 지연시간은 화면 구성을 위한 예시이며 실제 측정값이 아닙니다.</p>
+            </section>
+
+            <section class="screen" data-screen="topup" aria-label="용량 충전 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="home" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><b>용량 충전</b><span style="width:40px"></span></div>
+              <div class="plan-balance"><small>현재 충전 잔액</small><strong id="topupCurrent">3.00GB</strong><span class="promise">유효기간 무제한</span></div>
+              <div class="amounts"><button class="amount selected" type="button" data-gb="3" data-price="1500"><b>3GB</b><span>맛보기</span><em>1,500원</em></button><button class="amount" type="button" data-gb="10" data-price="3900"><b>10GB</b><span>라이트</span><em>3,900원</em></button><button class="amount" type="button" data-gb="30" data-price="8900"><b>30GB</b><span>스탠다드</span><em>8,900원</em></button><button class="amount" type="button" data-gb="100" data-price="19900"><b>100GB</b><span>빅</span><em>19,900원</em></button><button class="amount" type="button" data-gb="300" data-price="39900" style="grid-column:1/-1"><b>300GB</b><span>벌크</span><em>39,900원</em></button></div>
+              <div class="benefit mt16"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M5 7h11a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h11"/></svg><div><b>자동결제·정기구독 없음</b><p>선택한 용량만 한 번 충전합니다. 실제 결제 사업자는 아직 연결되지 않았습니다.</p></div></div>
+              <button id="topupButton" class="primary mt24" type="button">3GB · 1,500원 충전 시뮬레이션</button><p class="fine" style="text-align:center">가격은 현재 서비스 기획의 설계안이며 지불의사 미검증 상태입니다. 화면 시연이며 결제 요청을 전송하지 않습니다.</p>
+            </section>
+
+            <section class="screen" data-screen="devices" aria-label="기기 관리 화면">
+              <div class="app-head"><div><div class="app-brand">기기 관리</div><span class="fine">계정당 활성 공개키 기준</span></div><button class="icon-btn" type="button" data-go="account" aria-label="설정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.5 1a8 8 0 0 0-1.8-1L14.2 3h-4.4l-.4 3a8 8 0 0 0-1.8 1L5.1 6 3 9.4 5 11a7 7 0 0 0 0 2l-2 1.6L5.1 18l2.5-1a8 8 0 0 0 1.8 1l.4 3h4.4l.4-3a8 8 0 0 0 1.8-1l2.5 1 2.1-3.4-2-1.6a7 7 0 0 0 .1-1Z"/></svg></button></div>
+              <div class="device-count"><div><span>사용 중</span><strong>2 / 2</strong></div><span>활성 기기 한도</span></div>
+              <article class="device"><div class="device-top"><span class="device-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 18h4"/></svg></span><span class="grow"><b>내 iPhone</b><small>현재 연결 · 일본 도쿄</small></span><span class="online"></span></div><div class="device-actions"><button class="mini" type="button" data-toast="기기 이름 변경은 프로토타입입니다.">이름 변경</button><button class="mini warn" type="button" data-toast="실제 폐기 요청은 전송되지 않았습니다.">연결 폐기</button></div></article>
+              <article class="device"><div class="device-top"><span class="device-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></span><span class="grow"><b>여행용 노트북</b><small>3일 전 사용 · 싱가포르</small></span></div><div class="device-actions"><button class="mini" type="button" data-toast="기기 이름 변경은 프로토타입입니다.">이름 변경</button><button class="mini warn" type="button" data-toast="실제 폐기 요청은 전송되지 않았습니다.">연결 폐기</button></div></article>
+              <div class="limit-note">새 기기를 추가하려면 기존 기기 하나를 먼저 폐기해야 합니다. 같은 WireGuard 키를 여러 기기에 복사하면 물리 기기 수를 구분할 수 없습니다.</div>
+              <button class="primary mt16" type="button" disabled>새 기기 추가 · 한도 도달</button>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn" type="button" data-go="usage">↗<span>사용량</span></button><button class="nav-btn active" type="button" data-go="devices">▯<span>기기</span></button><button class="nav-btn" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+            <section class="screen" data-screen="usage" aria-label="사용량 화면">
+              <div class="app-head"><div><div class="app-brand">8월 사용량</div><span class="fine">무료 데이터부터 차감</span></div><button class="icon-btn" type="button" data-toast="월별 내역 다운로드는 아직 연결되지 않았습니다." aria-label="내보내기">↗</button></div>
+              <div class="usage-hero"><small>이번 달 사용</small><div class="big">0.26 <span>GB</span></div><div class="chart" aria-label="최근 7일 사용량 예시"><div class="bar-col"><i style="height:16%"></i><span>월</span></div><div class="bar-col"><i style="height:42%"></i><span>화</span></div><div class="bar-col"><i style="height:25%"></i><span>수</span></div><div class="bar-col"><i style="height:70%"></i><span>목</span></div><div class="bar-col"><i style="height:34%"></i><span>금</span></div><div class="bar-col"><i style="height:88%"></i><span>토</span></div><div class="bar-col"><i style="height:50%"></i><span>일</span></div></div><p class="fine">그래프 수치는 화면 구성을 위한 예시입니다.</p></div>
+              <div class="region-label">잔액 구성</div><div class="usage-row"><span class="usage-dot"></span><span class="grow"><b>무료 데이터</b><small>매월 1일 UTC 초기화</small></span><strong>0.74GB</strong></div><div class="usage-row"><span class="usage-dot paid"></span><span class="grow"><b>충전 데이터</b><small>유효기간 없음</small></span><strong id="usagePaid">3.00GB</strong></div>
+              <button class="secondary mt24" type="button" data-go="topup">용량 충전하기</button>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn active" type="button" data-go="usage">↗<span>사용량</span></button><button class="nav-btn" type="button" data-go="devices">▯<span>기기</span></button><button class="nav-btn" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+            <section class="screen" data-screen="account" aria-label="내 정보 화면">
+              <div class="app-head"><div class="app-brand">내 정보</div><button class="icon-btn" type="button" data-toast="알림 설정은 프로토타입입니다." aria-label="알림">♢</button></div>
+              <div class="account-card"><div class="avatar">F</div><b>FreeFlex 사용자</b><span>Telegram 가명 계정 · 원본 ID 미저장</span></div>
+              <div class="menu"><button class="menu-item" type="button" data-go="devices"><span class="menu-icon">▯</span><span class="grow"><b>기기 관리</b><small>활성 2대 / 최대 2대</small></span><span class="chev">›</span></button><button class="menu-item" type="button" data-go="topup"><span class="menu-icon">＋</span><span class="grow"><b>충전·결제 내역</b><small>자동결제 없음</small></span><span class="chev">›</span></button><button class="menu-item" type="button" data-toast="서비스 상태 페이지는 실제 운영 서버 연결 후 제공됩니다."><span class="menu-icon">✓</span><span class="grow"><b>서비스 상태</b><small>현재 프로토타입</small></span><span class="chev">›</span></button><button class="menu-item" type="button" data-toast="정책 문서는 현재 초안 준비 단계입니다."><span class="menu-icon">i</span><span class="grow"><b>이용약관·개인정보</b><small>최소 수집 원칙</small></span><span class="chev">›</span></button></div>
+              <button class="danger-btn mt24" type="button" data-toast="실제 계정 삭제 요청은 전송되지 않았습니다.">계정과 VPN 피어 삭제</button><div class="build-info">FreeFlexVPN · UI Prototype v1.1<br>실제 VPN·결제·계정 발급 기능 없음</div>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn" type="button" data-go="usage">↗<span>사용량</span></button><button class="nav-btn" type="button" data-go="devices">▯<span>기기</span></button><button class="nav-btn active" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+            <div id="toast" class="toast" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="notes">
+        <div class="section-label">Design rationale</div><h2 id="noteTitle">홈 · 연결과 잔액</h2><p id="noteCopy" class="note-copy">앱을 열자마자 남은 데이터와 연결 상태를 동시에 보여줍니다. 라이트 사용자는 복잡한 설정 대신 ‘연결’ 한 번이면 됩니다.</p>
+        <article class="note-card good"><b>제품 계약을 화면에 고정</b><p>월 무료 1GB와 충전분 무기한을 잔액 카드에서 항상 분리 표시합니다.</p></article>
+        <article class="note-card"><b>무료분 우선 차감</b><p>사용량 화면에서 무료분과 충전분을 별도 색으로 표현해 차감 순서를 이해시킵니다.</p></article>
+        <article class="note-card warn"><b>정직한 프로토타입</b><p>실제 서버·결제·계정이 연결되지 않았음을 앱 안에서 반복 고지합니다.</p></article>
+        <div class="legend"><i></i> 민트색은 현재 가능한 주 행동</div>
+      </aside>
+    </main>
+
+    <section class="storyboard" aria-label="전체 화면 구성">
+      <div class="storyboard-head"><div><div class="section-label">Storyboard</div><h2>전체 화면을 한눈에</h2><p>각 카드를 누르면 위 모바일 화면으로 이동합니다.</p></div><span class="tag">Mobile first · 390 × 780</span></div>
+      <div class="thumbs"><button class="thumb" type="button" data-go="welcome"><span>01</span><b>시작</b><small>무료·무기한·비구독</small></button><button class="thumb" type="button" data-go="consent"><span>02</span><b>동의</b><small>최소 정보 원칙</small></button><button class="thumb" type="button" data-go="setup"><span>03</span><b>설정</b><small>WireGuard 키 분리</small></button><button class="thumb" type="button" data-go="home"><span>04</span><b>홈</b><small>잔액과 연결</small></button><button class="thumb" type="button" data-go="locations"><span>05</span><b>국가</b><small>서버 선택</small></button><button class="thumb" type="button" data-go="topup"><span>06</span><b>충전</b><small>일회성 결제</small></button><button class="thumb" type="button" data-go="devices"><span>07</span><b>기기</b><small>공개키 2개 제한</small></button><button class="thumb" type="button" data-go="usage"><span>08</span><b>사용량</b><small>무료분 우선</small></button><button class="thumb" type="button" data-go="account"><span>09</span><b>내 정보</b><small>상태·삭제</small></button></div>
+    </section>
+  </div>
+
+  <script>
+    const screens=[...document.querySelectorAll('[data-screen]')];
+    const links=[...document.querySelectorAll('.screen-link')];
+    const notes={
+      welcome:['시작 · 한 문장 가치','정액제 피로가 있는 라이트 사용자에게 월 1GB 무료와 무기한 충전이라는 차이를 첫 화면에서 바로 설명합니다.'],
+      consent:['동의 · 최소 정보','저장하는 정보와 저장하지 않는 정보를 대칭으로 보여주고, 개인키가 Telegram 밖에 머문다는 경계를 명확히 합니다.'],
+      setup:['설정 · 안전한 키 생성','공식 WireGuard 앱을 활용해 네이티브 앱 개발 전에도 안전한 연결 흐름을 제공하는 구조입니다.'],
+      home:['홈 · 연결과 잔액','앱을 열자마자 남은 데이터와 연결 상태를 동시에 보여줍니다. 라이트 사용자는 복잡한 설정 대신 ‘연결’ 한 번이면 됩니다.'],
+      locations:['국가 선택 · 속도 우선','가장 빠른 서버를 먼저 제안하고 지연시간이 예시임을 밝혀 미측정 수치를 실제값처럼 보이지 않게 합니다.'],
+      topup:['충전 · 구독 없는 결제','필요 용량을 한 번만 구매하며 자동결제와 만료가 없다는 제품 차별점을 결제 직전에 재확인합니다.'],
+      devices:['기기 · 계정 공유 제한','활성 WireGuard 공개키 2개 제한을 사용자 언어로 표현하고, 같은 키 복제는 구분할 수 없다는 기술 한계를 숨기지 않습니다.'],
+      usage:['사용량 · 차감 순서','무료 데이터와 충전 데이터를 분리해 무료분이 먼저 쓰이고 유료 잔액은 보존된다는 규칙을 시각화합니다.'],
+      account:['내 정보 · 운영 신뢰','서비스 상태, 정책, 기기 폐기, 계정 삭제를 한곳에 배치해 라이트 사용자가 필요할 때만 관리하도록 합니다.']
+    };
+    function go(name){
+      screens.forEach(s=>s.classList.toggle('active',s.dataset.screen===name));
+      links.forEach(l=>l.classList.toggle('active',l.dataset.go===name));
+      const n=notes[name]||notes.home;document.getElementById('noteTitle').textContent=n[0];document.getElementById('noteCopy').textContent=n[1];
+      const active=document.querySelector(`[data-screen="${name}"]`);if(active)active.scrollTop=0;
+      if(innerWidth<781)document.querySelector('.stage').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    document.addEventListener('click',e=>{const target=e.target.closest('[data-go]');if(target)go(target.dataset.go)});
+    const consent=document.getElementById('consentCheck'),consentNext=document.getElementById('consentNext');
+    consent.addEventListener('change',()=>{consentNext.disabled=!consent.checked});
+    const orb=document.getElementById('connectOrb'),label=document.getElementById('connectLabel'),detail=document.getElementById('connectionDetail');
+    orb.addEventListener('click',()=>{const on=orb.classList.toggle('connected');label.textContent=on?'연결됨 · 00:01':'눌러서 연결';detail.textContent=on?'보호 중 · 예시 IP 198.51.100.24':'자동 선택 · 예상 42ms';toast(on?'VPN 연결 상태를 시뮬레이션했습니다.':'VPN 연결 해제를 시뮬레이션했습니다.')});
+    document.querySelectorAll('.server').forEach(server=>server.addEventListener('click',()=>{document.querySelectorAll('.server').forEach(s=>s.classList.remove('selected'));server.classList.add('selected');document.getElementById('homeLocation').textContent=server.dataset.location;document.getElementById('homeFlag').textContent=server.dataset.flag;const connected=orb.classList.contains('connected');document.getElementById('connectionDetail').textContent=connected?'보호 중 · 예시 IP 198.51.100.24':`자동 선택 · 예상 ${server.dataset.ping}ms`;toast(`${server.dataset.location}을(를) 선택했습니다.`);setTimeout(()=>go('home'),430)}));
+    let selectedGb=3,selectedPrice=1500,paid=3;
+    document.querySelectorAll('.amount').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.amount').forEach(x=>x.classList.remove('selected'));a.classList.add('selected');selectedGb=Number(a.dataset.gb);selectedPrice=Number(a.dataset.price);document.getElementById('topupButton').textContent=`${selectedGb}GB · ${selectedPrice.toLocaleString('ko-KR')}원 충전 시뮬레이션`}));
+    document.getElementById('topupButton').addEventListener('click',()=>{paid+=selectedGb;document.getElementById('paidBalance').textContent=`${paid.toFixed(2)}GB`;document.getElementById('topupCurrent').textContent=`${paid.toFixed(2)}GB`;document.getElementById('usagePaid').textContent=`${paid.toFixed(2)}GB`;document.getElementById('balanceValue').textContent=(paid+.74).toFixed(2);toast(`${selectedGb}GB 충전 화면을 시뮬레이션했습니다. 실제 결제는 없습니다.`)});
+    document.addEventListener('click',e=>{const t=e.target.closest('[data-toast]');if(t)toast(t.dataset.toast)});
+    let toastTimer;function toast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2400)}
+  </script>
+</body>
+</html>

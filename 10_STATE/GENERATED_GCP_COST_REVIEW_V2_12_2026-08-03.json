@@ -1,0 +1,80 @@
+{
+  "schema": "FreeFlexVPNGCPCostReviewV1",
+  "candidate": "v2.12-gcp-cost-review",
+  "price_snapshot_date": "2026-08-03",
+  "assumptions": {
+    "machine_type": "e2-micro",
+    "region": "us-west1",
+    "disk_gib": 10,
+    "network_tier": "Premium",
+    "monthly_hours": 730.0,
+    "free_tier_eligibility": "ASSUMED_FOR_ESTIMATE_VERIFY_IN_AUTHENTICATED_CONSOLE",
+    "illustrative_krw_per_usd": 1470.0
+  },
+  "official_sources": {
+    "free_tier": "https://docs.cloud.google.com/free/docs/free-cloud-features",
+    "vpc_pricing": "https://cloud.google.com/vpc/pricing",
+    "compute_pricing": "https://cloud.google.com/products/compute/pricing"
+  },
+  "scenarios": [
+    {
+      "usage_gib": 1.0,
+      "destination": "korea",
+      "region": "us-west1",
+      "hours": 730.0,
+      "free_tier_assumed": true,
+      "free_egress_gib_assumed": 1.0,
+      "billed_egress_gib": 0.0,
+      "external_ipv4_usd": 3.65,
+      "egress_usd": 0.0,
+      "known_minimum_usd": 3.65,
+      "illustrative_known_minimum_krw": 5366,
+      "compute": "FREE_TIER_ASSUMED",
+      "disk": "FREE_TIER_ASSUMED",
+      "unknown_costs": []
+    },
+    {
+      "usage_gib": 10.0,
+      "destination": "korea",
+      "region": "us-west1",
+      "hours": 730.0,
+      "free_tier_assumed": true,
+      "free_egress_gib_assumed": 1.0,
+      "billed_egress_gib": 9.0,
+      "external_ipv4_usd": 3.65,
+      "egress_usd": 1.71,
+      "known_minimum_usd": 5.36,
+      "illustrative_known_minimum_krw": 7879,
+      "compute": "FREE_TIER_ASSUMED",
+      "disk": "FREE_TIER_ASSUMED",
+      "unknown_costs": []
+    },
+    {
+      "usage_gib": 100.0,
+      "destination": "korea",
+      "region": "us-west1",
+      "hours": 730.0,
+      "free_tier_assumed": true,
+      "free_egress_gib_assumed": 1.0,
+      "billed_egress_gib": 99.0,
+      "external_ipv4_usd": 3.65,
+      "egress_usd": 18.81,
+      "known_minimum_usd": 22.46,
+      "illustrative_known_minimum_krw": 33016,
+      "compute": "FREE_TIER_ASSUMED",
+      "disk": "FREE_TIER_ASSUMED",
+      "unknown_costs": []
+    }
+  ],
+  "console_checks_before_create": [
+    "billing account is active and the project is attached to it",
+    "e2-micro Free Tier eligibility is shown for the selected US region",
+    "Welcome credit amount and expiry, if any, are recorded",
+    "external IPv4 hourly charge is included",
+    "Premium Tier egress destination and expected GiB are included",
+    "budget alert is configured and understood not to be a hard spend cap"
+  ],
+  "decision": "DO_NOT_CREATE_UNTIL_AUTHENTICATED_CONSOLE_READBACK",
+  "evidence_level": "official public pricing readback plus local deterministic calculation; no authenticated billing, cloud, server, device, or user evidence",
+  "contains_secrets": false
+}

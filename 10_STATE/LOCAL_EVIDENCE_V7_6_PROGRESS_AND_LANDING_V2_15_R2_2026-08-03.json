@@ -1,0 +1,94 @@
+{
+  "schema": "FreeFlexVPNLocalEvidenceV1",
+  "candidate": "v2.15-r2-v7.6-progress-and-landing",
+  "date": "2026-08-03",
+  "scope": [
+    "v7.6 QR 상시 블록",
+    "당초 예정일과 실측 현재 예상일 분리",
+    "ETA 전망선과 3개 출시 로드맵",
+    "4요소 병목 경보와 반복 병목 구조적 승격",
+    "쉬운 용어 원장",
+    "공개 소개 화면의 정직한 3단계 사용법"
+  ],
+  "progress_claim": {
+    "completed_milestones": 7,
+    "total_milestones": 12,
+    "actual_percent": 58.3,
+    "planned_percent": 58.3,
+    "initial_target_date": "2026-08-12",
+    "current_eta": null,
+    "current_eta_reason": "2026-08-02~2026-08-03 실제 완료 증가가 0%/일이므로 날짜를 생성하지 않음"
+  },
+  "artifacts": [
+    {
+      "path": "60_OUTPUTS/FreeFlexVPN_progress_dashboard_v2.15-r2_2026-08-03.html",
+      "bytes": 21927,
+      "sha256": "FB68D32F711F3AA018CD88812490B40517C8E7852F76132D80FC8BFCEC4C400D"
+    },
+    {
+      "path": "60_OUTPUTS/qa/FreeFlexVPN_progress_dashboard_v2.15-r2_2026-08-03.png",
+      "bytes": 242273,
+      "sha256": "785E37C114757FBD703C5D46F975826B40E5BDD5062E2596FE7A46C8CFAF3428"
+    },
+    {
+      "path": "30_DEPLOY/index.html",
+      "bytes": 19639,
+      "sha256": "09C1B126C6AC181669AC09FC6282AA4FA39E3636EAC0163ABFA81073FCAE89FB"
+    },
+    {
+      "path": "60_OUTPUTS/qa/landing_v2_15/FreeFlexVPN_landing_v2.15_desktop.png",
+      "bytes": 646475,
+      "sha256": "EFD87D33BC4FEDF92A7D8ADC1F9F053D20F13A25331C59C6D0658821588B7CA1"
+    },
+    {
+      "path": "60_OUTPUTS/qa/landing_v2_15/FreeFlexVPN_landing_v2.15_mobile.png",
+      "bytes": 390042,
+      "sha256": "B028AF05178BA453644FE8E9D457CEBA07CE8E80F2FB35BE65AFCA3B79D37E2D"
+    }
+  ],
+  "verification": {
+    "progress_dashboard_contracts": {"passed": 7, "total": 7},
+    "full_regression": {"passed": 453, "total": 453, "files_passed": 41, "files_total": 41, "elapsed_seconds": 534.0},
+    "github_pages_contracts": {"passed": 23, "total": 23},
+    "dashboard_visual": {
+      "viewport": "1440x1100",
+      "horizontal_overflow": false,
+      "qr_blocks": 1,
+      "roadmap_items": 3,
+      "bottleneck_cards": 2,
+      "untranslated_structural_status": false
+    },
+    "landing_visual": [
+      {"viewport": "1440x1000", "horizontal_overflow": false, "steps": 3, "scope_notice": 1, "qr": 1},
+      {"viewport": "390x844", "horizontal_overflow": false, "steps": 3, "scope_notice": 1, "qr": 1}
+    ],
+    "qr": {
+      "target_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+      "decoded_payload_match": true,
+      "sha256": "AB7F68CA032628B037BB1E9DFDEBDAA9C29738B35382A777CE71AA4E10366D4F"
+    }
+  },
+  "s1_retry": {
+    "status": "BLOCKED_EXECUTION_TRANSPORT_REPEATED",
+    "in_app_browser_new_tab_attempts": 2,
+    "chrome_routes_attempted": 2,
+    "paid_resources_created": 0,
+    "account_facts_inferred": 0
+  },
+  "evidence_layers": {
+    "implementation": true,
+    "local": true,
+    "build": true,
+    "public_candidate": false,
+    "public_current_unchanged": true,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  },
+  "public_repo_worktree": {
+    "branch": "agent/desktop-app-mode",
+    "modified_uncommitted": ["index.html", "PUBLIC_MANIFEST.json"],
+    "pushed": false,
+    "deployed": false
+  }
+}

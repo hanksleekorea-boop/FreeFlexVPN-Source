@@ -1,0 +1,66 @@
+{
+  "schema": "FreeFlexVPNGCPCostReviewLocalEvidenceV1",
+  "candidate": "v2.12-gcp-cost-review",
+  "date": "2026-08-03",
+  "status": "VERIFIED_LOCAL_NOT_DEPLOYED",
+  "cost_review": {
+    "generated": "10_STATE/GENERATED_GCP_COST_REVIEW_V2_12_2026-08-03.json",
+    "destination": "korea",
+    "monthly_known_minimum_usd": {
+      "1_gib": 3.65,
+      "10_gib": 5.36,
+      "100_gib": 22.46
+    },
+    "assumption": "e2-micro and 10GiB pd-standard are Free Tier eligible; first 1GiB outbound is free; verify all account-specific conditions in authenticated console",
+    "deployment_decision": "DO_NOT_CREATE_UNTIL_AUTHENTICATED_CONSOLE_READBACK"
+  },
+  "verification": {
+    "cost_review_unit": "7/7 PASS",
+    "gcp_connected_regression": "37/37 PASS",
+    "progress_dashboard": "5/5 PASS",
+    "provider_readback_after_scanner_fixture_fix": "7/7 PASS",
+    "secret_scan": "PASS: unallowlisted findings 0; allowlist matches 17",
+    "scanner_finding": "existing example.invalid fixture was a false positive; changed only the fixture shape while preserving non-empty service-account rejection",
+    "public_app": "HTTP 200, 146845 bytes, remote/local SHA-256 exact match",
+    "dashboard": {
+      "actual_percent": 58.3,
+      "planned_percent": 58.3,
+      "schedule_delta_days": 0.0,
+      "completed_milestones": 7,
+      "total_milestones": 12,
+      "remaining_milestones": 5,
+      "evidence_gate": "PASS"
+    },
+    "visual_browser_qa": "NOT_RUN: browser session was finalized after the authenticated-console probe; structural and calculation dashboard tests passed"
+  },
+  "official_public_readback": {
+    "free_tier": "e2-micro in us-west1/us-central1/us-east1, 30GB-month standard persistent disk, 1GB outbound per month subject to destination exclusions",
+    "external_ipv4": "USD 0.005/hour on a standard VM",
+    "premium_egress_to_korea": "USD 0.19/GiB for the first 1024GiB pricing band",
+    "authenticated_account_readback": false
+  },
+  "sha256": {
+    "20_SRC/infra/gcp_cost_review.py": "EC8C63514AD07F3C9EA034FC9F278F6890B98181A8F5C524614C5F8A473A6C78",
+    "70_TOOLS/run_gcp_cost_review.py": "1788CC5A3A12579CAC1AEC8046010BA2355BC7839A3189D6B5B1ED4FE62D87D1",
+    "40_TESTS/test_gcp_cost_review.py": "ED1E0665B1BF744ADA143665D809CB650CD522EB833138A6FCBF4B95AA85350D",
+    "40_TESTS/test_gcp_provider_readback.py": "81B3039E1E434CB29EFE9F2EB1A256C972C5101E5FE78C8FB79E9E84FCCB01E0",
+    "10_STATE/GCP_COST_REVIEW_PLAN_v2.12_2026-08-03.md": "ED99BE6DE728267D1DE240EE552D656C62A61F18A872FF66AF3CC2AF587F7372",
+    "10_STATE/GENERATED_GCP_COST_REVIEW_V2_12_2026-08-03.json": "14694DDFDF20A2F8F256F85F40F45ADA971D2C98B65FC4BE1689BD98BE3AE6BB",
+    "10_STATE/progress_dashboard_v2.12.json": "AA9FAABC7074267E592B5E1B3C1B9FB0E71B3CA03F124CC2AADAAE8781D838A9",
+    "10_STATE/GENERATED_PROGRESS_V2_12_2026-08-03.json": "B5199F37F270DF05A0A28A54B0830C72C74A5B1AB673A6F2AE3DE30F32E49CB0",
+    "60_OUTPUTS/FreeFlexVPN_progress_dashboard_v2.12_2026-08-03.html": "E8D6BBB07361770AC746EB16DEF2769F8787B15E1BDEBB677AA387AD73EA18D7",
+    "10_STATE/DEPLOYMENT_BLOCK_PROBE_V2_12_2026-08-03.json": "A6E16A5A7E1E00138E609649C6BF6C61420C950DCD9D6B8FF9050E653B6400DF"
+  },
+  "evidence_boundary": {
+    "implementation": true,
+    "local": true,
+    "build": true,
+    "public_app": true,
+    "public_dashboard": false,
+    "authenticated_billing": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  },
+  "contains_secrets": false
+}

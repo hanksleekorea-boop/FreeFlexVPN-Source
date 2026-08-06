@@ -1,0 +1,59 @@
+{
+  "schema": "FreeFlexVPNPC23EvidenceV1",
+  "measured_at": "2026-08-04T21:07:14+07:00",
+  "candidate": "v2.20-pc2-pc3",
+  "app_version": "v2.5 PC-2·3",
+  "decision_gate": "A_SINGLE_RESPONSIVE_HTML",
+  "features": {
+    "pc2_three_region_home": true,
+    "pc2_large_honest_stats": true,
+    "pc2_unmeasured_period_explicit": true,
+    "pc3_embedded_qr": true,
+    "pc3_qr_link_canonical_equal": true,
+    "pc3_shortcut_help": true,
+    "under_1024_pc_features_hidden": true
+  },
+  "capacity": {
+    "pc1_bytes": 151161,
+    "pc1_gzip_bytes": 43700,
+    "estimate_delta_bytes": 9000,
+    "actual_bytes": 159453,
+    "actual_gzip_bytes": 46123,
+    "delta_from_pc1_bytes": 8292,
+    "delta_from_pc1_gzip_bytes": 2423,
+    "delta_from_public_v23_bytes": 12608,
+    "delta_from_public_v23_gzip_bytes": 3476,
+    "sha256": "CD7D3BD909F7F915147D3BA676BA14BBC6B8EE02AB3881F43F57F824AB7E8A0E"
+  },
+  "dedicated_tests": {
+    "pc_home": "8/8",
+    "pc_handoff": "8/8",
+    "pc_viewport": "13/13",
+    "keyboard": "8/8",
+    "app_contract": "18/18",
+    "negative_controls": true
+  },
+  "integrated_regression": {
+    "status": "passed",
+    "files_passed": 51,
+    "files_total": 51,
+    "checks_passed": 553,
+    "checks_total": 553,
+    "failed_files": 0,
+    "evidence": "10_STATE/LOCAL_EVIDENCE_PC23_FULL_REGRESSION_V2_20_2026-08-04.json"
+  },
+  "artifact": "60_OUTPUTS/prototype/FreeFlexVPN_app_prototype_v2.5_PC2_PC3.html",
+  "qr": {
+    "artifact": "30_DEPLOY/app-qr.png",
+    "decoded_payload": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "embedded_in_single_html": true
+  },
+  "deployment": {
+    "local_ready": true,
+    "public_pc_version": false,
+    "public_current_version": "v2.3",
+    "block": "authenticated GitHub publishing path unavailable",
+    "termination_condition": "E2_EXTERNAL_USER_ACTION"
+  },
+  "contains_secrets": false
+}

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:">
+  <meta name="freeflex-source-sha256" content="__SOURCE_SHA256__">
+  <title>FreeFlexVPN T1~T10 증거 번들 작성기 · v2.17</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07101e;--panel:#101d30;--line:#263d5a;--ink:#eef6ff;--muted:#9db1c9;--accent:#59d8b1;--warn:#ffca68;--bad:#ff7a88}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0,#173253 0,transparent 32%),var(--bg);color:var(--ink);font:15px/1.55 system-ui,sans-serif}
+    main{width:min(1080px,calc(100% - 28px));margin:28px auto 64px}header{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px}
+    h1{font-size:clamp(25px,4vw,42px);line-height:1.08;margin:0 0 8px}h2{font-size:19px;margin:0 0 15px}.tag{padding:6px 10px;border:1px solid var(--accent);border-radius:999px;color:var(--accent);white-space:nowrap}
+    .panel{background:color-mix(in srgb,var(--panel) 94%,transparent);border:1px solid var(--line);border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 15px 45px #0005}.muted{color:var(--muted)}
+    .warning{border-left:4px solid var(--warn);padding:10px 14px;background:#ffca6814}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:grid;gap:6px}
+    label{font-weight:700}input,select,textarea,button{font:inherit}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:#071426;color:var(--ink);padding:10px}textarea{min-height:270px;font-family:ui-monospace,monospace;font-size:12px;resize:vertical}
+    #rows{display:grid;gap:10px}.row{display:grid;grid-template-columns:62px 1fr 160px 160px;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:11px}.test-id{font-size:18px;font-weight:900;color:var(--accent)}
+    .secret{display:flex;gap:7px;align-items:center;font-size:13px}.secret input{width:auto}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}button{border:0;border-radius:11px;padding:11px 16px;font-weight:800;cursor:pointer;background:var(--accent);color:#05221b}button.secondary{background:#203653;color:var(--ink)}button:disabled{opacity:.45;cursor:not-allowed}
+    #status{white-space:pre-wrap;border-radius:11px;padding:12px;background:#06111f;color:var(--muted);min-height:49px}.ok{color:var(--accent)!important}.bad{color:var(--bad)!important}.small{font-size:12px}.footer{text-align:center;color:var(--muted);margin-top:22px}
+    @media(max-width:760px){header{display:block}.tag{display:inline-block;margin-top:8px}.grid{grid-template-columns:1fr}.row{grid-template-columns:48px 1fr}.row select,.row .secret{grid-column:2}}
+  </style>
+</head>
+<body>
+<main>
+  <header><div><h1>T1~T10 증거 번들 작성기</h1><div class="muted">FreeFlexVPN 로컬 운영 도구 · 후보 v2.17</div></div><span class="tag">LOCAL ONLY · 전송 0건</span></header>
+
+  <section class="panel warning">
+    이 도구는 선택한 파일을 브라우저 안에서만 해시합니다. 서버로 보내지 않습니다. 그래도 개인키·토큰·결제수단·실명은 먼저 제거하세요. 생성된 JSON만으로 통과하지 않으며 Python 판정기가 같은 폴더의 원본 파일을 다시 검증합니다.
+  </section>
+
+  <section class="panel">
+    <h2>1. 같은 후보에 묶기</h2>
+    <div class="grid">
+      <div class="field"><label for="candidate">후보 ID</label><input id="candidate" autocomplete="off" placeholder="R6-candidate-20260803-01" maxlength="100"></div>
+      <div class="field"><label for="runAt">판정 시각</label><input id="runAt" type="datetime-local"></div>
+    </div>
+    <p class="muted small">시각은 이 브라우저의 현지 시간에서 ISO-8601로 변환됩니다. 후보 ID는 실제 서버·기기·사용자 관찰 전체에서 같아야 합니다.</p>
+  </section>
+
+  <section class="panel">
+    <h2>2. 원본 증거 파일 선택</h2>
+    <div id="rows" aria-live="polite"></div>
+    <p class="muted small">각 T행에 파일이 필요합니다. 같은 원본이 여러 테스트를 증명하면 같은 파일을 여러 행에서 골라도 됩니다. 번들 JSON은 원본 파일들과 같은 폴더로 옮겨 판정하세요.</p>
+  </section>
+
+  <section class="panel">
+    <h2>3. 측정값 입력</h2>
+    <label for="tests">tests JSON</label>
+    <textarea id="tests" spellcheck="false"></textarea>
+    <p class="muted small">빈 객체는 통과하지 않습니다. 로그를 보고 실제 측정값만 입력하세요. 필드 계약은 RUNTIME_ACCEPTANCE_PLAN_v2.16과 runtime_acceptance.py가 정본입니다.</p>
+  </section>
+
+  <section class="panel">
+    <h2>4. 생성·검사</h2>
+    <div class="actions"><button id="build" type="button">해시 계산·번들 생성</button><button id="download" class="secondary" type="button" disabled>bundle.json 내려받기</button><button id="clear" class="secondary" type="button">민감 입력 지우기</button></div>
+    <p id="status" role="status">아직 생성하지 않았습니다.</p>
+    <label for="output">미리보기</label><textarea id="output" readonly placeholder="검증된 번들이 여기에 표시됩니다."></textarea>
+  </section>
+  <div class="footer">실제 서버·실기기·독립 사용자 증거가 없으면 출시 준비로 승격되지 않습니다.</div>
+</main>
+<script>
+(() => {
+  'use strict';
+  const IDS = Array.from({length:10}, (_,i) => `T${i+1}`);
+  const KINDS = ['log','screenshot','pcap_summary','receipt','consent_record','measurement'];
+  const DEFAULT_KIND = {T1:'log',T2:'measurement',T3:'pcap_summary',T4:'measurement',T5:'log',T6:'log',T7:'log',T8:'pcap_summary',T9:'log',T10:'consent_record'};
+  const rows = document.querySelector('#rows');
+  const candidate = document.querySelector('#candidate');
+  const runAt = document.querySelector('#runAt');
+  const tests = document.querySelector('#tests');
+  const output = document.querySelector('#output');
+  const status = document.querySelector('#status');
+  const download = document.querySelector('#download');
+  let encoded = null;
+
+  const pad = value => String(value).padStart(2,'0');
+  const localNow = new Date();
+  runAt.value = `${localNow.getFullYear()}-${pad(localNow.getMonth()+1)}-${pad(localNow.getDate())}T${pad(localNow.getHours())}:${pad(localNow.getMinutes())}`;
+  tests.value = JSON.stringify(Object.fromEntries(IDS.map(id => [id, {}])), null, 2);
+
+  for (const id of IDS) {
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.dataset.testId = id;
+    row.innerHTML = `<div class="test-id">${id}</div><input class="file" type="file" aria-label="${id} 원본 파일"><select class="kind" aria-label="${id} 증거 종류">${KINDS.map(kind=>`<option value="${kind}"${kind===DEFAULT_KIND[id]?' selected':''}>${kind}</option>`).join('')}</select><label class="secret"><input class="redacted" type="checkbox">비밀값 제거 확인</label>`;
+    rows.appendChild(row);
+  }
+
+  const hex = buffer => [...new Uint8Array(buffer)].map(byte => byte.toString(16).padStart(2,'0')).join('');
+  const fail = message => { status.textContent = message; status.className = 'bad'; download.disabled = true; encoded = null; };
+
+  async function buildBundle() {
+    status.textContent = '파일 SHA-256을 계산하고 있습니다…'; status.className = '';
+    const id = candidate.value.trim();
+    if (!/^[A-Za-z0-9][A-Za-z0-9._-]{2,99}$/.test(id)) return fail('후보 ID 형식이 올바르지 않습니다.');
+    const date = new Date(runAt.value);
+    if (!runAt.value || Number.isNaN(date.valueOf())) return fail('판정 시각을 확인하세요.');
+    let parsedTests;
+    try { parsedTests = JSON.parse(tests.value); } catch { return fail('tests JSON 문법이 올바르지 않습니다.'); }
+    if (!parsedTests || typeof parsedTests !== 'object' || Array.isArray(parsedTests)) return fail('tests는 JSON 객체여야 합니다.');
+    const keys = Object.keys(parsedTests).sort();
+    if (JSON.stringify(keys) !== JSON.stringify([...IDS].sort())) return fail('tests에는 T1부터 T10까지만 정확히 있어야 합니다.');
+
+    const artifacts = [];
+    const seenNames = new Set(), seenHashes = new Set();
+    for (const row of rows.querySelectorAll('.row')) {
+      const testId = row.dataset.testId;
+      const file = row.querySelector('.file').files[0];
+      if (!file) return fail(`${testId} 원본 파일을 선택하세요.`);
+      if (!row.querySelector('.redacted').checked) return fail(`${testId} 비밀값 제거를 확인하세요.`);
+      if (file.size <= 0 || file.size > 50000000) return fail(`${testId} 파일은 1바이트~50MB여야 합니다.`);
+      const digest = hex(await crypto.subtle.digest('SHA-256', await file.arrayBuffer()));
+      if (seenNames.has(file.name) || seenHashes.has(digest)) return fail(`${testId} 원본이 앞 테스트와 중복됩니다. 결합 증거는 판정기용 JSON에서 한 artifact의 test_ids로 묶으세요.`);
+      seenNames.add(file.name); seenHashes.add(digest);
+      artifacts.push({
+        artifact_id: `${testId.toLowerCase()}-evidence-001`, candidate_id:id,
+        kind:row.querySelector('.kind').value, test_ids:[testId], captured_at:date.toISOString(),
+        contains_secret:false, path:file.name, sha256:digest
+      });
+    }
+    const evidence = {candidate_id:id, run_at:date.toISOString(), origin:'actual_target', tests:parsedTests};
+    const bundle = {schema:'FreeFlexVPNRuntimeEvidenceBundleV2', candidate_id:id, run_at:date.toISOString(), evidence, artifacts};
+    encoded = JSON.stringify(bundle, null, 2) + '\n';
+    output.value = encoded;
+    status.textContent = `로컬 사전검사 PASS · 원본 ${artifacts.length}개 · 아직 실제 출시 판정 전입니다.`;
+    status.className = 'ok'; download.disabled = false;
+  }
+
+  document.querySelector('#build').addEventListener('click', () => buildBundle().catch(error => fail(`생성 실패: ${error.name}`)));
+  download.addEventListener('click', () => {
+    if (!encoded) return;
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(new Blob([encoded], {type:'application/json'}));
+    link.download = 'FreeFlexVPN_runtime_evidence_bundle_v2.json'; link.click();
+    setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+  });
+  document.querySelector('#clear').addEventListener('click', () => {
+    candidate.value=''; tests.value=JSON.stringify(Object.fromEntries(IDS.map(id=>[id,{}])),null,2);
+    output.value=''; encoded=null; download.disabled=true; status.textContent='입력과 미리보기를 지웠습니다.'; status.className='';
+    for (const row of rows.querySelectorAll('.row')) { row.querySelector('.file').value=''; row.querySelector('.redacted').checked=false; }
+  });
+})();
+</script>
+</body>
+</html>

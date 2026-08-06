@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreeFlexVPN · 1일 오픈 체크리스트</title>
+<meta name="theme-color" content="#0f1420">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="1일 오픈">
+<link rel="apple-touch-icon" href="data:image/png;base64,__ICON192__">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,__ICON192__">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,__ICON512__">
+<link rel="manifest" href="data:application/manifest+json;base64,__MANIFEST_B64__">
+<style>
+:root{color-scheme:dark;--bg:#0f1115;--card:#1a1a19;--line:#33332f;--t1:#fff;--t2:#c3c2b7;--t3:#8b8a80;
+ --blue:#3987e5;--green:#199e70;--amber:#c98500;--red:#e66767}
+:root[data-theme=light]{color-scheme:light;--bg:#f6f6f3;--card:#fcfcfb;--line:#dedcd3;--t1:#0b0b0b;--t2:#52514e;--t3:#77766f;
+ --blue:#2a78d6;--green:#1baf7a;--amber:#eda100;--red:#e34948}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t1);font-size:15px;line-height:1.6;
+ font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,sans-serif;
+ padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:820px;margin:0 auto;padding:20px 16px 110px}
+h1{font-size:22px;margin:0 0 3px;letter-spacing:-.02em}
+h2{font-size:16.5px;margin:26px 0 8px}
+.sub{color:var(--t3);font-size:12.5px}p{color:var(--t2);margin:6px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin:12px 0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.ghost{background:transparent;color:var(--t1);border:1px solid var(--line);border-radius:9px;padding:6px 11px;font-size:13px}
+.heroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:12px 0}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px}
+.hero .k{font-size:11.5px;color:var(--t3);font-weight:600}
+.hero .v{font-size:25px;font-weight:750;letter-spacing:-.03em;margin-top:2px}
+.hero .u{font-size:12px;color:var(--t2)}
+.step{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.step:last-child{border-bottom:0}
+.step input{width:20px;height:20px;margin-top:3px;accent-color:var(--green);flex:0 0 auto}
+.step .b{flex:1;min-width:0}
+.step .t{font-weight:650;font-size:14.5px}
+.step.done .t{text-decoration:line-through;color:var(--t3)}
+.step .d{font-size:13px;color:var(--t2);margin-top:2px}
+.step .m{font-size:11.5px;color:var(--t3);margin-top:3px}
+code{background:rgba(127,127,127,.14);padding:1px 5px;border-radius:4px;font-size:12.5px}
+.time{font-size:11.5px;font-weight:750;color:var(--blue);white-space:nowrap;min-width:52px;text-align:right}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+.bar i{display:block;height:100%;background:var(--green);width:0;transition:width .25s}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+thead th{color:var(--t3);font-size:11.5px;font-weight:650}
+.warn{border-left:3px solid var(--red);padding-left:12px;margin:12px 0}
+.ok{border-left:3px solid var(--green);padding-left:12px;margin:12px 0}
+.warn .t,.ok .t{font-weight:700;font-size:14px}
+ul{margin:6px 0;padding-left:19px;color:var(--t2);font-size:13.5px}li{margin:4px 0}
+.foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--t3)}
+a{color:var(--blue)}
+#installBtn{display:none;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:7px 12px;font-size:13px;font-weight:650}
+#banner{display:none;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:80;
+ background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 12px 34px rgba(0,0,0,.4);align-items:center;gap:11px}
+#banner img{width:34px;height:34px;border-radius:9px}
+#banner .txt{flex:1;min-width:0}#banner .txt b{display:block;font-size:13.5px}
+#banner .txt span{font-size:12px;color:var(--t3)}
+#banner .act{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:8px 12px;font-size:13px;font-weight:650}
+#banner .x{background:transparent;border:0;color:var(--t3);font-size:19px;padding:0 4px}
+@media(display-mode:standalone){#installBtn,#banner{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+  <div><h1>FreeFlexVPN · 1일 오픈 체크리스트</h1>
+  <div class="sub">기존 오픈소스 모듈 조립 기준 · 개발이 아니라 설정 작업입니다 · 2026-07-30</div></div>
+  <div style="display:flex;gap:7px"><button class="ghost" id="themeBtn">라이트</button><button id="installBtn">앱 설치</button></div>
+</div>
+
+<div class="heroes">
+  <div class="hero"><div class="k">기술적 최소</div><div class="v">1일</div><div class="u">6~9시간 · 이메일 인증</div></div>
+  <div class="hero"><div class="k">현실적 최소</div><div class="v">3일</div><div class="u">SMS·2노드·약관 포함</div></div>
+  <div class="hero"><div class="k">안전한 공개</div><div class="v">7일</div><div class="u">파일럿 관찰 포함</div></div>
+  <div class="hero"><div class="k">1일차 비용</div><div class="v">2.4만</div><div class="u">원 (서버2+도메인)</div></div>
+</div>
+
+<div class="card">
+  <div class="sub">진행률 <b id="pct">0%</b> · <span id="left">전체 12단계</span></div>
+  <div class="bar"><i id="fill"></i></div>
+</div>
+
+<h2>Day 1 — 시간표</h2>
+<div class="card" id="list"></div>
+
+<h2>AI가 줄이는 시간 / 못 줄이는 시간</h2>
+<div class="card">
+<div class="scroll"><table>
+<thead><tr><th>구분</th><th>항목</th><th class="num">사람 혼자</th><th class="num">AI 활용</th></tr></thead>
+<tbody>
+<tr><td rowspan="4" style="color:var(--green)"><b>줄어듦</b></td><td>패널·노드 설치 스크립트 작성</td><td class="num">2~4시간</td><td class="num"><b>10분</b></td></tr>
+<tr><td>남용 차단 규칙(iptables·포트)</td><td class="num">1~2시간</td><td class="num"><b>10분</b></td></tr>
+<tr><td>랜딩페이지 + 사용법 안내</td><td class="num">1~2일</td><td class="num"><b>30분</b></td></tr>
+<tr><td>약관·개인정보처리방침 초안</td><td class="num">1~2일</td><td class="num"><b>20분</b></td></tr>
+<tr><td rowspan="4" style="color:var(--red)"><b>안 줄어듦</b></td><td>호스팅 계정 결제·본인확인</td><td class="num" colspan="2">수 분 ~ 2일 (업체가 정함)</td></tr>
+<tr><td>DNS 전파</td><td class="num" colspan="2">5분 ~ 2시간</td></tr>
+<tr><td>SMS 발신번호 등록</td><td class="num" colspan="2">본인번호=즉시 / 타인·일반번호=서류 심사</td></tr>
+<tr><td>실사용 관찰(남용·버그)</td><td class="num" colspan="2">최소 2~3일</td></tr>
+</tbody></table></div>
+<p style="margin-bottom:0"><b>AI는 "만드는 시간"을 거의 0으로 만들지만, "기다리는 시간"은 못 줄입니다.</b> 그래서 하한이 0일이 아니라 1일입니다.</p>
+</div>
+
+<h2>왜 1일이 가능한가 — 새로 짤 코드가 없습니다</h2>
+<div class="card">
+<div class="ok"><div class="t">이미 완성된 모듈로 전부 대체됩니다</div>
+<ul>
+<li><b>VPN 서버</b> → 커널 WireGuard (리눅스 내장)</li>
+<li><b>사용자·쿼터·만료 관리</b> → Remnawave / 3x-ui 패널 (설치 스크립트 1줄)</li>
+<li><b>1GB 무료 상한 자동 차단</b> → 패널 내장 기능과 잔액 원장 연동</li>
+<li><b>설정 QR·구독링크 발급</b> → 패널 내장</li>
+<li><b>가입·인증·안내 봇</b> → 오픈소스 텔레그램 봇</li>
+<li><b>클라이언트 앱</b> → 공식 WireGuard 앱 (앱스토어 심사 불필요)</li>
+<li><b>모니터링</b> → Uptime Kuma (도커 1줄)</li>
+</ul>
+<p style="margin:6px 0 0">직접 만드는 것은 <b>랜딩페이지와 안내문</b>뿐입니다. 그래서 "개발 기간"이 아니라 "설정 시간"이 됩니다.</p></div>
+<div class="warn"><div class="t">1일 오픈에서 반드시 포기해야 하는 것</div>
+<ul style="margin-bottom:0">
+<li><b>휴대폰 인증</b> — 1일차는 이메일 인증으로 시작하고, 다중계정이 보이면 그때 SMS를 붙입니다</li>
+<li><b>공개 모집</b> — 초대 링크로 <b>50~100명</b>만. 공개 오픈은 남용 패턴을 2~3일 본 뒤</li>
+<li><b>다국가</b> — 1일차는 일본 노드 1대. 국가 확장은 원가가 거의 안 오르니 나중에 언제든</li>
+</ul></div>
+</div>
+
+<div class="foot">
+소요 시간은 오픈소스 설치 스크립트 기준 추정이며 실측이 아닙니다. 호스팅 계정 검증·DNS 전파는 업체와 상황에 따라 달라집니다.
+SMS 발신번호는 <b>개인 계정 + 본인 휴대전화</b>면 문자 본인인증만으로 등록 가능하고, 타인·일반번호는 통신서비스 이용증명원 등 서류 심사가 필요합니다(솔라피 공식 안내 기준).
+</div>
+</div>
+
+<div id="banner">
+  <img src="data:image/png;base64,__ICON192__" alt="">
+  <div class="txt"><b>홈 화면에 추가</b><span id="bannerSub">설치하면 앱처럼 바로 열립니다</span></div>
+  <button class="act" id="bannerAct">설치</button><button class="x" id="bannerX" aria-label="닫기">×</button>
+</div>
+<script>
+const STEPS=[
+ ['0:00–0:20','서버 2대 결제',"Contabo 도쿄 VPS10 1대(exit) + Hetzner CX23 1대(패널). 카드 등록 → 프로비저닝 대기","계정 검증이 걸리면 Vultr·Linode로 우회 (카드 등록 즉시 개통)"],
+ ['0:20–0:35','도메인 + Cloudflare',"도메인 구매 → 네임서버를 Cloudflare로 → A 레코드 2개","DNS 전파 5분~2시간. 이 시간에 다음 단계 진행"],
+ ['0:35–1:05','패널 설치',"패널 서버에 Remnawave(또는 3x-ui) 설치 스크립트 실행 + TLS 인증서 자동 발급","<code>docker compose up -d</code> 수준. 관리자 계정 생성까지"],
+ ['1:05–1:35','exit 노드 연결',"일본 노드에 커널 WireGuard + 노드 에이전트 설치 → 패널에 등록","커널 WireGuard 사용 확인 (유저스페이스면 처리량 1/3)"],
+ ['1:35–2:00','내 폰으로 접속 테스트',"공식 WireGuard 앱에 QR 스캔 → 접속 → IP 확인 → 속도 측정","여기서 안 되면 이후 전부 무의미. 반드시 통과 후 진행"],
+ ['2:00–2:30','1GB 상한·충전 설정',"기본 프로필: 월 1GB 무료, 매월 1일 리셋, 충전 잔액 무기한, 동시 기기 2대","잔액 원장 계약 검사"],
+ ['2:30–3:00','남용 차단',"25번 포트(SMTP) 차단, P2P 포트 차단, 동시접속 제한, fail2ban","무료 VPN 최대 리스크. 건너뛰면 호스터 계정 정지"],
+ ['3:00–4:00','텔레그램 봇 연결',"오픈소스 봇 설치 → 패널 API 키 연결 → 가입·QR발급·잔여량 조회 자동화","이메일 인증으로 시작. 봇이 곧 회원가입 창구"],
+ ['4:00–4:30','모니터링',"Uptime Kuma 설치 → 노드 2대 감시 → 텔레그램 알림 연동","다운되면 내가 먼저 알아야 함"],
+ ['4:30–5:30','랜딩페이지 + 사용법',"서비스 소개 1페이지 + 3단계 사용법(봇 접속→QR→앱 연결) + 초대 링크","AI로 작성. 스크린샷 3장이면 충분"],
+ ['5:30–6:00','약관·개인정보처리방침',"무과금이라 통신판매업 불필요. 개인정보처리방침 게시 + 국외이전(일본 서버) 고지","무료여도 개인정보처리방침 게시는 의무"],
+ ['6:00–','지인 20명 초대',"초대 링크 배포 → 접속 성공률·트래픽·문의 관찰","공개 오픈은 2~3일 관찰 뒤"]
+];
+const list=document.getElementById('list');
+list.innerHTML=STEPS.map((s,i)=>`<div class="step" id="s${i}">
+ <input type="checkbox" data-i="${i}" aria-label="${s[1]} 완료">
+ <div class="b"><div class="t">${s[1]}</div><div class="d">${s[2]}</div><div class="m">${s[3]}</div></div>
+ <div class="time">${s[0]}</div></div>`).join('');
+const state=new Array(STEPS.length).fill(false);
+function upd(){
+  const n=state.filter(Boolean).length, p=Math.round(n/STEPS.length*100);
+  document.getElementById('fill').style.width=p+'%';
+  document.getElementById('pct').textContent=p+'%';
+  document.getElementById('left').textContent = n===STEPS.length? '전부 완료 — 오픈 상태' : `${n}/${STEPS.length}단계 완료`;
+}
+list.addEventListener('change',e=>{
+  if(e.target.type!=='checkbox') return;
+  const i=+e.target.dataset.i; state[i]=e.target.checked;
+  document.getElementById('s'+i).classList.toggle('done',state[i]); upd();
+});
+upd();
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const l=document.documentElement.dataset.theme==='light';
+  document.documentElement.dataset.theme=l?'dark':'light';
+  document.getElementById('themeBtn').textContent=l?'라이트':'다크';
+  document.querySelector('meta[name=theme-color]').setAttribute('content',l?'#0f1420':'#f6f6f3');
+});
+(function(){
+  const KEY='fkvd1', st=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  const banner=document.getElementById('banner'), btn=document.getElementById('installBtn'); let d=null;
+  const supp=()=>{ if(sessionStorage.getItem(KEY)) return true;
+    const t=parseInt(localStorage.getItem(KEY)||'0',10); return t&&(Date.now()-t)<864e5; };
+  const dismiss=()=>{ banner.style.display='none';
+    try{sessionStorage.setItem(KEY,'1');localStorage.setItem(KEY,String(Date.now()));}catch(e){} };
+  document.getElementById('bannerX').addEventListener('click',dismiss);
+  if(st) return;
+  addEventListener('beforeinstallprompt',e=>{e.preventDefault();d=e;btn.style.display='inline-block';if(!supp())banner.style.display='flex';});
+  const go=async()=>{ if(!d)return; banner.style.display='none'; d.prompt(); try{await d.userChoice;}catch(e){} d=null; btn.style.display='none'; };
+  btn.addEventListener('click',go); document.getElementById('bannerAct').addEventListener('click',go);
+  addEventListener('appinstalled',()=>{d=null;btn.style.display='none';banner.style.display='none';
+    try{sessionStorage.removeItem(KEY);localStorage.removeItem(KEY);}catch(e){}});
+  const iOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(iOS&&!supp()){document.getElementById('bannerSub').textContent='공유 → "홈 화면에 추가"를 누르세요';
+    document.getElementById('bannerAct').style.display='none';setTimeout(()=>{if(!supp())banner.style.display='flex';},1200);}
+})();
+</script>
+</body>
+</html>

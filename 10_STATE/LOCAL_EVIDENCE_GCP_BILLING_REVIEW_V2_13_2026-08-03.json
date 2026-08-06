@@ -1,0 +1,62 @@
+{
+  "schema": "FreeFlexVPNGCPBillingReviewLocalEvidenceV1",
+  "candidate": "v2.13-gcp-billing-review-helper",
+  "date": "2026-08-03",
+  "status": "VERIFIED_BUILD_LOCAL_BROWSER_BLOCKED",
+  "artifact": {
+    "path": "60_OUTPUTS/FreeFlexVPN_GCP_비용확인도우미_v2.13_2026-08-03.html",
+    "bytes": 28792,
+    "single_html": true,
+    "external_runtime_assets": 0,
+    "public_url": false,
+    "qr": false
+  },
+  "verification": {
+    "billing_review_contract": "7/7 PASS",
+    "inline_javascript_syntax": "1/1 PASS",
+    "gcp_connected_regression": "44/44 PASS",
+    "progress_dashboard": "5/5 PASS",
+    "secret_scan": "PASS: unallowlisted findings 0; allowlist matches 17",
+    "localhost": "HTTP 200",
+    "public_app": "HTTP 200, 146845 bytes, remote/local SHA-256 exact match",
+    "browser": "BLOCKED: webview attach timeout 2/2; no DOM, screenshot, mobile, or forced-storage-failure readback",
+    "dashboard": {
+      "actual_percent": 58.3,
+      "planned_percent": 58.3,
+      "schedule_delta_days": 0.0,
+      "completed_milestones": 7,
+      "total_milestones": 12,
+      "remaining_milestones": 5,
+      "evidence_gate": "PASS"
+    }
+  },
+  "data_persistence_contract": {
+    "no_data_loss": "DOM and in-memory snapshot retained when localStorage fails; failed import restores prior snapshot",
+    "no_function_stop": "calculation, checklist, and JSON export remain available in memory mode",
+    "honest_notice": "memory-only warning and export-before-close guidance present",
+    "actual_browser_failure_run": false
+  },
+  "sha256": {
+    "20_SRC/html_templates/gcp_billing_review_v2_13.html": "64996497C1059957357AA4A6E50360C622AB94592E51B5FA80AE15849101BFDD",
+    "70_TOOLS/build_gcp_billing_review.py": "69C5537D75C92123A352CF284A30814FA034D10F6648196544CB162B3B207545",
+    "40_TESTS/test_gcp_billing_review.py": "0220A1C93666693287B2AD07400C707249056940BCA87506FF18BC57FCFA5E11",
+    "60_OUTPUTS/FreeFlexVPN_GCP_비용확인도우미_v2.13_2026-08-03.html": "72869DFB41737FA08AA0F3B3A5F611230289A30FA73482146321DAF8ACE44E6A",
+    "10_STATE/GCP_BILLING_REVIEW_PLAN_v2.13_2026-08-03.md": "446ECBE5F8F6BA0C0BEE3697589C87D3ACFAC140ADB5739D206FD921440994D3",
+    "10_STATE/progress_dashboard_v2.13.json": "8AC33BACEBB5AC230B5487479955BB686922DB1B306BD560EFFC3763F7D64B70",
+    "10_STATE/GENERATED_PROGRESS_V2_13_2026-08-03.json": "18033DA2D78FF20C32D032C319C1168FA3E1DB5C7430C4AF6B1BEA9D0174B958",
+    "60_OUTPUTS/FreeFlexVPN_progress_dashboard_v2.13_2026-08-03.html": "861AA63F30CBDAC36093057DE4A9303502F07B5FD8B4393F87EACA546BCA6B3E"
+  },
+  "evidence_boundary": {
+    "implementation": true,
+    "local": true,
+    "build": true,
+    "browser": false,
+    "public_app": true,
+    "public_helper": false,
+    "authenticated_billing": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  },
+  "contains_secrets": false
+}

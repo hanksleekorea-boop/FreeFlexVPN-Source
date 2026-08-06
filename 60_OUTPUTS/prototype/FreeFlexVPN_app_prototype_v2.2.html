@@ -1,0 +1,1318 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07111e">
+  <title>FreeFlexVPN 알파 UI · UX v2.2</title>
+  <meta name="theme-color" content="#07101d">
+  <meta name="referrer" content="no-referrer">
+  <meta name="freeflex-api-base" content="">
+  <link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiRnJlZUZsZXhWUE4gwrcg7JWM7YyMIFVJIHYyLjIiLCJzaG9ydF9uYW1lIjoiRnJlZUZsZXhWUE4iLCJzdGFydF91cmwiOiIuL2FwcC5odG1sIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzBmMTExNSIsInRoZW1lX2NvbG9yIjoiIzBmMTQyMCIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQVlBQUFCUzNHd0hBQUFFUFVsRVFWUjQydTNjMFUwYlFSU0Y0WmxSU2tBOFVBQVNTak5VUUIrcGdENm9nR2FpU0JUQUEzSVB6a3Z5RWlrQzIydDc1cDd2cjRDZFBmK2NPN3RtZTV1TW03djdmVU5aZHU5dmZhYS9wd3M3a3FYb1FvOWtHYnJnSTFtRUx2aElGcUVMUHBKRjZJS1BaQkdHOEdNbHRzNVlGM3drdDhFUWZpUzN3UkIrSkVzd2hCL0pFZ3poUjdJRVEvaVJMTUVRZmlSTE1JUWZ5UklNNFVleUJFUDRrU3pCc0V4SVp0ajlrZHdDUS9pUkxJRVJDRVlndXo5U1cwQURRQVBZL1pIYUFob0FHc0R1ajlRVzBBRFFBSFovcExhQUJvQUdBS0lGTVA0Z2RRelNBTkFBQUFFQUFnQlpkQWRnYUFDQUFBQUJnQ2kremZxSDNUNjl1anVGK0hoNTFBQUFBUUFDQUFRQUNBQVFBQ0FBUUFDQUFBQUJBQUlBQkFBSUFCQUFJQUJBQUlBQUFBRUFBZ0FFQUFnQUVBQWdBRUFBdE5aK1BqOVlCQUpraDU4RUJDREQ4d01SQ0dEMElRRUI0dWQrYlVBQWgxNXRRSUIwdnYvNFJRQjQ1RWtBeElVL2ZmY25nUEFUd0JLWSt3a0FjejhCWVBRaEFJU2ZBREQzRXdEbWZnTEE2RU1BR0gwSWdQVjJmK0VuZ0xrZkJERDNnd0RtZmhEQTZBTUNMQlZBb3c4QllqOHJJdndFbUdybm4za1VFWDRDbFBxa2lMbWZBTEZuQXFNUEFhWVArTGtrRUg0QytLYU84QlBnNCtWeGlkRm1Td21xenYzWHVKY2xHdURTQzNmc2pycEZjS3VPUGpPSGY0a1JLRWtDNFNkQXBBUis0a3lBVnVYRjBxRmZYVGIzRTJEYUJUMWx0ejNIbzFTalQzZ0RWSlJBK0FrUUtVSEYwV2UxOEM5N0JsaGRnb3FqejRyaFgvb1F2S29Fd2o4WC9lYnVmcjl5N2Q0K3ZiYXEveUFqL0JwZzJpYndQTDU1RDlDOEs3RDdFeUQ3UnB3anFNSlBnRmdKaEo4QW1zQWFFeUJSZ3RrbHFoYitzb2ZnRlNVUWZnTEVTdUNSS2dFMGdYVWtRQXQ4VDJEMElVRHBHL2czNFA4R2ZZVzN5ZFhEMzFxQjN3SzFpWDh6Wk9QUUFHNm90U0tBRzJ1TkNPQUdnd0Frc0M0RWNMT3RCd0VnL0FSdzQ2MEJBUVRBdFJOQUVGd3pBUVRDdFJKQU1FQUFFcmcrQWdpSjZ5S0FzTGdlQWtENENTQTR3azhBQVJKK0FnZ1NDRUFDMGhKQXFJU2ZBTUlsL0FRUU11RW5BQ2xCZ0x6QUNUOEJCQThFU0pTQWhBU0lsVUQ0Q1JBcmdmQVRJRllDNFNkQXJBVENUd0J5Z1FCcFFSVitBdGl0UVlCRUNjaEVnRmdKaEo4QXNSSUlQd0ZpSlJCK0FzUktJUHdFSUFrdUk4RHUvYTFiQmdGUFpQZisxalhBUkJLUXd3Z1VLNEh3RXlCV0F1Ry9IcjIxMW03dTd2ZVdBckZuQUFkaEpJYmZDQVJuQUVzQUFoaURFRGorYUFCb2dQK1pBVlRmL1RVQU5NQm5oZ0JWZDM4TkFBM3dWVk9BYXJ1L0JvQUdPTlFZb01ydS8ya0RrQUNWdzI4RWdoSG9WSU9BVlhmL0x6Y0FDVkF4L0FlTlFDUkF0ZkFmZkFZZ0FTcUYvNmhETUFsUUpmeEhQd1VpQVNxRS82VEhvQ1RBNnVFLytUMEFDYkJ5K0RkNUVVWUNyQnIrMXY1OEYyZ3JmRjhJcXdUL0xEK0YwQVpZS2Z5Yk40QTJ3Q3JCUDdzQVJNQUtVOFhGUmhZaVlNWngrdUl6T3hFdzB6bnlxb2RXTXVEYUQwK21lMnBEQ21HL0pMOEJ2aFpjM3N4U2RQQUFBQUFBU1VWT1JLNUNZSUk9Iiwic2l6ZXMiOiIxOTJ4MTkyIiwidHlwZSI6ImltYWdlL3BuZyIsInB1cnBvc2UiOiJhbnkgbWFza2FibGUifSx7InNyYyI6ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBZ0FBQUFJQUNBWUFBQUQwZU5UNkFBQU5hVWxFUVZSNDJ1M2N3VzBiVnhSQTBUOFBLVUhRZ2dVUU1OS01LMUFmcWNCOXVBSTFZeGhRQVZvWTZvRlpleGs0a29iL25sTkJOT1Q4ZCtjTjQyTnhTZytYNjgxVkFIYnc5dnB5dUFybjQwTXg0QUVFZ2dEQXNBY1FCUUlBQXg5QUVBZ0FESHdBUVNBQURIMEF4SUFBTVBRQkVBTUN3TkFIUUF3SUFJTWZBQ0VnQUF4OUFNU0FBREQ0QVJBQ0FzRGdCMEFJQ0FDREh3QWhJQUFNZmdDRWdBQXcrQUVRQXYvVkdQNEEwSnNkaHc4UEFIcmJnTVBnQjRCZUNJemhEd0M5R1hQNFVBQ2d0dzBZd3g4QWVyTm5mQUFBMEp0Qmg0c09BQ3YzU21BTWZ3RG96YVp4Z1FHZ042TU9GeFVBVnU2VndCaitBTkNiWGVNQ0FrQnZobzBMQndDOVdUWXVHQUQwWnRxNFVBRFFtMjNqQWdGQWI4YU5Dd01BdlZrM0xnZ0E5R2JldUJBQTBKdDlZL2dEUUc4R2p1RVBBTDFaT0lZL0FQUWlZQXgvQU9oRndCaitBTkNMZ0RIOEFhQVhBV1A0QTBBdkFzYWxCb0NlOGZRUEFMMHR3QmorQU5DTGdESDhBYUFYQVg0REFBRExid0E4L1FOQVlBc3doajhBOUNKZ0RIOEE2RVdBM3dBQXdQSWJBRS8vQUJEWUFvemhEd0M5Q1BBS0FBQ1dWd0NlL2dFZ3NBV3dBUUFBR3dCUC93QlEyQUtNNFE4QXZRandDZ0FBbGxjQW52NEJJTEFGc0FFQUFCc0FULzhBVU5nQzJBQUFnQTJBcDM4QUtHd0JiQUFBd0FiQTB6OEFGTFlBTmdBQVlBUGc2UjhBQ2xzQUd3QUFzQUVBQUFUQXN2NEhnTFhoYXdBYkFBQ3dBZkQwRHdDRkxZQU5BQURZQUFBQTZRQ3cvZ2VBdGUxckFCc0FBTEFCQUFDeUFXRDlEd0JyNjljQU5nQUFZQU1BQUNRRHdQb2ZBTmIycndGc0FBREFCZ0FBRUFBQXdQNEI0UDAvQUt6RTd3QnNBQURBS3dBQVFBQUFBSHNIZ1BmL0FMQXl2d093QVFBQXJ3QUFBQUVBQUFnQUFHQ2pBUEFEUUFCWXFSOEMyZ0FBZ0ZjQUFJQUFBQUFFQUFBZ0FBQUFBUUFBQ0FBQTRMUU8vd1lBQU5nQUFBQUNBQUFRQUFDQUFBQUE3dE5mTHNFNVBUNDl1d2pBRm41OS8rb2kyQUFBQUFJQUFCQUFBSUFBQUFBRUFBQWdBQUFBQVFBQUNBQUFRQUFBQUFJQUFBUUFBQ0FBQUFBQkFBQUlBQUJBQUFBQUFnQUFFQUFBZ0FBQUFBUUFBQ0FBQUFBQkFBQUlBQUJBQUFBQUFnQUFFQUFBZ0FBQUFBUUFBQ0FBQUVBQUFBQUNBQUFRQUFDQUFBQUFCQUFBSUFBQUFBRUFBQWdBQUVBQUFBQUNBQUFRQUFDQUFBQUFCQUFBSUFBQUFBRUFBQWdBQUVBQUFJQUFBQUFFQUFBZ0FBQUFBUUFBQ0FBQVFBQUFBQUlBQUJBQUFJQUFBQUFFQUFBZ0FBQUFBUUFBQ0FBQVFBQUFBQUlBQUJBQUFJQUFBUGpOajI5ZlhBUUVBRUJ4K0lzQUJBQkFPQWFFQUFJQUlMcjZGd0VJQUlEb2UzOFJnQUFBaVA3b3p5c0JCQUNBWUFBQkFGQWI1aUlBQVFBUWZaSVhBUWdBZ09nYTMrOENFQUFBZ2dJRUFFQnRXSXNBQkFCQTlFbmRLd0VFQUVCNFRTOENFQUFBZ2dNRUFFQnBHSHNsZ0FBQUNEK0ppd0FFQUVCdzhQNzl6MDhmQmdJQUFCQUFBSjcrUVFBQUdQNGdBQUFNZnhBQUFJQUFBUEQwRHdJQU1Qd05meEFBZ09GditJTUFBQUFFQU9EcDM5TS9Bc0FsQUF4L3d4OEJBR0Q0Ry80SUFBQkFBQUI0K3ZmMGp3QUFNUHhCQUFCc3ovQkhBQUFFbi81QkFBQlkvWU1BQUREOFFRQUFMTy85UVFBQWVPOFBBZ0RBNmg4RUFJRGhEd0lBd1BBSEFRQjQrZ2NFQUdENGUvb0hBUUFZL29ZL0NBQUF3eDhFQU9EcEh4QUFnT0h2NlI4RUFHRDRHLzRJQUFCQUFBQjQrZ2NCQUdENGd3QUFNUHhCQUFBQUFnREEwejhJQUFEREh3UUFZUGdiL2lBQUFBQUJBSGo2OS9RUEFnQXcvQTEvRUFBQWhqOElBTURUUHlBQXdQQnkvVHo5Z3dDQVB4bGVJc0R3QndFQTBlRWxBcGIzL2lBQW9QbmtLZ0s4T2dFQkFOSEJaYkJaL1lNQWdPamdFZ0dHUHdnQWlBNHVFYkM4OXdjQkFNMm5WaEhnZW9BQWdPalFNdlNzL2tFQVFIUm8xU1BBOEFjQkFObWhaUk5nK0lNQWdPZ1RhekVDaEE4SUFEQ3dZZ1BSNmg4RUFCaFlzUWd3L0VFQWdJRmxOVzc0Z3dBQXczLzNDQkEzSUFEQXNJb05TNnQvRUFCZ1dNVWl3UEFIQVFDR2xiVTVJQURBOE44OUFqejlnd0RnZy8zNi90VkYyR2hJM0dNRUdQNDR5d1FBYmh3UkVJc0F3eDlubUFEQURTUUN2QTRBWjVjQXdJMGtBbmFQQUUvL09MTUVBSWdBUDFqMDJZRUFRRkdMQVAvTG91R1BzMG9BNE1ZU0FYNFRBTTRvQVlBYlRBVGNid1I0K3NmWkpBQndvNG1BMkFBMi9IRW1DUURjY0NMZ2t5T2cra3JBOEhjV0lRQnc0K1dIelVkR2dOOGc0QXdTQUxnQlJVQXNBcXorY2ZZSUFOeUlJaUFXQVlZL0lBQVFBVjRIdVBaNDZCQUF1Q0ZGd080UjRMMC96aG9FZ0J1VFdBUlkvZU9NUVFDNFFZbEZnT0dQc3dVQjRFYkY2d0RYRjJlS0FNQU55KzRSNEwwL3poSUVnQnVYV0FSWS9lTU1RUUM0Z1lsRmdPRVBDQUR3T3NBMXhNTURBc0NOek80UjRMMC96Z3dFQUc3b1dBUlkvZU9zUUFEZ3hvNUZnT0dQTXdJQmdCdmM2d0J3TmlBQWNLTjdzbldOY0NZZ0FOendHSEN1amJQQVdaQjFQRnl1TjVlaDYvSHAyVVZZMXU2R3YrR1BEUUFPQUF3OVFBQUFJc0ExRVA4SUFCd0VHSUQrZHZjOEFnQUhBZ2FoNGU5ZVJ3RGdZTUJBeEQyT0FNQUJJUUw4bmJpM0VRQTRLRVNBdncvM05BSUFCNFlJOEhmaFhrWUE0T0FRQVFBQ0FCRWdBdnd0dUg4UkFHQncraHN3L0JFQU9FZ01VUC90dUdjUkFEaFFERkp3cnlJQWNMQ0lBTkhpSGdVQmdBUEdVRFg4M1pzZ0FIRFFHSzZHdjNzU0JBQU9IRU1XRUFBZ0FrU0FNSEVmSWdDQTZNQTEvQTEvQkFBNGdHS0QxL0IzN3lFQXdFRmtBT09lUXdDQUEybjNDQkFmN2pVRUFEaVlZaEZnK0x2SEVBRGdnSXBGZ09IdjNrSUFnSVBLNndCQUFJQUkyRDBDQkliN0NRRUFEcTFZQkJqKzdpTUVBQkNMQU1QZjhLZnRlTGhjYnk0RDcrbng2ZGxGZUFjL3ZuMHgvQTEvc0FIQVFXWWJZUGk3WjhBR0FKc0FHd0ZEMy9BSEFZQUlBTU1mbGxjQU9PREF2WUVBQUFjZGdBQUFFUUR1QndRQU9QVEFmWUFBQU1Ed1J3Q0FBeEI4OXhFQTRDQUUzM2tFQURnUXdYY2RBUUFPUm56SFFRQ0FBeEpBQUlBSXdQY2FCQUFPUy9COUJnRUFZUGlEQU1EQkNiN0RJQUJ3Z0lMdkxnZ0FIS1RnT3dzQ0FBY3ErSzZDQU1EQkNpQUFYQUpFQVBoK0lnREFJUXUrbHdnQWNOaUM3eU1DQUFEREh3RUFEbDU4QjBFQWdBTVkzejBRQU9BZ3huY09CQUE0a1BGZEF3RUFEbVlBQVFBaUFOOHZFQURna01iM0NnUUFPS3p4ZlFJQkFHRDRnd0FBQnplK1F5QUF3QUdPN3c0SUFCemtEbko4WjBBQTRFQUhRQUFnQXNEM0JBRUFEbmQ4UDBBQWdFTWUzd3NRQU9Dd3gvY0JCQUNBNFE4Q0FCejgrQTZBQUFBREFKODlDQUF3Q0FBRUFJZ0FmTjRnQU1CUXdPY01BZ0FNQjN5K0lBREFrTURuQ2dJQXdQQUhBUUFHQmo1TEVBQmdjT0F6QkFFQUJnaUFBQUFSNEhNREJBQVlKajR2RUFDQW9lSnpBZ0VBR0M0K0h4QUFnQ0hqY3dFQkFHRDRnd0FBQXdlZkJRZ0FNSGp3R1lBQUFBTUlRQUNBQ01CMUJ3RUFoaEd1TndnQU1KUnduVUVBZ09HRTZ3c0NBQXdwMXhVUUFJRGhEd2dBTUxCY1MwQUFnTUVGSUFCQUJMaCtnQUFBUTh4MUF3RUFHR2F1RndnQXdGQnpuVUFBQUlhYjZ3TUNBTUR3QndFQUdIU3VDUWdBd01BREJBQWdBbHdIRUFDQTRlZnZCd0VBVkllZzRROENBRVJBYkJnYS9pQUFnTmhRTlB4QkFBQ3g0V2o0Z3dBQXhBMGdBSUNkQjZYaER3SUFNREFCQVFEc0hnRmlCZ1FBRUJ1ZWhqOElBQ0EyUkExL0VBQkFiSmdhL2lBQWdOaFFOZnhCQUFDeDRXcjRnd0FBeEFrZ0FBQ0RGaEFBd0ZZUklFcEFBQUN4b1d2NGd3QUFZc1BYOEFjQkFNU0dzT0VQQWdDSVJZRGhEeHNFd052cnkrRXlnQWd3L0tIajdmWGxzQUVBREgvd0NnQXdvQUVCQUlnQWNRRUNBR2hHZ09FUEFnQ0lSWURoRHdJQWlFV0E0UThDQUloRmdPRVBnUUR3YndHQUNERDhZV1grRFFBYkFCQUJoajk0QlFBQUNBQWd0d1h3OUE4Q0FJaEZnT0VQMFFEd1EwRG9Sb0RoRHl2MUEwQWJBQkFCaGo5RS9mYlUvM0M1M2x3U0FMQUJBQURXNWo4QzlEc0FBTmovNmQ4R0FBQnNBQUFBQVFBQWRBTEE3d0FBWUczOS90OEdBQUJzQUFDQWRBQjREUUFBYTl2MXZ3MEFBTmdBQUFENUFQQWFBQURXbHV0L0d3QUFzQUVBQUFUQThob0FBTmFHNjM4YkFBQ3dBYkFGQUlEQzA3OE5BQURZQUFBQUFtQjVEUUFBYThQMXZ3MEFBTmdBMkFJQVFPSHAzd1lBQUd3QWJBRUFvUEQwYndNQUFEWUF0Z0FBVUhqNnR3RUFBQnNBV3dBQUtEejkyd0FBZ0EyQUxRQUFGSjcrLzNnRElBSUE0UDZHdjFjQUFMQzhBckFGQUlEQTA3OE5BQURZQU5nQ0FFRGg2ZjkvM1FDSUFBQzRqK0h2RlFBQUxLOEFiQUVBSVBEMC95NGJBQkVBQU9lZnJYTXYvNkVBWVBpZlBBQUFnTlg1RFlBdEFBRGN4eXlkZS8wUEJ3REQvOFN2QUVRQUFKeHZkdm9OQUFBc3Z3R3dCUUNBelovK1AzUURJQUlBNER5emNuYjl3d0RBOEQvUmJ3QkVBQUI4L215Y3loOEtBSWIvQ2Y0dkFCRUFnT0gvZWJOd3FuODRBSlJuNE5RdkFBQVVaOSs0RUFEUW0zbmpnZ0JBYjlhTkN3TUF2UmszTGhBQTlHYmJ1RkFBMEp0cDQ0SUJRRytXalFzSEFMMFpOaTRnQVBSbTExME4xNGZMOWVackJZREJIOWdBMkFZQVlFYkZBMEFFQUdBMnJkNHJnT1dWQUFBR2YzTURZQnNBZ0JrVUR3QVJBSURaczNxdkFKWlhBZ0FZL00wTmdHMEFBR1pNZkFOZ0d3Q0F3UjhQQUNFQWdNRy9HcThBdkJZQXdPeXdBYkFOQU1EZ0Z3QkNBQUNEUHgwQVFnQ0ErbXRpNzhlRkFJREJMd0NFZ0tzQVlQQUxBREVBZ0tFdkFJUUFBQWEvQUJBREFCajZBa0FNQUdEb0N3QXhBSUNoTHdBRUFRQUd2Z0FRQkFBWStBSkFGQUFZOWdnQUJBSmd3UE91L2dXbzJqejhXRkJmdHdBQUFBQkpSVTVFcmtKZ2dnPT0iLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9XX0=">
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=">
+  <style>
+    :root{
+      color-scheme:dark;
+      --ink:#f5f8ff;--muted:#8fa1b8;--muted2:#60738d;
+      --bg:#050b13;--panel:#0a1422;--panel2:#0d1929;--line:#1d3045;
+      --mint:#5be6ba;--mint2:#22bd91;--blue:#78aefc;--violet:#9b8cff;
+      --danger:#ff7b83;--warning:#ffc766;--shadow:0 30px 90px rgba(0,0,0,.48);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;font-family:Inter,"Pretendard","Noto Sans KR",system-ui,sans-serif;background:
+      radial-gradient(circle at 12% 8%,rgba(91,230,186,.10),transparent 24rem),
+      radial-gradient(circle at 86% 18%,rgba(120,174,252,.11),transparent 28rem),var(--bg);color:var(--ink)}
+    button{font:inherit;color:inherit}button:focus-visible{outline:3px solid rgba(91,230,186,.42);outline-offset:3px}
+    .page{width:min(1380px,calc(100% - 36px));margin:0 auto;padding:24px 0 54px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:-.035em;font-size:20px}
+    .brand-mark{width:36px;height:36px;border-radius:12px;background:var(--mint);color:#03251b;display:grid;place-items:center;box-shadow:0 10px 35px rgba(91,230,186,.22)}
+    .brand-mark svg{width:22px;height:22px}.top-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+    .tag,.ghost{border:1px solid var(--line);background:rgba(13,25,41,.72);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:12px;font-weight:700}
+    .tag strong{color:var(--mint)}.ghost{cursor:pointer;color:var(--ink)}.ghost:hover{border-color:#426482}
+    .workspace{display:grid;grid-template-columns:300px minmax(430px,1fr) 310px;gap:22px;align-items:start}
+    .rail,.notes{border:1px solid var(--line);background:rgba(9,19,32,.76);backdrop-filter:blur(20px);border-radius:24px;padding:20px;position:sticky;top:18px;max-height:calc(100vh - 36px);overflow:auto}
+    .section-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);font-weight:800;margin-bottom:8px}
+    .rail h1{font-size:27px;line-height:1.16;letter-spacing:-.045em;margin:0 0 10px}.rail-intro{color:var(--muted);font-size:13px;line-height:1.65;margin:0 0 18px}
+    .screen-list{display:grid;gap:8px}.screen-link{width:100%;display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:10px;text-align:left;border:1px solid transparent;background:transparent;border-radius:14px;padding:9px;cursor:pointer}
+    .screen-link:hover{background:#0e1c2d}.screen-link.active{background:#102336;border-color:#28435c}.screen-no{height:36px;border-radius:11px;background:#112236;color:var(--blue);display:grid;place-items:center;font-size:12px;font-weight:900}
+    .screen-link.active .screen-no{background:var(--mint);color:#04251b}.screen-link b{display:block;font-size:13px}.screen-link small{display:block;color:var(--muted2);margin-top:2px}.screen-link .arrow{color:#4e6884}
+    .stage{min-height:790px;border:1px solid var(--line);border-radius:30px;background:
+      linear-gradient(145deg,rgba(13,26,43,.94),rgba(7,15,26,.96));position:relative;overflow:hidden;display:grid;place-items:center;padding:38px}
+    .stage::before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(91,230,186,.07);filter:blur(5px);top:-190px;right:-90px}
+    .stage::after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;border:1px solid rgba(120,174,252,.09);bottom:-170px;left:-100px}
+    .phone{width:390px;height:780px;background:#07111e;border:1px solid #294058;border-radius:46px;padding:10px;box-shadow:var(--shadow);position:relative;z-index:2}
+    .phone::before{content:"";position:absolute;left:50%;top:17px;transform:translateX(-50%);width:92px;height:23px;border-radius:20px;background:#03080e;z-index:20}
+    .viewport{height:100%;border-radius:37px;overflow:hidden;position:relative;background:#081321}
+    .screen{display:none;height:100%;overflow:auto;background:
+      radial-gradient(circle at 85% 0,rgba(120,174,252,.13),transparent 18rem),#081321;padding:50px 22px 92px;scrollbar-width:none}
+    .screen::-webkit-scrollbar{display:none}.screen.active{display:block;animation:screenIn .28s ease both}@keyframes screenIn{from{opacity:.2;transform:translateY(7px)}to{opacity:1;transform:none}}
+    .screen.flush{padding:0}.statusbar{position:absolute;top:15px;left:24px;right:24px;z-index:12;display:flex;justify-content:space-between;color:#d6dfeb;font-size:11px;font-weight:750;pointer-events:none}
+    .app-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.app-brand{font-weight:900;letter-spacing:-.04em}.app-brand em{font-style:normal;color:var(--mint)}
+    .icon-btn{width:40px;height:40px;border-radius:14px;border:1px solid var(--line);background:#0e1b2b;display:grid;place-items:center;cursor:pointer}.icon-btn:hover{border-color:#426482}.icon-btn svg{width:19px;height:19px}
+    .eyebrow{color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.05em}.title{font-size:29px;line-height:1.14;letter-spacing:-.05em;margin:8px 0 10px}.sub{color:var(--muted);font-size:14px;line-height:1.65}.fine{color:var(--muted2);font-size:11px;line-height:1.5}
+    .primary,.secondary,.danger-btn{width:100%;min-height:52px;border-radius:16px;border:0;font-weight:850;cursor:pointer}.primary{background:var(--mint);color:#03231a;box-shadow:0 12px 30px rgba(91,230,186,.18)}.primary:hover{background:#6df0c7}.primary:disabled{opacity:.4;cursor:not-allowed}
+    .secondary{background:#112236;border:1px solid #263d55;color:var(--ink)}.danger-btn{background:rgba(255,123,131,.10);border:1px solid rgba(255,123,131,.3);color:#ff9ca2}
+    .text-btn{border:0;background:none;color:var(--blue);font-weight:760;cursor:pointer;padding:8px}.stack{display:grid;gap:11px}.push{margin-top:auto}.mt8{margin-top:8px}.mt16{margin-top:16px}.mt24{margin-top:24px}.mt32{margin-top:32px}
+    .welcome{height:100%;padding:76px 25px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden;background:#07111e}.welcome::before{content:"";position:absolute;inset:-20% -25% auto 30%;height:420px;background:radial-gradient(circle,rgba(91,230,186,.25),transparent 65%)}
+    .hero-orb{width:210px;height:210px;border-radius:50%;margin:28px auto 38px;position:relative;display:grid;place-items:center;background:rgba(91,230,186,.06);border:1px solid rgba(91,230,186,.22);box-shadow:inset 0 0 60px rgba(91,230,186,.08)}
+    .hero-orb::before,.hero-orb::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(120,174,252,.18)}.hero-orb::before{inset:20px}.hero-orb::after{inset:47px}.hero-shield{width:86px;height:100px;position:relative;z-index:2;color:var(--mint);filter:drop-shadow(0 0 26px rgba(91,230,186,.38))}
+    .welcome-copy{position:relative;z-index:2}.welcome .title{font-size:37px}.promise-row{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 26px}.promise{padding:7px 10px;border-radius:999px;background:#0f2132;border:1px solid #213b50;color:#bad0e3;font-size:11px;font-weight:750}
+    .policy{padding:16px;border:1px solid var(--line);border-radius:18px;background:#0d1a2a}.policy-row{display:flex;gap:12px;align-items:flex-start}.policy-row+.policy-row{margin-top:15px;padding-top:15px;border-top:1px solid #182b3f}.policy-icon{width:34px;height:34px;flex:none;border-radius:11px;background:#112a32;color:var(--mint);display:grid;place-items:center}.policy b{display:block;font-size:13px}.policy span{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:3px}
+    .check-row{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);padding:14px;border-radius:16px;background:#0d1a29;cursor:pointer}.check-row input{width:19px;height:19px;accent-color:var(--mint);margin:1px 0 0}.check-row b{font-size:13px}.check-row p{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
+    .stepper{display:flex;gap:7px;margin:19px 0 25px}.stepper span{height:5px;border-radius:99px;background:#203248;flex:1}.stepper span.on{background:var(--mint)}
+    .setup-card{border:1px solid var(--line);border-radius:22px;background:#0d1a2a;padding:18px}.setup-visual{height:170px;border-radius:18px;background:linear-gradient(145deg,#10253a,#0a1725);display:grid;place-items:center;margin-bottom:17px;position:relative;overflow:hidden}.setup-visual::before{content:"";width:120px;height:120px;border:1px solid rgba(91,230,186,.24);border-radius:28px;transform:rotate(12deg)}.setup-visual svg{position:absolute;width:66px;color:var(--mint)}
+    .numbered{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}.numbered+.numbered{margin-top:13px}.num{width:28px;height:28px;border-radius:9px;background:#153044;color:var(--mint);display:grid;place-items:center;font-size:11px;font-weight:900}.numbered b{font-size:12px}.numbered p{margin:2px 0 0;color:var(--muted);font-size:10px;line-height:1.45}
+    .demo-ribbon{background:#122338;border:1px solid #25425c;border-radius:13px;padding:9px 12px;color:#93abc1;font-size:10px;line-height:1.45;margin-bottom:15px}.demo-ribbon strong{color:var(--warning)}
+    .balance-card{background:linear-gradient(145deg,#10283a,#0d1b2c);border:1px solid #254154;border-radius:22px;padding:18px}.balance-top{display:flex;justify-content:space-between;align-items:start}.balance-top small{color:var(--muted)}.balance-top strong{font-size:13px}.balance-number{font-size:35px;font-weight:900;letter-spacing:-.055em;margin:6px 0}.balance-number span{font-size:15px;color:var(--muted);letter-spacing:0}.meter{height:8px;border-radius:99px;background:#213348;overflow:hidden;margin:14px 0 9px}.meter span{display:block;width:74%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--mint),var(--blue))}.balance-split{display:flex;justify-content:space-between;color:var(--muted);font-size:10px}.balance-split b{color:#dce8f5}
+    .connect-wrap{display:grid;place-items:center;padding:10px 0 8px}.connect-orb{width:150px;height:150px;border-radius:50%;border:1px solid #294059;background:#0d1d2e;display:grid;place-items:center;position:relative;cursor:pointer;transition:.35s;box-shadow:inset 0 0 60px rgba(0,0,0,.18)}.connect-orb::before{content:"";position:absolute;inset:13px;border:1px solid #1f354b;border-radius:50%}.connect-orb:hover{transform:scale(1.018);border-color:#45627d}.connect-orb.connected{background:rgba(33,143,112,.16);border-color:rgba(91,230,186,.55);box-shadow:0 0 52px rgba(91,230,186,.13),inset 0 0 60px rgba(91,230,186,.08)}.power{width:44px;height:44px;color:#7f93a9;position:relative;z-index:3}.connected .power{color:var(--mint);filter:drop-shadow(0 0 12px rgba(91,230,186,.5))}.connect-label{position:absolute;bottom:30px;font-size:10px;font-weight:850;letter-spacing:.08em;color:#869aae}.connected .connect-label{color:var(--mint)}
+    .location-card{display:flex;width:100%;align-items:center;gap:12px;border:1px solid var(--line);background:#0c1928;padding:13px;border-radius:17px;cursor:pointer}.location-card:hover{border-color:#34516d}.flag{width:38px;height:38px;border-radius:12px;background:#14273a;display:grid;place-items:center;font-size:19px}.location-card .grow{flex:1}.location-card b{font-size:12px}.location-card small{display:block;color:var(--muted);margin-top:3px;font-size:10px}.chev{color:#5d7289}
+    .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.quick{border:1px solid var(--line);background:#0c1928;border-radius:17px;padding:14px;text-align:left;cursor:pointer}.quick:hover{border-color:#34516d}.quick .q-icon{width:32px;height:32px;border-radius:10px;background:#122a37;color:var(--mint);display:grid;place-items:center;margin-bottom:12px}.quick b{font-size:12px}.quick small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+    .bottom-nav{position:relative;height:72px;margin:18px -12px -82px;border-radius:0 0 36px 36px;background:rgba(8,19,33,.94);border-top:1px solid #1b2d41;backdrop-filter:blur(18px);display:grid;grid-template-columns:repeat(4,1fr);z-index:10}.nav-btn{border:0;background:none;color:#61758c;display:grid;place-items:center;align-content:center;gap:4px;cursor:pointer;font-size:9px}.nav-btn svg{width:20px;height:20px}.nav-btn.active{color:var(--mint)}
+    .search{display:flex;align-items:center;gap:9px;background:#0d1a2a;border:1px solid var(--line);border-radius:15px;padding:12px 13px;color:var(--muted);font-size:12px}.search svg{width:17px}.region-label{font-size:10px;color:var(--muted2);font-weight:800;letter-spacing:.1em;margin:22px 0 9px}.server-list{display:grid;gap:8px}.server{display:flex;align-items:center;gap:11px;border:1px solid transparent;padding:11px;border-radius:15px;cursor:pointer;background:#0b1726}.server:hover,.server.selected{border-color:#31516c;background:#0f2031}.server .flag{width:36px;height:36px}.server .grow{flex:1}.server b{font-size:12px}.server small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.ping{font-size:10px;color:var(--mint);font-weight:800}.radio{width:18px;height:18px;border:1px solid #496077;border-radius:50%}.selected .radio{border:5px solid var(--mint)}
+    .plan-balance{text-align:center;padding:10px 0 18px}.plan-balance small{color:var(--muted)}.plan-balance strong{display:block;font-size:34px;letter-spacing:-.05em;margin-top:5px}.amounts{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.amount{border:1px solid var(--line);background:#0c1928;border-radius:17px;padding:15px 12px;cursor:pointer;text-align:left}.amount.selected{border-color:var(--mint);box-shadow:inset 0 0 0 1px var(--mint);background:#102629}.amount b{display:block;font-size:19px}.amount span{display:block;color:var(--muted);font-size:10px;margin-top:4px}.amount em{display:inline-block;margin-top:10px;font-size:11px;font-style:normal;color:var(--blue)}.benefit{display:flex;gap:10px;align-items:flex-start;padding:13px;background:#102335;border-radius:15px;border:1px solid #203c53}.benefit svg{width:20px;flex:none;color:var(--mint)}.benefit b{font-size:11px}.benefit p{font-size:9px;color:var(--muted);margin:3px 0 0;line-height:1.5}
+    .device-count{display:flex;align-items:end;justify-content:space-between;padding:15px 0}.device-count strong{font-size:31px;letter-spacing:-.05em}.device-count span{color:var(--muted);font-size:11px}.device{border:1px solid var(--line);background:#0c1928;border-radius:18px;padding:15px}.device+.device{margin-top:9px}.device-top{display:flex;align-items:center;gap:11px}.device-icon{width:40px;height:40px;border-radius:13px;background:#11283a;color:var(--blue);display:grid;place-items:center}.device-icon svg{width:21px}.device .grow{flex:1}.device b{font-size:12px}.device small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.online{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint)}.device-actions{display:flex;gap:8px;margin-top:13px}.mini{flex:1;border:1px solid #294057;background:#102033;border-radius:11px;padding:8px;font-size:10px;font-weight:700;cursor:pointer}.mini.warn{color:#ff9da3;border-color:#52323b;background:#221720}.limit-note{padding:12px;border-left:3px solid var(--warning);background:#1b1b1c;color:#c8b990;font-size:10px;line-height:1.55;margin-top:12px}
+    .usage-hero{border:1px solid var(--line);border-radius:22px;padding:18px;background:#0d1a2a}.usage-hero .big{font-size:34px;font-weight:900;letter-spacing:-.05em}.usage-hero .big span{font-size:13px;color:var(--muted)}.usage-hero small{color:var(--muted)}.chart{height:125px;display:flex;align-items:end;gap:8px;padding-top:16px}.bar-col{flex:1;display:grid;align-items:end;gap:5px;height:100%}.bar-col i{display:block;width:100%;background:linear-gradient(var(--mint),#268ba6);border-radius:6px 6px 3px 3px;min-height:8px}.bar-col span{text-align:center;color:var(--muted2);font-size:8px}.usage-row{display:flex;align-items:center;gap:11px;padding:13px 2px;border-bottom:1px solid #15273a}.usage-dot{width:9px;height:9px;border-radius:50%;background:var(--mint)}.usage-dot.paid{background:var(--blue)}.usage-row .grow{flex:1}.usage-row b{font-size:11px}.usage-row small{display:block;color:var(--muted);font-size:9px}.usage-row strong{font-size:11px}
+    .account-card{text-align:center;padding:15px 0 25px}.avatar{width:68px;height:68px;border-radius:23px;margin:auto;background:linear-gradient(145deg,#183a49,#172543);display:grid;place-items:center;color:var(--mint);font-size:24px;font-weight:900}.account-card b{display:block;margin-top:12px}.account-card span{display:block;color:var(--muted);font-size:10px;margin-top:4px}.menu{display:grid;gap:8px}.menu-item{display:flex;align-items:center;gap:11px;border:1px solid var(--line);background:#0c1928;border-radius:15px;padding:12px;text-align:left;cursor:pointer}.menu-icon{width:34px;height:34px;border-radius:11px;background:#112538;display:grid;place-items:center;color:var(--blue)}.menu-icon svg{width:18px}.menu-item .grow{flex:1}.menu-item b{font-size:11px}.menu-item small{display:block;color:var(--muted);font-size:9px;margin-top:2px}.build-info{text-align:center;color:#50647b;font-size:9px;margin-top:18px}
+    .notes h2{font-size:18px;letter-spacing:-.03em;margin:0 0 8px}.note-copy{font-size:12px;color:var(--muted);line-height:1.65;margin:0 0 18px}.note-card{border:1px solid var(--line);background:#0c1928;border-radius:16px;padding:14px}.note-card+.note-card{margin-top:9px}.note-card b{font-size:12px}.note-card p{font-size:10px;color:var(--muted);line-height:1.55;margin:5px 0 0}.note-card.good{border-color:#275548}.note-card.warn{border-color:#514429}.legend{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:10px;margin-top:12px}.legend i{width:8px;height:8px;border-radius:50%;background:var(--mint)}
+    .toast{position:absolute;left:22px;right:22px;bottom:89px;z-index:30;padding:13px 14px;border-radius:14px;background:#e9fff8;color:#0c3c2f;font-size:11px;font-weight:800;box-shadow:0 18px 45px #0008;transform:translateY(20px);opacity:0;pointer-events:none;transition:.25s}.toast.show{transform:none;opacity:1}
+    .storyboard{margin-top:24px;border:1px solid var(--line);border-radius:26px;background:#081421;padding:22px}.storyboard-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:15px}.storyboard h2{margin:0;font-size:22px}.storyboard p{margin:6px 0 0;color:var(--muted);font-size:12px}.thumbs{display:grid;grid-template-columns:repeat(14,minmax(110px,1fr));gap:9px;overflow:auto;padding-bottom:4px}.thumb{border:1px solid var(--line);background:#0d1a29;border-radius:15px;padding:11px;text-align:left;cursor:pointer;min-height:116px}.thumb:hover{border-color:#42627c}.thumb span{display:grid;place-items:center;width:29px;height:29px;border-radius:9px;background:#13283a;color:var(--mint);font-weight:900;font-size:10px}.thumb b{display:block;margin-top:17px;font-size:11px}.thumb small{display:block;color:var(--muted2);font-size:9px;margin-top:4px;line-height:1.4}
+    @media(max-width:1120px){.workspace{grid-template-columns:250px 1fr}.notes{position:static;grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.notes>h2,.notes>.note-copy{grid-column:1/-1}.note-card+.note-card{margin-top:0}}
+    @media(max-width:780px){.page{width:min(100% - 20px,540px);padding-top:14px}.topbar{align-items:flex-start}.top-actions .tag{display:none}.workspace{display:flex;flex-direction:column}.rail{position:static;width:100%;padding:16px;overflow:hidden}.rail h1{font-size:22px}.screen-list{display:flex;overflow:auto;padding-bottom:4px}.screen-link{min-width:150px}.stage{width:100%;min-height:auto;padding:18px 4px;border-radius:24px}.phone{width:min(390px,100%);height:780px}.notes{display:block;width:100%}.note-card+.note-card{margin-top:9px}.storyboard-head{display:block}.thumbs{grid-template-columns:repeat(9,120px)}}
+    @media(max-height:850px) and (min-width:781px){.phone{height:720px}.stage{min-height:730px}}
+    .install-banner{position:fixed;z-index:100;left:50%;bottom:18px;transform:translateX(-50%);width:min(560px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 16px;border:1px solid #29445d;border-radius:16px;background:rgba(8,19,33,.97);box-shadow:0 20px 50px rgba(0,0,0,.42);backdrop-filter:blur(18px)}.install-banner[hidden]{display:none!important}.install-copy b{font-size:14px}.install-copy p{margin:4px 0 0;color:#9aadc1;font-size:11px;line-height:1.5}.install-actions{display:flex;gap:7px;flex:0 0 auto}.install-actions button{border:1px solid #30475d;border-radius:9px;background:#14263a;color:#c7d4e2;padding:9px 11px;font-weight:750;cursor:pointer}.install-actions .install-primary{background:var(--mint);border-color:var(--mint);color:#04231b}@media(max-width:620px){.install-banner{align-items:flex-start}.install-copy p{max-width:230px}.install-actions{flex-direction:column}}
+
+    .moment-title{display:flex;justify-content:space-between;align-items:end;margin:14px 0 8px}.moment-title b{font-size:13px}.moment-title span{color:var(--muted2);font-size:9px}
+    .moment-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.moment-card{min-height:74px;border:1px solid var(--line);background:#0c1928;border-radius:15px;padding:11px;text-align:left;cursor:pointer}.moment-card:hover,.moment-card.selected{border-color:var(--mint);background:#102629}.moment-card span{display:block;font-size:17px;margin-bottom:7px}.moment-card b{display:block;font-size:11px}.moment-card small{display:block;color:var(--muted);font-size:8px;line-height:1.35;margin-top:3px}
+    .direct-path{width:100%;border:0;background:transparent;color:var(--blue);font-size:10px;font-weight:780;padding:11px 4px;cursor:pointer}
+    .privacy-note{color:var(--muted2);font-size:9px;line-height:1.45;margin:7px 1px 0}
+    .status-card{display:flex;align-items:center;gap:11px;border:1px solid #31465c;background:#0d1b2b;border-radius:17px;padding:13px;margin-top:10px}.status-dot{width:10px;height:10px;border-radius:50%;background:var(--muted2);flex:none}.status-card.checking .status-dot{background:var(--warning);box-shadow:0 0 10px rgba(255,199,102,.45)}.status-card.protected .status-dot{background:var(--mint);box-shadow:0 0 10px rgba(91,230,186,.45)}.status-card.limited .status-dot{background:var(--warning)}.status-card.disconnected .status-dot,.status-card.setup_needed .status-dot{background:var(--danger)}.status-card .grow{flex:1}.status-card b{display:block;font-size:11px}.status-card small{display:block;color:var(--muted);font-size:9px;line-height:1.45;margin-top:3px}
+    .state-legend{display:grid;gap:8px;margin-top:16px}.state-row{display:flex;gap:10px;align-items:start;border:1px solid var(--line);background:#0c1928;border-radius:14px;padding:11px}.state-row i{width:8px;height:8px;border-radius:50%;background:var(--muted2);margin-top:3px;flex:none}.state-row[data-state="protected"] i{background:var(--mint)}.state-row[data-state="checking"] i,.state-row[data-state="limited"] i{background:var(--warning)}.state-row[data-state="setup_needed"] i,.state-row[data-state="disconnected"] i{background:var(--danger)}.state-row b{display:block;font-size:10px}.state-row small{display:block;color:var(--muted);font-size:8px;line-height:1.4;margin-top:2px}
+    .empty-catalog{text-align:center;border:1px dashed #31465c;background:#0b1725;border-radius:20px;padding:30px 18px;margin-top:18px}.empty-catalog .flag{margin:0 auto 12px}.empty-catalog b{font-size:14px}.empty-catalog p{color:var(--muted);font-size:10px;line-height:1.55;margin:7px 0 0}
+    .balance-split.three{gap:8px}.balance-split.three span{flex:1}.balance-split.three span:nth-child(2){text-align:center}.balance-split.three span:last-child{text-align:right}
+    .connect-wrap{padding:8px 0 3px}.connect-orb{width:116px;height:116px}.connect-orb::before{inset:10px}.connect-label{bottom:21px}.power{width:36px;height:36px}
+    .runtime-server-list{margin-top:14px}.runtime-server-list .flag{font-size:9px;font-weight:900;display:grid;place-items:center}.runtime-config{width:100%;min-height:190px;resize:vertical;border:1px solid var(--line);border-radius:13px;background:#07111e;color:#d7e5f2;padding:12px;font:9px/1.5 ui-monospace,monospace}.runtime-output{width:100%;border:1px solid var(--line);border-radius:12px;background:#07111e;color:var(--mint);padding:10px;font-size:9px}.state-row[data-pass="true"] i{background:var(--mint)}
+    .moment-explorer-cta{width:100%;margin-top:9px}.moment-filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.moment-filter{display:grid;gap:5px;color:var(--muted);font-size:8px}.moment-filter select,.moment-filter input{width:100%;border:1px solid var(--line);border-radius:11px;background:#091827;color:var(--text);padding:10px 8px;font-size:9px}.tier-filter{display:flex;gap:6px;overflow:auto;margin:10px 0}.tier-chip{white-space:nowrap;border:1px solid var(--line);border-radius:999px;background:#0b1928;color:var(--muted);padding:7px 10px;font-size:8px}.tier-chip.active{border-color:var(--mint);color:var(--mint);background:#102629}.country-policy{border:1px solid var(--line);border-radius:13px;background:#0b1928;padding:10px;font-size:9px;line-height:1.5}.country-policy.caution{border-color:var(--warning)}.country-policy.restricted{border-color:var(--danger)}.moment-summary{display:flex;justify-content:space-between;align-items:center;margin:13px 0 8px;font-size:9px;color:var(--muted)}.moment-recommendations{display:grid;gap:8px}.recommendation-card{border:1px solid var(--line);border-radius:14px;background:#0b1928;padding:11px}.recommendation-card header{display:flex;gap:8px;align-items:start}.recommendation-rank{display:grid;place-items:center;width:25px;height:25px;border-radius:9px;background:#102629;color:var(--mint);font-size:8px;font-weight:900}.recommendation-card h3{font-size:10px;margin:0}.recommendation-card p{color:var(--muted);font-size:8px;line-height:1.45;margin:4px 0 8px}.recommendation-meta{display:flex;flex-wrap:wrap;gap:5px}.recommendation-meta span{border-radius:999px;background:#132237;color:#b8c7d8;padding:4px 7px;font-size:7px}.recommendation-card button{width:100%;margin-top:9px;border:1px solid var(--blue);border-radius:10px;background:transparent;color:var(--blue);padding:8px;font-size:8px;font-weight:800}.recommendation-card button:disabled{border-color:var(--line);color:var(--muted2)}
+    .platform-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin:12px 0}.platform-choice{border:1px solid var(--line);border-radius:13px;background:#0b1928;color:var(--text);padding:10px;text-align:left}.platform-choice.active{border-color:var(--mint);background:#102629}.platform-choice span{display:block;font-size:15px}.platform-choice b{display:block;font-size:9px;margin-top:5px}.platform-flow{display:grid;gap:8px}.platform-card{border:1px solid var(--line);border-radius:15px;background:#0b1928;padding:12px}.platform-card .eyebrow{font-size:7px}.platform-card h3{font-size:11px;margin:5px 0}.platform-card p{font-size:8px;line-height:1.5;color:var(--muted);margin:0}.platform-card .secondary{width:100%;margin-top:10px}.platform-badge{display:flex;align-items:center;justify-content:space-between;border:1px solid #31465c;border-radius:13px;background:#0d1b2b;padding:10px;font-size:9px}.platform-badge strong{color:var(--mint)}.platform-matrix{display:grid;gap:6px;margin-top:10px}.platform-status{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:7px 1px;font-size:8px}.platform-status:last-child{border-bottom:0}.platform-status span{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.7 20 6v5.2c0 5-3.2 8.6-8 10.1-4.8-1.5-8-5.1-8-10.1V6l8-3.3Z" fill="currentColor"/><path d="m8.4 12.1 2.1 2.1 5-5" stroke="#05251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>FreeFlexVPN</div>
+      <div class="top-actions"><span class="tag"><strong>ALPHA CANDIDATE</strong> UI · UX v2.2 · ALL DEVICES · MOMENT 30 · API READY</span><span class="tag">화면 14개</span><button class="ghost" type="button" data-go="welcome">처음부터 보기</button></div>
+    </header>
+
+    <main class="workspace">
+      <aside class="rail">
+        <div class="section-label">App service map</div>
+        <h1>필요한 순간에서 시작하는 VPN</h1>
+        <p class="rail-intro">먼저 지금 필요한 순간을 고르고 보호 상태를 확인합니다. 서버·결제·계정은 아직 연결되지 않은 알파 UI입니다.</p>
+        <nav class="screen-list" aria-label="프로토타입 화면 목록">
+          <button class="screen-link" type="button" data-go="welcome"><span class="screen-no">01</span><span><b>시작</b><small>가치 제안</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="consent"><span class="screen-no">02</span><span><b>동의</b><small>최소 정보</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="setup"><span class="screen-no">03</span><span><b>설정</b><small>WireGuard</small></span><span class="arrow">›</span></button>
+          <button class="screen-link active" type="button" data-go="home"><span class="screen-no">04</span><span><b>홈</b><small>순간·보호 상태</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="moments"><span class="screen-no">05</span><span><b>상황별 추천</b><small>30개 순간·국가</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="platforms"><span class="screen-no">06</span><span><b>모든 기기</b><small>PC·모바일·PWA</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="protection"><span class="screen-no">07</span><span><b>보호 상태</b><small>실측 전용</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="locations"><span class="screen-no">08</span><span><b>서버 상태</b><small>실제 가동 목록만</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="wallet"><span class="screen-no">09</span><span><b>데이터 지갑</b><small>3잔액·영수증</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="topup"><span class="screen-no">10</span><span><b>용량 충전</b><small>자동결제 없음</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="referral"><span class="screen-no">11</span><span><b>친구와 나누기</b><small>양쪽 500MB</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="devices"><span class="screen-no">12</span><span><b>기기 관리</b><small>최대 2대</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="usage"><span class="screen-no">13</span><span><b>사용량</b><small>무료분 우선</small></span><span class="arrow">›</span></button>
+          <button class="screen-link" type="button" data-go="account"><span class="screen-no">14</span><span><b>내 정보</b><small>정책·상태</small></span><span class="arrow">›</span></button>
+        </nav>
+      </aside>
+
+      <section class="stage" aria-label="FreeFlexVPN 모바일 프로토타입">
+        <div class="phone">
+          <div class="viewport">
+            <div class="statusbar"><span>9:41</span><span>● ● ●  100%</span></div>
+
+            <section class="screen flush" data-screen="welcome" aria-label="시작 화면">
+              <div class="welcome">
+                <div class="welcome-copy"><div class="eyebrow">VPN이 가끔 필요한 사람을 위해</div><h2 class="title">매달 내지 말고,<br>필요할 때만.</h2><p class="sub">매월 1GB는 무료. 더 필요하면 원하는 만큼 충전하고 남은 용량은 계속 보관하세요.</p></div>
+                <div class="hero-orb" aria-hidden="true"><svg class="hero-shield" viewBox="0 0 64 76" fill="none"><path d="M32 3 59 14v18c0 19-11 34-27 40C16 66 5 51 5 32V14L32 3Z" stroke="currentColor" stroke-width="3"/><path d="m20 37 8 8 17-19" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="promise-row"><span class="promise">월 1GB 무료</span><span class="promise">충전분 무기한</span><span class="promise">자동결제 없음</span></div>
+                <div class="stack push"><button class="primary" type="button" data-go="consent">무료로 시작하기</button><button class="text-btn" type="button" data-go="home">먼저 둘러보기</button></div>
+              </div>
+            </section>
+
+            <section class="screen" data-screen="consent" aria-label="동의 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="welcome" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="fine">1 / 2</span></div>
+              <div class="eyebrow">시작 전 확인</div><h2 class="title">필요한 정보만<br>사용합니다.</h2><p class="sub">개인키와 VPN 설정 QR은 Telegram으로 보내거나 서버에 저장하지 않습니다.</p>
+              <div class="policy mt24">
+                <div class="policy-row"><span class="policy-icon">✓</span><div><b>저장하는 것</b><span>가명 계정 ID, 동의 시각, 피어 공개키, 잔액과 사용량</span></div></div>
+                <div class="policy-row"><span class="policy-icon">×</span><div><b>저장하지 않는 것</b><span>Telegram 원본 ID, 전화번호, 메시지, WireGuard 개인키</span></div></div>
+              </div>
+              <label class="check-row mt16"><input id="consentCheck" type="checkbox"><span><b>서비스 운영 정책에 동의합니다.</b><p>월 1GB 무료, 충전 데이터 무기한, 계정당 활성 기기 2대 정책을 확인했습니다.</p></span></label>
+              <div class="stack mt24"><button id="consentNext" class="primary" type="button" data-go="setup" disabled>동의하고 계속</button><button class="text-btn" type="button" data-go="welcome">동의하지 않음</button></div>
+            </section>
+
+            <section class="screen" data-screen="setup" aria-label="WireGuard 설정 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="consent" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><span class="fine">2 / 2</span></div>
+              <div class="eyebrow">안전한 연결 준비</div><h2 class="title">WireGuard 앱에<br>한 번만 추가하세요.</h2><div class="stepper"><span class="on"></span><span class="on"></span></div>
+              <div class="setup-card"><div class="setup-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M9 6h6M10 18h4"/></svg></div>
+                <div class="numbered"><span class="num">1</span><div><b>공식 WireGuard 앱 설치</b><p>앱스토어에서 공식 앱을 설치합니다.</p></div></div>
+                <div class="numbered"><span class="num">2</span><div><b>10분짜리 수령 링크 열기</b><p>기기 안에서 키를 만들고 구성 QR을 가져옵니다.</p></div></div>
+                <div class="numbered"><span class="num">3</span><div><b>연결은 홈에서 확인</b><p>개인키는 이 기기 밖으로 보내지 않습니다.</p></div></div>
+              </div>
+              <div id="setupRuntimeBanner" class="demo-ribbon mt16"><strong>서버 연결 전</strong> — 실제 수령 링크가 없으면 개인키나 구성을 만들지 않습니다.</div>
+              <button id="createProfileButton" class="primary" type="button" disabled>서버 선택 후 이 기기 구성 만들기</button>
+              <div id="profilePanel" class="stack mt16" hidden><label class="fine" for="profileConfig">이 기기 전용 WireGuard 구성</label><textarea id="profileConfig" class="runtime-config" readonly spellcheck="false"></textarea><button id="downloadProfileButton" class="secondary" type="button">.conf 파일로 이 기기에 저장</button><p class="fine">개인키가 포함된 파일입니다. 다른 사람에게 보내거나 클라우드에 올리지 마세요.</p></div>
+            </section>
+
+            <section class="screen active" data-screen="home" aria-label="홈 화면">
+              <div class="app-head"><div class="app-brand">FreeFlex<em>VPN</em></div><button class="icon-btn" type="button" data-go="account" aria-label="내 정보"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M5 20c.8-4 3.1-6 7-6s6.2 2 7 6"/></svg></button></div>
+              <div id="runtimeBanner" class="demo-ribbon"><strong>알파 준비 화면</strong> — 실제 VPN 서버 0대. 연결·결제·계정 생성은 발생하지 않습니다.</div>
+              <div class="balance-card" data-demo="wallet"><div class="balance-top"><div><small>정책 적용 시 시작 잔액 예시</small><div class="balance-number"><b id="balanceValue">1.00</b> <span>GB</span></div></div><strong>8월</strong></div><div class="meter"><span id="balanceMeter" style="width:100%"></span></div><div class="balance-split three"><span data-wallet-bucket="free">무료 <b>1.00GB</b></span><span data-wallet-bucket="earned">보상 <b>0.00GB</b></span><span data-wallet-bucket="paid">충전 <b id="paidBalance">0.00GB</b> · 무기한</span></div></div>
+              <div class="moment-title"><b>지금 VPN이 필요한 순간</b><span>선택 사항</span></div>
+              <div class="moment-grid" role="group" aria-label="VPN 사용 목적"><button class="moment-card" type="button" data-moment="public-wifi"><span>☕</span><b>공용 Wi‑Fi 보호</b><small>카페·공항에서 잠깐</small></button><button class="moment-card" type="button" data-moment="travel"><span>✈</span><b>여행 중 사용</b><small>낯선 네트워크에서</small></button><button class="moment-card" type="button" data-moment="region-web"><span>◎</span><b>다른 국가의 공개 웹</b><small>지역별 공개 정보 확인</small></button><button class="moment-card" type="button" data-moment="connection-help"><span>↻</span><b>연결 문제 해결</b><small>현재 상태부터 확인</small></button></div>
+              <p class="privacy-note">목적 선택은 이 화면 안에서만 사용하며 저장하거나 전송하지 않습니다.</p><button class="secondary moment-explorer-cta" type="button" data-go="moments">30개 사용 순간에서 맞춤 추천 찾기</button><button class="secondary moment-explorer-cta" type="button" data-go="platforms">PC·모바일 모든 기기에서 사용하기</button>
+              <div class="connect-wrap"><button id="connectOrb" class="connect-orb" type="button" aria-label="VPN 보호 상태 확인"><svg class="power" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10"/><path d="M6.3 5.7a8 8 0 1 0 11.4 0"/></svg><span id="connectLabel" class="connect-label">보호 확인</span></button><button class="direct-path" type="button" data-direct-check>목적 없이 바로 보호 확인</button></div>
+              <div id="statusCard" class="status-card disconnected" data-connection-state="disconnected" role="status" aria-live="polite"><span class="status-dot"></span><span class="grow"><b id="homeLocation">현재 VPN 보호 안 됨</b><small id="connectionDetail">가동 서버가 없어 연결할 수 없습니다.</small></span><button class="text-btn" type="button" data-go="protection">자세히</button></div>
+              <div class="quick-grid"><button class="quick" type="button" data-go="topup"><span class="q-icon">＋</span><b>용량 충전</b><small>결제 전 UI만</small></button><button class="quick" type="button" data-go="usage"><span class="q-icon">↗</span><b>잔액 구조</b><small>무료·보상·충전</small></button></div>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn active" type="button" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 9-8 9 8v9H5v-9"/></svg>홈</button><button class="nav-btn" type="button" data-go="usage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19V9m7 10V4m7 15v-6"/></svg>사용량</button><button class="nav-btn" type="button" data-go="devices"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 18h4"/></svg>기기</button><button class="nav-btn" type="button" data-go="account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M5 20c.8-4 3.1-6 7-6s6.2 2 7 6"/></svg>내 정보</button></nav>
+            </section>
+
+
+            <section class="screen" data-screen="moments" aria-label="VPN 순간 추천 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="home" aria-label="뒤로">‹</button><div><div class="app-brand">상황별 추천</div><span class="fine">30개 순간 · 국가 · 요금 단계</span></div><span style="width:40px"></span></div>
+              <div class="demo-ribbon"><strong>추천은 보장이 아닙니다</strong> — 연결 성공·가격·서비스 이용 가능 여부는 실제 서버와 해당 서비스 약관에 따라 달라집니다.</div>
+              <div class="moment-filters">
+                <label class="moment-filter">현재 있는 국가<select id="currentCountrySelect"><option value="">선택 안 함</option><option value="KR">대한민국</option><option value="JP">일본</option><option value="CN">중국</option><option value="IN">인도</option><option value="AE">아랍에미리트</option><option value="US">미국</option><option value="GB">영국</option><option value="DE">독일</option><option value="SG">싱가포르</option><option value="TH">태국</option><option value="AR">아르헨티나</option><option value="OTHER">기타</option></select></label>
+                <label class="moment-filter">목적 국가·본국<select id="destinationCountrySelect"><option value="">먼저 선택</option><option value="KR">대한민국</option><option value="JP">일본</option><option value="US">미국</option><option value="GB">영국</option><option value="DE">독일</option><option value="SG">싱가포르</option><option value="TH">태국</option><option value="IN">인도</option><option value="AR">아르헨티나</option><option value="AE">아랍에미리트</option><option value="CA">캐나다</option><option value="AU">호주</option><option value="FR">프랑스</option><option value="BR">브라질</option></select></label>
+                <label class="moment-filter">사용 목적<select id="momentCategorySelect"><option value="all">전체 목적</option><option value="safety">공공망 보호</option><option value="travel_home">여행·본국</option><option value="work">업무</option><option value="research">조사·QA</option><option value="diagnostic">연결 진단</option><option value="performance">성능</option><option value="content">콘텐츠·구독</option><option value="restricted">제한 국가</option></select></label>
+                <label class="moment-filter">검색<input id="momentSearchInput" type="search" placeholder="예: 와이파이, 여행"></label>
+              </div>
+              <div class="tier-filter" aria-label="요금 단계"><button class="tier-chip active" type="button" data-tier-filter="all">전체</button><button class="tier-chip" type="button" data-tier-filter="free">무료</button><button class="tier-chip" type="button" data-tier-filter="paid">유료 충전</button><button class="tier-chip" type="button" data-tier-filter="premium_planned">프리미엄 예정</button><button class="tier-chip" type="button" data-tier-filter="none">비지원</button></div>
+              <div id="countryPolicyBanner" class="country-policy">현재 국가를 선택하면 현지 상황에 맞춘 주의사항을 보여줍니다.</div>
+              <div class="moment-summary"><b id="momentRecommendationSummary">30개 순간</b><span>목적 정보는 전송하지 않음</span></div>
+              <div id="momentRecommendationList" class="moment-recommendations" aria-live="polite"></div>
+              <p class="privacy-note">현재 국가·목적 국가·검색어는 이 화면의 메모리에서만 사용하며 계정이나 서버 API로 전송하거나 저장하지 않습니다.</p>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn active" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn" type="button" data-go="wallet">▤<span>데이터</span></button><button class="nav-btn" type="button" data-go="referral">♡<span>함께</span></button><button class="nav-btn" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+
+            <section class="screen" data-screen="platforms" aria-label="모든 기기 지원 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="home" aria-label="뒤로">‹</button><div><div class="app-brand">모든 기기에서 사용</div><span class="fine">PC · Mac · Linux · Android · iOS</span></div><span style="width:40px"></span></div>
+              <div class="demo-ribbon"><strong>역할을 나눕니다</strong> — FreeFlexVPN 웹앱은 계정·잔액·추천·설정을 관리하고, 실제 VPN 터널은 운영체제의 공식 WireGuard 앱이 실행합니다.</div>
+              <div class="platform-badge"><span>감지된 기기</span><strong id="platformDetected">확인 중</strong></div>
+              <div class="platform-grid" role="group" aria-label="운영체제 선택"><button class="platform-choice" type="button" data-platform="windows"><span>▣</span><b>Windows</b></button><button class="platform-choice" type="button" data-platform="macos"><span>◇</span><b>Mac</b></button><button class="platform-choice" type="button" data-platform="linux"><span>▤</span><b>Linux</b></button><button class="platform-choice" type="button" data-platform="android"><span>▯</span><b>Android</b></button><button class="platform-choice" type="button" data-platform="ios"><span>▭</span><b>iPhone · iPad</b></button></div>
+              <div class="platform-flow">
+                <article class="platform-card"><div class="eyebrow">1 · 앱처럼 열기</div><h3 id="platformPwaTitle">FreeFlexVPN 웹앱 설치</h3><p id="platformPwaCopy">기기에 맞는 설치 방법을 확인합니다.</p><button id="platformInstallButton" class="secondary" type="button">이 기기에 FreeFlexVPN 설치</button></article>
+                <article class="platform-card"><div class="eyebrow">2 · 실제 VPN 사용</div><h3>공식 WireGuard 연결</h3><p id="platformWireguardCopy">공식 앱을 설치한 뒤 이 기기 전용 구성을 가져옵니다.</p><a id="wireguardInstallLink" class="secondary" href="https://www.wireguard.com/install/" target="_blank" rel="noopener noreferrer">공식 WireGuard 설치 페이지</a><button id="platformConfigButton" class="secondary" type="button" data-go="setup">이 기기 구성 준비</button></article>
+              </div>
+              <div class="platform-matrix" aria-label="지원 범위"><div class="platform-status"><b>웹·PWA 관리 화면</b><span>지금 사용 가능</span></div><div class="platform-status"><b>PC·모바일 앱 아이콘</b><span id="platformInstallState">설치 가능 여부 확인</span></div><div class="platform-status"><b>실제 VPN 터널</b><span id="platformVpnState">서버·로그인 필요</span></div><div class="platform-status"><b>오프라인</b><span>앱 셸만 · 연결 작업은 인터넷 필요</span></div></div>
+              <p class="privacy-note">운영체제 감지는 브라우저가 제공하는 기기 정보로 이 화면에서만 수행하며 서버로 전송하지 않습니다.</p>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn active" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn" type="button" data-go="wallet">▤<span>데이터</span></button><button class="nav-btn" type="button" data-go="referral">♡<span>함께</span></button><button class="nav-btn" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+
+            <section class="screen" data-screen="protection" aria-label="보호 상태 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="home" aria-label="뒤로">‹</button><b>보호 상태</b><span style="width:40px"></span></div>
+              <div class="demo-ribbon"><strong>실측 전용 화면</strong> — 실제 서버가 없어 어떤 항목도 통과로 표시하지 않습니다.</div>
+              <div class="status-card limited"><span class="status-dot"></span><span class="grow"><b>일부 확인 불가</b><small>터널을 시작할 실제 서버가 준비되지 않았습니다.</small></span></div>
+              <div class="state-legend" aria-label="보호 확인 항목">
+                <div class="state-row" data-check="tunnel"><i></i><div><b>WireGuard 터널</b><small>확인 불가 · 서버 0대</small></div></div>
+                <div class="state-row" data-check="exit-ip"><i></i><div><b>출구 IP</b><small>확인 불가 · 터널 없음</small></div></div>
+                <div class="state-row" data-check="dns"><i></i><div><b>DNS·IPv6 누수</b><small>실기기 검증 전 UNKNOWN</small></div></div>
+                <div class="state-row" data-check="checked-at"><i></i><div><b>최근 확인 시각</b><small>확인 성공 기록 없음</small></div></div>
+              </div>
+              <button class="secondary mt16" type="button" data-go="locations">서버 준비 상태 보기</button>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn active" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn" type="button" data-go="wallet">▤<span>데이터</span></button><button class="nav-btn" type="button" data-go="referral">♡<span>함께</span></button><button class="nav-btn" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+            <section class="screen" data-screen="locations" aria-label="국가 선택 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="home" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><b>접속 국가</b><span style="width:40px"></span></div>
+              <div id="serverCatalog" class="empty-catalog" data-catalog-source="runtime" data-server-count="0"><span class="flag">∅</span><b>현재 가동 서버가 없습니다</b><p>서버가 준비되면 실제 상태 확인을 통과한 국가와 도시만 이곳에 표시합니다. 예시 위치나 예상 지연시간은 보여주지 않습니다.</p></div>
+              <div class="region-label">보호 상태 기준</div><div class="state-legend" aria-label="연결 상태 5종">
+                <div class="state-row" data-state="setup_needed"><i></i><div><b>설정 필요</b><small>기기 설정을 먼저 완료해야 합니다.</small></div></div>
+                <div class="state-row" data-state="checking"><i></i><div><b>보호 확인 중</b><small>터널과 공개 IP를 확인하는 중입니다.</small></div></div>
+                <div class="state-row" data-state="protected"><i></i><div><b>VPN 보호 확인됨</b><small>실제 터널과 외부 확인이 모두 성공한 경우만 표시합니다.</small></div></div>
+                <div class="state-row" data-state="limited"><i></i><div><b>일부 확인 불가</b><small>연결 또는 외부 확인 결과가 충분하지 않습니다.</small></div></div>
+                <div class="state-row" data-state="disconnected"><i></i><div><b>현재 VPN 보호 안 됨</b><small>보호 연결이 없거나 서버가 준비되지 않았습니다.</small></div></div>
+              </div>
+            </section>
+
+            <section class="screen" data-screen="topup" aria-label="용량 충전 화면">
+              <div class="app-head"><button class="icon-btn" type="button" data-go="home" aria-label="뒤로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button><b>용량 충전</b><span style="width:40px"></span></div>
+              <div class="plan-balance"><small>현재 충전 잔액</small><strong id="topupCurrent">0.00GB</strong><span class="promise">유효기간 무제한</span></div>
+              <div class="amounts"><button class="amount selected" type="button" data-gb="3" data-price="1500"><b>3GB</b><span>가끔 필요한 순간</span><em>1,500원</em></button><button class="amount" type="button" data-gb="10" data-price="3900"><b>10GB</b><span>여행·라이트 사용</span><em>3,900원</em></button><button id="morePack" class="amount" type="button" data-gb="30" data-price="8900" hidden><b>30GB</b><span>더 필요한 경우</span><em>8,900원</em></button></div><button id="showMorePack" class="text-btn mt8" type="button">30GB 옵션 더 보기</button><p class="fine">100GB·300GB는 라이트 사용자 파일럿 수요 확인 전 기본 판매에서 숨깁니다.</p>
+              <div class="benefit mt16"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M5 7h11a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h11"/></svg><div><b>자동결제·정기구독 없음</b><p>선택한 용량만 한 번 충전합니다. 실제 결제 사업자는 아직 연결되지 않았습니다.</p></div></div>
+              <button id="topupButton" class="primary mt24" type="button">3GB · 1,500원 충전 시뮬레이션</button><p class="fine" style="text-align:center">가격은 현재 서비스 기획의 설계안이며 지불의사 미검증 상태입니다. 화면 시연이며 결제 요청을 전송하지 않습니다.</p>
+            </section>
+
+
+            <section class="screen" data-screen="wallet" aria-label="데이터 지갑 화면">
+              <div class="app-head"><div><div class="app-brand">데이터 지갑</div><span class="fine">무료 → 보상 → 충전 순서</span></div><button class="icon-btn" type="button" data-go="usage" aria-label="사용 기록">↗</button></div>
+              <div id="walletRuntimeBanner" class="demo-ribbon"><strong>UI 예시</strong> — 로컬 원장 엔진은 검사됐지만 이 공개 화면은 아직 계정 API와 동기화되지 않았습니다.</div>
+              <div class="usage-hero"><small>현재 사용 가능한 데이터</small><div class="big"><span id="walletTotalValue">1.00</span> <span>GB</span></div></div>
+              <div class="region-label">잔액 3종</div>
+              <div class="usage-row" data-wallet-view="free"><span class="usage-dot"></span><span class="grow"><b>무료 데이터</b><small>매월 1GB · 해당 월 말까지</small></span><strong>1.00GB</strong></div>
+              <div class="usage-row" data-wallet-view="earned"><span class="usage-dot" style="background:var(--violet)"></span><span class="grow"><b>함께 받은 데이터</b><small>추천 보상 · 무기한</small></span><strong>0.00GB</strong></div>
+              <div class="usage-row" data-wallet-view="paid"><span class="usage-dot paid"></span><span class="grow"><b>충전 데이터</b><small>일회성 구매 · 무기한</small></span><strong>0.00GB</strong></div>
+              <div class="empty-catalog mt16"><span class="flag">↗</span><b>아직 세션 영수증이 없습니다</b><p>실제 터널 사용량이 확정되면 사용 전·후 잔액과 차감 순서를 기록합니다.</p></div>
+              <button class="secondary mt16" type="button" data-go="topup">용량 충전 설계 보기</button>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn active" type="button" data-go="wallet">▤<span>데이터</span></button><button class="nav-btn" type="button" data-go="referral">♡<span>함께</span></button><button class="nav-btn" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+            <section class="screen" data-screen="referral" aria-label="친구와 나누기 화면">
+              <div class="app-head"><div><div class="app-brand">친구와 나누기</div><span class="fine">양쪽에 500MB</span></div><button class="icon-btn" type="button" data-go="account" aria-label="내 정보">○</button></div>
+              <div class="demo-ribbon"><strong>보상 엔진 검증 완료</strong> — 공개 계정 API가 없어 링크·QR 발급과 실제 보상은 아직 비활성입니다.</div>
+              <div class="balance-card"><div class="eyebrow">친구와 함께 받기</div><div class="balance-number">500 <span>MB씩</span></div><p class="sub">친구가 첫 실제 보호에 성공하고 누적 100MB를 사용하면 양쪽에 무기한 데이터를 지급합니다.</p></div>
+              <div class="region-label">진행 기준</div><div class="state-legend" data-referral-rail>
+                <div class="state-row"><i></i><div><b>1. 링크로 신규 가입</b><small>연락처 업로드 없이 공유</small></div></div>
+                <div class="state-row"><i></i><div><b>2. 첫 실제 보호 확인</b><small>시뮬레이션 연결은 제외</small></div></div>
+                <div class="state-row"><i></i><div><b>3. 누적 100MB 사용</b><small>중복 사용량 사건은 한 번만 계산</small></div></div>
+                <div class="state-row"><i></i><div><b>4. 양쪽 500MB 지급</b><small>추천인 월 5건 확정 상한</small></div></div>
+              </div>
+              <button id="shareReferralButton" class="primary mt16" type="button" disabled>친구와 500MB씩 받는 링크 만들기</button><input id="shareReferralOutput" class="runtime-output mt8" type="text" readonly hidden aria-label="추천 공유 링크">
+              <p class="fine" style="text-align:center">가짜 추천 코드나 공유 성공을 만들지 않습니다.</p>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn" type="button" data-go="wallet">▤<span>데이터</span></button><button class="nav-btn active" type="button" data-go="referral">♡<span>함께</span></button><button class="nav-btn" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+            <section class="screen" data-screen="devices" aria-label="기기 관리 화면">
+              <div class="app-head"><div><div class="app-brand">기기 관리</div><span class="fine">계정당 활성 공개키 기준</span></div><button class="icon-btn" type="button" data-go="account" aria-label="설정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.5 1a8 8 0 0 0-1.8-1L14.2 3h-4.4l-.4 3a8 8 0 0 0-1.8 1L5.1 6 3 9.4 5 11a7 7 0 0 0 0 2l-2 1.6L5.1 18l2.5-1a8 8 0 0 0 1.8 1l.4 3h4.4l.4-3a8 8 0 0 0 1.8-1l2.5 1 2.1-3.4-2-1.6a7 7 0 0 0 .1-1Z"/></svg></button></div>
+              <div class="device-count"><div><span>등록됨</span><strong id="deviceCountValue">0 / 2</strong></div><span>활성 기기 한도</span></div>
+              <div id="deviceList" class="empty-catalog"><span class="flag">▯</span><b>등록된 기기가 없습니다</b><p>실제 계정과 WireGuard 서버가 준비된 뒤, 이 기기에서 생성한 공개키만 등록합니다.</p></div>
+              <div class="limit-note">같은 WireGuard 키를 여러 기기에 복사하면 물리 기기 수를 구분할 수 없습니다. 개인키는 기기 밖으로 전송하지 않습니다.</div>
+              <button id="addDeviceButton" class="primary mt16" type="button" disabled>새 기기 구성 만들기</button>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn" type="button" data-go="usage">↗<span>사용량</span></button><button class="nav-btn active" type="button" data-go="devices">▯<span>기기</span></button><button class="nav-btn" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+            <section class="screen" data-screen="usage" aria-label="사용량 화면">
+              <div class="app-head"><div><div class="app-brand">8월 사용량</div><span class="fine">무료 데이터부터 차감</span></div><button class="icon-btn" type="button" data-toast="월별 내역 다운로드는 아직 연결되지 않았습니다." aria-label="내보내기">↗</button></div>
+              <div class="usage-hero"><small>이번 달 사용</small><div class="big">0.00 <span>GB</span></div><div class="chart" aria-label="최근 7일 사용량 예시"><div class="bar-col"><i style="height:16%"></i><span>월</span></div><div class="bar-col"><i style="height:42%"></i><span>화</span></div><div class="bar-col"><i style="height:25%"></i><span>수</span></div><div class="bar-col"><i style="height:70%"></i><span>목</span></div><div class="bar-col"><i style="height:34%"></i><span>금</span></div><div class="bar-col"><i style="height:88%"></i><span>토</span></div><div class="bar-col"><i style="height:50%"></i><span>일</span></div></div><p class="fine">실사용 데이터가 없어 모든 값은 0입니다.</p></div>
+              <div class="region-label">잔액 구성</div><div class="usage-row"><span class="usage-dot"></span><span class="grow"><b>무료 데이터</b><small>매월 1일 UTC 초기화</small></span><strong>1.00GB</strong></div><div class="usage-row"><span class="usage-dot" style="background:var(--violet)"></span><span class="grow"><b>보상 데이터</b><small>추천 보상 · 유효기간 없음</small></span><strong id="usageEarned">0.00GB</strong></div><div class="usage-row"><span class="usage-dot paid"></span><span class="grow"><b>충전 데이터</b><small>유효기간 없음</small></span><strong id="usagePaid">0.00GB</strong></div>
+              <button class="secondary mt24" type="button" data-go="topup">용량 충전하기</button>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn active" type="button" data-go="usage">↗<span>사용량</span></button><button class="nav-btn" type="button" data-go="devices">▯<span>기기</span></button><button class="nav-btn" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+            <section class="screen" data-screen="account" aria-label="내 정보 화면">
+              <div class="app-head"><div class="app-brand">내 정보</div><button class="icon-btn" type="button" data-toast="알림 설정은 프로토타입입니다." aria-label="알림">♢</button></div>
+              <div class="account-card"><div class="avatar">F</div><b>FreeFlex 사용자</b><span>Telegram 가명 계정 · 원본 ID 미저장</span></div>
+              <div class="menu"><button class="menu-item" type="button" data-go="devices"><span class="menu-icon">▯</span><span class="grow"><b>기기 관리</b><small>활성 2대 / 최대 2대</small></span><span class="chev">›</span></button><button class="menu-item" type="button" data-go="topup"><span class="menu-icon">＋</span><span class="grow"><b>충전·결제 내역</b><small>자동결제 없음</small></span><span class="chev">›</span></button><button class="menu-item" type="button" data-toast="서비스 상태 페이지는 실제 운영 서버 연결 후 제공됩니다."><span class="menu-icon">✓</span><span class="grow"><b>서비스 상태</b><small>현재 프로토타입</small></span><span class="chev">›</span></button><button class="menu-item" type="button" data-toast="정책 문서는 현재 초안 준비 단계입니다."><span class="menu-icon">i</span><span class="grow"><b>이용약관·개인정보</b><small>최소 수집 원칙</small></span><span class="chev">›</span></button></div>
+              <button class="danger-btn mt24" type="button" data-toast="실제 계정 삭제 요청은 전송되지 않았습니다.">계정과 VPN 피어 삭제</button><div class="build-info">FreeFlexVPN · Alpha UI v2.2 · ALL DEVICES<br>실제 VPN 서버·결제·계정 기능 없음</div>
+              <nav class="bottom-nav" aria-label="하단 메뉴"><button class="nav-btn" type="button" data-go="home">⌂<span>홈</span></button><button class="nav-btn" type="button" data-go="usage">↗<span>사용량</span></button><button class="nav-btn" type="button" data-go="devices">▯<span>기기</span></button><button class="nav-btn active" type="button" data-go="account">○<span>내 정보</span></button></nav>
+            </section>
+
+            <div id="toast" class="toast" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="notes">
+        <div class="section-label">Design rationale</div><h2 id="noteTitle">홈 · 필요한 순간과 보호 상태</h2><p id="noteCopy" class="note-copy">VPN이 필요한 구체적인 순간을 먼저 고르고, 실제로 확인 가능한 보호 상태만 보여줍니다.</p>
+        <article class="note-card good"><b>제품 계약을 화면에 고정</b><p>월 무료 1GB와 충전분 무기한을 잔액 카드에서 항상 분리 표시합니다.</p></article>
+        <article class="note-card"><b>무료분 우선 차감</b><p>사용량 화면에서 무료분과 충전분을 별도 색으로 표현해 차감 순서를 이해시킵니다.</p></article>
+        <article class="note-card warn"><b>정직한 프로토타입</b><p>실제 서버·결제·계정이 연결되지 않았음을 앱 안에서 반복 고지합니다.</p></article>
+        <div class="legend"><i></i> 민트색은 현재 가능한 주 행동</div>
+      </aside>
+    </main>
+
+    <section class="storyboard" aria-label="전체 화면 구성">
+      <div class="storyboard-head"><div><div class="section-label">Storyboard</div><h2>전체 화면을 한눈에</h2><p>각 카드를 누르면 위 모바일 화면으로 이동합니다.</p></div><span class="tag">Mobile first · 390 × 780</span></div>
+      <div class="thumbs"><button class="thumb" type="button" data-go="welcome"><span>01</span><b>시작</b><small>무료·무기한·비구독</small></button><button class="thumb" type="button" data-go="consent"><span>02</span><b>동의</b><small>최소 정보 원칙</small></button><button class="thumb" type="button" data-go="setup"><span>03</span><b>설정</b><small>WireGuard 키 분리</small></button><button class="thumb" type="button" data-go="home"><span>04</span><b>홈</b><small>순간과 보호 상태</small></button><button class="thumb" type="button" data-go="moments"><span>05</span><b>추천</b><small>30개 순간·국가</small></button><button class="thumb" type="button" data-go="platforms"><span>06</span><b>기기</b><small>PC·모바일·PWA</small></button><button class="thumb" type="button" data-go="protection"><span>07</span><b>보호</b><small>실측 상태 기준</small></button><button class="thumb" type="button" data-go="locations"><span>08</span><b>국가</b><small>가동 서버 없음</small></button><button class="thumb" type="button" data-go="wallet"><span>09</span><b>지갑</b><small>무료·보상·충전</small></button><button class="thumb" type="button" data-go="topup"><span>10</span><b>충전</b><small>일회성 결제</small></button><button class="thumb" type="button" data-go="referral"><span>11</span><b>함께</b><small>양쪽 500MB</small></button><button class="thumb" type="button" data-go="devices"><span>12</span><b>기기</b><small>공개키 2개 제한</small></button><button class="thumb" type="button" data-go="usage"><span>13</span><b>사용량</b><small>무료분 우선</small></button><button class="thumb" type="button" data-go="account"><span>14</span><b>내 정보</b><small>상태·삭제</small></button></div>
+    </section>
+  </div>
+
+  <aside id="installBanner" class="install-banner" aria-live="polite" hidden>
+    <div class="install-copy"><b>FreeFlexVPN을 홈 화면에 추가</b><p id="installHelp">설치하면 다음 접속 때 앱처럼 빠르게 열 수 있습니다. PWA 설치와 오프라인 캐시는 HTTPS 공개 주소에서만 동작합니다.</p></div>
+    <div class="install-actions"><button id="installAppButton" class="install-primary" type="button" hidden>설치</button><button id="installDismiss" type="button">나중에</button></div>
+  </aside>
+
+  <script>
+    const screens=[...document.querySelectorAll('[data-screen]')];
+    const links=[...document.querySelectorAll('.screen-link')];
+    const notes={
+      welcome:['시작 · 한 문장 가치','정액제 피로가 있는 라이트 사용자에게 월 1GB 무료와 무기한 충전이라는 차이를 첫 화면에서 바로 설명합니다.'],
+      consent:['동의 · 최소 정보','저장하는 정보와 저장하지 않는 정보를 대칭으로 보여주고, 개인키가 Telegram 밖에 머문다는 경계를 명확히 합니다.'],
+      setup:['설정 · 안전한 키 생성','공식 WireGuard 앱을 활용해 네이티브 앱 개발 전에도 안전한 연결 흐름을 제공하는 구조입니다.'],
+      home:['홈 · 필요한 순간과 보호 상태','VPN이 필요한 구체적인 순간을 먼저 고르고, 실제로 확인 가능한 보호 상태만 보여줍니다.'],
+      moments:['상황별 추천 · 30개 순간','현재 국가와 목적에 따라 목적 국가·무료·유료·프리미엄 예정 단계를 추천하며 비지원 목적은 연결하지 않습니다.'],
+      platforms:['모든 기기 · 역할 분리','Windows·Mac·Linux·Android·iOS에서 PWA 관리 화면과 공식 WireGuard 터널의 역할을 나눠 안내합니다.'],
+      protection:['보호 상태 · 실측 전용','터널·출구 IP·DNS·최근 확인 시각을 분리하고, 서버와 실기기 증거가 없으면 확인 불가로 유지합니다.'],
+      locations:['서버 상태 · 빈 카탈로그','실제 서버가 0대인 동안 예시 국가와 지연시간을 만들지 않습니다. 다섯 상태의 의미를 같은 화면에서 확인할 수 있습니다.'],
+      wallet:['데이터 지갑 · 세 잔액','무료·추천·구매 잔액과 차감 순서, 세션 영수증의 동기화 경계를 보여줍니다.'],
+      referral:['친구와 나누기 · 양쪽 보상','실제 보호와 100MB 이후 양쪽 500MB를 지급하며 공개 API 전에는 공유를 비활성으로 둡니다.'],
+      topup:['충전 · 구독 없는 결제','필요 용량을 한 번만 구매하며 자동결제와 만료가 없다는 제품 차별점을 결제 직전에 재확인합니다.'],
+      devices:['기기 · 계정 공유 제한','활성 WireGuard 공개키 2개 제한을 사용자 언어로 표현하고, 같은 키 복제는 구분할 수 없다는 기술 한계를 숨기지 않습니다.'],
+      usage:['사용량 · 차감 순서','무료 데이터와 충전 데이터를 분리해 무료분이 먼저 쓰이고 유료 잔액은 보존된다는 규칙을 시각화합니다.'],
+      account:['내 정보 · 운영 신뢰','서비스 상태, 정책, 기기 폐기, 계정 삭제를 한곳에 배치해 라이트 사용자가 필요할 때만 관리하도록 합니다.']
+    };
+    function go(name){
+      screens.forEach(s=>s.classList.toggle('active',s.dataset.screen===name));
+      links.forEach(l=>l.classList.toggle('active',l.dataset.go===name));
+      const n=notes[name]||notes.home;document.getElementById('noteTitle').textContent=n[0];document.getElementById('noteCopy').textContent=n[1];
+      const active=document.querySelector(`[data-screen="${name}"]`);if(active)active.scrollTop=0;
+      if(innerWidth<781)document.querySelector('.stage').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    document.addEventListener('click',e=>{const target=e.target.closest('[data-go]');if(target)go(target.dataset.go)});
+    const consent=document.getElementById('consentCheck'),consentNext=document.getElementById('consentNext');
+    consent.addEventListener('change',()=>{consentNext.disabled=!consent.checked});
+    const orb=document.getElementById('connectOrb'),label=document.getElementById('connectLabel'),detail=document.getElementById('connectionDetail'),statusCard=document.getElementById('statusCard'),statusTitle=document.getElementById('homeLocation');
+    const connectionStates={
+      setup_needed:['설정 필요','기기 설정을 먼저 완료해야 합니다.'],
+      checking:['보호 확인 중','터널과 공개 IP를 확인하고 있습니다.'],
+      protected:['VPN 보호 확인됨','실제 터널과 외부 확인이 모두 성공했습니다.'],
+      limited:['일부 확인 불가','가동 서버가 없어 보호 여부를 끝까지 확인할 수 없습니다.'],
+      disconnected:['현재 VPN 보호 안 됨','가동 서버가 없어 연결할 수 없습니다.']
+    };
+    function setConnectionState(state){const copy=connectionStates[state];statusCard.dataset.connectionState=state;statusCard.className=`status-card ${state}`;statusTitle.textContent=copy[0];detail.textContent=copy[1];label.textContent=state==='checking'?'확인 중…':'보호 확인';orb.disabled=state==='checking'}
+    window.setConnectionState=setConnectionState;
+    function checkProtection(){setConnectionState('checking');toast('실제 연결 가능 여부를 확인합니다.');if(document.documentElement.dataset.apiMode==='live'){window.dispatchEvent(new CustomEvent('freeflex:check-protection'));return}setTimeout(()=>{setConnectionState('limited');toast('가동 서버가 없어 보호 연결을 시작하지 않았습니다.')},650)}
+    orb.addEventListener('click',checkProtection);
+    document.querySelector('[data-direct-check]').addEventListener('click',checkProtection);
+    document.querySelectorAll('[data-moment]').forEach(card=>card.addEventListener('click',()=>{document.querySelectorAll('[data-moment]').forEach(item=>item.classList.toggle('selected',item===card));toast(`${card.querySelector('b').textContent} 목적을 이 화면에만 적용했습니다.`)}));
+    let selectedGb=3,selectedPrice=1500,paid=0;
+    document.getElementById('showMorePack').addEventListener('click',event=>{document.getElementById('morePack').hidden=false;event.currentTarget.hidden=true;toast('30GB 옵션을 펼쳤습니다. 실제 결제는 없습니다.')});
+    document.querySelectorAll('.amount').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('.amount').forEach(x=>x.classList.remove('selected'));a.classList.add('selected');selectedGb=Number(a.dataset.gb);selectedPrice=Number(a.dataset.price);document.getElementById('topupButton').textContent=`${selectedGb}GB · ${selectedPrice.toLocaleString('ko-KR')}원 충전 시뮬레이션`}));
+    document.getElementById('topupButton').addEventListener('click',()=>{paid+=selectedGb;document.getElementById('paidBalance').textContent=`${paid.toFixed(2)}GB`;document.getElementById('topupCurrent').textContent=`${paid.toFixed(2)}GB`;document.getElementById('usagePaid').textContent=`${paid.toFixed(2)}GB`;document.getElementById('balanceValue').textContent=(paid+1).toFixed(2);toast(`${selectedGb}GB 충전 화면을 시뮬레이션했습니다. 실제 결제는 없습니다.`)});
+    document.addEventListener('click',e=>{const t=e.target.closest('[data-toast]');if(t)toast(t.dataset.toast)});
+    let toastTimer;function toast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2400)}
+  </script>
+  <script>
+    (()=>{
+      const banner=document.getElementById('installBanner'),installButton=document.getElementById('installAppButton'),dismissButton=document.getElementById('installDismiss'),help=document.getElementById('installHelp');
+      const standalone=matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+      let deferredPrompt=null,sessionDismissed=false;
+      const dismissedRecently=()=>{try{return Number(localStorage.getItem('ffvpn-install-dismissed')||0)>Date.now()-86400000}catch{return sessionDismissed}};
+      const rememberDismissal=()=>{sessionDismissed=true;try{localStorage.setItem('ffvpn-install-dismissed',String(Date.now()))}catch{}};
+      const hide=()=>{banner.hidden=true};
+      const show=()=>{if(!standalone&&!dismissedRecently())banner.hidden=false};
+      globalThis.freeflexShowInstallHelp=show;globalThis.freeflexIsStandalone=standalone;
+      if(!standalone){
+        const isiOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+        if(isiOS){help.textContent='Safari의 공유 버튼을 누른 뒤 “홈 화면에 추가”를 선택하세요. PWA 설치와 오프라인 캐시는 HTTPS 공개 주소에서만 동작합니다.';show()}
+        window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferredPrompt=event;installButton.hidden=false;show()});
+      }
+      globalThis.freeflexRequestInstall=async()=>{if(!deferredPrompt){show();return false}await deferredPrompt.prompt();const choice=await deferredPrompt.userChoice;deferredPrompt=null;installButton.hidden=true;hide();return choice.outcome==='accepted'};
+      installButton.addEventListener('click',globalThis.freeflexRequestInstall);
+      dismissButton.addEventListener('click',()=>{rememberDismissal();hide()});
+      window.addEventListener('appinstalled',()=>{deferredPrompt=null;hide()});
+      if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(()=>{});
+    })();
+  </script>
+  <script>
+    if(new URLSearchParams(location.search).has('layout_probe')){
+      const targets=[...document.querySelectorAll('[data-screen="home"] .moment-card[data-moment], [data-screen="home"] .quick[data-go]')];
+      document.body.getBoundingClientRect();
+      const nav=document.querySelector('[data-screen="home"] .bottom-nav');
+      const navRect=nav?.getBoundingClientRect();
+      const intersects=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
+      const safe=targets.length===6&&Boolean(navRect)&&targets.every(target=>{
+        const rect=target.getBoundingClientRect();
+        if(intersects(rect,navRect))return false;
+        const centerX=rect.left+rect.width/2,centerY=rect.top+rect.height/2;
+        if(centerX<0||centerX>innerWidth||centerY<0||centerY>innerHeight)return true;
+        const hit=document.elementFromPoint(centerX,centerY);
+        return Boolean(hit&&target.contains(hit));
+      });
+      document.documentElement.dataset.layoutSafe=safe?'pass':'fail';
+    }
+  </script>
+  <script type="module" data-freeflex-runtime="inline">
+// pwa_api_client.js
+/** FreeFlexVPN PWA control-plane client. Tokens remain in memory/session scope. */
+
+const TOKEN_KEY = "ffvpn-session-v1";
+const API_TIMEOUT_MS = 12_000;
+
+class FreeFlexApiError extends Error {
+  constructor(code, status, message) {
+    super(message || "요청을 완료하지 못했습니다.");
+    this.name = "FreeFlexApiError";
+    this.code = code || "API_ERROR";
+    this.status = Number(status || 0);
+  }
+}
+
+class SessionVault {
+  constructor(storage) {
+    this.storage = null;
+    this.memoryToken = null;
+    this.persistence = "memory";
+    try {
+      this.storage = storage === undefined ? globalThis.sessionStorage : storage;
+      const stored = this.storage?.getItem(TOKEN_KEY);
+      if (stored) this.memoryToken = stored;
+      if (this.storage) this.persistence = "session";
+    } catch (_error) {
+      this.storage = null;
+      this.persistence = "memory";
+    }
+  }
+
+  get() { return this.memoryToken; }
+
+  set(token) {
+    if (typeof token !== "string" || token.length < 32) throw new Error("SESSION_TOKEN_INVALID");
+    this.memoryToken = token;
+    try {
+      this.storage?.setItem(TOKEN_KEY, token);
+      if (this.storage) this.persistence = "session";
+    } catch (_error) {
+      this.persistence = "memory";
+    }
+    return this.persistence;
+  }
+
+  clear() {
+    this.memoryToken = null;
+    try { this.storage?.removeItem(TOKEN_KEY); } catch (_error) { /* memory was cleared */ }
+  }
+}
+
+function validateApiBase(value) {
+  let url;
+  try { url = new URL(value); } catch (_error) { throw new Error("API_BASE_INVALID"); }
+  if (url.protocol !== "https:" || url.username || url.password || url.search || url.hash) {
+    throw new Error("HTTPS_API_BASE_REQUIRED");
+  }
+  return url.href.replace(/\/$/, "");
+}
+
+class FreeFlexApiClient {
+  constructor({ apiBase, fetchImpl = globalThis.fetch, vault = new SessionVault(), timeoutMs = API_TIMEOUT_MS }) {
+    this.apiBase = validateApiBase(apiBase);
+    if (typeof fetchImpl !== "function") throw new Error("FETCH_UNAVAILABLE");
+    if (!Number.isInteger(timeoutMs) || timeoutMs < 1_000 || timeoutMs > 30_000) throw new Error("TIMEOUT_INVALID");
+    this.fetchImpl = (...args) => fetchImpl(...args);
+    this.vault = vault;
+    this.timeoutMs = timeoutMs;
+  }
+
+  async request(path, { method = "GET", body, authenticated = false, deviceId } = {}) {
+    if (!/^\/v1\/[a-z0-9/_-]+$/i.test(path)) throw new Error("API_PATH_INVALID");
+    const headers = { "Accept": "application/json" };
+    if (body !== undefined) headers["Content-Type"] = "application/json";
+    if (authenticated) {
+      const token = this.vault.get();
+      if (!token) throw new FreeFlexApiError("AUTH_REQUIRED", 401, "로그인 수령 링크가 필요합니다.");
+      headers.Authorization = `Bearer ${token}`;
+    }
+    if (deviceId) headers["X-FreeFlex-Device"] = deviceId;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), this.timeoutMs);
+    let response;
+    try {
+      response = await this.fetchImpl(`${this.apiBase}${path}`, {
+        method, headers, body: body === undefined ? undefined : JSON.stringify(body),
+        signal: controller.signal, credentials: "omit", cache: "no-store",
+      });
+    } catch (error) {
+      const code = error?.name === "AbortError" ? "API_TIMEOUT" : "API_UNREACHABLE";
+      throw new FreeFlexApiError(code, 0, "FreeFlexVPN 서버에 연결할 수 없습니다.");
+    } finally {
+      clearTimeout(timer);
+    }
+    let payload;
+    try { payload = await response.json(); } catch (_error) {
+      throw new FreeFlexApiError("INVALID_API_RESPONSE", response.status, "서버 응답 형식이 올바르지 않습니다.");
+    }
+    if (!response.ok || !payload || typeof payload !== "object" || Array.isArray(payload)) {
+      if (authenticated && response.status === 401) this.vault.clear();
+      throw new FreeFlexApiError(payload?.error, response.status, payload?.message);
+    }
+    return payload;
+  }
+
+  catalog() { return this.request("/v1/catalog"); }
+  wallet() { return this.request("/v1/wallet", { authenticated: true }); }
+  usage() { return this.request("/v1/usage", { authenticated: true }); }
+  devices() { return this.request("/v1/devices", { authenticated: true }); }
+  referrals() { return this.request("/v1/referrals", { authenticated: true }); }
+  issueReferral() { return this.request("/v1/referrals", { method: "POST", authenticated: true }); }
+  check(deviceId) { return this.request("/v1/check", { authenticated: Boolean(this.vault.get()), deviceId }); }
+  registerDevice(publicKey, serverId) {
+    return this.request("/v1/devices", {
+      method: "POST", authenticated: true, body: { wg_public_key: publicKey, server_id: serverId },
+    });
+  }
+  revokeDevice(deviceId) {
+    if (!/^[a-f0-9]{32}$/.test(deviceId || "")) throw new Error("DEVICE_ID_INVALID");
+    return this.request(`/v1/devices/${deviceId}`, { method: "DELETE", authenticated: true });
+  }
+
+  async exchangeClaim(claim, referralToken = null) {
+    if (typeof claim !== "string" || claim.length < 32) throw new FreeFlexApiError("INVALID_CLAIM", 401, "수령 링크가 올바르지 않습니다.");
+    const body = { claim };
+    if (referralToken) body.referral_token = referralToken;
+    const result = await this.request("/v1/claims/exchange", { method: "POST", body });
+    const persistence = this.vault.set(result.access_token);
+    const { access_token: _discarded, ...safeResult } = result;
+    return { ...safeResult, session_persistence: persistence };
+  }
+}
+
+function consumeLaunchParameters(client, locationImpl = globalThis.location, historyImpl = globalThis.history) {
+  const url = new URL(locationImpl.href);
+  const hashText = url.hash.startsWith("#claim=") || url.hash.startsWith("#ref=") ? url.hash.slice(1) : "";
+  const hashParams = new URLSearchParams(hashText);
+  const claim = hashParams.get("claim") || url.searchParams.get("claim");
+  const referral = hashParams.get("ref") || url.searchParams.get("ref");
+  if (!claim) return Promise.resolve({ exchanged: false, referral });
+  return client.exchangeClaim(claim, referral).then((result) => {
+    url.searchParams.delete("claim");
+    url.searchParams.delete("ref");
+    if (hashText) url.hash = "";
+    historyImpl.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    return { exchanged: true, result };
+  });
+}
+
+function buildClaimLaunchUrl(appUrl, claim, referralToken = null) {
+  const url = new URL(appUrl);
+  if (url.protocol !== "https:" || url.username || url.password) throw new Error("HTTPS_APP_URL_REQUIRED");
+  if (typeof claim !== "string" || claim.length < 32) throw new Error("CLAIM_INVALID");
+  url.searchParams.delete("claim");
+  url.searchParams.delete("ref");
+  const fragment = new URLSearchParams({ claim });
+  if (referralToken) fragment.set("ref", referralToken);
+  url.hash = fragment.toString();
+  return url.href;
+}
+
+function bytesToGb(value) {
+  const number = Number(value);
+  if (!Number.isSafeInteger(number) || number < 0) throw new Error("BYTE_COUNT_INVALID");
+  return (number / 1_000_000_000).toFixed(2);
+}
+
+// client_keygen.js
+/**
+ * FreeFlexVPN client-side WireGuard key handling.
+ *
+ * The private key is generated and used only in this browser context.  It is
+ * never placed in a request body or browser persistence by this module.
+ */
+
+const KEY_BYTES = 32;
+
+function bytesToBase64(bytes) {
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary);
+}
+
+function base64UrlToBytes(value) {
+  const padded = value.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((value.length + 3) % 4);
+  const binary = atob(padded);
+  return Uint8Array.from(binary, (char) => char.charCodeAt(0));
+}
+
+function decodeWireGuardKey(value, field) {
+  if (typeof value !== "string" || !/^[A-Za-z0-9+/]{42}[AEIMQUYcgkosw048]=$/.test(value)) {
+    throw new Error(`${field} must be a 32-byte WireGuard key`);
+  }
+  const decoded = Uint8Array.from(atob(value), (char) => char.charCodeAt(0));
+  if (decoded.length !== KEY_BYTES) throw new Error(`${field} must be 32 bytes`);
+  return decoded;
+}
+
+function requireWebCrypto(cryptoImpl) {
+  if (!cryptoImpl || !cryptoImpl.subtle || typeof cryptoImpl.subtle.generateKey !== "function") {
+    throw new Error("BROWSER_X25519_UNAVAILABLE");
+  }
+  return cryptoImpl;
+}
+
+async function supportsBrowserX25519(cryptoImpl = globalThis.crypto) {
+  try {
+    const cryptoApi = requireWebCrypto(cryptoImpl);
+    const pair = await cryptoApi.subtle.generateKey({ name: "X25519" }, true, ["deriveBits"]);
+    const [privateJwk, publicJwk] = await Promise.all([
+      cryptoApi.subtle.exportKey("jwk", pair.privateKey),
+      cryptoApi.subtle.exportKey("jwk", pair.publicKey),
+    ]);
+    return Boolean(privateJwk.d && publicJwk.x);
+  } catch (_error) {
+    return false;
+  }
+}
+
+async function generateWireGuardKeyPair(cryptoImpl = globalThis.crypto) {
+  const cryptoApi = requireWebCrypto(cryptoImpl);
+  let pair;
+  try {
+    pair = await cryptoApi.subtle.generateKey({ name: "X25519" }, true, ["deriveBits"]);
+  } catch (_error) {
+    throw new Error("BROWSER_X25519_UNAVAILABLE");
+  }
+
+  const [privateJwk, publicJwk] = await Promise.all([
+    cryptoApi.subtle.exportKey("jwk", pair.privateKey),
+    cryptoApi.subtle.exportKey("jwk", pair.publicKey),
+  ]);
+  const privateBytes = base64UrlToBytes(privateJwk.d || "");
+  const publicBytes = base64UrlToBytes(publicJwk.x || "");
+  if (privateBytes.length !== KEY_BYTES || publicBytes.length !== KEY_BYTES) {
+    throw new Error("BROWSER_X25519_INVALID_KEY");
+  }
+  return Object.freeze({
+    privateKey: bytesToBase64(privateBytes),
+    publicKey: bytesToBase64(publicBytes),
+  });
+}
+
+async function registerPublicKey({ apiBase, sessionToken, publicKey, serverId, fetchImpl = globalThis.fetch }) {
+  decodeWireGuardKey(publicKey, "publicKey");
+  if (!/^https:\/\//.test(apiBase || "")) throw new Error("HTTPS_API_REQUIRED");
+  if (typeof sessionToken !== "string" || sessionToken.length < 20) throw new Error("SESSION_REQUIRED");
+  if (!/^[a-z0-9][a-z0-9-]{1,62}$/.test(serverId || "")) throw new Error("SERVER_ID_INVALID");
+  if (typeof fetchImpl !== "function") throw new Error("FETCH_UNAVAILABLE");
+
+  const response = await fetchImpl(`${apiBase.replace(/\/$/, "")}/v1/devices`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${sessionToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ wg_public_key: publicKey, server_id: serverId }),
+    credentials: "omit",
+    cache: "no-store",
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(payload.error || "DEVICE_REGISTRATION_FAILED");
+  return payload;
+}
+
+function renderWireGuardConfig(privateKey, registration) {
+  decodeWireGuardKey(privateKey, "privateKey");
+  if (!registration || typeof registration !== "object") throw new Error("REGISTRATION_INVALID");
+  const configuration = registration.configuration || null;
+  const normalized = configuration ? {
+    address: configuration.addresses?.[0],
+    dns: Array.isArray(configuration.dns) ? configuration.dns.join(", ") : configuration.dns,
+    server_public_key: configuration.peer?.public_key,
+    endpoint: configuration.peer?.endpoint,
+  } : registration;
+  decodeWireGuardKey(normalized.server_public_key, "serverPublicKey");
+  if (!/^10\.66\.0\.(?:[2-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-4])\/32$/.test(normalized.address || "")) {
+    throw new Error("ADDRESS_INVALID");
+  }
+  const endpoint = String(normalized.endpoint || "");
+  if (!/^\[[0-9a-f:]+\]:\d{1,5}$/i.test(endpoint) && !/^[A-Za-z0-9.-]+:\d{1,5}$/.test(endpoint)) {
+    throw new Error("ENDPOINT_INVALID");
+  }
+  const dns = String(normalized.dns || "");
+  if (!dns || /[\r\n]/.test(dns)) throw new Error("DNS_INVALID");
+
+  return [
+    "[Interface]",
+    `PrivateKey = ${privateKey}`,
+    `Address = ${normalized.address}`,
+    `DNS = ${dns}`,
+    "",
+    "[Peer]",
+    `PublicKey = ${normalized.server_public_key}`,
+    "AllowedIPs = 0.0.0.0/0, ::/0",
+    `Endpoint = ${endpoint}`,
+    "PersistentKeepalive = 25",
+    "",
+  ].join("\n");
+}
+
+async function createDeviceProfile(options) {
+  const keyPair = await generateWireGuardKeyPair(options.cryptoImpl || globalThis.crypto);
+  const registration = typeof options.registerPublicKeyImpl === "function"
+    ? await options.registerPublicKeyImpl(keyPair.publicKey, options.serverId)
+    : await registerPublicKey({
+        apiBase: options.apiBase,
+        sessionToken: options.sessionToken,
+        publicKey: keyPair.publicKey,
+        serverId: options.serverId,
+        fetchImpl: options.fetchImpl || globalThis.fetch,
+      });
+  return Object.freeze({
+    config: renderWireGuardConfig(keyPair.privateKey, registration),
+    publicKey: keyPair.publicKey,
+    deviceId: registration.device_id || null,
+  });
+}
+
+const manualFallback = Object.freeze({
+  code: "BROWSER_X25519_UNAVAILABLE",
+  message: "이 브라우저에서는 안전한 키 생성을 지원하지 않습니다. 공식 WireGuard 앱에서 키를 만든 뒤 공개키만 등록하세요.",
+});
+
+// moment_catalog.js
+const MOMENT_CATALOG_VERSION = "2026-08-02.1";
+
+const TIER_LABELS = Object.freeze({
+  free: "무료",
+  paid: "유료 충전",
+  premium_planned: "프리미엄 예정",
+  none: "비지원",
+});
+
+const DEFAULT_COUNTRY_POLICY = Object.freeze({
+  code: "OTHER",
+  name: "기타 국가",
+  level: "normal",
+  policy: "standard",
+  notice: "현지 법률과 이용하려는 서비스의 약관을 먼저 확인하세요.",
+});
+
+const COUNTRY_PROFILES = Object.freeze({
+  KR: Object.freeze({ code: "KR", name: "대한민국", level: "normal", policy: "standard", notice: "공공 와이파이 보호와 해외 체류 중 본국 서비스 확인에 적합합니다." }),
+  JP: Object.freeze({ code: "JP", name: "일본", level: "normal", policy: "standard", notice: "공공 와이파이 보호와 공개 웹의 지역별 표시 확인에 적합합니다." }),
+  US: Object.freeze({ code: "US", name: "미국", level: "normal", policy: "standard", notice: "서비스 약관과 조직 보안 정책 범위 안에서 이용하세요." }),
+  GB: Object.freeze({ code: "GB", name: "영국", level: "normal", policy: "standard", notice: "서비스 약관과 콘텐츠 권리 범위를 확인하세요." }),
+  DE: Object.freeze({ code: "DE", name: "독일", level: "normal", policy: "standard", notice: "서비스 약관과 개인정보 보호 기준을 확인하세요." }),
+  SG: Object.freeze({ code: "SG", name: "싱가포르", level: "normal", policy: "standard", notice: "가까운 서버를 이용한 공공 네트워크 보호에 적합합니다." }),
+  TH: Object.freeze({ code: "TH", name: "태국", level: "normal", policy: "standard", notice: "현지 법률과 이용 서비스 약관을 확인하세요." }),
+  AR: Object.freeze({ code: "AR", name: "아르헨티나", level: "caution", policy: "research_only", notice: "공개 가격·현지화 조사는 가능하지만 거주지나 결제 국가를 속이는 구독 우회는 지원하지 않습니다." }),
+  IN: Object.freeze({ code: "IN", name: "인도", level: "caution", policy: "provider_compliance", notice: "인도 소비자 VPN 제공자에는 가입자 정보와 로그 관련 규정이 적용될 수 있습니다. 인도 출구 서버는 규정 검토와 실제 제공 확인 후에만 노출합니다." }),
+  AE: Object.freeze({ code: "AE", name: "아랍에미리트", level: "caution", policy: "legal_use_only", notice: "VPN 자체가 아니라 범죄 은폐·불법 목적의 사용이 처벌 대상이 될 수 있습니다. 합법적 목적에서만 이용하세요." }),
+  CN: Object.freeze({ code: "CN", name: "중국", level: "restricted", policy: "specialized_required", notice: "일부 글로벌 서비스가 제한될 수 있지만 FreeFlexVPN 알파는 검열 우회·난독화 성공을 보장하지 않습니다. 현지 법률을 확인하고 전문 서비스를 이용하세요." }),
+});
+
+const entries = [
+  [1,"cafe-wifi","safety","카페 공공 와이파이","공용 네트워크에서 계정·메시지 트래픽을 보호합니다.","nearest","free","supported","low"],
+  [2,"airport-wifi","safety","공항 와이파이","공항의 개방형 네트워크에서 짧게 안전한 연결을 만듭니다.","nearest","free","supported","low"],
+  [3,"hotel-wifi","safety","호텔 와이파이","호텔 공유망에서 개인 통신을 보호합니다.","nearest","free","supported","medium"],
+  [4,"coworking-wifi","safety","공유 오피스 와이파이","여러 이용자가 함께 쓰는 네트워크에서 업무 연결을 보호합니다.","nearest","free","supported","medium"],
+  [5,"mobile-route","diagnostic","모바일 통신사 경로 확인","통신사 경로 문제인지 비교 진단합니다.","nearest","free","conditional","low"],
+  [6,"dns-route","diagnostic","DNS·라우팅 문제 비교","VPN 경로에서 접속이 달라지는지 확인합니다.","nearest","free","conditional","low"],
+  [7,"ip-check","diagnostic","외부 IP·위치 표시 확인","웹사이트가 보는 출구 국가와 IP를 확인합니다.","target","free","supported","low"],
+  [8,"bank-abroad","travel_home","해외에서 본인 은행 접속","본국 경로가 접속 안정성에 도움이 되는지 확인합니다. 은행이 VPN을 차단할 수 있습니다.","home","free","conditional","low"],
+  [9,"government-abroad","travel_home","해외에서 본국 공공서비스 접속","본인 인증 전 본국 경로에서 접속 가능 여부를 확인합니다.","home","free","conditional","low"],
+  [10,"account-recovery","travel_home","해외에서 본인 계정 복구","평소 사용 국가와 같은 경로가 보안 경고를 줄이는지 확인합니다.","home","free","conditional","low"],
+  [11,"home-news","travel_home","해외에서 본국 뉴스·생활정보","본국에서 공개되는 지역 생활정보를 확인합니다.","home","free","supported","medium"],
+  [12,"order-status","travel_home","해외에서 본국 쇼핑 주문 확인","본국 쇼핑몰의 본인 주문·배송 상태를 확인합니다.","home","free","conditional","low"],
+  [13,"airline-account","travel_home","여행 중 항공사 계정 확인","익숙한 국가 경로에서 본인 예약을 확인합니다. 가격 조작 용도가 아닙니다.","home","free","conditional","low"],
+  [14,"work-saas","work","회사 SaaS 접속","회사 정책이 허용한 국가·경로로 업무 도구에 접속합니다.","organization","paid","conditional","medium"],
+  [15,"remote-admin","work","원격 관리 작업","고정 IP·전용 경로가 필요한 관리 작업을 준비합니다.","organization","premium_planned","premium_planned","low"],
+  [16,"video-call","work","중요 화상회의 경로 안정화","가까운 서버로 경로를 바꿔 통화 품질을 비교합니다.","nearest","paid","conditional","high"],
+  [17,"local-search-qa","research","국가별 검색 결과 조사","목적 국가에서 보이는 공개 검색 결과를 조사합니다.","target","paid","supported","medium"],
+  [18,"website-localization","research","웹사이트 현지화 QA","목적 국가의 언어·통화·배너 표시를 검수합니다.","target","paid","supported","medium"],
+  [19,"ad-landing-qa","research","광고 랜딩 페이지 QA","본인 또는 고객의 공개 광고 페이지가 국가별로 정상인지 확인합니다.","target","paid","supported","medium"],
+  [20,"ecommerce-price-research","research","공개 쇼핑 가격 조사","로그인·결제 우회 없이 목적 국가의 공개 가격을 비교합니다.","target","paid","supported","medium"],
+  [21,"travel-price-research","research","여행 공개 가격 비교","항공·숙박의 공개 표시를 연구하되 거주지 허위 표시나 결제 우회는 하지 않습니다.","target","paid","conditional","medium"],
+  [22,"saas-availability","research","SaaS 국가별 제공 범위 확인","가입·결제 전 공개 기능과 제공 국가를 조사합니다.","target","paid","supported","medium"],
+  [23,"public-policy-news","research","현지 공개 뉴스·정책 조사","목적 국가의 공개 자료가 어떻게 보이는지 확인합니다.","target","paid","supported","medium"],
+  [24,"open-data","research","해외 공개 데이터·학술 자료 확인","합법적으로 공개된 자료의 지역별 접근 상태를 확인합니다.","target","paid","conditional","medium"],
+  [25,"restricted-network","restricted","서비스 제한 국가에서 기본 인터넷 이용","중국 등 제한 환경에서는 일반 VPN보다 검열 대응 전문 서비스와 법률 확인이 필요합니다.","none","none","specialized_required","medium"],
+  [26,"cdn-test","performance","CDN·웹 성능 국가별 테스트","목적 국가 경로에서 본인 서비스의 응답 성능을 측정합니다.","target","premium_planned","premium_planned","high"],
+  [27,"game-route","performance","게임 경로·지연시간 테스트","게임 서버와 가까운 전용 경로의 지연시간을 비교합니다.","target","premium_planned","premium_planned","high"],
+  [28,"own-streaming-travel","content","해외에서 본인 구독 스트리밍 확인","구독 국가와 서비스 여행 정책이 허용하는 범위에서만 이용합니다. 재생 성공은 보장하지 않습니다.","home","premium_planned","premium_planned","high"],
+  [29,"iplayer-outside-uk","content","영국 밖에서 BBC iPlayer 시청","BBC 약관상 영국 밖에서 VPN으로 접근하는 용도는 지원하지 않습니다.","none","none","not_supported","high"],
+  [30,"subscription-arbitrage","content","저가 국가 구독 우회 (인도·아르헨티나 등)","거주지·결제 국가를 속여 더 싼 구독을 구매하는 목적은 서비스 약관 위반과 취소 위험이 있어 지원하지 않습니다.","none","none","not_supported","low"],
+];
+
+const MOMENTS = Object.freeze(entries.map(([rank,id,category,title,why,destinationMode,tier,support,dataIntensity]) => Object.freeze({
+  rank, id, category, title, why, destinationMode, tier, support, dataIntensity,
+})));
+
+if (MOMENTS.length !== 30 || new Set(MOMENTS.map((item) => item.id)).size !== 30) {
+  throw new Error("Moment catalog must contain 30 unique entries");
+}
+
+function getCountryPolicy(code = "") {
+  const normalized = String(code || "").trim().toUpperCase();
+  return COUNTRY_PROFILES[normalized] || Object.freeze({ ...DEFAULT_COUNTRY_POLICY, code: normalized || "OTHER" });
+}
+
+function resolveDestination(moment, destinationCountry = "") {
+  const country = String(destinationCountry || "").trim().toUpperCase();
+  if (moment.destinationMode === "nearest") return "AUTO_NEAREST";
+  if (moment.destinationMode === "organization") return "ORG_DEFINED";
+  if (moment.destinationMode === "target" || moment.destinationMode === "home") return country || null;
+  return null;
+}
+
+function recommendMoments(options = {}) {
+  const currentCountry = String(options.currentCountry || "").trim().toUpperCase();
+  const destinationCountry = String(options.destinationCountry || "").trim().toUpperCase();
+  const category = String(options.category || "all");
+  const tier = String(options.tier || "all");
+  const query = String(options.query || "").trim().toLocaleLowerCase("ko");
+  const available = new Set((options.availableCountryCodes || []).map((code) => String(code).toUpperCase()));
+  const catalogKnown = options.catalogKnown === true;
+  const countryPolicy = getCountryPolicy(currentCountry);
+
+  const recommendations = MOMENTS.filter((moment) => category === "all" || moment.category === category)
+    .filter((moment) => tier === "all" || moment.tier === tier)
+    .filter((moment) => !query || `${moment.title} ${moment.why}`.toLocaleLowerCase("ko").includes(query))
+    .map((moment) => {
+      const destination = resolveDestination(moment, destinationCountry);
+      const blockedByPolicy = moment.support === "not_supported" || moment.support === "specialized_required";
+      const planned = moment.support === "premium_planned";
+      const destinationRequired = (moment.destinationMode === "target" || moment.destinationMode === "home") && !destination;
+      const serverAvailable = destination === "AUTO_NEAREST"
+        ? available.size > 0
+        : destination === "ORG_DEFINED"
+          ? false
+          : Boolean(destination && available.has(destination));
+      const restrictedCurrentCountry = countryPolicy.policy === "specialized_required";
+      const actionable = !blockedByPolicy && !planned && !destinationRequired && catalogKnown && serverAvailable && !restrictedCurrentCountry;
+      let actionReason = "실제 서버를 선택할 수 있습니다.";
+      if (blockedByPolicy) actionReason = moment.support === "not_supported" ? "FreeFlexVPN 비지원 목적입니다." : "전문 서비스와 현지 법률 확인이 필요합니다.";
+      else if (planned) actionReason = "프리미엄 출시 예정 기능입니다.";
+      else if (restrictedCurrentCountry) actionReason = "현재 국가에서는 검열 대응 호환성을 확인하지 못했습니다.";
+      else if (destinationRequired) actionReason = "목적 국가 또는 본국을 선택하세요.";
+      else if (!catalogKnown) actionReason = "실제 서버 목록을 불러온 뒤 연결 가능 여부를 확인합니다.";
+      else if (!serverAvailable) actionReason = "현재 이용 가능한 서버 목록에 해당 목적지가 없습니다.";
+      return Object.freeze({ ...moment, destination, actionable, actionReason });
+    });
+
+  return Object.freeze({
+    catalogVersion: MOMENT_CATALOG_VERSION,
+    currentCountry,
+    destinationCountry,
+    countryPolicy,
+    total: recommendations.length,
+    recommendations: Object.freeze(recommendations),
+  });
+}
+
+// platform_support.js
+const PLATFORM_SUPPORT_VERSION = "2026-08-02.1";
+const WIREGUARD_INSTALL_URL = "https://www.wireguard.com/install/";
+
+const profiles = {
+  windows: {
+    id: "windows", label: "Windows PC", icon: "▣", deviceClass: "desktop",
+    pwa: "Chrome 또는 Edge의 주소창 설치 아이콘으로 FreeFlexVPN을 PC 앱처럼 설치하세요.",
+    wireguard: "공식 WireGuard Windows 앱을 설치한 뒤 FreeFlexVPN에서 받은 .conf 파일을 가져옵니다.",
+    installLabel: "PC에 FreeFlexVPN 설치",
+  },
+  macos: {
+    id: "macos", label: "Mac", icon: "◇", deviceClass: "desktop",
+    pwa: "Safari의 Dock에 추가 또는 Chrome의 설치 메뉴로 FreeFlexVPN을 앱처럼 사용하세요.",
+    wireguard: "공식 WireGuard macOS 앱을 설치한 뒤 이 기기 전용 구성을 가져옵니다.",
+    installLabel: "Mac에 FreeFlexVPN 설치",
+  },
+  linux: {
+    id: "linux", label: "Linux PC", icon: "▤", deviceClass: "desktop",
+    pwa: "지원되는 Chromium 계열 브라우저의 설치 메뉴로 FreeFlexVPN을 독립 창에서 사용하세요.",
+    wireguard: "배포판의 공식 패키지로 WireGuard를 설치하고 이 기기 전용 구성을 적용합니다.",
+    installLabel: "Linux에 FreeFlexVPN 설치",
+  },
+  android: {
+    id: "android", label: "Android", icon: "▯", deviceClass: "mobile",
+    pwa: "브라우저 메뉴의 앱 설치 또는 홈 화면에 추가를 선택하세요.",
+    wireguard: "공식 WireGuard Android 앱에서 이 기기 전용 구성을 가져옵니다.",
+    installLabel: "Android 홈 화면에 설치",
+  },
+  ios: {
+    id: "ios", label: "iPhone · iPad", icon: "▭", deviceClass: "mobile",
+    pwa: "브라우저 공유 메뉴에서 홈 화면에 추가를 선택하세요.",
+    wireguard: "App Store의 공식 WireGuard 앱에서 이 기기 전용 구성을 가져옵니다.",
+    installLabel: "iPhone 홈 화면에 설치",
+  },
+};
+
+const PLATFORM_PROFILES = Object.freeze(Object.fromEntries(
+  Object.entries(profiles).map(([key, value]) => [key, Object.freeze(value)]),
+));
+
+function detectPlatform(input = {}) {
+  const ua = String(input.userAgent || "").toLowerCase();
+  const platform = String(input.platform || input.userAgentDataPlatform || "").toLowerCase();
+  const touchPoints = Number(input.maxTouchPoints || 0);
+  if (/iphone|ipad|ipod/.test(ua) || (platform.includes("mac") && touchPoints > 1)) return "ios";
+  if (ua.includes("android")) return "android";
+  if (platform.includes("win") || ua.includes("windows")) return "windows";
+  if (platform.includes("mac") || ua.includes("macintosh")) return "macos";
+  if (platform.includes("linux") || ua.includes("linux")) return "linux";
+  return "windows";
+}
+
+function getPlatformProfile(id = "") {
+  return PLATFORM_PROFILES[id] || PLATFORM_PROFILES.windows;
+}
+
+function getPlatformReadiness(options = {}) {
+  const profile = getPlatformProfile(options.platformId);
+  const standalone = options.standalone === true;
+  const serverReady = options.serverReady === true;
+  const authenticated = options.authenticated === true;
+  return Object.freeze({
+    profile,
+    webApp: standalone ? "installed" : "installable",
+    vpnConfig: serverReady && authenticated ? "available" : serverReady ? "login_required" : "server_required",
+    canIssueConfig: serverReady && authenticated,
+    truth: "웹앱은 계정·잔액·추천·설정을 관리하고 실제 VPN 터널은 운영체제의 공식 WireGuard 앱이 실행합니다.",
+  });
+}
+
+// pwa_runtime.js
+
+
+
+
+const apiMeta = document.querySelector('meta[name="freeflex-api-base"]');
+const apiBase = apiMeta?.content?.trim() || "";
+const root = document.documentElement;
+const runtimeBanner = document.getElementById("runtimeBanner");
+const setupBanner = document.getElementById("setupRuntimeBanner");
+const createProfileButton = document.getElementById("createProfileButton");
+const profilePanel = document.getElementById("profilePanel");
+const profileConfig = document.getElementById("profileConfig");
+const downloadProfileButton = document.getElementById("downloadProfileButton");
+const serverCatalog = document.getElementById("serverCatalog");
+const shareButton = document.getElementById("shareReferralButton");
+const shareOutput = document.getElementById("shareReferralOutput");
+const deviceList = document.getElementById("deviceList");
+const deviceCount = document.getElementById("deviceCountValue");
+const currentCountrySelect = document.getElementById("currentCountrySelect");
+const destinationCountrySelect = document.getElementById("destinationCountrySelect");
+const momentCategorySelect = document.getElementById("momentCategorySelect");
+const momentSearchInput = document.getElementById("momentSearchInput");
+const countryPolicyBanner = document.getElementById("countryPolicyBanner");
+const momentSummary = document.getElementById("momentRecommendationSummary");
+const momentList = document.getElementById("momentRecommendationList");
+const platformDetected = document.getElementById("platformDetected");
+const platformPwaTitle = document.getElementById("platformPwaTitle");
+const platformPwaCopy = document.getElementById("platformPwaCopy");
+const platformWireguardCopy = document.getElementById("platformWireguardCopy");
+const platformInstallButton = document.getElementById("platformInstallButton");
+const platformInstallState = document.getElementById("platformInstallState");
+const platformVpnState = document.getElementById("platformVpnState");
+const wireguardInstallLink = document.getElementById("wireguardInstallLink");
+let selectedServerId = null;
+let activeDeviceId = null;
+let currentConfig = null;
+let availableServers = [];
+let serverCatalogKnown = false;
+let selectedTier = "all";
+const detectedPlatformId = detectPlatform({
+  userAgent: navigator.userAgent,
+  platform: navigator.platform,
+  userAgentDataPlatform: navigator.userAgentData?.platform,
+  maxTouchPoints: navigator.maxTouchPoints,
+});
+let selectedPlatformId = detectedPlatformId;
+
+function notify(message) {
+  if (typeof globalThis.toast === "function") globalThis.toast(message);
+}
+
+function setBanner(element, strong, copy, state = "") {
+  if (!element) return;
+  element.dataset.runtimeState = state;
+  element.replaceChildren();
+  const title = document.createElement("strong");
+  title.textContent = strong;
+  element.append(title, document.createTextNode(` — ${copy}`));
+}
+
+function readableError(error) {
+  if (error instanceof FreeFlexApiError) return error.message;
+  return "요청을 안전하게 완료하지 못했습니다.";
+}
+
+function destinationText(value) {
+  if (value === "AUTO_NEAREST") return "가장 가까운 실제 서버";
+  if (value === "ORG_DEFINED") return "회사 정책 지정";
+  return value ? `목적지 ${value}` : "목적지 없음";
+}
+
+function recommendationStatus(item) {
+  if (item.support === "not_supported") return "비지원";
+  if (item.support === "specialized_required") return "전문 서비스 필요";
+  if (item.support === "premium_planned") return "출시 예정";
+  return item.actionable ? "서버 선택 가능" : "조건 확인 필요";
+}
+
+function applyRecommendation(item) {
+  const server = item.destination === "AUTO_NEAREST"
+    ? availableServers[0]
+    : availableServers.find(candidate => String(candidate.country_code).toUpperCase() === item.destination);
+  if (!item.actionable || !server) return;
+  selectedServerId = server.server_id;
+  serverCatalog?.querySelectorAll(".server").forEach(button => {
+    button.classList.toggle("selected", button.dataset.serverId === server.server_id);
+  });
+  createProfileButton.disabled = !client?.vault.get();
+  notify(`${item.title}: ${server.country} · ${server.city} 서버를 선택했습니다.`);
+  globalThis.go?.("locations");
+}
+
+function renderMomentRecommendations() {
+  if (!momentList) return;
+  const result = recommendMoments({
+    currentCountry: currentCountrySelect?.value,
+    destinationCountry: destinationCountrySelect?.value,
+    category: momentCategorySelect?.value || "all",
+    tier: selectedTier,
+    query: momentSearchInput?.value,
+    availableCountryCodes: availableServers.map(server => server.country_code),
+    catalogKnown: serverCatalogKnown,
+  });
+  const policy = getCountryPolicy(currentCountrySelect?.value);
+  countryPolicyBanner.className = `country-policy ${policy.level === "normal" ? "" : policy.level}`.trim();
+  countryPolicyBanner.textContent = currentCountrySelect?.value ? `${policy.name}: ${policy.notice}` : "현재 국가를 선택하면 현지 상황에 맞춘 주의사항을 보여줍니다.";
+  momentSummary.textContent = `${result.total}개 순간 · 전체 ${MOMENTS.length}개`;
+  momentList.replaceChildren();
+  for (const item of result.recommendations) {
+    const card = document.createElement("article"); card.className = "recommendation-card"; card.dataset.momentId = item.id;
+    const header = document.createElement("header");
+    const rank = document.createElement("span"); rank.className = "recommendation-rank"; rank.textContent = String(item.rank);
+    const copy = document.createElement("div");
+    const title = document.createElement("h3"); title.textContent = item.title;
+    const why = document.createElement("p"); why.textContent = item.why;
+    copy.append(title, why); header.append(rank, copy);
+    const meta = document.createElement("div"); meta.className = "recommendation-meta";
+    for (const value of [destinationText(item.destination), TIER_LABELS[item.tier], recommendationStatus(item)]) {
+      const chip = document.createElement("span"); chip.textContent = value; meta.append(chip);
+    }
+    const button = document.createElement("button"); button.type = "button"; button.disabled = !item.actionable;
+    button.textContent = item.actionable ? "이 추천으로 실제 서버 선택" : item.actionReason;
+    button.addEventListener("click", () => applyRecommendation(item));
+    card.append(header, meta, button); momentList.append(card);
+  }
+}
+
+function renderPlatformSupport(platformId = selectedPlatformId) {
+  if (!platformDetected) return;
+  selectedPlatformId = platformId;
+  const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  const readiness = getPlatformReadiness({
+    platformId,
+    standalone,
+    serverReady: availableServers.length > 0,
+    authenticated: Boolean(client?.vault.get()),
+  });
+  const profile = getPlatformProfile(platformId);
+  platformDetected.textContent = `${getPlatformProfile(detectedPlatformId).label}${platformId === detectedPlatformId ? " · 자동 감지" : ` · ${profile.label} 선택`}`;
+  platformPwaTitle.textContent = profile.installLabel;
+  platformPwaCopy.textContent = profile.pwa;
+  platformWireguardCopy.textContent = profile.wireguard;
+  platformInstallButton.textContent = standalone ? "이미 이 기기에 설치됨" : profile.installLabel;
+  platformInstallButton.disabled = standalone;
+  platformInstallState.textContent = standalone ? "설치됨" : "브라우저 설치 지원에 따라 가능";
+  platformVpnState.textContent = readiness.vpnConfig === "available" ? "이 기기 구성 발급 가능" : readiness.vpnConfig === "login_required" ? "로그인 필요" : "실제 서버 필요";
+  wireguardInstallLink.href = WIREGUARD_INSTALL_URL;
+  document.querySelectorAll("[data-platform]").forEach(button => button.classList.toggle("active", button.dataset.platform === platformId));
+}
+
+function renderCatalog(payload) {
+  const servers = Array.isArray(payload?.servers) ? payload.servers : [];
+  availableServers = servers;
+  serverCatalogKnown = true;
+  serverCatalog.dataset.serverCount = String(servers.length);
+  serverCatalog.replaceChildren();
+  if (!servers.length) {
+    serverCatalog.className = "empty-catalog";
+    const icon = document.createElement("span"); icon.className = "flag"; icon.textContent = "∅";
+    const title = document.createElement("b"); title.textContent = "현재 가동 서버가 없습니다";
+    const copy = document.createElement("p"); copy.textContent = "실제 health 확인을 통과한 서버가 생길 때까지 연결을 시작하지 않습니다.";
+    serverCatalog.append(icon, title, copy);
+    selectedServerId = null;
+    renderMomentRecommendations();
+    renderPlatformSupport();
+    return;
+  }
+  serverCatalog.className = "server-list runtime-server-list";
+  for (const [index, server] of servers.entries()) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `server${index === 0 ? " selected" : ""}`;
+    button.dataset.serverId = server.server_id;
+    const flag = document.createElement("span"); flag.className = "flag"; flag.textContent = server.country_code;
+    const grow = document.createElement("span"); grow.className = "grow";
+    const title = document.createElement("b"); title.textContent = `${server.country} · ${server.city}`;
+    const detail = document.createElement("small"); detail.textContent = `${server.health} · 용량 ${server.capacity_percent}% 사용`;
+    const radio = document.createElement("span"); radio.className = "radio";
+    grow.append(title, detail); button.append(flag, grow, radio);
+    button.addEventListener("click", () => {
+      serverCatalog.querySelectorAll(".server").forEach(item => item.classList.toggle("selected", item === button));
+      selectedServerId = server.server_id;
+      createProfileButton.disabled = !client?.vault.get();
+      notify(`${title.textContent} 서버를 선택했습니다.`);
+    });
+    serverCatalog.append(button);
+  }
+  selectedServerId = servers[0].server_id;
+  renderMomentRecommendations();
+  renderPlatformSupport();
+}
+
+function renderWallet(wallet) {
+  const balances = wallet?.balances;
+  if (!balances) return;
+  const total = bytesToGb(wallet.total_available_bytes);
+  document.getElementById("balanceValue").textContent = total;
+  document.querySelector('[data-wallet-bucket="free"] b').textContent = `${bytesToGb(balances.free)}GB`;
+  document.querySelector('[data-wallet-bucket="earned"] b').textContent = `${bytesToGb(balances.earned)}GB`;
+  document.querySelector('[data-wallet-bucket="paid"] b').textContent = `${bytesToGb(balances.paid)}GB`;
+  document.querySelector('[data-wallet-view="free"] strong').textContent = `${bytesToGb(balances.free)}GB`;
+  document.querySelector('[data-wallet-view="earned"] strong').textContent = `${bytesToGb(balances.earned)}GB`;
+  document.querySelector('[data-wallet-view="paid"] strong').textContent = `${bytesToGb(balances.paid)}GB`;
+  document.getElementById("usageEarned").textContent = `${bytesToGb(balances.earned)}GB`;
+  document.getElementById("usagePaid").textContent = `${bytesToGb(balances.paid)}GB`;
+  document.getElementById("topupCurrent").textContent = `${bytesToGb(balances.paid)}GB`;
+  document.getElementById("walletTotalValue").textContent = total;
+  document.getElementById("walletRuntimeBanner").innerHTML = "<strong>실제 계정 잔액</strong> — 제어 API 원장과 동기화됐습니다.";
+}
+
+function renderDevices(payload) {
+  const devices = Array.isArray(payload?.devices) ? payload.devices : [];
+  deviceCount.textContent = `${payload.active_count || 0} / ${payload.active_limit || 2}`;
+  deviceList.replaceChildren();
+  const active = devices.filter(device => device.status === "active");
+  activeDeviceId = active[0]?.device_id || null;
+  if (!devices.length) {
+    deviceList.className = "empty-catalog";
+    deviceList.innerHTML = '<span class="flag">▯</span><b>등록된 기기가 없습니다</b><p>서버를 고른 뒤 이 기기에서 새 키를 만들 수 있습니다.</p>';
+    return;
+  }
+  deviceList.className = "state-legend";
+  for (const device of devices) {
+    const row = document.createElement("div"); row.className = "state-row";
+    const dot = document.createElement("i");
+    const content = document.createElement("div");
+    const title = document.createElement("b"); title.textContent = `${device.server_id} · ${device.status}`;
+    const detail = document.createElement("small"); detail.textContent = `${device.assigned_address} · ${device.device_id.slice(0, 8)}`;
+    content.append(title, detail); row.append(dot, content);
+    if (device.status === "active") {
+      const revoke = document.createElement("button"); revoke.type = "button"; revoke.className = "text-btn"; revoke.textContent = "폐기";
+      revoke.addEventListener("click", async () => {
+        revoke.disabled = true;
+        try { await client.revokeDevice(device.device_id); await syncAccount(); notify("기기 폐기 상태를 확인했습니다."); }
+        catch (error) { notify(readableError(error)); revoke.disabled = false; }
+      });
+      row.append(revoke);
+    }
+    deviceList.append(row);
+  }
+}
+
+function setConnectionFromResult(result) {
+  const state = ["setup_needed", "checking", "protected", "limited", "disconnected"].includes(result?.state)
+    ? result.state : "limited";
+  globalThis.setConnectionState?.(state);
+  const checks = result?.checks || {};
+  const map = { tunnel: checks.tunnel, "exit-ip": checks.exit_ip, dns: checks.dns && checks.ipv6, "checked-at": result.checked_at };
+  for (const [name, value] of Object.entries(map)) {
+    const row = document.querySelector(`[data-check="${name}"]`);
+    if (!row) continue;
+    row.dataset.pass = value === true || (name === "checked-at" && Boolean(value)) ? "true" : "false";
+    const detail = row.querySelector("small");
+    detail.textContent = name === "checked-at" ? (value || "확인 성공 기록 없음") : (value === true ? "확인됨" : "확인되지 않음");
+  }
+}
+
+async function syncAccount() {
+  const [wallet, devices] = await Promise.all([client.wallet(), client.devices()]);
+  renderWallet(wallet); renderDevices(devices);
+}
+
+async function createProfile() {
+  if (!selectedServerId || !client.vault.get()) return;
+  createProfileButton.disabled = true;
+  setBanner(setupBanner, "기기 키 생성 중", "개인키는 이 브라우저 메모리 안에서만 사용합니다.", "working");
+  try {
+    const profile = await createDeviceProfile({
+      serverId: selectedServerId,
+      registerPublicKeyImpl: (publicKey, serverId) => client.registerDevice(publicKey, serverId),
+    });
+    currentConfig = profile.config;
+    profileConfig.value = profile.config;
+    profilePanel.hidden = false;
+    activeDeviceId = profile.deviceId;
+    setBanner(setupBanner, "기기 구성 준비됨", "아래 파일을 이 기기에 저장해 공식 WireGuard 앱으로 가져오세요.", "ready");
+    syncAccount().catch(() => notify("구성은 준비됐지만 기기 목록 새로고침은 다음 연결에서 다시 시도합니다."));
+  } catch (error) {
+    setBanner(setupBanner, "구성 생성 중단", readableError(error), "error");
+    createProfileButton.disabled = false;
+  }
+}
+
+function downloadProfile() {
+  if (!currentConfig) return;
+  const blob = new Blob([currentConfig], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url; anchor.download = `FreeFlexVPN-${selectedServerId || "device"}.conf`; anchor.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1_000);
+}
+
+let client = null;
+
+async function initialize() {
+  if (!apiBase) {
+    root.dataset.apiMode = "unconfigured";
+    return;
+  }
+  root.dataset.apiMode = "connecting";
+  try {
+    client = new FreeFlexApiClient({ apiBase });
+    const launch = await consumeLaunchParameters(client);
+    const catalog = await client.catalog();
+    renderCatalog(catalog);
+    root.dataset.apiMode = "live";
+    setBanner(runtimeBanner, "실제 서버 API 연결", `${catalog.available_count || 0}대가 health 확인을 통과했습니다.`, "live");
+    const cryptoReady = await supportsBrowserX25519();
+    const topup = document.getElementById("topupButton");
+    if (topup) { topup.disabled = true; topup.textContent = "실제 결제 기능 준비 전"; }
+    if (!cryptoReady) setBanner(setupBanner, "브라우저 키 생성 미지원", manualFallback.message, "unsupported");
+    if (client.vault.get()) {
+      await syncAccount();
+      createProfileButton.disabled = !cryptoReady || !selectedServerId;
+      setBanner(setupBanner, "로그인 확인됨", client.vault.persistence === "session" ? "이 탭 세션 동안만 인증을 보관합니다." : "브라우저 저장이 차단되어 새로고침하면 다시 로그인해야 합니다.", "authenticated");
+      shareButton.disabled = false;
+      const addDevice = document.getElementById("addDeviceButton");
+      if (addDevice) addDevice.disabled = false;
+      renderPlatformSupport();
+    } else {
+      setBanner(setupBanner, "로그인 수령 링크 필요", "Telegram에서 받은 10분 링크로 들어오면 기기 구성을 만들 수 있습니다.", "auth-required");
+    }
+    if (launch.exchanged) notify("안전한 일회용 수령 링크를 확인했습니다.");
+  } catch (error) {
+    root.dataset.apiMode = "unavailable";
+    setBanner(runtimeBanner, "서버 API 연결 안 됨", readableError(error), "error");
+    setBanner(setupBanner, "설정 생성 불가", "API가 다시 확인될 때까지 개인키나 가짜 구성을 만들지 않습니다.", "error");
+  }
+}
+
+createProfileButton?.addEventListener("click", createProfile);
+downloadProfileButton?.addEventListener("click", downloadProfile);
+window.addEventListener("freeflex:check-protection", async () => {
+  if (!client) return;
+  try { setConnectionFromResult(await client.check(activeDeviceId)); }
+  catch (error) { globalThis.setConnectionState?.("limited"); notify(readableError(error)); }
+});
+shareButton?.addEventListener("click", async () => {
+  shareButton.disabled = true;
+  try {
+    const issued = await client.issueReferral();
+    shareOutput.value = issued.share_url;
+    shareOutput.hidden = false;
+    if (navigator.share) await navigator.share({ title: "FreeFlexVPN", text: "필요할 때만 쓰는 VPN — 둘 다 500MB 받기", url: issued.share_url });
+    else if (navigator.clipboard) { await navigator.clipboard.writeText(issued.share_url); notify("추천 링크를 복사했습니다."); }
+  } catch (error) { notify(readableError(error)); }
+  finally { shareButton.disabled = false; }
+});
+document.getElementById("addDeviceButton")?.addEventListener("click", () => globalThis.go?.("setup"));
+for (const control of [currentCountrySelect, destinationCountrySelect, momentCategorySelect]) {
+  control?.addEventListener("change", renderMomentRecommendations);
+}
+momentSearchInput?.addEventListener("input", renderMomentRecommendations);
+document.querySelectorAll("[data-tier-filter]").forEach(button => button.addEventListener("click", () => {
+  selectedTier = button.dataset.tierFilter || "all";
+  document.querySelectorAll("[data-tier-filter]").forEach(item => item.classList.toggle("active", item === button));
+  renderMomentRecommendations();
+}));
+document.querySelectorAll("[data-platform]").forEach(button => button.addEventListener("click", () => renderPlatformSupport(button.dataset.platform)));
+platformInstallButton?.addEventListener("click", async () => {
+  const installed = await globalThis.freeflexRequestInstall?.();
+  if (installed) renderPlatformSupport();
+  else globalThis.freeflexShowInstallHelp?.();
+});
+
+renderMomentRecommendations();
+renderPlatformSupport();
+initialize();
+
+</script>
+</body>
+</html>

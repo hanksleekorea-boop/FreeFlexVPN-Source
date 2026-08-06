@@ -1,0 +1,61 @@
+{
+  "schema": "FreeFlexVPNR6EvidenceChainLocalEvidenceV1",
+  "candidate": "v2.7",
+  "date": "2026-08-02",
+  "status": "VERIFIED_IMPLEMENTED_LOCAL",
+  "evidence_level": {
+    "implementation": true,
+    "local": true,
+    "build": false,
+    "public": false,
+    "device": false,
+    "independent_user": false
+  },
+  "change": {
+    "live_preflight_gate": "requires absolute --config-evidence before SSH",
+    "candidate_binding": "candidate_id and config_sha256 must match the CONFIG READY evidence",
+    "safety_flags": "configuration_ready=true, ready=false, network_attempted=false, contains_secrets=false",
+    "readback_link": "live report records the configuration evidence SHA-256"
+  },
+  "verification": {
+    "related_checks_passed": 42,
+    "related_checks_total": 42,
+    "test_files": {
+      "test_r6_preflight_cli.py": "5/5",
+      "test_r6_preflight.py": "9/9",
+      "test_control_runtime.py": "8/8",
+      "test_server_catalog.py": "10/10",
+      "test_ssh_node_adapter.py": "10/10"
+    },
+    "negative_controls": [
+      "candidate mismatch",
+      "configuration hash mismatch",
+      "configuration not ready",
+      "ready incorrectly true",
+      "network already attempted",
+      "contains_secrets true",
+      "relative path",
+      "oversized evidence",
+      "missing evidence file"
+    ],
+    "whole_regression": {
+      "status": "NOT_RUN_IN_CURRENT_BUNDLED_PYTHON",
+      "reason": "playwright and cv2 are missing; the runner stops before launching the suite",
+      "last_verified_baseline": "v2.5 30 files 394/394",
+      "claim": "not a current full-regression PASS"
+    }
+  },
+  "sha256": {
+    "70_TOOLS/run_r6_server_preflight.py": "7CB88849B6D3AAA39A689702739EF5C75EFDE712A94BEEDBAD5144FC109C9205",
+    "40_TESTS/test_r6_preflight_cli.py": "FABFFCA2FA3F09C73DE869E0D80EA44E3771620057A01134C3C9CE87CFE0903D",
+    "20_SRC/infra/README.md": "888AFA87985ABEA8CC08D81E69E2F55A8AC700A8420F4322B13AB418A2B2C3E0"
+  },
+  "baseline": {
+    "completed_milestones": 7,
+    "total_milestones": 12,
+    "percent": 58.3,
+    "actual_vpn_servers": 0
+  },
+  "contains_secrets": false,
+  "rollback": "remove --config-evidence enforcement and validate_configuration_evidence to restore v2.6 CLI behavior"
+}

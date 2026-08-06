@@ -1,0 +1,64 @@
+{
+  "schema": "FreeFlexVPNPC1EvidenceV1",
+  "measured_at": "2026-08-04T20:26:03+07:00",
+  "candidate": "v2.19-pc1-v0",
+  "app_version": "v2.4 PC-1",
+  "decision_gate": {
+    "selected": "A_SINGLE_RESPONSIVE_HTML",
+    "alternative": "B_SEPARATE_PC_HTML_ONLY_IF_COMPRESSED_BUDGET_BREAKS",
+    "reversible_cost": "low"
+  },
+  "scope_assumption": "FreeFlexVPN 문맥에서 +1은 기존 실패 폐쇄형 보호 확인으로 대응",
+  "baseline": {
+    "version": "v2.3",
+    "bytes": 146845,
+    "gzip_bytes": 42647,
+    "sha256": "8A906F32DFA74B734F2630937339408A509F6C422A6E103122BD086509B4886A",
+    "targeted_checks_passed": 88,
+    "targeted_checks_total": 88,
+    "initial_full_runner_block": ["cv2 missing", "qrcode missing"]
+  },
+  "estimate": {
+    "logic_bytes": 3400,
+    "string_bytes": 3400,
+    "ratio": "1:1",
+    "raw_delta_bytes": 6800
+  },
+  "measured": {
+    "artifact": "60_OUTPUTS/prototype/FreeFlexVPN_app_prototype_v2.4_PC1.html",
+    "bytes": 151161,
+    "gzip_bytes": 43700,
+    "raw_delta_bytes": 4316,
+    "gzip_delta_bytes": 1053,
+    "sha256": "3B62EB495C4299313D53DCB22AD1FD3F332A6267CBBC510227479DE95FD574F6"
+  },
+  "pc_tests": {
+    "pc_viewport": "13/13",
+    "keyboard": "8/8",
+    "negative_controls": true,
+    "viewports": [1280, 1920, 900, 390]
+  },
+  "integrated_regression": {
+    "status": "passed",
+    "files_passed": 49,
+    "files_total": 49,
+    "checks_passed": 537,
+    "checks_total": 537,
+    "failed_files": 0,
+    "evidence": "10_STATE/LOCAL_EVIDENCE_PC1_FULL_REGRESSION_V2_19_R3_2026-08-04.json"
+  },
+  "public_readback": {
+    "url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "status": 200,
+    "version": "v2.3",
+    "bytes": 146845,
+    "sha256": "8A906F32DFA74B734F2630937339408A509F6C422A6E103122BD086509B4886A",
+    "pc1_deployed": false
+  },
+  "deployment_block": {
+    "public_mirror_git_metadata": false,
+    "gh_cli_available": false,
+    "minimum_user_action": "인증된 GitHub 게시 경로 연결"
+  },
+  "contains_secrets": false
+}

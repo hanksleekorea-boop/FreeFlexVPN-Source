@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>1000명 VPN 서비스 · 비용·기간 산정 대시보드</title>
+<meta name="theme-color" content="#141a26">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="VPN 원가">
+<link rel="apple-touch-icon" href="data:image/png;base64,__ICON192__">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,__ICON192__">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,__ICON512__">
+<link rel="manifest" href="data:application/manifest+json;base64,__MANIFEST_B64__">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#101014; --surface-1:#1a1a19; --surface-2:#232322; --line:#33332f;
+  --text-primary:#ffffff; --text-secondary:#c3c2b7; --text-muted:#8b8a80;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  --good:#199e70; --warn:#c98500; --bad:#e66767; --accent:#3987e5;
+  --grid:#2b2b29;
+}
+:root[data-theme="light"]{
+  color-scheme: light;
+  --bg:#f6f6f3; --surface-1:#fcfcfb; --surface-2:#efefea; --line:#dedcd3;
+  --text-primary:#0b0b0b; --text-secondary:#52514e; --text-muted:#77766f;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4;
+  --good:#1baf7a; --warn:#eda100; --bad:#e34948; --accent:#2a78d6;
+  --grid:#e7e6df;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text-primary);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,sans-serif;
+  font-size:15px;line-height:1.55;-webkit-text-size-adjust:100%;
+  padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:1140px;margin:0 auto;padding:18px 16px 120px}
+h1{font-size:22px;margin:0 0 4px;letter-spacing:-.02em}
+h2{font-size:17px;margin:34px 0 10px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+h2 .n{font-size:12px;color:var(--text-muted);font-weight:600;border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+h3{font-size:14px;margin:18px 0 8px;color:var(--text-secondary)}
+p{margin:6px 0 10px;color:var(--text-secondary)}
+.sub{color:var(--text-muted);font-size:12.5px}
+.card{background:var(--surface-1);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin:10px 0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.ghost{background:var(--surface-2);color:var(--text-primary);border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:13px}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;border-radius:5px;padding:1px 5px;vertical-align:middle;white-space:nowrap}
+.b-fact{background:rgba(25,158,112,.16);color:var(--good);border:1px solid rgba(25,158,112,.4)}
+.b-est{background:rgba(201,133,0,.16);color:var(--warn);border:1px solid rgba(201,133,0,.4)}
+.b-unk{background:rgba(230,103,103,.14);color:var(--bad);border:1px solid rgba(230,103,103,.4)}
+.heroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:10px;margin:12px 0}
+.hero{background:var(--surface-1);border:1px solid var(--line);border-radius:14px;padding:12px 13px}
+.hero .k{font-size:11.5px;color:var(--text-muted);font-weight:600;letter-spacing:.02em}
+.hero .v{font-size:25px;font-weight:750;letter-spacing:-.03em;margin-top:3px;font-variant-numeric:tabular-nums}
+.hero .u{font-size:12px;color:var(--text-secondary);margin-top:2px}
+.ctrls{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:12px 18px}
+.ctl label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-secondary);gap:8px}
+.ctl label b{color:var(--text-primary);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;margin:5px 0 0;accent-color:var(--accent);height:22px}
+.segs{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}
+.seg{background:var(--surface-2);border:1px solid var(--line);color:var(--text-secondary);border-radius:8px;padding:5px 9px;font-size:12.5px}
+.seg[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:650}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{color:var(--text-muted);font-size:11.5px;font-weight:650;border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{font-variant-numeric:tabular-nums}
+tr.tot td{font-weight:750;border-top:1px solid var(--line)}
+.swatch{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.legend{display:flex;flex-wrap:wrap;gap:10px 14px;font-size:12.5px;color:var(--text-secondary);margin:8px 0 2px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+svg{display:block;max-width:100%;overflow:visible}
+.tip{position:fixed;z-index:60;pointer-events:none;background:var(--surface-1);border:1px solid var(--line);
+  border-radius:10px;padding:8px 10px;font-size:12.5px;box-shadow:0 8px 26px rgba(0,0,0,.35);opacity:0;transition:opacity .1s;max-width:250px}
+.tip b{display:block;margin-bottom:3px;font-size:12.5px}
+.tip .row{display:flex;justify-content:space-between;gap:14px;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.note{font-size:12.5px;color:var(--text-muted);margin-top:8px}
+ul.tight{margin:6px 0 0;padding-left:18px;color:var(--text-secondary);font-size:13.5px}
+ul.tight li{margin:4px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.risk{border-left:3px solid var(--bad);padding-left:11px;margin:12px 0}
+.risk.mid{border-left-color:var(--warn)}
+.risk .t{font-weight:700;font-size:14px}
+a{color:var(--accent)}
+.foot{margin-top:34px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--text-muted)}
+#installBtn{display:none;background:var(--accent);color:#fff;border:0;border-radius:9px;padding:8px 13px;font-size:13px;font-weight:650}
+#banner{display:none;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:80;
+  background:var(--surface-1);border:1px solid var(--line);border-radius:14px;padding:12px 13px;
+  box-shadow:0 12px 34px rgba(0,0,0,.4);align-items:center;gap:11px}
+#banner img{width:34px;height:34px;border-radius:9px}
+#banner .txt{flex:1;min-width:0}
+#banner .txt b{display:block;font-size:13.5px}
+#banner .txt span{font-size:12px;color:var(--text-muted)}
+#banner .act{background:var(--accent);color:#fff;border:0;border-radius:9px;padding:8px 12px;font-size:13px;font-weight:650}
+#banner .x{background:transparent;border:0;color:var(--text-muted);font-size:19px;padding:0 4px}
+@media(display-mode:standalone){#installBtn,#banner{display:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="top">
+  <div>
+    <h1>최소비용 VPN 서비스 · 비용·기간 산정</h1>
+    <div class="sub">등록회원 1,000명 · 유료 상용 · 한국/일반 국가(검열 우회 불필요) 기준 · 생성 2026-07-30</div>
+  </div>
+  <div style="display:flex;gap:7px;align-items:center">
+    <button class="ghost" id="themeBtn">라이트</button>
+    <button id="installBtn">앱 설치</button>
+  </div>
+</div>
+
+<div class="card" style="margin-top:14px">
+  <b style="font-size:13.5px">이 대시보드의 숫자를 어떻게 읽어야 하는가</b>
+  <p style="margin-bottom:4px">아래 값은 세 등급으로 구분됩니다. 등급을 섞어서 읽으면 계획이 틀립니다.</p>
+  <ul class="tight">
+    <li><span class="badge b-fact">실측</span> 2026-07-30에 공급자 공개 가격표에서 직접 확인한 단가 (§9 출처표)</li>
+    <li><span class="badge b-est">추정</span> 실측 단가 + 가정(1인당 트래픽·동시접속률·티켓률·이탈률)으로 계산한 값. <b>내 서비스의 실측이 아님</b></li>
+    <li><span class="badge b-unk">미확인</span> 공개 자료로 확인 불가. 계약·법률 검토 전에는 0으로 두면 안 되는 항목</li>
+  </ul>
+  <p class="note">중요: 이 산정에서 <b>서버 실행·배포·부하 테스트를 한 것은 없습니다.</b> 증거 등급은 "공개 단가 실측 + 모델 계산"이며, "로컬 실행" 이상으로 올리려면 §6 Phase 2의 파일럿 계측이 필요합니다.</p>
+</div>
+
+<h2><span class="n">1</span>30초 요약</h2>
+<div class="heroes" id="heroes"></div>
+<p id="summaryLine"></p>
+
+<h2><span class="n">2</span>가정값 조절</h2>
+<div class="card">
+  <div class="ctrls" id="ctrls"></div>
+  <h3 style="margin-top:16px">구성 선택</h3>
+  <div class="grid2">
+    <div>
+      <div class="sub">요금제 — 무료로 바꾸면 회원 1만명·상한 5GB 기본값으로 전환됩니다</div>
+      <div class="segs" data-key="plan">
+        <button class="seg" data-v="paid">유료 구독(전원 과금)</button>
+        <button class="seg" data-v="free">무료 + 유료 전환(프리미엄)</button>
+      </div>
+    </div>
+    <div>
+      <div class="sub">1인당 트래픽 상한 정책 <span class="badge b-est">평균 실사용 추정치로 설정</span></div>
+      <div class="segs" data-key="cap">
+        <button class="seg" data-v="0.8">1GB 상한</button>
+        <button class="seg" data-v="3.5">5GB 상한</button>
+        <button class="seg" data-v="12">20GB 상한</button>
+        <button class="seg" data-v="40">무제한</button>
+      </div>
+    </div>
+    <div>
+      <div class="sub">인프라 전략</div>
+      <div class="segs" data-key="strategy">
+        <button class="seg" data-v="vps">지역 VPS 분산(일본·미국·EU)</button>
+        <button class="seg" data-v="dedi">unmetered 전용서버</button>
+      </div>
+    </div>
+    <div>
+      <div class="sub">사업 형태</div>
+      <div class="segs" data-key="entity">
+        <button class="seg" data-v="none">사업자 없음(무과금 전용)</button>
+        <button class="seg" data-v="solo">개인사업자</button>
+        <button class="seg" data-v="corp">법인(과밀억제권역)</button>
+        <button class="seg" data-v="us">해외 LLC(미국 와이오밍)</button>
+      </div>
+    </div>
+    <div>
+      <div class="sub">결제 주기 — 연납은 건당 정액 수수료를 1/12로 희석합니다</div>
+      <div class="segs" data-key="cycle">
+        <button class="seg" data-v="m">월납</button>
+        <button class="seg" data-v="y">연납(12개월 선결제)</button>
+      </div>
+    </div>
+    <div>
+      <div class="sub">배포·결제 경로</div>
+      <div class="segs" data-key="channel">
+        <button class="seg" data-v="web">국내 PG(웹결제)</button>
+        <button class="seg" data-v="store">앱스토어 결제</button>
+        <button class="seg" data-v="stripe">해외 Stripe</button>
+        <button class="seg" data-v="mor">MoR(Paddle 계열)</button>
+      </div>
+    </div>
+    <div>
+      <div class="sub">한국 exit 노드</div>
+      <div class="segs" data-key="kr">
+        <button class="seg" data-v="none">미사용(일본 노드로 대체)</button>
+        <button class="seg" data-v="kakao">카카오클라우드 종량</button>
+        <button class="seg" data-v="idc">국내 IDC 100M 정액</button>
+      </div>
+    </div>
+    <div>
+      <div class="sub">앱 개발 방식(스토어 경로일 때만 초기비용 반영)</div>
+      <div class="segs" data-key="dev">
+        <button class="seg" data-v="self">자체 개발(현금 0, 공수 6~12인주)</button>
+        <button class="seg" data-v="out">외주 MVP(6,500만~1.1억)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2><span class="n">3</span>월 원가 구성</h2>
+<div class="card">
+  <div class="legend" id="legend"></div>
+  <div id="stack"></div>
+  <div class="scroll"><table id="costTable"></table></div>
+  <p class="note" id="costNote"></p>
+</div>
+
+<h2><span class="n">4</span>회원 수에 따른 변화</h2>
+<div class="grid2">
+  <div class="card">
+    <h3 style="margin-top:0">월 영업이익 <span class="sub">(순매출 − 월 원가)</span></h3>
+    <div id="profitChart"></div>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">회원 1명당 월 원가</h3>
+    <div id="unitChart"></div>
+  </div>
+</div>
+
+<h2><span class="n">5</span>시나리오 3개 비교</h2>
+<div class="card">
+  <p style="margin-top:0">같은 단가표에 가정만 바꾼 것입니다. <b>어느 쪽도 실측이 아닙니다.</b></p>
+  <div class="scroll"><table id="scenTable"></table></div>
+</div>
+
+<h2><span class="n">6</span>기간 — 유료 오픈까지 8~12주</h2>
+<div class="card">
+  <div id="gantt"></div>
+  <div class="scroll"><table id="phaseTable"></table></div>
+</div>
+
+<h2><span class="n">7</span>노드 구성 산출</h2>
+<div class="card">
+  <div class="scroll"><table id="nodeTable"></table></div>
+  <p class="note" id="nodeNote"></p>
+</div>
+
+<h2><span class="n">8</span>절대 놓치면 안 되는 리스크</h2>
+<div class="card" id="risks"></div>
+
+<h2><span class="n">9</span>단가 출처 (실측값)</h2>
+<div class="card">
+  <div class="scroll"><table id="srcTable"></table></div>
+</div>
+
+<div class="foot">
+  법률·세무 자문이 아닙니다. 인허가·과금·개인정보 관련 항목은 시행 전 전문가 확인이 필요합니다.<br>
+  환율 가정: 1 USD = <span id="fxU"></span>원(2026-07-21 종가 1,473.4원 기준) · 1 EUR = <span id="fxE"></span>원(EUR/USD 1.17 <span class="badge b-est">추정</span>).
+  모든 해외 단가는 VAT 별도, 국내 항목은 표기 기준을 따릅니다.
+</div>
+</div>
+
+<div class="tip" id="tip"></div>
+<div id="banner">
+  <img src="data:image/png;base64,__ICON192__" alt="">
+  <div class="txt"><b>홈 화면에 추가</b><span id="bannerSub">설치하면 오프라인에서도 이 대시보드를 열 수 있습니다</span></div>
+  <button class="act" id="bannerAct">설치</button>
+  <button class="x" id="bannerX" aria-label="닫기">×</button>
+</div>
+
+<script>
+/* ---------------- 상수: 실측 단가 (2026-07-30 확인) ---------------- */
+const FACT = {
+  hetznerCX23: 5.49, hetznerIPv4: 0.50,     // EUR/월, Hetzner 2026-06-15 인상 반영
+  hetznerIncTB: 20, hetznerMbps: 300,        // 20TB 포함(EU) / 실효 300~500Mbps
+  contaboJP: 6.85, contaboMbps: 200,         // EUR/월, 도쿄, unlimited(fair-use), 200Mbit/s
+  racknerd: 3.00, racknerdTB: 5, racknerdMbps: 300, // USD/월($35.99/년), 5TB
+  kakaoNode: 7920, kakaoPerGB: 90, kakaoFreeGB: 30, // 원, t1i.nano+Public IP / 90원/GB
+  idc100M: 1000000,                          // 원/월, 국내 IDC 회선 100Mbps 정액
+  domainYear: 16000,                         // 원, .com at-cost(≈$10.97+ICANN)
+  bookkeeping: 100000, closing: 25000/1,     // 원/월, 기장 / 결산(연 30만 ÷12는 아래서 처리)
+  telesale: 40500, pgYear: 110000, pgJoin: 220000,
+  pgRate: 0.034, vatOnFee: 0.10,             // 카드 3.4% + 수수료 VAT
+  storeCut: 0.15,                            // Apple SBP / Google 구독 15%
+  appleYear: 99, googleOnce: 25,             // USD
+  corpReg: 337500+67500+20000, corpAgent: 400000, // 원, 과밀 3배중과 + 법무사(추정)
+  outsourceApp: 65000000,                    // 원, 외주 MVP 하한
+  dedi1G: 53.84, dedi10G: 199.97,            // USD/월, 1GServers unmetered (1Gbps / 10Gbps)
+  smsVerify: 20,                             // 원/건, 국내 SMS 인증 단가(가입 남용 방지)
+  stripePct: 0.054, stripeFix: 0.30,         // Stripe 2.9% + 국제카드 1.5% + 환전 1.0%, 건당 $0.30
+  morPct: 0.05, morFix: 0.50,                // Paddle 등 MoR 5% + $0.50
+  llcSetup: 225, llcYear: 710                // USD, 와이오밍 LLC 설립($100+RA) / 연 유지($60 주+$200 RA+$450 5472 신고)
+};
+const S = { // 조절 가능한 상태
+  N:1000, price:9900, conc:8, gb:40, mbps:2.5, head:1.5,
+  ticket:0.15, tph:6, wage:15000, churn:5, cac:15000, conv:3, spare:15,
+  fxU:1470, fxE:1720, splitJP:55, splitUS:25, krShare:10,
+  plan:'paid', strategy:'vps', entity:'solo', channel:'web', kr:'none', dev:'self', cycle:'m'
+};
+const PRESET = {
+  paid:{N:1000, price:9900, conc:8, gb:40, ticket:0.15, churn:5, cac:15000, plan:'paid', entity:'solo', strategy:'vps', spare:15},
+  free:{N:10000, price:9900, conc:5, gb:3.5, ticket:0.03, churn:5, cac:1000, conv:3, plan:'free', entity:'none', strategy:'dedi', spare:15}
+};
+const CTL = [
+  {k:'N',      t:'등록 회원 수',            min:100, max:20000,step:100, fmt:v=>v.toLocaleString()+'명'},
+  {k:'price',  t:'월 요금(VAT 포함)',        min:2900,max:29900,step:500, fmt:v=>v.toLocaleString()+'원'},
+  {k:'conv',   t:'유료 전환율 ⚠추정(무료 모드)', min:0, max:20, step:0.5, fmt:v=>v.toFixed(1)+' %'},
+  {k:'spare',  t:'예비율(남용·차단 대응 여유)', min:0, max:60, step:5, fmt:v=>v+' %'},
+  {k:'gb',     t:'1인당 월 트래픽 ⚠추정',    min:5,   max:150,  step:5,   fmt:v=>v+' GB'},
+  {k:'conc',   t:'피크 동시접속률 ⚠추정',    min:2,   max:30,   step:1,   fmt:v=>v+' %'},
+  {k:'mbps',   t:'세션당 평균 대역폭',        min:0.5, max:8,    step:0.5, fmt:v=>v+' Mbps'},
+  {k:'head',   t:'피크 헤드룸 배수',          min:1,   max:3,    step:0.1, fmt:v=>'×'+v.toFixed(1)},
+  {k:'ticket', t:'문의 티켓/회원/월 ⚠추정',   min:0.02,max:1.2,  step:0.01,fmt:v=>v.toFixed(2)+'건'},
+  {k:'wage',   t:'지원 인력 시급',            min:10000,max:40000,step:1000,fmt:v=>v.toLocaleString()+'원'},
+  {k:'churn',  t:'월 이탈률 ⚠추정',           min:0,   max:20,   step:1,   fmt:v=>v+' %'},
+  {k:'cac',    t:'회원 획득 단가(CAC) ⚠추정', min:0,   max:80000,step:1000,fmt:v=>v.toLocaleString()+'원'},
+  {k:'splitJP',t:'해외 트래픽 중 일본 비중',   min:0,   max:100,  step:5,   fmt:v=>v+' %'},
+  {k:'splitUS',t:'해외 트래픽 중 미국 비중',   min:0,   max:100,  step:5,   fmt:v=>v+' %'},
+  {k:'krShare',t:'한국 노드 트래픽 비중',      min:0,   max:50,   step:5,   fmt:v=>v+' %'},
+  {k:'fxU',    t:'환율 USD',                  min:1200,max:1800, step:10,  fmt:v=>v.toLocaleString()+'원'},
+  {k:'fxE',    t:'환율 EUR',                  min:1300,max:2100, step:10,  fmt:v=>v.toLocaleString()+'원'}
+];
+const won = v => Math.round(v).toLocaleString('ko-KR');
+const man = v => (v/10000);
+const manStr = v => { const m=v/10000; if(Math.abs(m)>=10000) return (m/10000).toFixed(2)+'억'; return (Math.abs(m)>=100? Math.round(m).toLocaleString() : m.toFixed(1))+'만'; };
+
+/* ---------------- 모델 ---------------- */
+function calc(o){
+  const s = Object.assign({}, S, o||{});
+  const jp = Math.max(0,Math.min(100,s.splitJP))/100;
+  const us = Math.max(0,Math.min(100-s.splitJP, s.splitUS))/100;
+  const eu = Math.max(0, 1-jp-us);
+  const useKR = s.kr!=='none';
+  const totalTB = s.N*s.gb/1000;
+  const peak = s.N*s.conc/100;
+  const concMbps = peak*s.mbps*s.head;                 // 동시접속 기반 필요 대역
+  const avgMbps  = totalTB*1e6*8/(30*24*3600);         // 월 트래픽 기반 평균 대역 (TB→Mbps)
+  const peakMbps = Math.max(concMbps, avgMbps*2.5);    // 피크/평균 2.5배 가정 — 둘 중 큰 쪽으로 사이징
+  const krShare = useKR? s.krShare/100 : 0;
+  const ovTB = totalTB*(1-krShare), ovMbps = peakMbps*(1-krShare);
+  const nodes=[]; let node=0;
+  const add=(name,w,cur,unit,capM,capT,src)=>{
+    if(w<=0) return;
+    const need = Math.max(1, Math.ceil(ovMbps*w/capM), capT? Math.ceil(ovTB*w/capT):0);
+    const krwUnit = unit*(cur==='eur'?s.fxE:s.fxU);
+    node += need*krwUnit;
+    nodes.push({name, n:need, unit:krwUnit, cost:need*krwUnit, tb:ovTB*w, mbps:ovMbps*w, capM, capT, src});
+  };
+  if(s.strategy==='dedi'){
+    // unmetered 전용서버: 10Gbps/1Gbps 조합 중 최소비용
+    let best=null;
+    for(let k=0;k<=Math.ceil(ovMbps/10000);k++){
+      const rest=Math.max(0, ovMbps-k*10000), n1=Math.ceil(rest/1000);
+      const c=k*FACT.dedi10G+n1*FACT.dedi1G;
+      if(!best||c<best.c) best={c,k,n1};
+    }
+    if(best.k>0){ const u=FACT.dedi10G*s.fxU; node+=best.k*u;
+      nodes.push({name:'unmetered 전용서버 10Gbps',n:best.k,unit:u,cost:best.k*u,tb:ovTB,mbps:Math.min(ovMbps,best.k*10000),capM:10000,capT:null,src:'1GServers 프로모 · 트래픽 무제한'}); }
+    if(best.n1>0){ const u=FACT.dedi1G*s.fxU; node+=best.n1*u;
+      nodes.push({name:'unmetered 전용서버 1Gbps',n:best.n1,unit:u,cost:best.n1*u,tb:best.k?0:ovTB,mbps:Math.max(0,ovMbps-best.k*10000),capM:1000,capT:null,src:'1GServers 프로모 · 트래픽 무제한'}); }
+  } else {
+    add('일본 exit · Contabo VPS10 도쿄', jp,'eur',FACT.contaboJP, FACT.contaboMbps, null,'무제한(fair-use) · 200Mbit/s');
+    add('미국 exit · RackNerd 2GB KVM',  us,'usd',FACT.racknerd,  FACT.racknerdMbps, FACT.racknerdTB,'5TB 포함 · 1Gbps 포트');
+    add('EU exit · Hetzner CX23',        eu,'eur',FACT.hetznerCX23+FACT.hetznerIPv4, FACT.hetznerMbps, FACT.hetznerIncTB,'20TB 포함');
+  }
+  const panel = (FACT.hetznerCX23+FACT.hetznerIPv4)*s.fxE;
+  nodes.push({name:'패널·모니터링 노드 · Hetzner CX23', n:1, unit:panel, cost:panel, tb:0, mbps:0, capM:FACT.hetznerMbps, capT:FACT.hetznerIncTB, src:'Remnawave+Uptime Kuma 동거'});
+  node += panel;
+  let krCost=0, krDesc='미사용';
+  if(s.kr==='kakao'){
+    const gb = Math.max(0, totalTB*krShare*1000 - FACT.kakaoFreeGB);
+    krCost = FACT.kakaoNode + gb*FACT.kakaoPerGB;
+    krDesc = '카카오클라우드 t1i.nano + 90원/GB';
+    nodes.push({name:'한국 exit · '+krDesc, n:1, unit:FACT.kakaoNode, cost:krCost, tb:totalTB*krShare, mbps:peakMbps*krShare, capM:100, capT:null, src:'종량 90원/GB'});
+  } else if(s.kr==='idc'){
+    const lines = Math.max(1, Math.ceil(peakMbps*krShare/100));
+    krCost = FACT.idc100M*lines;
+    krDesc = '국내 IDC 회선 100Mbps × '+lines;
+    nodes.push({name:'한국 exit · '+krDesc, n:lines, unit:FACT.idc100M, cost:krCost, tb:totalTB*krShare, mbps:peakMbps*krShare, capM:100, capT:null, src:'Mbps 정액'});
+  }
+  const domain = FACT.domainYear/12;
+  const infra = (node + krCost + domain)*(1+s.spare/100);
+  const support = s.ticket*s.N/s.tph*s.wage;
+  const marketing = s.N*(s.churn/100)*s.cac;
+  const krBiz = s.entity==='solo' || s.entity==='corp';   // 국내 사업자
+  const usBiz = s.entity==='us';                          // 해외 LLC
+  const payers = s.plan==='free' ? s.N*s.conv/100 : s.N;
+  const fixed = (krBiz ? FACT.bookkeeping + 300000/12 : 0)
+              + (usBiz ? FACT.llcYear*s.fxU/12 : 0)
+              + (krBiz && payers>0 ? FACT.telesale/12 + FACT.pgYear/12 : 0)
+              + (s.channel==='store' ? FACT.appleYear*s.fxU/12 : 0);
+  const gross = payers*s.price;
+  const vat = gross/11;   // 국내·해외(간편사업자등록) 모두 10% — 해외로 나가도 사라지지 않음
+  const net = gross - vat;
+  // 1회 결제 금액(월납/연납)에 건당 정액 수수료를 태워 실효율 산출
+  const charge = s.price*(s.cycle==='y'?12:1);
+  const feeRate = s.channel==='store' ? FACT.storeCut
+    : s.channel==='stripe' ? FACT.stripePct + FACT.stripeFix*s.fxU/charge
+    : s.channel==='mor'    ? FACT.morPct    + FACT.morFix*s.fxU/charge
+    : FACT.pgRate*(1+FACT.vatOnFee);
+  const fee = gross*feeRate;
+  const cost = infra+support+marketing+fixed+fee;
+  const profit = net - cost;
+  // 초기 1회 현금
+  let init = (krBiz && payers>0? FACT.telesale + FACT.pgJoin : 0) + FACT.domainYear + 100000 /*예비*/ + infra*2 /*파일럿 2개월*/
+           + s.N*FACT.smsVerify /*가입 인증(다중계정 방지)*/;
+  if(s.entity==='corp') init += FACT.corpReg + FACT.corpAgent;
+  if(usBiz) init += FACT.llcSetup*s.fxU;
+  if(s.channel==='store'){ init += FACT.appleYear*s.fxU + FACT.googleOnce*s.fxU; if(s.dev==='out') init += FACT.outsourceApp; }
+  const initCAC = s.N*s.cac;
+  const payback = profit>0 ? (init+initCAC)/profit : null;
+  return {s,totalTB,peak,peakMbps,concMbps,avgMbps,nodes,infra,krCost,krDesc,support,marketing,fixed,fee,feeRate,payers,
+          cost,gross,vat,net,profit,perUser:cost/s.N,infraPerUser:infra/s.N,init,initCAC,payback,
+          margin: net>0? profit/net : 0};
+}
+function bep(o){
+  let lo=1, hi=20000;
+  const p = n => calc(Object.assign({},o,{N:n})).profit;
+  if(p(hi)<0) return null;
+  while(lo<hi){ const m=Math.floor((lo+hi)/2); if(p(m)>=0) hi=m; else lo=m+1; }
+  return lo;
+}
+/* 무료 모드: 손익분기 유료 전환율(%) */
+function bepConv(o){
+  let lo=0, hi=1000; // 0.0% ~ 100.0% (0.1% 단위)
+  const p = c => calc(Object.assign({},o,{conv:c/10})).profit;
+  if(p(hi)<0) return null;
+  while(lo<hi){ const m=Math.floor((lo+hi)/2); if(p(m)>=0) hi=m; else lo=m+1; }
+  return lo/10;
+}
+
+/* ---------------- 렌더 ---------------- */
+const el = id => document.getElementById(id);
+const SER = ['--s1','--s2','--s3','--s4','--s5'];
+const PARTS = [
+  {k:'infra',    t:'인프라(서버·트래픽·도메인)'},
+  {k:'support',  t:'고객지원 인건비'},
+  {k:'marketing',t:'유지 마케팅(이탈 보충)'},
+  {k:'fixed',    t:'고정 관리비(기장·신고·PG)'},
+  {k:'fee',      t:'결제 수수료'}
+];
+function renderCtrls(){
+  el('ctrls').innerHTML = CTL.map(c=>`<div class="ctl"><label for="r_${c.k}"><span>${c.t}</span><b id="v_${c.k}"></b></label>
+    <input type="range" id="r_${c.k}" min="${c.min}" max="${c.max}" step="${c.step}" value="${S[c.k]}"></div>`).join('');
+  CTL.forEach(c=>{
+    const r=el('r_'+c.k);
+    r.addEventListener('input',()=>{ S[c.k]= (c.step<1? parseFloat(r.value): parseInt(r.value,10)); draw(); });
+  });
+  document.querySelectorAll('.segs').forEach(g=>{
+    g.querySelectorAll('.seg').forEach(b=>b.addEventListener('click',()=>{
+      const k=g.dataset.key, v=b.dataset.v;
+      if(k==='cap'){ S.gb=parseFloat(v); }
+      else if(k==='plan' && S.plan!==v){ Object.assign(S, PRESET[v]); }
+      else { S[k]=v; }
+      CTL.forEach(c=>{ el('r_'+c.k).value = S[c.k]; });
+      draw();
+    }));
+  });
+}
+function syncCtrls(){
+  CTL.forEach(c=> el('v_'+c.k).textContent = c.fmt(S[c.k]));
+  document.querySelectorAll('.segs').forEach(g=>{
+    const k=g.dataset.key;
+    g.querySelectorAll('.seg').forEach(b=> b.setAttribute('aria-pressed',
+      String(k==='cap' ? Math.abs(S.gb-parseFloat(b.dataset.v))<0.01 : S[k]===b.dataset.v)));
+  });
+}
+/* 툴팁 */
+const tip = el('tip');
+function showTip(e, html){
+  tip.innerHTML=html; tip.style.opacity=1;
+  const r=tip.getBoundingClientRect();
+  let x=e.clientX+14, y=e.clientY-10;
+  if(x+r.width>innerWidth-8) x=e.clientX-r.width-14;
+  if(y+r.height>innerHeight-8) y=innerHeight-r.height-8;
+  tip.style.left=x+'px'; tip.style.top=Math.max(8,y)+'px';
+}
+const hideTip = ()=> tip.style.opacity=0;
+document.addEventListener('scroll',hideTip,{passive:true});
+
+function renderHero(r,b){
+  const free = S.plan==='free';
+  const bc = free? bepConv({}) : null;
+  const items = free ? [
+    {k:'월 총비용', v:manStr(r.cost), u:'원 · 회원당 '+won(r.perUser)+'원'},
+    {k:'인프라만', v:manStr(r.infra), u:'원 · 회원당 '+won(r.infraPerUser)+'원'},
+    {k:'고객지원', v:manStr(r.support), u:'원 · 티켓 '+Math.round(S.ticket*S.N).toLocaleString()+'건/월'},
+    {k:'유료 전환 매출', v:manStr(r.net), u:'원 · 전환 '+Math.round(r.payers).toLocaleString()+'명('+S.conv.toFixed(1)+'%)'},
+    {k:'월 순손익', v:manStr(r.profit), u:'원 '+(r.profit>=0?'(흑자)':'(적자 = 순유출)')},
+    {k:'손익분기 전환율', v:(bc!=null? bc.toFixed(1):'—'), u:'% ('+(bc!=null? Math.ceil(S.N*bc/100).toLocaleString()+'명':'도달 불가')+')'},
+    {k:'초기 현금', v:manStr(r.init), u:'원 (가입 SMS 인증 '+manStr(S.N*FACT.smsVerify)+' 포함)'},
+    {k:'월 트래픽 / 피크', v:r.totalTB.toFixed(0)+'TB', u:Math.round(r.peakMbps).toLocaleString()+'Mbps · 동시 '+Math.round(r.peak).toLocaleString()+'명'}
+  ] : [
+    {k:'유료 오픈까지', v:(S.channel==='store'?'6~7':'2~3'), u:'개월 ('+(S.channel==='store'?'앱스토어 경로':'웹결제 경로')+')'},
+    {k:'초기 현금(모집비 제외)', v:manStr(r.init), u:'원 · '+({corp:'법인',solo:'개인사업자',us:'해외 LLC(미국)',none:'사업자 없음'}[S.entity])+(S.channel==='store'&&S.dev==='out'?' + 앱 외주':'')},
+    {k:'초기 회원 모집비', v:manStr(r.initCAC), u:'원 ('+S.N.toLocaleString()+'명 × CAC)'},
+    {k:'월 원가 합계', v:manStr(r.cost), u:'원 / 회원당 '+won(r.perUser)+'원'},
+    {k:'인프라만', v:won(r.infraPerUser), u:'원 / 회원·월'},
+    {k:'손익분기 회원', v:(b?b.toLocaleString():'—'), u:'명 (고정비 회수 기준)'},
+    {k:'투자 회수', v:(r.payback? r.payback.toFixed(1):'—'), u:'개월 (초기+모집비 ÷ 월이익)'},
+    {k:'월 영업이익', v:manStr(r.profit), u:'원 · 순매출 대비 '+(r.margin*100).toFixed(0)+'%'}
+  ];
+  el('heroes').innerHTML = items.map(i=>`<div class="hero"><div class="k">${i.k}</div><div class="v">${i.v}</div><div class="u">${i.u}</div></div>`).join('');
+  el('summaryLine').innerHTML = free ?
+   `<b>무료 ${S.N.toLocaleString()}명</b>(1인 평균 ${S.gb}GB) → 월 트래픽 <b>${r.totalTB.toFixed(0)}TB</b> · 피크 <b>${Math.round(r.peakMbps).toLocaleString()}Mbps</b>. `+
+   `이때 인프라는 월 <b>${won(r.infra)}원</b>뿐이고, 비용의 <b>${((r.support/r.cost)*100).toFixed(0)}%</b>가 고객지원입니다. `+
+   `즉 <b>무료 요금제의 원가 레버는 트래픽 상한과 "문의를 얼마나 자동으로 막느냐"</b>이며, 유료 전환율이 <b>${bc!=null?bc.toFixed(1)+'%':'—'}</b>를 넘으면 무료 1만명 전체가 흑자로 돌아섭니다.` :
+   `현재 가정에서 <b>${S.N.toLocaleString()}명</b>이 월 <b>${S.price.toLocaleString()}원</b>을 낼 때, 월 트래픽 <b>${r.totalTB.toFixed(0)}TB</b> · 피크 동시 <b>${Math.round(r.peak)}명(${Math.round(r.peakMbps)}Mbps)</b>을 처리해야 하고, `+
+   `그 인프라 원가는 회원당 <b>${won(r.infraPerUser)}원</b>입니다. 즉 <b>이 사업의 원가는 서버가 아니라 사람(지원)과 모집(마케팅)</b>이며, `+
+   `현재 구성에서 두 항목이 월 원가의 <b>${(((r.support+r.marketing)/r.cost)*100).toFixed(0)}%</b>를 차지합니다.`;
+}
+function renderStack(r){
+  const vals = PARTS.map((p,i)=>({...p, v:r[p.k], c:`var(${SER[i]})`}));
+  const tot = vals.reduce((a,b)=>a+b.v,0);
+  const W=1000,H=64,gap=2;
+  let x=0, segs='';
+  vals.forEach(v=>{
+    const w = Math.max(0, (v.v/tot)*(W - gap*(vals.length-1)));
+    segs += `<rect x="${x.toFixed(1)}" y="0" width="${w.toFixed(1)}" height="${H}" rx="4" fill="${v.c}"
+      data-t="${v.t}" data-v="${won(v.v)}원" data-p="${((v.v/tot)*100).toFixed(1)}%"></rect>`;
+    x += w+gap;
+  });
+  el('stack').innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" preserveAspectRatio="none" role="img"
+     aria-label="월 원가 구성 막대">${segs}</svg>`;
+  el('stack').querySelectorAll('rect').forEach(rc=>{
+    rc.addEventListener('mousemove',e=>showTip(e,`<b>${rc.dataset.t}</b><div class="row"><span>금액</span><span>${rc.dataset.v}</span></div><div class="row"><span>비중</span><span>${rc.dataset.p}</span></div>`));
+    rc.addEventListener('mouseleave',hideTip);
+  });
+  el('legend').innerHTML = vals.map(v=>`<span><i class="swatch" style="background:${v.c}"></i>${v.t} · <b>${won(v.v)}원</b></span>`).join('');
+  el('costTable').innerHTML =
+    `<thead><tr><th>항목</th><th class="num">월 금액(원)</th><th class="num">비중</th><th class="num">회원당(원)</th><th>등급</th></tr></thead><tbody>`+
+    vals.map((v,i)=>`<tr><td><i class="swatch" style="background:${v.c}"></i>${v.t}</td><td class="num">${won(v.v)}</td>
+      <td class="num">${((v.v/tot)*100).toFixed(1)}%</td><td class="num">${won(v.v/S.N)}</td>
+      <td>${i===0? '<span class="badge b-fact">실측 단가</span>':'<span class="badge b-est">추정</span>'}</td></tr>`).join('')+
+    `<tr class="tot"><td>월 원가 합계</td><td class="num">${won(tot)}</td><td class="num">100%</td><td class="num">${won(tot/S.N)}</td><td></td></tr>
+     <tr><td>결제 총액(VAT 포함)${S.plan==='free'? ' · 전환 '+Math.round(r.payers).toLocaleString()+'명만':''}</td><td class="num">${won(r.gross)}</td><td class="num"></td><td class="num">${won(r.gross/S.N)}</td><td></td></tr>
+     <tr><td>− 부가세(1/11)</td><td class="num">${won(r.vat)}</td><td class="num"></td><td class="num"></td><td><span class="badge b-fact">세법</span></td></tr>
+     <tr class="tot"><td>월 영업이익</td><td class="num">${won(r.profit)}</td><td class="num">순매출 대비 ${(r.margin*100).toFixed(0)}%</td><td class="num">${won(r.profit/S.N)}</td><td></td></tr>
+     </tbody>`;
+  const chName = {web:'국내 PG 카드 3.4% + 수수료 VAT 10%', store:'앱스토어 구독 15%(Apple 소규모 개발자·Google 구독 기준)',
+    stripe:'Stripe 2.9% + 국제카드 1.5% + 환전 1.0% + 건당 $0.30', mor:'MoR(Paddle 계열) 5% + 건당 $0.50'}[S.channel];
+  const charge = S.price*(S.cycle==='y'?12:1);
+  el('costNote').innerHTML = `결제 수수료율 <b>${(r.feeRate*100).toFixed(2)}%</b> 적용 — ${chName}. 1회 결제금액 ${won(charge)}원(${S.cycle==='y'?'연납':'월납'}) 기준. `+
+    (S.channel==='stripe'||S.channel==='mor'
+      ? `해외 결제는 <b>건당 정액 수수료</b>가 소액 구독을 때립니다: 1회 ${won(charge)}원 결제에서 정액분만 <b>${((({stripe:FACT.stripeFix,mor:FACT.morFix})[S.channel])*S.fxU/charge*100).toFixed(2)}%p</b>. `+
+        `<b>연납으로 바꾸면 이 정액분이 1/12</b>이 되어 실효율이 ${(( (S.channel==='stripe'?FACT.stripePct:FACT.morPct) + ({stripe:FACT.stripeFix,mor:FACT.morFix})[S.channel]*S.fxU/(S.price*12))*100).toFixed(2)}%까지 떨어집니다.`
+      : `국내 PG(3.74%)↔현재 채널 전환만으로 월 <b>${won(Math.abs(S.N*S.price*(r.feeRate - FACT.pgRate*1.1)))}원</b> 차이가 납니다.`);
+}
+function lineChart(host, xs, ys, fmtY, label, markX){
+  const W=520,H=190,P={l:52,r:14,t:12,b:26};
+  const xmin=xs[0], xmax=xs[xs.length-1];
+  const ymin=Math.min(0,...ys), ymax=Math.max(...ys,1);
+  const sx=v=>P.l+(v-xmin)/(xmax-xmin||1)*(W-P.l-P.r);
+  const sy=v=>H-P.b-(v-ymin)/((ymax-ymin)||1)*(H-P.t-P.b);
+  const ticks=4, gl=[], lb=[];
+  for(let i=0;i<=ticks;i++){
+    const v=ymin+(ymax-ymin)*i/ticks, y=sy(v);
+    gl.push(`<line x1="${P.l}" y1="${y}" x2="${W-P.r}" y2="${y}" stroke="var(--grid)" stroke-width="1"/>`);
+    lb.push(`<text x="${P.l-7}" y="${y+3.5}" text-anchor="end" font-size="10" fill="var(--text-muted)">${fmtY(v)}</text>`);
+  }
+  const d = xs.map((x,i)=>`${i?'L':'M'}${sx(x).toFixed(1)},${sy(ys[i]).toFixed(1)}`).join(' ');
+  const area = d+` L${sx(xmax)},${sy(Math.max(0,ymin))} L${sx(xmin)},${sy(Math.max(0,ymin))} Z`;
+  const zero = (ymin<0&&ymax>0)? `<line x1="${P.l}" y1="${sy(0)}" x2="${W-P.r}" y2="${sy(0)}" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 3"/>`:'';
+  const mk = (markX && markX>=xmin && markX<=xmax)? `<line x1="${sx(markX)}" y1="${P.t}" x2="${sx(markX)}" y2="${H-P.b}" stroke="var(--s3)" stroke-width="2" stroke-dasharray="4 3"/>
+      <text x="${sx(markX)+5}" y="${P.t+11}" font-size="10" fill="var(--s3)">BEP ${markX.toLocaleString()}명</text>`:'';
+  const xl = [xmin, Math.round((xmin+xmax)/2), xmax].map(v=>`<text x="${sx(v)}" y="${H-8}" text-anchor="middle" font-size="10" fill="var(--text-muted)">${v.toLocaleString()}</text>`).join('');
+  host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${label}">
+    ${gl.join('')}${zero}
+    <path d="${area}" fill="var(--s1)" opacity="0.13"/>
+    <path d="${d}" fill="none" stroke="var(--s1)" stroke-width="2" stroke-linejoin="round"/>
+    ${mk}${lb.join('')}${xl}
+    <rect id="hit" x="${P.l}" y="${P.t}" width="${W-P.l-P.r}" height="${H-P.t-P.b}" fill="transparent"/>
+    <line id="cross" x1="0" y1="${P.t}" x2="0" y2="${H-P.b}" stroke="var(--text-muted)" stroke-width="1" opacity="0"/>
+    <circle id="dot" r="4.5" fill="var(--s1)" stroke="var(--surface-1)" stroke-width="2" opacity="0"/>
+    <text x="${P.l}" y="${H-8}" font-size="10" fill="var(--text-muted)" opacity="0"></text></svg>`;
+  const svg=host.querySelector('svg'), hit=host.querySelector('#hit'),
+        cross=host.querySelector('#cross'), dot=host.querySelector('#dot');
+  const move=e=>{
+    const box=svg.getBoundingClientRect();
+    const px=(e.clientX-box.left)/box.width*W;
+    let bi=0,bd=1e9;
+    xs.forEach((x,i)=>{const d2=Math.abs(sx(x)-px); if(d2<bd){bd=d2;bi=i;}});
+    cross.setAttribute('x1',sx(xs[bi])); cross.setAttribute('x2',sx(xs[bi])); cross.setAttribute('opacity','.6');
+    dot.setAttribute('cx',sx(xs[bi])); dot.setAttribute('cy',sy(ys[bi])); dot.setAttribute('opacity','1');
+    showTip(e,`<b>${xs[bi].toLocaleString()}명</b><div class="row"><span>${label}</span><span>${won(ys[bi])}원</span></div>`);
+  };
+  hit.addEventListener('mousemove',move);
+  hit.addEventListener('touchmove',ev=>{ev.preventDefault();move(ev.touches[0]);},{passive:false});
+  hit.addEventListener('mouseleave',()=>{hideTip();cross.setAttribute('opacity','0');dot.setAttribute('opacity','0');});
+}
+function renderCurves(b){
+  const xs=[],p=[],u=[];
+  const max = S.plan==='free'? 20000 : 2000, step = max/20;
+  for(let n=step;n<=max;n+=step){ const r=calc({N:n}); xs.push(n); p.push(r.profit); u.push(r.perUser); }
+  lineChart(el('profitChart'), xs, p, v=>manStr(v), S.plan==='free'?'월 순손익':'월 영업이익', S.plan==='free'?null:b);
+  lineChart(el('unitChart'),   xs, u, v=>won(v),   '회원당 월 원가', null);
+}
+const SCEN_PAID = [
+  {t:'A 최소(낙관)',  o:{gb:20, conc:5,  ticket:0.05, churn:3,  cac:8000},  d:'입소문 중심 · 경량 사용'},
+  {t:'B 권장(기본)',  o:{gb:40, conc:8,  ticket:0.15, churn:5,  cac:15000}, d:'설계 기준으로 쓸 값'},
+  {t:'C 여유(보수)',  o:{gb:70, conc:14, ticket:0.35, churn:8,  cac:35000}, d:'스트리밍 다수 · 유료광고'}
+];
+const SCEN_FREE = [
+  {t:'F1 상한 1GB',   o:{gb:0.8, conc:3, ticket:0.01, churn:5, cac:500},   d:'지원 없음 · 셀프서비스 전용'},
+  {t:'F2 상한 5GB',   o:{gb:3.5, conc:4, ticket:0.03, churn:5, cac:1000},  d:'권장 · 문서+봇 자동응답'},
+  {t:'F3 상한 20GB',  o:{gb:12,  conc:5, ticket:0.05, churn:5, cac:1500},  d:'체감 좋음 · 원가 3배'},
+  {t:'F4 무제한',     o:{gb:40,  conc:8, ticket:0.05, churn:5, cac:2000},  d:'상한 없음 · 남용 노출 최대'}
+];
+function renderScen(){
+  const SCEN = S.plan==='free'? SCEN_FREE : SCEN_PAID;
+  const rows = SCEN.map(s=>({t:s.t,d:s.d,r:calc(s.o),b:bep(s.o)}));
+  el('scenTable').innerHTML =
+   `<thead><tr><th>구분</th><th class="num">월 트래픽</th><th class="num">피크 동시</th><th class="num">노드</th>
+     <th class="num">월 인프라</th><th class="num">월 원가</th><th class="num">회원당</th><th class="num">월 손익</th>
+     <th class="num">${S.plan==='free'?'BEP 전환율':'BEP 회원'}</th><th class="num">${S.plan==='free'?'BEP 전환 인원':'회수'}</th></tr></thead><tbody>`+
+   rows.map(x=>`<tr><td><b>${x.t}</b><br><span class="sub">${x.d}</span></td>
+     <td class="num">${x.r.totalTB.toFixed(0)}TB</td><td class="num">${Math.round(x.r.peak)}명</td>
+     <td class="num">${x.r.nodes.reduce((a,n)=>a+n.n,0)}대</td>
+     <td class="num">${won(x.r.infra)}</td><td class="num">${won(x.r.cost)}</td><td class="num">${won(x.r.perUser)}</td>
+     <td class="num" style="color:${x.r.profit>0?'var(--good)':'var(--bad)'}">${manStr(x.r.profit)}</td>
+     ${S.plan==='free'
+       ? (()=>{const c=bepConv(SCEN[rows.indexOf(x)].o); return `<td class="num">${c!=null?c.toFixed(1)+'%':'—'}</td><td class="num">${c!=null?Math.ceil(S.N*c/100).toLocaleString()+'명':'—'}</td>`;})()
+       : `<td class="num">${x.b?x.b+'명':'—'}</td><td class="num">${x.r.payback?x.r.payback.toFixed(1)+'개월':'—'}</td>`}</tr>`).join('')+
+   `</tbody>`;
+}
+const PHASES = [
+  {t:'P0 준비',        s:0,  e:1,  c:0, work:'사업자등록·도메인·호스터 계약 및 <b>ToS에서 VPN 재판매 허용 여부 확인</b>', out:'계약 가능한 호스터 2곳 확정'},
+  {t:'P1 MVP 구축',    s:1,  e:3,  c:1, work:'Remnawave 패널 + exit 노드 3대(커널 WireGuard) + 텔레그램 봇(회원·쿼터·QR)', out:'초대코드로 접속되는 실물 서비스'},
+  {t:'P2 파일럿 계측', s:3,  e:6,  c:2, work:'100~200명 무료 파일럿 · <b>1인당 트래픽·동시율·티켓률 실측</b>', out:'이 대시보드의 ⚠추정 3개를 실측으로 교체'},
+  {t:'P3 과금·법규',   s:5,  e:8,  c:3, work:'통신판매업 신고 · PG 심사·정기결제 연동 · 약관/개인정보처리방침/국외이전 고지', out:'결제 가능 상태'},
+  {t:'P4 유료 오픈·스케일', s:8, e:12, c:4, work:'노드 증설·모니터링·지원 자동화로 1,000명까지', out:'유료 1,000명 운영'},
+  {t:'P5 (선택) 자체 앱·스토어', s:12, e:28, c:1, work:'법인 설립 + D-U-N-S + WireGuardKit(MIT)/tunnel(Apache-2.0) 기반 앱', out:'App Store·Play 배포'}
+];
+function renderGantt(){
+  const maxW = S.channel==='store'? 28 : 13;
+  const W=1000, rowH=30, H=PHASES.length*rowH+26;
+  const P={l:0,r:0,t:20};
+  const sx = w => (w/maxW)*W;
+  let g='';
+  for(let w=0;w<=maxW;w+=(maxW>16?4:2)){
+    g+=`<line x1="${sx(w)}" y1="${P.t-8}" x2="${sx(w)}" y2="${H-6}" stroke="var(--grid)" stroke-width="1"/>
+        <text x="${sx(w)+3}" y="${P.t-11}" font-size="10" fill="var(--text-muted)">${w}주</text>`;
+  }
+  let bars='';
+  PHASES.forEach((p,i)=>{
+    if(p.t.startsWith('P5') && S.channel!=='store') return;
+    const y=P.t+i*rowH, x=sx(p.s), w=Math.max(6,sx(p.e-p.s)-2);
+    bars += `<rect x="${x}" y="${y}" width="${w}" height="${rowH-12}" rx="4" fill="var(${SER[p.c]})"
+      data-t="${p.t}" data-w="${p.s}~${p.e}주" data-o="${p.out}"></rect>
+      <text x="${x+6}" y="${y+13}" font-size="11" fill="#fff" font-weight="600" style="paint-order:stroke;stroke:rgba(0,0,0,.35);stroke-width:2.5px">${p.t}</text>`;
+  });
+  const open = sx(12);
+  bars += `<line x1="${open}" y1="${P.t-8}" x2="${open}" y2="${H-6}" stroke="var(--s3)" stroke-width="2" stroke-dasharray="4 3"/>
+           <text x="${open+5}" y="${H-10}" font-size="10.5" fill="var(--s3)" font-weight="700">유료 오픈 완료</text>`;
+  el('gantt').innerHTML = `<div class="scroll"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="단계별 일정 간트 차트">${g}${bars}</svg></div>`;
+  el('gantt').querySelectorAll('rect').forEach(rc=>{
+    rc.addEventListener('mousemove',e=>showTip(e,`<b>${rc.dataset.t}</b><div class="row"><span>기간</span><span>${rc.dataset.w}</span></div><div class="row"><span>산출</span><span>${rc.dataset.o}</span></div>`));
+    rc.addEventListener('mouseleave',hideTip);
+  });
+  el('phaseTable').innerHTML = `<thead><tr><th>단계</th><th class="num">주차</th><th>하는 일</th><th>이 단계의 산출물</th></tr></thead><tbody>`+
+    PHASES.filter(p=>!(p.t.startsWith('P5')&&S.channel!=='store')).map(p=>
+    `<tr><td><i class="swatch" style="background:var(${SER[p.c]})"></i><b>${p.t}</b></td><td class="num">${p.s}~${p.e}</td><td>${p.work}</td><td>${p.out}</td></tr>`).join('')+`</tbody>`;
+}
+function renderNodes(r){
+  el('nodeTable').innerHTML = `<thead><tr><th>노드</th><th class="num">대수</th><th class="num">단가/월</th><th class="num">합계/월</th><th class="num">담당 트래픽</th><th class="num">담당 대역</th><th>용량 근거</th></tr></thead><tbody>`+
+    r.nodes.map(n=>`<tr><td>${n.name}</td><td class="num">${n.n}</td><td class="num">${won(n.unit)}</td><td class="num">${won(n.cost)}</td>
+      <td class="num">${n.tb? n.tb.toFixed(1)+'TB':'—'}</td><td class="num">${n.mbps? Math.round(n.mbps)+'Mbps':'—'}</td><td class="sub">${n.src}</td></tr>`).join('')+
+    `<tr class="tot"><td>인프라 합계(도메인 포함)</td><td class="num">${r.nodes.reduce((a,n)=>a+n.n,0)}</td><td></td><td class="num">${won(r.infra)}</td><td class="num">${r.totalTB.toFixed(0)}TB</td><td class="num">${Math.round(r.peakMbps)}Mbps</td><td></td></tr></tbody>`;
+  el('nodeNote').innerHTML = `필요 대역폭 = max(동시접속 기반 ${Math.round(r.concMbps).toLocaleString()}Mbps, 월 트래픽 평균 ${Math.round(r.avgMbps).toLocaleString()}Mbps × 피크계수 2.5) → ${Math.round(r.peakMbps).toLocaleString()}Mbps. 노드 수 = max(필요 대역폭 ÷ 노드 대역, 담당 트래픽 ÷ 포함 트래픽). `+
+    `<b>커널 WireGuard 사용은 협상 대상이 아닙니다</b>: 유저스페이스(wireguard-go)로 돌리면 동일 하드웨어 처리량이 909→329 Mbps로 떨어져 서버 대수가 약 3배가 됩니다 <span class="badge b-fact">실측(Netgate 벤치마크)</span>.`+
+    (S.kr==='kakao'? ` <b style="color:var(--bad)">한국 종량 노드 경고:</b> 카카오클라우드 90원/GB는 TB당 약 90,000원(≈$64)으로 Hetzner EU 대비 약 190배입니다. 한국 exit는 트래픽 비중을 최소화하거나 미사용이 원가상 정답입니다.`:'')+
+    (S.kr==='idc'? ` <b style="color:var(--bad)">IDC 정액 경고:</b> 100Mbps 회선 월 100만원은 1,000명 규모에서 회원당 1,000원으로, 요금의 10%를 한 지역 노드가 먹습니다.`:'');
+}
+const RISKS = [
+  {lv:'high', t:'해외 법인으로 나가도 사라지지 않는 의무가 더 많다',
+   b:'한국 이용자에게 유료 구독을 파는 이상 <b>①부가가치세 간편사업자등록(부가세법 제53조의2)</b>은 <b>매출 기준선 없이</b> 적용됩니다 — 공급 개시 20일 내 등록, 분기 신고, 10% 납부, 미등록 시 공급가액 1% 가산세. 클라우드컴퓨팅 서비스는 2019년부터 과세 대상에 명시돼 있습니다. <b>②개인정보보호법</b>은 한국어·원화·.kr·한국 앱마켓 같은 요소로 "한국 정보주체 대상"이면 역외적용되며, 알리익스프레스 과징금 19.8억원·구글/메타 약 1,000억원 등 실제 집행 선례가 있습니다. <b>③전자상거래법</b>도 구글·넷플릭스에 실제 과태료가 부과됐습니다. 국내대리인 지정 의무는 규모 기준(매출 1조/이용자 100만 등) 미달로 대체로 비대상이지만, <b>규제기관이 자료제출을 요구하는 순간 규모와 무관하게 대상이 됩니다.</b>',
+   f:'반대로 창업자가 한국 거주자면 <b>새로 생기는 의무 4개</b>: 해외직접투자 사전신고(외국환거래법, 미신고 시 20억 이하 1억원 과태료), 해외금융계좌 신고(잔액 5억 초과 시, 미신고 10% 과태료), CFC 유보소득 배당간주(실제부담세율 15% 이하 + 지분 10% 이상), 실질적 관리장소 국내 인정 시 내국법인 간주(전세계소득 과세).', g:'실측'},
+  {lv:'high', t:'App Store에 VPN 앱을 올리려면 법인이 필요하다',
+   b:'App Store Review Guideline 5.4 — "VPN 서비스를 제공하는 앱은 <b>organization으로 등록한 개발자만</b> 제공할 수 있다"(Apple DTS 공식 답변). Apple은 DBA·상호·개인사업자 형태를 조직으로 받지 않으며 D-U-N-S가 필수입니다. Google Play도 VpnService 사용 앱은 Organization 계정 + VpnService 선언(90초 데모 영상 포함)을 요구합니다.',
+   f:'대응: 1단계는 <b>웹결제 + 공식 WireGuard 앱 + 구독 QR</b>로 법인 없이 출발하고, 앱스토어는 매출이 붙은 뒤 법인과 함께 진행.', g:'실측'},
+  {lv:'high', t:'호스터 약관에서 VPN 재판매가 금지일 수 있다',
+   b:'Hetzner·Contabo의 상용 VPN 재판매 허용 여부는 이번 조사에서 <b>확인하지 못했습니다</b>. 상용 VPN 리셀링을 금지하는 호스터가 흔하며, 계정 정지는 서비스 전면 중단으로 직결됩니다.',
+   f:'대응: P0에서 각 호스터에 서면(티켓) 질의 → 답변 캡처 보관. 최소 2개 공급자 이중화.', g:'미확인'},
+  {lv:'high', t:'통신비밀보호법상 자료 보관 의무의 VPN 적용 여부가 불명확하다',
+   b:'개인정보보호법상 <b>개인정보처리시스템 접속기록 1년(조건부 2년) 보관</b>은 적용됩니다(회원DB·결제·관리자 콘솔 기준, VPN 트래픽 로그와 별개). 그러나 통신비밀보호법상 통신사실확인자료 보관 의무가 부가통신사업자에게 어떻게 적용되는지는 <b>원문 확인 실패</b>로 미확인입니다 — "노로그" 마케팅과 정면 충돌할 수 있는 지점.',
+   f:'대응: 유료 오픈 전 변호사 1회 자문(비용 30~60만원 수준). 그 전까지 "노로그"를 광고 문구로 쓰지 않기.', g:'미확인'},
+  {lv:'high', t:'무료 요금제의 진짜 원가는 서버가 아니라 남용(abuse)이다',
+   b:'무료 VPN은 스팸 발송·저작권 침해·크리덴셜 스터핑의 출구로 쓰이며, 그 결과 <b>호스터 abuse 신고 → 계정 정지</b>가 서비스 전면 중단으로 직결됩니다. 또 무료는 다중계정 생성이 자유로워 상한제를 무력화합니다. 트래픽은 소수 헤비 유저에 극단적으로 쏠립니다.',
+   f:'대응: ① 가입 시 <b>휴대폰/이메일 인증</b>(SMS 약 20원/건 → 1만명 20만원 일회성) ② <b>1인당 월 상한 + 동시 기기 수 제한</b>(상한 없는 무료는 설계 금지) ③ SMTP 25번 포트·P2P 차단 기본값 ④ 예비 노드·예비 IP 확보(예비율 15% 이상) ⑤ abuse 신고 자동 대응 절차 문서화.', g:'추정'},
+  {lv:'mid', t:'1인당 트래픽·동시접속률·티켓률 — 이 3개가 원가 전체를 흔든다',
+   b:'소비자 VPN의 1인당 월 트래픽, 등록 대비 동시접속률, 회원당 월 티켓 수의 <b>공개 벤치마크는 존재하지 않습니다</b>. 티켓률만 0.05~1.14건으로 23배 범위이고, 이 값이 월 원가의 대부분을 결정합니다.',
+   f:'대응: P2에서 100~200명 파일럿으로 1~2개월 자체 계측. 공개 자료로는 대체 불가.', g:'추정'},
+  {lv:'mid', t:'부가통신사업 신고는 자본금 1억원 이하면 면제 — 병목이 아니다',
+   b:'전기통신사업법 제22조: 인터넷으로 부가통신역무를 제공하는 <b>자본금 1억원 이하 사업자는 신고 면제</b>. 반면 <b>통신판매업 신고는 의무</b>(6개월 20회/1,200만원 초과 시)이며 등록면허세 40,500원이 매년 반복됩니다. 미신고 시 부가통신은 2년 이하 징역·1억원 이하 벌금.',
+   f:'대응: 자본금을 1억원 미만으로 설계하면 인허가 부담이 사라집니다.', g:'실측'},
+  {lv:'mid', t:'브랜딩 시 라이선스·상표 함정',
+   b:'Hiddify 앱 포크는 <b>상업적 사용 금지</b>(사전 서면 동의 필요), v2rayNG는 GPL-3.0(소스 공개 의무), WireGuard 상표는 <b>상업 환경에서 로고 사용 금지</b>(단 wireguard-trademark-usage@zx2c4.com 요청 시 대개 승인).',
+   f:'대응: 자체 앱은 WireGuardKit(MIT) + com.wireguard.android:tunnel(Apache-2.0) 위에 UI만 얹는 경로만 깔끔합니다. 상표 사용 허가 메일은 P1에 발송.', g:'실측'}
+];
+function renderRisks(){
+  el('risks').innerHTML = RISKS.map(r=>`<div class="risk ${r.lv==='mid'?'mid':''}">
+    <div class="t">${r.t} <span class="badge ${r.g==='실측'?'b-fact':(r.g==='추정'?'b-est':'b-unk')}">${r.g}</span></div>
+    <p style="margin:4px 0 4px">${r.b}</p><p style="margin:0;color:var(--text-primary);font-size:13.5px">${r.f}</p></div>`).join('');
+}
+const SRC = [
+ ['Hetzner CX23 (독일/핀란드)','€5.49/월 + IPv4 €0.50 · 20TB 포함 · 초과 €1/TB','2026-06-15 인상 반영','https://docs.hetzner.com/general/infrastructure-and-availability/price-adjustment/'],
+ ['Contabo Cloud VPS 10 도쿄','€6.85/월 · 200Mbit/s · 인·아웃 무제한(fair-use)','일본 리전 명시','https://contabo.com/en/locations/asia-japan/'],
+ ['RackNerd 2GB KVM','$35.99/년(=$3.00/월) · 5TB/월 · 1Gbps','연납 특가','https://www.racknerd.com/specials/'],
+ ['unmetered 전용서버','1GServers 1Gbps unmetered $53.84/월 · 10Gbps unmetered $199.97/월 · NovoServe 1Gbps €59','2026-07 프로모 게시가','https://lowendtalk.com/discussion/218976/'],
+ ['카카오클라우드','t1i.nano 3,960원/월 + Public IP 3,960원 · 아웃바운드 90원/GB(30GiB 무료)','VAT 별도','https://kakaocloud.com/services/virtual-machine/pricing'],
+ ['국내 IDC 회선','100Mbps 100만원/월 · 1Gbps 500만원/월 · 초과 17,000원/Mbps','아웃바운드만 과금','https://hosting.cafe24.com/?controller=new_product_page&page=colocation'],
+ ['국내 PG 카드 수수료','나이스페이 3.20%(베이직)/2.90%(프리미엄) · 이니시스 영세 2.1~일반 3.4% · 토스 1.65~3.20%','가입비 22만/55만, 연관리비 11만(프로모션 면제)','https://start.nicepay.co.kr/homepage/price.do'],
+ ['앱스토어 수수료','Apple 소규모 개발자 15%(첫날부터) · Google 자동갱신 구독 15% · Apple 계정 $99/년 · Google $25 1회','한국 외부결제는 Apple 26%/Google −4%p','https://www.revenuecat.com/blog/engineering/small-business-program'],
+ ['부가통신사업 신고','자본금 1억원 이하 면제 · 수수료 없음 · 미신고 2년 이하 징역 또는 1억원 이하 벌금','과기정통부 안내문','https://www.kca.kr/boardView.do?pageId=www174&boardId=CARDNEWS&seq=1638400&movePage=1'],
+ ['통신판매업 신고','신고 무료 · 등록면허세 40,500원(인구 50만↑) 매년 1월 · 디지털 용역은 에스크로 면제','전자상거래법 제12조','https://www.tosspayments.com/blog/articles/sales-registration'],
+ ['법인 설립','등록면허세 자본금 0.4%(최저 112,500원, 과밀 3배) + 지방교육세 20% + 등기 20,000원','과밀 최저 시 425,000원','https://zuzu.network/resource/guide/incorporation-cost-calculation-guide/'],
+ ['기장·세무','기장대행 월 10만원 안팎부터 · 결산·세무조정 연 평균 30만원','2026 시세','https://clobe.ai/blog/tax-agency-bookkeeping-cost-guide-2026'],
+ ['WireGuard 처리량','2vCPU 클라우드 약 1,165Mbps · 커널 909Mbps vs wireguard-go 329Mbps(동일 HW) · 최대 피어 2^20','Netmaker/Netgate 벤치마크','https://www.netgate.com/blog/wireguard-in-pfsense-2-5-performance'],
+ ['패널·과금 SW','Remnawave(AGPL, 다중노드·REST API) · 3x-ui(GPL) · 텔레그램 봇 과금 = 0원 / WHMCS 1000석 $84.95월','상용 빌링 회피 근거','https://www.whmcs.com/pricing/'],
+ ['Apple VPN 앱 정책','Guideline 5.4 — VPN 앱은 organization 등록 개발자만 제공 가능(Apple DTS 답변)','개인 개발자 불가','https://developer.apple.com/forums/thread/775594'],
+ ['Google Play VPN 정책','VpnService 앱은 Organization 계정 + D-U-N-S + 선언(90초 데모·prominent disclosure) 필수','2022-11-01부터','https://support.google.com/googleplay/android-developer/answer/12564964?hl=en'],
+ ['해외 결제 수수료','Stripe 2.9%+$0.30(국제카드 +1.5%·환전 +1.0%) · Paddle 5%+$0.50 · Stripe는 해외법인으로 한국카드·카카오페이·네이버페이 정기결제 지원(싱가포르 법인은 카카오페이 제외)','MoR은 한국 부가세를 대신 부담','https://edge-docs.stripe.com/payments/countries/korea'],
+ ['해외 법인 유지비','와이오밍 LLC: 설립 $100+RA $125 · 연 $60(주)+$100~300(RA)+$399~498(5472 신고) · 델라웨어는 2026년 연 정액세 $300→$400','5472 미신고 벌금 $25,000','https://www.llcuniversity.com/wyoming-llc/costs/'],
+ ['국외사업자 부가세','전자적 용역(클라우드 포함) 공급 시 간편사업자등록 의무 · 최저 매출기준 없음 · 20일 내 등록 · 분기 신고 · 미등록 가산세 공급가액 1%','부가가치세법 제53조의2','https://taxsummaries.pwc.com/republic-of-korea/corporate/other-taxes'],
+ ['해외직접투자·CFC','거주자의 해외법인 지분 10% 이상 취득 시 사전신고(위반 20억 이하 1억원 과태료) · CFC: 실제부담세율 15% 이하 + 지분 10% 이상이면 유보소득 배당간주','국제조세조정법·외국환거래법','https://www.shinkim.com/kor/media/newsletter/2998'],
+ ['도메인·부가 서비스','Cloudflare Registrar 원가($10.97/년+ICANN) · Cloudflare DNS 무료 · Uptime Kuma 무료 · Resend 3,000통/월 무료 · R2 10GB 무료(egress 0)','월 0원 구성 가능','https://developers.cloudflare.com/r2/pricing/']
+];
+function renderSrc(){
+  el('srcTable').innerHTML = `<thead><tr><th>항목</th><th>확인한 단가·조건</th><th>비고</th><th>출처</th></tr></thead><tbody>`+
+    SRC.map(s=>`<tr><td><b>${s[0]}</b></td><td>${s[1]}</td><td class="sub">${s[2]}</td><td><a href="${s[3]}" target="_blank" rel="noopener">확인</a></td></tr>`).join('')+`</tbody>`;
+}
+function draw(){
+  const r=calc(), b=bep({});
+  syncCtrls(); renderHero(r,b); renderStack(r); renderCurves(b); renderScen(); renderGantt(); renderNodes(r);
+  el('fxU').textContent=S.fxU.toLocaleString(); el('fxE').textContent=S.fxE.toLocaleString();
+  document.querySelector('.top .sub').innerHTML =
+    (S.plan==='free'? '무료 요금제' : '유료 구독') + ' · 등록회원 '+S.N.toLocaleString()+'명 · 1인 평균 '+S.gb+'GB/월 · 한국/일반 국가 기준 · 생성 2026-07-30';
+}
+renderCtrls(); renderRisks(); renderSrc(); draw();
+
+/* 테마 토글 */
+el('themeBtn').addEventListener('click',()=>{
+  const light = document.documentElement.dataset.theme==='light';
+  document.documentElement.dataset.theme = light? 'dark':'light';
+  el('themeBtn').textContent = light? '라이트':'다크';
+  document.querySelector('meta[name=theme-color]').setAttribute('content', light? '#141a26':'#f6f6f3');
+  draw();
+});
+
+/* ---------------- PWA 설치 ---------------- */
+(function(){
+  const KEY='vpncost_banner_dismissed';
+  const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone===true;
+  const banner=el('banner'), btn=el('installBtn');
+  let deferred=null;
+  const suppressed=()=>{
+    if(sessionStorage.getItem(KEY)) return true;
+    const t=parseInt(localStorage.getItem(KEY)||'0',10);
+    return t && (Date.now()-t) < 24*60*60*1000;
+  };
+  const dismiss=()=>{
+    banner.style.display='none';
+    try{sessionStorage.setItem(KEY,'1');localStorage.setItem(KEY,String(Date.now()));}catch(e){}
+  };
+  el('bannerX').addEventListener('click',dismiss);
+  if(standalone) return;
+  addEventListener('beforeinstallprompt',e=>{
+    e.preventDefault(); deferred=e;
+    btn.style.display='inline-block';
+    if(!suppressed()) banner.style.display='flex';
+  });
+  const doInstall=async()=>{
+    if(!deferred) return;
+    banner.style.display='none';
+    deferred.prompt();
+    try{ await deferred.userChoice; }catch(e){}
+    deferred=null; btn.style.display='none';
+  };
+  btn.addEventListener('click',doInstall);
+  el('bannerAct').addEventListener('click',doInstall);
+  addEventListener('appinstalled',()=>{
+    deferred=null; btn.style.display='none'; banner.style.display='none';
+    try{sessionStorage.removeItem(KEY);localStorage.removeItem(KEY);}catch(e){}
+  });
+  // iOS: beforeinstallprompt 없음 → 안내 자동 표시
+  const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+              (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+  if(iOS && !suppressed()){
+    el('bannerSub').textContent='공유 버튼 → "홈 화면에 추가"를 누르면 앱처럼 열립니다';
+    el('bannerAct').style.display='none';
+    setTimeout(()=>{ if(!suppressed()) banner.style.display='flex'; }, 1200);
+  }
+})();
+</script>
+</body>
+</html>

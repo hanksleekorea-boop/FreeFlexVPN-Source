@@ -1,0 +1,16 @@
+{
+  "schema": "FreeFlexVPNPublicPCV25EvidenceV1",
+  "measured_at": "2026-08-04T21:31:14+0700",
+  "public_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+  "version": "v2.5",
+  "bytes": 159453,
+  "sha256": "CD7D3BD909F7F915147D3BA676BA14BBC6B8EE02AB3881F43F57F824AB7E8A0E",
+  "qr_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app-qr.png",
+  "qr_decoded_payload": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+  "checks_passed": 10,
+  "checks_total": 10,
+  "failed": [],
+  "github_commit": "01b4ab894e45907900285e32b4614070c79c0986",
+  "github_actions_run": "https://github.com/hanksleekorea-boop/FreeFlexVPN/actions/runs/30919123045",
+  "github_actions_conclusion": "success"
+}

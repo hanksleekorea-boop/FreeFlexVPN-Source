@@ -1,0 +1,181 @@
+{
+  "schema": "FreeFlexVPNReleaseDiffV2",
+  "generated_on": "2026-08-04",
+  "from": {
+    "handoff_candidate": "v2.15-r2-handoff",
+    "public_version": "v2.3",
+    "public_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "public_bytes": 146845,
+    "public_sha256": "8A906F32DFA74B734F2630937339408A509F6C422A6E103122BD086509B4886A"
+  },
+  "to": {
+    "local_candidate": "v2.21-pc-public",
+    "deployed": true,
+    "public_version": "v2.5",
+    "public_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "public_bytes": 159453,
+    "public_sha256": "CD7D3BD909F7F915147D3BA676BA14BBC6B8EE02AB3881F43F57F824AB7E8A0E",
+    "github_commit": "01b4ab894e45907900285e32b4614070c79c0986",
+    "github_actions_conclusion": "success",
+    "progress_percent": 58.3,
+    "progress_changed": false
+  },
+  "app_shell": {
+    "local_deploy": {
+      "path": "30_DEPLOY/app.html",
+      "bytes": 159453,
+      "sha256": "CD7D3BD909F7F915147D3BA676BA14BBC6B8EE02AB3881F43F57F824AB7E8A0E"
+    },
+    "equal_to_verified_public_v2_5": true,
+    "visible_change": "PC-2·3: 3영역 책상형 홈·정직한 대형 통계·상시 QR 핸드오프",
+    "deployment_action": "completed_and_publicly_verified"
+  },
+  "local_changes": [
+    {
+      "area": "pc_responsive_web_train",
+      "summary": "단일 HTML 반응형 PC 홈, 대형 통계, 상시 QR, 키보드와 1024px 미만 무변화 검사",
+      "evidence_level": "implementation_local_and_public_browser_regression",
+      "public_effect": "deployed_v2_5",
+      "files": [
+        {
+          "path": "20_SRC/build_app_v2.py",
+          "bytes": 69516,
+          "sha256": "66689FA763FDF7ED6821C5A79E2B471562E8CD248BE4F5F2FF12D6AC25F73C00"
+        },
+        {
+          "path": "20_SRC/build_web_assets.py",
+          "bytes": 5528,
+          "sha256": "C6CA6F79E064F12801CBD2788D7F7B08B522E898356CF3F801F0811CCDD5178F"
+        },
+        {
+          "path": "20_SRC/html_templates/app_v2.html",
+          "bytes": 93121,
+          "sha256": "ACEA2DB63A5F5619D347009251E5CEAE5D54F917C38980641267A04960F70430"
+        },
+        {
+          "path": "30_DEPLOY/app.html",
+          "bytes": 159453,
+          "sha256": "CD7D3BD909F7F915147D3BA676BA14BBC6B8EE02AB3881F43F57F824AB7E8A0E"
+        },
+        {
+          "path": "60_OUTPUTS/prototype/FreeFlexVPN_app_prototype_v2.4_PC1.html",
+          "bytes": 151161,
+          "sha256": "3B62EB495C4299313D53DCB22AD1FD3F332A6267CBBC510227479DE95FD574F6"
+        },
+        {
+          "path": "60_OUTPUTS/prototype/FreeFlexVPN_app_prototype_v2.5_PC2_PC3.html",
+          "bytes": 159453,
+          "sha256": "CD7D3BD909F7F915147D3BA676BA14BBC6B8EE02AB3881F43F57F824AB7E8A0E"
+        },
+        {
+          "path": "40_TESTS/test_pc_viewport.py",
+          "bytes": 4393,
+          "sha256": "31EF6B983449B18A660839A447E7B4408FF885B0C175B145A6FDBCCFABC6F5B7"
+        },
+        {
+          "path": "40_TESTS/test_keyboard.py",
+          "bytes": 3983,
+          "sha256": "7DD39DA34E60BF359ED4D3116542E4248FAEDEB82DEDE6DD061CD95B92D81A38"
+        },
+        {
+          "path": "40_TESTS/test_pc_home.py",
+          "bytes": 3826,
+          "sha256": "AB4CB7D0E55830D0D60AEFC2B5A47D09EBE586168209E64C036E17A62A7B0314"
+        },
+        {
+          "path": "40_TESTS/test_pc_handoff.py",
+          "bytes": 3248,
+          "sha256": "6C04AF76F24334EDBB9C6A4A27C57E85D4DC6537755A1E144B84C8B8F4949ABC"
+        },
+        {
+          "path": "40_TESTS/test_desktop_app_mode.py",
+          "bytes": 4759,
+          "sha256": "840D85CB74CE3FC066AF915473A5645EAB49E4AD703E85D44ED457DA7084631C"
+        }
+      ]
+    },
+    {
+      "area": "runtime_acceptance",
+      "summary": "T1~T10 실패 폐쇄형 대상환경·독립 사용자 판정과 원본 해시 결속",
+      "evidence_level": "implementation_and_local_only",
+      "public_effect": "none",
+      "files": [
+        {
+          "path": "20_SRC/app/runtime_acceptance.py",
+          "bytes": 13793,
+          "sha256": "40D6BA2FBFE3D49FB563E287936D06E77F2EE6C58B4A342C9B25D29BF782A06D"
+        },
+        {
+          "path": "20_SRC/app/runtime_evidence.py",
+          "bytes": 10790,
+          "sha256": "4E46349BCBB77C1D4F583EA3242EA4EDB10B2C099705BE7FF95F92661D041EAC"
+        },
+        {
+          "path": "70_TOOLS/evaluate_runtime_acceptance.py",
+          "bytes": 1446,
+          "sha256": "404B22ED19A561B9DD939C04EA3B61B31668C62DDAC7812FC21310AB4339AC18"
+        },
+        {
+          "path": "70_TOOLS/build_runtime_evidence_workbench.py",
+          "bytes": 2291,
+          "sha256": "F81E5E45F566A9D9E1F1EAC8CECB3F3EF76AE993E3D77760A9D2BC4A58A9DCC5"
+        },
+        {
+          "path": "70_TOOLS/check_inline_html_js.mjs",
+          "bytes": 945,
+          "sha256": "871BC56A2A74976265E4A31BB6EDC9AF2C3DB8B791FCE244CABDE603CBF86580"
+        },
+        {
+          "path": "20_SRC/html_templates/runtime_evidence_workbench_v2_17.html",
+          "bytes": 11074,
+          "sha256": "5DB311A1A8EF1097E66909272A297E91F2F203434504B2F1404E0B6BB7CE3F0E"
+        },
+        {
+          "path": "60_OUTPUTS/FreeFlexVPN_runtime_evidence_workbench_v2.17_2026-08-03.html",
+          "bytes": 11121,
+          "sha256": "BFE2A25B1E051D0F439B8B135AE3A0BBFE0128880A916FB5772111702F16CAC9"
+        },
+        {
+          "path": "10_STATE/RUNTIME_ACCEPTANCE_PLAN_v2.16_2026-08-03.md",
+          "bytes": 3301,
+          "sha256": "2CB0AE83282953152B20BF22C91D9EDE6101BF78941A30B31E8238D44A137F84"
+        }
+      ]
+    },
+    {
+      "area": "policy_code_consistency",
+      "summary": "저장·비저장·미확정 값의 정책-코드 대조 안전망",
+      "evidence_level": "implementation_and_local_only_not_legal_review",
+      "public_effect": "none",
+      "files": [
+        {
+          "path": "10_STATE/POLICY_CODE_CONSISTENCY_v0.2_2026-08-03.md",
+          "bytes": 2930,
+          "sha256": "6788890FB841FFA15D08B42BBA282A54350E6386B47816E261946A3CF9517AA4"
+        }
+      ]
+    },
+    {
+      "area": "provider_cost_input",
+      "summary": "혼합 통화·fair-use·속도캡·VPN 재판매 약관 입력 검증",
+      "evidence_level": "implementation_and_local_only",
+      "public_effect": "none",
+      "files": [
+        {
+          "path": "20_SRC/cost_model.py",
+          "bytes": 23110,
+          "sha256": "82745837A89431C5F6670D3ABA33ED6026F335D649859586A8732660C8A028D6"
+        }
+      ],
+      "contract_numbers_changed": false
+    }
+  ],
+  "still_missing": [
+    "GCP S-1 project/billing/credit/cost/budget readback",
+    "actual VPN server runtime",
+    "actual device tunnel and T1~T9 evidence",
+    "independent user T10 evidence",
+    "actual payment/refund evidence"
+  ],
+  "claim_boundary": "공개 앱은 UI 앱 셸 v2.5이며 실제 VPN 연결 서비스가 아닙니다"
+}

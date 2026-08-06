@@ -1,0 +1,17 @@
+{
+  "release_id": "R2-ui-v1.1",
+  "ui_version": "v1.1",
+  "candidate_commit": "3b6defed3b299f937149b6e7123f13e3bb175903",
+  "repository_url": "https://github.com/hanksleekorea-boop/FreeFlexVPN",
+  "public_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+  "provider_deploy_run": 30705843420,
+  "consumer_verify_status": "success",
+  "no_cache_probe_count": 3,
+  "no_cache_sha256": "2f17a4501f388de3dfd4b71b258cc41100b27ea3aba6b7a83ec811909f86d6a1",
+  "browser_screen_count": 9,
+  "verified_at": "2026-08-01T15:25:34Z",
+  "qr_sha256": "ab7f68ca032628b037bb1e9dfdebdaa9c29738b35382a777ce71aa4e10366d4f",
+  "qr_payload": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+  "pull_request": "https://github.com/hanksleekorea-boop/FreeFlexVPN/pull/1",
+  "pull_request_state": "MERGED"
+}

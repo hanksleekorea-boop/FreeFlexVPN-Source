@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "generated_from": "20_SRC/cost_model.py",
+    "product_name": "FreeFlexVPN",
+    "target_segment": "light",
+    "topup_expires": false,
+    "fx": {
+      "usd": 1470.0,
+      "eur": 1720.0,
+      "chf": 1830.0
+    },
+    "peak_factor": 3.0,
+    "spare": 0.15,
+    "cap_gb_free": 1.0,
+    "pg_rate": 0.0374
+  },
+  "free_tier": {
+    "month_01_krw": 46931,
+    "month_11_krw": 46931,
+    "month_12_krw": 46931,
+    "month_24_krw": 60480,
+    "month_36_krw": 60480,
+    "year1_krw": 563170,
+    "year2_krw": 603818,
+    "year3_krw": 725762,
+    "year_total_krw": 1892750,
+    "node_step_months": [
+      1,
+      22
+    ]
+  },
+  "dist20": {
+    "total_tb": 200.0,
+    "low_krw": 402772,
+    "safe_krw": 588257,
+    "focus_krw": 288787,
+    "low_nodes": 22,
+    "safe_nodes": 22,
+    "focus_nodes": 10,
+    "safe_per_user_krw": 58.8,
+    "focus_per_user_krw": 28.9
+  },
+  "unit": {
+    "cost_per_gb_krw": 2.94
+  },
+  "packs": [
+    {
+      "name": "맛보기",
+      "gb": 3,
+      "price": 1500,
+      "per_gb": 500,
+      "cost": 9,
+      "fee": 56,
+      "margin": 1435,
+      "margin_rate": 95.7
+    },
+    {
+      "name": "라이트",
+      "gb": 10,
+      "price": 3900,
+      "per_gb": 390,
+      "cost": 29,
+      "fee": 146,
+      "margin": 3725,
+      "margin_rate": 95.5
+    },
+    {
+      "name": "스탠다드",
+      "gb": 30,
+      "price": 8900,
+      "per_gb": 297,
+      "cost": 88,
+      "fee": 333,
+      "margin": 8479,
+      "margin_rate": 95.3
+    },
+    {
+      "name": "빅",
+      "gb": 100,
+      "price": 19900,
+      "per_gb": 199,
+      "cost": 294,
+      "fee": 744,
+      "margin": 18862,
+      "margin_rate": 94.8
+    },
+    {
+      "name": "벌크",
+      "gb": 300,
+      "price": 39900,
+      "per_gb": 133,
+      "cost": 882,
+      "fee": 1492,
+      "margin": 37525,
+      "margin_rate": 94.0
+    }
+  ],
+  "volume_discount_ratio": 3.8
+}

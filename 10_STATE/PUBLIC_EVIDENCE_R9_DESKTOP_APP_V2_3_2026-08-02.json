@@ -1,0 +1,54 @@
+{
+  "evidence_version": "FreeFlexVPNPublicEvidenceV1",
+  "release_id": "R9",
+  "candidate_version": "v2.3",
+  "verified_at": "2026-08-02T17:37:28+07:00",
+  "public_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+  "anonymous_access": "PASS",
+  "source": {
+    "repository": "hanksleekorea-boop/FreeFlexVPN",
+    "pull_request": 7,
+    "candidate_commit": "892645e",
+    "merge_commit": "08db94d017db52345eff157d6db1c5be4e512e64"
+  },
+  "local_verification": {
+    "full_regression_files": "29/29",
+    "full_regression_checks": "384/384",
+    "desktop_app_mode": "11/11",
+    "pwa_runtime_ui": "23/23",
+    "public_shell": "32/32",
+    "visual_viewport": "Windows Chromium 1400x900",
+    "negative_control": "desktop max width changed to 390px -> app layout probe FAIL"
+  },
+  "github_pages": {
+    "run_id": 30743965328,
+    "run_url": "https://github.com/hanksleekorea-boop/FreeFlexVPN/actions/runs/30743965328",
+    "verify_static": "success",
+    "deploy": "success",
+    "verify_public": "success",
+    "remote_browser": "anonymous headless Chrome desktop app mode PASS"
+  },
+  "public_html": {
+    "bytes": 146845,
+    "sha256": "8a906f32dfa74b734f2630937339408a509f6c422a6e103122bd086509b4886a",
+    "no_cache_probes": 3,
+    "same_hash_all_probes": true,
+    "markers": ["UI · UX v2.3", "DESKTOP APP", "id=appModeToggle", "현재 가동 서버가 없습니다"]
+  },
+  "qr": {
+    "url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app-qr.png",
+    "sha256": "ab7f68ca032628b037bb1e9dfdebdaa9c29738b35382a777ce71aa4e10366d4f",
+    "decoded_payload": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "decoder_result": "PASS"
+  },
+  "evidence_layers": {
+    "I": "VERIFIED_IMPLEMENTED",
+    "L": "VERIFIED_TESTED",
+    "B": "VERIFIED_TESTED",
+    "K": "VERIFIED_TESTED",
+    "P": "VERIFIED_TESTED",
+    "D": "UNKNOWN",
+    "U": "UNKNOWN"
+  },
+  "truth_boundary": "The PWA manages account, wallet, recommendations and WireGuard configuration. No real VPN server, real device tunnel, payment or independent-user success is claimed."
+}

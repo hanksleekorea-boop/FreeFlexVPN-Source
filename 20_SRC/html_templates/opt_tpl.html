@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VPN 20개국 분산 — 월 200TB 비용 최적화</title>
+<meta name="theme-color" content="#0f1420">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="20개국 최적화">
+<link rel="apple-touch-icon" href="data:image/png;base64,__ICON192__">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,__ICON192__">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,__ICON512__">
+<link rel="manifest" href="data:application/manifest+json;base64,__MANIFEST_B64__">
+<style>
+:root{color-scheme:dark;--bg:#0f1115;--card:#1a1a19;--line:#33332f;--t1:#fff;--t2:#c3c2b7;--t3:#8b8a80;
+ --blue:#3987e5;--green:#199e70;--amber:#c98500;--red:#e66767}
+:root[data-theme=light]{color-scheme:light;--bg:#f6f6f3;--card:#fcfcfb;--line:#dedcd3;--t1:#0b0b0b;--t2:#52514e;--t3:#77766f;
+ --blue:#2a78d6;--green:#1baf7a;--amber:#eda100;--red:#e34948}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t1);font-size:15px;line-height:1.6;
+ font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,sans-serif;
+ padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 110px}
+h1{font-size:23px;margin:0 0 3px;letter-spacing:-.02em}
+h2{font-size:17px;margin:30px 0 8px}h3{font-size:14.5px;margin:18px 0 7px;color:var(--t2)}
+.sub{color:var(--t3);font-size:12.5px}
+p{color:var(--t2);margin:6px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin:12px 0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.ghost{background:transparent;color:var(--t1);border:1px solid var(--line);border-radius:9px;padding:6px 11px;font-size:13px}
+.heroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px}
+.hero .k{font-size:11.5px;color:var(--t3);font-weight:600}
+.hero .v{font-size:25px;font-weight:750;letter-spacing:-.03em;margin-top:2px;font-variant-numeric:tabular-nums}
+.hero .u{font-size:12px;color:var(--t2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+thead th{color:var(--t3);font-size:11.5px;font-weight:650}
+td.sub{white-space:normal;min-width:150px}
+tr.tot td{font-weight:750;border-top:1px solid var(--line);background:rgba(57,135,229,.08)}
+.badge{font-size:10.5px;font-weight:700;border-radius:5px;padding:1px 5px}
+.g{background:rgba(25,158,112,.16);color:var(--green);border:1px solid rgba(25,158,112,.4)}
+.a{background:rgba(201,133,0,.16);color:var(--amber);border:1px solid rgba(201,133,0,.4)}
+.r{background:rgba(230,103,103,.14);color:var(--red);border:1px solid rgba(230,103,103,.4)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ul{margin:6px 0;padding-left:19px;color:var(--t2);font-size:14px}li{margin:5px 0}
+.warn{border-left:3px solid var(--red);padding-left:12px;margin:14px 0}
+.ok{border-left:3px solid var(--green);padding-left:12px;margin:14px 0}
+.warn .t,.ok .t{font-weight:700;font-size:14.5px}
+.foot{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--t3)}
+a{color:var(--blue)}
+#installBtn{display:none;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:7px 12px;font-size:13px;font-weight:650}
+#banner{display:none;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:80;
+ background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 12px 34px rgba(0,0,0,.4);align-items:center;gap:11px}
+#banner img{width:34px;height:34px;border-radius:9px}
+#banner .txt{flex:1;min-width:0}#banner .txt b{display:block;font-size:13.5px}
+#banner .txt span{font-size:12px;color:var(--t3)}
+#banner .act{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:8px 12px;font-size:13px;font-weight:650}
+#banner .x{background:transparent;border:0;color:var(--t3);font-size:19px;padding:0 4px}
+@media(display-mode:standalone){#installBtn,#banner{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+  <div><h1>VPN 20개국 분산 — 월 200TB 비용 최적화</h1>
+  <div class="sub">회원 10,000명 × 1인 월 20GB = <b>월 200TB</b> · 목적지 20개국에 트래픽 비중대로 분산 · 2026-07-30</div></div>
+  <div style="display:flex;gap:7px"><button class="ghost" id="themeBtn">라이트</button><button id="installBtn">앱 설치</button></div>
+</div>
+
+<div class="heroes">
+  <div class="hero"><div class="k">최저가 구성</div><div class="v">40.3만</div><div class="u">원/월 · 1인당 40원</div></div>
+  <div class="hero"><div class="k">안전 구성 (권장)</div><div class="v">58.8만</div><div class="u">원/월 · 1인당 59원</div></div>
+  <div class="hero"><div class="k">집중 구성 (8개국)</div><div class="v">28.9만</div><div class="u">원/월 · 1인당 29원</div></div>
+  <div class="hero"><div class="k">총 트래픽</div><div class="v">200TB</div><div class="u">피크 합계 약 1.85Gbps</div></div>
+  <div class="hero"><div class="k">미국 비중</div><div class="v">39.8%</div><div class="u">79.6TB · 피크 737Mbps</div></div>
+</div>
+
+<h2>먼저 알아야 할 것 — 이 비중은 추정입니다</h2>
+<div class="card">
+<div class="warn"><div class="t">"VPN 사용자가 어느 나라 서버로 접속하는가"의 직접 통계는 존재하지 않습니다</div>
+<p style="margin:3px 0 0">Security.org·Comparitech·Cloudwards·Surfshark·allaboutcookies 등 주요 조사기관 원문을 확인했으나 <b>목적지 국가 분포 데이터는 어디에도 없습니다.</b>
+VPN 사업자는 접속 로그를 남기지 않는 것이 상품의 핵심이라 이 데이터를 공개할 유인도 능력도 없습니다. 따라서 아래 비중은
+<b>Proton VPN·CyberGhost·NordVPN 3사의 국가별 서버 배치 대수</b>를 대리지표로 삼아 재구성한 값입니다.</p></div>
+<p><b>계산식:</b> 각 사에 대해 <code>해당국 서버수 ÷ 그 사 전체 서버수 × 100</code>으로 점유율을 구하고, 3사 점유율의 산술평균을 낸 뒤 상위 20개국 합이 100%가 되도록 정규화했습니다.</p>
+<div class="warn"><div class="t">이 대리지표의 3가지 왜곡</div>
+<ul style="margin-bottom:0">
+<li><b>서버 대수 ≠ 트래픽.</b> 독일·프랑스·오스트리아·네덜란드가 높은 이유의 상당 부분은 수요가 아니라 "유럽 데이터센터가 싸고 법적으로 편해서"입니다.</li>
+<li><b>본사 편향.</b> Proton→스위스, CyberGhost→루마니아·독일, NordVPN→네덜란드에 서버가 몰려 있습니다.</li>
+<li><b>가상 서버 문제.</b> IPinfo가 150,000개 이상 exit IP를 실측한 결과 <b>20개 VPN 중 17개가 광고와 다른 나라에서 exit</b>하고, <b>38개국은 실제 exit이 한 번도 관측되지 않는 "virtual-only"</b>였습니다. 즉 미국·서유럽의 실제 비중은 이 표보다 <b>더 높을</b> 가능성이 큽니다.</li>
+</ul></div>
+<p style="margin-bottom:0">두 가지 다른 배분(3사 평균 vs Proton 단독)에서 공통으로 나온 강건한 결론: <b>미국 40~46%, 상위 5개국 65~67%, 상위 10개국 약 85%.</b></p>
+</div>
+
+<h2>1. 목적지 상위 20개국과 트래픽 배분</h2>
+<div class="card"><div class="scroll"><table>
+<thead><tr><th class="num">#</th><th>국가</th><th class="num">비중</th><th class="num">월 트래픽</th><th>서버 대수 근거</th><th>주요 사용 목적</th></tr></thead>
+<tbody>__RANK__</tbody></table></div></div>
+
+<h2>2. 구성별 최적화 결과</h2>
+<div class="card">
+__T_SAFE__
+__T_LOW__
+__T_FOCUS__
+</div>
+
+<h2>3. 세 구성 중 무엇을 고를 것인가</h2>
+<div class="card">
+<div class="ok"><div class="t">권장: ② 안전 구성 (월 588,257원 · 1인당 59원)</div>
+<p style="margin:3px 0 0">계약서에 <b>명시된 트래픽 용량 또는 진성 unmetered</b>만 사용합니다. 미국은 BlastVPS 1Gbps unmetered($89.99)로 79.6TB·피크 737Mbps를 한 대로 처리합니다. 무료 서비스에서 계정 정지는 곧 전면 중단이므로, 월 18만원 차이로 이 리스크를 사는 것은 남는 장사가 아닙니다.</p></div>
+<div class="warn"><div class="t">① 최저가 구성 (월 402,772원)이 위험한 이유</div>
+<p style="margin:3px 0 0">$12짜리 "unmetered fair usage" 라인(OneProvider 등)은 <b>fair-use 임계값이 약관 어디에도 정의돼 있지 않습니다.</b> 미국 노드에 월 79.6TB를 흘리면서 계약서로 방어할 근거가 없습니다. 게다가 OneProvider AUP는 <b>"데이터센터가 용인하지 않는 로케이션에서의 VPN 운영"</b>을 금지 행위로 명시하고 있어 로케이션별로 갈립니다.</p></div>
+<div class="ok"><div class="t">③ 집중 구성 — 실제로는 이게 정답일 수 있습니다</div>
+<p style="margin:3px 0 0">상위 8개국(미국·독일·프랑스·영국·캐나다·네덜란드·스위스·호주)만 운영하고 나머지 12개국 트래픽을 인접국으로 흡수하면 <b>월 288,787원</b>, 안전 구성의 <b>49%</b>입니다.
+20개국 중 하위 12개국은 전체 트래픽의 <b>20.2%</b>만 차지하는데 비용은 <b>51%</b>를 먹습니다. 노드 1대의 최소 비용은 트래픽과 무관하게 발생하기 때문입니다.
+사용자 체감(선택 가능한 나라 수)이 중요하다면 20개국, 원가가 중요하다면 8개국입니다.</p></div>
+</div>
+
+<h2>4. 규모가 커지면 어디서 깨지는가</h2>
+<div class="card">
+<ul>
+<li><b>1인당 20GB → 40GB</b>가 되면 미국 트래픽이 159TB·피크 1,473Mbps가 되어 <b>1Gbps 1대로는 불가</b>합니다. 10Gbps unmetered(1GServers $398.97 = 월 58.7만원)로 갈아타야 하며, 이때 전체 월비용은 약 <b>110만원</b>이 됩니다.</li>
+<li><b>미국 비중이 배분B(45.71%)</b>여도 91.4TB·846Mbps로 <b>1Gbps 1대 안에 들어옵니다.</b> 즉 비중 추정 오차는 이 규모에서 구성을 바꾸지 않습니다.</li>
+<li><b>한국·UAE·대만은 이 20개국에 없습니다</b> — 다행입니다. 진성 1Gbps unmetered 기준 한국 $1,189.99, UAE $1,729로 <b>미국의 8.6~19배</b>입니다. 목적지 수요가 작으면서 원가는 최고인 조합이라, 넣는 순간 전체 예산이 2배가 됩니다.</li>
+</ul>
+</div>
+
+<div class="foot">
+계산 규칙: 국가별 트래픽 = 200TB × 비중, 피크 Mbps = 월TB → 평균 Mbps × 3(피크계수), 노드 수 = ⌈피크 ÷ 포트속도⌉, 비용 = 노드비 × 대수 + 초과 트래픽 × 초과단가.
+환율 1 USD=1,470원 · 1 EUR=1,720원 · 1 CHF=1,830원. 단가는 각 공급자 공개 가격표 실측(2026-07-30)이며, 트래픽 비중은 서버 대수 대리지표 기반 <b>추정</b>입니다.<br>
+오스트리아·뉴질랜드는 해당국 대용량 상품의 공개 단가를 확인하지 못해 인접 시세로 대입했습니다(미확인 표기). 실제 계약 전 각 공급자에 VPN 운영 허용 여부와 fair-use 임계값을 서면 확인해야 합니다.
+</div>
+</div>
+
+<div id="banner">
+  <img src="data:image/png;base64,__ICON192__" alt="">
+  <div class="txt"><b>홈 화면에 추가</b><span id="bannerSub">설치하면 앱처럼 바로 열립니다</span></div>
+  <button class="act" id="bannerAct">설치</button><button class="x" id="bannerX" aria-label="닫기">×</button>
+</div>
+<script>
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const l=document.documentElement.dataset.theme==='light';
+  document.documentElement.dataset.theme=l?'dark':'light';
+  document.getElementById('themeBtn').textContent=l?'라이트':'다크';
+  document.querySelector('meta[name=theme-color]').setAttribute('content',l?'#0f1420':'#f6f6f3');
+});
+(function(){
+  const KEY='vpnopt', st=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  const banner=document.getElementById('banner'), btn=document.getElementById('installBtn'); let d=null;
+  const supp=()=>{ if(sessionStorage.getItem(KEY)) return true;
+    const t=parseInt(localStorage.getItem(KEY)||'0',10); return t&&(Date.now()-t)<864e5; };
+  const dismiss=()=>{ banner.style.display='none';
+    try{sessionStorage.setItem(KEY,'1');localStorage.setItem(KEY,String(Date.now()));}catch(e){} };
+  document.getElementById('bannerX').addEventListener('click',dismiss);
+  if(st) return;
+  addEventListener('beforeinstallprompt',e=>{e.preventDefault();d=e;btn.style.display='inline-block';if(!supp())banner.style.display='flex';});
+  const go=async()=>{ if(!d)return; banner.style.display='none'; d.prompt(); try{await d.userChoice;}catch(e){} d=null; btn.style.display='none'; };
+  btn.addEventListener('click',go); document.getElementById('bannerAct').addEventListener('click',go);
+  addEventListener('appinstalled',()=>{d=null;btn.style.display='none';banner.style.display='none';
+    try{sessionStorage.removeItem(KEY);localStorage.removeItem(KEY);}catch(e){}});
+  const iOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(iOS&&!supp()){document.getElementById('bannerSub').textContent='공유 → "홈 화면에 추가"를 누르세요';
+    document.getElementById('bannerAct').style.display='none';setTimeout(()=>{if(!supp())banner.style.display='flex';},1200);}
+})();
+</script>
+</body>
+</html>

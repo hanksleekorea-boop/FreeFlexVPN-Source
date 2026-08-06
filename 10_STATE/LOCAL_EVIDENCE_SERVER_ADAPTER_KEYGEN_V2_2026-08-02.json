@@ -1,0 +1,101 @@
+{
+  "candidate_id": "R6-server-adapter-keygen-local-2026-08-02.1",
+  "verified_at": "2026-08-02T04:07:59.2910063+07:00",
+  "source_revision": "not-a-git-repository",
+  "status": "VERIFIED_TESTED",
+  "evidence_level": "L",
+  "progress": {
+    "completed_milestones": 7,
+    "total_milestones": 12,
+    "percent": 58.3,
+    "newly_completed": "none; actual server and target-device evidence are still absent"
+  },
+  "implemented": [
+    "strict SSH exit-node adapter with pinned known_hosts, dedicated identity, batch mode and noninteractive sudo",
+    "remote exit administrator for staged peer provision/revoke and exact WireGuard runtime readback",
+    "server health and public-key identity polling that hides mismatched or failed nodes",
+    "WireGuard counter polling with boot epoch and idempotent wallet/handshake observation",
+    "client-side Web Crypto X25519 key generation and public-key-only device registration",
+    "manual official-WireGuard fallback when browser X25519 is unavailable",
+    "cloud-init installation of exit_admin.py with restricted file and state-directory permissions",
+    "external secret-free JSON runtime composition and resilient health/counter polling"
+  ],
+  "verification": {
+    "full_regression": {
+      "test_files": 24,
+      "passed": 279,
+      "total": 279,
+      "failed": 0
+    },
+    "new_targeted": {
+      "exit_admin": "9/9",
+      "ssh_node_adapter": "9/9",
+      "client_keygen_real_chromium": "10/10",
+      "control_runtime": "8/8",
+      "cloud_init": "27/27",
+      "control_api": "12/12",
+      "quota_agent": "19/19",
+      "schema_migration": "2/2"
+    },
+    "negative_controls": [
+      "WireGuard runtime readback mismatch never marks a peer active",
+      "revoke readback failure stays revoking and never reuses the address",
+      "server public-key mismatch hides the server catalog entry",
+      "remote stderr and account identifiers are not copied into API errors",
+      "old counter epoch and same-epoch counter decrease are rejected",
+      "private key is absent from registration requests, persistence APIs and logs",
+      "unsupported browser crypto and invalid assigned tunnel address fail closed"
+    ],
+    "harness_issues": [
+      {
+        "id": "H-KEYGEN-001",
+        "symptom": "first browser test compared public keys from two independent random generations",
+        "resolution": "compare the request and local config from the same createDeviceProfile result",
+        "retest": "10/10 PASS"
+      },
+      {
+        "id": "H-RUNTIME-001",
+        "symptom": "runtime fake SSH used peers/count field names instead of samples/available_count",
+        "resolution": "align the harness with the production response contracts",
+        "retest": "8/8 PASS"
+      }
+    ],
+    "fixed_product_defects": [
+      "runtime config normalization no longer passes duplicate path arguments",
+      "one transient counter SSH failure no longer terminates the polling thread"
+    ]
+  },
+  "source_files": [
+    {"path": "20_SRC/infra/quota_agent.py", "bytes": 17530, "sha256": "ecc17955535b941651c1fd1f103494f7c91174ffb17603b3aba7164850016ead"},
+    {"path": "20_SRC/infra/exit_admin.py", "bytes": 13684, "sha256": "0782229826da1e0f8a0a2fc1d941992441d16ea54b22a5768a3d26668f3236c9"},
+    {"path": "20_SRC/infra/cloud_init.py", "bytes": 12628, "sha256": "4f66391bdafb8cfcbeeecae87c0eb4e8470dbdcda734359341d7f71b50e7e2c8"},
+    {"path": "20_SRC/app/control_api.py", "bytes": 31556, "sha256": "d2e937ae5e2ec84eaab614bb1eed00d55720217991a46bb8137f6cc7563f7566"},
+    {"path": "20_SRC/app/ssh_node_adapter.py", "bytes": 14409, "sha256": "89b19fc3e2c81abd4e03b77e6f89af2f2232bcb48d176ca5c18325a3da91cf7f"},
+    {"path": "20_SRC/app/client_keygen.js", "bytes": 5432, "sha256": "1e883360158ef4a5f4801888e702953b933ba70365517950c737dd221e5f8bd1"},
+    {"path": "20_SRC/app/control_runtime.py", "bytes": 5935, "sha256": "6c4fad5ae0fc69fd7f87ac3932b867248d6aa26bccd0271babfdfffbb4a48058"},
+    {"path": "20_SRC/app/control_http.py", "bytes": 7007, "sha256": "518454189416c605efeaa1b5dd1f3a0efb59ba364e58baa495351a989b77bc37"},
+    {"path": "20_SRC/app/db_migrations/001_v2_alpha.sql", "bytes": 7006, "sha256": "b307c3c7f8406dec9796e012c332b4a97bc710692cf268ef77048df4604f831e"}
+  ],
+  "public_app": {
+    "deployment_action": "none; backend and client module are local-only until actual server credentials are injected",
+    "url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "http_no_cache_probes": [200, 200, 200],
+    "bytes": 78390,
+    "sha256": "30f0542805c17e3bf2a2ef110bcec15f456c0ce462e32b599417c4f6e6bc2b4e",
+    "app_qr_sha256": "ab7f68ca032628b037bb1e9dfdebdaa9c29738b35382a777ce71aa4e10366d4f",
+    "app_qr_decoded_payload": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "state": "last verified public v2 UI; server count remains 0 and protection remains limited"
+  },
+  "not_proven": [
+    "actual SSH connection, server boot and peer runtime on a paid exit node",
+    "actual VPN tunnel and public exit IP",
+    "actual iOS, Android or Windows safety matrix",
+    "actual payment, refund, referral user or light-user pilot"
+  ],
+  "rollback": {
+    "backend": "remove exit_admin.py, ssh_node_adapter.py and client_keygen.js; reverse the counter_epoch and control API adapter changes",
+    "infra": "reverse cloud_init.py and README additions; quota_agent handshake epoch field may be removed with its tests",
+    "state": "reverse D32-D34 and priority wording; remove this evidence file",
+    "public": "no change; app.html SHA-256 remains 30f0542805c17e3bf2a2ef110bcec15f456c0ce462e32b599417c4f6e6bc2b4e"
+  }
+}

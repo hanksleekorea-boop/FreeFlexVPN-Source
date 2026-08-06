@@ -1,0 +1,87 @@
+{
+  "schema": "FreeFlexVPNReleaseDiffV1",
+  "generated_on": "2026-08-03",
+  "from": {
+    "handoff_candidate": "v2.15-r2-handoff",
+    "public_version": "v2.3",
+    "public_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "public_bytes": 146845,
+    "public_sha256": "8A906F32DFA74B734F2630937339408A509F6C422A6E103122BD086509B4886A"
+  },
+  "to": {
+    "local_candidate": "v2.16-runtime-policy-cost-hardening",
+    "deployed": false,
+    "progress_percent": 58.3,
+    "progress_changed": false
+  },
+  "app_shell": {
+    "local_deploy": {
+      "path": "30_DEPLOY/app.html",
+      "bytes": 146845,
+      "sha256": "8A906F32DFA74B734F2630937339408A509F6C422A6E103122BD086509B4886A"
+    },
+    "equal_to_verified_public_v2_3": true,
+    "visible_change": "none",
+    "deployment_action": "none"
+  },
+  "local_changes": [
+    {
+      "area": "runtime_acceptance",
+      "summary": "T1~T10 실패 폐쇄형 대상환경·독립 사용자 판정 계약",
+      "evidence_level": "implementation_and_local_only",
+      "public_effect": "none",
+      "files": [
+        {
+          "path": "20_SRC/app/runtime_acceptance.py",
+          "bytes": 11565,
+          "sha256": "AA662C2A2484ABC429CE7CBE4218D76B91B5335D50819365884C5262A1F933B4"
+        },
+        {
+          "path": "70_TOOLS/evaluate_runtime_acceptance.py",
+          "bytes": 1048,
+          "sha256": "4C0D3827BF96E73A7AC685277E25B93F9011326DE8A7051BF94B20C6809A0E57"
+        },
+        {
+          "path": "10_STATE/RUNTIME_ACCEPTANCE_PLAN_v2.16_2026-08-03.md",
+          "bytes": 3301,
+          "sha256": "2CB0AE83282953152B20BF22C91D9EDE6101BF78941A30B31E8238D44A137F84"
+        }
+      ]
+    },
+    {
+      "area": "policy_code_consistency",
+      "summary": "저장·비저장·미확정 값의 정책-코드 대조 안전망",
+      "evidence_level": "implementation_and_local_only_not_legal_review",
+      "public_effect": "none",
+      "files": [
+        {
+          "path": "10_STATE/POLICY_CODE_CONSISTENCY_v0.2_2026-08-03.md",
+          "bytes": 2930,
+          "sha256": "6788890FB841FFA15D08B42BBA282A54350E6386B47816E261946A3CF9517AA4"
+        }
+      ]
+    },
+    {
+      "area": "provider_cost_input",
+      "summary": "혼합 통화·fair-use·속도캡·VPN 재판매 약관 입력 검증",
+      "evidence_level": "implementation_and_local_only",
+      "public_effect": "none",
+      "files": [
+        {
+          "path": "20_SRC/cost_model.py",
+          "bytes": 23110,
+          "sha256": "82745837A89431C5F6670D3ABA33ED6026F335D649859586A8732660C8A028D6"
+        }
+      ],
+      "contract_numbers_changed": false
+    }
+  ],
+  "still_missing": [
+    "GCP S-1 project/billing/credit/cost/budget readback",
+    "actual VPN server runtime",
+    "actual device tunnel and T1~T9 evidence",
+    "independent user T10 evidence",
+    "actual payment/refund evidence"
+  ],
+  "claim_boundary": "공개 앱은 여전히 UI 앱 셸 v2.3이며 실제 VPN 연결 서비스가 아닙니다"
+}

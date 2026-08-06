@@ -1,0 +1,80 @@
+{
+  "schema": "FreeFlexVPNHandoffEvidenceV1",
+  "measured_at": "2026-08-03T23:42:53+07:00",
+  "candidate": "v2.15-r2-handoff",
+  "source_workspace": {
+    "main_project_git": false,
+    "public_mirror_branch": "agent/desktop-app-mode",
+    "public_mirror_modified_tracked": [
+      "PUBLIC_MANIFEST.json",
+      "index.html"
+    ],
+    "public_mirror_staged": [],
+    "public_mirror_untracked": []
+  },
+  "baseline_regression": {
+    "python": "3.14.6",
+    "files_passed": 41,
+    "files_total": 41,
+    "checks_passed": 454,
+    "checks_total": 454,
+    "failed_files": 0,
+    "elapsed_seconds": 235.4,
+    "label_inventory_files": 41,
+    "label_inventory_lines": 165
+  },
+  "cleaned_stage_verification": {
+    "files_passed": 41,
+    "files_total": 41,
+    "checks_passed": 454,
+    "checks_total": 454,
+    "failed_files": 0,
+    "elapsed_seconds": 203.5,
+    "github_pages": "23/23 PASS",
+    "legacy_render": "92/92 PASS",
+    "secret_scan": "PASS_ALLOWLIST_ONLY_17",
+    "label_inventory_files": 41,
+    "label_inventory_lines": 165,
+    "label_diff_from_source": 0
+  },
+  "public_readback": {
+    "url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "version": "v2.3",
+    "probes": 3,
+    "bytes_each": 146845,
+    "sha256": "8A906F32DFA74B734F2630937339408A509F6C422A6E103122BD086509B4886A",
+    "all_equal": true,
+    "public_mirror_equal": true,
+    "boundary": "공개 앱 셸 증거이며 실제 VPN 서버, 실기기 터널, 결제, 독립 사용자 성공 증거가 아님"
+  },
+  "gcp_s1": {
+    "status": "BLOCKED_TOOL_UNRESPONSIVE",
+    "freeflex_candidate_project": {
+      "name": "My First Project",
+      "project_id": "oceanic-abacus-477201-f3",
+      "binding": "CANDIDATE_BY_EXCLUSION_NOT_CONFIRMED"
+    },
+    "excluded_project": {
+      "name": "NotePlusP",
+      "project_id": "noteplusp-d1078",
+      "reason": "NotePlusP 전용 프로젝트"
+    },
+    "project_state": "UNKNOWN",
+    "billing_linked": "UNKNOWN",
+    "free_trial_and_credit": "UNKNOWN",
+    "current_month_cost": "UNKNOWN",
+    "budget_alert": "UNKNOWN",
+    "measured_block": "Chrome 탭 목록과 대상 URL은 확인했으나 탭 인계가 반복 시간 초과됨",
+    "billable_or_mutating_actions": 0
+  },
+  "evidence_layers": {
+    "implementation": true,
+    "local": true,
+    "build": "NOT_APPLICABLE_SINGLE_FILE_ARTIFACTS",
+    "package": "PENDING_HANDOFF_ROUNDTRIP_AT_THIS_RECORD",
+    "public": true,
+    "target_environment": false,
+    "independent_user": false
+  },
+  "contains_secrets": false
+}

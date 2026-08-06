@@ -1,0 +1,78 @@
+{
+  "schema": "FreeFlexVPNGCPCloudShellLocalEvidenceV1",
+  "candidate": "v2.10-cloud-shell-ready",
+  "date": "2026-08-03",
+  "status": "VERIFIED_LOCAL_NOT_DEPLOYED",
+  "cloud_shell_bundle": {
+    "path": "60_OUTPUTS/infra/FreeFlexVPN_gcp_cloud_shell_bundle_v1_EXAMPLE",
+    "mode": "EXAMPLE_ONLY",
+    "files": 7,
+    "hashed_payload_files": "6/6 PASS",
+    "bash_syntax": "4/4 PASS with Git Bash 5.3.15",
+    "example_guard": "PASS: exit 64 before any gcloud command",
+    "mutation_gates": [
+      "FREEFLEX_COST_REVIEWED=YES",
+      "FREEFLEX_PROJECT_CONFIRM equals exact project_id",
+      "FREEFLEX_APPLY=YES"
+    ],
+    "provider_readback_is_admission": false,
+    "r6_ready": false
+  },
+  "verification": {
+    "cloud_shell_bundle_tests": "7/7 PASS",
+    "connected_safety_regression": "99/99 PASS: cloud-init 27/27 plus Python unittest 72/72",
+    "full_regression": "NOT_STARTED: current Python lacks playwright and cv2; prior 394/394 baseline was not refreshed",
+    "secret_scan": "PASS: unallowlisted findings 0; allowlist matches 14",
+    "dashboard": {
+      "actual_percent": 58.3,
+      "planned_percent": 58.3,
+      "schedule_delta_days": 0.0,
+      "completed_milestones": 7,
+      "total_milestones": 12,
+      "remaining_milestones": 5,
+      "config_canonical_sha256_match": "PASS",
+      "html_sha256_match": "PASS"
+    },
+    "browser": {
+      "desktop_dom": "PASS",
+      "mobile_viewport": "PASS: 390x844",
+      "horizontal_overflow": 0,
+      "theme_toggle": "PASS: dark",
+      "console_warning_or_error": 0
+    },
+    "deployment_probe": "10_STATE/DEPLOYMENT_BLOCK_PROBE_V2_10_2026-08-03.json"
+  },
+  "current_external_state": {
+    "public_app": "HTTP 200: https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "gcp_console": "HTTP 302 to Google ServiceLogin",
+    "gcp_cloud_shell": "HTTP 302 to Google ServiceLogin",
+    "authenticated_project_or_billing_readback": false,
+    "actual_gcp_vms": 0,
+    "actual_vpn_servers": 0,
+    "device_tunnels": 0
+  },
+  "sha256": {
+    "20_SRC/infra/gcp_cloud_shell_bundle.py": "22E96A5D50F2E5B40F48BF94F0DE9D9F7D98BAD034FEEAAC5281708D2BA5CF17",
+    "70_TOOLS/build_gcp_cloud_shell_bundle.py": "B534C12121E5FA6FE54B5FB8419EFB03CE20F32E0F2AA9C9B809CAE77C7A9F48",
+    "40_TESTS/test_gcp_cloud_shell_bundle.py": "C40440F37E97E123BCA8D14802D93B264B4BC7A515CD0833B34ED699E44C0ED0",
+    "10_STATE/progress_dashboard_v2.10.json": "CAFCAA4E492FA44861A8C7B753CF984B3CE17DA2B40CB747091D9EC840DF5424",
+    "60_OUTPUTS/FreeFlexVPN_progress_dashboard_v2.10_2026-08-03.html": "479B1B1A9DB18CBA32D21E7A3A9C6C9BBBC4ED9CF9D8333689D4C11E04F67A92",
+    "10_STATE/GENERATED_PROGRESS_V2_10_2026-08-03.json": "B39CEE7E18EFEC78FC809268B35359516B15A8666217E16BDB66065AAD87B296",
+    "10_STATE/DEPLOYMENT_BLOCK_PROBE_V2_10_2026-08-03.json": "BE1131B2C1E49C57E886E7778FC49CF3AB0BA241F62548D60EC8F3C634648B1D",
+    "60_OUTPUTS/infra/FreeFlexVPN_gcp_cloud_shell_bundle_v1_EXAMPLE/bundle-manifest.json": "B719BF536514D32AE956BF6BF91827495E4B9836BF5D9F6E3E8C88B4267D4E66",
+    "20_SRC/infra/README.md": "CE950674EC0A422451B547A274AB773DE0041C2627EBA90D3A03CADA628908E5",
+    "10_STATE/DECISIONS.md": "24D7AE8E463259BD814831DA0BB131139CFA2ECBB957DF0443B32798A3EDB07F",
+    "10_STATE/PRIORITIES_v2_2026-08-01.md": "52220DEF1C8E9C71BE2B6CD843298D2BE9B2C59412C69B76E276ACC7D8DE2570"
+  },
+  "evidence_boundary": {
+    "implementation": true,
+    "local": true,
+    "build": true,
+    "public_app": true,
+    "public_dashboard": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  },
+  "contains_secrets": false
+}

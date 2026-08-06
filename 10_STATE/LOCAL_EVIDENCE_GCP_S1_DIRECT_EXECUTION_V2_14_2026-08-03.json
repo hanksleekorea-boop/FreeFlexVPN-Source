@@ -1,0 +1,62 @@
+{
+  "schema": "FreeFlexVPNGCPS1DirectExecutionEvidenceV1",
+  "candidate": "v2.14-gcp-s1-direct-execution",
+  "date": "2026-08-03",
+  "status": "S1_BLOCKED_EXECUTION_TRANSPORT",
+  "authorization": {
+    "user_approved_s1_direct_execution": true,
+    "read_only_scope": true,
+    "billable_resource_creation": false
+  },
+  "attempts": [
+    {
+      "surface": "codex_in_app_browser",
+      "target": "Google Cloud Console",
+      "result": "BLOCKED",
+      "measured": "page navigation and DOM read timed out"
+    },
+    {
+      "surface": "chrome_existing_session",
+      "target": "Google Cloud Console",
+      "result": "BLOCKED",
+      "measured": "new-tab and claimed-blank-tab navigation control timed out"
+    },
+    {
+      "surface": "windows_computer_control",
+      "target": "window discovery",
+      "result": "BLOCKED",
+      "measured": "window list request timed out before app control"
+    },
+    {
+      "surface": "local_cli",
+      "target": "gcloud",
+      "result": "ABSENT",
+      "measured": "gcloud executable not found"
+    }
+  ],
+  "s1_readback": {
+    "signed_in_account": "UNKNOWN",
+    "project_selected": "UNKNOWN",
+    "billing_linked": "UNKNOWN",
+    "credit_or_free_tier": "UNKNOWN",
+    "current_cost_and_currency": "UNKNOWN",
+    "budget_alert": "UNKNOWN"
+  },
+  "evidence_boundary": {
+    "implementation": true,
+    "local_execution": true,
+    "authenticated_billing": false,
+    "billable_change": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  },
+  "privacy": {
+    "account_email_recorded": false,
+    "billing_account_id_recorded": false,
+    "payment_method_recorded": false,
+    "token_or_browser_storage_inspected": false
+  },
+  "contains_secrets": false
+}
+

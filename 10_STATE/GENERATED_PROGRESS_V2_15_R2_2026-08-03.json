@@ -1,0 +1,106 @@
+{
+  "schema": "FreeFlexVPNGeneratedProgressV1",
+  "project": {
+    "name": "FreeFlexVPN",
+    "candidate": "v2.15-v7.6-progress-direction",
+    "start_date": "2026-07-30",
+    "target_date": "2026-08-12",
+    "report_date": "2026-08-03"
+  },
+  "config_sha256": "E6EA74EFD3A8F4EE471DF39C393B53E110726B616DB27CBF7ACB05A27D658112",
+  "html_sha256": "FB68D32F711F3AA018CD88812490B40517C8E7852F76132D80FC8BFCEC4C400D",
+  "actual_percent": 58.3,
+  "planned_percent": 58.3,
+  "schedule_delta_days": 0.0,
+  "completed_milestones": 7,
+  "total_milestones": 12,
+  "remaining_milestones": 5,
+  "gantt_columns": 14,
+  "evidence_gate": "PASS",
+  "eta": {
+    "initial_date": "2026-08-12",
+    "current_date": null,
+    "status": "blocked_zero_velocity",
+    "speed_percent_per_day": 0.0,
+    "remaining_days": null,
+    "deviation_days": null,
+    "sample_start": "2026-08-02",
+    "sample_end": "2026-08-03"
+  },
+  "public_app": {
+    "url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "public_version": "공개 앱 v2.3",
+    "candidate_label": "개발 후보 v2.15",
+    "candidate_status": "진척 화면 개선·앱 미배포",
+    "qr_path": "20_SRC/github_pages/app-qr.png",
+    "qr_evidence_path": "20_SRC/github_pages/app-qr-evidence.json",
+    "download_path": "30_DEPLOY/app.html",
+    "verified_at": "2026-08-03",
+    "qr_sha256": "AB7F68CA032628B037BB1E9DFDEBDAA9C29738B35382A777CE71AA4E10366D4F",
+    "qr_bytes": 2613,
+    "qr_verification": "decoded_exact_match"
+  },
+  "roadmap": [
+    {
+      "version": "v2.15",
+      "visible_change": "진척 화면에서 검증 QR·두 완료일·병목·다음 출시를 한눈에 확인",
+      "status": "progress"
+    },
+    {
+      "version": "R6",
+      "visible_change": "실제 VPN 서버 연결·출구 IP·장애 전환이 증거와 함께 표시",
+      "status": "blocked"
+    },
+    {
+      "version": "A0 외부 알파",
+      "visible_change": "휴대폰과 PC에서 실제 보호 연결을 소규모 사용자가 시험",
+      "status": "blocked"
+    }
+  ],
+  "bottleneck_matrix": [
+    {
+      "id": "B1",
+      "severity": "critical",
+      "classification": "tool_unresponsive",
+      "cause_layer": "structural",
+      "consecutive_reports": 2,
+      "waiting_days": 0,
+      "title": "GCP S-1 실계정 화면 연결 차단",
+      "measured": "2026-08-03 v2.14의 네 경로 실패 뒤 재시도에서도 앱 안 브라우저 새 화면 2회와 Chrome의 기존 빈 탭·새 탭 경로가 Google Cloud 이동 단계에서 완료되지 않았다.",
+      "works": "공개 앱·검증 QR·비용 계산·무과금 경계·Cloud Shell 배포 전 묶음",
+      "blocked": "프로젝트·결제 연결·무료 혜택·현재 비용·예산 알림의 로그인 계정 화면 확인",
+      "solution": "브라우저 연결이 정상인 세션에서 읽기 전용 S-1을 재실행하고 여섯 항목을 실제 화면으로 판정한다.",
+      "owner_action": "정상 연결 세션에서 S-1 여섯 항목을 읽기 전용 재확인",
+      "user_action": "현재 없음; 로그인 화면이 나타날 때만 직접 로그인",
+      "eta_impact_days": null,
+      "impact_note": "최근 실제 진척 속도가 0%/일이라 현재 예상일과 지연 일수를 아직 계산할 수 없음",
+      "queue": "S-1 재실행"
+    },
+    {
+      "id": "B2",
+      "severity": "critical",
+      "classification": "physical_absence",
+      "cause_layer": "structural",
+      "consecutive_reports": 2,
+      "waiting_days": 0,
+      "title": "실제 VPN 서버와 기기 증거 부재",
+      "measured": "실제 VM 0대·서버 상태 회수 0건·기기 터널 0건이며 대체 대상도 없다.",
+      "works": "생성 전 계획·비용 계산·서버 판정·정확한 자원 되돌리기 도구",
+      "blocked": "SSH·WireGuard·출구 IP·사용량 수치·장애 전환·실기기 보호 확인",
+      "solution": "S-1 완료 후 별도 S-2 승인 경계에서 첫 GCP 노드를 만들고 R6 검사를 실행한다.",
+      "owner_action": "S-1 통과 즉시 생성 전 최종 검사를 거쳐 S-2 준비",
+      "user_action": "S-2 직전 과금 자원 생성 최종 확인",
+      "eta_impact_days": null,
+      "impact_note": "서버가 생기기 전 남은 5개 단계가 시작되지 않아 현재 예상일 계산 불가",
+      "queue": "S-2 대행동"
+    }
+  ],
+  "claims": {
+    "implementation": true,
+    "local": true,
+    "public": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  }
+}

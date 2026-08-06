@@ -1,0 +1,17 @@
+
+<!-- CONTINUITY-v3 BEGIN -->
+.project-continuity/LOCK*.json
+<!-- CONTINUITY-v3 END -->
+
+# Local Python environment, browser profiles, and test output (rebuild locally)
+.test-venv/
+.chrome-ci/
+.chrome-ci2/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Temporary diagnostics and reproducible checks
+*.log
+*.tmp
+60_OUTPUTS/checks/

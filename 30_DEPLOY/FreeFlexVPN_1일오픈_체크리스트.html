@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreeFlexVPN · 1일 오픈 체크리스트</title>
+<meta name="theme-color" content="#f6f6f3">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="1일 오픈">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,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">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiRnJlZUZsZXhWUE4gwrcgMeydvCDsmKTtlIgg7LK07YGs66as7Iqk7Yq4Iiwic2hvcnRfbmFtZSI6IkZyZWVGbGV4VlBOIiwic3RhcnRfdXJsIjoiLiIsImlkIjoiLi9hcHAuaHRtbCIsInNjb3BlIjoiLi8iLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSIsImJhY2tncm91bmRfY29sb3IiOiIjMGYxMTE1IiwidGhlbWVfY29sb3IiOiIjMGYxNDIwIiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBWUFBQUJTM0d3SEFBQUVQVWxFUVZSNDJ1M2MwVTBiUVJTRjRabFJTa0E4VUFBU1NqTlVRQitwZ0Q2b2dHYWlTQlRBQTNJUHprdnlFaWtDMjJ0NzVwN3ZyNENkUGYrY083dG1lNXVNbTd2N2ZVTlpkdTl2ZmFhL3B3czdrcVhvUW85a0dicmdJMW1FTHZoSUZxRUxQcEpGNklLUFpCR0c4R01sdHM1WUYzd2t0OEVRZmlTM3dSQitKRXN3aEIvSkVnemhSN0lFUS9pUkxNRVFmaVJMTUlRZnlSSU00VWV5QkVQNGtTekJzRXhJWnRqOWtkd0NRL2lSTElFUkNFWWd1ejlTVzBBRFFBUFkvWkhhQWhvQUdzRHVqOVFXMEFEUUFIWi9wTGFBQm9BR0FLSUZNUDRnZFF6U0FOQUFBQUVBQWdCWmRBZGdhQUNBQUFBQmdDaSt6ZnFIM1Q2OXVqdUYrSGg1MUFBQUFRQUNBQVFBQ0FBUUFDQUFRQUNBQUFBQkFBSUFCQUFJQUJBQUlBQkFBSUFBQUFFQUFnQUVBQWdBRUFBZ0FFQUF0TlorUGo5WUJBSmtoNThFQkNERDh3TVJDR0QwSVFFQjR1ZCtiVUFBaDE1dFFJQjB2di80UlFCNDVFa0F4SVUvZmZjbmdQQVR3QktZK3drQWN6OEJZUFFoQUlTZkFERDNFd0RtZmdMQTZFTUFHSDBJZ1BWMmYrRW5nTGtmQkREM2d3RG1maERBNkFNQ0xCVkFvdzhCWWo4ckl2d0VtR3JubjNrVUVYNENsUHFraUxtZkFMRm5BcU1QQWFZUCtMa2tFSDRDK0thTzhCUGc0K1Z4aWRGbVN3bXF6djNYdUpjbEd1RFNDM2ZzanJwRmNLdU9Qak9IZjRrUktFa0M0U2RBcEFSKzRreUFWdVhGMHFGZlhUYjNFMkRhQlQxbHR6M0hvMVNqVDNnRFZKUkErQWtRS1VIRjBXZTE4Qzk3QmxoZGdvcWp6NHJoWC9vUXZLb0V3ajhYL2VidWZyOXk3ZDQrdmJhcS95QWovQnBnMmlid1BMNTVEOUM4SzdEN0V5RDdScHdqcU1KUGdGZ0poSjhBbXNBYUV5QlJndGtscWhiK3NvZmdGU1VRZmdMRVN1Q1JLZ0UwZ1hVa1FBdDhUMkQwSVVEcEcvZzM0UDhHZllXM3lkWEQzMXFCM3dLMWlYOHpaT1BRQUc2b3RTS0FHMnVOQ09BR2d3QWtzQzRFY0xPdEJ3RWcvQVJ3NDYwQkFRVEF0Uk5BRUZ3ekFRVEN0UkpBTUVBQUVyZytBZ2lKNnlLQXNMZ2VBa0Q0Q1NBNHdrOEFBUkorQWdnU0NFQUMwaEpBcUlTZkFNSWwvQVFRTXVFbkFDbEJnTHpBQ1Q4QkJBOEVTSlNBaEFTSWxVRDRDUkFyZ2ZBVElGWUM0U2RBckFUQ1R3QnlnUUJwUVJWK0F0aXRRWUJFQ2NoRWdGZ0poSjhBc1JJSVB3RmlKUkIrQXNSS0lQd0VJQWt1SThEdS9hMWJCZ0ZQWlBmKzFqWEFSQktRd3dnVUs0SHdFeUJXQXVHL0hyMjExbTd1N3ZlV0FyRm5BQWRoSkliZkNBUm5BRXNBQWhpREVEaithQUJvZ1ArWkFWVGYvVFVBTk1CbmhnQlZkMzhOQUEzd1ZWT0FhcnUvQm9BR09OUVlvTXJ1LzJrRGtBQ1Z3MjhFZ2hIb1ZJT0FWWGYvTHpjQUNWQXgvQWVOUUNSQXRmQWZmQVlnQVNxRi82aERNQWxRSmZ4SFB3VWlBU3FFLzZUSG9DVEE2dUUvK1QwQUNiQnkrRGQ1RVVZQ3JCcisxdjU4RjJncmZGOElxd1QvTEQrRjBBWllLZnliTjRBMndDckJQN3NBUk1BS1U4WEZSaFlpWU1aeCt1SXpPeEV3MHpueXFvZFdNdURhRDArbWUycERDbUcvSkw4QnZoWmMzc3hTZFBBQUFBQUFTVVZPUks1Q1lJST0iLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9LHsic3JjIjoiZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFnQUFBQUlBQ0FZQUFBRDBlTlQ2QUFBTmFVbEVRVlI0MnUzY3dXMGJWeFJBMFQ4UEtVSFFnZ1VRTU5LTUsxQWZxY0I5dUFJMVl4aFFBVm9ZNm9GWmV4azRrb2IvbmxOQk5PVDhkK2NONDJOeFNnK1g2ODFWQUhidzl2cHl1QXJuNDBNeDRBRUVnZ0RBc0FjUUJRSUFBeDlBRUFnQURId0FRU0FBREgwQXhJQUFNUFFCRUFNQ3dOQUhRQXdJQUlNZkFDRWdBQXg5QU1TQUFERDRBUkFDQXNEZ0IwQUlDQUNESHdBaElBQU1mZ0NFZ0FBdytBRVFBdi9WR1A0QTBKc2RodzhQQUhyYmdNUGdCNEJlQ0l6aER3QzlHWFA0VUFDZ3R3MFl3eDhBZXJObmZBQUEwSnRCaDRzT0FDdjNTbUFNZndEb3phWnhnUUdnTjZNT0Z4VUFWdTZWd0JqK0FOQ2JYZU1DQWtCdmhvMExCd0M5V1RZdUdBRDBadHE0VUFEUW0yM2pBZ0ZBYjhhTkN3TUF2VmszTGdnQTlHYmV1QkFBMEp0OVkvZ0RRRzhHanVFUEFMMVpPSVkvQVBRaVlBeC9BT2hGd0JqK0FOQ0xnREg4QWFBWEFXUDRBMEF2QXNhbEJvQ2U4ZlFQQUwwdHdCaitBTkNMZ0RIOEFhQVhBWDREQUFETGJ3QTgvUU5BWUFzd2hqOEE5Q0pnREg4QTZFV0Ezd0FBd1BJYkFFLy9BQkRZQW96aER3QzlDUEFLQUFDV1Z3Q2UvZ0Vnc0FXd0FRQUFHd0JQL3dCUTJBS000UThBdlFqd0NnQUFsbGNBbnY0QklMQUZzQUVBQUJzQVQvOEFVTmdDMkFBQWdBMkFwMzhBS0d3QmJBQUF3QWJBMHo4QUZMWUFOZ0FBWUFQZzZSOEFDbHNBR3dBQXNBRUFBQVRBc3Y0SGdMWGhhd0FiQUFDd0FmRDBEd0NGTFlBTkFBRFlBQUFBNlFDdy9nZUF0ZTFyQUJzQUFMQUJBQUN5QVdEOUR3QnI2OWNBTmdBQVlBTUFBQ1FEd1BvZkFOYjJyd0ZzQUFEQUJnQUFFQUFBd1A0QjRQMC9BS3pFN3dCc0FBREFLd0FBUUFBQUFIc0hnUGYvQUxBeXZ3T3dBUUFBcndBQUFBRUFBQWdBQUdDakFQQURRQUJZcVI4QzJnQUFnRmNBQUlBQUFBQUVBQUFnQUFBQUFRQUFDQUFBNExRTy93WUFBTmdBQUFBQ0FBQVFBQUNBQUFBQTd0TmZMc0U1UFQ0OXV3akFGbjU5LytvaTJBQUFBQUlBQUJBQUFJQUFBQUFFQUFBZ0FBQUFBUUFBQ0FBQVFBQUFBQUlBQUFRQUFDQUFBQUFCQUFBSUFBQkFBQUFBQWdBQUVBQUFnQUFBQUFRQUFDQUFBQUFCQUFBSUFBQkFBQUFBQWdBQUVBQUFnQUFBQUFRQUFDQUFBRUFBQUFBQ0FBQVFBQUNBQUFBQUJBQUFJQUFBQUFFQUFBZ0FBRUFBQUFBQ0FBQVFBQUNBQUFBQUJBQUFJQUFBQUFFQUFBZ0FBRUFBQUlBQUFBQUVBQUFnQUFBQUFRQUFDQUFBUUFBQUFBSUFBQkFBQUlBQUFBQUVBQUFnQUFBQUFRQUFDQUFBUUFBQUFBSUFBQkFBQUlBQUFQak5qMjlmWEFRRUFFQngrSXNBQkFCQU9BYUVBQUlBSUxyNkZ3RUlBSURvZTM4UmdBQUFpUDdvenlzQkJBQ0FZQUFCQUZBYjVpSUFBUUFRZlpJWEFRZ0FnT2dhMys4Q0VBQUFnZ0lFQUVCdFdJc0FCQUJBOUVuZEt3RUVBRUI0VFM4Q0VBQUFnZ01FQUVCcEdIc2xnQUFBQ0QrSml3QUVBRUJ3OFA3OXowOGZCZ0lBQUJBQUFKNytRUUFBR1A0Z0FBQU1meEFBQUlBQUFQRDBEd0lBTVB3TmZ4QUFnT0Z2K0lNQUFBQUVBT0RwMzlNL0FzQWxBQXgvd3g4QkFHRDRHLzRJQUFCQUFBQjQrdmYwandBQU1QeEJBQUJzei9CSEFBQUVuLzVCQUFCWS9ZTUFBREQ4UVFBQUxPLzlRUUFBZU84UEFnREE2aDhFQUlEaER3SUF3UEFIQVFCNCtnY0VBR0Q0ZS9vSEFRQVkvb1kvQ0FBQXd4OEVBT0RwSHhBQWdPSHY2UjhFQUdENEcvNElBQUJBQUFCNCtnY0JBR0Q0Z3dBQU1QeEJBQUFBQWdEQTB6OElBQURESHdRQVlQZ2IvaUFBQUFBQkFIajY5L1FQQWdBdy9BMS9FQUFBaGo4SUFNRFRQeUFBd1BCeS9Uejlnd0NBUHhsZUlzRHdCd0VBMGVFbEFwYjMvaUFBb1Bua0tnSzhPZ0VCQU5IQlpiQlovWU1BZ09qZ0VnR0dQd2dBaUE0dUViQzg5d2NCQU0yblZoSGdlb0FBZ09qUU12U3Mva0VBUUhSbzFTUEE4QWNCQU5taFpSTmcrSU1BZ09nVGF6RUNoQThJQURDd1lnUFI2aDhFQUJoWXNRZ3cvRUVBZ0lGbE5XNzRnd0FBdzMvM0NCQTNJQURBc0lvTlM2dC9FQUJnV01VaXdQQUhBUUNHbGJVNUlBREE4Tjg5QWp6OWd3RGdnLzM2L3RWRjJHaEkzR01FR1A0NHl3UUFiaHdSRUlzQXd4OW5tQURBRFNRQ3ZBNEFaNWNBd0kwa0FuYVBBRS8vT0xNRUFJZ0FQMWowMllFQVFGR0xBUC9Mb3VHUHMwb0E0TVlTQVg0VEFNNG9BWUFiVEFUY2J3UjQrc2ZaSkFCd280bUEyQUEyL0hFbUNRRGNjQ0xna3lPZytrckE4SGNXSVFCdzQrV0h6VWRHZ044ZzRBd1NBTGdCUlVBc0FxeitjZllJQU55SUlpQVdBWVkvSUFBUUFWNEh1UFo0NkJBQXVDRkZ3TzRSNEwwL3pob0VnQnVUV0FSWS9lT01RUUM0UVlsRmdPR1Bzd1VCNEViRjZ3RFhGMmVLQU1BTnkrNFI0TDAvemhJRWdCdVhXQVJZL2VNTVFRQzRnWWxGZ09FUENBRHdPc0ExeE1NREFzQ056TzRSNEwwL3pnd0VBRzdvV0FSWS9lT3NRQURneG81RmdPR1BNd0lCZ0J2YzZ3QndOaUFBY0tON3NuV05jQ1lnQU56d0dIQ3VqYlBBV1pCMVBGeXVONWVoNi9IcDJVVlkxdTZHditHUERRQU9BQXc5UUFBQUlzQTFFUDhJQUJ3RUdJRCtkdmM4QWdBSEFnYWg0ZTllUndEZ1lNQkF4RDJPQU1BQklRTDhuYmkzRVFBNEtFU0F2dy8zTkFJQUI0WUk4SGZoWGtZQTRPQVFBUUFDQUJFZ0F2d3R1SDhSQUdCdytoc3cvQkVBT0VnTVVQL3R1R2NSQURoUURGSndyeUlBY0xDSUFOSGlIZ1VCZ0FQR1VEWDgzWnNnQUhEUUdLNkd2M3NTQkFBT0hFTVdFQUFnQWtTQU1IRWZJZ0NBNk1BMS9BMS9CQUE0Z0dLRDEvQjM3eUVBd0VGa0FPT2VRd0NBQTJuM0NCQWY3alVFQURpWVloRmcrTHZIRUFEZ2dJcEZnT0h2M2tJQWdJUEs2d0JBQUlBSTJEMENCSWI3Q1FFQURxMVlCQmorN2lNRUFCQ0xBTVBmOEtmdGVMaGNieTRENytueDZkbEZlQWMvdm4weC9BMS9zQUhBUVdZYllQaTdaOEFHQUpzQUd3RkQzL0FIQVlBSUFNTWZsbGNBT09EQXZZRUFBQWNkZ0FBQUVRRHVCd1FBT1BUQWZZQUFBTUR3UndDQUF4Qjg5eEVBNENBRTMza0VBRGdRd1hjZEFRQU9SbnpIUVFDQUF4SkFBSUFJd1BjYUJBQU9TL0I5QmdFQVlQaURBTURCQ2I3RElBQndnSUx2TGdnQUhLVGdPd3NDQUFjcStLNkNBTURCQ2lBQVhBSkVBUGgrSWdEQUlRdStsd2dBY05pQzd5TUNBQURESHdFQURsNThCMEVBZ0FNWTN6MFFBT0FneG5jT0JBQTRrUEZkQXdFQURtWUFBUUFpQU44dkVBRGdrTWIzQ2dRQU9LenhmUUlCQUdENGd3QUFCemUrUXlBQXdBR083dzRJQUJ6a0RuSjhaMEFBNEVBSFFBQWdBc0QzQkFFQURuZDhQMEFBZ0VNZTN3c1FBT0N3eC9jQkJBQ0E0UThDQUJ6OCtBNkFBQUFEQUo4OUNBQXdDQUFFQUlnQWZONGdBTUJRd09jTUFnQU1CM3krSUFEQWtNRG5DZ0lBd1BBSEFRQUdCajVMRUFCZ2NPQXpCQUVBQmdpQUFBQVI0SE1EQkFBWUpqNHZFQUNBb2VKekFnRUFHQzQrSHhBQWdDSGpjd0VCQUdENGd3QUFBd2VmQlFnQU1IandHWUFBQUFNSVFBQ0FDTUIxQndFQWhoR3VOd2dBTUpSd25VRUFnT0dFNndzQ0FBd3AxeFVRQUlEaER3Z0FNTEJjUzBBQWdNRUZJQUJBQkxoK2dBQUFROHgxQXdFQUdHYXVGd2dBd0ZCem5VQUFBSWFiNndNQ0FNRHdCd0VBR0hTdUNRZ0F3TUFEQkFBZ0Fsd0hFQUNBNGVmdkJ3RUFWSWVnNFE4Q0FFUkFiQmdhL2lBQWdOaFFOUHhCQUFDeDRXajRnd0FBeEEwZ0FJQ2RCNlhoRHdJQU1EQUJBUURzSGdGaUJnUUFFQnVlaGo4SUFDQTJSQTEvRUFCQWJKZ2EvaUFBZ05oUU5meEJBQUN4NFdyNGd3QUF4QWtnQUFDREZoQUF3RllSSUVwQUFBQ3hvV3Y0Z3dBQVlzUFg4QWNCQU1TR3NPRVBBZ0NJUllEaER4c0V3TnZyeStFeWdBZ3cvS0hqN2ZYbHNBRUFESC93Q2dBd29BRUJBSWdBY1FFQ0FHaEdnT0VQQWdDSVJZRGhEd0lBaUVXQTRROENBSWhGZ09FUGdRRHdid0dBQ0REOFlXWCtEUUFiQUJBQmhqOTRCUUFBQ0FBZ3R3WHc5QThDQUloRmdPRVAwUUR3UTBEb1JvRGhEeXYxQTBBYkFCQUJoajlFL2ZiVS8zQzUzbHdTQUxBQkFBRFc1ajhDOURzQUFOai82ZDhHQUFCc0FBQUFBUUFBZEFMQTd3QUFZRzM5L3Q4R0FBQnNBQUNBZEFCNERRQUFhOXYxdncwQUFOZ0FBQUQ1QVBBYUFBRFdsdXQvR3dBQXNBRUFBQVRBOGhvQUFOYUc2MzhiQUFDd0FiQUZBSURDMDc4TkFBRFlBQUFBQW1CNURRQUFhOFAxdncwQUFOZ0EyQUlBUU9IcDN3WUFBR3dBYkFFQW9QRDBid01BQURZQXRnQUFVSGo2dHdFQUFCc0FXd0FBS0R6OTJ3QUFnQTJBTFFBQUZKNysvM2dESUFJQTRQNkd2MWNBQUxDOEFyQUZBSURBMDc4TkFBRFlBTmdDQUVEaDZmOS8zUUNJQUFDNGorSHZGUUFBTEs4QWJBRUFJUEQwL3k0YkFCRUFBT2VmclhNdi82RUFZUGlmUEFBQWdOWDVEWUF0QUFEY3h5eWRlLzBQQndERC84U3ZBRVFBQUp4dmR2b05BQUFzdndHd0JRQ0F6Wi8rUDNRRElBSUE0RHl6Y25iOXd3REE4RC9SYndCRUFBQjgvbXljeWg4S0FJYi9DZjR2QUJFQWdPSC9lYk53cW44NEFKUm40TlF2QUFBVVo5KzRFQURRbTNuamdnQkFiOWFOQ3dNQXZSazNMaEFBOUdiYnVGQUEwSnRwNDRJQlFHK1dqUXNIQUwwWk5pNGdBUFJtMTEwTjE0Zkw5ZVpyQllEQkg5Z0EyQVlBWUViRkEwQUVBR0EycmQ0cmdPV1ZBQUFHZjNNRFlCc0FnQmtVRHdBUkFJRFpzM3F2QUpaWEFnQVkvTTBOZ0cwQUFHWk1mQU5nR3dDQXdSOFBBQ0VBZ01HL0dxOEF2QllBd095d0FiQU5BTURnRndCQ0FBQ0RQeDBBUWdDQSttdGk3OGVGQUlEQkx3Q0VnS3NBWVBBTEFERUFnS0V2QUlRQUFBYS9BQkFEQUJqNkFrQU1BR0RvQ3dBeEFJQ2hMd0FFQVFBR3ZnQVFCQUFZK0FKQUZBQVk5Z2dBQkFKZ3dQT3UvZ1dvMmp6OFdGQmZ0d0FBQUFCSlJVNUVya0pnZ2c9PSIsInNpemVzIjoiNTEyeDUxMiIsInR5cGUiOiJpbWFnZS9wbmciLCJwdXJwb3NlIjoiYW55IG1hc2thYmxlIn1dfQ==">
+<style>
+:root{color-scheme:dark;--bg:#0f1115;--card:#1a1a19;--line:#33332f;--t1:#fff;--t2:#c3c2b7;--t3:#8b8a80;
+ --blue:#3987e5;--green:#199e70;--amber:#c98500;--red:#e66767}
+:root[data-theme=light]{color-scheme:light;--bg:#f6f6f3;--card:#fcfcfb;--line:#dedcd3;--t1:#0b0b0b;--t2:#52514e;--t3:#77766f;
+ --blue:#2a78d6;--green:#1baf7a;--amber:#eda100;--red:#e34948}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t1);font-size:15px;line-height:1.6;
+ font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,sans-serif;
+ padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:820px;margin:0 auto;padding:20px 16px 110px}
+h1{font-size:22px;margin:0 0 3px;letter-spacing:-.02em}
+h2{font-size:16.5px;margin:26px 0 8px}
+.sub{color:var(--t3);font-size:12.5px}p{color:var(--t2);margin:6px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin:12px 0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.ghost{background:transparent;color:var(--t1);border:1px solid var(--line);border-radius:9px;padding:6px 11px;font-size:13px}
+.heroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:12px 0}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px}
+.hero .k{font-size:11.5px;color:var(--t3);font-weight:600}
+.hero .v{font-size:25px;font-weight:750;letter-spacing:-.03em;margin-top:2px}
+.hero .u{font-size:12px;color:var(--t2)}
+.step{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.step:last-child{border-bottom:0}
+.step input{width:20px;height:20px;margin-top:3px;accent-color:var(--green);flex:0 0 auto}
+.step .b{flex:1;min-width:0}
+.step .t{font-weight:650;font-size:14.5px}
+.step.done .t{text-decoration:line-through;color:var(--t3)}
+.step .d{font-size:13px;color:var(--t2);margin-top:2px}
+.step .m{font-size:11.5px;color:var(--t3);margin-top:3px}
+code{background:rgba(127,127,127,.14);padding:1px 5px;border-radius:4px;font-size:12.5px}
+.time{font-size:11.5px;font-weight:750;color:var(--blue);white-space:nowrap;min-width:52px;text-align:right}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+.bar i{display:block;height:100%;background:var(--green);width:0;transition:width .25s}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+thead th{color:var(--t3);font-size:11.5px;font-weight:650}
+.warn{border-left:3px solid var(--red);padding-left:12px;margin:12px 0}
+.ok{border-left:3px solid var(--green);padding-left:12px;margin:12px 0}
+.warn .t,.ok .t{font-weight:700;font-size:14px}
+ul{margin:6px 0;padding-left:19px;color:var(--t2);font-size:13.5px}li{margin:4px 0}
+.foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--t3)}
+a{color:var(--blue)}
+#installBtn{display:none;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:7px 12px;font-size:13px;font-weight:650}
+#banner{display:none;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:80;
+ background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 12px 34px rgba(0,0,0,.4);align-items:center;gap:11px}
+#banner img{width:34px;height:34px;border-radius:9px}
+#banner .txt{flex:1;min-width:0}#banner .txt b{display:block;font-size:13.5px}
+#banner .txt span{font-size:12px;color:var(--t3)}
+#banner .act{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:8px 12px;font-size:13px;font-weight:650}
+#banner .x{background:transparent;border:0;color:var(--t3);font-size:19px;padding:0 4px}
+@media(display-mode:standalone){#installBtn,#banner{display:none!important}}
+</style>
+<style data-freeflex-global-theme>
+body.service-doc{background:#f5f7f9!important;color:#101828!important;min-height:100vh;font-family:Inter,"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif!important;letter-spacing:-.025em}
+.service-doc .ff-global{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.94);border-bottom:1px solid #e4e7ec;backdrop-filter:blur(18px)}
+.service-doc .ff-global-in{width:min(1200px,calc(100% - 32px));height:68px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.service-doc .ff-progress-dock{position:sticky;top:68px;z-index:110;border-bottom:1px solid #dce9e4;background:rgba(247,252,250,.96);backdrop-filter:blur(16px)}.service-doc .ff-progress-in{width:min(1200px,calc(100% - 32px));min-height:56px;margin:auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px}.service-doc .ff-progress-title{display:flex;align-items:center;gap:8px;white-space:nowrap;color:#087f5b;font-size:10px;font-weight:900}.service-doc .ff-progress-title i{width:8px;height:8px;border-radius:50%;background:#12b886;box-shadow:0 0 0 4px rgba(18,184,134,.12)}.service-doc .ff-progress-title strong{color:#101828;font-size:10px}.service-doc .ff-progress-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:0;padding:0;list-style:none}.service-doc .ff-progress-steps li{display:flex;align-items:center;gap:6px;min-width:0;color:#667085;font-size:9px;font-weight:760;white-space:nowrap}.service-doc .ff-progress-steps b{display:grid;place-items:center;width:19px;height:19px;border-radius:7px;background:#edf1f0;color:#667085;font-size:8px}.service-doc .ff-progress-steps .is-done{color:#087f5b}.service-doc .ff-progress-steps .is-done b{background:#12b886;color:#fff}.service-doc .ff-progress-steps .is-now{color:#8a5a00}.service-doc .ff-progress-steps .is-now b{background:#fff1cf;color:#9a6700}.service-doc .ff-progress-note{margin:0;color:#475467;font-size:9px;white-space:nowrap}.service-doc .ff-progress-note b{color:#087f5b}
+.service-doc .ff-global-brand{display:flex;align-items:center;gap:10px;color:#101828!important;text-decoration:none;font-size:18px;font-weight:950;letter-spacing:-.055em}
+.service-doc .ff-global-mark{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:#12b886;color:#fff;font-size:10px;font-weight:950;box-shadow:0 8px 22px rgba(18,184,134,.2)}
+.service-doc .ff-global-links{display:flex;align-items:center;gap:9px}.service-doc .ff-global-links a{display:inline-flex;align-items:center;min-height:40px;border:1px solid #e4e7ec;border-radius:12px;background:#fff;color:#475467!important;padding:9px 13px;text-decoration:none;font-size:10px;font-weight:800}.service-doc .ff-global-links a:first-child{border-color:#12b886;background:#12b886;color:#fff!important}
+.service-doc>.wrap,.service-doc>main,.service-doc .wrap{position:relative}.service-doc .card,.service-doc .hero,.service-doc .panel,.service-doc section{border-color:#e4e7ec!important}.service-doc .card,.service-doc .hero,.service-doc .panel{box-shadow:0 12px 34px rgba(16,24,40,.06)!important}.service-doc .card,.service-doc .panel{border-radius:18px!important}
+.service-doc .foot,.service-doc footer{border-color:#e4e7ec!important}.service-doc .sub,.service-doc p,.service-doc .note{color:#667085}.service-doc h1,.service-doc h2,.service-doc h3{color:#101828}.service-doc a{color:#087f5b}.service-doc button{border-radius:12px!important}.service-doc table{border-radius:15px;overflow:hidden}.service-doc th{font-weight:850}
+.service-doc .ff-doc-label{display:inline-flex;align-items:center;gap:7px;border:1px solid #c9f2df;border-radius:999px;background:#f2fcf8;color:#087f5b;padding:6px 9px;font-size:9px;font-weight:850;letter-spacing:.04em;margin-bottom:9px}.service-doc .ff-doc-label i{width:7px;height:7px;border-radius:50%;background:#12b886}
+@media(max-width:600px){.service-doc .ff-global-in{height:62px}.service-doc .ff-global-links a:last-child{display:none}.service-doc .ff-global-links a{min-height:36px;padding:8px 10px}.service-doc .ff-global-brand{font-size:16px}.service-doc .ff-progress-dock{top:62px}.service-doc .ff-progress-in{width:min(100% - 28px,1200px);min-height:52px;grid-template-columns:1fr auto;gap:4px}.service-doc .ff-progress-title{font-size:9px}.service-doc .ff-progress-title strong{font-size:9px}.service-doc .ff-progress-steps{grid-column:1/-1;grid-row:2;margin-top:-8px;margin-bottom:8px}.service-doc .ff-progress-steps li{font-size:7px;gap:4px}.service-doc .ff-progress-steps b{width:15px;height:15px;border-radius:5px;font-size:7px}.service-doc .ff-progress-note{display:none}}
+
+</style>
+</head>
+<body class="service-doc">
+<header class="ff-global"><div class="ff-global-in"><a class="ff-global-brand" href="index.html"><span class="ff-global-mark">FF</span>FreeFlexVPN</a><nav class="ff-global-links" aria-label="서비스 이동"><a href="app.html">서비스 열기</a><a href="index.html">제품 소개</a></nav></div></header><section class="ff-progress-dock" data-progress-dashboard aria-label="FreeFlexVPN 개발 진행상황"><div class="ff-progress-in"><div class="ff-progress-title"><i></i><span>개발 진행상황</span><strong>현재: 두 번째 서버 준비</strong></div><ol class="ff-progress-steps"><li class="is-done" data-progress-step="public"><b>1</b><span>서비스 공개</span></li><li class="is-done" data-progress-step="android"><b>2</b><span>Android 확인</span></li><li class="is-now" data-progress-step="second-server"><b>3</b><span>두 번째 서버</span></li><li data-progress-step="iphone"><b>4</b><span>iPhone 확인</span></li></ol><p class="ff-progress-note"><b>확인됨</b> Android 연결·재연결 · 다음 iPhone 확인</p></div></section>
+<div class="wrap">
+<div class="top">
+  <div><h1>FreeFlexVPN · 1일 오픈 체크리스트</h1>
+  <div class="sub">기존 오픈소스 모듈 조립 기준 · 개발이 아니라 설정 작업입니다 · 2026-07-30</div></div>
+  <div style="display:flex;gap:7px"><button class="ghost" id="themeBtn">다크</button><button id="installBtn">앱 설치</button></div>
+</div>
+
+<div class="heroes">
+  <div class="hero"><div class="k">기술적 최소</div><div class="v">1일</div><div class="u">6~9시간 · 이메일 인증</div></div>
+  <div class="hero"><div class="k">현실적 최소</div><div class="v">3일</div><div class="u">SMS·2노드·약관 포함</div></div>
+  <div class="hero"><div class="k">안전한 공개</div><div class="v">7일</div><div class="u">파일럿 관찰 포함</div></div>
+  <div class="hero"><div class="k">1일차 비용</div><div class="v">2.4만</div><div class="u">원 (서버2+도메인)</div></div>
+</div>
+
+<div class="card">
+  <div class="sub">진행률 <b id="pct">0%</b> · <span id="left">전체 12단계</span></div>
+  <div class="bar"><i id="fill"></i></div>
+</div>
+
+<h2>Day 1 — 시간표</h2>
+<div class="card" id="list"></div>
+
+<h2>AI가 줄이는 시간 / 못 줄이는 시간</h2>
+<div class="card">
+<div class="scroll"><table>
+<thead><tr><th>구분</th><th>항목</th><th class="num">사람 혼자</th><th class="num">AI 활용</th></tr></thead>
+<tbody>
+<tr><td rowspan="4" style="color:var(--green)"><b>줄어듦</b></td><td>패널·노드 설치 스크립트 작성</td><td class="num">2~4시간</td><td class="num"><b>10분</b></td></tr>
+<tr><td>남용 차단 규칙(iptables·포트)</td><td class="num">1~2시간</td><td class="num"><b>10분</b></td></tr>
+<tr><td>랜딩페이지 + 사용법 안내</td><td class="num">1~2일</td><td class="num"><b>30분</b></td></tr>
+<tr><td>약관·개인정보처리방침 초안</td><td class="num">1~2일</td><td class="num"><b>20분</b></td></tr>
+<tr><td rowspan="4" style="color:var(--red)"><b>안 줄어듦</b></td><td>호스팅 계정 결제·본인확인</td><td class="num" colspan="2">수 분 ~ 2일 (업체가 정함)</td></tr>
+<tr><td>DNS 전파</td><td class="num" colspan="2">5분 ~ 2시간</td></tr>
+<tr><td>SMS 발신번호 등록</td><td class="num" colspan="2">본인번호=즉시 / 타인·일반번호=서류 심사</td></tr>
+<tr><td>실사용 관찰(남용·버그)</td><td class="num" colspan="2">최소 2~3일</td></tr>
+</tbody></table></div>
+<p style="margin-bottom:0"><b>AI는 "만드는 시간"을 거의 0으로 만들지만, "기다리는 시간"은 못 줄입니다.</b> 그래서 하한이 0일이 아니라 1일입니다.</p>
+</div>
+
+<h2>왜 1일이 가능한가 — 새로 짤 코드가 없습니다</h2>
+<div class="card">
+<div class="ok"><div class="t">이미 완성된 모듈로 전부 대체됩니다</div>
+<ul>
+<li><b>VPN 서버</b> → 커널 WireGuard (리눅스 내장)</li>
+<li><b>사용자·쿼터·만료 관리</b> → Remnawave / 3x-ui 패널 (설치 스크립트 1줄)</li>
+<li><b>1GB 무료 상한 자동 차단</b> → 패널 내장 기능과 잔액 원장 연동</li>
+<li><b>설정 QR·구독링크 발급</b> → 패널 내장</li>
+<li><b>가입·인증·안내 봇</b> → 오픈소스 텔레그램 봇</li>
+<li><b>클라이언트 앱</b> → 공식 WireGuard 앱 (앱스토어 심사 불필요)</li>
+<li><b>모니터링</b> → Uptime Kuma (도커 1줄)</li>
+</ul>
+<p style="margin:6px 0 0">직접 만드는 것은 <b>랜딩페이지와 안내문</b>뿐입니다. 그래서 "개발 기간"이 아니라 "설정 시간"이 됩니다.</p></div>
+<div class="warn"><div class="t">1일 오픈에서 반드시 포기해야 하는 것</div>
+<ul style="margin-bottom:0">
+<li><b>휴대폰 인증</b> — 1일차는 이메일 인증으로 시작하고, 다중계정이 보이면 그때 SMS를 붙입니다</li>
+<li><b>공개 모집</b> — 초대 링크로 <b>50~100명</b>만. 공개 오픈은 남용 패턴을 2~3일 본 뒤</li>
+<li><b>다국가</b> — 1일차는 일본 노드 1대. 국가 확장은 원가가 거의 안 오르니 나중에 언제든</li>
+</ul></div>
+</div>
+
+<div class="foot">
+소요 시간은 오픈소스 설치 스크립트 기준 추정이며 실측이 아닙니다. 호스팅 계정 검증·DNS 전파는 업체와 상황에 따라 달라집니다.
+SMS 발신번호는 <b>개인 계정 + 본인 휴대전화</b>면 문자 본인인증만으로 등록 가능하고, 타인·일반번호는 통신서비스 이용증명원 등 서류 심사가 필요합니다(솔라피 공식 안내 기준).
+</div>
+</div>
+
+<div id="banner">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=" alt="">
+  <div class="txt"><b>홈 화면에 추가</b><span id="bannerSub">설치하면 앱처럼 바로 열립니다</span></div>
+  <button class="act" id="bannerAct">설치</button><button class="x" id="bannerX" aria-label="닫기">×</button>
+</div>
+<script>
+const STEPS=[
+ ['0:00–0:20','서버 2대 결제',"Contabo 도쿄 VPS10 1대(exit) + Hetzner CX23 1대(패널). 카드 등록 → 프로비저닝 대기","계정 검증이 걸리면 Vultr·Linode로 우회 (카드 등록 즉시 개통)"],
+ ['0:20–0:35','도메인 + Cloudflare',"도메인 구매 → 네임서버를 Cloudflare로 → A 레코드 2개","DNS 전파 5분~2시간. 이 시간에 다음 단계 진행"],
+ ['0:35–1:05','패널 설치',"패널 서버에 Remnawave(또는 3x-ui) 설치 스크립트 실행 + TLS 인증서 자동 발급","<code>docker compose up -d</code> 수준. 관리자 계정 생성까지"],
+ ['1:05–1:35','exit 노드 연결',"일본 노드에 커널 WireGuard + 노드 에이전트 설치 → 패널에 등록","커널 WireGuard 사용 확인 (유저스페이스면 처리량 1/3)"],
+ ['1:35–2:00','내 폰으로 접속 테스트',"공식 WireGuard 앱에 QR 스캔 → 접속 → IP 확인 → 속도 측정","여기서 안 되면 이후 전부 무의미. 반드시 통과 후 진행"],
+ ['2:00–2:30','1GB 상한·충전 설정',"기본 프로필: 월 1GB 무료, 매월 1일 리셋, 충전 잔액 무기한, 동시 기기 2대","잔액 원장 계약 검사"],
+ ['2:30–3:00','남용 차단',"25번 포트(SMTP) 차단, P2P 포트 차단, 동시접속 제한, fail2ban","무료 VPN 최대 리스크. 건너뛰면 호스터 계정 정지"],
+ ['3:00–4:00','텔레그램 봇 연결',"오픈소스 봇 설치 → 패널 API 키 연결 → 가입·QR발급·잔여량 조회 자동화","이메일 인증으로 시작. 봇이 곧 회원가입 창구"],
+ ['4:00–4:30','모니터링',"Uptime Kuma 설치 → 노드 2대 감시 → 텔레그램 알림 연동","다운되면 내가 먼저 알아야 함"],
+ ['4:30–5:30','랜딩페이지 + 사용법',"서비스 소개 1페이지 + 3단계 사용법(봇 접속→QR→앱 연결) + 초대 링크","AI로 작성. 스크린샷 3장이면 충분"],
+ ['5:30–6:00','약관·개인정보처리방침',"무과금이라 통신판매업 불필요. 개인정보처리방침 게시 + 국외이전(일본 서버) 고지","무료여도 개인정보처리방침 게시는 의무"],
+ ['6:00–','지인 20명 초대',"초대 링크 배포 → 접속 성공률·트래픽·문의 관찰","공개 오픈은 2~3일 관찰 뒤"]
+];
+const list=document.getElementById('list');
+list.innerHTML=STEPS.map((s,i)=>`<div class="step" id="s${i}">
+ <input type="checkbox" data-i="${i}" aria-label="${s[1]} 완료">
+ <div class="b"><div class="t">${s[1]}</div><div class="d">${s[2]}</div><div class="m">${s[3]}</div></div>
+ <div class="time">${s[0]}</div></div>`).join('');
+const state=new Array(STEPS.length).fill(false);
+function upd(){
+  const n=state.filter(Boolean).length, p=Math.round(n/STEPS.length*100);
+  document.getElementById('fill').style.width=p+'%';
+  document.getElementById('pct').textContent=p+'%';
+  document.getElementById('left').textContent = n===STEPS.length? '전부 완료 — 오픈 상태' : `${n}/${STEPS.length}단계 완료`;
+}
+list.addEventListener('change',e=>{
+  if(e.target.type!=='checkbox') return;
+  const i=+e.target.dataset.i; state[i]=e.target.checked;
+  document.getElementById('s'+i).classList.toggle('done',state[i]); upd();
+});
+upd();
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const l=document.documentElement.dataset.theme==='light';
+  document.documentElement.dataset.theme=l?'dark':'light';
+  document.getElementById('themeBtn').textContent=l?'라이트':'다크';
+  document.querySelector('meta[name=theme-color]').setAttribute('content',l?'#0f1420':'#f6f6f3');
+});
+(function(){
+  const KEY='fkvd1', st=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  const banner=document.getElementById('banner'), btn=document.getElementById('installBtn'); let d=null;
+  const supp=()=>{ if(sessionStorage.getItem(KEY)) return true;
+    const t=parseInt(localStorage.getItem(KEY)||'0',10); return t&&(Date.now()-t)<864e5; };
+  const dismiss=()=>{ banner.style.display='none';
+    try{sessionStorage.setItem(KEY,'1');localStorage.setItem(KEY,String(Date.now()));}catch(e){} };
+  document.getElementById('bannerX').addEventListener('click',dismiss);
+  if(st) return;
+  addEventListener('beforeinstallprompt',e=>{e.preventDefault();d=e;btn.style.display='inline-block';if(!supp())banner.style.display='flex';});
+  const go=async()=>{ if(!d)return; banner.style.display='none'; d.prompt(); try{await d.userChoice;}catch(e){} d=null; btn.style.display='none'; };
+  btn.addEventListener('click',go); document.getElementById('bannerAct').addEventListener('click',go);
+  addEventListener('appinstalled',()=>{d=null;btn.style.display='none';banner.style.display='none';
+    try{sessionStorage.removeItem(KEY);localStorage.removeItem(KEY);}catch(e){}});
+  const iOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(iOS&&!supp()){document.getElementById('bannerSub').textContent='공유 → "홈 화면에 추가"를 누르세요';
+    document.getElementById('bannerAct').style.display='none';setTimeout(()=>{if(!supp())banner.style.display='flex';},1200);}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "schema": "FreeFlexVPNGCPNodePlanV1",
+  "mode": "EXAMPLE_ONLY",
+  "provider": "gcp",
+  "project_id": "freeflex-example-123456",
+  "zone": "us-west1-b",
+  "region": "us-west1",
+  "node_id": "gcp-usw1-01",
+  "machine_type": "e2-micro",
+  "network": {
+    "ssh_source": "203.0.113.10/32",
+    "ssh_port": 22,
+    "wireguard_source": "0.0.0.0/0",
+    "wireguard_udp_port": 51820,
+    "can_ip_forward": true,
+    "reserved_address_name": "gcp-usw1-01-ip"
+  },
+  "cloud_init": {
+    "path": "C:\\Users\\User\\Desktop\\지피티프로젝트들\\프리플렉스VPN\\freekoreavpn\\60_OUTPUTS\\infra\\FreeFlexVPN_gcp_node_cloud_init_v1_EXAMPLE.yaml",
+    "sha256": "C415D18F3B0CF59AC8364D00F8B4C9DEF4CD7D4A28B7736FDF8C111D9FE027EA"
+  },
+  "commands": [
+    "gcloud services enable compute.googleapis.com --project=freeflex-example-123456",
+    "gcloud compute firewall-rules create gcp-usw1-01-ssh --project=freeflex-example-123456 --network=default --direction=INGRESS --action=ALLOW --rules=tcp:22 --source-ranges=203.0.113.10/32 --target-tags=freeflexvpn-exit",
+    "gcloud compute firewall-rules create gcp-usw1-01-wg --project=freeflex-example-123456 --network=default --direction=INGRESS --action=ALLOW --rules=udp:51820 --source-ranges=0.0.0.0/0 --target-tags=freeflexvpn-exit",
+    "gcloud compute addresses create gcp-usw1-01-ip --project=freeflex-example-123456 --region=us-west1",
+    "gcloud compute instances create gcp-usw1-01 --project=freeflex-example-123456 --zone=us-west1-b --machine-type=e2-micro --image-family=ubuntu-2404-lts-amd64 --image-project=ubuntu-os-cloud --boot-disk-size=10GB --boot-disk-type=pd-standard --address=gcp-usw1-01-ip --can-ip-forward --tags=freeflexvpn-exit --no-service-account --no-scopes --shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --metadata-from-file=user-data='C:\\Users\\User\\Desktop\\지피티프로젝트들\\프리플렉스VPN\\freekoreavpn\\60_OUTPUTS\\infra\\FreeFlexVPN_gcp_node_cloud_init_v1_EXAMPLE.yaml'"
+  ],
+  "gates": {
+    "free_tier_eligibility": "VERIFY_IN_GCP_CONSOLE_BEFORE_CREATE",
+    "billing_budget_alert": "REQUIRED_BUT_NOT_A_HARD_SPEND_CAP",
+    "external_ipv4_and_egress": "MAY_BE_BILLABLE",
+    "provider_console_recovery": "REQUIRED",
+    "exit_country_and_ip": "VERIFY_AFTER_CREATE",
+    "r6_ready": false,
+    "provider_diversity_credit": 1,
+    "next_provider_required": true
+  },
+  "evidence_level": "configuration template only; no cloud, server, device, or user evidence",
+  "contains_secrets": false
+}

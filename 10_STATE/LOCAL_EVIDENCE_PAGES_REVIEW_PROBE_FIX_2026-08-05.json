@@ -1,0 +1,18 @@
+{
+  "candidate_commit": "3a01c40",
+  "failed_run": 30935964927,
+  "root_cause": "legacy layout probes ran while the new customer service shell was the active view",
+  "fix": [
+    "apply review mode before layout probes",
+    "add review=1 to the three legacy layout probe URLs"
+  ],
+  "checks": {
+    "service_ui": "14/14",
+    "github_pages_contract": "23/23",
+    "app_v2_contract": "19/19",
+    "public_app_shell": "32/32",
+    "chrome_layout_safe": "pass",
+    "chrome_app_layout_safe": "pass"
+  },
+  "full_regression_note": "not started because the bundled Python has no qrcode package and OpenCV 5.0 is outside the runner's required >=4.8,<5 range"
+}

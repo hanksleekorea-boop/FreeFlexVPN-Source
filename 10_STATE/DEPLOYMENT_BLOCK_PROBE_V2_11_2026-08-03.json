@@ -1,0 +1,46 @@
+{
+  "schema": "FreeFlexVPNDeploymentBlockProbeV1",
+  "candidate": "v2.11-provider-readback-hardened",
+  "measured_at": "2026-08-03T10:48:04+07:00",
+  "matrix": [
+    {
+      "target": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+      "classification": "available",
+      "measured_result": "HTTP 200, 146845 bytes, ETag 6a6f1cf8-23d9d",
+      "claim": "current public app remains reachable; this is not the local v2.11 dashboard"
+    },
+    {
+      "target": "https://console.cloud.google.com/",
+      "classification": "permission",
+      "measured_result": "HTTP 302 to accounts.google.com/ServiceLogin",
+      "works": "network route and Cloud Console entry point",
+      "blocked": "authenticated project and billing readback",
+      "minimal_user_action": "S-1 대행동: Google 로그인 후 project·무료 크레딧·예상 비용 확인"
+    },
+    {
+      "target": "https://shell.cloud.google.com/",
+      "classification": "permission",
+      "measured_result": "HTTP 302 to accounts.google.com/ServiceLogin",
+      "works": "network route, Cloud Shell entry point, upload-ready v2 example bundle",
+      "blocked": "authenticated Cloud Shell preflight",
+      "minimal_user_action": "S-1 뒤 소행동: Cloud Shell 열기"
+    },
+    {
+      "target": "local gcloud 578.0.0",
+      "classification": "tool_unresponsive",
+      "measured_result": "required files present; version checks timed out at 60 and 120 seconds",
+      "works": "archive and extracted-file validation",
+      "blocked": "local authentication and execution",
+      "assistant_resolution": "Cloud Shell v2 bundle generated; local CLI remains outside the critical path"
+    },
+    {
+      "target": "first GCP WireGuard VM",
+      "classification": "physical_absence",
+      "measured_result": "actual VM count 0; server readback count 0",
+      "works": "EXAMPLE_ONLY v2 bundle, real-candidate generator, read-only preflight, guarded deploy, full provider configuration readback, exact rollback",
+      "blocked": "live cloud/server/device evidence",
+      "minimal_user_action": "S-2 대행동: S-1 비용 확인 후 first-node create 승인"
+    }
+  ],
+  "contains_secrets": false
+}

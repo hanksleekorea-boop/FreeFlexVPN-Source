@@ -1,0 +1,147 @@
+name: Deploy FreeFlexVPN Pages
+
+on:
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  verify-static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify adopted app shell and manifest
+        run: |
+          python3 tools/verify_app.py
+          node tools/check_inline_js.mjs
+          node --check sw.js
+          node --check client_keygen.js
+          node --check pwa_api_client.js
+          node --check moment_catalog.js
+          node --check platform_support.js
+          node --check pwa_runtime.js
+          python3 tools/build_public_manifest.py --check
+      - name: Verify primary actions are not occluded
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8000 >/tmp/freeflexvpn-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          chrome="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium-browser || true)"
+          test -n "$chrome"
+          "$chrome" --headless --no-sandbox --disable-gpu --window-size=900,720 --dump-dom \
+            'http://127.0.0.1:8000/app.html?review=1&layout_probe=1' > layout-rendered.html
+          grep -q 'data-layout-safe="pass"' layout-rendered.html
+          python3 - <<'PY'
+          from pathlib import Path
+          source = Path("app.html").read_text(encoding="utf-8")
+          safe = "position:relative;height:72px;margin:18px -12px -82px"
+          broken = "position:absolute;left:10px;right:10px;top:410px;height:72px"
+          if safe not in source:
+              raise SystemExit("layout negative-control mutation point missing")
+          Path("app-layout-broken.html").write_text(source.replace(safe, broken, 1), encoding="utf-8")
+          PY
+          "$chrome" --headless --no-sandbox --disable-gpu --window-size=900,720 --dump-dom \
+            'http://127.0.0.1:8000/app-layout-broken.html?review=1&layout_probe=1' > layout-broken-rendered.html
+          grep -q 'data-layout-safe="fail"' layout-broken-rendered.html
+          "$chrome" --headless --no-sandbox --disable-gpu --window-size=1400,900 --dump-dom \
+            'http://127.0.0.1:8000/app.html?review=1&view=app&app_layout_probe=1' > app-mode-rendered.html
+          grep -q 'data-app-layout-safe="pass"' app-mode-rendered.html
+
+  deploy:
+    needs: verify-static
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify-public:
+    needs: deploy
+    if: needs.deploy.result == 'success'
+    runs-on: ubuntu-latest
+    env:
+      PUBLIC_URL: https://hanksleekorea-boop.github.io/FreeFlexVPN/
+    steps:
+      - name: Verify anonymous no-cache HTTP three times
+        shell: bash
+        run: |
+          set -euo pipefail
+          for probe in 1 2 3; do
+            url="${PUBLIC_URL}?ci_probe=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${probe}"
+            curl --fail --silent --show-error --location --max-time 30 \
+              -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' "$url" -o "probe-${probe}.html"
+            grep -q 'FreeFlexVPN' "probe-${probe}.html"
+            grep -q '1GB' "probe-${probe}.html"
+            grep -q '충전분 무기한' "probe-${probe}.html"
+            sha256sum "probe-${probe}.html"
+          done
+      - name: Verify rendered DOM with headless Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          chrome="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium-browser || true)"
+          test -n "$chrome"
+          "$chrome" --headless --no-sandbox --disable-gpu --dump-dom \
+            "${PUBLIC_URL}?chrome_probe=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" > rendered.html
+          grep -q 'FreeFlexVPN' rendered.html
+          grep -q '매달 내지 말고' rendered.html
+          grep -q '실제 터널 검사가 성공할 때만 보호됨으로 표시합니다' rendered.html
+      - name: Verify adopted app shell anonymously
+        shell: bash
+        run: |
+          set -euo pipefail
+          chrome="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium-browser || true)"
+          test -n "$chrome"
+          for probe in 1 2 3; do
+            url="${PUBLIC_URL}app.html?ci_app_probe=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${probe}"
+            curl --fail --silent --show-error --location --max-time 30 \
+              -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' "$url" -o "app-probe-${probe}.html"
+            grep -q 'data-service-shell' "app-probe-${probe}.html"
+            grep -q '무료 1GB로 시작' "app-probe-${probe}.html"
+            grep -q '상태를 꾸미지 않습니다' "app-probe-${probe}.html"
+            grep -q 'HANDOFF' "app-probe-${probe}.html"
+            grep -q '현재 가동 서버가 없습니다' "app-probe-${probe}.html"
+            grep -q '화면 14개' "app-probe-${probe}.html"
+            grep -q 'data-screen="moments"' "app-probe-${probe}.html"
+            grep -q 'data-screen="platforms"' "app-probe-${probe}.html"
+            grep -q '30개 사용 순간' "app-probe-${probe}.html"
+            grep -q 'PC·모바일 모든 기기' "app-probe-${probe}.html"
+            grep -q 'id="appModeToggle"' "app-probe-${probe}.html"
+            grep -q 'data-screen="wallet"' "app-probe-${probe}.html"
+            grep -q 'data-screen="referral"' "app-probe-${probe}.html"
+            grep -q '지불의사 미검증' "app-probe-${probe}.html"
+            sha256sum "app-probe-${probe}.html"
+          done
+          "$chrome" --headless --no-sandbox --disable-gpu --window-size=900,720 --dump-dom \
+            "${PUBLIC_URL}app.html?layout_probe=1&review=1&chrome_app_probe=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" > app-rendered.html
+          grep -q 'INTERNAL REVIEW' app-rendered.html
+          grep -q '실제 VPN 서버·결제·계정 기능 없음' app-rendered.html
+          grep -q '공용 Wi‑Fi 보호' app-rendered.html
+          grep -q '친구와 나누기' app-rendered.html
+          grep -q 'data-layout-safe="pass"' app-rendered.html
+          "$chrome" --headless --no-sandbox --disable-gpu --window-size=1400,900 --dump-dom \
+            "${PUBLIC_URL}app.html?view=app&app_layout_probe=1&review=1&desktop_probe=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" > app-desktop-rendered.html
+          grep -q 'data-app-mode="on"' app-desktop-rendered.html
+          grep -q 'data-app-layout-safe="pass"' app-desktop-rendered.html
+          grep -q 'data-pc-layout="wide"' app-desktop-rendered.html
+          grep -q '폰으로 이어서 보기' app-desktop-rendered.html

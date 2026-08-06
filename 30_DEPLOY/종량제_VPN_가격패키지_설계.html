@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>종량제 VPN 가격 패키지 설계</title>
+<meta name="theme-color" content="#f6f6f3">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="종량제 설계">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,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">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiRnJlZUZsZXhWUE4gwrcg6rCA6rKpIO2MqO2CpOyngCDshKTqs4QiLCJzaG9ydF9uYW1lIjoiRnJlZUZsZXhWUE4iLCJzdGFydF91cmwiOiIuIiwiaWQiOiIuL2FwcC5odG1sIiwic2NvcGUiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwZjExMTUiLCJ0aGVtZV9jb2xvciI6IiMwZjE0MjAiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFNQUFBQURBQ0FZQUFBQlMzR3dIQUFBRVBVbEVRVlI0MnUzYzBVMGJRUlNGNFpsUlNrQThVQUFTU2pOVVFCK3BnRDZvZ0dhaVNCVEFBM0lQemt2eUVpa0MyMnQ3NXA3dnI0Q2RQZitjTzd0bWU1dU1tN3Y3ZlVOWmR1OXZmYWEvcHdzN2txWG9RbzlrR2JyZ0kxbUVMdmhJRnFFTFBwSkY2SUtQWkJHRzhHTWx0czVZRjN3a3Q4RVFmaVMzd1JCK0pFc3doQi9KRWd6aFI3SUVRL2lSTE1FUWZpUkxNSVFmeVJJTTRVZXlCRVA0a1N6QnNFeEladGo5a2R3Q1EvaVJMSUVSQ0VZZ3V6OVNXMEFEUUFQWS9aSGFBaG9BR3NEdWo5UVcwQURRQUhaL3BMYUFCb0FHQUtJRk1QNGdkUXpTQU5BQUFBRUFBZ0JaZEFkZ2FBQ0FBQUFCZ0NpK3pmcUgzVDY5dWp1RitIaDUxQUFBQVFBQ0FBUUFDQUFRQUNBQVFBQ0FBQUFCQUFJQUJBQUlBQkFBSUFCQUFJQUFBQUVBQWdBRUFBZ0FFQUFnQUVBQXROWitQajlZQkFKa2g1OEVCQ0REOHdNUkNHRDBJUUVCNHVkK2JVQUFoMTV0UUlCMHZ2LzRSUUI0NUVrQXhJVS9mZmNuZ1BBVHdCS1krd2tBY3o4QllQUWhBSVNmQUREM0V3RG1mZ0xBNkVNQUdIMElnUFYyZitFbmdMa2ZCREQzZ3dEbWZoREE2QU1DTEJWQW93OEJZajhySXZ3RW1Hcm5uM2tVRVg0Q2xQcWtpTG1mQUxGbkFxTVBBYVlQK0xra0VINEMrS2FPOEJQZzQrVnhpZEZtU3dtcXp2M1h1SmNsR3VEU0MzZnNqcnBGY0t1T1BqT0hmNGtSS0VrQzRTZEFwQVIrNGt5QVZ1WEYwcUZmWFRiM0UyRGFCVDFsdHozSG8xU2pUM2dEVkpSQStBa1FLVUhGMFdlMThDOTdCbGhkZ29xano0cmhYL29RdktvRXdqOFgvZWJ1ZnI5eTdkNCt2YmFxL3lBai9CcGcyaWJ3UEw1NUQ5QzhLN0Q3RXlEN1Jwd2pxTUpQZ0ZnSmhKOEFtc0FhRXlCUmd0a2xxaGIrc29mZ0ZTVVFmZ0xFU3VDUktnRTBnWFVrUUF0OFQyRDBJVURwRy9nMzRQOEdmWVczeWRYRDMxcUIzd0sxaVg4elpPUFFBRzZvdFNLQUcydU5DT0FHZ3dBa3NDNEVjTE90QndFZy9BUnc0NjBCQVFUQXRSTkFFRnd6QVFUQ3RSSkFNRUFBRXJnK0FnaUo2eUtBc0xnZUFrRDRDU0E0d2s4QUFSSitBZ2dTQ0VBQzBoSkFxSVNmQU1JbC9BUVFNdUVuQUNsQmdMekFDVDhCQkE4RVNKU0FoQVNJbFVENENSQXJnZkFUSUZZQzRTZEFyQVRDVHdCeWdRQnBRUlYrQXRpdFFZQkVDY2hFZ0ZnSmhKOEFzUklJUHdGaUpSQitBc1JLSVB3RUlBa3VJOER1L2ExYkJnRlBaUGYrMWpYQVJCS1F3d2dVSzRId0V5QldBdUcvSHIyMTFtN3U3dmVXQXJGbkFBZGhKSWJmQ0FSbkFFc0FBaGlERURqK2FBQm9nUCtaQVZUZi9UVUFOTUJuaGdCVmQzOE5BQTN3VlZPQWFydS9Cb0FHT05RWW9NcnUvMmtEa0FDVncyOEVnaEhvVklPQVZYZi9MemNBQ1ZBeC9BZU5RQ1JBdGZBZmZBWWdBU3FGLzZoRE1BbFFKZnhIUHdVaUFTcUUvNlRIb0NUQTZ1RS8rVDBBQ2JCeStEZDVFVVlDckJyKzF2NThGMmdyZkY4SXF3VC9MRCtGMEFaWUtmeWJONEEyd0NyQlA3c0FSTUFLVThYRlJoWWlZTVp4K3VJek94RXcwem55cW9kV011RGFEMCttZTJwRENtRy9KTDhCdmhaYzNzeFNkUEFBQUFBQVNVVk9SSzVDWUlJPSIsInNpemVzIjoiMTkyeDE5MiIsInR5cGUiOiJpbWFnZS9wbmciLCJwdXJwb3NlIjoiYW55IG1hc2thYmxlIn0seyJzcmMiOiJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQWdBQUFBSUFDQVlBQUFEMGVOVDZBQUFOYVVsRVFWUjQydTNjd1cwYlZ4UkEwVDhQS1VIUWdnVVFNTktNSzFBZnFjQjl1QUkxWXhoUUFWb1k2b0ZaZXhrNGtvYi9ubE5CTk9UOGQrY040Mk54U2crWDY4MVZBSGJ3OXZweXVBcm40ME14NEFFRWdnREFzQWNRQlFJQUF4OUFFQWdBREh3QVFTQUFESDBBeElBQU1QUUJFQU1Dd05BSFFBd0lBSU1mQUNFZ0FBeDlBTVNBQURENEFSQUNBc0RnQjBBSUNBQ0RId0FoSUFBTWZnQ0VnQUF3K0FFUUF2L1ZHUDRBMEpzZGh3OFBBSHJiZ01QZ0I0QmVDSXpoRHdDOUdYUDRVQUNndHcwWXd4OEFlck5uZkFBQTBKdEJoNHNPQUN2M1NtQU1md0RvemFaeGdRR2dONk1PRnhVQVZ1NlZ3QmorQU5DYlhlTUNBa0J2aG8wTEJ3QzlXVFl1R0FEMFp0cTRVQURRbTIzakFnRkFiOGFOQ3dNQXZWazNMZ2dBOUdiZXVCQUEwSnQ5WS9nRFFHOEdqdUVQQUwxWk9JWS9BUFFpWUF4L0FPaEZ3QmorQU5DTGdESDhBYUFYQVdQNEEwQXZBc2FsQm9DZThmUVBBTDB0d0JqK0FOQ0xnREg4QWFBWEFYNERBQURMYndBOC9RTkFZQXN3aGo4QTlDSmdESDhBNkVXQTN3QUF3UEliQUUvL0FCRFlBb3poRHdDOUNQQUtBQUNXVndDZS9nRWdzQVd3QVFBQUd3QlAvd0JRMkFLTTRROEF2UWp3Q2dBQWxsY0FudjRCSUxBRnNBRUFBQnNBVC84QVVOZ0MyQUFBZ0EyQXAzOEFLR3dCYkFBQXdBYkEwejhBRkxZQU5nQUFZQVBnNlI4QUNsc0FHd0FBc0FFQUFBVEFzdjRIZ0xYaGF3QWJBQUN3QWZEMER3Q0ZMWUFOQUFEWUFBQUE2UUN3L2dlQXRlMXJBQnNBQUxBQkFBQ3lBV0Q5RHdCcjY5Y0FOZ0FBWUFNQUFDUUR3UG9mQU5iMnJ3RnNBQURBQmdBQUVBQUF3UDRCNFAwL0FLekU3d0JzQUFEQUt3QUFRQUFBQUhzSGdQZi9BTEF5dndPd0FRQUFyd0FBQUFFQUFBZ0FBR0NqQVBBRFFBQllxUjhDMmdBQWdGY0FBSUFBQUFBRUFBQWdBQUFBQVFBQUNBQUE0TFFPL3dZQUFOZ0FBQUFDQUFBUUFBQ0FBQUFBN3ROZkxzRTVQVDQ5dXdqQUZuNTkvK29pMkFBQUFBSUFBQkFBQUlBQUFBQUVBQUFnQUFBQUFRQUFDQUFBUUFBQUFBSUFBQVFBQUNBQUFBQUJBQUFJQUFCQUFBQUFBZ0FBRUFBQWdBQUFBQVFBQUNBQUFBQUJBQUFJQUFCQUFBQUFBZ0FBRUFBQWdBQUFBQVFBQUNBQUFFQUFBQUFDQUFBUUFBQ0FBQUFBQkFBQUlBQUFBQUVBQUFnQUFFQUFBQUFDQUFBUUFBQ0FBQUFBQkFBQUlBQUFBQUVBQUFnQUFFQUFBSUFBQUFBRUFBQWdBQUFBQVFBQUNBQUFRQUFBQUFJQUFCQUFBSUFBQUFBRUFBQWdBQUFBQVFBQUNBQUFRQUFBQUFJQUFCQUFBSUFBQVBqTmoyOWZYQVFFQUVCeCtJc0FCQUJBT0FhRUFBSUFJTHI2RndFSUFJRG9lMzhSZ0FBQWlQN296eXNCQkFDQVlBQUJBRkFiNWlJQUFRQVFmWklYQVFnQWdPZ2EzKzhDRUFBQWdnSUVBRUJ0V0lzQUJBQkE5RW5kS3dFRUFFQjRUUzhDRUFBQWdnTUVBRUJwR0hzbGdBQUFDRCtKaXdBRUFFQnc4UDc5ejA4ZkJnSUFBQkFBQUo3K1FRQUFHUDRnQUFBTWZ4QUFBSUFBQVBEMER3SUFNUHdOZnhBQWdPRnYrSU1BQUFBRUFPRHAzOU0vQXNBbEFBeC93eDhCQUdENEcvNElBQUJBQUFCNCt2ZjBqd0FBTVB4QkFBQnN6L0JIQUFBRW4vNUJBQUJZL1lNQUFERDhRUUFBTE8vOVFRQUFlTzhQQWdEQTZoOEVBSURoRHdJQXdQQUhBUUI0K2djRUFHRDRlL29IQVFBWS9vWS9DQUFBd3g4RUFPRHBIeEFBZ09IdjZSOEVBR0Q0Ry80SUFBQkFBQUI0K2djQkFHRDRnd0FBTVB4QkFBQUFBZ0RBMHo4SUFBRERId1FBWVBnYi9pQUFBQUFCQUhqNjkvUVBBZ0F3L0ExL0VBQUFoajhJQU1EVFB5QUF3UEJ5L1R6OWd3Q0FQeGxlSXNEd0J3RUEwZUVsQXBiMy9pQUFvUG5rS2dLOE9nRUJBTkhCWmJCWi9ZTUFnT2pnRWdHR1B3Z0FpQTR1RWJDODl3Y0JBTTJuVmhIZ2VvQUFnT2pRTXZTcy9rRUFRSFJvMVNQQThBY0JBTm1oWlJOZytJTUFnT2dUYXpFQ2hBOElBREN3WWdQUjZoOEVBQmhZc1Fndy9FRUFnSUZsTlc3NGd3QUF3My8zQ0JBM0lBREFzSW9OUzZ0L0VBQmdXTVVpd1BBSEFRQ0dsYlU1SUFEQThOODlBano5Z3dEZ2cvMzYvdFZGMkdoSTNHTUVHUDQ0eXdRQWJod1JFSXNBd3g5bm1BREFEU1FDdkE0QVo1Y0F3STBrQW5hUEFFLy9PTE1FQUlnQVAxajAyWUVBUUZHTEFQL0xvdUdQczBvQTRNWVNBWDRUQU00b0FZQWJUQVRjYndSNCtzZlpKQUJ3bzRtQTJBQTIvSEVtQ1FEY2NDTGdreU9nK2tyQThIY1dJUUJ3NCtXSHpVZEdnTjhnNEF3U0FMZ0JSVUFzQXF6K2NmWUlBTnlJSWlBV0FZWS9JQUFRQVY0SHVQWjQ2QkFBdUNGRndPNFI0TDAvemhvRWdCdVRXQVJZL2VPTVFRQzRRWWxGZ09HUHN3VUI0RWJGNndEWEYyZUtBTUFOeSs0UjRMMC96aElFZ0J1WFdBUlkvZU1NUVFDNGdZbEZnT0VQQ0FEd09zQTF4TU1EQXNDTnpPNFI0TDAvemd3RUFHN29XQVJZL2VPc1FBRGd4bzVGZ09HUE13SUJnQnZjNndCd05pQUFjS043c25XTmNDWWdBTnp3R0hDdWpiUEFXWkIxUEZ5dU41ZWg2L0hwMlVWWTF1Nkd2K0dQRFFBT0FBdzlRQUFBSXNBMUVQOElBQndFR0lEK2R2YzhBZ0FIQWdhaDRlOWVSd0RnWU1CQXhEMk9BTUFCSVFMOG5iaTNFUUE0S0VTQXZ3LzNOQUlBQjRZSThIZmhYa1lBNE9BUUFRQUNBQkVnQXZ3dHVIOFJBR0J3K2hzdy9CRUFPRWdNVVAvdHVHY1JBRGhRREZKd3J5SUFjTENJQU5IaUhnVUJnQVBHVURYODNac2dBSERRR0s2R3Yzc1NCQUFPSEVNV0VBQWdBa1NBTUhFZklnQ0E2TUExL0ExL0JBQTRnR0tEMS9CMzd5RUF3RUZrQU9PZVF3Q0FBMm4zQ0JBZjdqVUVBRGlZWWhGZytMdkhFQURnZ0lwRmdPSHYza0lBZ0lQSzZ3QkFBSUFJMkQwQ0JJYjdDUUVBRHExWUJCais3aU1FQUJDTEFNUGY4S2Z0ZUxoY2J5NEQ3K254NmRsRmVBYy92bjB4L0ExL3NBSEFRV1liWVBpN1o4QUdBSnNBR3dGRDMvQUhBWUFJQU1NZmxsY0FPT0RBdllFQUFBY2RnQUFBRVFEdUJ3UUFPUFRBZllBQUFNRHdSd0NBQXhCODl4RUE0Q0FFMzNrRUFEZ1F3WGNkQVFBT1JuekhRUUNBQXhKQUFJQUl3UGNhQkFBT1MvQjlCZ0VBWVBpREFNREJDYjdESUFCd2dJTHZMZ2dBSEtUZ093c0NBQWNxK0s2Q0FNREJDaUFBWEFKRUFQaCtJZ0RBSVF1K2x3Z0FjTmlDN3lNQ0FBRERId0VBRGw1OEIwRUFnQU1ZM3owUUFPQWd4bmNPQkFBNGtQRmRBd0VBRG1ZQUFRQWlBTjh2RUFEZ2tNYjNDZ1FBT0t6eGZRSUJBR0Q0Z3dBQUJ6ZStReUFBd0FHTzd3NElBQnprRG5KOFowQUE0RUFIUUFBZ0FzRDNCQUVBRG5kOFAwQUFnRU1lM3dzUUFPQ3d4L2NCQkFDQTRROENBQno4K0E2QUFBQURBSjg5Q0FBd0NBQUVBSWdBZk40Z0FNQlF3T2NNQWdBTUIzeStJQURBa01EbkNnSUF3UEFIQVFBR0JqNUxFQUJnY09BekJBRUFCZ2lBQUFBUjRITURCQUFZSmo0dkVBQ0FvZUp6QWdFQUdDNCtIeEFBZ0NIamN3RUJBR0Q0Z3dBQUF3ZWZCUWdBTUhqd0dZQUFBQU1JUUFDQUNNQjFCd0VBaGhHdU53Z0FNSlJ3blVFQWdPR0U2d3NDQUF3cDF4VVFBSURoRHdnQU1MQmNTMEFBZ01FRklBQkFCTGgrZ0FBQVE4eDFBd0VBR0dhdUZ3Z0F3RkJ6blVBQUFJYWI2d01DQU1Ed0J3RUFHSFN1Q1FnQXdNQURCQUFnQWx3SEVBQ0E0ZWZ2QndFQVZJZWc0UThDQUVSQWJCZ2EvaUFBZ05oUU5QeEJBQUN4NFdqNGd3QUF4QTBnQUlDZEI2WGhEd0lBTURBQkFRRHNIZ0ZpQmdRQUVCdWVoajhJQUNBMlJBMS9FQUJBYkpnYS9pQUFnTmhRTmZ4QkFBQ3g0V3I0Z3dBQXhBa2dBQUNERmhBQXdGWVJJRXBBQUFDeG9XdjRnd0FBWXNQWDhBY0JBTVNHc09FUEFnQ0lSWURoRHhzRXdOdnJ5K0V5Z0Fndy9LSGo3Zlhsc0FFQURIL3dDZ0F3b0FFQkFJZ0FjUUVDQUdoR2dPRVBBZ0NJUllEaER3SUFpRVdBNFE4Q0FJaEZnT0VQZ1FEd2J3R0FDREQ4WVdYK0RRQWJBQkFCaGo5NEJRQUFDQUFndHdYdzlBOENBSWhGZ09FUDBRRHdRMERvUm9EaER5djFBMEFiQUJBQmhqOUUvZmJVLzNDNTNsd1NBTEFCQUFEVzVqOEM5RHNBQU5qLzZkOEdBQUJzQUFBQUFRQUFkQUxBN3dBQVlHMzkvdDhHQUFCc0FBQ0FkQUI0RFFBQWE5djF2dzBBQU5nQUFBRDVBUEFhQUFEV2x1dC9Hd0FBc0FFQUFBVEE4aG9BQU5hRzYzOGJBQUN3QWJBRkFJREMwNzhOQUFEWUFBQUFBbUI1RFFBQWE4UDF2dzBBQU5nQTJBSUFRT0hwM3dZQUFHd0FiQUVBb1BEMGJ3TUFBRFlBdGdBQVVIajZ0d0VBQUJzQVd3QUFLRHo5MndBQWdBMkFMUUFBRko3Ky8zZ0RJQUlBNFA2R3YxY0FBTEM4QXJBRkFJREEwNzhOQUFEWUFOZ0NBRURoNmY5LzNRQ0lBQUM0aitIdkZRQUFMSzhBYkFFQUlQRDAveTRiQUJFQUFPZWZyWE12LzZFQVlQaWZQQUFBZ05YNURZQXRBQURjeHl5ZGUvMFBCd0RELzhTdkFFUUFBSnh2ZHZvTkFBQXN2d0d3QlFDQXpaLytQM1FESUFJQTREeXpjbmI5d3dEQThEL1Jid0JFQUFCOC9teWN5aDhLQUliL0NmNHZBQkVBZ09IL2ViTndxbjg0QUpSbjROUXZBQUFVWjkrNEVBRFFtM25qZ2dCQWI5YU5Dd01BdlJrM0xoQUE5R2JidUZBQTBKdHA0NElCUUcrV2pRc0hBTDBaTmk0Z0FQUm0xMTBOMTRmTDllWnJCWURCSDlnQTJBWUFZRWJGQTBBRUFHQTJyZDRyZ09XVkFBQUdmM01EWUJzQWdCa1VEd0FSQUlEWnMzcXZBSlpYQWdBWS9NME5nRzBBQUdaTWZBTmdHd0NBd1I4UEFDRUFnTUcvR3E4QXZCWUF3T3l3QWJBTkFNRGdGd0JDQUFDRFB4MEFRZ0NBK210aTc4ZUZBSURCTHdDRWdLc0FZUEFMQURFQWdLRXZBSVFBQUFhL0FCQURBQmo2QWtBTUFHRG9Dd0F4QUlDaEx3QUVBUUFHdmdBUUJBQVkrQUpBRkFBWTlnZ0FCQUpnd1BPdS9nV28yano4V0ZCZnR3QUFBQUJKUlU1RXJrSmdnZz09Iiwic2l6ZXMiOiI1MTJ4NTEyIiwidHlwZSI6ImltYWdlL3BuZyIsInB1cnBvc2UiOiJhbnkgbWFza2FibGUifV19">
+<style>
+:root{color-scheme:dark;--bg:#0f1115;--card:#1a1a19;--line:#33332f;--t1:#fff;--t2:#c3c2b7;--t3:#8b8a80;
+ --blue:#3987e5;--green:#199e70;--amber:#c98500;--red:#e66767;--violet:#9085e9}
+:root[data-theme=light]{color-scheme:light;--bg:#f6f6f3;--card:#fcfcfb;--line:#dedcd3;--t1:#0b0b0b;--t2:#52514e;--t3:#77766f;
+ --blue:#2a78d6;--green:#1baf7a;--amber:#eda100;--red:#e34948;--violet:#4a3aa7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t1);font-size:15px;line-height:1.6;
+ font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,sans-serif;
+ padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:1040px;margin:0 auto;padding:20px 16px 110px}
+h1{font-size:23px;margin:0 0 3px;letter-spacing:-.02em}
+h2{font-size:17px;margin:30px 0 8px}h3{font-size:14.5px;margin:18px 0 7px;color:var(--t2)}
+.sub{color:var(--t3);font-size:12.5px}
+p{color:var(--t2);margin:6px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin:12px 0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.ghost{background:transparent;color:var(--t1);border:1px solid var(--line);border-radius:9px;padding:6px 11px;font-size:13px}
+.heroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px}
+.hero .k{font-size:11.5px;color:var(--t3);font-weight:600}
+.hero .v{font-size:25px;font-weight:750;letter-spacing:-.03em;margin-top:2px;font-variant-numeric:tabular-nums}
+.hero .u{font-size:12px;color:var(--t2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+thead th{color:var(--t3);font-size:11.5px;font-weight:650}
+td.sub{white-space:normal;min-width:140px}
+tr.tot td{font-weight:750;border-top:1px solid var(--line);background:rgba(57,135,229,.08)}
+tr.hi td{background:rgba(25,158,112,.12)}
+.badge{font-size:10.5px;font-weight:700;border-radius:5px;padding:1px 5px}
+.g{background:rgba(25,158,112,.16);color:var(--green);border:1px solid rgba(25,158,112,.4)}
+.a{background:rgba(201,133,0,.16);color:var(--amber);border:1px solid rgba(201,133,0,.4)}
+.r{background:rgba(230,103,103,.14);color:var(--red);border:1px solid rgba(230,103,103,.4)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ul{margin:6px 0;padding-left:19px;color:var(--t2);font-size:14px}li{margin:5px 0}
+.warn{border-left:3px solid var(--red);padding-left:12px;margin:14px 0}
+.ok{border-left:3px solid var(--green);padding-left:12px;margin:14px 0}
+.warn .t,.ok .t{font-weight:700;font-size:14.5px}
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:10px;margin:10px 0}
+.pack{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px}
+.pack.best{border-color:var(--green);box-shadow:0 0 0 1px rgba(25,158,112,.35)}
+.pack .n{font-size:12px;color:var(--t3);font-weight:700}
+.pack .gb{font-size:26px;font-weight:800;letter-spacing:-.03em;margin:2px 0}
+.pack .p{font-size:17px;font-weight:750;color:var(--blue)}
+.pack .per{font-size:11.5px;color:var(--t3)}
+.calc label{display:flex;justify-content:space-between;font-size:13px;color:var(--t2)}
+.calc label b{color:var(--t1);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--blue);height:22px;margin-top:4px}
+.foot{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--t3)}
+a{color:var(--blue)}
+#installBtn{display:none;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:7px 12px;font-size:13px;font-weight:650}
+#banner{display:none;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:80;
+ background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 12px 34px rgba(0,0,0,.4);align-items:center;gap:11px}
+#banner img{width:34px;height:34px;border-radius:9px}
+#banner .txt{flex:1;min-width:0}#banner .txt b{display:block;font-size:13.5px}
+#banner .txt span{font-size:12px;color:var(--t3)}
+#banner .act{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:8px 12px;font-size:13px;font-weight:650}
+#banner .x{background:transparent;border:0;color:var(--t3);font-size:19px;padding:0 4px}
+@media(display-mode:standalone){#installBtn,#banner{display:none!important}}
+</style>
+<style data-freeflex-global-theme>
+body.service-doc{background:#f5f7f9!important;color:#101828!important;min-height:100vh;font-family:Inter,"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif!important;letter-spacing:-.025em}
+.service-doc .ff-global{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.94);border-bottom:1px solid #e4e7ec;backdrop-filter:blur(18px)}
+.service-doc .ff-global-in{width:min(1200px,calc(100% - 32px));height:68px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.service-doc .ff-progress-dock{position:sticky;top:68px;z-index:110;border-bottom:1px solid #dce9e4;background:rgba(247,252,250,.96);backdrop-filter:blur(16px)}.service-doc .ff-progress-in{width:min(1200px,calc(100% - 32px));min-height:56px;margin:auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px}.service-doc .ff-progress-title{display:flex;align-items:center;gap:8px;white-space:nowrap;color:#087f5b;font-size:10px;font-weight:900}.service-doc .ff-progress-title i{width:8px;height:8px;border-radius:50%;background:#12b886;box-shadow:0 0 0 4px rgba(18,184,134,.12)}.service-doc .ff-progress-title strong{color:#101828;font-size:10px}.service-doc .ff-progress-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:0;padding:0;list-style:none}.service-doc .ff-progress-steps li{display:flex;align-items:center;gap:6px;min-width:0;color:#667085;font-size:9px;font-weight:760;white-space:nowrap}.service-doc .ff-progress-steps b{display:grid;place-items:center;width:19px;height:19px;border-radius:7px;background:#edf1f0;color:#667085;font-size:8px}.service-doc .ff-progress-steps .is-done{color:#087f5b}.service-doc .ff-progress-steps .is-done b{background:#12b886;color:#fff}.service-doc .ff-progress-steps .is-now{color:#8a5a00}.service-doc .ff-progress-steps .is-now b{background:#fff1cf;color:#9a6700}.service-doc .ff-progress-note{margin:0;color:#475467;font-size:9px;white-space:nowrap}.service-doc .ff-progress-note b{color:#087f5b}
+.service-doc .ff-global-brand{display:flex;align-items:center;gap:10px;color:#101828!important;text-decoration:none;font-size:18px;font-weight:950;letter-spacing:-.055em}
+.service-doc .ff-global-mark{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:#12b886;color:#fff;font-size:10px;font-weight:950;box-shadow:0 8px 22px rgba(18,184,134,.2)}
+.service-doc .ff-global-links{display:flex;align-items:center;gap:9px}.service-doc .ff-global-links a{display:inline-flex;align-items:center;min-height:40px;border:1px solid #e4e7ec;border-radius:12px;background:#fff;color:#475467!important;padding:9px 13px;text-decoration:none;font-size:10px;font-weight:800}.service-doc .ff-global-links a:first-child{border-color:#12b886;background:#12b886;color:#fff!important}
+.service-doc>.wrap,.service-doc>main,.service-doc .wrap{position:relative}.service-doc .card,.service-doc .hero,.service-doc .panel,.service-doc section{border-color:#e4e7ec!important}.service-doc .card,.service-doc .hero,.service-doc .panel{box-shadow:0 12px 34px rgba(16,24,40,.06)!important}.service-doc .card,.service-doc .panel{border-radius:18px!important}
+.service-doc .foot,.service-doc footer{border-color:#e4e7ec!important}.service-doc .sub,.service-doc p,.service-doc .note{color:#667085}.service-doc h1,.service-doc h2,.service-doc h3{color:#101828}.service-doc a{color:#087f5b}.service-doc button{border-radius:12px!important}.service-doc table{border-radius:15px;overflow:hidden}.service-doc th{font-weight:850}
+.service-doc .ff-doc-label{display:inline-flex;align-items:center;gap:7px;border:1px solid #c9f2df;border-radius:999px;background:#f2fcf8;color:#087f5b;padding:6px 9px;font-size:9px;font-weight:850;letter-spacing:.04em;margin-bottom:9px}.service-doc .ff-doc-label i{width:7px;height:7px;border-radius:50%;background:#12b886}
+@media(max-width:600px){.service-doc .ff-global-in{height:62px}.service-doc .ff-global-links a:last-child{display:none}.service-doc .ff-global-links a{min-height:36px;padding:8px 10px}.service-doc .ff-global-brand{font-size:16px}.service-doc .ff-progress-dock{top:62px}.service-doc .ff-progress-in{width:min(100% - 28px,1200px);min-height:52px;grid-template-columns:1fr auto;gap:4px}.service-doc .ff-progress-title{font-size:9px}.service-doc .ff-progress-title strong{font-size:9px}.service-doc .ff-progress-steps{grid-column:1/-1;grid-row:2;margin-top:-8px;margin-bottom:8px}.service-doc .ff-progress-steps li{font-size:7px;gap:4px}.service-doc .ff-progress-steps b{width:15px;height:15px;border-radius:5px;font-size:7px}.service-doc .ff-progress-note{display:none}}
+
+</style>
+</head>
+<body class="service-doc">
+<header class="ff-global"><div class="ff-global-in"><a class="ff-global-brand" href="index.html"><span class="ff-global-mark">FF</span>FreeFlexVPN</a><nav class="ff-global-links" aria-label="서비스 이동"><a href="app.html">서비스 열기</a><a href="index.html">제품 소개</a></nav></div></header><section class="ff-progress-dock" data-progress-dashboard aria-label="FreeFlexVPN 개발 진행상황"><div class="ff-progress-in"><div class="ff-progress-title"><i></i><span>개발 진행상황</span><strong>현재: 두 번째 서버 준비</strong></div><ol class="ff-progress-steps"><li class="is-done" data-progress-step="public"><b>1</b><span>서비스 공개</span></li><li class="is-done" data-progress-step="android"><b>2</b><span>Android 확인</span></li><li class="is-now" data-progress-step="second-server"><b>3</b><span>두 번째 서버</span></li><li data-progress-step="iphone"><b>4</b><span>iPhone 확인</span></li></ol><p class="ff-progress-note"><b>확인됨</b> Android 연결·재연결 · 다음 iPhone 확인</p></div></section>
+<div class="wrap">
+<div class="top">
+  <div><h1>종량제 VPN 가격 패키지 설계</h1>
+  <div class="sub">주요 VPN 27곳 요금정책 실측 + 프록시·eSIM·dVPN 종량 단가 조사 근거 · 2026-07-30</div></div>
+  <div style="display:flex;gap:7px"><button class="ghost" id="themeBtn">다크</button><button id="installBtn">앱 설치</button></div>
+</div>
+
+<div class="heroes">
+  <div class="hero"><div class="k">우리 원가</div><div class="v">2.94</div><div class="u">원/GB (20개국 안전구성)</div></div>
+  <div class="hero"><div class="k">시장 월정액 중앙값</div><div class="v">1.9만</div><div class="u">원 (1개월권 $12.95)</div></div>
+  <div class="hero"><div class="k">GB 종량제 하는 VPN</div><div class="v">3곳</div><div class="u">27곳 중 (Speedify·Windscribe·Astrill)</div></div>
+  <div class="hero"><div class="k">제안 진입가</div><div class="v">1,500</div><div class="u">원 (3GB · 만료 없음)</div></div>
+  <div class="hero"><div class="k">종량 유리 구간</div><div class="v">~50GB</div><div class="u">월 사용량 기준</div></div>
+</div>
+
+<h2>1. 조사 결론 — 종량제 VPN 시장은 사실상 비어 있습니다</h2>
+<div class="card">
+<p style="margin-top:0">공식 가격 페이지를 직접 확인한 27곳 중 <b>GB 단위로 데이터를 파는 곳은 3곳뿐</b>입니다. 소비자 VPN의 표준은 "무제한 데이터 + 기간 정액"입니다.</p>
+<div class="scroll"><table>
+<thead><tr><th>업체</th><th>상품</th><th class="num">데이터</th><th class="num">가격</th><th class="num">GB당</th></tr></thead>
+<tbody>
+<tr><td>Speedify</td><td>라우터 플랜 100GB</td><td class="num">100GB/월</td><td class="num">$10.75/월</td><td class="num">$0.108 (159원)</td></tr>
+<tr><td>Speedify</td><td>라우터 플랜 1TB</td><td class="num">1,000GB/월</td><td class="num">$25/월</td><td class="num">$0.025 (37원)</td></tr>
+<tr><td>Windscribe</td><td>Build-a-Plan</td><td class="num">로케이션당 10GB/월</td><td class="num">$1/로케이션 (최소 $3)</td><td class="num">$0.10 (147원)</td></tr>
+<tr><td>Astrill</td><td>VIP 애드온</td><td class="num">100GB 단위</td><td class="num">from $10/월</td><td class="num">≈$0.10 (147원)</td></tr>
+</tbody></table></div>
+<h3>나머지 24곳의 요금 구조 — 종량제가 파고들 틈</h3>
+<div class="scroll"><table>
+<thead><tr><th>업체</th><th class="num">1개월권</th><th class="num">장기약정 월환산</th><th class="num">갱신가 월환산</th><th class="num">인상률</th><th class="num">무료 데이터</th></tr></thead>
+<tbody>
+<tr><td>NordVPN Basic</td><td class="num">$14.99</td><td class="num">$3.49</td><td class="num">$11.59</td><td class="num" style="color:var(--red)"><b>+232%</b></td><td class="num">없음</td></tr>
+<tr><td>Hotspot Shield</td><td class="num">$7.99</td><td class="num">$2.42</td><td class="num">$8.00</td><td class="num" style="color:var(--red)"><b>+231%</b></td><td class="num">500MB/일</td></tr>
+<tr><td>ExpressVPN Basic</td><td class="num">UNKNOWN</td><td class="num">$3.49</td><td class="num">$8.33</td><td class="num" style="color:var(--red)">+139%</td><td class="num">없음</td></tr>
+<tr><td>CyberGhost</td><td class="num">$12.99</td><td class="num">$2.19</td><td class="num">$4.75</td><td class="num">+117%</td><td class="num">없음</td></tr>
+<tr><td>Norton VPN</td><td class="num">UNKNOWN</td><td class="num">$3.33</td><td class="num">$6.67</td><td class="num">+100%</td><td class="num">없음</td></tr>
+<tr><td>PureVPN</td><td class="num">$12.95</td><td class="num">$2.15</td><td class="num">$4.00</td><td class="num">+86%</td><td class="num">없음</td></tr>
+<tr class="hi"><td>Mullvad</td><td class="num">€5</td><td class="num">€5 (약정 무관)</td><td class="num">€5</td><td class="num" style="color:var(--green)">0%</td><td class="num">없음</td></tr>
+<tr class="hi"><td>Windscribe</td><td class="num">$9.00</td><td class="num">$5.75</td><td class="num">$5.75</td><td class="num" style="color:var(--green)">0%</td><td class="num">10GB/월</td></tr>
+<tr><td>PIA</td><td class="num">$11.95</td><td class="num">$2.03</td><td class="num">$2.19</td><td class="num">+8%</td><td class="num">없음</td></tr>
+<tr><td>TunnelBear</td><td class="num">UNKNOWN</td><td class="num">from $3.33</td><td class="num">UNKNOWN</td><td class="num">—</td><td class="num">2GB/월</td></tr>
+<tr><td>PrivadoVPN</td><td class="num">$10.99</td><td class="num">$1.11</td><td class="num">UNKNOWN</td><td class="num">—</td><td class="num">10GB/30일</td></tr>
+<tr><td>ZoogVPN</td><td class="num">$9.99</td><td class="num">$2.49</td><td class="num">$3.33</td><td class="num">+34%</td><td class="num">10GB/월</td></tr>
+<tr><td>Proton VPN</td><td class="num">UNKNOWN</td><td class="num">UNKNOWN</td><td class="num">UNKNOWN</td><td class="num">—</td><td class="num">무제한(1기기·속도제한)</td></tr>
+<tr><td>AirVPN</td><td class="num">€7</td><td class="num">€2.75 (3년)</td><td class="num">—</td><td class="num">—</td><td class="num">없음 · <b>3일권 €2</b></td></tr>
+<tr><td>Astrill</td><td class="num">$30.00</td><td class="num">$12.50</td><td class="num">UNKNOWN</td><td class="num">—</td><td class="num">없음</td></tr>
+</tbody></table></div>
+<div class="ok"><div class="t">여기서 나오는 포지셔닝</div>
+<p style="margin:3px 0 0">월정액의 진짜 부담은 <b>월 요금이 아니라 ① 2년치 선불 + ② 갱신 시 2~3배 인상</b>입니다. NordVPN은 $3.49로 팔고 2년 뒤 $11.59로 갱신합니다.
+종량제가 이길 수 있는 지점은 가격이 아니라 <b>"약정 없음 · 자동결제 없음 · 데이터 만료 없음"</b>입니다.</p></div>
+</div>
+
+<h2>2. 가격 기준선 — 어디까지 받을 수 있나</h2>
+<div class="card">
+<div class="scroll"><table>
+<thead><tr><th>기준</th><th class="num">GB당</th><th>비고</th></tr></thead>
+<tbody>
+<tr><td>Cloudflare R2 (egress 무료 아키텍처)</td><td class="num">0원</td><td class="sub">이론상 바닥</td></tr>
+<tr class="hi"><td><b>우리 원가</b> (20개국 안전구성 200TB)</td><td class="num"><b>2.94원</b></td><td class="sub">집중 8개국 구성이면 1.44원</td></tr>
+<tr><td>AWS 대량 구간 egress</td><td class="num">74~132원</td><td class="sub">$0.05~0.09/GB</td></tr>
+<tr><td>Speedify 1TB 플랜</td><td class="num">37원</td><td class="sub">VPN 업계 최저 종량</td></tr>
+<tr><td>Windscribe / Astrill</td><td class="num">147원</td><td class="sub">VPN 업계 종량 실사례</td></tr>
+<tr><td>데이터센터 프록시 (DataImpulse)</td><td class="num">662~735원</td><td class="sub">$0.45~0.50/GB</td></tr>
+<tr><td>레지덴셜 프록시 최저가</td><td class="num">1,176~1,470원</td><td class="sub">$0.80~1.00/GB</td></tr>
+<tr><td>여행 eSIM 대용량 (Airalo 20GB)</td><td class="num">4,851원</td><td class="sub">$3.30/GB · 유효기간 365일</td></tr>
+<tr><td>여행 eSIM 소량 (Airalo 1GB)</td><td class="num">12,495원</td><td class="sub">$8.50/GB · 유효기간 7일</td></tr>
+<tr><td>한국 통신사 데이터 충전 (1GB)</td><td class="num">15,000원</td><td class="sub">유효기간 12개월 · 환불 불가</td></tr>
+</tbody></table></div>
+<p style="margin-bottom:0"><b>소비자는 "급할 때 소량"에 GB당 12,000~15,000원까지 냅니다.</b> 우리 원가의 5,000배입니다. 종량제 소비자 상품의 마진 여력은 B2B 프록시와 비교가 안 됩니다 — 문제는 가격이 아니라 <b>왜 지금 사야 하는가</b>입니다.</p>
+</div>
+
+<h2>3. 제안 — 충전식 데이터팩 5종</h2>
+<div class="card">
+<div class="packs">
+  <div class="pack"><div class="n">맛보기</div><div class="gb">3GB</div><div class="p">1,500원</div><div class="per">500원/GB · 만료 없음</div></div>
+  <div class="pack best"><div class="n">라이트 · 추천</div><div class="gb">10GB</div><div class="p">3,900원</div><div class="per">390원/GB · 만료 없음</div></div>
+  <div class="pack"><div class="n">스탠다드</div><div class="gb">30GB</div><div class="p">8,900원</div><div class="per">297원/GB · 만료 없음</div></div>
+  <div class="pack"><div class="n">빅</div><div class="gb">100GB</div><div class="p">19,900원</div><div class="per">199원/GB · 만료 없음</div></div>
+  <div class="pack"><div class="n">벌크</div><div class="gb">300GB</div><div class="p">39,900원</div><div class="per">133원/GB · 만료 없음</div></div>
+</div>
+<h3>여기에 붙는 3가지</h3>
+<ul>
+<li><b>무료 2GB / 월</b> — 매월 리셋(이월 없음). TunnelBear 2GB와 동일 수준, 체험 목적. 충전 데이터는 별도로 쌓입니다.</li>
+<li><b>기간권</b> — 1일 무제한 <b>1,900원</b> / 주말 3일 무제한 <b>3,900원</b>. 여행·스포츠 중계처럼 "이번 주말만" 수요용. (AirVPN 3일권 €2 ≈ 3,400원이 시장 유일 선례)</li>
+<li><b>데이터 만료 없음</b> — IPRoyal·DataImpulse가 저가 경쟁의 핵심 무기로 쓰는 정책. eSIM·통신사는 전부 만료가 있으므로 <b>명확한 차별점</b>입니다.</li>
+</ul>
+<div class="scroll"><table>
+<thead><tr><th>팩</th><th class="num">용량</th><th class="num">가격</th><th class="num">GB당</th><th class="num">원가</th><th class="num">PG수수료</th><th class="num">공헌이익</th><th class="num">마진율</th></tr></thead>
+<tbody>
+<tr><td>맛보기</td><td class="num">3GB</td><td class="num">1,500원</td><td class="num">500원</td><td class="num">9원</td><td class="num">56원</td><td class="num">1,435원</td><td class="num">95.7%</td></tr>
+<tr><td>라이트</td><td class="num">10GB</td><td class="num">3,900원</td><td class="num">390원</td><td class="num">29원</td><td class="num">146원</td><td class="num">3,725원</td><td class="num">95.5%</td></tr>
+<tr><td>스탠다드</td><td class="num">30GB</td><td class="num">8,900원</td><td class="num">297원</td><td class="num">88원</td><td class="num">333원</td><td class="num">8,479원</td><td class="num">95.3%</td></tr>
+<tr><td>빅</td><td class="num">100GB</td><td class="num">19,900원</td><td class="num">199원</td><td class="num">294원</td><td class="num">744원</td><td class="num">18,862원</td><td class="num">94.8%</td></tr>
+<tr><td>벌크</td><td class="num">300GB</td><td class="num">39,900원</td><td class="num">133원</td><td class="num">882원</td><td class="num">1,492원</td><td class="num">37,525원</td><td class="num">94.0%</td></tr>
+</tbody></table></div>
+<p class="sub" style="margin-bottom:0">볼륨 할인 배수 <b>3.8배</b>(500원→133원). 프록시·eSIM 업계 표준 3~4배와 일치합니다. 5배를 넘기면 소량 구매자가 손해 보는 느낌을 받고, 1.5배 이하면 대량 구매 유인이 사라집니다.</p>
+</div>
+
+<h2>4. 계산기 — 내 사용량이면 뭐가 싼가</h2>
+<div class="card calc">
+  <label for="gb"><span>월 사용량</span><b id="gbv">10 GB</b></label>
+  <input type="range" id="gb" min="1" max="200" step="1" value="10">
+  <div class="scroll" style="margin-top:12px"><table id="cmp"></table></div>
+  <p class="note sub" id="verdict" style="margin-bottom:0"></p>
+</div>
+
+<h2>5. 수익 시뮬레이션 — 회원 1만명</h2>
+<div class="card">
+<p style="margin-top:0">무료 1GB/월을 전원에게 주고, 일부가 만료 없는 충전팩을 사는 구조입니다.</p>
+<div class="scroll"><table>
+<thead><tr><th class="num">유료 전환율</th><th class="num">결제 인원</th><th class="num">ARPU</th><th class="num">월 매출</th><th class="num">트래픽</th><th class="num">인프라</th><th class="num">결제수수료</th><th class="num">월 이익</th><th class="num">이익률</th></tr></thead>
+<tbody>
+<tr><td class="num">3%</td><td class="num">300명</td><td class="num">4,000원</td><td class="num">120만원</td><td class="num">14TB</td><td class="num">41,160원</td><td class="num">44,880원</td><td class="num"><b>91만원</b></td><td class="num">76%</td></tr>
+<tr class="hi"><td class="num">5%</td><td class="num">500명</td><td class="num">5,000원</td><td class="num">250만원</td><td class="num">18TB</td><td class="num">52,920원</td><td class="num">93,500원</td><td class="num"><b>215만원</b></td><td class="num">86%</td></tr>
+<tr><td class="num">8%</td><td class="num">800명</td><td class="num">6,000원</td><td class="num">480만원</td><td class="num">26TB</td><td class="num">76,440원</td><td class="num">179,520원</td><td class="num"><b>434만원</b></td><td class="num">91%</td></tr>
+<tr><td class="num">12%</td><td class="num">1,200명</td><td class="num">8,000원</td><td class="num">960만원</td><td class="num">42TB</td><td class="num">123,480원</td><td class="num">359,040원</td><td class="num"><b>892만원</b></td><td class="num">93%</td></tr>
+</tbody></table></div>
+<p class="sub" style="margin-bottom:0">고정비 20만원(가입 인증 SMS·도메인·예비) 반영. 인프라 원가는 매출의 <b>3~6%</b>에 불과합니다 — 이 사업의 손익은 인프라가 아니라 <b>전환율</b>이 결정합니다.</p>
+</div>
+
+<h2>6. 반드시 짚어야 할 4가지</h2>
+<div class="card">
+<div class="warn"><div class="t">① 월 50GB를 넘으면 월정액이 낫습니다 — 이걸 숨기면 안 됩니다</div>
+<p style="margin:3px 0 0">100GB 사용자는 우리 벌크팩 19,900원 vs 월정액 장기약정 4,400원입니다. 이때는 <b>앱에서 먼저 "월정액이 유리합니다"라고 알려주고 전환시키는 것</b>이 장기적으로 이깁니다. 종량제의 신뢰는 "손해 보는 순간 알려주는가"에서 나옵니다.</p></div>
+<div class="warn"><div class="t">② "만료 없음"은 회계상 부채입니다</div>
+<p style="margin:3px 0 0">판매한 데이터는 사용 시점에 매출로 인식되는 <b>이연수익</b>입니다. 만료가 없으면 이 부채가 영구히 쌓입니다. 현금은 먼저 들어오지만 <b>미사용 잔여 데이터가 계속 누적되면 어느 시점에 한꺼번에 소진될 위험</b>이 있습니다. 최소한 "1년 이상 미접속 계정은 안내 후 소멸" 조항은 약관에 넣어야 합니다.</p></div>
+<div class="warn"><div class="t">③ 레지덴셜 IP는 쓰지 마십시오 — 2026년에만 2곳이 압류됐습니다</div>
+<p style="margin:3px 0 0">2026년 7월 2일 FBI·IRS가 <b>NetNut</b>(이스라엘 상장사 Alarum 운영)의 도메인 수백 개를 압류했습니다. Popa 봇넷(감염 기기 약 200만 대)을 프록시 풀로 임대한 혐의입니다. 2026년 초에는 IPIDEA가 같은 방식으로 사라졌습니다. <b>데이터센터 IP만 쓰는 우리 구조는 이 리스크가 없습니다</b> — 대신 넷플릭스 등 스트리밍 차단 회피는 포기해야 합니다.</p></div>
+<div class="warn"><div class="t">④ 암호화폐 전용 결제는 실패 공식입니다</div>
+<p style="margin:3px 0 0">Orchid는 GB당 $0.083(122원)으로 eSIM보다 100배 싼데도 대중화에 실패했습니다 — 데스크톱이 암호화폐 지갑 전용이었기 때문입니다. Mysterium은 아예 <b>per-GB를 버리고 월정액 구독으로 회귀</b>했습니다. 신용카드·카카오페이·네이버페이가 1순위이고 암호화폐는 보조 옵션이어야 합니다.</p></div>
+</div>
+
+<div class="foot">
+원가 2.94원/GB는 직전 산정(목적지 20개국 분산, 월 200TB, 안전 구성 588,257원)에서 도출한 값입니다. 경쟁사 요금은 2026-07-30 각 사 공식 가격 페이지 실측이며, UNKNOWN 표기는 봇 차단(hide.me·IPVanish) 또는 JS 동적 렌더링으로 확인하지 못한 항목입니다.
+제안 가격은 <b>설계안</b>이며 실제 지불의사(WTP)는 검증되지 않았습니다 — 100~200명 규모 사전 판매로 검증한 뒤 확정하십시오. 환율 1 USD=1,470원.
+</div>
+</div>
+
+<div id="banner">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=" alt="">
+  <div class="txt"><b>홈 화면에 추가</b><span id="bannerSub">설치하면 앱처럼 바로 열립니다</span></div>
+  <button class="act" id="bannerAct">설치</button><button class="x" id="bannerX" aria-label="닫기">×</button>
+</div>
+<script>
+const PACKS=[{n:'맛보기',gb:3,p:1500},{n:'라이트',gb:10,p:3900},{n:'스탠다드',gb:30,p:8900},{n:'빅',gb:100,p:19900},{n:'벌크',gb:300,p:39900}];
+const COMP=[{n:'1개월권 중앙값 ($12.95)',m:19040},{n:'NordVPN Basic 갱신가 ($11.59)',m:17037},
+ {n:'Mullvad 정액 (€5)',m:8364},{n:'Windscribe 연간 ($5.75)',m:8453},
+ {n:'장기약정 주력밴드 ($2.0~3.5)',m:4400},{n:'최저가 장기약정 ($1.11·24개월 선불)',m:1632}];
+const won=v=>Math.round(v).toLocaleString('ko-KR');
+function bestPack(gb){ // 필요한 용량을 가장 싸게 채우는 조합
+  let rem=gb,total=0,used=[];
+  const byUnit=[...PACKS].sort((a,b)=>a.p/a.gb-b.p/b.gb);
+  for(const p of byUnit){ while(rem>=p.gb){ total+=p.p; rem-=p.gb; used.push(p.n);} }
+  if(rem>0){ const f=PACKS.find(p=>p.gb>=rem)||PACKS[PACKS.length-1]; total+=f.p; used.push(f.n); }
+  return {total,used};
+}
+function draw(){
+  const gb=+document.getElementById('gb').value;
+  document.getElementById('gbv').textContent=gb+' GB';
+  const b=bestPack(gb);
+  let rows=`<thead><tr><th>선택지</th><th class="num">월 지출</th><th class="num">차액</th><th>비고</th></tr></thead><tbody>`;
+  rows+=`<tr class="hi"><td><b>종량제 (제안)</b></td><td class="num"><b>${won(b.total)}원</b></td><td class="num">—</td><td class="sub">${b.used.join(' + ')} · 약정 없음</td></tr>`;
+  for(const c of COMP){
+    const d=c.m-b.total;
+    rows+=`<tr><td>${c.n}</td><td class="num">${won(c.m)}원</td>
+      <td class="num" style="color:${d>0?'var(--green)':'var(--red)'}">${d>0?'+':''}${won(d)}원</td>
+      <td class="sub">${d>0?'종량제가 '+won(d)+'원 저렴':'월정액이 '+won(-d)+'원 저렴'}</td></tr>`;
+  }
+  rows+='</tbody>';
+  document.getElementById('cmp').innerHTML=rows;
+  const flat=4400, v=document.getElementById('verdict');
+  v.innerHTML = b.total<=flat
+    ? `월 ${gb}GB면 <b style="color:var(--green)">종량제가 유리</b>합니다 — 장기약정 무제한(월 4,400원 상당)보다 ${won(flat-b.total)}원 적게 씁니다. 게다가 약정도 자동결제도 없습니다.`
+    : `월 ${gb}GB면 <b style="color:var(--amber)">장기약정 월정액이 ${won(b.total-flat)}원 저렴</b>합니다. 다만 그 가격은 <b>2년치 선불(약 10만원)</b>이고 갱신 시 2~3배로 오릅니다. 선불이 부담되면 종량제가 여전히 합리적입니다.`;
+}
+document.getElementById('gb').addEventListener('input',draw); draw();
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const l=document.documentElement.dataset.theme==='light';
+  document.documentElement.dataset.theme=l?'dark':'light';
+  document.getElementById('themeBtn').textContent=l?'라이트':'다크';
+  document.querySelector('meta[name=theme-color]').setAttribute('content',l?'#0f1420':'#f6f6f3');
+});
+(function(){
+  const KEY='vpnprice', st=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  const banner=document.getElementById('banner'), btn=document.getElementById('installBtn'); let d=null;
+  const supp=()=>{ if(sessionStorage.getItem(KEY)) return true;
+    const t=parseInt(localStorage.getItem(KEY)||'0',10); return t&&(Date.now()-t)<864e5; };
+  const dismiss=()=>{ banner.style.display='none';
+    try{sessionStorage.setItem(KEY,'1');localStorage.setItem(KEY,String(Date.now()));}catch(e){} };
+  document.getElementById('bannerX').addEventListener('click',dismiss);
+  if(st) return;
+  addEventListener('beforeinstallprompt',e=>{e.preventDefault();d=e;btn.style.display='inline-block';if(!supp())banner.style.display='flex';});
+  const go=async()=>{ if(!d)return; banner.style.display='none'; d.prompt(); try{await d.userChoice;}catch(e){} d=null; btn.style.display='none'; };
+  btn.addEventListener('click',go); document.getElementById('bannerAct').addEventListener('click',go);
+  addEventListener('appinstalled',()=>{d=null;btn.style.display='none';banner.style.display='none';
+    try{sessionStorage.removeItem(KEY);localStorage.removeItem(KEY);}catch(e){}});
+  const iOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(iOS&&!supp()){document.getElementById('bannerSub').textContent='공유 → "홈 화면에 추가"를 누르세요';
+    document.getElementById('bannerAct').style.display='none';setTimeout(()=>{if(!supp())banner.style.display='flex';},1200);}
+})();
+</script>
+</body>
+</html>

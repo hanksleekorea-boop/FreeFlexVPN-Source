@@ -1,0 +1,4 @@
+cryptography>=41,<51
+qrcode>=8,<9
+opencv-python>=4.8,<5
+

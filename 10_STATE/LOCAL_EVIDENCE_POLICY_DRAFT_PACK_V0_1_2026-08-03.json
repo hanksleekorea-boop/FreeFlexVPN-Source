@@ -1,0 +1,30 @@
+{
+  "schema": "FreeFlexVPNPolicyDraftEvidenceV1",
+  "date": "2026-08-03",
+  "artifact": {
+    "path": "60_OUTPUTS/policy_drafts/FreeFlexVPN_약관_개인정보_국외이전_초안팩_v0.1_2026-08-03.md",
+    "bytes": 14603,
+    "sha256": "F8FF77A5FEB07ACB7F3343B3FB3EF52F98596C830261D67839F93CE1FAF9916B"
+  },
+  "structural_checks": {
+    "terms_section": true,
+    "privacy_section": true,
+    "cross_border_transfer_section": true,
+    "p0_release_checklist": true,
+    "publication_block_banner": true,
+    "official_source_urls": 5
+  },
+  "unresolved_placeholders": 35,
+  "status": "DRAFT_BLOCKED_FROM_PUBLICATION",
+  "block_reason": "사업자·책임자·공급자·국가·보존기간·처리근거·환불·아동·시행일과 전문가 검토가 미확정",
+  "claims": {
+    "implementation": true,
+    "local": true,
+    "legal_review": false,
+    "public": false,
+    "consent_ready": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  }
+}

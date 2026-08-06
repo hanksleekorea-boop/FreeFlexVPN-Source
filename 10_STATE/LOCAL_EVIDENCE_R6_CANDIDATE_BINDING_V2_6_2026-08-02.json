@@ -1,0 +1,50 @@
+{
+  "schema": "FreeFlexVPNR6CandidateBindingLocalEvidenceV1",
+  "candidate": "v2.6",
+  "date": "2026-08-02",
+  "status": "VERIFIED_IMPLEMENTED_LOCAL",
+  "evidence_level": {
+    "implementation": true,
+    "local": true,
+    "build": false,
+    "public": false,
+    "device": false,
+    "independent_user": false
+  },
+  "change": {
+    "catalog_candidate_binding": "reject unknown, duplicate, empty, and malformed public catalog rows",
+    "evidence_redaction": "report counts only; no host, IP, endpoint, identity path, or key",
+    "regression_dependency_preflight": "fail before launching tests when playwright, cv2, or numpy is missing"
+  },
+  "verification": {
+    "related_checks_passed": 39,
+    "related_checks_total": 39,
+    "test_files": {
+      "test_control_runtime.py": "8/8",
+      "test_server_catalog.py": "10/10",
+      "test_ssh_node_adapter.py": "10/10",
+      "test_r6_preflight.py": "9/9",
+      "test_test_runner.py": "2/2"
+    },
+    "whole_regression": {
+      "status": "NOT_RUN_IN_CURRENT_BUNDLED_PYTHON",
+      "reason": "playwright and cv2 are missing; runner now reports this before launching the suite",
+      "claim": "not a full-regression PASS"
+    }
+  },
+  "sha256": {
+    "20_SRC/app/r6_preflight.py": "00759FDC8BDE9F4D51EE2927A2B1B6A3BCC651CA55A6C76305645A46334E5948",
+    "70_TOOLS/run_all_tests.py": "10F17A942FD6E654FAA61F5CBA250AD11D248F1555396BD3CA490391E19FEF06",
+    "40_TESTS/test_r6_preflight.py": "048589F7F2F82BE543FD3189FA86EC12C7493EEC546A298F061D8CA0DF630185",
+    "40_TESTS/test_test_runner.py": "5FA2640163B76FB29FD2CEC6E4595E66D9BD2DEE860E0BB0522C0C9CA1461CAC"
+  },
+  "baseline": {
+    "completed_milestones": 7,
+    "total_milestones": 12,
+    "percent": 58.3,
+    "actual_vpn_servers": 0
+  },
+  "contains_secrets": false,
+  "rollback": "remove the catalog_rows_are_candidate_bound check and its negative-control test to restore v2.5 behavior"
+}
+

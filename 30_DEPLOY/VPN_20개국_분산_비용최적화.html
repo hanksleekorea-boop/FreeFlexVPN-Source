@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VPN 20개국 분산 — 월 200TB 비용 최적화</title>
+<meta name="theme-color" content="#f6f6f3">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="20개국 최적화">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,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">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiRnJlZUZsZXhWUE4gwrcgMjDqsJzqta0g67mE7JqpIOy1nOygge2ZlCIsInNob3J0X25hbWUiOiJGcmVlRmxleFZQTiIsInN0YXJ0X3VybCI6Ii4iLCJpZCI6Ii4vYXBwLmh0bWwiLCJzY29wZSI6Ii4vIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzBmMTExNSIsInRoZW1lX2NvbG9yIjoiIzBmMTQyMCIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQVlBQUFCUzNHd0hBQUFFUFVsRVFWUjQydTNjMFUwYlFSU0Y0WmxSU2tBOFVBQVNTak5VUUIrcGdENm9nR2FpU0JUQUEzSVB6a3Z5RWlrQzIydDc1cDd2cjRDZFBmK2NPN3RtZTV1TW03djdmVU5aZHU5dmZhYS9wd3M3a3FYb1FvOWtHYnJnSTFtRUx2aElGcUVMUHBKRjZJS1BaQkdHOEdNbHRzNVlGM3drdDhFUWZpUzN3UkIrSkVzd2hCL0pFZ3poUjdJRVEvaVJMTUVRZmlSTE1JUWZ5UklNNFVleUJFUDRrU3pCc0V4SVp0ajlrZHdDUS9pUkxJRVJDRVlndXo5U1cwQURRQVBZL1pIYUFob0FHc0R1ajlRVzBBRFFBSFovcExhQUJvQUdBS0lGTVA0Z2RRelNBTkFBQUFFQUFnQlpkQWRnYUFDQUFBQUJnQ2kremZxSDNUNjl1anVGK0hoNTFBQUFBUUFDQUFRQUNBQVFBQ0FBUUFDQUFBQUJBQUlBQkFBSUFCQUFJQUJBQUlBQUFBRUFBZ0FFQUFnQUVBQWdBRUFBdE5aK1BqOVlCQUpraDU4RUJDREQ4d01SQ0dEMElRRUI0dWQrYlVBQWgxNXRRSUIwdnYvNFJRQjQ1RWtBeElVL2ZmY25nUEFUd0JLWSt3a0FjejhCWVBRaEFJU2ZBREQzRXdEbWZnTEE2RU1BR0gwSWdQVjJmK0VuZ0xrZkJERDNnd0RtZmhEQTZBTUNMQlZBb3c4QllqOHJJdndFbUdybm4za1VFWDRDbFBxa2lMbWZBTEZuQXFNUEFhWVArTGtrRUg0QytLYU84QlBnNCtWeGlkRm1Td21xenYzWHVKY2xHdURTQzNmc2pycEZjS3VPUGpPSGY0a1JLRWtDNFNkQXBBUis0a3lBVnVYRjBxRmZYVGIzRTJEYUJUMWx0ejNIbzFTalQzZ0RWSlJBK0FrUUtVSEYwV2UxOEM5N0JsaGRnb3FqejRyaFgvb1F2S29Fd2o4WC9lYnVmcjl5N2Q0K3ZiYXEveUFqL0JwZzJpYndQTDU1RDlDOEs3RDdFeUQ3UnB3anFNSlBnRmdKaEo4QW1zQWFFeUJSZ3RrbHFoYitzb2ZnRlNVUWZnTEVTdUNSS2dFMGdYVWtRQXQ4VDJEMElVRHBHL2czNFA4R2ZZVzN5ZFhEMzFxQjN3SzFpWDh6Wk9QUUFHNm90U0tBRzJ1TkNPQUdnd0Frc0M0RWNMT3RCd0VnL0FSdzQ2MEJBUVRBdFJOQUVGd3pBUVRDdFJKQU1FQUFFcmcrQWdpSjZ5S0FzTGdlQWtENENTQTR3azhBQVJKK0FnZ1NDRUFDMGhKQXFJU2ZBTUlsL0FRUU11RW5BQ2xCZ0x6QUNUOEJCQThFU0pTQWhBU0lsVUQ0Q1JBcmdmQVRJRllDNFNkQXJBVENUd0J5Z1FCcFFSVitBdGl0UVlCRUNjaEVnRmdKaEo4QXNSSUlQd0ZpSlJCK0FzUktJUHdFSUFrdUk4RHUvYTFiQmdGUFpQZisxalhBUkJLUXd3Z1VLNEh3RXlCV0F1Ry9IcjIxMW03dTd2ZVdBckZuQUFkaEpJYmZDQVJuQUVzQUFoaURFRGorYUFCb2dQK1pBVlRmL1RVQU5NQm5oZ0JWZDM4TkFBM3dWVk9BYXJ1L0JvQUdPTlFZb01ydS8ya0RrQUNWdzI4RWdoSG9WSU9BVlhmL0x6Y0FDVkF4L0FlTlFDUkF0ZkFmZkFZZ0FTcUYvNmhETUFsUUpmeEhQd1VpQVNxRS82VEhvQ1RBNnVFLytUMEFDYkJ5K0RkNUVVWUNyQnIrMXY1OEYyZ3JmRjhJcXdUL0xEK0YwQVpZS2Z5Yk40QTJ3Q3JCUDdzQVJNQUtVOFhGUmhZaVlNWngrdUl6T3hFdzB6bnlxb2RXTXVEYUQwK21lMnBEQ21HL0pMOEJ2aFpjM3N4U2RQQUFBQUFBU1VWT1JLNUNZSUk9Iiwic2l6ZXMiOiIxOTJ4MTkyIiwidHlwZSI6ImltYWdlL3BuZyIsInB1cnBvc2UiOiJhbnkgbWFza2FibGUifSx7InNyYyI6ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBZ0FBQUFJQUNBWUFBQUQwZU5UNkFBQU5hVWxFUVZSNDJ1M2N3VzBiVnhSQTBUOFBLVUhRZ2dVUU1OS01LMUFmcWNCOXVBSTFZeGhRQVZvWTZvRlpleGs0a29iL25sTkJOT1Q4ZCtjTjQyTnhTZytYNjgxVkFIYnc5dnB5dUFybjQwTXg0QUVFZ2dEQXNBY1FCUUlBQXg5QUVBZ0FESHdBUVNBQURIMEF4SUFBTVBRQkVBTUN3TkFIUUF3SUFJTWZBQ0VnQUF4OUFNU0FBREQ0QVJBQ0FzRGdCMEFJQ0FDREh3QWhJQUFNZmdDRWdBQXcrQUVRQXYvVkdQNEEwSnNkaHc4UEFIcmJnTVBnQjRCZUNJemhEd0M5R1hQNFVBQ2d0dzBZd3g4QWVyTm5mQUFBMEp0Qmg0c09BQ3YzU21BTWZ3RG96YVp4Z1FHZ042TU9GeFVBVnU2VndCaitBTkNiWGVNQ0FrQnZobzBMQndDOVdUWXVHQUQwWnRxNFVBRFFtMjNqQWdGQWI4YU5Dd01BdlZrM0xnZ0E5R2JldUJBQTBKdDlZL2dEUUc4R2p1RVBBTDFaT0lZL0FQUWlZQXgvQU9oRndCaitBTkNMZ0RIOEFhQVhBV1A0QTBBdkFzYWxCb0NlOGZRUEFMMHR3QmorQU5DTGdESDhBYUFYQVg0REFBRExid0E4L1FOQVlBc3doajhBOUNKZ0RIOEE2RVdBM3dBQXdQSWJBRS8vQUJEWUFvemhEd0M5Q1BBS0FBQ1dWd0NlL2dFZ3NBV3dBUUFBR3dCUC93QlEyQUtNNFE4QXZRandDZ0FBbGxjQW52NEJJTEFGc0FFQUFCc0FULzhBVU5nQzJBQUFnQTJBcDM4QUtHd0JiQUFBd0FiQTB6OEFGTFlBTmdBQVlBUGc2UjhBQ2xzQUd3QUFzQUVBQUFUQXN2NEhnTFhoYXdBYkFBQ3dBZkQwRHdDRkxZQU5BQURZQUFBQTZRQ3cvZ2VBdGUxckFCc0FBTEFCQUFDeUFXRDlEd0JyNjljQU5nQUFZQU1BQUNRRHdQb2ZBTmIycndGc0FBREFCZ0FBRUFBQXdQNEI0UDAvQUt6RTd3QnNBQURBS3dBQVFBQUFBSHNIZ1BmL0FMQXl2d093QVFBQXJ3QUFBQUVBQUFnQUFHQ2pBUEFEUUFCWXFSOEMyZ0FBZ0ZjQUFJQUFBQUFFQUFBZ0FBQUFBUUFBQ0FBQTRMUU8vd1lBQU5nQUFBQUNBQUFRQUFDQUFBQUE3dE5mTHNFNVBUNDl1d2pBRm41OS8rb2kyQUFBQUFJQUFCQUFBSUFBQUFBRUFBQWdBQUFBQVFBQUNBQUFRQUFBQUFJQUFBUUFBQ0FBQUFBQkFBQUlBQUJBQUFBQUFnQUFFQUFBZ0FBQUFBUUFBQ0FBQUFBQkFBQUlBQUJBQUFBQUFnQUFFQUFBZ0FBQUFBUUFBQ0FBQUVBQUFBQUNBQUFRQUFDQUFBQUFCQUFBSUFBQUFBRUFBQWdBQUVBQUFBQUNBQUFRQUFDQUFBQUFCQUFBSUFBQUFBRUFBQWdBQUVBQUFJQUFBQUFFQUFBZ0FBQUFBUUFBQ0FBQVFBQUFBQUlBQUJBQUFJQUFBQUFFQUFBZ0FBQUFBUUFBQ0FBQVFBQUFBQUlBQUJBQUFJQUFBUGpOajI5ZlhBUUVBRUJ4K0lzQUJBQkFPQWFFQUFJQUlMcjZGd0VJQUlEb2UzOFJnQUFBaVA3b3p5c0JCQUNBWUFBQkFGQWI1aUlBQVFBUWZaSVhBUWdBZ09nYTMrOENFQUFBZ2dJRUFFQnRXSXNBQkFCQTlFbmRLd0VFQUVCNFRTOENFQUFBZ2dNRUFFQnBHSHNsZ0FBQUNEK0ppd0FFQUVCdzhQNzl6MDhmQmdJQUFCQUFBSjcrUVFBQUdQNGdBQUFNZnhBQUFJQUFBUEQwRHdJQU1Qd05meEFBZ09GditJTUFBQUFFQU9EcDM5TS9Bc0FsQUF4L3d4OEJBR0Q0Ry80SUFBQkFBQUI0K3ZmMGp3QUFNUHhCQUFCc3ovQkhBQUFFbi81QkFBQlkvWU1BQUREOFFRQUFMTy85UVFBQWVPOFBBZ0RBNmg4RUFJRGhEd0lBd1BBSEFRQjQrZ2NFQUdENGUvb0hBUUFZL29ZL0NBQUF3eDhFQU9EcEh4QUFnT0h2NlI4RUFHRDRHLzRJQUFCQUFBQjQrZ2NCQUdENGd3QUFNUHhCQUFBQUFnREEwejhJQUFEREh3UUFZUGdiL2lBQUFBQUJBSGo2OS9RUEFnQXcvQTEvRUFBQWhqOElBTURUUHlBQXdQQnkvVHo5Z3dDQVB4bGVJc0R3QndFQTBlRWxBcGIzL2lBQW9QbmtLZ0s4T2dFQkFOSEJaYkJaL1lNQWdPamdFZ0dHUHdnQWlBNHVFYkM4OXdjQkFNMm5WaEhnZW9BQWdPalFNdlNzL2tFQVFIUm8xU1BBOEFjQkFObWhaUk5nK0lNQWdPZ1RhekVDaEE4SUFEQ3dZZ1BSNmg4RUFCaFlzUWd3L0VFQWdJRmxOVzc0Z3dBQXczLzNDQkEzSUFEQXNJb05TNnQvRUFCZ1dNVWl3UEFIQVFDR2xiVTVJQURBOE44OUFqejlnd0RnZy8zNi90VkYyR2hJM0dNRUdQNDR5d1FBYmh3UkVJc0F3eDlubUFEQURTUUN2QTRBWjVjQXdJMGtBbmFQQUUvL09MTUVBSWdBUDFqMDJZRUFRRkdMQVAvTG91R1BzMG9BNE1ZU0FYNFRBTTRvQVlBYlRBVGNid1I0K3NmWkpBQndvNG1BMkFBMi9IRW1DUURjY0NMZ2t5T2cra3JBOEhjV0lRQnc0K1dIelVkR2dOOGc0QXdTQUxnQlJVQXNBcXorY2ZZSUFOeUlJaUFXQVlZL0lBQVFBVjRIdVBaNDZCQUF1Q0ZGd080UjRMMC96aG9FZ0J1VFdBUlkvZU9NUVFDNFFZbEZnT0dQc3dVQjRFYkY2d0RYRjJlS0FNQU55KzRSNEwwL3poSUVnQnVYV0FSWS9lTU1RUUM0Z1lsRmdPRVBDQUR3T3NBMXhNTURBc0NOek80UjRMMC96Z3dFQUc3b1dBUlkvZU9zUUFEZ3hvNUZnT0dQTXdJQmdCdmM2d0J3TmlBQWNLTjdzbldOY0NZZ0FOendHSEN1amJQQVdaQjFQRnl1TjVlaDYvSHAyVVZZMXU2R3YrR1BEUUFPQUF3OVFBQUFJc0ExRVA4SUFCd0VHSUQrZHZjOEFnQUhBZ2FoNGU5ZVJ3RGdZTUJBeEQyT0FNQUJJUUw4bmJpM0VRQTRLRVNBdncvM05BSUFCNFlJOEhmaFhrWUE0T0FRQVFBQ0FCRWdBdnd0dUg4UkFHQncraHN3L0JFQU9FZ01VUC90dUdjUkFEaFFERkp3cnlJQWNMQ0lBTkhpSGdVQmdBUEdVRFg4M1pzZ0FIRFFHSzZHdjNzU0JBQU9IRU1XRUFBZ0FrU0FNSEVmSWdDQTZNQTEvQTEvQkFBNGdHS0QxL0IzN3lFQXdFRmtBT09lUXdDQUEybjNDQkFmN2pVRUFEaVlZaEZnK0x2SEVBRGdnSXBGZ09IdjNrSUFnSVBLNndCQUFJQUkyRDBDQkliN0NRRUFEcTFZQkJqKzdpTUVBQkNMQU1QZjhLZnRlTGhjYnk0RDcrbng2ZGxGZUFjL3ZuMHgvQTEvc0FIQVFXWWJZUGk3WjhBR0FKc0FHd0ZEMy9BSEFZQUlBTU1mbGxjQU9PREF2WUVBQUFjZGdBQUFFUUR1QndRQU9QVEFmWUFBQU1Ed1J3Q0FBeEI4OXhFQTRDQUUzM2tFQURnUXdYY2RBUUFPUm56SFFRQ0FBeEpBQUlBSXdQY2FCQUFPUy9COUJnRUFZUGlEQU1EQkNiN0RJQUJ3Z0lMdkxnZ0FIS1RnT3dzQ0FBY3ErSzZDQU1EQkNpQUFYQUpFQVBoK0lnREFJUXUrbHdnQWNOaUM3eU1DQUFEREh3RUFEbDU4QjBFQWdBTVkzejBRQU9BZ3huY09CQUE0a1BGZEF3RUFEbVlBQVFBaUFOOHZFQURna01iM0NnUUFPS3p4ZlFJQkFHRDRnd0FBQnplK1F5QUF3QUdPN3c0SUFCemtEbko4WjBBQTRFQUhRQUFnQXNEM0JBRUFEbmQ4UDBBQWdFTWUzd3NRQU9Dd3gvY0JCQUNBNFE4Q0FCejgrQTZBQUFBREFKODlDQUF3Q0FBRUFJZ0FmTjRnQU1CUXdPY01BZ0FNQjN5K0lBREFrTURuQ2dJQXdQQUhBUUFHQmo1TEVBQmdjT0F6QkFFQUJnaUFBQUFSNEhNREJBQVlKajR2RUFDQW9lSnpBZ0VBR0M0K0h4QUFnQ0hqY3dFQkFHRDRnd0FBQXdlZkJRZ0FNSGp3R1lBQUFBTUlRQUNBQ01CMUJ3RUFoaEd1TndnQU1KUnduVUVBZ09HRTZ3c0NBQXdwMXhVUUFJRGhEd2dBTUxCY1MwQUFnTUVGSUFCQUJMaCtnQUFBUTh4MUF3RUFHR2F1RndnQXdGQnpuVUFBQUlhYjZ3TUNBTUR3QndFQUdIU3VDUWdBd01BREJBQWdBbHdIRUFDQTRlZnZCd0VBVkllZzRROENBRVJBYkJnYS9pQUFnTmhRTlB4QkFBQ3g0V2o0Z3dBQXhBMGdBSUNkQjZYaER3SUFNREFCQVFEc0hnRmlCZ1FBRUJ1ZWhqOElBQ0EyUkExL0VBQkFiSmdhL2lBQWdOaFFOZnhCQUFDeDRXcjRnd0FBeEFrZ0FBQ0RGaEFBd0ZZUklFcEFBQUN4b1d2NGd3QUFZc1BYOEFjQkFNU0dzT0VQQWdDSVJZRGhEeHNFd052cnkrRXlnQWd3L0tIajdmWGxzQUVBREgvd0NnQXdvQUVCQUlnQWNRRUNBR2hHZ09FUEFnQ0lSWURoRHdJQWlFV0E0UThDQUloRmdPRVBnUUR3YndHQUNERDhZV1grRFFBYkFCQUJoajk0QlFBQUNBQWd0d1h3OUE4Q0FJaEZnT0VQMFFEd1EwRG9Sb0RoRHl2MUEwQWJBQkFCaGo5RS9mYlUvM0M1M2x3U0FMQUJBQURXNWo4QzlEc0FBTmovNmQ4R0FBQnNBQUFBQVFBQWRBTEE3d0FBWUczOS90OEdBQUJzQUFDQWRBQjREUUFBYTl2MXZ3MEFBTmdBQUFENUFQQWFBQURXbHV0L0d3QUFzQUVBQUFUQThob0FBTmFHNjM4YkFBQ3dBYkFGQUlEQzA3OE5BQURZQUFBQUFtQjVEUUFBYThQMXZ3MEFBTmdBMkFJQVFPSHAzd1lBQUd3QWJBRUFvUEQwYndNQUFEWUF0Z0FBVUhqNnR3RUFBQnNBV3dBQUtEejkyd0FBZ0EyQUxRQUFGSjcrLzNnRElBSUE0UDZHdjFjQUFMQzhBckFGQUlEQTA3OE5BQURZQU5nQ0FFRGg2ZjkvM1FDSUFBQzRqK0h2RlFBQUxLOEFiQUVBSVBEMC95NGJBQkVBQU9lZnJYTXYvNkVBWVBpZlBBQUFnTlg1RFlBdEFBRGN4eXlkZS8wUEJ3REQvOFN2QUVRQUFKeHZkdm9OQUFBc3Z3R3dCUUNBelovK1AzUURJQUlBNER5emNuYjl3d0RBOEQvUmJ3QkVBQUI4L215Y3loOEtBSWIvQ2Y0dkFCRUFnT0gvZWJOd3FuODRBSlJuNE5RdkFBQVVaOSs0RUFEUW0zbmpnZ0JBYjlhTkN3TUF2UmszTGhBQTlHYmJ1RkFBMEp0cDQ0SUJRRytXalFzSEFMMFpOaTRnQVBSbTExME4xNGZMOWVackJZREJIOWdBMkFZQVlFYkZBMEFFQUdBMnJkNHJnT1dWQUFBR2YzTURZQnNBZ0JrVUR3QVJBSURaczNxdkFKWlhBZ0FZL00wTmdHMEFBR1pNZkFOZ0d3Q0F3UjhQQUNFQWdNRy9HcThBdkJZQXdPeXdBYkFOQU1EZ0Z3QkNBQUNEUHgwQVFnQ0ErbXRpNzhlRkFJREJMd0NFZ0tzQVlQQUxBREVBZ0tFdkFJUUFBQWEvQUJBREFCajZBa0FNQUdEb0N3QXhBSUNoTHdBRUFRQUd2Z0FRQkFBWStBSkFGQUFZOWdnQUJBSmd3UE91L2dXbzJqejhXRkJmdHdBQUFBQkpSVTVFcmtKZ2dnPT0iLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9XX0=">
+<style>
+:root{color-scheme:dark;--bg:#0f1115;--card:#1a1a19;--line:#33332f;--t1:#fff;--t2:#c3c2b7;--t3:#8b8a80;
+ --blue:#3987e5;--green:#199e70;--amber:#c98500;--red:#e66767}
+:root[data-theme=light]{color-scheme:light;--bg:#f6f6f3;--card:#fcfcfb;--line:#dedcd3;--t1:#0b0b0b;--t2:#52514e;--t3:#77766f;
+ --blue:#2a78d6;--green:#1baf7a;--amber:#eda100;--red:#e34948}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t1);font-size:15px;line-height:1.6;
+ font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic",system-ui,sans-serif;
+ padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 110px}
+h1{font-size:23px;margin:0 0 3px;letter-spacing:-.02em}
+h2{font-size:17px;margin:30px 0 8px}h3{font-size:14.5px;margin:18px 0 7px;color:var(--t2)}
+.sub{color:var(--t3);font-size:12.5px}
+p{color:var(--t2);margin:6px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;margin:12px 0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.ghost{background:transparent;color:var(--t1);border:1px solid var(--line);border-radius:9px;padding:6px 11px;font-size:13px}
+.heroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px}
+.hero .k{font-size:11.5px;color:var(--t3);font-weight:600}
+.hero .v{font-size:25px;font-weight:750;letter-spacing:-.03em;margin-top:2px;font-variant-numeric:tabular-nums}
+.hero .u{font-size:12px;color:var(--t2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+thead th{color:var(--t3);font-size:11.5px;font-weight:650}
+td.sub{white-space:normal;min-width:150px}
+tr.tot td{font-weight:750;border-top:1px solid var(--line);background:rgba(57,135,229,.08)}
+.badge{font-size:10.5px;font-weight:700;border-radius:5px;padding:1px 5px}
+.g{background:rgba(25,158,112,.16);color:var(--green);border:1px solid rgba(25,158,112,.4)}
+.a{background:rgba(201,133,0,.16);color:var(--amber);border:1px solid rgba(201,133,0,.4)}
+.r{background:rgba(230,103,103,.14);color:var(--red);border:1px solid rgba(230,103,103,.4)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ul{margin:6px 0;padding-left:19px;color:var(--t2);font-size:14px}li{margin:5px 0}
+.warn{border-left:3px solid var(--red);padding-left:12px;margin:14px 0}
+.ok{border-left:3px solid var(--green);padding-left:12px;margin:14px 0}
+.warn .t,.ok .t{font-weight:700;font-size:14.5px}
+.foot{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--t3)}
+a{color:var(--blue)}
+#installBtn{display:none;background:var(--blue);color:#fff;border:0;border-radius:9px;padding:7px 12px;font-size:13px;font-weight:650}
+#banner{display:none;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:80;
+ background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:0 12px 34px rgba(0,0,0,.4);align-items:center;gap:11px}
+#banner img{width:34px;height:34px;border-radius:9px}
+#banner .txt{flex:1;min-width:0}#banner .txt b{display:block;font-size:13.5px}
+#banner .txt span{font-size:12px;color:var(--t3)}
+#banner .act{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:8px 12px;font-size:13px;font-weight:650}
+#banner .x{background:transparent;border:0;color:var(--t3);font-size:19px;padding:0 4px}
+@media(display-mode:standalone){#installBtn,#banner{display:none!important}}
+</style>
+<style data-freeflex-global-theme>
+body.service-doc{background:#f5f7f9!important;color:#101828!important;min-height:100vh;font-family:Inter,"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif!important;letter-spacing:-.025em}
+.service-doc .ff-global{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.94);border-bottom:1px solid #e4e7ec;backdrop-filter:blur(18px)}
+.service-doc .ff-global-in{width:min(1200px,calc(100% - 32px));height:68px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.service-doc .ff-progress-dock{position:sticky;top:68px;z-index:110;border-bottom:1px solid #dce9e4;background:rgba(247,252,250,.96);backdrop-filter:blur(16px)}.service-doc .ff-progress-in{width:min(1200px,calc(100% - 32px));min-height:56px;margin:auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px}.service-doc .ff-progress-title{display:flex;align-items:center;gap:8px;white-space:nowrap;color:#087f5b;font-size:10px;font-weight:900}.service-doc .ff-progress-title i{width:8px;height:8px;border-radius:50%;background:#12b886;box-shadow:0 0 0 4px rgba(18,184,134,.12)}.service-doc .ff-progress-title strong{color:#101828;font-size:10px}.service-doc .ff-progress-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:0;padding:0;list-style:none}.service-doc .ff-progress-steps li{display:flex;align-items:center;gap:6px;min-width:0;color:#667085;font-size:9px;font-weight:760;white-space:nowrap}.service-doc .ff-progress-steps b{display:grid;place-items:center;width:19px;height:19px;border-radius:7px;background:#edf1f0;color:#667085;font-size:8px}.service-doc .ff-progress-steps .is-done{color:#087f5b}.service-doc .ff-progress-steps .is-done b{background:#12b886;color:#fff}.service-doc .ff-progress-steps .is-now{color:#8a5a00}.service-doc .ff-progress-steps .is-now b{background:#fff1cf;color:#9a6700}.service-doc .ff-progress-note{margin:0;color:#475467;font-size:9px;white-space:nowrap}.service-doc .ff-progress-note b{color:#087f5b}
+.service-doc .ff-global-brand{display:flex;align-items:center;gap:10px;color:#101828!important;text-decoration:none;font-size:18px;font-weight:950;letter-spacing:-.055em}
+.service-doc .ff-global-mark{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:#12b886;color:#fff;font-size:10px;font-weight:950;box-shadow:0 8px 22px rgba(18,184,134,.2)}
+.service-doc .ff-global-links{display:flex;align-items:center;gap:9px}.service-doc .ff-global-links a{display:inline-flex;align-items:center;min-height:40px;border:1px solid #e4e7ec;border-radius:12px;background:#fff;color:#475467!important;padding:9px 13px;text-decoration:none;font-size:10px;font-weight:800}.service-doc .ff-global-links a:first-child{border-color:#12b886;background:#12b886;color:#fff!important}
+.service-doc>.wrap,.service-doc>main,.service-doc .wrap{position:relative}.service-doc .card,.service-doc .hero,.service-doc .panel,.service-doc section{border-color:#e4e7ec!important}.service-doc .card,.service-doc .hero,.service-doc .panel{box-shadow:0 12px 34px rgba(16,24,40,.06)!important}.service-doc .card,.service-doc .panel{border-radius:18px!important}
+.service-doc .foot,.service-doc footer{border-color:#e4e7ec!important}.service-doc .sub,.service-doc p,.service-doc .note{color:#667085}.service-doc h1,.service-doc h2,.service-doc h3{color:#101828}.service-doc a{color:#087f5b}.service-doc button{border-radius:12px!important}.service-doc table{border-radius:15px;overflow:hidden}.service-doc th{font-weight:850}
+.service-doc .ff-doc-label{display:inline-flex;align-items:center;gap:7px;border:1px solid #c9f2df;border-radius:999px;background:#f2fcf8;color:#087f5b;padding:6px 9px;font-size:9px;font-weight:850;letter-spacing:.04em;margin-bottom:9px}.service-doc .ff-doc-label i{width:7px;height:7px;border-radius:50%;background:#12b886}
+@media(max-width:600px){.service-doc .ff-global-in{height:62px}.service-doc .ff-global-links a:last-child{display:none}.service-doc .ff-global-links a{min-height:36px;padding:8px 10px}.service-doc .ff-global-brand{font-size:16px}.service-doc .ff-progress-dock{top:62px}.service-doc .ff-progress-in{width:min(100% - 28px,1200px);min-height:52px;grid-template-columns:1fr auto;gap:4px}.service-doc .ff-progress-title{font-size:9px}.service-doc .ff-progress-title strong{font-size:9px}.service-doc .ff-progress-steps{grid-column:1/-1;grid-row:2;margin-top:-8px;margin-bottom:8px}.service-doc .ff-progress-steps li{font-size:7px;gap:4px}.service-doc .ff-progress-steps b{width:15px;height:15px;border-radius:5px;font-size:7px}.service-doc .ff-progress-note{display:none}}
+
+</style>
+</head>
+<body class="service-doc">
+<header class="ff-global"><div class="ff-global-in"><a class="ff-global-brand" href="index.html"><span class="ff-global-mark">FF</span>FreeFlexVPN</a><nav class="ff-global-links" aria-label="서비스 이동"><a href="app.html">서비스 열기</a><a href="index.html">제품 소개</a></nav></div></header><section class="ff-progress-dock" data-progress-dashboard aria-label="FreeFlexVPN 개발 진행상황"><div class="ff-progress-in"><div class="ff-progress-title"><i></i><span>개발 진행상황</span><strong>현재: 두 번째 서버 준비</strong></div><ol class="ff-progress-steps"><li class="is-done" data-progress-step="public"><b>1</b><span>서비스 공개</span></li><li class="is-done" data-progress-step="android"><b>2</b><span>Android 확인</span></li><li class="is-now" data-progress-step="second-server"><b>3</b><span>두 번째 서버</span></li><li data-progress-step="iphone"><b>4</b><span>iPhone 확인</span></li></ol><p class="ff-progress-note"><b>확인됨</b> Android 연결·재연결 · 다음 iPhone 확인</p></div></section>
+<div class="wrap">
+<div class="top">
+  <div><h1>VPN 20개국 분산 — 월 200TB 비용 최적화</h1>
+  <div class="sub">회원 10,000명 × 1인 월 20GB = <b>월 200TB</b> · 목적지 20개국에 트래픽 비중대로 분산 · 2026-07-30</div></div>
+  <div style="display:flex;gap:7px"><button class="ghost" id="themeBtn">다크</button><button id="installBtn">앱 설치</button></div>
+</div>
+
+<div class="heroes">
+  <div class="hero"><div class="k">최저가 구성</div><div class="v">40.3만</div><div class="u">원/월 · 1인당 40원</div></div>
+  <div class="hero"><div class="k">안전 구성 (권장)</div><div class="v">58.8만</div><div class="u">원/월 · 1인당 59원</div></div>
+  <div class="hero"><div class="k">집중 구성 (8개국)</div><div class="v">28.9만</div><div class="u">원/월 · 1인당 29원</div></div>
+  <div class="hero"><div class="k">총 트래픽</div><div class="v">200TB</div><div class="u">피크 합계 약 1.85Gbps</div></div>
+  <div class="hero"><div class="k">미국 비중</div><div class="v">39.8%</div><div class="u">79.6TB · 피크 737Mbps</div></div>
+</div>
+
+<h2>먼저 알아야 할 것 — 이 비중은 추정입니다</h2>
+<div class="card">
+<div class="warn"><div class="t">"VPN 사용자가 어느 나라 서버로 접속하는가"의 직접 통계는 존재하지 않습니다</div>
+<p style="margin:3px 0 0">Security.org·Comparitech·Cloudwards·Surfshark·allaboutcookies 등 주요 조사기관 원문을 확인했으나 <b>목적지 국가 분포 데이터는 어디에도 없습니다.</b>
+VPN 사업자는 접속 로그를 남기지 않는 것이 상품의 핵심이라 이 데이터를 공개할 유인도 능력도 없습니다. 따라서 아래 비중은
+<b>Proton VPN·CyberGhost·NordVPN 3사의 국가별 서버 배치 대수</b>를 대리지표로 삼아 재구성한 값입니다.</p></div>
+<p><b>계산식:</b> 각 사에 대해 <code>해당국 서버수 ÷ 그 사 전체 서버수 × 100</code>으로 점유율을 구하고, 3사 점유율의 산술평균을 낸 뒤 상위 20개국 합이 100%가 되도록 정규화했습니다.</p>
+<div class="warn"><div class="t">이 대리지표의 3가지 왜곡</div>
+<ul style="margin-bottom:0">
+<li><b>서버 대수 ≠ 트래픽.</b> 독일·프랑스·오스트리아·네덜란드가 높은 이유의 상당 부분은 수요가 아니라 "유럽 데이터센터가 싸고 법적으로 편해서"입니다.</li>
+<li><b>본사 편향.</b> Proton→스위스, CyberGhost→루마니아·독일, NordVPN→네덜란드에 서버가 몰려 있습니다.</li>
+<li><b>가상 서버 문제.</b> IPinfo가 150,000개 이상 exit IP를 실측한 결과 <b>20개 VPN 중 17개가 광고와 다른 나라에서 exit</b>하고, <b>38개국은 실제 exit이 한 번도 관측되지 않는 "virtual-only"</b>였습니다. 즉 미국·서유럽의 실제 비중은 이 표보다 <b>더 높을</b> 가능성이 큽니다.</li>
+</ul></div>
+<p style="margin-bottom:0">두 가지 다른 배분(3사 평균 vs Proton 단독)에서 공통으로 나온 강건한 결론: <b>미국 40~46%, 상위 5개국 65~67%, 상위 10개국 약 85%.</b></p>
+</div>
+
+<h2>1. 목적지 상위 20개국과 트래픽 배분</h2>
+<div class="card"><div class="scroll"><table>
+<thead><tr><th class="num">#</th><th>국가</th><th class="num">비중</th><th class="num">월 트래픽</th><th>서버 대수 근거</th><th>주요 사용 목적</th></tr></thead>
+<tbody>__RANK__</tbody></table></div></div>
+
+<h2>2. 구성별 최적화 결과</h2>
+<div class="card">
+__T_SAFE__
+__T_LOW__
+__T_FOCUS__
+</div>
+
+<h2>3. 세 구성 중 무엇을 고를 것인가</h2>
+<div class="card">
+<div class="ok"><div class="t">권장: ② 안전 구성 (월 588,257원 · 1인당 59원)</div>
+<p style="margin:3px 0 0">계약서에 <b>명시된 트래픽 용량 또는 진성 unmetered</b>만 사용합니다. 미국은 BlastVPS 1Gbps unmetered($89.99)로 79.6TB·피크 737Mbps를 한 대로 처리합니다. 무료 서비스에서 계정 정지는 곧 전면 중단이므로, 월 18만원 차이로 이 리스크를 사는 것은 남는 장사가 아닙니다.</p></div>
+<div class="warn"><div class="t">① 최저가 구성 (월 402,772원)이 위험한 이유</div>
+<p style="margin:3px 0 0">$12짜리 "unmetered fair usage" 라인(OneProvider 등)은 <b>fair-use 임계값이 약관 어디에도 정의돼 있지 않습니다.</b> 미국 노드에 월 79.6TB를 흘리면서 계약서로 방어할 근거가 없습니다. 게다가 OneProvider AUP는 <b>"데이터센터가 용인하지 않는 로케이션에서의 VPN 운영"</b>을 금지 행위로 명시하고 있어 로케이션별로 갈립니다.</p></div>
+<div class="ok"><div class="t">③ 집중 구성 — 실제로는 이게 정답일 수 있습니다</div>
+<p style="margin:3px 0 0">상위 8개국(미국·독일·프랑스·영국·캐나다·네덜란드·스위스·호주)만 운영하고 나머지 12개국 트래픽을 인접국으로 흡수하면 <b>월 288,787원</b>, 안전 구성의 <b>49%</b>입니다.
+20개국 중 하위 12개국은 전체 트래픽의 <b>20.2%</b>만 차지하는데 비용은 <b>51%</b>를 먹습니다. 노드 1대의 최소 비용은 트래픽과 무관하게 발생하기 때문입니다.
+사용자 체감(선택 가능한 나라 수)이 중요하다면 20개국, 원가가 중요하다면 8개국입니다.</p></div>
+</div>
+
+<h2>4. 규모가 커지면 어디서 깨지는가</h2>
+<div class="card">
+<ul>
+<li><b>1인당 20GB → 40GB</b>가 되면 미국 트래픽이 159TB·피크 1,473Mbps가 되어 <b>1Gbps 1대로는 불가</b>합니다. 10Gbps unmetered(1GServers $398.97 = 월 58.7만원)로 갈아타야 하며, 이때 전체 월비용은 약 <b>110만원</b>이 됩니다.</li>
+<li><b>미국 비중이 배분B(45.71%)</b>여도 91.4TB·846Mbps로 <b>1Gbps 1대 안에 들어옵니다.</b> 즉 비중 추정 오차는 이 규모에서 구성을 바꾸지 않습니다.</li>
+<li><b>한국·UAE·대만은 이 20개국에 없습니다</b> — 다행입니다. 진성 1Gbps unmetered 기준 한국 $1,189.99, UAE $1,729로 <b>미국의 8.6~19배</b>입니다. 목적지 수요가 작으면서 원가는 최고인 조합이라, 넣는 순간 전체 예산이 2배가 됩니다.</li>
+</ul>
+</div>
+
+<div class="foot">
+계산 규칙: 국가별 트래픽 = 200TB × 비중, 피크 Mbps = 월TB → 평균 Mbps × 3(피크계수), 노드 수 = ⌈피크 ÷ 포트속도⌉, 비용 = 노드비 × 대수 + 초과 트래픽 × 초과단가.
+환율 1 USD=1,470원 · 1 EUR=1,720원 · 1 CHF=1,830원. 단가는 각 공급자 공개 가격표 실측(2026-07-30)이며, 트래픽 비중은 서버 대수 대리지표 기반 <b>추정</b>입니다.<br>
+오스트리아·뉴질랜드는 해당국 대용량 상품의 공개 단가를 확인하지 못해 인접 시세로 대입했습니다(미확인 표기). 실제 계약 전 각 공급자에 VPN 운영 허용 여부와 fair-use 임계값을 서면 확인해야 합니다.
+</div>
+</div>
+
+<div id="banner">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAEPUlEQVR42u3c0U0bQRSF4ZlRSkA8UAASSjNUQB+pgD6ogGaiSBTAA3IPzkvyEikC22t75p7vr4CdPf+cO7tme5uMm7v7fUNZdu9vfaa/pws7kqXoQo9kGbrgI1mELvhIFqELPpJF6IKPZBGG8GMlts5YF3wkt8EQfiS3wRB+JEswhB/JEgzhR7IEQ/iRLMEQfiRLMIQfyRIM4UeyBEP4kSzBsExIZtj9kdwCQ/iRLIERCEYguz9SW0ADQAPY/ZHaAhoAGsDuj9QW0ADQAHZ/pLaABoAGAKIFMP4gdQzSANAAAAEAAgBZdAdgaACAAAABgCi+zfqH3T69ujuF+Hh51AAAAQACAAQACAAQACAAQACAAAABAAIABAAIABAAIABAAIAAAAEAAgAEAAgAEAAgAEAAtNZ+Pj9YBAJkh58EBCDD8wMRCGD0IQEB4ud+bUAAh15tQIB0vv/4RQB45EkAxIU/ffcngPATwBKY+wkAcz8BYPQhAISfADD3EwDmfgLA6EMAGH0IgPV2f+EngLkfBDD3gwDmfhDA6AMCLBVAow8BYj8rIvwEmGrnn3kUEX4ClPqkiLmfALFnAqMPAaYP+LkkEH4C+KaO8BPg4+VxidFmSwmqzv3XuJclGuDSC3fsjrpFcKuOPjOHf4kRKEkC4SdApAR+4kyAVuXF0qFfXTb3E2DaBT1ltz3Ho1SjT3gDVJRA+AkQKUHF0We18C97Blhdgoqjz4rhX/oQvKoEwj8X/ebufr9y7d4+vbaq/yAj/Bpg2ibwPL55D9C8K7D7EyD7RpwjqMJPgFgJhJ8AmsAaEyBRgtklqhb+sofgFSUQfgLESuCRKgE0gXUkQAt8T2D0IUDpG/g34P8GfYW3ydXD31qB3wK1iX8zZOPQAG6otSKAG2uNCOAGgwAksC4EcLOtBwEg/ARw460BAQTAtRNAEFwzAQTCtRJAMEAAErg+AgiJ6yKAsLgeAkD4CSA4wk8AARJ+AggSCEAC0hJAqISfAMIl/AQQMuEnAClBgLzACT8BBA8ESJSAhASIlUD4CRArgfATIFYC4SdArATCTwBygQBpQRV+AtitQYBECchEgFgJhJ8AsRIIPwFiJRB+AsRKIPwEIAkuI8Du/a1bBgFPZPf+1jXARBKQwwgUK4HwEyBWAuG/Hr211m7u7veWArFnAAdhJIbfCARnAEsAAhiDEDj+aABogP+ZAVTf/TUANMBnhgBVd38NAA3wVVOAaru/BoAGONQYoMru/2kDkACVw28EghHoVIOAVXf/LzcACVAx/AeNQCRAtfAffAYgASqF/6hDMAlQJfxHPwUiASqE/6THoCTA6uE/+T0ACbBy+Dd5EUYCrBr+1v58F2grfF8IqwT/LD+F0AZYKfybN4A2wCrBP7sARMAKU8XFRhYiYMZx+uIzOxEw0znyqodWMuDaD0+me2pDCmG/JL8BvhZc3sxSdPAAAAAASUVORK5CYII=" alt="">
+  <div class="txt"><b>홈 화면에 추가</b><span id="bannerSub">설치하면 앱처럼 바로 열립니다</span></div>
+  <button class="act" id="bannerAct">설치</button><button class="x" id="bannerX" aria-label="닫기">×</button>
+</div>
+<script>
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const l=document.documentElement.dataset.theme==='light';
+  document.documentElement.dataset.theme=l?'dark':'light';
+  document.getElementById('themeBtn').textContent=l?'라이트':'다크';
+  document.querySelector('meta[name=theme-color]').setAttribute('content',l?'#0f1420':'#f6f6f3');
+});
+(function(){
+  const KEY='vpnopt', st=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  const banner=document.getElementById('banner'), btn=document.getElementById('installBtn'); let d=null;
+  const supp=()=>{ if(sessionStorage.getItem(KEY)) return true;
+    const t=parseInt(localStorage.getItem(KEY)||'0',10); return t&&(Date.now()-t)<864e5; };
+  const dismiss=()=>{ banner.style.display='none';
+    try{sessionStorage.setItem(KEY,'1');localStorage.setItem(KEY,String(Date.now()));}catch(e){} };
+  document.getElementById('bannerX').addEventListener('click',dismiss);
+  if(st) return;
+  addEventListener('beforeinstallprompt',e=>{e.preventDefault();d=e;btn.style.display='inline-block';if(!supp())banner.style.display='flex';});
+  const go=async()=>{ if(!d)return; banner.style.display='none'; d.prompt(); try{await d.userChoice;}catch(e){} d=null; btn.style.display='none'; };
+  btn.addEventListener('click',go); document.getElementById('bannerAct').addEventListener('click',go);
+  addEventListener('appinstalled',()=>{d=null;btn.style.display='none';banner.style.display='none';
+    try{sessionStorage.removeItem(KEY);localStorage.removeItem(KEY);}catch(e){}});
+  const iOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(iOS&&!supp()){document.getElementById('bannerSub').textContent='공유 → "홈 화면에 추가"를 누르세요';
+    document.getElementById('bannerAct').style.display='none';setTimeout(()=>{if(!supp())banner.style.display='flex';},1200);}
+})();
+</script>
+</body>
+</html>

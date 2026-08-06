@@ -1,0 +1,63 @@
+{
+  "schema": "FreeFlexVPNGeneratedProgressV1",
+  "project": {
+    "name": "FreeFlexVPN",
+    "candidate": "v2.13-gcp-billing-review-helper",
+    "start_date": "2026-07-30",
+    "target_date": "2026-08-12",
+    "report_date": "2026-08-03"
+  },
+  "config_sha256": "A3D8CF7F095A7F9C9B3EB057B656D72429CD7BD4CDD57BF0F539ADE00226AE96",
+  "html_sha256": "861AA63F30CBDAC36093057DE4A9303502F07B5FD8B4393F87EACA546BCA6B3E",
+  "actual_percent": 58.3,
+  "planned_percent": 58.3,
+  "schedule_delta_days": 0.0,
+  "completed_milestones": 7,
+  "total_milestones": 12,
+  "remaining_milestones": 5,
+  "gantt_columns": 14,
+  "evidence_gate": "PASS",
+  "bottleneck_matrix": [
+    {
+      "id": "B1",
+      "severity": "critical",
+      "classification": "permission",
+      "title": "GCP 로그인·프로젝트·비용 확인",
+      "measured": "2026-08-03 비용 확인 도우미 계약 7/7·JavaScript 구문 1/1·localhost HTTP 200을 확인했으나 브라우저 창 연결은 2회 시간 초과했고 인증된 project/billing readback은 없다.",
+      "works": "공개 앱 200, Cloud Shell v2 실행 묶음·강화 readback·rollback, 비용 계산기와 저장 실패 대응 단일 HTML 빌드",
+      "blocked": "로그인된 프로젝트·결제/무료 크레딧 확인과 실제 VM 생성",
+      "solution": "로컬 v2.13 도우미를 열어 로그인된 GCP 콘솔의 6개 항목을 옮겨 확인한 뒤 Cloud Shell을 연다.",
+      "queue": "S-1 대행동"
+    },
+    {
+      "id": "B2",
+      "severity": "warning",
+      "classification": "tool_unresponsive",
+      "title": "로컬 gcloud 불응답 — Cloud Shell 우회·검증 강화 완료",
+      "measured": "로컬 gcloud version은 60초·120초 제한에서 불응답이었고, provider readback과 Cloud Shell 묶음 신규 음성 대조 14/14를 통과했다.",
+      "works": "EXAMPLE_ONLY는 cloud 명령 전에 종료하며 실제 후보는 비용·project·APPLY 3중 게이트와 공급자 설정 전체 readback 사용",
+      "blocked": "인증된 Cloud Shell에서 실제 후보 preflight 실행",
+      "solution": "S-1 후 실제 project ID와 관리자 IP로 새 plan과 Cloud Shell v2 묶음을 생성한다.",
+      "queue": "0-1·0-2 완료 · S-1 후 0-3"
+    },
+    {
+      "id": "B3",
+      "severity": "warning",
+      "classification": "physical_absence",
+      "title": "실제 VPN 대상 부재",
+      "measured": "실제 GCP VM 0대·서버 readback 0건·기기 터널 0건이다.",
+      "works": "설정 전 검사·후보 해시 결속·VM/디스크/IP/cloud-init/방화벽 provider readback·정확 리소스 rollback 도구",
+      "blocked": "SSH·WireGuard·출구 IP·카운터·카탈로그 live admission",
+      "solution": "S-1 비용 확인 후 첫 GCP 노드를 생성하고 동일 후보로 live admission을 실행한다.",
+      "queue": "S-2 대행동"
+    }
+  ],
+  "claims": {
+    "implementation": true,
+    "local": true,
+    "public": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  }
+}

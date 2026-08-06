@@ -1,0 +1,20 @@
+{
+  "release_id": "R1-pages",
+  "candidate_commit": "a4b775b8945dd12c90c6ef53ed5411700be108af",
+  "repository_url": "https://github.com/hanksleekorea-boop/FreeFlexVPN",
+  "public_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/",
+  "provider_deploy_run": 30635254122,
+  "provider_deploy_status": "success",
+  "consumer_verify_run": 30636324150,
+  "consumer_verify_commit": "f6df78b7b96a585e53d96247a7a7fc7cc0ced8e3",
+  "consumer_verify_status": "success",
+  "no_cache_probe_count": 3,
+  "no_cache_sha256": "e905269191653347f06ac4e87bbb75429694373857366730ed8d4a11c6466786",
+  "headless_chrome_dom": "PASS",
+  "anonymous_access": "PASS",
+  "verified_at": "2026-07-31T13:54:13Z",
+  "qr_path": "60_OUTPUTS/FreeFlexVPN_PUBLIC_QR_v1_2026-07-31.png",
+  "qr_sha256": "75D8D81786C6E2DDE2E676C75D96D13C73ACAD62EE0CF2B25074F9F14F21CEE4",
+  "qr_payload_match": true,
+  "draft_pr": "https://github.com/hanksleekorea-boop/FreeFlexVPN/pull/1"
+}

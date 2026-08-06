@@ -1,0 +1,52 @@
+{
+  "candidate": "service-ui-v3-consumer-grade",
+  "files_total": 53,
+  "files_with_passing_checks": 53,
+  "checks_passed": 588,
+  "checks_total": 588,
+  "product_failures": 0,
+  "integrated_runner": {
+    "evidence": "10_STATE/LOCAL_EVIDENCE_SERVICE_UI_V3_FULL_REGRESSION_2026-08-05.json",
+    "checks_passed_before_process_shutdown_timeouts": 493,
+    "checks_total_before_process_shutdown_timeouts": 493,
+    "timed_out_files": [
+      "test_gcp_runtime_config.py",
+      "test_keyboard.py",
+      "test_moment_catalog.py",
+      "test_service_ui_v2_6.py",
+      "test_ssh_node_adapter.py",
+      "test_telegram_onboarding.py",
+      "test_test_runner.py"
+    ],
+    "note": "all seven files printed passing summaries but the temporary virtual-environment processes did not exit before the runner timeout"
+  },
+  "clean_rerun": {
+    "python": "bundled workspace Python",
+    "files": 7,
+    "checks_passed": 75,
+    "checks_total": 75,
+    "exit_code": 0
+  },
+  "service_ui_v3_guard": {
+    "file": "40_TESTS/test_service_ui_v3.py",
+    "checks_passed": 20,
+    "checks_total": 20,
+    "affected_existing_checks_passed": 56,
+    "affected_existing_checks_total": 56,
+    "direct_hash_navigation": "pass",
+    "android_connection_reconnection_record": "pass",
+    "current_connection_overclaim_guard": "pass",
+    "all_public_pages_progress_dashboard": "pass",
+    "four_step_current_progress": "pass",
+    "pc_sticky_progress_dashboard": "pass",
+    "mobile_sticky_progress_dashboard": "pass"
+  },
+  "browser": {
+    "landing_pc": "pass",
+    "app_pc_overflow": "pass",
+    "app_mobile_390_overflow": "pass",
+    "mobile_navigation": "pass",
+    "setup_dialog": "pass",
+    "supporting_document_light_theme": "pass"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "FreeFlexVPNGeneratedProgressV1",
+  "project": {
+    "name": "FreeFlexVPN",
+    "candidate": "v2.9-r2-progress-generated",
+    "start_date": "2026-07-30",
+    "target_date": "2026-08-12",
+    "report_date": "2026-08-02"
+  },
+  "config_sha256": "A9E394A86CD90F4B910EC92D9FD674D1F459B38B7571F0C93164C0E49B4057F7",
+  "html_sha256": "C5F32F5D7C56CE887FED9B1B26CE262CB13BAA3EFDC9AC0723E637DC198EE00E",
+  "actual_percent": 58.3,
+  "planned_percent": 58.3,
+  "schedule_delta_days": 0.0,
+  "completed_milestones": 7,
+  "total_milestones": 12,
+  "remaining_milestones": 5,
+  "gantt_columns": 14,
+  "evidence_gate": "PASS",
+  "bottleneck_matrix": [
+    {
+      "id": "B1",
+      "severity": "critical",
+      "classification": "permission",
+      "title": "GCP 계정·프로젝트·비용 승인",
+      "measured": "공식 CLI ZIP과 배포 계획은 준비됐지만 인증된 계정·프로젝트와 실제 VM은 0개다.",
+      "works": "GCP 계획·cloud-init·외부 runtime config·무네트워크 admission 생성",
+      "blocked": "결제 영향을 확인하지 않은 VM 생성과 계정 인증",
+      "solution": "Google Cloud Console에서 사용할 프로젝트와 무료 크레딧·예상 비용을 확인한 뒤 Cloud Shell을 연다.",
+      "queue": "S-1 대행동"
+    },
+    {
+      "id": "B2",
+      "severity": "warning",
+      "classification": "tool_unresponsive",
+      "title": "로컬 gcloud 시작 불응답",
+      "measured": "필수 파일 존재와 ZIP SHA-256은 확인했지만 gcloud version은 60초·120초 제한에서 응답하지 않았다.",
+      "works": "공식 578.0.0 ZIP 다운로드·크기·SHA-256·필수 추출 파일 확인",
+      "blocked": "로컬 gcloud 버전 출력과 로그인",
+      "solution": "Cloud Shell로 우회하고, 로컬 CLI는 실제 배포 경로에서 제외한다.",
+      "queue": "0-1 독립 실행"
+    },
+    {
+      "id": "B3",
+      "severity": "warning",
+      "classification": "physical_absence",
+      "title": "실제 VPN 대상 부재",
+      "measured": "서버 카탈로그와 v2.8 증거 모두 실제 서버 0대·서버 readback 0건으로 기록한다.",
+      "works": "설정 전 검사와 후보·설정 해시 결속",
+      "blocked": "SSH·WireGuard·출구 IP·카운터 live admission",
+      "solution": "S-1 뒤 첫 GCP 노드를 만들고 동일 증거로 live admission을 실행한다.",
+      "queue": "S-2 대행동"
+    }
+  ],
+  "claims": {
+    "implementation": true,
+    "local": true,
+    "public": false,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  }
+}

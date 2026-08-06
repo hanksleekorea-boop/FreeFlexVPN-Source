@@ -1,0 +1,43 @@
+{
+  "candidate": "service-ui-v3-consumer-grade",
+  "repository": "hanksleekorea-boop/FreeFlexVPN",
+  "branch": "main",
+  "head_sha": "89264b511f84a2002c68c21ae7fe3b5eac583684",
+  "commits_published": [
+    "3a01c40",
+    "0b7eebd",
+    "89264b5"
+  ],
+  "github_pages_run": {
+    "id": 30973337797,
+    "url": "https://github.com/hanksleekorea-boop/FreeFlexVPN/actions/runs/30973337797",
+    "conclusion": "success",
+    "verify_static": "pass",
+    "deploy": "pass",
+    "verify_public": "pass"
+  },
+  "public_urls": {
+    "landing": "https://hanksleekorea-boop.github.io/FreeFlexVPN/",
+    "app": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html"
+  },
+  "browser_verification": {
+    "pc_landing_1440": {
+      "quick_links": 5,
+      "horizontal_overflow": false
+    },
+    "pc_app_1440": {
+      "left_navigation": "visible",
+      "main_dashboard": "visible",
+      "right_quick_actions": "visible",
+      "horizontal_overflow": false
+    },
+    "mobile_app_390": {
+      "desktop_navigation": "hidden",
+      "right_quick_actions": "hidden",
+      "bottom_navigation_items": 4,
+      "horizontal_overflow": false
+    },
+    "direct_usage_hash": "pass",
+    "console_errors": 0
+  }
+}

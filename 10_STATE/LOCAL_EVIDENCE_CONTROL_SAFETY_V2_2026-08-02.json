@@ -1,0 +1,86 @@
+{
+  "candidate_id": "R5-R7-control-safety-local-2026-08-02.1",
+  "verified_at": "2026-08-02T03:07:10.1343001+07:00",
+  "source_revision": "not-a-git-repository",
+  "status": "VERIFIED_TESTED",
+  "evidence_level": "L",
+  "progress": {
+    "completed_milestones": 7,
+    "total_milestones": 12,
+    "percent": 58.3,
+    "newly_completed": "V2-M5 무료 안전 기본기 로컬 계약"
+  },
+  "implemented": [
+    "실제 계약·프로비저닝·exit·최신 health를 통과한 서버만 공개하는 카탈로그",
+    "출구 IP·180초 핸드셰이크·서버·DNS·IPv6·킬 스위치의 fail-closed 보호 판정",
+    "해시 저장 1회 claim·30분 session 인증과 지갑·사용기록·추천·기기·삭제 API",
+    "개인키 수신 금지, 공개키 기반 활성 기기 2대 제한, 실제 peer adapter 미연결 시 fail-closed",
+    "WireGuard 누적 카운터의 기준선·epoch·event·sample 멱등 차감과 세션 집계",
+    "신규 추천 귀속에서 실제 보호·누적 100MB·양쪽 500MB 지급까지 로컬 왕복",
+    "iOS·Android·Windows 동일 후보의 8개 안전 항목 전건 판정 계약",
+    "localhost HTTP 서비스, 정확한 CORS allowlist, no-store, 방문 IP 기본 로그 억제"
+  ],
+  "verification": {
+    "full_regression": {
+      "test_files": 20,
+      "passed": 240,
+      "total": 240,
+      "failed": 0
+    },
+    "new_targeted": {
+      "server_catalog": "9/9",
+      "connection_check": "8/8",
+      "control_api": "12/12",
+      "control_http": "3/3",
+      "usage_meter": "9/9",
+      "safety_contract": "8/8",
+      "schema_migration": "2/2"
+    },
+    "negative_controls": [
+      "대한민국·서울 exit 등록 거부",
+      "버튼 또는 터널 주장만으로 보호됨 거부",
+      "DNS·IPv6·킬 스위치 한 항목 실패도 보호됨 거부",
+      "claim 재사용·만료·private key·중복 공개키·기기 3대 거부",
+      "동일 usage 사건·동일 counter 표본 재전송 중복 차감 거부",
+      "오래된 epoch·감소 카운터·잔액 초과·저장 실패 fail-closed",
+      "시뮬레이션을 실제 기기 증거로 승격하는 경로 거부"
+    ],
+    "harness_issue": {
+      "id": "H-CONTROL-001",
+      "symptom": "안전 계약 검사가 timezone-aware datetime을 문자열이 아니라는 이유로 거부",
+      "resolution": "run_at 입력을 timezone-aware 문자열 또는 datetime으로 제한해 수정",
+      "retest": "8/8 PASS"
+    }
+  },
+  "source_files": [
+    {"path": "20_SRC/app/server_catalog.py", "bytes": 12324, "sha256": "b3c1c2d349e844d668e5a34482e20e05d9e0e327da4b9e881dbfad743050881b"},
+    {"path": "20_SRC/app/connection_check.py", "bytes": 3971, "sha256": "fe2d3a41a005fd432a0e9a5aa078538c04d2a04c192657b48045fb18b4ce71f9"},
+    {"path": "20_SRC/app/control_api.py", "bytes": 30806, "sha256": "1181fb8553c082df8f249279c08bd291152dd2c5be56dc0b4c738a0d5a7c3946"},
+    {"path": "20_SRC/app/control_http.py", "bytes": 6418, "sha256": "594e0be5838d6415b59a9682c33a1678151bbd385b5ce9a47f71a9b212a92287"},
+    {"path": "20_SRC/app/usage_meter.py", "bytes": 10896, "sha256": "048db309ce5b48e1f8c9eb38eaaac1050c4f0d13e412e8eda58a7fffedad343c"},
+    {"path": "20_SRC/app/safety_contract.py", "bytes": 5104, "sha256": "d991692b3ad5673948e05acefea773618a1f2b61c9d6a56d544def55d8b10f64"},
+    {"path": "20_SRC/app/db_migrations/001_v2_alpha.sql", "bytes": 6934, "sha256": "46becd6d82c65d6059e41cad4f077ce4995a5b64a526b3e4ff091ed610df628c"},
+    {"path": "20_SRC/app/wallet_ledger.py", "bytes": 15230, "sha256": "34aa8f3171503434303f8b33f702d24c09e5e593e7c38b1221c6709bacd81009"},
+    {"path": "20_SRC/app/referral_ledger.py", "bytes": 18855, "sha256": "a108cf7a6538b36e90c1828237c0175cccda1010890da0bd824f02c2fbc2c086"}
+  ],
+  "public_app": {
+    "deployment_action": "none-backend-local-change-only",
+    "url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "http_no_cache_probes": [200, 200, 200],
+    "bytes": 78390,
+    "sha256": "30f0542805c17e3bf2a2ef110bcec15f456c0ce462e32b599417c4f6e6bc2b4e",
+    "qr_sha256": "ab7f68ca032628b037bb1e9dfdebdaa9c29738b35382a777ce71aa4e10366d4f",
+    "state": "last verified public v2 UI; server count remains 0 and protection remains limited"
+  },
+  "not_proven": [
+    "실제 VPN 서버 배포와 실제 exit IP",
+    "실제 iOS·Android·Windows 안전 통과",
+    "실제 결제·환불",
+    "실제 추천 사용자와 라이트 사용자 파일럿"
+  ],
+  "rollback": {
+    "backend": "새 control/catalog/check/http/usage/safety/migration 파일과 대응 테스트를 제거하고 referral_ledger의 list_for_account 추가를 역적용",
+    "state": "PLAN·PRIORITIES·DECISIONS의 2026-08-02 추가분을 역적용",
+    "public": "변경 없음; 기존 app.html SHA-256 30f0542805c17e3bf2a2ef110bcec15f456c0ce462e32b599417c4f6e6bc2b4e 유지"
+  }
+}

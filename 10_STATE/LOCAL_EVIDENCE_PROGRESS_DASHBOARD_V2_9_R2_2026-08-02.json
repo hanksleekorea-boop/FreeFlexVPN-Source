@@ -1,0 +1,61 @@
+{
+  "schema": "FreeFlexVPNProgressDashboardLocalEvidenceV1",
+  "candidate": "v2.9-r2-progress-generated",
+  "date": "2026-08-02",
+  "status": "VERIFIED_GENERATED_LOCAL",
+  "calculation": {
+    "actual_percent": 58.3,
+    "planned_percent": 58.3,
+    "schedule_delta_days": 0.0,
+    "completed_milestones": 7,
+    "total_milestones": 12,
+    "remaining_milestones": 5,
+    "gantt_columns": 14,
+    "source": "10_STATE/progress_dashboard_v2.9.json",
+    "generated_summary": "10_STATE/GENERATED_PROGRESS_V2_9_R2_2026-08-02.json"
+  },
+  "validation_gates": {
+    "weights_sum_100": "PASS",
+    "area_count_2_to_8": "PASS: 4",
+    "completion_range_0_to_100": "PASS",
+    "area_dates_inside_project_range": "PASS",
+    "gantt_columns_at_most_40": "PASS: 14",
+    "completed_milestones_have_existing_evidence": "PASS: 7/7",
+    "self_contained_html": "PASS",
+    "atomic_pair_and_overwrite_refusal": "PASS"
+  },
+  "verification": {
+    "connected_safety_regression": "92/92 PASS",
+    "dashboard_tests": "5/5 PASS",
+    "browser": {
+      "desktop_dom": "PASS",
+      "mobile_viewport": "PASS: 390x844",
+      "horizontal_overflow": "0",
+      "theme_toggle": "PASS: auto to dark",
+      "console_warning_or_error": 0,
+      "visual_iteration": "v2.9 short Gantt labels clipped; generator fixed and v2.9-r2 labels verified visible"
+    },
+    "deployment_probe": "10_STATE/DEPLOYMENT_BLOCK_PROBE_V2_9_2026-08-02.json"
+  },
+  "sha256": {
+    "70_TOOLS/progress_dashboard.py": "0381783B240290BCDA259E4E8CF5C8428055E58E8ED37A752A1B615F3E57D32D",
+    "10_STATE/progress_dashboard_v2.9.json": "D6971E14EFEC047A34CC6B8CC55BFF73B2CC6FA99AB1950AD0B50DBD5B3D9257",
+    "40_TESTS/test_progress_dashboard.py": "EBBC038E91AFDB0A7CF26E609188BD40BE334589D8BA567E13E724684EF3A7AA",
+    "60_OUTPUTS/FreeFlexVPN_progress_dashboard_v2.9-r2_2026-08-02.html": "C5F32F5D7C56CE887FED9B1B26CE262CB13BAA3EFDC9AC0723E637DC198EE00E",
+    "10_STATE/GENERATED_PROGRESS_V2_9_R2_2026-08-02.json": "AD96A802D19687D9D328E7AAE8E1159536E8354478C9F691DFE1894A8AC0E8DF",
+    "10_STATE/DEPLOYMENT_BLOCK_PROBE_V2_9_2026-08-02.json": "E308551E94EF69A19D7908EA93FC99E47D5843C36F63392F365612DC84161696",
+    "10_STATE/DECISIONS.md": "172627E53CDD755646F0CC415CA284342446E62F73A7215511644D09FE778E65",
+    "10_STATE/PRIORITIES_v2_2026-08-01.md": "1270EB06D03A405C6120577F3BCFD14C0808BE4B41D3B75918E38F04E78CE48F"
+  },
+  "evidence_boundary": {
+    "implementation": true,
+    "local": true,
+    "build": true,
+    "public_dashboard": false,
+    "public_app": true,
+    "server": false,
+    "device": false,
+    "independent_user": false
+  },
+  "contains_secrets": false
+}

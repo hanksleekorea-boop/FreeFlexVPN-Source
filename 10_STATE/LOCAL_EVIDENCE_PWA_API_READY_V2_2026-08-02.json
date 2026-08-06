@@ -1,0 +1,92 @@
+{
+  "candidate_id": "R6-pwa-api-ready-local-2026-08-02.1",
+  "verified_at": "2026-08-02T13:50:30.0897768+07:00",
+  "source_revision": "not-a-git-repository",
+  "status": "VERIFIED_TESTED",
+  "evidence_level": "L",
+  "progress": {
+    "completed_milestones": 7,
+    "total_milestones": 12,
+    "percent": 58.3,
+    "newly_completed": "none; API-ready PWA is implemented and locally tested, but an actual exit server and target-device proof are still absent"
+  },
+  "implemented": [
+    "claim-fragment account bootstrap with one-time exchange and immediate URL cleanup",
+    "sessionStorage-only API session with memory fallback and truthful persistence warning",
+    "real catalog, wallet, device, protection-check and referral API rendering",
+    "browser X25519 key generation with public-key-only registration and local WireGuard config download",
+    "device list and revoke controls without exposing stored WireGuard public keys",
+    "live API mode that disables simulated top-up and never sends selected VPN purpose",
+    "single-file deploy HTML containing the complete PWA runtime while preserving independently syntax-checked source modules",
+    "service-worker bypass for claim and referral-bearing navigation requests",
+    "parallel full-regression runner with shared-artifact writers serialized"
+  ],
+  "verification": {
+    "full_regression": {
+      "test_files": 26,
+      "passed": 316,
+      "total": 316,
+      "failed": 0,
+      "elapsed_seconds": 213.3
+    },
+    "new_targeted": {
+      "app_v2_contract": "15/15",
+      "github_pages": "21/21",
+      "pwa_api_client_real_chromium": "14/14",
+      "pwa_runtime_deploy_html_real_chromium": "13/13",
+      "client_keygen_real_chromium": "11/11",
+      "control_api": "13/13",
+      "single_file_contracts": "35/35"
+    },
+    "negative_controls": [
+      "HTTP API base URL is rejected",
+      "claim token is never reused as an Authorization bearer token",
+      "access token is removed from the claim-exchange return value",
+      "device registration body contains no private key",
+      "selected VPN purpose is absent from API traffic",
+      "401 clears the local session",
+      "negative wallet bytes are rejected",
+      "claim and referral navigation requests are excluded from service-worker caching",
+      "live API mode cannot use the local top-up simulation"
+    ],
+    "fixed_product_defects": [
+      "device listing now queries the persisted assigned_address column and omits public-key material",
+      "native fetch is invoked with the correct browser context",
+      "account resynchronization failure no longer discards an already generated local configuration",
+      "a delayed visual fallback no longer overwrites a verified protected state",
+      "claim-bearing navigation can no longer enter the service-worker cache"
+    ],
+    "harness_issues": [
+      "revocation without an attached node adapter correctly remains revocation_pending",
+      "mock cross-origin API now handles OPTIONS preflight",
+      "server catalog registration assertion now separates apply-time wall clock from an explicitly injected catalog clock",
+      "Chromium timeout left child processes; exact run-owned PIDs were removed and the isolated rerun passed 13/13"
+    ]
+  },
+  "source_files": [
+    {"path": "20_SRC/app/control_api.py", "bytes": 32788, "sha256": "88dc32ac9bfa6d4b5de84f61eb606b0905050417bdc9f8207d50ca060ed35042"},
+    {"path": "20_SRC/app/client_keygen.js", "bytes": 6030, "sha256": "829abf635971782969044a1d6295937110b80bee8fa328fda822f26a269e17f5"},
+    {"path": "20_SRC/app/pwa_api_client.js", "bytes": 7120, "sha256": "4c2dbf537aa18c80de265ef237f5b5028a0253bdbd0bd922aa012ed6d04bc874"},
+    {"path": "20_SRC/app/pwa_runtime.js", "bytes": 12463, "sha256": "b22065e0c8b2a0c0cb287ece18a084747e2443e250c739d87b18e18c0bab71a4"},
+    {"path": "20_SRC/build_app_v2.py", "bytes": 42171, "sha256": "2193b37d04c2fac7e13731778c1a5cb4847a3a3646e7a7ee78ec21003cbe8553"},
+    {"path": "20_SRC/build_web_assets.py", "bytes": 4805, "sha256": "0aa03da7b95c47ca5c5a9017cfcb79803b1a6f4a4a4e07a5ebe6e6dd7ffc9111"},
+    {"path": "70_TOOLS/run_all_tests.py", "bytes": 3369, "sha256": "cdaaa9fcd56e47202239c278575f87cf15782b0b07c29c8a2f85ef8855c79599"},
+    {"path": "30_DEPLOY/app.html", "bytes": 105485, "sha256": "2da621746654a51c675ee249b436c13462bfdd60c6178c508fa40b2e5d3186a3"}
+  ],
+  "public_app": {
+    "deployment_action": "pending verified candidate commit and push",
+    "url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+    "api_base": "unconfigured by default",
+    "state": "the current public version is older until remote publication and no-cache readback complete"
+  },
+  "not_proven": [
+    "actual server catalog or account claim exchange against a deployed control API",
+    "actual SSH connection, server boot, WireGuard peer and public exit IP",
+    "actual VPN tunnel on iOS, Android or Windows",
+    "actual payment, refund, referral user or light-user pilot"
+  ],
+  "rollback": {
+    "local": "remove the three PWA modules and their UI/build/test changes, then regenerate 30_DEPLOY/app.html",
+    "public": "restore the immediately preceding Git commit after the new commit identity is recorded"
+  }
+}

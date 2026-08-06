@@ -1,0 +1,46 @@
+{
+  "schema": "FreeFlexVPNDeploymentBlockProbeV1",
+  "candidate": "v2.12-gcp-cost-review",
+  "measured_at": "2026-08-03T10:58:28.0432032+07:00",
+  "matrix": [
+    {
+      "target": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+      "classification": "available",
+      "measured_result": "HTTP 200, 146845 bytes, SHA-256 8A906F32DFA74B734F2630937339408A509F6C422A6E103122BD086509B4886A",
+      "works": "anonymous no-cache public readback and exact local FreeFlexVPN-Pages/app.html hash match",
+      "blocked": "none for the existing public v2.3 app; this does not provide a VPN server"
+    },
+    {
+      "target": "Google Cloud official public pricing",
+      "classification": "available",
+      "measured_result": "Free Tier e2-micro regions and limits read; external IPv4 USD 0.005/hour; Korea Premium Tier USD 0.19/GiB after the applicable free allowance",
+      "works": "deterministic 1/10/100GiB known-cost floor generation",
+      "blocked": "account-specific credits, billing currency, discounts, and eligibility"
+    },
+    {
+      "target": "authenticated Google Cloud billing and project readback",
+      "classification": "permission",
+      "measured_result": "no existing Google Cloud tab was available; no authenticated project or billing response was obtained",
+      "works": "public pricing and local guarded deployment bundle",
+      "blocked": "project attachment, Free Tier display, Welcome credit balance/expiry, account currency",
+      "minimal_user_action": "S-1 대행동: 로그인된 브라우저에서 GCP 결제 콘솔을 열고 비용 검토 6개 항목 확인"
+    },
+    {
+      "target": "in-app Google Cloud Console navigation",
+      "classification": "tool_unresponsive",
+      "measured_result": "new console navigation timed out before a page title or DOM could be read",
+      "works": "browser availability discovery and read-only attempt",
+      "blocked": "this session cannot perform authenticated console readback",
+      "assistant_resolution": "no form submission or billable mutation attempted; retained S-1 permission gate"
+    },
+    {
+      "target": "first GCP WireGuard VM",
+      "classification": "physical_absence",
+      "measured_result": "latest provider evidence records actual VM 0, server readback 0, device tunnel 0",
+      "works": "plan, Cloud Shell v2 bundle, provider readback, rollback, and cost review",
+      "blocked": "live VM, SSH, WireGuard, exit IP, counter, catalog, and device evidence",
+      "minimal_user_action": "S-2 대행동: S-1 확인 뒤 비용 발생을 승인하고 first-node create"
+    }
+  ],
+  "contains_secrets": false
+}

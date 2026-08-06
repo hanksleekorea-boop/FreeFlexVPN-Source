@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "product": "FreeFlexVPN",
+  "status": "ADAPTER_OR_DEMO",
+  "enabled": false,
+  "policy_version": "privacy-terms-draft-v1",
+  "claim": {
+    "base_url": "https://example.invalid/claim",
+    "ttl_seconds": 600,
+    "one_time": true,
+    "private_key_delivery": "forbidden_in_telegram"
+  },
+  "environment": {
+    "bot_token": "FREEFLEX_TELEGRAM_BOT_TOKEN",
+    "identity_hmac_key": "FREEFLEX_TELEGRAM_IDENTITY_HMAC_KEY",
+    "webhook_secret": "FREEFLEX_TELEGRAM_WEBHOOK_SECRET"
+  },
+  "privacy": {
+    "stored": [
+      "hmac_user_ref",
+      "consent_version",
+      "claim_sha256",
+      "peer_public_key",
+      "allowed_ip"
+    ],
+    "not_stored": [
+      "telegram_user_id",
+      "username",
+      "phone",
+      "message_text",
+      "claim_token",
+      "client_private_key"
+    ]
+  },
+  "commands": [
+    "start",
+    "claim",
+    "status",
+    "revoke"
+  ]
+}

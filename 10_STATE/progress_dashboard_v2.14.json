@@ -1,0 +1,56 @@
+{
+  "schema": "FreeFlexVPNProgressDashboardConfigV1",
+  "project": {
+    "name": "FreeFlexVPN",
+    "candidate": "v2.14-gcp-s1-direct-execution",
+    "start_date": "2026-07-30",
+    "target_date": "2026-08-12",
+    "report_date": "2026-08-03"
+  },
+  "baseline_note": "PLAN_v2_2026-08-01.md의 12개 마일스톤을 사용한다. S-1 직접 실행은 실제 계정 readback이 완료될 때까지 마일스톤 완료로 세지 않는다.",
+  "method_note": "완료 마일스톤은 evidence 파일이 존재할 때만 인정한다. 이번 v2.14는 실행 차단 증거를 추가했지만 실제 결제·VM·서버 증거가 아니므로 완료율을 올리지 않는다.",
+  "areas": [
+    {"id": "product", "name": "제품·정책", "weight": 8.3333, "plan_start": "2026-07-30", "plan_end": "2026-07-30"},
+    {"id": "public_ui", "name": "UI·공개 접근", "weight": 16.6667, "plan_start": "2026-07-30", "plan_end": "2026-08-01"},
+    {"id": "local_engine", "name": "로컬 엔진·안전", "weight": 33.3333, "plan_start": "2026-07-31", "plan_end": "2026-08-02"},
+    {"id": "real_world", "name": "실서버·실사용 검증", "weight": 41.6667, "plan_start": "2026-08-03", "plan_end": "2026-08-12"}
+  ],
+  "milestones": [
+    {"id": "V2-M1", "area": "product", "label": "새 앱서비스 제품 계약 확정", "status": "complete", "evidence": ["10_STATE/APP_SERVICE_PLAN_v2.0_2026-08-01.md", "10_STATE/DECISIONS.md"]},
+    {"id": "V2-M2", "area": "public_ui", "label": "v1.1 공개 UI 기준선 보존", "status": "complete", "evidence": ["10_STATE/PUBLIC_EVIDENCE_R1_PAGES_2026-07-31.json"]},
+    {"id": "V2-M3", "area": "local_engine", "label": "계정·쿼터·피어 로컬 엔진", "status": "complete", "evidence": ["10_STATE/LOCAL_EVIDENCE_CONTROL_SAFETY_V2_2026-08-02.json"]},
+    {"id": "V2-M4", "area": "public_ui", "label": "v2 순간 중심 UI·UX 공개", "status": "complete", "evidence": ["10_STATE/PUBLIC_EVIDENCE_R9_DESKTOP_APP_V2_3_2026-08-02.json"]},
+    {"id": "V2-M5", "area": "local_engine", "label": "무료 안전 기본기 로컬 계약", "status": "complete", "evidence": ["10_STATE/LOCAL_EVIDENCE_CONTROL_SAFETY_V2_2026-08-02.json"]},
+    {"id": "V2-M6", "area": "local_engine", "label": "3잔액 데이터 지갑", "status": "complete", "evidence": ["10_STATE/LOCAL_EVIDENCE_CONTROL_SAFETY_V2_2026-08-02.json"]},
+    {"id": "V2-M7", "area": "local_engine", "label": "추천·양쪽 보상 로컬 엔진", "status": "complete", "evidence": ["10_STATE/LOCAL_EVIDENCE_CONTROL_SAFETY_V2_2026-08-02.json"]},
+    {"id": "V2-M8", "area": "real_world", "label": "서로 다른 공급자의 실제 VPN 서버 2곳", "status": "blocked", "evidence": []},
+    {"id": "V2-M9", "area": "real_world", "label": "iOS·Android·Windows 안전 검증", "status": "blocked", "evidence": []},
+    {"id": "V2-M10", "area": "real_world", "label": "실제 결제·환불 왕복", "status": "blocked", "evidence": []},
+    {"id": "V2-M11", "area": "real_world", "label": "추천 파일럿", "status": "blocked", "evidence": []},
+    {"id": "V2-M12", "area": "real_world", "label": "라이트 사용자 파일럿", "status": "blocked", "evidence": []}
+  ],
+  "bottlenecks": [
+    {
+      "id": "B1",
+      "severity": "critical",
+      "classification": "tool_unresponsive",
+      "title": "GCP S-1 실계정 readback 연결 차단",
+      "measured": "2026-08-03 사용자 승인 후 앱 내 브라우저·Chrome·Windows 화면 제어·로컬 gcloud 4경로를 직접 실행했다. 두 브라우저는 Google Cloud 페이지 제어가 시간 초과, Windows 화면 제어는 창 조회가 시간 초과, gcloud는 설치되지 않았다.",
+      "works": "S-1 승인과 무과금 경계 확정, 공개 앱 200, 로컬 비용 도우미와 계산 계약, 실행 차단 증거 보존",
+      "blocked": "로그인 계정·프로젝트·결제 연결·크레딧/무료 등급·현재 비용·예산 알림 readback",
+      "solution": "브라우저 제어 연결이 복구된 세션에서 로그인된 Google Cloud 결제 개요와 예산 화면을 읽기 전용으로 재확인한다.",
+      "queue": "S-1 재실행"
+    },
+    {
+      "id": "B2",
+      "severity": "warning",
+      "classification": "physical_absence",
+      "title": "실제 VPN 대상 부재",
+      "measured": "실제 GCP VM 0대·서버 readback 0건·기기 터널 0건이다.",
+      "works": "생성 전 계획·비용 계산·provider readback·정확 리소스 rollback 도구",
+      "blocked": "SSH·WireGuard·출구 IP·카운터·카탈로그 live admission",
+      "solution": "S-1 완료 후 별도 S-2에서 첫 GCP 노드 생성을 진행한다.",
+      "queue": "S-2 대행동"
+    }
+  ]
+}

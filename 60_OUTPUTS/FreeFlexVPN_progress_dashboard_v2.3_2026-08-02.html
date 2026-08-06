@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FreeFlexVPN v2.3 진척 대시보드</title>
+<style>
+:root{color-scheme:dark;--bg:#071318;--card:#0d2029;--line:#1d3c49;--mint:#55e6c1;--blue:#78aefa;--muted:#9bb0bc}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0,#10323a,var(--bg) 40%);color:#f4f8fa;font:15px/1.55 system-ui,sans-serif}.wrap{max-width:1080px;margin:auto;padding:34px 20px 60px}h1{font-size:32px;margin:0}.sub{color:var(--muted);margin:5px 0 26px}.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.card{background:rgba(13,32,41,.94);border:1px solid var(--line);border-radius:20px;padding:22px}.big{font-size:42px;font-weight:800}.mint{color:var(--mint)}.bar{height:12px;background:#17313d;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:58.3%;background:linear-gradient(90deg,var(--mint),var(--blue))}.row{display:grid;grid-template-columns:170px 1fr 60px;gap:12px;align-items:center;margin:14px 0}.row .bar i.done{width:100%}.row .bar i.zero{width:0}.tag{display:inline-block;padding:4px 9px;border-radius:99px;background:#17313d;color:var(--mint);font-size:12px}.warn{border-color:#765f20}.timeline{display:grid;gap:10px}.step{padding:12px 14px;border-left:3px solid var(--line);background:#0a1920}.step.done{border-color:var(--mint)}.step.blocked{border-color:#f2c94c}.small{color:var(--muted);font-size:13px}@media(max-width:760px){.grid{grid-template-columns:1fr}.row{grid-template-columns:130px 1fr 48px}.wrap{padding:22px 14px}h1{font-size:27px}}
+</style></head><body><main class="wrap">
+<span class="tag">v2.3 · 2026-08-02 · 근거 기준</span><h1>FreeFlexVPN 개발 진척</h1>
+<p class="sub">코드·로컬·공개·실기기·사용자 증거를 섞지 않은 현재 대시보드입니다.</p>
+<section class="grid"><article class="card"><div class="small">v2 마일스톤</div><div class="big"><span class="mint">58.3%</span> · 7/12</div><div class="bar"><i></i></div><p>제품 계약, 공개 순간 UX, 무료 안전 계약, 3잔액, 추천 엔진까지 완료했습니다. v2.3은 PC 앱 사용성을 강화했지만 새 마일스톤 완료로 세지 않습니다.</p></article>
+<aside class="card warn"><b>가장 큰 병목</b><p>실제 VPN 서버 2곳의 계정·결제·접근 정보입니다.</p><p class="small">영향: 실제 터널, 실기기 안전, 결제·파일럿 증거는 아직 시작할 수 없습니다. 독립 구현·검증은 완료된 상태입니다.</p></aside></section>
+<section class="card" style="margin-top:16px"><h2>부문별 준비도</h2>
+<div class="row"><span>제품·기획 계약</span><div class="bar"><i class="done"></i></div><b>100%</b></div>
+<div class="row"><span>공개 PWA·UX</span><div class="bar"><i class="done"></i></div><b>100%</b></div>
+<div class="row"><span>로컬 제어·안전</span><div class="bar"><i class="done"></i></div><b>100%</b></div>
+<div class="row"><span>실제 서버</span><div class="bar"><i class="zero"></i></div><b>0%</b></div>
+<div class="row"><span>실기기 안전</span><div class="bar"><i class="zero"></i></div><b>0%</b></div>
+<div class="row"><span>결제·파일럿</span><div class="bar"><i class="zero"></i></div><b>0%</b></div></section>
+<section class="card" style="margin-top:16px"><h2>일정과 다음 관문</h2><div class="timeline">
+<div class="step done"><b>완료</b> — v2.3 PC·모바일 설치형 PWA, 384/384 로컬 회귀</div>
+<div class="step done"><b>완료</b> — R9 공개 배포·익명 렌더·무캐시 3회·QR 검증</div>
+<div class="step blocked"><b>현재 · 외부 입력 대기</b> — 서로 다른 공급자 서버 2곳 배포 → iOS·Android·Windows 안전 검증</div>
+<div class="step"><b>그 다음</b> — 승인된 실제 결제 왕복 → 추천·라이트 사용자 파일럿</div></div>
+<p class="small">정확한 종료일은 서버·결제·참여자 가용성이 미정이라 UNKNOWN입니다. 기존 계획 추정은 서버 입력 후 개발 14~18시간과 외부 알파 5영업일이며, 실측 전 확정일이 아닙니다.</p></section>
+</main></body></html>
