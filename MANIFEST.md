@@ -3,7 +3,12 @@
 | 항목 | 값 |
 |---|---|
 | 파일 수 | 379 |
-| 총 바이트 | 9,927,015 |
+| 총 바이트 | 9,927,897 |
+
+## 지문 규칙
+
+- 텍스트 파일은 줄바꿈(CRLF/LF)을 LF로 맞춘 뒤 SHA-256을 계산한다. 따라서 Windows·macOS·Linux 복제본도 같은 내용이면 같은 지문값이다.
+- 이미지·압축 파일 등 이진 파일은 원래 바이트 그대로 SHA-256을 계산한다.
 
 ## 제외 (검사 실행 시 재생성)
 
@@ -20,12 +25,12 @@
 |---|---:|---|---|
 | `.gitattributes` | 218 | 분류 확인 필요 | `cb2bdf9a1edbaf913f6f89daa2c98933d30cc8464941a29808981502349c1e93` |
 | `.github/workflows/ci.yml` | 752 | 분류 확인 필요 | `530313b7759f7f2c246137c547b2516b8e08a10086dc333642e623fdc6323bb7` |
-| `.gitignore` | 326 | 버전 관리 제외 규칙 | `1de5c500845b1ad2aeb3cb98143cb8dfb3ca6d96e116a0a895f0711391d2e51f` |
+| `.gitignore` | 326 | 버전 관리 제외 규칙 | `bed6034d251f92eb8f9b7442325eec02ae9edd81c289909206b77d528752af6d` |
 | `.project-continuity/APPROVALS.md` | 1,612 | 공동개발 연속성 기록 | `c57f55cfc13c36e3eb068e20ead3916af6b8fa31bba6a9eb37238d399cac3485` |
 | `.project-continuity/COMPLETION.md` | 586 | 공동개발 연속성 기록 | `1642625d6a25b9d9d459419c26ea54ad1945e375013d33d6b38d67cc1860591a` |
 | `.project-continuity/HISTORY.md` | 7,998 | 공동개발 연속성 기록 | `d1a01b667e71a18037b6a5d39a71e19f2b30ef408e2cd57862b513325854d800` |
-| `.project-continuity/STATE.md` | 1,227 | 공동개발 연속성 기록 | `5a392f58e15f76ca148b06106414dd1172f85f5f55f995f0113883d9c8a82ccc` |
-| `.project-continuity/TEST_EVIDENCE.md` | 5,250 | 공동개발 연속성 기록 | `caf480b641b31b04622c01317aac4a75ca7c9122ee1e541f955a83b1a38743e4` |
+| `.project-continuity/STATE.md` | 1,227 | 공동개발 연속성 기록 | `0f5d579f810aa880bc2c8bf59b8737d34d909859e07a3b6542d1035893ddbff9` |
+| `.project-continuity/TEST_EVIDENCE.md` | 5,250 | 공동개발 연속성 기록 | `019ea8678b7c89de16ffc1525b249dd102d875efaec422531594d22d17c1fa77` |
 | `.tools/platform-tools-latest-windows.zip` | 2,371,584 | 분류 확인 필요 | `d72a8a78194ee1395a1762c951b3b9172e8862e558d0bce8f69cff526428aa4e` |
 | `00_START/HANDOFF_PROMPT.md` | 14,622 | 시작·인수인계 | `08e5083c7e875677743e1b0ee1cc6ee1fee40fd736f559c56fcd80c88ecfe26b` |
 | `00_START/HANDOFF_V2_2026-08-01.md` | 2,352 | 시작·인수인계 | `e82e027fed1efa452ec427cbdb3904f6b0d6570b64386d81b0867086281348b1` |
@@ -39,7 +44,7 @@
 | `10_STATE/APP_SERVICE_PLAN_v2.0_2026-08-01.md` | 24,251 | 상태·근거·기록 | `37fdd7895a3c9d6879eb273dc43ebd505d4da99829d4bfeb7cbd7015b9d035af` |
 | `10_STATE/APP_SERVICE_PLAN_v3.0_2026-08-05.md` | 8,313 | 상태·근거·기록 | `1fedb7df0ea8f2c6e534679ad3bd23504f7ab95b890a3f1b9466f30c748f41dc` |
 | `10_STATE/APP_SERVICE_PLAN_v4.0_2026-08-06.md` | 8,941 | 상태·근거·기록 | `27283eaf0ea6650bc99ddd11aca5c7048229bb1b036d301605c1016bfe96f7ec` |
-| `10_STATE/CONTRACTS.json` | 1,988 | 상태·근거·기록 | `3b7b48595186aa083ef66998d988ff9d39df80bc0d95f78c0e9141e865a1222d` |
+| `10_STATE/CONTRACTS.json` | 1,988 | 상태·근거·기록 | `fbb44678c17ce84db11152ece70c5780c12b9954d223ab5e7405ca18118a2290` |
 | `10_STATE/CROSS_PLATFORM_PLAN_v2.2_2026-08-02.md` | 5,058 | 상태·근거·기록 | `d035d38b22645835cca390b887b15f6b3476b501ffa82e78f38cc88938b8afa0` |
 | `10_STATE/DECISIONS.md` | 20,052 | 상태·근거·기록 | `19a8cb99c90950edddae332cbf077d9faa274807048720a6840c44372733b940` |
 | `10_STATE/DEPLOYMENT_BLOCK_PROBE_V2_10_2026-08-03.json` | 2,142 | 상태·근거·기록 | `be1131b2c1e49c57e886e7778fc49cf3ab0ba241f62548d60ec8f3c634648b1d` |
@@ -57,7 +62,7 @@
 | `10_STATE/GCP_FIRST_NODE_PLAN_v2.8_2026-08-02.md` | 3,498 | 상태·근거·기록 | `5b5085dcd9c2545513a613f2fd6fe8ba802463fb066b6be28feac13b5c11de1d` |
 | `10_STATE/GCP_S1_DIRECT_EXECUTION_v2.14_2026-08-03.md` | 2,289 | 상태·근거·기록 | `c877de51c12ee08534aaa1e413d6b98e9cd47cc67830ba4c0e8366eb1dea11b2` |
 | `10_STATE/GCP_S1_S2_EXECUTION_v2.18_2026-08-04.md` | 3,672 | 상태·근거·기록 | `e7297bb5eac11eeeb6fa9733fdbba7c5fa2b287353198c3037b73c6c6321cd08` |
-| `10_STATE/GENERATED_GCP_COST_REVIEW_V2_12_2026-08-03.json` | 2,821 | 상태·근거·기록 | `14694ddfdf20a2f8f256f85f40f45ada971d2c98b65fc4be1689bd98be3ae6bb` |
+| `10_STATE/GENERATED_GCP_COST_REVIEW_V2_12_2026-08-03.json` | 2,821 | 상태·근거·기록 | `c5738fd4f49d8bd510c43292486780a28ee90f0f3dd32daa943dde6dae4e5429` |
 | `10_STATE/GENERATED_PROGRESS_V2_10_2026-08-03.json` | 2,849 | 상태·근거·기록 | `b39cee7e18efec78fc809268b35359516b15a8666217e16bdb66065aad87b296` |
 | `10_STATE/GENERATED_PROGRESS_V2_11_2026-08-03.json` | 2,950 | 상태·근거·기록 | `a31030091a01112800fe1dd0b6f983742acc4981c65345fed9702e14e44bdf67` |
 | `10_STATE/GENERATED_PROGRESS_V2_12_2026-08-03.json` | 3,048 | 상태·근거·기록 | `b5199f37f270df05a0a28a54b0830c72c74a5b1ab673a6f2ae3de30f32e49cb0` |
@@ -122,7 +127,7 @@
 | `10_STATE/progress_dashboard_v2.15.json` | 7,498 | 상태·근거·기록 | `d29f67123220c190cd15f67b4fb04c20f96cc8610e67ee4ffcf0614a1884f6f4` |
 | `10_STATE/progress_dashboard_v2.9.json` | 5,081 | 상태·근거·기록 | `d6971e14efec047a34cc6b8cc55bff73b2cc6fa99ab1950ad0b50dbd5b3d9257` |
 | `10_STATE/PUBLIC_EVIDENCE.json` | 1,988 | 상태·근거·기록 | `96ef4adbb3bf6f930cdd24b4c9161b31bed400a67c51d3b0de00183e8ba5fb5b` |
-| `10_STATE/PUBLIC_EVIDENCE_PC_WEB_V2_5_2026-08-04.json` | 737 | 상태·근거·기록 | `cd8809715e7465d96199f48f0fec9c1eb915efd4a352262dba917f361216ec0f` |
+| `10_STATE/PUBLIC_EVIDENCE_PC_WEB_V2_5_2026-08-04.json` | 737 | 상태·근거·기록 | `e8ce315f635d8729d60413ba885434262d2dca0a79d11bcfbcac02ae06576224` |
 | `10_STATE/PUBLIC_EVIDENCE_R1_PAGES_2026-07-31.json` | 939 | 상태·근거·기록 | `1fa5ad2124ed1c58451771383e08a023ae60e69d9af26354f0075f8e3cb8ec7c` |
 | `10_STATE/PUBLIC_EVIDENCE_R2_UI_V1_1_2026-08-01.json` | 810 | 상태·근거·기록 | `5c4c3bf982bd87b48f988cad27a9043e162b42d6963c9157eb1d97c61bcb650c` |
 | `10_STATE/PUBLIC_EVIDENCE_R5_R7_UI_V2_2026-08-01.json` | 1,524 | 상태·근거·기록 | `9e01e764ad6fa686e5c12b6a8e7a9f84a607f68c6a6bb993fbe8b31fbc269ce7` |
@@ -135,24 +140,24 @@
 | `10_STATE/R6_CONFIG_PREFLIGHT_PLAN_v2.5_2026-08-02.md` | 1,429 | 상태·근거·기록 | `f7efe3f302a8a0603675338080b598e1fbc926dc201beaac99d114a1133093af` |
 | `10_STATE/R6_EVIDENCE_CHAIN_PLAN_v2.7_2026-08-02.md` | 2,347 | 상태·근거·기록 | `2edf4cbc8ca0788cf81f65e3fd364f094766c0917f2096b76ee321534a2ecc25` |
 | `10_STATE/R6_SERVER_PREFLIGHT_PLAN_v2.4_2026-08-02.md` | 2,021 | 상태·근거·기록 | `f2deb30623156f197ae1dfc988aec53e91ee87e51cfc4891dc1d0f8317f57b1f` |
-| `10_STATE/RELEASE_DIFF_V2_16_2026-08-03.json` | 3,069 | 상태·근거·기록 | `fd384d5631f11153cafe5b98fe099e860f5ea5f7423e32e297705124cc8112c3` |
-| `10_STATE/RELEASE_DIFF_V2_17_2026-08-03.json` | 4,122 | 상태·근거·기록 | `c54f626d22b2a9be1e846a52d283d73cae74ec0bc670e3007c78475074efd683` |
-| `10_STATE/RELEASE_DIFF_V2_17_R2_2026-08-03.json` | 4,122 | 상태·근거·기록 | `ef9f0f8530a25520b83a5a99227f8d81035a3a3bfafb9b38aed47b719761ee5a` |
-| `10_STATE/RELEASE_DIFF_V2_19_PC1_2026-08-04.json` | 6,047 | 상태·근거·기록 | `f23d2d72a3b8b486ffddebba124c4fed034288afb229a9919d35abc62b9f3926` |
-| `10_STATE/RELEASE_DIFF_V2_20_PC2_PC3_2026-08-04.json` | 6,637 | 상태·근거·기록 | `f844f35b4e5c12b660679e001f0a07d61dd786ed7ea9754fcec5ed03d84ccfb2` |
-| `10_STATE/RELEASE_DIFF_V2_21_PC_PUBLIC_2026-08-04.json` | 6,989 | 상태·근거·기록 | `2f73b427b2d06e0fee7cfd15aa7b8f416f5c5f3b7469972fbea4a1a3be7f387e` |
+| `10_STATE/RELEASE_DIFF_V2_16_2026-08-03.json` | 3,069 | 상태·근거·기록 | `b6c45b274c1efe5a744db7c6f40491b5d337bc80bc2251ac76da9825d61c6b5a` |
+| `10_STATE/RELEASE_DIFF_V2_17_2026-08-03.json` | 4,122 | 상태·근거·기록 | `f9ee2b10545777b1f969dcac2c973dffb39ed39f7f0f546333bb83fd6f065137` |
+| `10_STATE/RELEASE_DIFF_V2_17_R2_2026-08-03.json` | 4,122 | 상태·근거·기록 | `ead8cc15ae7d6a642a84c7bfa7ff60b15cf73e734a4ea672bded2deb3793151a` |
+| `10_STATE/RELEASE_DIFF_V2_19_PC1_2026-08-04.json` | 6,047 | 상태·근거·기록 | `a0776554ef92a5620e7b57d35fa26f89cf91285627c8617a74a4c25fe8104abf` |
+| `10_STATE/RELEASE_DIFF_V2_20_PC2_PC3_2026-08-04.json` | 6,637 | 상태·근거·기록 | `b200dcbebdc4234c970f7689835c4a4d2d3b113c0c4936448d1d572c9b5a0713` |
+| `10_STATE/RELEASE_DIFF_V2_21_PC_PUBLIC_2026-08-04.json` | 6,989 | 상태·근거·기록 | `5a9fc96e1239fbce11a90ec921fadaf23870fc8336e956d74ba58b3cb95ef3b8` |
 | `10_STATE/RUNTIME_ACCEPTANCE_PLAN_v2.16_2026-08-03.md` | 3,301 | 상태·근거·기록 | `2cb0ae83282953152b20bf22c91d9ede6101bf78941a30b31e8238d44a137f84` |
 | `10_STATE/RUNTIME_EVIDENCE_CONTRACT_v2.17_2026-08-03.md` | 2,213 | 상태·근거·기록 | `d2bfab19ba8ba44f6172f1a20a08d92291e181a4882c030519a8536c642da254` |
 | `10_STATE/SERVICE_UI_UX_REDESIGN_V2_6_2026-08-04.md` | 15,156 | 상태·근거·기록 | `8b71465d1db07a3acc7feae1821d70aefd7fcee1478462ca124ca25322e99b77` |
 | `10_STATE/SERVICE_UI_V2_6_IMPLEMENTATION_REPORT_2026-08-05.md` | 6,563 | 상태·근거·기록 | `ef94c2224624f0a85e8912d79f8ddad88bf81a09edb6aedeed9acb3135405973` |
-| `10_STATE/STATE.md` | 3,935 | 상태·근거·기록 | `78ccda89d69d5755ffcf74280a93b68f1d7fc4eb694a87dba5a736cc908dad0b` |
+| `10_STATE/STATE.md` | 3,935 | 상태·근거·기록 | `fd4bd20249e87d99af8051d6f4b0b478d1d16ef51552474e2dc461431cc0e4f0` |
 | `10_STATE/TEST_AND_USABILITY_STATUS_2026-08-05.md` | 2,081 | 상태·근거·기록 | `55c11f94f6396ce4dbfdb79784c230438f5992bb283b210f86fa50542a0f174c` |
 | `10_STATE/UI_DESIGN_v1.0_2026-08-01.md` | 3,807 | 상태·근거·기록 | `9ab55106bfabfa486e18c69ac41643ee659374bd2e22611f278fe7dbf1f426f0` |
 | `10_STATE/UI_DESIGN_v1.1_2026-08-01.md` | 2,814 | 상태·근거·기록 | `16b3f04de94b4c27ed18147f63a30e57cc7859757c7b82fbf2b15fe67b9146bb` |
-| `10_STATE/USABILITY_SIMULATION_1000_2026-08-05.json` | 1,341,683 | 상태·근거·기록 | `e7f7630bb105a5b94566b409f955f979953056b599ad504b102110ca920576f6` |
-| `10_STATE/USABILITY_SIMULATION_1000_REPORT_2026-08-05.md` | 5,315 | 상태·근거·기록 | `56bfb52b934abfbabc66a7c6661a1a0e2efaf5cfd1c08415a0f57243e6c36f7c` |
-| `10_STATE/USABILITY_SIMULATION_A56_1000_2026-08-05.json` | 1,341,683 | 상태·근거·기록 | `e7f7630bb105a5b94566b409f955f979953056b599ad504b102110ca920576f6` |
-| `10_STATE/USABILITY_SIMULATION_A56_1000_REPORT_2026-08-05.md` | 5,315 | 상태·근거·기록 | `56bfb52b934abfbabc66a7c6661a1a0e2efaf5cfd1c08415a0f57243e6c36f7c` |
+| `10_STATE/USABILITY_SIMULATION_1000_2026-08-05.json` | 1,341,683 | 상태·근거·기록 | `e1027a5d9991b88d4ce1dcfe31956f69f2dab34675c0381365c4e805e31d8853` |
+| `10_STATE/USABILITY_SIMULATION_1000_REPORT_2026-08-05.md` | 5,315 | 상태·근거·기록 | `45c29d9f8f0341062de3a893aa8054f687d645f86cc4d51394c833800ab655d5` |
+| `10_STATE/USABILITY_SIMULATION_A56_1000_2026-08-05.json` | 1,341,683 | 상태·근거·기록 | `e1027a5d9991b88d4ce1dcfe31956f69f2dab34675c0381365c4e805e31d8853` |
+| `10_STATE/USABILITY_SIMULATION_A56_1000_REPORT_2026-08-05.md` | 5,315 | 상태·근거·기록 | `45c29d9f8f0341062de3a893aa8054f687d645f86cc4d51394c833800ab655d5` |
 | `20_SRC/app/__init__.py` | 150 | 현행 소스 | `8558798754cf10f51a8b405c87556ed5337ed3b60540435f936b3aa6406fdc7d` |
 | `20_SRC/app/client_keygen.js` | 6,030 | 현행 소스 | `829abf635971782969044a1d6295937110b80bee8fa328fda822f26a269e17f5` |
 | `20_SRC/app/connection_check.py` | 3,971 | 현행 소스 | `fe2d3a41a005fd432a0e9a5aa078538c04d2a04c192657b48045fb18b4ce71f9` |
@@ -383,7 +388,7 @@
 | `70_TOOLS/gen_contracts.py` | 472 | 생성·검증 도구 | `dd9d2345d70938e4989ccdf87bed619cdf6637a9a328833d1481580bb57466c1` |
 | `70_TOOLS/gen_state.py` | 25,823 | 생성·검증 도구 | `6e5d6203fc4ecff6f947d78b466bffe11d901276d140cd88d938c8ab08187882` |
 | `70_TOOLS/issue_peer_bundle.py` | 1,674 | 생성·검증 도구 | `82f9a0e843f2fcd65cc8ace23805e4bac16128fe91553310b3db9128111f6747` |
-| `70_TOOLS/make_manifest.py` | 4,253 | 생성·검증 도구 | `98f8fc31d5c00e6894193b914ca1599af2129f959e314f238111b9bc3e55dd19` |
+| `70_TOOLS/make_manifest.py` | 5,135 | 생성·검증 도구 | `a09a57bc6c75fafc0e612ad2401e2a64aa63c671fd04e1ae6dc596923a839c3d` |
 | `70_TOOLS/make_public_qr.py` | 1,682 | 생성·검증 도구 | `f8c6cde3c25e85b0069a5956be3c488e7b4fed2fac3d40f96d208437fc701938` |
 | `70_TOOLS/progress_dashboard.py` | 36,098 | 생성·검증 도구 | `0b55f50c93daf1cdefbe16b4481e3ac2bdb248707d0daa0f666924a094f67619` |
 | `70_TOOLS/reconcile_peer_bundle_address.py` | 3,217 | 생성·검증 도구 | `7413e37775a04e049c346e08c21df7057bd1516b11b3efbab65ce7f55624ed50` |
@@ -395,5 +400,5 @@
 | `70_TOOLS/run_usability_simulation.py` | 15,538 | 생성·검증 도구 | `120a24c2ef89aa2cdbe1779fb97e9da30c07b8851e70f4809bd776c280d6bd90` |
 | `70_TOOLS/scan_secrets.py` | 2,837 | 생성·검증 도구 | `5037ead8b0ad9c669339a0838c4bcfd084a3a30e7ff563df8ccf17f7a04b45c0` |
 | `70_TOOLS/verify_public_pc_v2_5.py` | 4,647 | 생성·검증 도구 | `d305ef4e9a99d0902e13133115393d264a6a2907e74b8534ae6ea00b9e954a3a` |
-| `AGENTS.md` | 962 | 프로젝트 작업 규칙 | `a9b05dd44a3b60ee94eb3747889572b156be166dd91e2464e4e9c22d9913a786` |
+| `AGENTS.md` | 962 | 프로젝트 작업 규칙 | `adf6f9f96e60f3abd65ae08498f323f7850d5f177107466dc4703d2361f80a15` |
 | `requirements-dev.txt` | 176 | 분류 확인 필요 | `5c4259b5d5693dff88c5662a5cc1db85cc873a06ae6676a77923c7accf6b93a6` |

@@ -5,6 +5,7 @@
     python3 70_TOOLS/make_manifest.py           # 생성
     python3 70_TOOLS/make_manifest.py --check   # 대조
 검사 실행 시 재생성되는 파일은 EXCLUDE 로 제외한다 — 목록은 MANIFEST 본문에 적힌다.
+텍스트 파일은 Windows·macOS·Linux의 줄바꿈 차이를 무시한 지문값을 쓴다.
 """
 import hashlib, sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -13,6 +14,8 @@ import fkvpaths
 EXCLUDE_DIRS  = {"__pycache__", ".git", "node_modules", ".test-venv", ".chrome-ci", ".chrome-ci2", ".pytest_cache"}
 EXCLUDE_NAMES = {"MANIFEST.md"}
 EXCLUDE_GLOBS = ["60_OUTPUTS/checks/**/*", ".project-continuity/LOCK*.json", "*.pyc", "*.log", "*.tmp"]
+TEXT_SUFFIXES = {".css", ".html", ".ini", ".js", ".json", ".md", ".ps1", ".py", ".sh", ".toml", ".txt", ".yaml", ".yml"}
+TEXT_NAMES = {".gitattributes", ".gitignore", "AGENTS.md", "LICENSE", "README"}
 
 def files(root):
     out = []
@@ -25,7 +28,12 @@ def files(root):
         out.append(rel)
     return out
 
-def sha(f): return hashlib.sha256(f.read_bytes()).hexdigest()
+def sha(f):
+    """Hash text after CRLF-to-LF normalization; hash binary files byte-for-byte."""
+    data = f.read_bytes()
+    if f.suffix.lower() in TEXT_SUFFIXES or f.name in TEXT_NAMES:
+        data = data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(data).hexdigest()
 
 def purpose(rel):
     """Return a short, stable human-facing purpose for the project inventory."""
@@ -52,6 +60,9 @@ def build(root):
              f"| 항목 | 값 |", "|---|---|",
              f"| 파일 수 | {len(rows)} |",
              f"| 총 바이트 | {total:,} |",
+             "", "## 지문 규칙", "",
+             "- 텍스트 파일은 줄바꿈(CRLF/LF)을 LF로 맞춘 뒤 SHA-256을 계산한다. 따라서 Windows·macOS·Linux 복제본도 같은 내용이면 같은 지문값이다.",
+             "- 이미지·압축 파일 등 이진 파일은 원래 바이트 그대로 SHA-256을 계산한다.",
              "", "## 제외 (검사 실행 시 재생성)", ""]
     lines += [f"- `{g}`" for g in EXCLUDE_GLOBS]
     lines += [f"- `{n}` (자기 자신)" for n in sorted(EXCLUDE_NAMES)]
