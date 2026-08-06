@@ -49,6 +49,15 @@
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금해제 O]
 
+## 2026-08-06 — 원격 기능 갈래 push 확인
+
+- 저장 기록: `b0e4e6e chore(source): bootstrap private GitHub source repository [codex]`.
+- 원격: `origin/feature/source-bootstrap`에 올린 뒤 같은 파일 지문값을 `git ls-remote`로 읽어 확인함. 원격 보관소는 비공개, 이슈 기능 사용 가능, HTTPS 인증은 현재 PC의 안전한 자격 증명 보관소를 사용함.
+- 검사: Chromium 설치 후 전체 재검사 57/59 파일·594/594 검사 통과, 제품 동작 실패 2개 파일은 STATE의 다음 행동으로 분리함.
+- 공개 Pages 보관소·배포·비용·실기기 VPN 설정은 변경하지 않음.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금해제 O]
+
 ## 2026-08-06 — 개발 원본 GitHub 연결·대청소 1차
 
 - 대청소: `10_PLAN/CURRENT_SERVICE_PLAN.md`, `10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md` 통합 정본을 새로 만들고 원본 v2~v4는 그대로 보존함. 참조 없는 `debug.log`는 `_to_delete/debug_2026-08-05.log`로만 이동했으며 삭제는 하지 않음.
