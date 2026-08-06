@@ -49,6 +49,18 @@
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금해제 O]
 
+## 2026-08-06 — 다른 PC 재현성·원격 자동 검사 완결
+
+- 보완: `.gitattributes`로 저장소 줄바꿈을 LF로 통일하고, `MANIFEST.md`의 텍스트 지문값은 Windows·macOS·Linux 줄바꿈 차이를 무시하도록 보강함. 잠금 파일은 의도적으로 목록표 대상에서 제외함.
+- 새 PC 준비: `requirements-dev.txt`, `70_TOOLS/bootstrap_dev.ps1`, `00_START/NEW_PC_SETUP.md`를 추가함. 실제 Python·Codex 내장 Python을 안전하게 찾고, 가상환경·Chromium·목록표·전체 검사를 한 명령으로 준비함.
+- 원격 자동 검사: `.github/workflows/ci.yml`을 추가해 기능 갈래 push와 pull request에서 목록표와 전체 검사를 실행함. 최신 GitHub Actions 실행 `31090521950`은 성공함.
+- 새 복제본 실측: 비공개 원격을 새 임시 폴더에 얕게 복제해 원격 저장 기록 `3202c5a` 일치, 자동 준비, 목록표 379개 일치, 전체 검사 59/59 파일·610/610 항목 통과를 확인함.
+- 보안: GitHub 의존성 경고 2건을 확인해 `cryptography` 50.0.0, `lxml` 6.1.1로 올렸고, 원격 알림이 둘 다 `fixed`로 전환됨.
+- 안정화: 원격 Windows 검사에서 PWA 화면 값 도착 전 단언하던 시간 경쟁을 재현·수정했고, 해당 검사 3회 연속 23/23 및 최신 원격 자동 검사 성공을 확인함.
+- 다음: F1-1 실제 출처·갱신 시각이 있는 서버·사용량 빈 상태 구현. 다른 계정 공동개발은 정확한 GitHub 사용자 이름을 받은 뒤 협업자 초대로 시작.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금해제 O · 대안소진 O]
+
 ## 2026-08-06 — GitHub 비공개 강화
 
 - 사용자 승인에 따라 개발 원본 `FreeFlexVPN-Source`와 기존 공개 사이트 보관소 `FreeFlexVPN`을 모두 비공개로 확인·전환함.
