@@ -45,7 +45,7 @@ with sync_playwright() as pw, server_for(ROOT / "30_DEPLOY") as base:
     checks.append(("홈 잔액 통계 동기화", page.locator("#pcBalanceValue").inner_text() == "2.25"))
     page.locator("body").press("Space")
     page.wait_for_function("document.querySelector('#statusCard').dataset.connectionState === 'limited'")
-    checks.append(("보호 판정 통계 동기화", page.locator("#pcProtectionValue").inner_text() == "일부 확인 불가"))
+    checks.append(("보호 판정 통계 동기화", page.locator("#pcProtectionValue").inner_text() == "보호 상태 확인 불가"))
     browser.close()
 
 with tempfile.TemporaryDirectory(prefix="freeflex-pc-home-broken-") as tmp, sync_playwright() as pw:

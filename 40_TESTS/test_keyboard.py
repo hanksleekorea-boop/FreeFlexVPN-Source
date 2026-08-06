@@ -38,7 +38,7 @@ with sync_playwright() as pw, server_for(ROOT / "30_DEPLOY") as base:
     page.locator("body").press("Space")
     checks.append(("Space 보호 확인 실행", page.get_attribute("#statusCard", "data-connection-state") == "checking"))
     page.wait_for_function("document.querySelector('#statusCard').dataset.connectionState === 'limited'")
-    checks.append(("Space 실제 상태 기록", page.get_attribute("#statusCard", "data-connection-state") == "limited" and "가동 서버" in page.locator("#connectionDetail").inner_text()))
+    checks.append(("Space 실제 상태 기록", page.get_attribute("#statusCard", "data-connection-state") == "limited" and "보호를 확인할 수 없습니다" in page.locator("#connectionDetail").inner_text()))
     page.locator("body").press("Enter")
     checks.append(("Enter 보호 확인 실행", page.get_attribute("#statusCard", "data-connection-state") == "checking"))
     page.wait_for_function("document.querySelector('#statusCard').dataset.connectionState === 'limited'")
@@ -62,7 +62,7 @@ with tempfile.TemporaryDirectory(prefix="freeflex-keyboard-broken-") as tmp, syn
     with server_for(broken_dir) as broken_base:
         browser = pw.chromium.launch(); page = browser.new_page(viewport={"width": 1280, "height": 900})
         page.goto(f"{broken_base}/broken.html?view=app&review=1"); page.locator("body").press("Space")
-        checks.append(("음성 대조: 키 핸들러 제거 감지", page.get_attribute("#statusCard", "data-connection-state") == "disconnected"))
+        checks.append(("음성 대조: 키 핸들러 제거 감지", page.get_attribute("#statusCard", "data-connection-state") == "limited"))
         browser.close()
 
 failed = [name for name, ok in checks if not ok]

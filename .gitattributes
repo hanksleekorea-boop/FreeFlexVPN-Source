@@ -1,0 +1,8 @@
+# Keep text fingerprints identical on Windows, macOS, and Linux clones.
+* text=auto eol=lf
+
+# Generated or bundled binary files must never be line-ending converted.
+*.png binary
+*.zip binary
+*.docx binary
+*.pyd binary

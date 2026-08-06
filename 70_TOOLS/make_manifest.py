@@ -12,7 +12,7 @@ import fkvpaths
 
 EXCLUDE_DIRS  = {"__pycache__", ".git", "node_modules", ".test-venv", ".chrome-ci", ".chrome-ci2", ".pytest_cache"}
 EXCLUDE_NAMES = {"MANIFEST.md"}
-EXCLUDE_GLOBS = ["60_OUTPUTS/checks/**/*", "*.pyc", "*.log", "*.tmp"]
+EXCLUDE_GLOBS = ["60_OUTPUTS/checks/**/*", ".project-continuity/LOCK*.json", "*.pyc", "*.log", "*.tmp"]
 
 def files(root):
     out = []
