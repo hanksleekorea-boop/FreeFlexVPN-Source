@@ -49,6 +49,16 @@
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금해제 O]
 
+## 2026-08-06 — GitHub 비공개 강화
+
+- 사용자 승인에 따라 개발 원본 `FreeFlexVPN-Source`와 기존 공개 사이트 보관소 `FreeFlexVPN`을 모두 비공개로 확인·전환함.
+- `FreeFlexVPN`의 GitHub Pages는 전환 뒤에도 공개 상태여서 중지함. 따라서 기존 공개 앱 주소는 외부에서 열리지 않을 수 있음.
+- 두 보관소에서 이슈·프로젝트·GitHub Actions·squash/rebase 병합·자동 병합·병합 뒤 갈래 삭제를 활성화하고, 위키·토론은 저장소 정본이 갈라지지 않도록 비활성화함.
+- 의존성 보안 알림은 두 보관소에서 활성화됨. GitHub 비밀값 자동 검사는 현재 보관소 조건에서 지원되지 않아 HTTP 422로 활성화되지 않았으며, 프로젝트의 로컬 비밀값 검사는 유지함.
+- 다음: 화면 검사 실패 2건을 수정·재검사한 뒤 F1-1로 진행.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금해제 O]
+
 ## 2026-08-06 — 원격 기능 갈래 push 확인
 
 - 저장 기록: `b0e4e6e chore(source): bootstrap private GitHub source repository [codex]`.

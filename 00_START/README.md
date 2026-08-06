@@ -3,7 +3,7 @@
 ## 현재 GitHub 연결 (2026-08-06)
 
 - 개발 원본: 비공개 `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source`의 `feature/source-bootstrap` 기능 갈래.
-- 공개 사이트: 별도 공개 보관소 `https://github.com/hanksleekorea-boop/FreeFlexVPN`와 GitHub Pages 주소를 사용한다. 이 보관소의 미공개 변경은 개발 원본과 독립적으로 보존한다.
+- 배포 보관소: `https://github.com/hanksleekorea-boop/FreeFlexVPN`는 별도 비공개 보관소다. 2026-08-06에 GitHub Pages 공개를 중지했으며, 이 보관소의 미공개 변경은 개발 원본과 독립적으로 보존한다.
 - 새 작업은 개발 원본에서 기능 갈래를 만들고 검사한 뒤 원격에 올린다. `main`에는 직접 저장 기록이나 보관소 올리기를 하지 않는다.
 
 ## 2026-08-03 이관 사본 안내
