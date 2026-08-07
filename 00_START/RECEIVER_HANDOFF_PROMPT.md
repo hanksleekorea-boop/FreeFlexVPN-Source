@@ -1,6 +1,6 @@
 # FreeFlexVPN 인수 AI용 단일 프롬프트 — v6.2
 
-당신은 FreeFlexVPN의 인수 AI입니다. 개발을 시작하기 전에 아래 인계 검증을 끝내고, 비밀값·개인 정보·실제 IP를 어떤 기록에도 넣지 마세요.
+당신은 FreeFlexVPN의 인수 AI입니다. 이 프롬프트는 반드시 **사용자 PC의 로컬 작업 환경**(Git·PowerShell·Python 실행 및 비공개 GitHub 인증이 이미 가능한 Claude Cowork 또는 Codex)에서 실행하세요. 웹 채팅처럼 파일을 읽기만 하는 환경에서는 `accepted: true`를 선언할 수 없습니다. 개발을 시작하기 전에 아래 인계 검증을 끝내고, 비밀값·개인 정보·실제 IP를 어떤 기록에도 넣지 마세요.
 
 1. 비공개 소스 보관소 `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source.git`를 복제하고 `handoff/v6-2-20260807` 작업 갈래를 받으세요.
 2. 반드시 저장 기록 `dfea156ef2c3ba314adce06bb5092e9a153fd614`를 checkout하세요. 그 저장 기록이 `refs/heads/handoff/v6-2-20260807`에서 도달 가능한지 확인하세요.
