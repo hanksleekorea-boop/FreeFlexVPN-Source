@@ -17,6 +17,9 @@ import make_public_qr
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
+# Rebuild before reading.  A previous result file may belong to a retired
+# public host and must never be treated as the current QR proof.
+make_public_qr.build()
 path = make_public_qr.OUTPUT
 checks: list[tuple[str, bool]] = []
 checks.append(("Q1 QR 파일 존재", path.is_file()))

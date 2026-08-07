@@ -25,6 +25,7 @@ SERIAL_FIRST = (
     "test_github_pages.py",
     "test_service_ui_v2_6.py",
     "test_service_ui_v3.py",
+    "test_server_usage_empty_ui.py",
 )
 REQUIRED_MODULES = {
     "playwright": "브라우저 계약 검사",

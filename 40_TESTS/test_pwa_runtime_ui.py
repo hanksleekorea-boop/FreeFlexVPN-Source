@@ -81,6 +81,8 @@ async def run() -> None:
                     payload = {"servers": [{"server_id": "sg-edge-1", "country_code": "SG", "country": "Singapore", "city": "Singapore", "health": "healthy", "capacity_percent": 12}], "available_count": 1}
                 elif path == "/v1/wallet":
                     payload = {"balances": {"free": 900000000, "earned": 500000000, "paid": 3000000000}, "total_available_bytes": 4400000000}
+                elif path == "/v1/usage":
+                    payload = {"sessions": []}
                 elif path == "/v1/devices" and request.method == "GET":
                     payload = {"devices": ([{"device_id": "a" * 32, "server_id": "sg-edge-1", "assigned_address": "10.66.0.2/32", "status": "active", "created_at": "2026-08-02T00:00:00+00:00", "revoked_at": None}] if state["device"] else []), "active_count": int(state["device"]), "active_limit": 2}
                 elif path == "/v1/devices" and request.method == "POST":

@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import shutil
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PUBLIC_REPO = ROOT.parent / "FreeFlexVPN-Pages"
+PUBLIC_REPO = Path(os.environ.get("FREEFLEX_PUBLIC_REPO", ROOT.parent / "FreeFlexVPN-Pages")).resolve()
 DEPLOY = ROOT / "30_DEPLOY"
 SOURCE = ROOT / "20_SRC" / "github_pages"
 STATIC_FILES = ("sw.js", "app-qr.png", "app-qr-evidence.json", "icon-192.png", "icon-512.png")

@@ -65,7 +65,7 @@ def main() -> None:
     )
     check(
         "현재 연결 상태 과장 금지",
-        "공개 상태<b>새로 확인 필요</b>" in service_shell and "현재 연결됨" not in service_shell,
+        "data-svc-operations-availability>판정 불가" in service_shell and "현재 연결됨" not in service_shell,
     )
     check("보조 문서 밝은 기본값", len(support) == 6 and all('data-theme="light"' in path.read_text(encoding="utf-8") for path in support))
     check("음성 대조: 빠른 메뉴 제거 감지", index.replace('class="quick-link"', 'class="removed"', 1).count('class="quick-link"') != 5)

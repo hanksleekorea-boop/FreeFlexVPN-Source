@@ -38,6 +38,20 @@ let currentConfig = null;
 let availableServers = [];
 let serverCatalogKnown = false;
 let selectedTier = "all";
+const operationalNodes = {
+  card: document.querySelector("[data-svc-operations-state]"),
+  copy: document.querySelector("[data-svc-operations-copy]"),
+  source: document.querySelector("[data-svc-operations-source]"),
+  measured: document.querySelector("[data-svc-operations-measured]"),
+  availability: document.querySelector("[data-svc-operations-availability]"),
+  congestion: document.querySelector("[data-svc-operations-congestion]"),
+  alternative: document.querySelector("[data-svc-alternative]"),
+  usageGrid: document.querySelector("[data-svc-usage-state]"),
+  usageSource: document.querySelector("[data-svc-usage-source]"),
+  usageEmpty: document.querySelector("[data-svc-usage-empty]"),
+  usageForecast: document.querySelector("[data-svc-usage-forecast]"),
+  usageUpdated: document.querySelector("[data-svc-usage-updated]"),
+};
 const detectedPlatformId = detectPlatform({
   userAgent: navigator.userAgent,
   platform: navigator.platform,
@@ -58,6 +72,31 @@ function setBanner(element, strong, copy, state = "") {
   const title = document.createElement("strong");
   title.textContent = strong;
   element.append(title, document.createTextNode(` — ${copy}`));
+}
+
+function formatMeasuredAt(value) {
+  const measured = new Date(value || "");
+  if (Number.isNaN(measured.getTime())) return null;
+  return measured.toLocaleString("ko-KR", { dateStyle: "short", timeStyle: "short" });
+}
+
+function renderOperationalState({ state, copy, source, measuredAt = null, available = null, congestion = null, alternative = null }) {
+  const measured = formatMeasuredAt(measuredAt);
+  if (operationalNodes.card) operationalNodes.card.dataset.svcOperationsState = state;
+  if (operationalNodes.copy) operationalNodes.copy.textContent = copy;
+  if (operationalNodes.source) operationalNodes.source.textContent = source;
+  if (operationalNodes.measured) operationalNodes.measured.textContent = measured || "확인 전";
+  if (operationalNodes.availability) operationalNodes.availability.textContent = available ?? "판정 불가";
+  if (operationalNodes.congestion) operationalNodes.congestion.textContent = congestion ?? "판정 불가";
+  if (operationalNodes.alternative && alternative) operationalNodes.alternative.innerHTML = `<strong>대안 경로</strong><br>${alternative}`;
+}
+
+function renderUsageEmptyState({ state, source, copy, updated = null }) {
+  if (operationalNodes.usageGrid) operationalNodes.usageGrid.dataset.svcUsageState = state;
+  if (operationalNodes.usageSource) operationalNodes.usageSource.textContent = source;
+  if (operationalNodes.usageEmpty) operationalNodes.usageEmpty.innerHTML = `<b>${copy}</b><p>그래프, 남은 시간, 소진 예상은 실제 사용량과 갱신 시각이 확인된 뒤에만 표시합니다.</p>`;
+  if (operationalNodes.usageForecast) operationalNodes.usageForecast.textContent = "계산 불가";
+  if (operationalNodes.usageUpdated) operationalNodes.usageUpdated.textContent = formatMeasuredAt(updated) ? `갱신 시각 ${formatMeasuredAt(updated)}` : "갱신 시각 확인 전";
 }
 
 function readableError(error) {
@@ -156,6 +195,32 @@ function renderCatalog(payload) {
   availableServers = servers;
   serverCatalogKnown = true;
   serverCatalog.dataset.serverCount = String(servers.length);
+  const measuredAt = payload?.measured_at || null;
+  const staleAfterSeconds = Number(payload?.stale_after_seconds || 0);
+  const measuredAgeSeconds = measuredAt ? Math.max(0, (Date.now() - new Date(measuredAt).getTime()) / 1000) : Number.POSITIVE_INFINITY;
+  const stale = !measuredAt || !Number.isFinite(measuredAgeSeconds) || (staleAfterSeconds > 0 && measuredAgeSeconds > staleAfterSeconds);
+  if (stale) {
+    renderOperationalState({
+      state: "stale", source: "서버 자료", measuredAt,
+      copy: "서버 자료의 갱신 시각이 없거나 유효 기간을 지났습니다. 연결 가능 여부를 표시하지 않습니다.",
+      alternative: "오래된 자료로는 대안을 추천하지 않습니다. 새 점검 결과가 필요합니다.",
+    });
+  } else if (!servers.length) {
+    renderOperationalState({
+      state: "empty", source: "서버 자료", measuredAt,
+      copy: "현재 유효한 가동 서버가 없습니다. 연결을 시작하거나 혼잡도를 추정하지 않습니다.",
+      available: "0대", congestion: "판정 대상 없음",
+      alternative: "검증된 대안 경로가 없습니다. 새 서버 점검이 끝난 뒤 다시 확인하세요.",
+    });
+  } else {
+    const highestCapacity = Math.max(...servers.map(server => Number(server.capacity_percent) || 0));
+    renderOperationalState({
+      state: "live", source: "서버 자료", measuredAt,
+      copy: "검증된 서버 자료를 받았습니다. 실제 선택지는 아래 목록에서 고르세요.",
+      available: `${servers.length}대`, congestion: highestCapacity >= 85 ? "혼잡 가능" : "정상 범위",
+      alternative: servers.length > 1 ? `${servers.length - 1}개 대안 경로를 함께 표시합니다.` : "검증된 대안 경로는 아직 1개뿐입니다.",
+    });
+  }
   serverCatalog.replaceChildren();
   if (!servers.length) {
     serverCatalog.className = "empty-catalog";
@@ -209,6 +274,10 @@ function renderWallet(wallet) {
   document.getElementById("topupCurrent").textContent = `${bytesToGb(balances.paid)}GB`;
   document.getElementById("walletTotalValue").textContent = total;
   document.getElementById("walletRuntimeBanner").innerHTML = "<strong>실제 계정 잔액</strong> — 제어 API 원장과 동기화됐습니다.";
+  document.querySelector("[data-svc-usage-free]").textContent = `${bytesToGb(balances.free)}GB`;
+  document.querySelector("[data-svc-usage-earned]").textContent = `${bytesToGb(balances.earned)}GB`;
+  document.querySelector("[data-svc-usage-paid]").textContent = `${bytesToGb(balances.paid)}GB`;
+  renderUsageEmptyState({ state: "wallet-live", source: "잔액 원장 확인됨", copy: "최근 7일 사용량 자료는 아직 받지 않았습니다." });
 }
 
 function renderDevices(payload) {
@@ -281,6 +350,22 @@ function setConnectionFromResult(result) {
 async function syncAccount() {
   const [wallet, devices] = await Promise.all([client.wallet(), client.devices()]);
   renderWallet(wallet); renderDevices(devices);
+  try {
+    renderUsage(await client.usage());
+  } catch (_error) {
+    renderUsage({ sessions: [] });
+  }
+}
+
+function renderUsage(payload) {
+  const sessions = Array.isArray(payload?.sessions) ? payload.sessions : [];
+  const updated = sessions[0]?.updated_at || null;
+  renderUsageEmptyState({
+    state: sessions.length ? "usage-live" : "usage-empty",
+    source: sessions.length ? "사용량 원장 확인됨" : "사용량 원장에 기록 없음",
+    copy: sessions.length ? "사용량 기록을 받았지만, 7일 차트와 소진 예상은 다음 화면 묶음에서 완성합니다." : "아직 사용량 기록이 없어 소진 예상도 계산하지 않습니다.",
+    updated,
+  });
 }
 
 async function createProfile() {
@@ -318,6 +403,8 @@ let client = null;
 async function initialize() {
   if (!apiBase) {
     root.dataset.apiMode = "unconfigured";
+    renderOperationalState({ state: "unconfigured", source: "연결 전", copy: "운영 서버 자료가 아직 연결되지 않았습니다. 연결 가능 여부와 혼잡도는 판단하지 않습니다.", alternative: "현재 검증된 가동 서버 목록이 없으므로 대안을 추천하지 않습니다. 자료가 연결된 뒤에만 실제 선택지를 표시합니다." });
+    renderUsageEmptyState({ state: "unconfigured", source: "자료 연결 전", copy: "사용량 원장을 아직 받지 못했습니다" });
     return;
   }
   root.dataset.apiMode = "connecting";
@@ -348,6 +435,8 @@ async function initialize() {
     root.dataset.apiMode = "unavailable";
     setBanner(runtimeBanner, "서버 API 연결 안 됨", readableError(error), "error");
     setBanner(setupBanner, "설정 생성 불가", "API가 다시 확인될 때까지 개인키나 가짜 구성을 만들지 않습니다.", "error");
+    renderOperationalState({ state: "error", source: "서버 자료 연결 실패", copy: "운영 자료를 받지 못했습니다. 이전 값이나 추정값으로 연결 가능 여부를 표시하지 않습니다.", alternative: "오류가 해소되어 새 서버 점검 자료를 받을 때까지 대안을 추천하지 않습니다." });
+    renderUsageEmptyState({ state: "error", source: "사용량 원장 연결 실패", copy: "사용량 자료를 받지 못했습니다" });
   }
 }
 

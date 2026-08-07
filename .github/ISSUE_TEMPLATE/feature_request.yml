@@ -1,0 +1,17 @@
+name: 기능 제안
+description: 사용자 문제와 원하는 결과를 제안합니다.
+title: "feature: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 해결할 사용자 문제
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: 기대 결과
+    validations:
+      required: true

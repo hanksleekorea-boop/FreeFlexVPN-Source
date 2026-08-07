@@ -60,7 +60,7 @@ def main() -> None:
     check("가격 지불의사 미검증 고지", "지불의사 미검증" in app)
     check("랜딩 서비스 진입 링크", 'href="app.html"' in index and "무료 1GB로 시작" in index)
     check("랜딩 알파·체험 문구 제거", "개발 진행 중" not in index and "앱 화면 체험하기" not in index)
-    check("QR 공개 대상 일치", qr_evidence.get("target_url") == qr_evidence.get("decoded_payload") == "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html")
+    check("QR 공개 대상 일치", qr_evidence.get("target_url") == qr_evidence.get("decoded_payload") == "https://storage.googleapis.com/freeflexvpn-public-oceanic-abacus-477201-f3/app.html")
     check("QR 해시 일치", qr_evidence.get("sha256") == hashlib.sha256(qr_raw).hexdigest())
     check("브라우저 오클루전 음성 판정 가능", "dataset.layoutSafe=safe?'pass':'fail'" in app and "elementFromPoint" in app)
 
