@@ -33,6 +33,7 @@ def files(root):
         if not f.is_file(): continue
         rel = f.relative_to(root)
         if any(part in EXCLUDE_DIRS for part in rel.parts): continue
+        if rel.parts[:2] == (".project-continuity", "local"): continue
         if rel.name in EXCLUDE_NAMES: continue
         if any(rel.match(g) for g in EXCLUDE_GLOBS): continue
         out.append(rel)
@@ -75,6 +76,7 @@ def build(root):
              "- 이미지·압축 파일 등 이진 파일은 원래 바이트 그대로 SHA-256을 계산한다.",
              "", "## 제외 (검사 실행 시 재생성)", ""]
     lines += [f"- `{g}`" for g in EXCLUDE_GLOBS]
+    lines += ["- `.project-continuity/local/**` (기기별 인계 원장)"]
     lines += [f"- `{n}` (자기 자신)" for n in sorted(EXCLUDE_NAMES)]
     lines += ["", "## 대청소 이동 기록", "", "| 원래 위치 | 새 위치 | 바이트 | 용도 |", "|---|---|---:|---|"]
     lines += [f"| `{old}` | `{new}` | {size:,} | {label} |" for old, new, size, label in MOVE_HISTORY]

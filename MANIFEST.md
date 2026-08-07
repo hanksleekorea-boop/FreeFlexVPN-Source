@@ -2,8 +2,8 @@
 
 | 항목 | 값 |
 |---|---|
-| 파일 수 | 392 |
-| 총 바이트 | 10,021,645 |
+| 파일 수 | 390 |
+| 총 바이트 | 10,019,988 |
 
 ## 지문 규칙
 
@@ -18,6 +18,7 @@
 - `*.pyc`
 - `*.log`
 - `*.tmp`
+- `.project-continuity/local/**` (기기별 인계 원장)
 - `MANIFEST.md` (자기 자신)
 
 ## 대청소 이동 기록
@@ -50,8 +51,6 @@
 | `.project-continuity/APPROVALS.md` | 4,111 | 공동개발 연속성 기록 | `c9b36a36753ec117a2648585e998a70d2fb12a98fea8855ce9511cd1005010f0` |
 | `.project-continuity/COMPLETION.md` | 586 | 공동개발 연속성 기록 | `1642625d6a25b9d9d459419c26ea54ad1945e375013d33d6b38d67cc1860591a` |
 | `.project-continuity/HISTORY.md` | 16,287 | 공동개발 연속성 기록 | `851e042b8150c5b2093dfd648bbd8a782d03dfb00d5c9e484b81ecb078132d08` |
-| `.project-continuity/local/default-branch-ruleset.v6-2.json` | 624 | 공동개발 연속성 기록 | `52f9ff3bdec988a2da7559b59167bf7c9f27dc5e66295c85e46a097a3efd6561` |
-| `.project-continuity/local/EVIDENCE.jsonl` | 1,180 | 공동개발 연속성 기록 | `de64aadd0964c33718ac1b28d298cb581f141300a240baae5ee73d050ed4b43f` |
 | `.project-continuity/STATE.md` | 1,996 | 공동개발 연속성 기록 | `3c51f01ab9413b05834f7c2d27160bc83174bd06edc303f22412db8f08dc9d93` |
 | `.project-continuity/TEST_EVIDENCE.md` | 11,725 | 공동개발 연속성 기록 | `9a737bd4c0d927fca468c4a2683c5215ef3554e7551a38d7d84d053081634ef5` |
 | `.tools/platform-tools-latest-windows.zip` | 2,371,584 | 분류 확인 필요 | `d72a8a78194ee1395a1762c951b3b9172e8862e558d0bce8f69cff526428aa4e` |
@@ -407,7 +406,7 @@
 | `70_TOOLS/gen_contracts.py` | 472 | 생성·검증 도구 | `dd9d2345d70938e4989ccdf87bed619cdf6637a9a328833d1481580bb57466c1` |
 | `70_TOOLS/gen_state.py` | 25,823 | 생성·검증 도구 | `6e5d6203fc4ecff6f947d78b466bffe11d901276d140cd88d938c8ab08187882` |
 | `70_TOOLS/issue_peer_bundle.py` | 1,674 | 생성·검증 도구 | `82f9a0e843f2fcd65cc8ace23805e4bac16128fe91553310b3db9128111f6747` |
-| `70_TOOLS/make_manifest.py` | 6,563 | 생성·검증 도구 | `1cc996bdf4768cc1ef1c83cb8bae22d45f3c7a20eab4ee51664a3437e5edbfa3` |
+| `70_TOOLS/make_manifest.py` | 6,710 | 생성·검증 도구 | `d31e467eab2dda3979a767e657480189099cecb34772a9c358ed5c161aa573bc` |
 | `70_TOOLS/make_public_qr.py` | 1,716 | 생성·검증 도구 | `ec664cab6fd7fa818c6dd6a60a9c5bed866ce51bb3eda307ad3fb2e7e09dc702` |
 | `70_TOOLS/progress_dashboard.py` | 36,098 | 생성·검증 도구 | `0b55f50c93daf1cdefbe16b4481e3ac2bdb248707d0daa0f666924a094f67619` |
 | `70_TOOLS/reconcile_peer_bundle_address.py` | 3,217 | 생성·검증 도구 | `7413e37775a04e049c346e08c21df7057bd1516b11b3efbab65ce7f55624ed50` |
