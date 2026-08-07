@@ -28,6 +28,8 @@
 - 전체 재검사 — 61/61 파일·628/628 검사 통과·실패 파일 0·90.0초.
 - `40_TESTS/test_progress_dashboard.py` — 7/7 통과. QR 해독 근거가 가리키는 Cloud Storage 공개 주소와 진척 대시보드 설정을 일치시킴.
 - `git diff --check` — 공백 오류 0건.
+- 새 복제본 — 정확한 저장 기록 `dfea156ef2c3ba314adce06bb5092e9a153fd614`, 시작 전 추적 변경 0, 목록표 390개 지문 일치, 전체 재검사 61/61 파일·628/628 항목 통과.
+- GitHub Actions `Verify private source` 실행 31162903252 — 같은 저장 기록에서 성공. 시험 Pull Request는 병합 없이 닫음.
 
 ### ② 실제 기기 검사
 

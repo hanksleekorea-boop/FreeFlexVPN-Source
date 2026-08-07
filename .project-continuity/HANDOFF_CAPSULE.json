@@ -1,0 +1,47 @@
+{
+  "protocol": "AI_HANDOFF_V6_2",
+  "handoff_id": "e2297f1a-e215-40ab-96cd-3bee05cee55d",
+  "created_at": "2026-08-07T08:44:27Z",
+  "expires_at": "2026-08-10T08:44:27Z",
+  "access_mode": "REPOSITORY",
+  "source": {
+    "private_verified_at": "2026-08-07T08:44:27Z",
+    "remote_or_bundle": "https://github.com/hanksleekorea-boop/FreeFlexVPN-Source.git",
+    "expected_ref": "refs/heads/handoff/v6-2-20260807",
+    "expected_sha": "dfea156ef2c3ba314adce06bb5092e9a153fd614",
+    "strict_default_head": false,
+    "bundle_sha256": null,
+    "manifest_sha256": "a5f77f930922ea209822ff6178d10fc683e17836c1871ccba785004addd5c63e",
+    "manifest_normalization": "text CRLF/LF normalized to LF; binary files raw SHA-256"
+  },
+  "checks": {
+    "required": [
+      {"name": "inventory", "command": "python -X utf8 70_TOOLS/make_manifest.py --check", "expected": "exit 0"},
+      {"name": "full verification", "command": "python -X utf8 70_TOOLS/run_all_tests.py --jobs 4 --timeout 120", "expected": "61/61 files and 628/628 checks, exit 0"}
+    ],
+    "optional": [
+      {"name": "Android physical tunnel", "command": "adb-based real tunnel check", "missing_tool_is": "limitation"},
+      {"name": "iPhone physical check", "command": "manual iPhone verification", "missing_tool_is": "limitation"}
+    ],
+    "minimal_integrity_only": false
+  },
+  "continuity": {
+    "start_files": ["AGENTS.md", ".project-continuity/STATE.md", ".project-continuity/TEST_EVIDENCE.md", "00_START/DEVELOPMENT_DASHBOARD.md"],
+    "lock_policy": "Check .project-continuity/LOCK*.json; do not overwrite another active worker's changes.",
+    "next_first_action": "After receipt is CONFIRMED, implement F1-3 network switching and blocked-mode guidance."
+  },
+  "mailbox": {
+    "kind": "private_issue",
+    "issue_number": 2,
+    "sender_monitor": "not_verified",
+    "sender_confirm_command": "manual GitHub Issue review by the sender AI",
+    "receiver_confirm_monitor": "user_relay"
+  },
+  "automation_level": "USER_RELAY",
+  "github_verdict": "GITHUB_READY_WITH_LIMITATIONS",
+  "known_limits": [
+    "No automatic chat notification watcher was verified.",
+    "Real WireGuard tunnel, iPhone device, and production API evidence are not part of this source handoff."
+  ],
+  "audit_report": ".project-continuity/GITHUB_AUDIT.md"
+}

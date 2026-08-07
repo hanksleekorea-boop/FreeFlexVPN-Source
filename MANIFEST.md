@@ -2,8 +2,8 @@
 
 | 항목 | 값 |
 |---|---|
-| 파일 수 | 390 |
-| 총 바이트 | 10,019,988 |
+| 파일 수 | 393 |
+| 총 바이트 | 10,028,014 |
 
 ## 지문 규칙
 
@@ -50,13 +50,16 @@
 | `.gitignore` | 352 | 버전 관리 제외 규칙 | `2a3e6c301451e97ad00a8bb24f42dc78bf1492e9a884cb2575f574479b5d9999` |
 | `.project-continuity/APPROVALS.md` | 4,111 | 공동개발 연속성 기록 | `c9b36a36753ec117a2648585e998a70d2fb12a98fea8855ce9511cd1005010f0` |
 | `.project-continuity/COMPLETION.md` | 586 | 공동개발 연속성 기록 | `1642625d6a25b9d9d459419c26ea54ad1945e375013d33d6b38d67cc1860591a` |
-| `.project-continuity/HISTORY.md` | 16,287 | 공동개발 연속성 기록 | `851e042b8150c5b2093dfd648bbd8a782d03dfb00d5c9e484b81ecb078132d08` |
-| `.project-continuity/STATE.md` | 1,996 | 공동개발 연속성 기록 | `3c51f01ab9413b05834f7c2d27160bc83174bd06edc303f22412db8f08dc9d93` |
-| `.project-continuity/TEST_EVIDENCE.md` | 11,725 | 공동개발 연속성 기록 | `9a737bd4c0d927fca468c4a2683c5215ef3554e7551a38d7d84d053081634ef5` |
+| `.project-continuity/GITHUB_AUDIT.md` | 2,835 | 공동개발 연속성 기록 | `0ca8ccf100e0245e9941530abc5cede6e1ac9d544af7e85ea13da2dbaefe4734` |
+| `.project-continuity/HANDOFF_CAPSULE.json` | 2,303 | 공동개발 연속성 기록 | `25c274fa0ffd86d7e2e92c9a1177b57d92c9d08ad11e3e72ab2375d2cde55efa` |
+| `.project-continuity/HISTORY.md` | 16,447 | 공동개발 연속성 기록 | `a43eb4ea1d3c4290506897b6f9309b3d1a87df61910365e39f9da042943b7bb4` |
+| `.project-continuity/STATE.md` | 2,022 | 공동개발 연속성 기록 | `9e7586d5bda40d9c2208203881345feb10774248a91b8f40a146aac681fe65c0` |
+| `.project-continuity/TEST_EVIDENCE.md` | 12,071 | 공동개발 연속성 기록 | `6451b39f4820ca23d28eca0cf423bb7374a244cda7825fe53fc364d449953bf7` |
 | `.tools/platform-tools-latest-windows.zip` | 2,371,584 | 분류 확인 필요 | `d72a8a78194ee1395a1762c951b3b9172e8862e558d0bce8f69cff526428aa4e` |
 | `00_START/DEVELOPMENT_DASHBOARD.md` | 5,444 | 시작·인수인계 | `d08ea2400ee67966ecb510d9ef09314a5394edaaf55453d75e9d18b61cb48d7b` |
 | `00_START/HANDOFF_PROMPT.md` | 14,622 | 시작·인수인계 | `08e5083c7e875677743e1b0ee1cc6ee1fee40fd736f559c56fcd80c88ecfe26b` |
 | `00_START/NEW_PC_SETUP.md` | 1,564 | 시작·인수인계 | `bc86e1019ed81c4fdd9179d100d3edc3100f170d2e9171ab394c93f6f2689940` |
+| `00_START/RECEIVER_HANDOFF_PROMPT.md` | 2,356 | 시작·인수인계 | `dbbd4e7714c4fbbed4d14e6689716eb4a164fcd7395c2f82c45d8dcc7b8ccf27` |
 | `00_START/시작하세요.md` | 1,029 | 시작·인수인계 | `23e5954fbc6013f8ad7bd342dd215d9e8626de827549c1995de7183cb892aa6b` |
 | `10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md` | 7,602 | 현재 기획·실행 정본 | `1682357a46f43f7c76eb63721866826558e6482dbd01df1c3c0cac6ad81aa0e0` |
 | `10_PLAN/CURRENT_SERVICE_PLAN.md` | 7,745 | 현재 기획·실행 정본 | `23f9dc30e11d4b9fcd328ea22f33192c0c145082162e93f6ed7885c0d5ac3d18` |
