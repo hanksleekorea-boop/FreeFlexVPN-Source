@@ -13,7 +13,16 @@ import fkvpaths
 
 EXCLUDE_DIRS  = {"__pycache__", ".git", "node_modules", ".test-venv", ".chrome-ci", ".chrome-ci2", ".pytest_cache"}
 EXCLUDE_NAMES = {"MANIFEST.md"}
-EXCLUDE_GLOBS = ["60_OUTPUTS/checks/*", "60_OUTPUTS/checks/**/*", ".project-continuity/LOCK*.json", "*.pyc", "*.log", "*.tmp"]
+EXCLUDE_GLOBS = [
+    "60_OUTPUTS/checks/*",
+    "60_OUTPUTS/checks/**/*",
+    "60_OUTPUTS/AI_HANDOFF_CURRENT/*",
+    "60_OUTPUTS/AI_HANDOFF_CURRENT/**/*",
+    ".project-continuity/LOCK*.json",
+    "*.pyc",
+    "*.log",
+    "*.tmp",
+]
 TEXT_SUFFIXES = {".css", ".html", ".ini", ".js", ".json", ".md", ".ps1", ".py", ".sh", ".toml", ".txt", ".yaml", ".yml"}
 TEXT_NAMES = {".gitattributes", ".gitignore", "AGENTS.md", "LICENSE", "README"}
 MOVE_HISTORY = (

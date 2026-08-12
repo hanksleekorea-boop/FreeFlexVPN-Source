@@ -16,3 +16,4 @@ __pycache__/
 *.log
 *.tmp
 60_OUTPUTS/checks/
+60_OUTPUTS/AI_HANDOFF_CURRENT/

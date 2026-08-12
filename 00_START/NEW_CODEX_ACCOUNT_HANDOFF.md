@@ -12,8 +12,8 @@ C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\handoff-chec
 1. 프로젝트의 AGENTS.md, %USERPROFILE%\.codex\GLOBAL_CONTINUITY_POLICY.md, %USERPROFILE%\.ai-global-rules\GLOBAL_RULES.md를 읽으세요.
 2. .project-continuity\STATE.md, HISTORY.md, TEST_EVIDENCE.md, 00_START\DEVELOPMENT_DASHBOARD.md, 00_START\시작하세요.md, 이 파일을 읽으세요.
 3. 수정 전에 git status --porcelain=v1, git branch --show-current, git rev-parse HEAD, git rev-list --left-right --count @{upstream}...HEAD를 실행해 실제 상태를 확인하세요.
-4. 현재 작업 사본에는 저장 기록에 아직 포함되지 않은 변경이 있습니다. 다른 AI·사용자의 변경일 수 있으므로 git reset, git checkout, git clean, stash, 강제 push, 무단 커밋을 하지 마세요. 먼저 변경 범위를 읽기 전용으로 분류하고 인수 상태를 짧게 보고하세요.
-5. 원격 기준선은 현재 작업 갈래 handoff/v6-2-20260807와 일치하는 것으로 확인됐습니다. GitHub 인증·원격 읽기는 이 PC에서 다시 확인하되, 계정·토큰·이메일·실제 IP·개인 VPN 설정 내용은 출력하거나 기록하지 마세요.
+4. 인계 패키지는 생성 시점에 미저장 변경이 없고 원격 작업 갈래와 ahead/behind 0/0인 소스만 허용합니다. 실제 상태가 다르면 git reset, git checkout, git clean, stash, 강제 push로 숨기지 말고 변경 소유와 범위를 먼저 분류하세요.
+5. 원격 기준선은 인계 ZIP의 `20_GIT/git_context.txt`와 Release 자산의 SHA-256을 대조하세요. GitHub 인증·원격 읽기는 새 환경에서 다시 확인하되, 계정·토큰·이메일·실제 IP·개인 VPN 설정 내용은 출력하거나 기록하지 마세요.
 
 현재 핵심 사실:
 - 공개 반응형 앱: https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html
@@ -34,5 +34,5 @@ STATE.md의 다음 첫 행동을 따르되, 기존 ffvpn의 사람 직접 스위
 ## 인계 판정
 
 - 같은 PC·같은 프로젝트 폴더: 위 프롬프트와 프로젝트 기록만으로 안전하게 이어갈 수 있다.
-- 다른 PC: 현재 로컬의 미저장 변경은 아직 원격에 없으므로, 지금 상태를 100% 재현할 수 없다. 변경 소유·검사 범위를 확인한 뒤 기능 갈래에 안전한 저장 기록과 업로드가 필요하다.
-- GitHub 확인: 원격은 비공개이며, 현재 작업 갈래의 원격 기준선은 로컬 HEAD와 일치하고 원격 읽기·최근 Actions 결과 읽기가 확인됐다.
+- 다른 PC: 최신 비공개 GitHub Release의 ZIP·TXT SHA-256과 `20_GIT/git_context.txt`의 HEAD를 확인한 뒤 새 안전 폴더에 풀면 같은 소스를 재현할 수 있다. 전체 회귀와 외부 접근은 새 PC에서 다시 확인해야 한다.
+- GitHub 확인: 원격은 비공개이며, 인계 생성기는 깨끗한 작업 폴더·현재 작업 갈래와 원격 ahead/behind 0/0이 아니면 중단한다.
