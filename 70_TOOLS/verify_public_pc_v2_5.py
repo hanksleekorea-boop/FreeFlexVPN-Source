@@ -14,8 +14,8 @@ import numpy as np
 from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-PUBLIC_APP = "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html"
-PUBLIC_QR = "https://hanksleekorea-boop.github.io/FreeFlexVPN/app-qr.png"
+PUBLIC_APP = "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html"
+PUBLIC_QR = "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app-qr.png"
 
 
 def fetch(url: str) -> bytes:

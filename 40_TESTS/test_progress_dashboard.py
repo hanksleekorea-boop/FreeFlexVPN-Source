@@ -85,7 +85,7 @@ class ProgressDashboardTests(unittest.TestCase):
         self.assertIn("방치 시 영향", rendered)
         self.assertIn("용어 원장", rendered)
         self.assertIn("data:image/png;base64,", rendered)
-        self.assertIn("https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html", rendered)
+        self.assertIn("https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html", rendered)
         self.assertNotIn("<link ", rendered)
         self.assertNotIn("<script src=", rendered)
 

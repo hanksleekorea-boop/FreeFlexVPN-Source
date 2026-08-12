@@ -16,7 +16,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 APP = ROOT / "30_DEPLOY" / "app.html"
-CANONICAL = "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html"
+CANONICAL = "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html"
 checks: list[tuple[str, bool]] = []
 
 

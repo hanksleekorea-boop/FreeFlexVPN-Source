@@ -16,7 +16,7 @@
     {"id": "real_world", "name": "실서버·실사용 검증", "weight": 41.6667, "plan_start": "2026-08-03", "plan_end": "2026-08-12"}
   ],
   "milestones": [
-    {"id": "V2-M1", "area": "product", "label": "새 앱서비스 제품 계약 확정", "status": "complete", "evidence": ["10_STATE/APP_SERVICE_PLAN_v2.0_2026-08-01.md", "10_STATE/DECISIONS.md"]},
+    {"id": "V2-M1", "area": "product", "label": "새 앱서비스 제품 계약 확정", "status": "complete", "evidence": ["90_ARCHIVE/10_STATE_plans/APP_SERVICE_PLAN_v2.0_2026-08-01.md", "10_STATE/DECISIONS.md"]},
     {"id": "V2-M2", "area": "public_ui", "label": "v1.1 공개 UI 기준선 보존", "status": "complete", "evidence": ["10_STATE/PUBLIC_EVIDENCE_R1_PAGES_2026-07-31.json"]},
     {"id": "V2-M3", "area": "local_engine", "label": "계정·쿼터·피어 로컬 엔진", "status": "complete", "evidence": ["10_STATE/LOCAL_EVIDENCE_CONTROL_SAFETY_V2_2026-08-02.json"]},
     {"id": "V2-M4", "area": "public_ui", "label": "v2 순간 중심 UI·UX 공개", "status": "complete", "evidence": ["10_STATE/PUBLIC_EVIDENCE_R9_DESKTOP_APP_V2_3_2026-08-02.json"]},

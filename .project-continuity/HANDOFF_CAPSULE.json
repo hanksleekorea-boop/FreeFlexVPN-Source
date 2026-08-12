@@ -1,0 +1,36 @@
+{
+  "protocol": "AI_HANDOFF_V7",
+  "handoff_id": "handoff-20260812T095152Z-4f7ec30",
+  "created_at": "2026-08-12T09:51:52Z",
+  "access_mode": "PRIVATE_GITHUB_RELEASE",
+  "release_url": "https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/releases/tag/handoff-20260812T095152Z-4f7ec30",
+  "source": {
+    "remote": "https://github.com/hanksleekorea-boop/FreeFlexVPN-Source.git",
+    "expected_ref": "refs/heads/handoff/v6-2-20260807",
+    "expected_sha": "4f7ec30f1c8fac0b7d8594b40ccf48e46cd45357",
+    "working_tree_at_package_creation": "clean",
+    "ahead_behind_at_package_creation": "0/0",
+    "tracked_files_only": true
+  },
+  "assets": [
+    {"name": "freeflexvpn-ai-handoff-20260812T095152Z-4f7ec30.zip", "bytes": 2263790, "sha256": "22a10e20260929edec0cf02e3f9680c58ee5dedc1cb7385b76d58b2a83b0873b"},
+    {"name": "freeflexvpn-next-ai-prompt.txt", "bytes": 1839, "sha256": "40e6f5ad55caf84971502e5da171fee814b350d3ff804d41debaacd9771b9521"}
+  ],
+  "checks": {
+    "package_local_verify": "PASS",
+    "release_download_hash_verify": "PASS",
+    "inventory": "416/416 PASS",
+    "full_regression": "69/69 files, 720/720 checks, 0 failures",
+    "handoff_contract": "6/6 PASS"
+  },
+  "continuity": {
+    "start_files": ["AGENTS.md", ".project-continuity/STATE.md", ".project-continuity/TEST_EVIDENCE.md", "00_START/DEVELOPMENT_DASHBOARD.md", "00_START/RECEIVER_HANDOFF_PROMPT.md"],
+    "lock_policy": "Check .project-continuity/LOCK*.json and do not overwrite another active worker.",
+    "next_first_action": "Preserve the existing Android ffvpn profile and compare its server peer and reissue path before replacement."
+  },
+  "known_limits": [
+    "A receiver on a new PC must rerun dependencies, inventory, and the full regression.",
+    "The existing Android ffvpn profile still has a reproduced DNS/path failure.",
+    "iPhone and Windows real VPN connections and production operations remain incomplete."
+  ]
+}

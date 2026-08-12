@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import pathlib
 import sys
 
@@ -13,7 +14,10 @@ import numpy as np
 import qrcode
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-TARGET_URL = "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html"
+TARGET_URL = os.environ.get(
+    "FREEFLEX_PUBLIC_APP_URL",
+    "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+)
 QR_PATH = ROOT / "app-qr.png"
 EVIDENCE_PATH = ROOT / "app-qr-evidence.json"
 

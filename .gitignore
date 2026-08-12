@@ -1,6 +1,7 @@
 
 <!-- CONTINUITY-v3 BEGIN -->
 .project-continuity/LOCK*.json
+.project-continuity/local/
 <!-- CONTINUITY-v3 END -->
 
 # Local Python environment, browser profiles, and test output (rebuild locally)
@@ -15,3 +16,4 @@ __pycache__/
 *.log
 *.tmp
 60_OUTPUTS/checks/
+60_OUTPUTS/AI_HANDOFF_CURRENT/

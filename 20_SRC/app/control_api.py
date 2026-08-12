@@ -91,7 +91,7 @@ class ControlAPI:
         self,
         storage_path: str | Path,
         *,
-        share_base_url: str = "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
+        share_base_url: str = "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
         peer_provisioner: PeerProvisioner | None = None,
         peer_revoker: PeerRevoker | None = None,
     ):

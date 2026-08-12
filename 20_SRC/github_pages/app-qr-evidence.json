@@ -1,6 +1,6 @@
 {
-  "target_url": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
-  "decoded_payload": "https://hanksleekorea-boop.github.io/FreeFlexVPN/app.html",
-  "sha256": "ab7f68ca032628b037bb1e9dfdebdaa9c29738b35382a777ce71aa4e10366d4f",
-  "bytes": 2613
+  "target_url": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+  "decoded_payload": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+  "sha256": "bcad7f407d0f636ec0fb34a996b97e2c7cda5a7805b0dc367186b0b0292f6b12",
+  "bytes": 2996
 }

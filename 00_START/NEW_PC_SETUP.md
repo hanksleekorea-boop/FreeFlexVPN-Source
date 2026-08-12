@@ -2,6 +2,8 @@
 
 이 프로젝트의 원격 정본은 비공개 보관소 `hanksleekorea-boop/FreeFlexVPN-Source`다. 기본 갈래는 `feature/source-bootstrap`이며, `main`에는 직접 저장 기록이나 원격 올리기를 하지 않는다.
 
+가장 빠른 인계 경로는 최신 비공개 Release의 TXT→ZIP 순서다: `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/releases/tag/handoff-20260812T095152Z-4f7ec30`. ZIP SHA-256은 `22a10e20260929edec0cf02e3f9680c58ee5dedc1cb7385b76d58b2a83b0873b`이며, 기준 소스 HEAD는 `4f7ec30f1c8fac0b7d8594b40ccf48e46cd45357`이다.
+
 ## 같은 GitHub 계정으로 새 PC에서 시작
 
 1. Git과 GitHub CLI를 설치한다.
