@@ -1,5 +1,5 @@
 const CACHE_NAME = "freeflexvpn-app-v2-3-desktop-mode-v1";
-const APP_SHELL = ["./", "./index.html", "./app.html", "./pwa_runtime.js", "./pwa_api_client.js", "./client_keygen.js", "./moment_catalog.js", "./platform_support.js", "./app-qr.png", "./icon-192.png", "./icon-512.png"];
+const APP_SHELL = ["./", "./index.html", "./app.html", "./pwa_runtime.js", "./pwa_api_client.js", "./client_keygen.js", "./moment_catalog.js", "./platform_support.js", "./pc_readiness.js", "./app-qr.png", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));

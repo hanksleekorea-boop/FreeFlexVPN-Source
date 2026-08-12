@@ -1,0 +1,18 @@
+{
+  "schema": "FreeFlexVPNPcCommercialPublicBaselineV1",
+  "measured_at": "2026-08-12T22:30:00+07:00",
+  "public_url": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html?view=app",
+  "browser_surface": "Codex in-app browser",
+  "checks": {
+    "http_page_loaded": true,
+    "title": "FreeFlexVPN 서비스",
+    "viewport_1280_horizontal_overflow": false,
+    "viewport_720_horizontal_overflow": false,
+    "viewport_720_account_path_present": true,
+    "viewport_720_help_path_present": true,
+    "public_pc_readiness_panel_present": false,
+    "public_skip_link_present_at_720": false
+  },
+  "interpretation": "Current public version is reachable and does not overflow at the measured widths, but the new PC readiness panel and skip-link fix are not deployed. This is not Windows VPN evidence.",
+  "sensitive_values_recorded": false
+}

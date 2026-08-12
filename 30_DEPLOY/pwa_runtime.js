@@ -2,6 +2,7 @@ import { FreeFlexApiClient, FreeFlexApiError, bytesToGb, consumeLaunchParameters
 import { createDeviceProfile, manualFallback, supportsBrowserX25519 } from "./client_keygen.js";
 import { MOMENTS, TIER_LABELS, getCountryPolicy, recommendMoments } from "./moment_catalog.js";
 import { WIREGUARD_INSTALL_URL, detectBrowser, detectPlatform, getInstallGuidance, getPlatformProfile, getPlatformReadiness } from "./platform_support.js";
+import { createPcPreferenceBackup, createRedactedPcDiagnostic, evaluatePcReadiness, sanitizePcPreferenceBackup } from "./pc_readiness.js";
 
 const apiMeta = document.querySelector('meta[name="freeflex-api-base"]');
 const apiBase = apiMeta?.content?.trim() || "";
@@ -35,6 +36,10 @@ const platformInstallButton = document.getElementById("platformInstallButton");
 const platformInstallState = document.getElementById("platformInstallState");
 const platformVpnState = document.getElementById("platformVpnState");
 const wireguardInstallLink = document.getElementById("wireguardInstallLink");
+const pcReadiness = document.querySelector("[data-pc-readiness]");
+const pcReadinessBadge = document.querySelector("[data-pc-readiness-badge]");
+const pcReadinessCopy = document.querySelector("[data-pc-readiness-copy]");
+const pcConfirmationInputs = [...document.querySelectorAll("[data-pc-confirm]")];
 let selectedServerId = null;
 let activeDeviceId = null;
 let candidateDeviceId = null;
@@ -44,6 +49,8 @@ let currentConfig = null;
 let availableServers = [];
 let serverCatalogKnown = false;
 let selectedTier = "all";
+let pcProtectionState = "unverified";
+const PC_ACK_KEY = "freeflex-pc-readiness-v1";
 const operationalNodes = {
   card: document.querySelector("[data-svc-operations-state]"),
   copy: document.querySelector("[data-svc-operations-copy]"),
@@ -69,6 +76,77 @@ const detectedBrowserId = detectBrowser(navigator.userAgent);
 
 function notify(message) {
   if (typeof globalThis.toast === "function") globalThis.toast(message);
+}
+
+function safeLocalRead(key) {
+  try { return localStorage.getItem(key); } catch (_error) { return null; }
+}
+
+function safeLocalWrite(key, value) {
+  try { localStorage.setItem(key, value); return true; } catch (_error) { return false; }
+}
+
+function readPcAcknowledgements() {
+  try {
+    const value = JSON.parse(safeLocalRead(PC_ACK_KEY) || "{}");
+    return value && typeof value === "object" ? value : {};
+  } catch (_error) { return {}; }
+}
+
+function pcReadinessInput() {
+  const acknowledgements = readPcAcknowledgements();
+  return {
+    secureContext: globalThis.isSecureContext === true,
+    online: navigator.onLine !== false,
+    apiMode: root.dataset.apiMode || "unconfigured",
+    wireguardClientConfirmed: acknowledgements.wireguardClient === true,
+    profileImportedConfirmed: acknowledgements.profileImport === true,
+    protectionState: pcProtectionState,
+    recoveryDrillConfirmed: acknowledgements.recoveryDrill === true && pcProtectionState === "protected",
+  };
+}
+
+function renderPcReadiness() {
+  if (!pcReadiness) return;
+  const result = evaluatePcReadiness(pcReadinessInput());
+  const details = {
+    "secure-context": { pass: "브라우저 보안 연결 확인됨", fail: "HTTPS 연결 필요" },
+    network: { pass: "브라우저 온라인", fail: "오프라인" },
+    "service-api": { pass: "실제 서비스 API 응답", pending: "운영 API 연결 전" },
+    "wireguard-client": { self_reported: "사용자가 설치 확인 · 자동 증거 아님", pending: "사용자 확인 전" },
+    "profile-import": { self_reported: "사용자가 가져오기 확인 · 키는 읽지 않음", pending: "별도 PC 설정 필요" },
+    protection: { pass: "서비스 보호 근거 확인", fail: "연결 끊김", pending: "실제 보호 근거 확인 전" },
+    "recovery-drill": { self_reported: "보호 확인 뒤 일반망 복귀 자가 확인", pending: "실제 보호 확인 뒤 연습 가능" },
+  };
+  for (const check of result.checks) {
+    const row = pcReadiness.querySelector(`[data-pc-check="${check.id}"]`);
+    if (!row) continue;
+    row.dataset.state = check.state;
+    const detail = row.querySelector("small");
+    if (detail) detail.textContent = details[check.id]?.[check.state] || "확인 전";
+  }
+  const acknowledgements = readPcAcknowledgements();
+  for (const input of pcConfirmationInputs) {
+    const key = input.dataset.pcConfirm === "wireguard-client" ? "wireguardClient" : input.dataset.pcConfirm === "profile-import" ? "profileImport" : "recoveryDrill";
+    input.checked = acknowledgements[key] === true && (key !== "recoveryDrill" || pcProtectionState === "protected");
+    if (key === "recoveryDrill") input.disabled = pcProtectionState !== "protected";
+  }
+  pcReadinessBadge.textContent = `${result.completedCount} / ${result.checks.length} · ${result.readyForCandidateReview ? "후보 검토 가능" : "준비 중"}`;
+  pcReadinessCopy.textContent = result.readyForCandidateReview
+    ? "이 브라우저의 로컬 점검은 끝났습니다. 실제 Windows VPN·운영·지원 증거를 별도 원장으로 확인해야 출시 후보가 됩니다."
+    : "자동 확인과 자가 확인을 분리합니다. 파란 점은 사용자 확인이며 실제 상용 증거로 자동 승격되지 않습니다.";
+}
+
+function downloadJson(filename, value) {
+  const blob = new Blob([`${JSON.stringify(value, null, 2)}\n`], { type: "application/json;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url; anchor.download = filename; document.body.append(anchor); anchor.click(); anchor.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1_000);
+}
+
+function browserFamily() {
+  return detectedBrowserId === "chrome" || detectedBrowserId === "edge" ? "chromium" : detectedBrowserId;
 }
 
 function setBanner(element, strong, copy, state = "") {
@@ -370,6 +448,8 @@ function renderDevices(payload) {
 function setConnectionFromResult(result) {
   const state = ["setup_needed", "checking", "protected", "limited", "disconnected"].includes(result?.state)
     ? result.state : "limited";
+  pcProtectionState = state;
+  renderPcReadiness();
   globalThis.setConnectionState?.(state);
   const checks = result?.checks || {};
   if (activeDeviceId && activeDeviceId === candidateDeviceId && candidateRuntimeEvidencePassed(result)) {
@@ -528,6 +608,51 @@ shareButton?.addEventListener("click", async () => {
   finally { shareButton.disabled = false; }
 });
 document.getElementById("addDeviceButton")?.addEventListener("click", () => globalThis.go?.("setup"));
+for (const input of pcConfirmationInputs) {
+  input.addEventListener("change", () => {
+    const acknowledgements = readPcAcknowledgements();
+    const key = input.dataset.pcConfirm === "wireguard-client" ? "wireguardClient" : input.dataset.pcConfirm === "profile-import" ? "profileImport" : "recoveryDrill";
+    if (key === "recoveryDrill" && pcProtectionState !== "protected") { input.checked = false; notify("실제 보호 근거가 확인된 뒤에만 일반망 복귀 연습을 기록할 수 있습니다."); return; }
+    acknowledgements[key] = input.checked;
+    safeLocalWrite(PC_ACK_KEY, JSON.stringify(acknowledgements));
+    renderPcReadiness();
+  });
+}
+document.querySelector("[data-pc-download-diagnostic]")?.addEventListener("click", () => {
+  const diagnostic = createRedactedPcDiagnostic({
+    ...pcReadinessInput(),
+    generatedAt: new Date().toISOString(),
+    browserFamily: browserFamily(),
+    platformFamily: ["windows", "macos", "linux"].includes(detectedPlatformId) ? detectedPlatformId : "other",
+    standalone: globalThis.freeflexIsStandalone === true,
+  });
+  downloadJson("FreeFlexVPN-PC-redacted-diagnostic.json", diagnostic);
+  notify("IP·개인키·설정·방문 기록을 제외한 진단을 이 PC에 저장했습니다.");
+});
+document.querySelector("[data-pc-export-preferences]")?.addEventListener("click", () => {
+  let accessibility = {};
+  try { accessibility = JSON.parse(safeLocalRead("freeflex-accessibility-v1") || "{}"); } catch (_error) { accessibility = {}; }
+  downloadJson("FreeFlexVPN-PC-reading-preferences.json", createPcPreferenceBackup({
+    accessibility,
+    focusMode: safeLocalRead("freeflex-pc-focus-v1") === "true",
+  }));
+  notify("글씨·고대비·집중 보기만 백업했습니다. VPN 설정과 계정 정보는 포함하지 않습니다.");
+});
+document.querySelector("[data-pc-import-preferences]")?.addEventListener("change", async event => {
+  const file = event.target.files?.[0];
+  if (!file) return;
+  try {
+    const backup = sanitizePcPreferenceBackup(JSON.parse(await file.text()));
+    safeLocalWrite("freeflex-accessibility-v1", JSON.stringify(backup.accessibility));
+    safeLocalWrite("freeflex-pc-focus-v1", String(backup.focusMode));
+    globalThis.dispatchEvent(new CustomEvent("freeflex:restore-reading-preferences", { detail: backup }));
+    notify("읽기 설정을 복원해 바로 적용했습니다.");
+  } catch (_error) { notify("지원하는 FreeFlexVPN 읽기 설정 백업 파일이 아닙니다."); }
+  event.target.value = "";
+});
+new MutationObserver(renderPcReadiness).observe(root, { attributes: true, attributeFilter: ["data-api-mode"] });
+window.addEventListener("online", renderPcReadiness);
+window.addEventListener("offline", renderPcReadiness);
 for (const control of [currentCountrySelect, destinationCountrySelect, momentCategorySelect]) {
   control?.addEventListener("change", renderMomentRecommendations);
 }
@@ -547,4 +672,5 @@ platformInstallButton?.addEventListener("click", async () => {
 renderMomentRecommendations();
 renderPlatformSupport();
 renderReplacementGuard();
+renderPcReadiness();
 initialize();
