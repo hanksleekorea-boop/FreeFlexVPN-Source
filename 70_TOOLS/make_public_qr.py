@@ -13,7 +13,7 @@ from qrcode.constants import ERROR_CORRECT_Q
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PUBLIC_URL = "https://storage.googleapis.com/freeflexvpn-public-oceanic-abacus-477201-f3/app.html"
+PUBLIC_URL = "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html"
 OUTPUT = ROOT / "60_OUTPUTS" / "FreeFlexVPN_PUBLIC_QR_v1_2026-07-31.png"
 EVIDENCE = ROOT / "60_OUTPUTS" / "checks" / "public_qr_v1.json"
 

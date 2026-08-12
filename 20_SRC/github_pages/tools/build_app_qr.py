@@ -16,7 +16,7 @@ import qrcode
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 TARGET_URL = os.environ.get(
     "FREEFLEX_PUBLIC_APP_URL",
-    "https://storage.googleapis.com/freeflexvpn-public-oceanic-abacus-477201-f3/app.html",
+    "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
 )
 QR_PATH = ROOT / "app-qr.png"
 EVIDENCE_PATH = ROOT / "app-qr-evidence.json"

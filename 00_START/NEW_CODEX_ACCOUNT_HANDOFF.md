@@ -1,0 +1,38 @@
+# FreeFlexVPN — 새 Codex 계정 인계 프롬프트
+
+아래 내용 전체를 이 PC에서 새로 로그인한 Codex 대화의 첫 메시지로 붙여넣으세요.
+
+```text
+당신은 FreeFlexVPN의 새 담당 Codex입니다. 대화 기억은 정본이 아닙니다. 이 PC의 프로젝트 파일, Git 상태, 검사 증거, 공개 URL만 정본으로 사용하세요.
+
+프로젝트 경로:
+C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\handoff-check-cp949\FreeFlexVPN
+
+즉시 다음 순서로 시작하세요.
+1. 프로젝트의 AGENTS.md, %USERPROFILE%\.codex\GLOBAL_CONTINUITY_POLICY.md, %USERPROFILE%\.ai-global-rules\GLOBAL_RULES.md를 읽으세요.
+2. .project-continuity\STATE.md, HISTORY.md, TEST_EVIDENCE.md, 00_START\DEVELOPMENT_DASHBOARD.md, 00_START\시작하세요.md, 이 파일을 읽으세요.
+3. 수정 전에 git status --porcelain=v1, git branch --show-current, git rev-parse HEAD, git rev-list --left-right --count @{upstream}...HEAD를 실행해 실제 상태를 확인하세요.
+4. 현재 작업 사본에는 저장 기록에 아직 포함되지 않은 변경이 있습니다. 다른 AI·사용자의 변경일 수 있으므로 git reset, git checkout, git clean, stash, 강제 push, 무단 커밋을 하지 마세요. 먼저 변경 범위를 읽기 전용으로 분류하고 인수 상태를 짧게 보고하세요.
+5. 원격 기준선은 현재 작업 갈래 handoff/v6-2-20260807와 일치하는 것으로 확인됐습니다. GitHub 인증·원격 읽기는 이 PC에서 다시 확인하되, 계정·토큰·이메일·실제 IP·개인 VPN 설정 내용은 출력하거나 기록하지 마세요.
+
+현재 핵심 사실:
+- 공개 반응형 앱: https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html
+- PC 화면: 위 주소의 ?view=app
+- 실제 A56에서 새 검증 터널 ffvpn-a56v는 일반 웹·DNS/도달성·서버 최근 악수까지 통과했다. 이 저장 터널은 현재 꺼져 있다.
+- 기존 ffvpn 터널의 이전 웹 실패는 미해결이며, 최신 자동 재현은 Android UI 자동화가 스위치를 실제로 켜지 못해 미확인이다. 두 터널·항상 연결·차단 모드는 현재 꺼져 있다.
+- 기존 ffvpn을 삭제·덮어쓰지 않는다. 실제 기기·비용·외부 공개·비밀값·삭제는 현재 대화의 명시 승인을 먼저 확인한다.
+
+첫 개발 행동:
+STATE.md의 다음 첫 행동을 따르되, 기존 ffvpn의 사람 직접 스위치 조작 가능 여부 또는 안전한 재발급/교체 계획을 읽기 전용으로 먼저 검토하세요. 새 검증 터널을 기존 사용자용 프로필로 임의 승격하지 마세요.
+
+종료 전:
+- 실제 실행·검사 결과를 STATE.md, HISTORY.md, TEST_EVIDENCE.md에 기록하세요.
+- 다음 작업자가 할 행동 하나를 남기고, 다른 작업자 잠금이 있으면 덮어쓰지 마세요.
+- 모든 보고는 R1~R8과 [보고 무결성 R1–R8: 8/8]로 끝내세요.
+```
+
+## 인계 판정
+
+- 같은 PC·같은 프로젝트 폴더: 위 프롬프트와 프로젝트 기록만으로 안전하게 이어갈 수 있다.
+- 다른 PC: 현재 로컬의 미저장 변경은 아직 원격에 없으므로, 지금 상태를 100% 재현할 수 없다. 변경 소유·검사 범위를 확인한 뒤 기능 갈래에 안전한 저장 기록과 업로드가 필요하다.
+- GitHub 확인: 원격은 비공개이며, 현재 작업 갈래의 원격 기준선은 로컬 HEAD와 일치하고 원격 읽기·최근 Actions 결과 읽기가 확인됐다.

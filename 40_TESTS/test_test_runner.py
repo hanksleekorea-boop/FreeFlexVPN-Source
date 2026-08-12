@@ -16,6 +16,15 @@ SPEC.loader.exec_module(RUNNER)
 
 
 class TestRunnerTests(unittest.TestCase):
+    def test_shared_app_builders_run_before_parallel_pool(self):
+        for filename in (
+            "test_app_v2_contract.py",
+            "test_first_use_recovery_ui.py",
+            "test_protection_evidence_ui.py",
+            "test_protection_status_ui.py",
+        ):
+            self.assertIn(filename, RUNNER.SERIAL_FIRST)
+
     def test_all_required_modules_present(self):
         with mock.patch.object(RUNNER.importlib.util, "find_spec", return_value=object()):
             self.assertEqual(RUNNER.missing_test_dependencies(), [])
@@ -37,8 +46,8 @@ class TestRunnerTests(unittest.TestCase):
                 ],
             )
 
-    def test_version_ranges_reject_opencv_5(self):
-        versions = {"cv2": (5, 0), "qrcode": (8, 2), "PIL": (12, 3)}
+    def test_version_ranges_reject_opencv_6(self):
+        versions = {"cv2": (6, 0), "qrcode": (8, 2), "PIL": (12, 3)}
         with mock.patch.object(RUNNER.importlib.util, "find_spec", return_value=object()), mock.patch.object(
             RUNNER, "_installed_version", side_effect=lambda module: versions[module]
         ):

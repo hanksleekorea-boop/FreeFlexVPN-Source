@@ -22,7 +22,10 @@ SUMMARY = re.compile(r"(\d+)/(\d+)(?:\s*(?:통과|PASS))?")
 # parallel pool so a fast machine cannot read a half-written app shell.
 SERIAL_FIRST = (
     "test_app_v2_contract.py",
+    "test_first_use_recovery_ui.py",
     "test_github_pages.py",
+    "test_protection_evidence_ui.py",
+    "test_protection_status_ui.py",
     "test_service_ui_v2_6.py",
     "test_service_ui_v3.py",
     "test_server_usage_empty_ui.py",
@@ -35,7 +38,7 @@ REQUIRED_MODULES = {
     "PIL": "QR PNG 생성 검사",
 }
 VERSION_RULES = {
-    "cv2": ((4, 8), (5, 0), "OpenCV 4.8 이상 5 미만"),
+    "cv2": ((4, 8), (6, 0), "OpenCV 4.8 이상 6 미만"),
     "qrcode": ((8, 0), (9, 0), "qrcode 8 이상 9 미만"),
     "PIL": ((9, 1), None, "Pillow 9.1 이상"),
 }

@@ -27,11 +27,12 @@ SERVICE_GLOBAL_STYLES = TEMPLATES / "service_global.css"
 APP_MODULES = ("client_keygen.js", "pwa_api_client.js", "moment_catalog.js", "platform_support.js", "pwa_runtime.js")
 RUNTIME_SCRIPT_TAG = '<script type="module" src="./pwa_runtime.js"></script>'
 
-SERVICE_GLOBAL_NAV = """<header class="ff-global"><div class="ff-global-in"><a class="ff-global-brand" href="index.html"><span class="ff-global-mark">FF</span>FreeFlexVPN</a><nav class="ff-global-links" aria-label="서비스 이동"><a href="app.html">서비스 열기</a><a href="index.html">제품 소개</a></nav></div></header><section class="ff-progress-dock" data-progress-dashboard aria-label="FreeFlexVPN 개발 진행상황"><div class="ff-progress-in"><div class="ff-progress-title"><i></i><span>개발 진행상황</span><strong>현재: 두 번째 서버 준비</strong></div><ol class="ff-progress-steps"><li class="is-done" data-progress-step="public"><b>1</b><span>서비스 공개</span></li><li class="is-done" data-progress-step="android"><b>2</b><span>Android 확인</span></li><li class="is-now" data-progress-step="second-server"><b>3</b><span>두 번째 서버</span></li><li data-progress-step="iphone"><b>4</b><span>iPhone 확인</span></li></ol><p class="ff-progress-note"><b>확인됨</b> Android 연결·재연결 · 다음 iPhone 확인</p></div></section>"""
+SERVICE_GLOBAL_NAV = """<header class="ff-global"><div class="ff-global-in"><a class="ff-global-brand" href="index.html"><span class="ff-global-mark">FF</span>FreeFlexVPN</a><nav class="ff-global-links" aria-label="서비스 이동"><a href="app.html">서비스 열기</a><a href="index.html">제품 소개</a><a href="development-dashboard.html">개발 현황</a></nav></div></header>"""
 
 ASSETS = {
     "landing.html": ("index.html", "공식 시작"),
     "app_v2.html": ("app.html", "알파 UI v2.5 PC-2·3"),
+    "development_dashboard.html": ("development-dashboard.html", "개발 진행 현황"),
     "simple.html": ("FreeFlexVPN_비용계산서.html", "비용 계산서"),
     "d1_tpl.html": ("FreeFlexVPN_1일오픈_체크리스트.html", "1일 오픈 체크리스트"),
     "country_tpl.html": ("VPN_국가별_서버비용_50개국.html", "국가별 서버 비용"),
@@ -90,7 +91,7 @@ def bundled_runtime() -> str:
 
 def apply_service_document_theme(text: str, output_name: str) -> str:
     """고객 앱 밖의 운영 자료도 같은 서비스 시각 언어와 이동 경로를 사용한다."""
-    if output_name in {"index.html", "app.html"}:
+    if output_name in {"index.html", "app.html", "development-dashboard.html"}:
         return text
     text = text.replace('data-theme="dark"', 'data-theme="light"', 1)
     text = text.replace('id="themeBtn">라이트</button>', 'id="themeBtn">다크</button>', 1)

@@ -53,7 +53,7 @@ def main() -> None:
     check("가짜 잔액 금지", "확인 전" in shell_text and '<span data-svc-balance>1.00</span>' not in shell_text)
     check("검토 모드 분리", "query.get('review')==='1'" in app_text and "body.review-mode>.svc-shell" in app_text)
     check("정식 랜딩 계약", all(token in index_text for token in ("매달 내지 말고", "무료 1GB로 시작", "세 단계면 충분합니다", "상태 과장 없음")) and "개발 진행 중" not in index_text)
-    themed = [path for path in deploy.glob("*.html") if path.name not in {"index.html", "app.html"}]
+    themed = [path for path in deploy.glob("*.html") if path.name not in {"index.html", "app.html", "development-dashboard.html"}]
     check("보조 공개 페이지 6종 공통 서비스 디자인", len(themed) == 6 and all("data-freeflex-global-theme" in path.read_text(encoding="utf-8") for path in themed))
 
     with server_for(deploy) as base, sync_playwright() as pw:

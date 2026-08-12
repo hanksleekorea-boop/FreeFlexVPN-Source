@@ -1,0 +1,1532 @@
+{
+  "study_version": "1.0",
+  "generated_on": "2026-08-10",
+  "method": "deterministic synthetic journey simulation",
+  "participants_are_real": false,
+  "persona_count": 40,
+  "current_surface_inventory": {
+    "public_service_dashboard": "공개 첫 화면과 진행 대시보드",
+    "android_setup_guide": "Android WireGuard 설정 안내",
+    "qr_handoff_guide": "QR 기반 설정 안내",
+    "pc_responsive_ui": "PC·모바일 반응형 화면",
+    "support_pages": "사용량·위치·도움말 공개 페이지",
+    "connection_reconnect_note": "Android 실제 재연결 사용자 보고"
+  },
+  "distribution": {
+    "nationality": {
+      "대한민국": 4,
+      "독일": 4,
+      "미국": 4,
+      "베트남": 4,
+      "브라질": 4,
+      "인도": 4,
+      "인도네시아": 4,
+      "일본": 4,
+      "태국": 4,
+      "터키": 4
+    },
+    "current_country": {
+      "대한민국": 4,
+      "독일": 4,
+      "미국": 4,
+      "베트남": 4,
+      "브라질": 4,
+      "싱가포르": 4,
+      "인도": 4,
+      "일본": 4,
+      "태국": 4,
+      "터키": 4
+    },
+    "purpose": {
+      "가족에게 안전한 연결 안내": 4,
+      "개인 정보 보호": 4,
+      "국경 이동 중 뉴스·연락": 4,
+      "느린 공용망에서 안정적 접속": 4,
+      "비용을 아끼는 가벼운 일상 사용": 4,
+      "여행 중 공용 Wi-Fi 보호": 4,
+      "원격 업무 도구 이용": 4,
+      "은행·결제 전 추가 보호": 4,
+      "합법적 서비스의 지역별 이용": 4,
+      "해외 체류 중 업무": 4
+    },
+    "behaviour": {
+      "기술 용어를 피하고 싶음": 4,
+      "데이터 사용량을 자주 확인": 4,
+      "여러 기기를 번갈아 사용": 4,
+      "연결이 끊기면 즉시 재시도": 4,
+      "가격·한도를 먼저 확인": 3,
+      "가족·지인에게 설정을 설명": 3,
+      "공개 장소에서 급히 연결": 3,
+      "설정 후 매일 자동 연결 기대": 3,
+      "저사양·느린 망 사용": 3,
+      "접근성 보조 기능 사용": 3,
+      "짧은 여행에서만 사용": 3,
+      "처음 QR 설정": 3
+    },
+    "device": {
+      "Android": 14,
+      "PC 웹": 13,
+      "iPhone": 13
+    },
+    "skill": {
+      "보통": 14,
+      "익숙함": 13,
+      "처음 사용": 13
+    }
+  },
+  "friction_signals": {
+    "설정값을 어디서 다시 받는지 한눈에 알기 어렵다": 40,
+    "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다": 40,
+    "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다": 36,
+    "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다": 15,
+    "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다": 13,
+    "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다": 13,
+    "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다": 13,
+    "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다": 11,
+    "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다": 11,
+    "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다": 10,
+    "어떤 정보가 남는지와 보호 범위를 빠르게 확인하기 어렵다": 8,
+    "기기별 설정의 이름·남은 연결·폐기 상태를 관리하기 어렵다": 4
+  },
+  "feature_signals": {
+    "live_connection_check": 40,
+    "recovery_flow": 40,
+    "self_service_config": 40,
+    "location_availability": 37,
+    "server_health_failover": 22,
+    "multi_device_management": 17,
+    "accessibility_language": 13,
+    "ios_verified_onboarding": 13,
+    "pricing_fair_use": 11,
+    "travel_readiness": 11,
+    "usage_live_meter": 11,
+    "auto_connect_kill_switch": 10,
+    "privacy_policy_detail": 8
+  },
+  "personas": [
+    {
+      "id": "SIM-0001",
+      "nationality": "태국",
+      "current_country": "일본",
+      "purpose": "느린 공용망에서 안정적 접속",
+      "behaviour": "여러 기기를 번갈아 사용",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "기기별 설정의 이름·남은 연결·폐기 상태를 관리하기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0002",
+      "nationality": "인도",
+      "current_country": "터키",
+      "purpose": "개인 정보 보호",
+      "behaviour": "기술 용어를 피하고 싶음",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "어떤 정보가 남는지와 보호 범위를 빠르게 확인하기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "privacy_policy_detail",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0003",
+      "nationality": "독일",
+      "current_country": "독일",
+      "purpose": "해외 체류 중 업무",
+      "behaviour": "연결이 끊기면 즉시 재시도",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0004",
+      "nationality": "대한민국",
+      "current_country": "베트남",
+      "purpose": "여행 중 공용 Wi-Fi 보호",
+      "behaviour": "데이터 사용량을 자주 확인",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "auto_connect_kill_switch",
+        "live_connection_check",
+        "location_availability",
+        "pricing_fair_use",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0005",
+      "nationality": "베트남",
+      "current_country": "태국",
+      "purpose": "비용을 아끼는 가벼운 일상 사용",
+      "behaviour": "설정 후 매일 자동 연결 기대",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "pricing_fair_use",
+        "recovery_flow",
+        "self_service_config",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0006",
+      "nationality": "미국",
+      "current_country": "브라질",
+      "purpose": "국경 이동 중 뉴스·연락",
+      "behaviour": "처음 QR 설정",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness"
+      ]
+    },
+    {
+      "id": "SIM-0007",
+      "nationality": "터키",
+      "current_country": "싱가포르",
+      "purpose": "원격 업무 도구 이용",
+      "behaviour": "가족·지인에게 설정을 설명",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구",
+        "다른 사람에게 안내"
+      ],
+      "observed_frictions": [
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0008",
+      "nationality": "일본",
+      "current_country": "대한민국",
+      "purpose": "은행·결제 전 추가 보호",
+      "behaviour": "공개 장소에서 급히 연결",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "어떤 정보가 남는지와 보호 범위를 빠르게 확인하기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "auto_connect_kill_switch",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "privacy_policy_detail",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0009",
+      "nationality": "인도네시아",
+      "current_country": "인도",
+      "purpose": "가족에게 안전한 연결 안내",
+      "behaviour": "짧은 여행에서만 사용",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구",
+        "다른 사람에게 안내"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness"
+      ]
+    },
+    {
+      "id": "SIM-0010",
+      "nationality": "브라질",
+      "current_country": "미국",
+      "purpose": "합법적 서비스의 지역별 이용",
+      "behaviour": "가격·한도를 먼저 확인",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "pricing_fair_use",
+        "recovery_flow",
+        "self_service_config",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0011",
+      "nationality": "태국",
+      "current_country": "일본",
+      "purpose": "느린 공용망에서 안정적 접속",
+      "behaviour": "접근성 보조 기능 사용",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0012",
+      "nationality": "인도",
+      "current_country": "터키",
+      "purpose": "개인 정보 보호",
+      "behaviour": "저사양·느린 망 사용",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "어떤 정보가 남는지와 보호 범위를 빠르게 확인하기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "privacy_policy_detail",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0013",
+      "nationality": "독일",
+      "current_country": "독일",
+      "purpose": "해외 체류 중 업무",
+      "behaviour": "여러 기기를 번갈아 사용",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "기기별 설정의 이름·남은 연결·폐기 상태를 관리하기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0014",
+      "nationality": "대한민국",
+      "current_country": "베트남",
+      "purpose": "여행 중 공용 Wi-Fi 보호",
+      "behaviour": "기술 용어를 피하고 싶음",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "auto_connect_kill_switch",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness"
+      ]
+    },
+    {
+      "id": "SIM-0015",
+      "nationality": "베트남",
+      "current_country": "태국",
+      "purpose": "비용을 아끼는 가벼운 일상 사용",
+      "behaviour": "연결이 끊기면 즉시 재시도",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "pricing_fair_use",
+        "recovery_flow",
+        "self_service_config",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0016",
+      "nationality": "미국",
+      "current_country": "브라질",
+      "purpose": "국경 이동 중 뉴스·연락",
+      "behaviour": "데이터 사용량을 자주 확인",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "pricing_fair_use",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0017",
+      "nationality": "터키",
+      "current_country": "싱가포르",
+      "purpose": "원격 업무 도구 이용",
+      "behaviour": "설정 후 매일 자동 연결 기대",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0018",
+      "nationality": "일본",
+      "current_country": "대한민국",
+      "purpose": "은행·결제 전 추가 보호",
+      "behaviour": "처음 QR 설정",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "어떤 정보가 남는지와 보호 범위를 빠르게 확인하기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "auto_connect_kill_switch",
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "privacy_policy_detail",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0019",
+      "nationality": "인도네시아",
+      "current_country": "인도",
+      "purpose": "가족에게 안전한 연결 안내",
+      "behaviour": "가족·지인에게 설정을 설명",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구",
+        "다른 사람에게 안내"
+      ],
+      "observed_frictions": [
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0020",
+      "nationality": "브라질",
+      "current_country": "미국",
+      "purpose": "합법적 서비스의 지역별 이용",
+      "behaviour": "공개 장소에서 급히 연결",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "auto_connect_kill_switch",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0021",
+      "nationality": "태국",
+      "current_country": "일본",
+      "purpose": "느린 공용망에서 안정적 접속",
+      "behaviour": "짧은 여행에서만 사용",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness"
+      ]
+    },
+    {
+      "id": "SIM-0022",
+      "nationality": "인도",
+      "current_country": "터키",
+      "purpose": "개인 정보 보호",
+      "behaviour": "가격·한도를 먼저 확인",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "어떤 정보가 남는지와 보호 범위를 빠르게 확인하기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "pricing_fair_use",
+        "privacy_policy_detail",
+        "recovery_flow",
+        "self_service_config",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0023",
+      "nationality": "독일",
+      "current_country": "독일",
+      "purpose": "해외 체류 중 업무",
+      "behaviour": "접근성 보조 기능 사용",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "live_connection_check",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0024",
+      "nationality": "대한민국",
+      "current_country": "베트남",
+      "purpose": "여행 중 공용 Wi-Fi 보호",
+      "behaviour": "저사양·느린 망 사용",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "auto_connect_kill_switch",
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness"
+      ]
+    },
+    {
+      "id": "SIM-0025",
+      "nationality": "베트남",
+      "current_country": "태국",
+      "purpose": "비용을 아끼는 가벼운 일상 사용",
+      "behaviour": "여러 기기를 번갈아 사용",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "기기별 설정의 이름·남은 연결·폐기 상태를 관리하기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "pricing_fair_use",
+        "recovery_flow",
+        "self_service_config",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0026",
+      "nationality": "미국",
+      "current_country": "브라질",
+      "purpose": "국경 이동 중 뉴스·연락",
+      "behaviour": "기술 용어를 피하고 싶음",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness"
+      ]
+    },
+    {
+      "id": "SIM-0027",
+      "nationality": "터키",
+      "current_country": "싱가포르",
+      "purpose": "원격 업무 도구 이용",
+      "behaviour": "연결이 끊기면 즉시 재시도",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0028",
+      "nationality": "일본",
+      "current_country": "대한민국",
+      "purpose": "은행·결제 전 추가 보호",
+      "behaviour": "데이터 사용량을 자주 확인",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "어떤 정보가 남는지와 보호 범위를 빠르게 확인하기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "auto_connect_kill_switch",
+        "live_connection_check",
+        "location_availability",
+        "pricing_fair_use",
+        "privacy_policy_detail",
+        "recovery_flow",
+        "self_service_config",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0029",
+      "nationality": "인도네시아",
+      "current_country": "인도",
+      "purpose": "가족에게 안전한 연결 안내",
+      "behaviour": "설정 후 매일 자동 연결 기대",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구",
+        "다른 사람에게 안내"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0030",
+      "nationality": "브라질",
+      "current_country": "미국",
+      "purpose": "합법적 서비스의 지역별 이용",
+      "behaviour": "처음 QR 설정",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0031",
+      "nationality": "태국",
+      "current_country": "일본",
+      "purpose": "느린 공용망에서 안정적 접속",
+      "behaviour": "가족·지인에게 설정을 설명",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구",
+        "다른 사람에게 안내"
+      ],
+      "observed_frictions": [
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0032",
+      "nationality": "인도",
+      "current_country": "터키",
+      "purpose": "개인 정보 보호",
+      "behaviour": "공개 장소에서 급히 연결",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "어떤 정보가 남는지와 보호 범위를 빠르게 확인하기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "auto_connect_kill_switch",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "privacy_policy_detail",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0033",
+      "nationality": "독일",
+      "current_country": "독일",
+      "purpose": "해외 체류 중 업무",
+      "behaviour": "짧은 여행에서만 사용",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness"
+      ]
+    },
+    {
+      "id": "SIM-0034",
+      "nationality": "대한민국",
+      "current_country": "베트남",
+      "purpose": "여행 중 공용 Wi-Fi 보호",
+      "behaviour": "가격·한도를 먼저 확인",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "auto_connect_kill_switch",
+        "live_connection_check",
+        "location_availability",
+        "pricing_fair_use",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0035",
+      "nationality": "베트남",
+      "current_country": "태국",
+      "purpose": "비용을 아끼는 가벼운 일상 사용",
+      "behaviour": "접근성 보조 기능 사용",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "pricing_fair_use",
+        "recovery_flow",
+        "self_service_config",
+        "usage_live_meter"
+      ]
+    },
+    {
+      "id": "SIM-0036",
+      "nationality": "미국",
+      "current_country": "브라질",
+      "purpose": "국경 이동 중 뉴스·연락",
+      "behaviour": "저사양·느린 망 사용",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "출발 전 준비",
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "도착한 나라에서 쓸 수 있는지와 대체 경로를 미리 알기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover",
+        "travel_readiness"
+      ]
+    },
+    {
+      "id": "SIM-0037",
+      "nationality": "터키",
+      "current_country": "싱가포르",
+      "purpose": "원격 업무 도구 이용",
+      "behaviour": "여러 기기를 번갈아 사용",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "기기별 설정의 이름·남은 연결·폐기 상태를 관리하기 어렵다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "업무 중 느려짐·끊김에서 어느 서버로 바꿔야 하는지 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "recovery_flow",
+        "self_service_config",
+        "server_health_failover"
+      ]
+    },
+    {
+      "id": "SIM-0038",
+      "nationality": "일본",
+      "current_country": "대한민국",
+      "purpose": "은행·결제 전 추가 보호",
+      "behaviour": "기술 용어를 피하고 싶음",
+      "device": "PC 웹",
+      "skill": "처음 사용",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "PC에서 본 설정과 휴대폰의 연결 상태를 함께 관리할 방법이 필요하다",
+        "급한 상황에서 자동 보호와 연결이 끊겼을 때의 안전 상태가 분명하지 않다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "어떤 정보가 남는지와 보호 범위를 빠르게 확인하기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "처음 하는 사람도 전문 용어 없이 실패를 해결할 안내가 더 필요하다"
+      ],
+      "requested_features": [
+        "accessibility_language",
+        "auto_connect_kill_switch",
+        "live_connection_check",
+        "location_availability",
+        "multi_device_management",
+        "privacy_policy_detail",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0039",
+      "nationality": "인도네시아",
+      "current_country": "인도",
+      "purpose": "가족에게 안전한 연결 안내",
+      "behaviour": "연결이 끊기면 즉시 재시도",
+      "device": "iPhone",
+      "skill": "익숙함",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구",
+        "다른 사람에게 안내"
+      ],
+      "observed_frictions": [
+        "iPhone에서 같은 과정을 끝까지 따라갈 수 있는 실제 확인이 필요하다",
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다"
+      ],
+      "requested_features": [
+        "ios_verified_onboarding",
+        "live_connection_check",
+        "location_availability",
+        "recovery_flow",
+        "self_service_config"
+      ]
+    },
+    {
+      "id": "SIM-0040",
+      "nationality": "브라질",
+      "current_country": "미국",
+      "purpose": "합법적 서비스의 지역별 이용",
+      "behaviour": "데이터 사용량을 자주 확인",
+      "device": "Android",
+      "skill": "보통",
+      "journey": [
+        "발견",
+        "신뢰·비용 이해",
+        "기기 선택",
+        "설정 가져오기",
+        "연결",
+        "보호 확인",
+        "사용량 관리",
+        "문제 복구"
+      ],
+      "observed_frictions": [
+        "설정값을 어디서 다시 받는지 한눈에 알기 어렵다",
+        "연결이 된 것과 실제로 보호되는 것을 구분하기 어렵다",
+        "지역별 서비스 가능 범위와 합법적 이용 안내가 더 분명해야 한다",
+        "현재 사용량과 다음 소진 시점을 실제 값으로 볼 수 없다"
+      ],
+      "requested_features": [
+        "live_connection_check",
+        "location_availability",
+        "pricing_fair_use",
+        "recovery_flow",
+        "self_service_config",
+        "usage_live_meter"
+      ]
+    }
+  ]
+}
