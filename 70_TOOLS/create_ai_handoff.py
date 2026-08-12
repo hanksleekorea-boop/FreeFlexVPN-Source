@@ -92,11 +92,12 @@ def is_excluded(relative: Path) -> bool:
 
 def selected_source_paths() -> list[Path]:
     paths: list[Path] = []
-    for path in ROOT.rglob("*"):
-        relative = path.relative_to(ROOT)
-        if is_excluded(relative):
+    for value in run("git", "ls-files", "-z").split("\0"):
+        if not value:
             continue
-        if path.is_file():
+        relative = Path(value)
+        path = ROOT / relative
+        if not is_excluded(relative) and path.is_file():
             paths.append(path)
     return paths
 
@@ -203,7 +204,6 @@ def create(replace_current: bool = False) -> tuple[Path, Path]:
     prompt_name = f"{slug}-next-ai-prompt.txt"
     release_tag = f"handoff-{timestamp}-{snapshot.short}"
     release_url = github_release_url(snapshot.remote, release_tag)
-    tracked = set(run("git", "ls-files").splitlines())
     regression = latest_regression_summary()
 
     with tempfile.TemporaryDirectory(prefix="ffvpn_handoff_") as temp_name:
@@ -287,14 +287,6 @@ def create(replace_current: bool = False) -> tuple[Path, Path]:
             package / "80_SCRIPTS" / "verify_commands.txt",
             "python -X utf8 70_TOOLS/make_manifest.py --check\npython -X utf8 70_TOOLS/run_all_tests.py --jobs 4 --timeout 120\n",
         )
-
-        untracked = [
-            path.relative_to(ROOT).as_posix()
-            for path in source_paths
-            if path.relative_to(ROOT).as_posix() not in tracked
-        ]
-        if untracked:
-            raise RuntimeError("Git 검사 뒤 새 미추적 파일이 발견되어 중단했습니다: " + ", ".join(untracked))
 
         manifest_lines = ["path\tbytes\tpurpose"]
         for path in sorted(item for item in package.rglob("*") if item.is_file()):

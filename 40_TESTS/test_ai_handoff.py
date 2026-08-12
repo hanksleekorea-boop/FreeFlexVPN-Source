@@ -42,6 +42,14 @@ class AiHandoffTests(unittest.TestCase):
             with self.subTest(relative=relative):
                 self.assertFalse(MODULE.is_excluded(relative))
 
+    def test_selected_source_is_only_tracked_and_excludes_current_outputs(self):
+        selected = {path.relative_to(ROOT).as_posix() for path in MODULE.selected_source_paths()}
+        tracked = set(MODULE.run("git", "ls-files", "-z").split("\0"))
+        self.assertTrue(selected)
+        self.assertTrue(selected <= tracked)
+        self.assertFalse(any(path.startswith("60_OUTPUTS/AI_HANDOFF_CURRENT/") for path in selected))
+        self.assertFalse(any(path.startswith(".project-continuity/LOCK") for path in selected))
+
     def test_latest_regression_is_read_from_dashboard(self):
         summary = MODULE.latest_regression_summary()
         self.assertRegex(summary, r"전체 회귀 \d+/\d+ 파일·\d+/\d+ 항목 통과")
