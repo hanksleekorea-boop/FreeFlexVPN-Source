@@ -11,7 +11,7 @@ import hashlib, sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import fkvpaths
 
-EXCLUDE_DIRS  = {"__pycache__", ".git", "node_modules", ".test-venv", ".chrome-ci", ".chrome-ci2", ".pytest_cache"}
+EXCLUDE_DIRS  = {"__pycache__", ".git", "node_modules", ".test-venv", ".chrome-ci", ".chrome-ci2", ".pytest_cache", ".mypy_cache", ".tools", "_to_delete"}
 EXCLUDE_NAMES = {"MANIFEST.md"}
 EXCLUDE_GLOBS = [
     "60_OUTPUTS/checks/*",

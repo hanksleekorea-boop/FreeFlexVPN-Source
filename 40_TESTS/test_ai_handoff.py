@@ -15,6 +15,11 @@ MODULE = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = MODULE
 SPEC.loader.exec_module(MODULE)
 
+MANIFEST_SPEC = importlib.util.spec_from_file_location("make_manifest", ROOT / "70_TOOLS" / "make_manifest.py")
+assert MANIFEST_SPEC and MANIFEST_SPEC.loader
+MANIFEST_MODULE = importlib.util.module_from_spec(MANIFEST_SPEC)
+MANIFEST_SPEC.loader.exec_module(MANIFEST_MODULE)
+
 
 class AiHandoffTests(unittest.TestCase):
     def test_device_local_and_active_lock_paths_are_excluded(self):
@@ -37,18 +42,31 @@ class AiHandoffTests(unittest.TestCase):
             pathlib.Path(".project-continuity/STATE.md"),
             pathlib.Path(".project-continuity/HISTORY.md"),
             pathlib.Path("00_START/DEVELOPMENT_DASHBOARD.md"),
+            pathlib.Path("90_ARCHIVE/10_STATE_plans/APP_SERVICE_PLAN_v4.0_2026-08-06.md"),
         )
         for relative in included:
             with self.subTest(relative=relative):
                 self.assertFalse(MODULE.is_excluded(relative))
 
     def test_selected_source_is_only_tracked_and_excludes_current_outputs(self):
+        if not MODULE.git_metadata_available():
+            with self.assertRaisesRegex(RuntimeError, "Git metadata is required"):
+                MODULE.selected_source_paths()
+            return
         selected = {path.relative_to(ROOT).as_posix() for path in MODULE.selected_source_paths()}
         tracked = set(MODULE.run("git", "ls-files", "-z").split("\0"))
         self.assertTrue(selected)
         self.assertTrue(selected <= tracked)
         self.assertFalse(any(path.startswith("60_OUTPUTS/AI_HANDOFF_CURRENT/") for path in selected))
         self.assertFalse(any(path.startswith(".project-continuity/LOCK") for path in selected))
+
+    def test_manifest_inventory_matches_handoff_source_policy(self):
+        if not MODULE.git_metadata_available():
+            self.assertTrue((ROOT / "MANIFEST.md").is_file())
+            return
+        selected = {path.relative_to(ROOT).as_posix() for path in MODULE.selected_source_paths()}
+        inventory = {path.as_posix() for path in MANIFEST_MODULE.files(ROOT)} | {"MANIFEST.md"}
+        self.assertEqual(selected, inventory)
 
     def test_latest_regression_is_read_from_dashboard(self):
         summary = MODULE.latest_regression_summary()

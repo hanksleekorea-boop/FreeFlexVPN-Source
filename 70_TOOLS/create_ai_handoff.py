@@ -26,7 +26,6 @@ EXCLUDED_DIRS = {
     ".pytest_cache",
     ".mypy_cache",
     "node_modules",
-    "90_ARCHIVE",
     "_to_delete",
 }
 EXCLUDED_FILES = {
@@ -67,6 +66,20 @@ def run(*args: str) -> str:
     ).stdout.strip()
 
 
+def git_metadata_available() -> bool:
+    result = subprocess.run(
+        ("git", "rev-parse", "--is-inside-work-tree"),
+        cwd=ROOT,
+        check=False,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.DEVNULL,
+    )
+    return result.returncode == 0 and result.stdout.strip() == "true"
+
+
 def sha(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -91,6 +104,8 @@ def is_excluded(relative: Path) -> bool:
 
 
 def selected_source_paths() -> list[Path]:
+    if not git_metadata_available():
+        raise RuntimeError("Git metadata is required to select tracked handoff source files")
     paths: list[Path] = []
     for value in run("git", "ls-files", "-z").split("\0"):
         if not value:
