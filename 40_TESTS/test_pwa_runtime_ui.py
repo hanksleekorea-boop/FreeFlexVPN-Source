@@ -49,7 +49,11 @@ def local_server():
 
 async def run() -> None:
     requests: list[dict] = []
-    state = {"device": False}
+    existing_id = "a" * 32
+    candidate_id = "b" * 32
+    state = {
+        "devices": [{"device_id": existing_id, "server_id": "sg-edge-1", "assigned_address": "10.66.0.2/32", "status": "active", "created_at": "2026-08-01T00:00:00+00:00", "revoked_at": None}],
+    }
     with local_server() as base:
         async with async_playwright() as pw:
             browser = await pw.chromium.launch()
@@ -84,12 +88,18 @@ async def run() -> None:
                 elif path == "/v1/usage":
                     payload = {"sessions": []}
                 elif path == "/v1/devices" and request.method == "GET":
-                    payload = {"devices": ([{"device_id": "a" * 32, "server_id": "sg-edge-1", "assigned_address": "10.66.0.2/32", "status": "active", "created_at": "2026-08-02T00:00:00+00:00", "revoked_at": None}] if state["device"] else []), "active_count": int(state["device"]), "active_limit": 2}
+                    payload = {"devices": state["devices"], "active_count": sum(item["status"] == "active" for item in state["devices"]), "active_limit": 2}
                 elif path == "/v1/devices" and request.method == "POST":
-                    state["device"] = True
-                    payload = {"device_id": "a" * 32, "status": "active", "private_key_received": False, "configuration": {"addresses": ["10.66.0.2/32"], "dns": ["1.1.1.1"], "peer": {"public_key": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=", "endpoint": "vpn.example.test:51820", "allowed_ips": ["0.0.0.0/0", "::/0"], "persistent_keepalive": 25}}}
+                    state["devices"].append({"device_id": candidate_id, "server_id": "sg-edge-1", "assigned_address": "10.66.0.3/32", "status": "active", "created_at": "2026-08-02T00:00:00+00:00", "revoked_at": None})
+                    payload = {"device_id": candidate_id, "status": "active", "private_key_received": False, "configuration": {"addresses": ["10.66.0.3/32"], "dns": ["1.1.1.1"], "peer": {"public_key": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=", "endpoint": "vpn.example.test:51820", "allowed_ips": ["0.0.0.0/0", "::/0"], "persistent_keepalive": 25}}}
+                elif path.startswith("/v1/devices/") and request.method == "DELETE":
+                    revoked_id = path.rsplit("/", 1)[-1]
+                    for item in state["devices"]:
+                        if item["device_id"] == revoked_id:
+                            item["status"] = "revocation_pending"
+                    payload = {"device_id": revoked_id, "status": "revocation_pending"}
                 elif path == "/v1/check":
-                    payload = {"state": "protected", "checks": {"tunnel": True, "exit_ip": True, "dns": True, "ipv6": True, "kill_switch": True}, "checked_at": "2026-08-02T00:01:00+00:00"}
+                    payload = {"state": "protected", "checks": {"tunnel": True, "exit_ip": True, "handshake": True, "server": True, "dns": True, "ipv6": True, "kill_switch": True}, "checked_at": "2026-08-02T00:01:00+00:00"}
                 elif path == "/v1/referrals" and request.method == "POST":
                     payload = {"share_url": "https://app.example.test/app.html?ref=safe-referral"}
                 else:
@@ -150,10 +160,15 @@ async def run() -> None:
             check("WireGuard 구성에 로컬 개인키 포함", "PrivateKey = " in config and "[Peer]" in config)
             check("기기 요청에 개인키 미전송", len(device_posts) == 1 and "private" not in device_posts[0]["body"].lower(), str(device_posts))
             await page.wait_for_function(
-                "document.getElementById('deviceCountValue').textContent === '1 / 2'",
+                "document.getElementById('deviceCountValue').textContent === '2 / 2'",
                 timeout=10_000,
             )
-            check("생성 뒤 기기 1/2 동기화", await page.text_content("#deviceCountValue") == "1 / 2")
+            check("생성 뒤 기존 설정과 후보 2/2 동기화", await page.text_content("#deviceCountValue") == "2 / 2")
+            existing_row = page.locator(f'[data-device-id="{existing_id}"]')
+            candidate_row = page.locator(f'[data-device-id="{candidate_id}"]')
+            check("새 후보와 기존 설정을 분리 표시", await existing_row.get_attribute("data-device-role") == "existing" and await candidate_row.get_attribute("data-device-role") == "candidate")
+            check("기기 목록에서 실제 주소 숨김", "10.66." not in (await page.text_content("#deviceList") or ""))
+            check("후보 확인 전 기존 설정 폐기 차단", await existing_row.locator("button").is_disabled())
             print("PWA UI 단계 3/4: 기기 키·구성 생성", flush=True)
 
             await page.evaluate("go('home')")
@@ -161,6 +176,17 @@ async def run() -> None:
             await page.wait_for_function("document.getElementById('statusCard').dataset.connectionState === 'protected'")
             await page.wait_for_timeout(800)
             check("실측 protected가 가짜 타이머에 덮이지 않음", await page.get_attribute("#statusCard", "data-connection-state") == "protected")
+            check("보호 증거 뒤에도 기존 설정 보존", await page.get_attribute("#replacementGuard", "data-replacement-state") == "candidate_live_verified" and await existing_row.locator("button").is_disabled())
+            await page.locator("#confirmReturnPathButton").dispatch_event("click")
+            check("사람의 일반망 복귀 확인 뒤에만 기존 폐기 준비", await page.get_attribute("#replacementGuard", "data-replacement-state") == "ready_to_replace" and not await existing_row.locator("button").is_disabled())
+            await page.evaluate("go('devices')")
+            await page.evaluate("window.confirm=()=>false")
+            await existing_row.locator("button").click()
+            check("음성 대조: 마지막 확인 취소 시 DELETE 0", not any(item["method"] == "DELETE" for item in requests))
+            await page.evaluate("window.confirm=()=>true")
+            await existing_row.locator("button").click()
+            await page.wait_for_function("document.getElementById('replacementGuard').dataset.replacementState === 'replacement_completed'")
+            check("마지막 확인 뒤 기존 설정만 폐기 요청", [item["path"] for item in requests if item["method"] == "DELETE"] == [f"/v1/devices/{existing_id}"])
 
             await page.evaluate("go('referral')")
             await page.locator("#shareReferralButton").dispatch_event("click")
@@ -168,7 +194,7 @@ async def run() -> None:
             check("추천 링크 실제 API 발급", "safe-referral" in await page.input_value("#shareReferralOutput"))
             serialized_requests = json.dumps(requests, ensure_ascii=False)
             check("목적·현재 국가·플랫폼 선택 값 API 미전송", all(value not in serialized_requests for value in ("public-wifi", "local-search-qa", "currentCountry", "destinationCountry", "platformId", "selectedPlatform")))
-            check("보호 API에 기기 헤더 사용", any(item["path"] == "/v1/check" and item["headers"].get("x-freeflex-device") == "a" * 32 for item in requests))
+            check("보호 API가 첫 활성 기기 대신 새 후보를 사용", any(item["path"] == "/v1/check" and item["headers"].get("x-freeflex-device") == candidate_id for item in requests))
             check("브라우저 실행 오류 0", not errors, "; ".join(errors))
             print("PWA UI 단계 4/4: 보호 확인·추천 링크", flush=True)
             await browser.close()

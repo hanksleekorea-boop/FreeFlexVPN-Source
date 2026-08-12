@@ -23,6 +23,7 @@ ALLOW = [
     (re.compile(r"sales@melbicom\.net"),                  "공급자 견적 문의처(공개 홈페이지 기재)"),
     (re.compile(r"noreply@anthropic\.com"),               "커밋 서명용 공개 주소"),
     (re.compile(r"wg-quick@wg0\.service"),                 "systemd 인스턴스 유닛명이며 이메일이 아님"),
+    (re.compile(r"git@github\.com"),                        "GitHub SSH 호스트 표기이며 이메일이 아님"),
 ]
 TEXT_EXT = {".py", ".js", ".html", ".md", ".json", ".txt", ".yml", ".yaml", ".sh", ".bat"}
 

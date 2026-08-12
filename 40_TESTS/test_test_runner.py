@@ -20,6 +20,7 @@ class TestRunnerTests(unittest.TestCase):
         for filename in (
             "test_app_v2_contract.py",
             "test_first_use_recovery_ui.py",
+            "test_profile_replacement_guard.py",
             "test_protection_evidence_ui.py",
             "test_protection_status_ui.py",
         ):

@@ -17,6 +17,9 @@ const shareButton = document.getElementById("shareReferralButton");
 const shareOutput = document.getElementById("shareReferralOutput");
 const deviceList = document.getElementById("deviceList");
 const deviceCount = document.getElementById("deviceCountValue");
+const replacementGuard = document.getElementById("replacementGuard");
+const replacementGuardCopy = document.getElementById("replacementGuardCopy");
+const confirmReturnPathButton = document.getElementById("confirmReturnPathButton");
 const currentCountrySelect = document.getElementById("currentCountrySelect");
 const destinationCountrySelect = document.getElementById("destinationCountrySelect");
 const momentCategorySelect = document.getElementById("momentCategorySelect");
@@ -34,6 +37,9 @@ const platformVpnState = document.getElementById("platformVpnState");
 const wireguardInstallLink = document.getElementById("wireguardInstallLink");
 let selectedServerId = null;
 let activeDeviceId = null;
+let candidateDeviceId = null;
+let replacementPhase = "idle";
+let lastDevicesPayload = null;
 let currentConfig = null;
 let availableServers = [];
 let serverCatalogKnown = false;
@@ -280,12 +286,44 @@ function renderWallet(wallet) {
   renderUsageEmptyState({ state: "wallet-live", source: "잔액 원장 확인됨", copy: "최근 7일 사용량 자료는 아직 받지 않았습니다." });
 }
 
+function renderReplacementGuard() {
+  if (!replacementGuard || !replacementGuardCopy || !confirmReturnPathButton) return;
+  replacementGuard.dataset.replacementState = replacementPhase;
+  const copy = {
+    idle: "새 구성을 만들더라도 기존 WireGuard 설정은 자동으로 지우거나 바꾸지 않습니다.",
+    candidate_unverified: "새 후보를 WireGuard에서 직접 켠 뒤 보호 확인을 실행하세요. 기존 설정은 계속 보존됩니다.",
+    candidate_live_verified: "후보의 터널·외부 경로·서버 악수·DNS가 확인됐습니다. 후보를 직접 끄고 일반 웹이 돌아온 뒤 아래 확인을 누르세요.",
+    ready_to_replace: "후보 연결과 일반망 복귀를 각각 확인했습니다. 기존 설정 폐기는 여전히 마지막 확인 뒤에만 실행됩니다.",
+    replacement_completed: "기존 설정 폐기 요청을 보냈습니다. 새 후보의 실제 연결 상태를 다시 확인하세요.",
+  };
+  replacementGuardCopy.textContent = copy[replacementPhase] || copy.idle;
+  confirmReturnPathButton.hidden = !candidateDeviceId;
+  confirmReturnPathButton.disabled = replacementPhase !== "candidate_live_verified";
+}
+
+function candidateRuntimeEvidencePassed(result) {
+  const checks = result?.checks || {};
+  return result?.state === "protected" && ["tunnel", "exit_ip", "handshake", "server", "dns"].every(name => checks[name] === true);
+}
+
+function chooseActiveDevice(devices) {
+  const activeIds = devices.filter(device => device.status === "active").map(device => device.device_id);
+  if (candidateDeviceId && activeIds.includes(candidateDeviceId)) return candidateDeviceId;
+  if (activeDeviceId && activeIds.includes(activeDeviceId)) return activeDeviceId;
+  return activeIds.length === 1 ? activeIds[0] : null;
+}
+
+function canRevokeDevice(deviceId) {
+  if (deviceId === candidateDeviceId) return true;
+  return Boolean(candidateDeviceId && replacementPhase === "ready_to_replace");
+}
+
 function renderDevices(payload) {
   const devices = Array.isArray(payload?.devices) ? payload.devices : [];
+  lastDevicesPayload = payload;
   deviceCount.textContent = `${payload.active_count || 0} / ${payload.active_limit || 2}`;
   deviceList.replaceChildren();
-  const active = devices.filter(device => device.status === "active");
-  activeDeviceId = active[0]?.device_id || null;
+  activeDeviceId = chooseActiveDevice(devices);
   if (!devices.length) {
     deviceList.className = "empty-catalog";
     deviceList.innerHTML = '<span class="flag">▯</span><b>등록된 기기가 없습니다</b><p>서버를 고른 뒤 이 기기에서 새 키를 만들 수 있습니다.</p>';
@@ -294,16 +332,33 @@ function renderDevices(payload) {
   deviceList.className = "state-legend";
   for (const device of devices) {
     const row = document.createElement("div"); row.className = "state-row";
+    row.dataset.deviceId = device.device_id;
+    row.dataset.deviceRole = device.device_id === candidateDeviceId ? "candidate" : "existing";
     const dot = document.createElement("i");
     const content = document.createElement("div");
-    const title = document.createElement("b"); title.textContent = `${device.server_id} · ${device.status}`;
-    const detail = document.createElement("small"); detail.textContent = `${device.assigned_address} · ${device.device_id.slice(0, 8)}`;
+    const role = device.device_id === candidateDeviceId ? "새 교체 후보" : "기존 설정";
+    const title = document.createElement("b"); title.textContent = `${role} · ${device.server_id} · ${device.status}`;
+    const detail = document.createElement("small"); detail.textContent = `식별자 ${device.device_id.slice(0, 8)} · 주소와 키는 표시하지 않음`;
     content.append(title, detail); row.append(dot, content);
     if (device.status === "active") {
-      const revoke = document.createElement("button"); revoke.type = "button"; revoke.className = "text-btn"; revoke.textContent = "폐기";
+      const revoke = document.createElement("button"); revoke.type = "button"; revoke.className = "text-btn";
+      const allowed = canRevokeDevice(device.device_id);
+      revoke.disabled = !allowed;
+      revoke.textContent = device.device_id === candidateDeviceId ? "후보 폐기" : (allowed ? "기존 설정 폐기" : "후보 확인 전 보존");
       revoke.addEventListener("click", async () => {
+        if (!canRevokeDevice(device.device_id)) { notify("후보 연결과 일반망 복귀를 먼저 확인하세요. 기존 설정은 보존됩니다."); return; }
+        const isCandidate = device.device_id === candidateDeviceId;
+        const accepted = globalThis.confirm(isCandidate
+          ? "새 교체 후보만 폐기합니다. 기존 설정은 보존됩니다. 계속할까요?"
+          : "기존 설정 폐기는 되돌릴 수 없습니다. 후보 연결과 일반망 복귀를 모두 직접 확인했습니까?");
+        if (!accepted) { notify("폐기를 취소했습니다. 설정은 그대로 보존됩니다."); return; }
         revoke.disabled = true;
-        try { await client.revokeDevice(device.device_id); await syncAccount(); notify("기기 폐기 상태를 확인했습니다."); }
+        try {
+          await client.revokeDevice(device.device_id);
+          if (isCandidate) { candidateDeviceId = null; replacementPhase = "idle"; activeDeviceId = null; }
+          else replacementPhase = "replacement_completed";
+          await syncAccount(); renderReplacementGuard(); notify("기기 폐기 상태를 확인했습니다.");
+        }
         catch (error) { notify(readableError(error)); revoke.disabled = false; }
       });
       row.append(revoke);
@@ -317,6 +372,10 @@ function setConnectionFromResult(result) {
     ? result.state : "limited";
   globalThis.setConnectionState?.(state);
   const checks = result?.checks || {};
+  if (activeDeviceId && activeDeviceId === candidateDeviceId && candidateRuntimeEvidencePassed(result)) {
+    replacementPhase = "candidate_live_verified";
+    renderReplacementGuard();
+  }
   globalThis.dispatchEvent(new CustomEvent("freeflex:protection-evidence", {
     detail: {
       state,
@@ -381,6 +440,9 @@ async function createProfile() {
     profileConfig.value = profile.config;
     profilePanel.hidden = false;
     activeDeviceId = profile.deviceId;
+    candidateDeviceId = profile.deviceId;
+    replacementPhase = "candidate_unverified";
+    renderReplacementGuard();
     setBanner(setupBanner, "기기 구성 준비됨", "아래 파일을 이 기기에 저장해 공식 WireGuard 앱으로 가져오세요.", "ready");
     syncAccount().catch(() => notify("구성은 준비됐지만 기기 목록 새로고침은 다음 연결에서 다시 시도합니다."));
   } catch (error) {
@@ -442,6 +504,13 @@ async function initialize() {
 
 createProfileButton?.addEventListener("click", createProfile);
 downloadProfileButton?.addEventListener("click", downloadProfile);
+confirmReturnPathButton?.addEventListener("click", () => {
+  if (!candidateDeviceId || replacementPhase !== "candidate_live_verified") return;
+  replacementPhase = "ready_to_replace";
+  renderReplacementGuard();
+  if (lastDevicesPayload) renderDevices(lastDevicesPayload);
+  notify("일반망 복귀 확인을 기록했습니다. 기존 설정은 아직 보존 중입니다.");
+});
 window.addEventListener("freeflex:check-protection", async () => {
   if (!client) return;
   try { setConnectionFromResult(await client.check(activeDeviceId)); }
@@ -477,4 +546,5 @@ platformInstallButton?.addEventListener("click", async () => {
 
 renderMomentRecommendations();
 renderPlatformSupport();
+renderReplacementGuard();
 initialize();
