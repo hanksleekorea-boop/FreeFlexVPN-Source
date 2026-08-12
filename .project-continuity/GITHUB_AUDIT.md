@@ -1,5 +1,15 @@
 # GitHub v6.2 인계 감사 — 최신 공유본
 
+## 2026-08-12 최신 인계 감사
+
+- 판정: `GITHUB_RELEASE_READY_WITH_RECEIVER_RECHECK`
+- 인계 기준 저장 기록: `4f7ec30f1c8fac0b7d8594b40ccf48e46cd45357`
+- 인계 작업 갈래: `handoff/v6-2-20260807`, 생성 시 원격 ahead/behind 0/0.
+- 비공개 Release: `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/releases/tag/handoff-20260812T095152Z-4f7ec30`
+- 자산: ZIP·TXT 두 개만 존재하며 Release 재다운로드 SHA-256 일치.
+- 검사: 최종 전체 회귀 69/69 파일·720/720 항목, 목록표 416개, 인계 계약 6/6 통과.
+- 제한: 새 PC 독립 재실행과 받는 AI 수락, iPhone·Windows 실제 VPN, 기존 Android `ffvpn` DNS·경로 문제는 별도 확인이 필요하다.
+
 ## 판정
 
 - 판정: `GITHUB_READY_WITH_LIMITATIONS`
