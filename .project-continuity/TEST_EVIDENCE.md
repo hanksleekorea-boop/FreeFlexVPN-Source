@@ -99,6 +99,26 @@
 
 - 없음.
 
+## 2026-08-13 — 공개·무잠금 GitHub 협업 검증
+
+### ① 자동·원격 검사
+
+- 자격 증명 도우미를 비운 HTTPS shallow clone — 로그인 없이 성공, HEAD `cb8df1b367c6696875e6d5a4b4fa0f3c89f136ad`, 변경 0개.
+- GitHub 저장소 재조회 — `visibility: PUBLIC`, `private: false`, 기본 갈래 `feature/pc-commercial-readiness-90`, fork·Issues 활성.
+- ruleset `20545111` 재조회 — 현재 기본 갈래 포함, deletion·non-fast-forward 차단, Pull Request 승인 요구 0명.
+- 비공개 취약점 신고 재조회 — enabled. secret scanning·push protection — enabled. validity checks — disabled로 남아 미완료 분리.
+- `40_TESTS/test_open_collaboration.py` — 5/5 통과. 공개 참여 경로·직접 push 한계·무잠금 PR·비공개 취약점 신고·현재 안내의 비공개 오표기 방지를 검사.
+- `70_TOOLS/make_manifest.py` 재생성·`--check` — 현재 변경을 반영한 436/436 파일 해시 일치.
+- 번들 Python의 첫 전체 회귀 시도는 `playwright`·`cv2`·`qrcode`가 없어 검사 시작 전 종료했다. 프로젝트 `.test-venv`로 같은 명령을 재실행해 78/78 파일·820/820 항목·실패 0, 46.4초를 확인했다.
+
+### ② 실제 기기·서비스
+
+- VPN 서버·Android·iPhone·Windows VPN·Cloud Storage 공개 앱·결제·비용은 변경하지 않았다. 이번 검증은 GitHub 소스 협업 경로에 한정한다.
+
+### ③ 권한 경계
+
+- 로그인한 누구나 fork·Issue·Pull Request로 개발할 수 있다. GitHub 미지원인 불특정 사용자 전원의 원본 직접 push와 공유 관리자 토큰은 통과로 주장하지 않는다.
+
 ## 2026-08-12 — PC 상용화 90% 목표 개발 후보
 
 ### ① 수정 전후 검사

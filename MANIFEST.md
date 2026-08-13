@@ -3,7 +3,7 @@
 | 항목 | 값 |
 |---|---|
 | 파일 수 | 436 |
-| 총 바이트 | 11,040,322 |
+| 총 바이트 | 11,046,403 |
 
 ## 지문 규칙
 
@@ -50,21 +50,21 @@
 | `.github/SECURITY.md` | 419 | 분류 확인 필요 | `5c452b3cace207d707675ab6e6deabee9e0928862b7c4b29033bd5818c8f5836` |
 | `.github/workflows/ci.yml` | 757 | 분류 확인 필요 | `c845fa39aa8931b3bdec57aa2ce1ba4833e13e8a850705c0a4757e1e8afddc9e` |
 | `.gitignore` | 353 | 버전 관리 제외 규칙 | `cfb777222d3cf05ca12e5b796c8f77a97ed349b47a50af1b1e67c8a506726872` |
-| `.project-continuity/APPROVALS.md` | 7,004 | 공동개발 연속성 기록 | `ac07cfe6781960ad2e123348fdc6b9c05ace24a4a8fea3387fe3ac4b8eaa2216` |
+| `.project-continuity/APPROVALS.md` | 7,474 | 공동개발 연속성 기록 | `a3a662554d1cb8f6520419bfb990a2f22df66711aec882e4d27310f0da20c36d` |
 | `.project-continuity/COMPLETION.md` | 870 | 공동개발 연속성 기록 | `765ea806a447d93e183845a01db536ad3e78784947d82cedaf85bee8fb7a6254` |
 | `.project-continuity/CONSULTING.md` | 1,197 | 공동개발 연속성 기록 | `14a09f73550dae540cd58424d47dd9b2cc20eb2755b1827acd3267aafbbec04c` |
-| `.project-continuity/GITHUB_AUDIT.md` | 3,829 | 공동개발 연속성 기록 | `17ee203612fae3eed72923f6c52db79a38be9a455dda14889bc34221992a648e` |
+| `.project-continuity/GITHUB_AUDIT.md` | 5,070 | 공동개발 연속성 기록 | `b724bee35264ae43b82a0fb6021446eaf0f92565fe386254dae554ba2a1f5008` |
 | `.project-continuity/HANDOFF_CAPSULE.json` | 1,967 | 공동개발 연속성 기록 | `839914aa92a0e41382468e9bf7cd1e9d1f916dbe0ab6dd78e0b7aa39d0bb8f79` |
-| `.project-continuity/HISTORY.md` | 65,166 | 공동개발 연속성 기록 | `6f398f6dcca964e16a65aca156f3a8daaf2c9b7fd1b593c94459d8f5066f7121` |
+| `.project-continuity/HISTORY.md` | 66,726 | 공동개발 연속성 기록 | `8d389e400db74648a23f18832379c5ed17c0383839048ff3b95b1bb7d8d365a3` |
 | `.project-continuity/NO_LOCK_POLICY.md` | 1,281 | 공동개발 연속성 기록 | `d91c91ca5378b30825c10879fb1e0b741f5ba130dfdc4f46385639397b470526` |
-| `.project-continuity/STATE.md` | 28,365 | 공동개발 연속성 기록 | `f6afbb382e1cffb13fec86728734629617ecc0797cea31e345dd5a801744eddc` |
-| `.project-continuity/TEST_EVIDENCE.md` | 56,399 | 공동개발 연속성 기록 | `0d4eedef57c4e5a5e29f237769f621a5b61133db030cba5232af43dc12ec0808` |
-| `00_START/DEVELOPMENT_DASHBOARD.md` | 17,531 | 시작·인수인계 | `06bd36b5ca9a3b35e9a10ee1b430b4a460be10c903fc599d748499a3b5aa509a` |
+| `.project-continuity/STATE.md` | 28,430 | 공동개발 연속성 기록 | `803340142e8b6e15b1bfe91a945f5de60d836bd0bacae95f30ca3f7b64439b76` |
+| `.project-continuity/TEST_EVIDENCE.md` | 58,061 | 공동개발 연속성 기록 | `22041da352f4e52ee0f4853a576c11762c7ff6cd59248825046948c613bba989` |
+| `00_START/DEVELOPMENT_DASHBOARD.md` | 17,678 | 시작·인수인계 | `e6223b576fb5fd3203b14877584ff75c83b92ed9ca2d13f3b9bc9d4a37a87d62` |
 | `00_START/HANDOFF_PROMPT.md` | 14,622 | 시작·인수인계 | `08e5083c7e875677743e1b0ee1cc6ee1fee40fd736f559c56fcd80c88ecfe26b` |
-| `00_START/NEW_CODEX_ACCOUNT_HANDOFF.md` | 3,678 | 시작·인수인계 | `d50d7220fbac6055d17fccf4f26ad8bced44574e7adda230c345be681d295e10` |
-| `00_START/NEW_PC_SETUP.md` | 3,300 | 시작·인수인계 | `72fe62dc37576bd2f8e9e92b61f5a616465f6224782d843ac80501fa1fb16f96` |
-| `00_START/RECEIVER_HANDOFF_PROMPT.md` | 1,698 | 시작·인수인계 | `44933f584f1f66980f9148a23f020edb3e1c55a89571fadeb39c14bdeac4c9c4` |
-| `00_START/시작하세요.md` | 1,284 | 시작·인수인계 | `deb39335c1496c3fff1c06574cb91fe8dd843e2865ad5151006e66f329ccc44b` |
+| `00_START/NEW_CODEX_ACCOUNT_HANDOFF.md` | 3,711 | 시작·인수인계 | `5a2cfda6e1f86c7f52bbb8d19b44468ab5b46dc3f58e7d32f5b9a99a7d8a0d63` |
+| `00_START/NEW_PC_SETUP.md` | 3,343 | 시작·인수인계 | `504e9f96a672697e8af10ca2afa76afa59df2e40da5590b87e0c5b38dbf06a21` |
+| `00_START/RECEIVER_HANDOFF_PROMPT.md` | 1,747 | 시작·인수인계 | `0ae6065e90ecc60cfdbbb312d1ed93d456e3900a6693489a9ade9310eca6203e` |
+| `00_START/시작하세요.md` | 1,365 | 시작·인수인계 | `c24491f74d51bdded44765f99a66bd96cbc915c54da9b36dc145cf964b626419` |
 | `10_PLAN/COMMERCIAL_RELEASE_GATE_PLAN_v1_2026-08-10.md` | 12,840 | 현재 기획·실행 정본 | `0af46461e35b3302a1dbf2316892b882deb771199694589bf16196597b6aecaf` |
 | `10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md` | 16,443 | 현재 기획·실행 정본 | `41049983f2bd0fed1bc38817968a7f34ab7c71eb46095555488a1bb14b402c59` |
 | `10_PLAN/CURRENT_SERVICE_PLAN.md` | 9,295 | 현재 기획·실행 정본 | `dd5c1a1ac4d1d261143a7ab7883c98194fe79b8a18b8f72a132d88f84be6d1f9` |
@@ -319,7 +319,7 @@
 | `40_TESTS/test_mobile_readiness_ui.py` | 4,125 | 검사 | `f0d06739e9214384267b581b71203e638fd4c605e651074fcab3388f8dbb9abe` |
 | `40_TESTS/test_moment_catalog.py` | 4,987 | 검사 | `bb930a12e2064b2e0c1353c3471f1a508e3ce6aa54b6c71c0f0113ffe3abefa7` |
 | `40_TESTS/test_network_safety_ui.py` | 1,800 | 검사 | `0e27c3f1f7f29a36d42cde84534cb8ad33a24459f2cd6a6c2b1743e7cafc9a1f` |
-| `40_TESTS/test_open_collaboration.py` | 1,805 | 검사 | `3b5cc3ff4737990a03d8f20d12266511154af18e82892d7fcaa1d9f5e03bb366` |
+| `40_TESTS/test_open_collaboration.py` | 2,541 | 검사 | `e417cc66e0f1a9bfe5b0295123bc050347b525248a4b9c42c5a6906056cdc0eb` |
 | `40_TESTS/test_pc_handoff.py` | 3,281 | 검사 | `b7d6a5e8da19c829585d31827e158bf87c11b4cdaee3c8e700effabb8daa4a32` |
 | `40_TESTS/test_pc_home.py` | 3,851 | 검사 | `debdad131a86ce290ab45cddcf4726f855d86ad96e99620171221cfe33037cd1` |
 | `40_TESTS/test_pc_productivity_ui.py` | 5,808 | 검사 | `9b538dedf6077f7043b006b77cca4ee54cfd35c96c20b4864e09b3b49c233e3a` |
@@ -445,7 +445,7 @@
 | `70_TOOLS/build_telegram_bot_config.py` | 1,752 | 생성·검증 도구 | `198b47002c075a58e11112ab721ca6e2589178187456ac9142353625fa063b3b` |
 | `70_TOOLS/check_app_prototype.mjs` | 2,621 | 생성·검증 도구 | `0db4cecc7178f06aa74ca9d696c08ce9dc19557e92db215859034272a066ebd0` |
 | `70_TOOLS/check_inline_html_js.mjs` | 945 | 생성·검증 도구 | `871bc56a2a74976265e4a31bb6edc9af2c3db8b791fce244cabde603cbf86580` |
-| `70_TOOLS/create_ai_handoff.py` | 16,858 | 생성·검증 도구 | `0cd3c181325837bb572f574eacba2deff491bf6a961325d1bb5b6e92aa409f6f` |
+| `70_TOOLS/create_ai_handoff.py` | 16,852 | 생성·검증 도구 | `634d33196a3296a077bf2e0bc9e7a9b8c9fd525aa1ab979d68809d83aaa882df` |
 | `70_TOOLS/evaluate_runtime_acceptance.py` | 1,446 | 생성·검증 도구 | `404b22ed19a561b9dd939c04ea3b61b31668c62ddac7812fc21310ab4339ac18` |
 | `70_TOOLS/fkvpaths.py` | 1,710 | 생성·검증 도구 | `73014d2685a337fab53500c3e7792ace23096688b39d6309e55920ff3b364ec5` |
 | `70_TOOLS/gen_contracts.py` | 472 | 생성·검증 도구 | `dd9d2345d70938e4989ccdf87bed619cdf6637a9a328833d1481580bb57466c1` |

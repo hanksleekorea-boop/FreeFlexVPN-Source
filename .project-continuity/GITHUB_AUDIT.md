@@ -1,5 +1,16 @@
 # GitHub v6.2 인계 감사 — 최신 공유본
 
+## 2026-08-13 공개·무잠금 협업 전환
+
+- 현재 판정: `PUBLIC_LOCK_FREE_CONTRIBUTION_READY`.
+- 저장소: PUBLIC, 기본 갈래 `feature/pc-commercial-readiness-90`, fork·Issues 활성.
+- 익명 검증: GitHub 자격 증명 도우미를 비운 새 임시 폴더 clone 성공, HEAD `cb8df1b367c6696875e6d5a4b4fa0f3c89f136ad`, 변경 0개.
+- 참여 경로: 누구나 clone·Release 다운로드, 로그인 사용자는 fork·Issue·Pull Request. 프로젝트 협업 잠금 파일은 만들지 않는다.
+- 기본 갈래 규칙: 삭제·강제 갱신 차단, Pull Request 필수, 승인 요구 0명, 모든 일반 병합 방식 허용.
+- 보안: secret scanning·push protection·Dependabot 보안 갱신·비공개 취약점 신고 활성. validity checks는 GitHub 재조회에서 disabled로 남아 활성 완료로 주장하지 않는다.
+- 경계: GitHub는 불특정 로그인 사용자 전원에게 원본 직접 push 권한을 주는 모델을 제공하지 않는다. 직접 push는 정확히 식별된 협업자만 가능하며 공유 토큰·익명 쓰기는 사용하지 않는다. 사이트 배포 IAM은 별도다.
+- 아래 2026-08-12 및 이전의 `비공개` 표기는 당시 상태를 보존한 역사 기록이다.
+
 ## 2026-08-12 최신 인계 감사
 
 - 판정: `GITHUB_RELEASE_READY_WITH_RECEIVER_RECHECK`

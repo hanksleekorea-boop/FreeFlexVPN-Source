@@ -31,6 +31,23 @@ class OpenCollaborationContractTests(unittest.TestCase):
         self.assertIn("비공개 취약점 신고", source)
         self.assertIn("공개 협업", source)
 
+    def test_current_onboarding_does_not_claim_repository_is_private(self):
+        current_files = (
+            ROOT / "00_START" / "RECEIVER_HANDOFF_PROMPT.md",
+            ROOT / "00_START" / "NEW_PC_SETUP.md",
+            ROOT / "00_START" / "NEW_CODEX_ACCOUNT_HANDOFF.md",
+            ROOT / "00_START" / "시작하세요.md",
+            ROOT / "70_TOOLS" / "create_ai_handoff.py",
+        )
+        source = "\n".join(path.read_text(encoding="utf-8") for path in current_files)
+        for stale in (
+            "원격은 비공개",
+            "원격 원본은 비공개",
+            "최신 비공개 GitHub Release",
+            "예상 비공개 인계 Release",
+        ):
+            self.assertNotIn(stale, source)
+
 
 if __name__ == "__main__":
     suite = unittest.defaultTestLoader.loadTestsFromTestCase(OpenCollaborationContractTests)

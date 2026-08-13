@@ -283,7 +283,7 @@ def create(replace_current: bool = False) -> tuple[Path, Path]:
 - 인계 갈래: {snapshot.branch}
 - 기준 HEAD: {snapshot.head}
 - 공개 서비스: {PUBLIC_APP}
-- 예상 비공개 인계 Release: {release_url}
+- 예상 공개 인계 Release: {release_url}
 - 예상 Release 태그: {release_tag}
 - 생성 시점에 작업 폴더는 깨끗했고 `{snapshot.upstream}`과 ahead/behind 0/0으로 일치했습니다.
 - GitHub Release는 이 기준 HEAD와 ZIP 이름·SHA-256이 일치하는지 확인해야 합니다.
@@ -334,7 +334,7 @@ def create(replace_current: bool = False) -> tuple[Path, Path]:
 7. 현재 핵심 문제는 기존 Android `ffvpn` 프로필의 DNS·경로 실패입니다. 별도 검증 프로필의 과거 성공을 완료로 바꾸지 말고, 기존 프로필을 보존한 안전한 비교·재발급 계획부터 진행하세요.
 8. Release 자산의 ZIP·TXT SHA-256과 기준 HEAD를 확인하고, 결과를 연속성 기록에 남기세요.
 
-예상 비공개 인계 Release: {release_url}
+예상 공개 인계 Release: {release_url}
 예상 Release 태그: {release_tag}
 
 인계 패키지 판정: 로컬 검증 준비 완료. 생성 시점에 소스는 깨끗했고 원격과 일치했습니다. 새 PC 독립 재현과 받는 AI의 수락은 받는 환경에서 확인해야 합니다.

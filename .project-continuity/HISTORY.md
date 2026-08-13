@@ -39,6 +39,17 @@
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금해제 O]
 
+## 2026-08-13 — GitHub 공개·무잠금 협업 전환 완료
+
+- 사용자 명시 승인에 따라 `hanksleekorea-boop/FreeFlexVPN-Source`를 PRIVATE에서 PUBLIC으로 전환하고 기본 갈래를 `feature/pc-commercial-readiness-90`으로 바꿨다.
+- 로그인 없는 새 임시 복제가 성공했고 HEAD `cb8df1b367c6696875e6d5a4b4fa0f3c89f136ad` 및 깨끗한 상태를 확인했다. 공개 저장소·raw README·Release 2개와 각 ZIP·TXT 자산도 공개 응답으로 대조했다.
+- fork·Issues·secret scanning·push protection·Dependabot 보안 갱신·비공개 취약점 신고를 활성화했다. secret scanning validity checks는 재조회에서 disabled로 남아 성공으로 기록하지 않는다.
+- 과거 갈래만 가리키던 ruleset `20545111`을 현재 기본 갈래로 옮겨 삭제·강제 갱신을 막고 승인 요구 0명의 Pull Request 참여 경로를 유지했다.
+- 현재 안내 문서와 인계 생성기의 `비공개` 문구를 공개 상태로 동기화하고 재발 방지 계약 검사를 5/5 통과했다. 과거 감사·Release 생성 당시 비공개였다는 역사 기록은 보존했다.
+- GitHub는 불특정 로그인 사용자 전체의 원본 직접 push를 지원하지 않는다. 누구나 clone·fork·Issue·Pull Request로 개발할 수 있고, 원본 직접 push는 식별된 협업자만 가능하다. 공유 관리자 토큰·익명 쓰기와 사이트 배포 IAM의 무차별 개방은 하지 않았다.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금해제 O]
+
 ## 2026-08-13 — PC·모바일 상용화 100% 목표 개발·증거 재산정
 
 - PC 출시 점검에 이어 모바일 점검 8종·복구 훈련·플랫폼별 공식 안내·가린 복구 증거 다운로드를 구현했다. 공통 상용 관문 8종과 민감정보 없는 로컬 지원 묶음·비파괴 사고 체크리스트도 추가했다.
