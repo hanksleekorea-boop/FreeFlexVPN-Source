@@ -14,6 +14,9 @@ from urllib.parse import parse_qs, urlsplit
 from app.collaboration_gateway import (
     CollaborationGateway, GatewayError, GatewayResult, ProjectContext, as_error,
 )
+from app.collaboration_runtime import (
+    GitHubIntegrationBroker, SessionWorktreeManager, SignedDriveOutbox,
+)
 from app.collaboration_workspace import SafeWorkspace, WorkspaceError
 
 
@@ -36,6 +39,8 @@ class CollaborationRequestHandler(BaseHTTPRequestHandler):
     portal_path: Path
     allowed_origin: str
     workspace: SafeWorkspace | None = None
+    workspace_manager: SessionWorktreeManager | None = None
+    integration_broker: GitHubIntegrationBroker | None = None
     python_executable: str = "python"
     server_version = "FreeFlexCollaboration/0.1"
     sys_version = ""
@@ -53,6 +58,15 @@ class CollaborationRequestHandler(BaseHTTPRequestHandler):
         cookie.load(self.headers.get("Cookie", ""))
         morsel = cookie.get(COOKIE_NAME)
         return morsel.value if morsel else ""
+
+    def _workspace_for_session(self) -> SafeWorkspace:
+        token = self._session_token()
+        self.gateway.status(token)
+        if self.workspace_manager is not None:
+            return self.workspace_manager.workspace_for(token)
+        if self.workspace is not None:
+            return self.workspace
+        raise GatewayError(503, "WORKSPACE_UNAVAILABLE", "서버 작업공간이 아직 연결되지 않았습니다")
 
     def _read_json(self) -> dict[str, Any]:
         try:
@@ -121,7 +135,11 @@ class CollaborationRequestHandler(BaseHTTPRequestHandler):
                 self._write_script()
                 return
             if self.command == "GET" and self.path == "/healthz":
-                self._write_json(GatewayResult(200, {"status": "ok", "secrets_exposed": False}))
+                self._write_json(GatewayResult(200, {
+                    "status": "ok", "secrets_exposed": False,
+                    "session_worktrees": self.workspace_manager is not None,
+                    "integration_broker": self.integration_broker is not None,
+                }))
                 return
             if self.command == "GET" and self.path == "/.well-known/ai-development.json":
                 self._write_json(GatewayResult(200, {
@@ -130,14 +148,14 @@ class CollaborationRequestHandler(BaseHTTPRequestHandler):
                     "authentication": "password_session",
                     "session_minutes": 15,
                     "capabilities": {
-                        "context": self.workspace is not None,
-                        "read": self.workspace is not None,
-                        "search": self.workspace is not None,
-                        "write": self.workspace is not None,
-                        "diff": self.workspace is not None,
-                        "commit": self.workspace is not None,
-                        "checks": self.workspace is not None,
-                        "integration_request": False,
+                        "context": self.workspace is not None or self.workspace_manager is not None,
+                        "read": self.workspace is not None or self.workspace_manager is not None,
+                        "search": self.workspace is not None or self.workspace_manager is not None,
+                        "write": self.workspace is not None or self.workspace_manager is not None,
+                        "diff": self.workspace is not None or self.workspace_manager is not None,
+                        "commit": self.workspace is not None or self.workspace_manager is not None,
+                        "checks": self.workspace is not None or self.workspace_manager is not None,
+                        "integration_request": self.integration_broker is not None,
                         "protected_deploy": self.gateway.release_broker is not None,
                         "arbitrary_shell": False,
                         "owner_admin": False,
@@ -158,74 +176,71 @@ class CollaborationRequestHandler(BaseHTTPRequestHandler):
                 self._write_json(self.gateway.status(self._session_token()))
                 return
             if self.command == "GET" and self.path == "/api/development/context":
-                self.gateway.status(self._session_token())
-                if self.workspace is None:
-                    raise GatewayError(503, "WORKSPACE_UNAVAILABLE", "서버 작업공간이 아직 연결되지 않았습니다")
-                self._write_json(GatewayResult(200, self.workspace.context()))
+                self._write_json(GatewayResult(200, self._workspace_for_session().context()))
                 return
             parsed = urlsplit(self.path)
             if self.command == "GET" and parsed.path == "/api/development/read":
-                self.gateway.status(self._session_token())
-                if self.workspace is None:
-                    raise GatewayError(503, "WORKSPACE_UNAVAILABLE", "서버 작업공간이 아직 연결되지 않았습니다")
                 path = parse_qs(parsed.query).get("path", [""])[0]
-                self._write_json(GatewayResult(200, self.workspace.read(path)))
+                self._write_json(GatewayResult(200, self._workspace_for_session().read(path)))
                 return
             if self.command == "GET" and parsed.path == "/api/development/search":
-                self.gateway.status(self._session_token())
-                if self.workspace is None:
-                    raise GatewayError(503, "WORKSPACE_UNAVAILABLE", "서버 작업공간이 아직 연결되지 않았습니다")
                 query = parse_qs(parsed.query)
-                self._write_json(GatewayResult(200, self.workspace.search(
+                self._write_json(GatewayResult(200, self._workspace_for_session().search(
                     query.get("q", [""])[0], prefix=query.get("prefix", [""])[0]
                 )))
                 return
             if self.command == "GET" and self.path == "/api/development/diff":
-                self.gateway.status(self._session_token())
-                if self.workspace is None:
-                    raise GatewayError(503, "WORKSPACE_UNAVAILABLE", "서버 작업공간이 아직 연결되지 않았습니다")
-                self._write_json(GatewayResult(200, self.workspace.diff()))
+                self._write_json(GatewayResult(200, self._workspace_for_session().diff()))
                 return
             if self.command == "PUT" and self.path == "/api/development/write":
-                if self.workspace is None:
-                    raise GatewayError(503, "WORKSPACE_UNAVAILABLE", "서버 작업공간이 아직 연결되지 않았습니다")
+                workspace = self._workspace_for_session()
                 body = self._read_json(); operation_id = str(body.get("operation_id", ""))
                 result = self.gateway.perform_workspace_operation(
                     self._session_token(), self.headers.get("X-FreeFlex-CSRF", ""),
                     operation_id=operation_id, action="workspace.write", request=body,
-                    callback=lambda: GatewayResult(200, self.workspace.write(
+                    callback=lambda: GatewayResult(200, workspace.write(
                         str(body.get("path", "")), str(body.get("content", "")),
                         expected_revision=str(body.get("expected_revision", "")), operation_id=operation_id,
                     )),
                 )
                 self._write_json(result); return
             if self.command == "POST" and self.path == "/api/development/commit":
-                if self.workspace is None:
-                    raise GatewayError(503, "WORKSPACE_UNAVAILABLE", "서버 작업공간이 아직 연결되지 않았습니다")
+                workspace = self._workspace_for_session()
                 body = self._read_json(); operation_id = str(body.get("operation_id", ""))
                 result = self.gateway.perform_workspace_operation(
                     self._session_token(), self.headers.get("X-FreeFlex-CSRF", ""),
                     operation_id=operation_id, action="workspace.commit", request=body,
-                    callback=lambda: GatewayResult(201, self.workspace.commit(
+                    callback=lambda: GatewayResult(201, workspace.commit(
                         str(body.get("message", "")), list(body.get("paths", [])),
                     )),
                 )
                 self._write_json(result); return
             if self.command == "POST" and self.path.startswith("/api/development/checks/"):
-                if self.workspace is None:
-                    raise GatewayError(503, "WORKSPACE_UNAVAILABLE", "서버 작업공간이 아직 연결되지 않았습니다")
+                workspace = self._workspace_for_session()
                 check_id = self.path.rsplit("/", 1)[-1]
                 body = self._read_json(); operation_id = str(body.get("operation_id", ""))
                 result = self.gateway.perform_workspace_operation(
                     self._session_token(), self.headers.get("X-FreeFlex-CSRF", ""),
                     operation_id=operation_id, action="workspace.check", request={**body, "check_id": check_id},
-                    callback=lambda: GatewayResult(200, self.workspace.run_check(
+                    callback=lambda: GatewayResult(200, workspace.run_check(
                         check_id, python_executable=self.python_executable,
                     )),
                 )
                 self._write_json(result); return
             if self.command == "POST" and self.path == "/api/development/integration-request":
-                raise GatewayError(503, "INTEGRATION_BROKER_UNAVAILABLE", "통합 요청 중계가 아직 연결되지 않았습니다")
+                if self.integration_broker is None:
+                    raise GatewayError(503, "INTEGRATION_BROKER_UNAVAILABLE", "통합 요청 중계가 아직 연결되지 않았습니다")
+                workspace = self._workspace_for_session()
+                body = self._read_json(); operation_id = str(body.get("operation_id", ""))
+                result = self.gateway.perform_workspace_operation(
+                    self._session_token(), self.headers.get("X-FreeFlex-CSRF", ""),
+                    operation_id=operation_id, action="workspace.integration", request=body,
+                    callback=lambda: GatewayResult(202, self.integration_broker.request(
+                        workspace, operation_id=operation_id,
+                        title=str(body.get("title", "")), body=str(body.get("body", "")),
+                    )),
+                )
+                self._write_json(result); return
             if self.command == "POST" and self.path == "/api/development/deployments/prepare":
                 body = self._read_json()
                 self._write_json(self.gateway.prepare_deployment(
@@ -266,6 +281,8 @@ def create_server(
     host: str = "127.0.0.1",
     port: int = 8790,
     workspace: SafeWorkspace | None = None,
+    workspace_manager: SessionWorktreeManager | None = None,
+    integration_broker: GitHubIntegrationBroker | None = None,
     python_executable: str = "python",
 ) -> ThreadingHTTPServer:
     path = Path(portal_path)
@@ -281,6 +298,8 @@ def create_server(
     BoundHandler.portal_path = path
     BoundHandler.allowed_origin = allowed_origin.rstrip("/")
     BoundHandler.workspace = workspace
+    BoundHandler.workspace_manager = workspace_manager
+    BoundHandler.integration_broker = integration_broker
     BoundHandler.python_executable = python_executable
     return ThreadingHTTPServer((host, port), BoundHandler)
 
@@ -309,15 +328,40 @@ def main(argv: list[str] | None = None) -> int:
     )
     gateway = CollaborationGateway(args.db, context=context, bootstrap_password=password)
     workspace = None
+    workspace_manager = None
     workspace_root = os.environ.get("FFVPN_COLLAB_WORKSPACE")
     workspace_branch = os.environ.get("FFVPN_COLLAB_SESSION_BRANCH")
     if workspace_root or workspace_branch:
         if not workspace_root or not workspace_branch:
             parser.error("작업공간 경로와 세션 브랜치를 함께 설정해야 합니다")
         workspace = SafeWorkspace(Path(workspace_root), workspace_branch)
+    source_repo = os.environ.get("FFVPN_COLLAB_SOURCE_REPO")
+    sessions_root = os.environ.get("FFVPN_COLLAB_SESSIONS_ROOT")
+    if source_repo or sessions_root:
+        if workspace is not None or not source_repo or not sessions_root:
+            parser.error("정적 작업공간과 세션 작업공간을 함께 쓰지 말고 두 세션 경로를 모두 설정하세요")
+        workspace_manager = SessionWorktreeManager(
+            Path(source_repo), Path(sessions_root), context.repository,
+            base_ref=f"origin/{context.integration_branch}",
+        )
+    outbox = None
+    outbox_root = os.environ.get("FFVPN_COLLAB_DRIVE_OUTBOX")
+    outbox_key = os.environ.get("FFVPN_COLLAB_DRIVE_SIGNING_KEY")
+    if outbox_root or outbox_key:
+        if not outbox_root or not outbox_key:
+            parser.error("Drive 발신함 경로와 서명키를 함께 설정해야 합니다")
+        outbox = SignedDriveOutbox(outbox_root, outbox_key.encode("utf-8"))
+    integration_broker = None
+    if os.environ.get("FFVPN_COLLAB_GITHUB_ENABLED") == "1":
+        if workspace is None and workspace_manager is None:
+            parser.error("GitHub 중계에는 작업공간이 필요합니다")
+        integration_broker = GitHubIntegrationBroker(
+            repository=context.repository, integration_branch=context.integration_branch,
+            gh_executable=os.environ.get("FFVPN_COLLAB_GH", "gh"), outbox=outbox,
+        )
     server = create_server(
         gateway, portal_path=args.portal, allowed_origin=args.origin, host=args.host, port=args.port,
-        workspace=workspace,
+        workspace=workspace, workspace_manager=workspace_manager, integration_broker=integration_broker,
     )
     try:
         server.serve_forever(poll_interval=0.5)
