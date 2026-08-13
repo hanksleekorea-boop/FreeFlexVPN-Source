@@ -21,4 +21,6 @@ powershell -ExecutionPolicy Bypass -File .\70_TOOLS\bootstrap_dev.ps1 -Verify
 
 현재 공개 앱: https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html
 
+비밀번호 공동개발 게이트웨이는 [시작 안내](00_START/COLLABORATION_GATEWAY.md)와 [소유자 통제 정본](.project-continuity/OWNER_CONTROL.md)을 따른다. 현재 코드는 localhost 계약 검증 단계이며 공개 운영 게이트웨이 주소는 아직 없다.
+
 > 공개 저장소의 코드 후보와 실제 운영 VPN·결제·법무·실기기 검증은 별도입니다. 완료 근거가 없는 항목을 상용 완료로 표시하지 않습니다.

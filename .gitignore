@@ -14,5 +14,6 @@ __pycache__/
 # Temporary diagnostics and reproducible checks
 *.log
 *.tmp
+collaboration.sqlite3*
 60_OUTPUTS/checks/
 60_OUTPUTS/AI_HANDOFF_CURRENT/

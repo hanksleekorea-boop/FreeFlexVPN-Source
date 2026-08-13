@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - 'feature/**'
+      - 'shared-development'
   pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
+  id-token: write
+  attestations: write
 
 jobs:
   verify:
@@ -28,3 +31,22 @@ jobs:
         run: python -X utf8 70_TOOLS/make_manifest.py --check
       - name: Run full verification
         run: python -X utf8 70_TOOLS/run_all_tests.py --jobs 1
+      - name: Scan tracked source for secrets
+        run: python -X utf8 70_TOOLS/scan_secrets.py
+      - name: Build static release artifact
+        shell: pwsh
+        run: |
+          python -X utf8 20_SRC/build_web_assets.py
+          Compress-Archive -Path 30_DEPLOY/* -DestinationPath freeflexvpn-static.zip
+      - name: Upload verified static artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: freeflexvpn-static-${{ github.sha }}
+          path: freeflexvpn-static.zip
+          if-no-files-found: error
+          retention-days: 14
+      - name: Attest production or integration build provenance
+        if: github.event_name == 'push'
+        uses: actions/attest-build-provenance@v3
+        with:
+          subject-path: freeflexvpn-static.zip
