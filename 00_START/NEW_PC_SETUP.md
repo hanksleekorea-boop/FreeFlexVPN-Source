@@ -1,6 +1,6 @@
 # 새 PC·새 계정에서 이어서 개발하기
 
-이 프로젝트의 원격 정본은 비공개 보관소 `hanksleekorea-boop/FreeFlexVPN-Source`다. 기본 갈래는 `feature/source-bootstrap`이며, `main`에는 직접 저장 기록이나 원격 올리기를 하지 않는다.
+이 프로젝트의 원격 정본은 공개 협업 보관소 `hanksleekorea-boop/FreeFlexVPN-Source`다. 기본 갈래는 최신 검증 후보이며 기본 갈래에는 직접 저장 기록이나 원격 올리기를 하지 않고 기능 갈래와 Pull Request를 사용한다.
 
 가장 빠른 인계 경로는 최신 비공개 Release의 TXT→ZIP 순서다: `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/releases/tag/handoff-20260812T095152Z-4f7ec30`. ZIP SHA-256은 `22a10e20260929edec0cf02e3f9680c58ee5dedc1cb7385b76d58b2a83b0873b`이며, 기준 소스 HEAD는 `4f7ec30f1c8fac0b7d8594b40ccf48e46cd45357`이다.
 
@@ -20,7 +20,7 @@ powershell -ExecutionPolicy Bypass -File .\70_TOOLS\bootstrap_dev.ps1 -Verify
 
 ## 다른 GitHub 계정으로 시작
 
-보관소가 비공개이므로 관리자가 대상 사용자 이름을 협업자로 초대해야 한다. 초대 전에는 복제할 수 없다. 초대 뒤에는 위와 같은 절차를 쓴다.
+로그인한 누구나 공개 저장소를 복제·포크하고 잠금 없이 개발해 Pull Request를 제출할 수 있다. 원본 기능 갈래에 직접 push해야 하는 참여자만 관리자가 정확한 사용자 이름으로 협업자 초대를 보낸다.
 
 ```powershell
 gh api -X PUT repos/hanksleekorea-boop/FreeFlexVPN-Source/collaborators/대상사용자이름 -f permission=push

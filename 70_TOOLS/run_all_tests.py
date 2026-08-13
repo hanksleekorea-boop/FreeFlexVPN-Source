@@ -26,6 +26,7 @@ SERIAL_FIRST = (
     "test_first_use_recovery_ui.py",
     "test_github_pages.py",
     "test_contributor_access.py",
+    "test_open_collaboration.py",
     "test_mobile_readiness_ui.py",
     "test_pc_readiness_ui.py",
     "test_profile_replacement_guard.py",

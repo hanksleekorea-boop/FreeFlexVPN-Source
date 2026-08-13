@@ -25,14 +25,18 @@ ALLOW = [
     (re.compile(r"wg-quick@wg0\.service"),                 "systemd 인스턴스 유닛명이며 이메일이 아님"),
     (re.compile(r"git@github\.com"),                        "GitHub SSH 호스트 표기이며 이메일이 아님"),
 ]
-TEXT_EXT = {".py", ".js", ".html", ".md", ".json", ".txt", ".yml", ".yaml", ".sh", ".bat"}
+TEXT_EXT = {".py", ".ps1", ".js", ".html", ".md", ".json", ".txt", ".yml", ".yaml", ".sh", ".bat"}
+EXCLUDE_DIRS = {
+    ".git", ".test-venv", ".chrome-ci", ".chrome-ci2", ".pytest_cache",
+    ".mypy_cache", ".tools", "__pycache__", "node_modules",
+}
 
 def main():
     root = fkvpaths.root()
     hits, allowed = [], 0
     for f in sorted(root.rglob("*")):
         if not f.is_file() or f.suffix.lower() not in TEXT_EXT: continue
-        if "__pycache__" in f.parts: continue
+        if any(part in EXCLUDE_DIRS for part in f.relative_to(root).parts): continue
         try: text = f.read_text(encoding="utf-8", errors="ignore")
         except OSError: continue
         for label, pat in PATTERNS:

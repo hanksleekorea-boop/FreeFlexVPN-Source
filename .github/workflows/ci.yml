@@ -1,4 +1,4 @@
-name: Verify private source
+name: Verify source contribution
 
 on:
   push:

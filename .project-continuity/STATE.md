@@ -1,11 +1,11 @@
 # 현재 작업 상태
 
 - 잠금 정책: 사용자 지시에 따라 이 프로젝트의 `.project-continuity/LOCK*.json` 협업 잠금 19개를 제거했고 남은 협업 잠금과 Git 잠금은 각각 0개다. 상위 AI 규칙 v10.6·전역 AGENTS·연속성 정책·진입 도구도 협업 잠금을 생성하지 않도록 전환했다. 향후 Git 상태·STATE·HISTORY 변경 경로 대조로 충돌을 피한다. 외부 프로그램의 자체 데이터베이스 잠금은 협업 잠금이 아니다.
-- 참여 권한: 비공개 GitHub 원본은 현재 소유 계정 1개만 ADMIN이며 초대 대기 0개다. 다른 AI·PC에는 AI 자체가 아니라 정확한 GitHub 사용자명에 `push`, 정확한 Google IAM 주체에 공개 사이트 버킷 한정 `roles/storage.objectAdmin`을 부여하는 `70_TOOLS/grant_contributor_access.ps1` 경로를 마련했다. 익명 쓰기·공유 토큰·프로젝트 전체 관리자 권한은 금지한다. 실제 추가 대상 주체가 제공되지 않아 신규 권한 부여 0건이다.
-- 현재 버전/단계: PC·모바일 상용화 100% 목표의 로컬 개발 후보 · PC 60/100·모바일 58/100(증거 기반) · 모바일 복구 점검 8종과 공통 상용 관문 8종 구현 · 전체 회귀 77/77 파일·815/815 항목 통과 · 전역 규칙 v10.6 적용 · 기존 Android `ffvpn` DNS·경로 실패와 별도 검증 프로필 성공을 분리 유지
+- 참여 권한: GitHub 로그인 사용자는 공개 원본을 복제·포크하고 잠금 없이 개발해 Pull Request를 제출하도록 전환 준비했다. GitHub에는 불특정 로그인 사용자 전체의 원본 직접 push 권한이 없으므로 직접 push는 정확한 GitHub 사용자명으로 승인된 협업자만 가능하다. 사이트 배포는 정확한 Google IAM 주체의 버킷 한정 권한으로 분리하며 익명 쓰기·공유 관리자 토큰은 금지한다.
+- 현재 버전/단계: PC·모바일 상용화 100% 목표의 로컬 개발 후보 · PC 60/100·모바일 58/100(증거 기반) · 공개·무잠금 GitHub 협업 후보 · 전체 회귀 78/78 파일·819/819 항목 통과 · 전역 규칙 v10.6 적용 · 기존 Android `ffvpn` DNS·경로 실패와 별도 검증 프로필 성공을 분리 유지
 - 마지막 작업자 라벨: worker-p9
 - 마지막 갱신 시각: 2026-08-13T11:21:15+07:00
-- GitHub 원격: 비공개 `hanksleekorea-boop/FreeFlexVPN-Source` · HTTPS · `feature/pc-commercial-readiness-90` 기능 갈래 · 구현 HEAD `9d5782d14a38e20cc4c9de5c244a3be4abd8f404`를 원격에 push 완료. 연속성 최종 기록은 후속 커밋으로 동기화한다.
+- GitHub 원격: `hanksleekorea-boop/FreeFlexVPN-Source` · HTTPS · `feature/pc-commercial-readiness-90` 기능 갈래 · 최신 HEAD는 Git과 원격 대조로 확인한다. 공개 협업 전환 후보는 비밀값·전체 이력 검사와 회귀 통과 뒤 원격 설정을 변경한다.
 - 공개 정적 앱: `https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html`은 이전 공개판으로 HTTP 화면 로드·1280px/720 CSS px 가로 넘침 0을 확인했다. 새 PC·모바일 출시 점검과 공통 상용 관문은 **로컬·비공개 원격 후보이며 공개판 미반영**이다. PC는 같은 주소의 `?view=app`, 모바일은 기본 주소다.
 - 다음 첫 행동: 대상 프로젝트 접근이 가능한 Cloud Shell에서 기존 Android 프로필과 분리된 Windows 검증 프로필을 안전하게 발급하고, 공식 WireGuard에서 실제 터널·DNS·일반 웹·해제 뒤 복구를 비밀값과 실제 IP 저장 없이 확인한다. 기존 Android `ffvpn`은 삭제·덮어쓰기하지 않는다.
 - 미해결 목록: Windows 실제 터널·DNS·일반 웹·해제 뒤 복구, 기존 Android `ffvpn`의 피어·재발급 비교와 DNS·경로 복구, iPhone 실제 연결, 결제·환불 왕복, 법무 검토, 운영 감시, 제한 공개의 외부 증거가 없다. 따라서 PC·모바일 모두 100%로 표기하지 않는다. 공개 모바일 앱은 설치형 웹앱이며 앱스토어/Play 스토어 네이티브 앱은 아직 공개하지 않았다. 예산 알림은 자동 지출 차단이 아니다. GitHub 비밀값 자동 검사는 제공되지 않아 저장 후보 로컬 검사 0건으로 유지한다.
