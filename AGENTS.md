@@ -1,7 +1,7 @@
 
 <!-- CONTINUITY-v3 BEGIN -->
 # 공동개발 연속성 (프로젝트 기록)
-작업 전 .project-continuity/STATE.md·HISTORY.md·TEST_EVIDENCE.md·LOCK.json을 확인한다. STATE의 다음 첫 행동부터 수행한다. 유효한 타인 잠금과 되돌릴 수 없는 작업은 🙋 당신 차례 형식으로만 묻는다. 종료 전 STATE·HISTORY·잠금을 갱신한다.
+작업 전 .project-continuity/STATE.md·HISTORY.md·TEST_EVIDENCE.md를 확인한다. STATE의 다음 첫 행동부터 수행한다. 이 프로젝트에서는 사용자의 2026-08-13 명시 지시에 따라 `.project-continuity/LOCK*.json`을 만들거나 요구하지 않는다. 협업 충돌은 Git 상태·STATE·HISTORY의 변경 경로 대조로 피한다. 되돌릴 수 없는 작업은 🙋 당신 차례 형식으로만 묻는다. 종료 전 STATE·HISTORY를 갱신한다.
 <!-- CONTINUITY-v3 END -->
 
 <!-- AI-GLOBAL-RULES-v9 BEGIN -->

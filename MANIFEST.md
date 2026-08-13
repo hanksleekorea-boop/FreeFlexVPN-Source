@@ -2,8 +2,8 @@
 
 | 항목 | 값 |
 |---|---|
-| 파일 수 | 430 |
-| 총 바이트 | 11,012,514 |
+| 파일 수 | 431 |
+| 총 바이트 | 11,020,954 |
 
 ## 지문 규칙
 
@@ -49,15 +49,16 @@
 | `.github/pull_request_template.md` | 224 | 분류 확인 필요 | `1d8a65af405f41536d98f69b81765a4aa93a38ff1cd573b8ea4eb75eaef90354` |
 | `.github/SECURITY.md` | 400 | 분류 확인 필요 | `f41a36fb39272bdd1db478debfe0d59a3d4d1c2f688aa4a4c106ef7c65f4df91` |
 | `.github/workflows/ci.yml` | 752 | 분류 확인 필요 | `530313b7759f7f2c246137c547b2516b8e08a10086dc333642e623fdc6323bb7` |
-| `.gitignore` | 384 | 버전 관리 제외 규칙 | `625e3a400ada2977015f5e5cf32aa8ff80a96bec50f6511ac5b72e9bef8d868c` |
-| `.project-continuity/APPROVALS.md` | 5,157 | 공동개발 연속성 기록 | `3aab02f80b04d6071ab564b06430683cc40bc4e869e532b408e185f548a048e9` |
+| `.gitignore` | 353 | 버전 관리 제외 규칙 | `cfb777222d3cf05ca12e5b796c8f77a97ed349b47a50af1b1e67c8a506726872` |
+| `.project-continuity/APPROVALS.md` | 5,985 | 공동개발 연속성 기록 | `8e5b07879eb5a36f42c593a88029e52a2cff3674fd037360c7734fb9d40bde45` |
 | `.project-continuity/COMPLETION.md` | 870 | 공동개발 연속성 기록 | `765ea806a447d93e183845a01db536ad3e78784947d82cedaf85bee8fb7a6254` |
 | `.project-continuity/CONSULTING.md` | 1,197 | 공동개발 연속성 기록 | `14a09f73550dae540cd58424d47dd9b2cc20eb2755b1827acd3267aafbbec04c` |
 | `.project-continuity/GITHUB_AUDIT.md` | 3,829 | 공동개발 연속성 기록 | `17ee203612fae3eed72923f6c52db79a38be9a455dda14889bc34221992a648e` |
 | `.project-continuity/HANDOFF_CAPSULE.json` | 1,927 | 공동개발 연속성 기록 | `ddbca4c10cd9f53654bd466f794a8e7a5d31d034c02c79142b4f1003db436941` |
-| `.project-continuity/HISTORY.md` | 58,949 | 공동개발 연속성 기록 | `2710dfe1111e0e4ae3947161478dcd052a1d59480969c1c3480b1300eda28ae1` |
-| `.project-continuity/STATE.md` | 26,394 | 공동개발 연속성 기록 | `362711f96a02af3e80b78bb34fe1b54adc428aa5dc8abaf25cba461970d3c450` |
-| `.project-continuity/TEST_EVIDENCE.md` | 51,424 | 공동개발 연속성 기록 | `2cd46de9ddb7d1a1fa1e57763b1485a4ec3bbc540569a719645753bd6d152c6c` |
+| `.project-continuity/HISTORY.md` | 61,318 | 공동개발 연속성 기록 | `b559e1e8e82fcded617934f5b49f856397e105a654305d36ecbd83be22fbb3a5` |
+| `.project-continuity/NO_LOCK_POLICY.md` | 1,181 | 공동개발 연속성 기록 | `3dde84e9e954f56d82a49e374398c8fcf3613464c37400061e310652bdfa03a7` |
+| `.project-continuity/STATE.md` | 27,668 | 공동개발 연속성 기록 | `692d26d2a1900e59e95a72a4c784924c34f82249bb4207b5d6184feda353da76` |
+| `.project-continuity/TEST_EVIDENCE.md` | 54,061 | 공동개발 연속성 기록 | `fbfc1f01037c9b2caa91bdb0db432a7788d45df7a007e1575cc2ec69535c61fc` |
 | `00_START/DEVELOPMENT_DASHBOARD.md` | 17,531 | 시작·인수인계 | `06bd36b5ca9a3b35e9a10ee1b430b4a460be10c903fc599d748499a3b5aa509a` |
 | `00_START/HANDOFF_PROMPT.md` | 14,622 | 시작·인수인계 | `08e5083c7e875677743e1b0ee1cc6ee1fee40fd736f559c56fcd80c88ecfe26b` |
 | `00_START/NEW_CODEX_ACCOUNT_HANDOFF.md` | 3,678 | 시작·인수인계 | `d50d7220fbac6055d17fccf4f26ad8bced44574e7adda230c345be681d295e10` |
@@ -468,5 +469,5 @@
 | `90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v2.0_2026-08-01.md` | 26,975 | 분류 확인 필요 | `e1424ac9f1e68e5d575d64c205186c8d0b37e33119f973242c4613f314f481d4` |
 | `90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v3.0_2026-08-05.md` | 11,921 | 분류 확인 필요 | `2ada1322c59674b8d12ea3481e11acdee1071ee0850f11cbef8b530715ef5071` |
 | `90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v4.0_2026-08-06.md` | 15,009 | 분류 확인 필요 | `f59e38943882ea0e5aaade4aee0db454986a0751b3be844008f5f56085d0c367` |
-| `AGENTS.md` | 1,956 | 프로젝트 작업 규칙 | `358e4229f3a196e99aae29863c4443162588af162ab42409d55286479e31b090` |
+| `AGENTS.md` | 2,138 | 프로젝트 작업 규칙 | `e38a9d6a3a9384392c1520c71fed2031fc23e99ce44478d7ad677d6208194593` |
 | `requirements-dev.txt` | 176 | 분류 확인 필요 | `fbe3ca70753cfd98410986c7c8d6c284c743ead8904beaa62094d9abf8fd2c3c` |

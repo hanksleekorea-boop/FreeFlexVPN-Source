@@ -1,5 +1,37 @@
 # 검사 증거
 
+## 2026-08-13 — 프로젝트 잠금 해제 검사
+
+- `.project-continuity/LOCK*.json` 제거 전 19개, 제거 후 0개.
+- `.git` 아래 `*.lock` 검사 결과 0개.
+- Chromium·LevelDB 내부 `LOCK`은 협업 잠금이 아니며 강제 삭제하지 않았다.
+- `AGENTS.md`와 `.project-continuity/NO_LOCK_POLICY.md`에 무잠금 운영·Git 상태 기반 충돌 방지 계약을 기록했다.
+- `.gitignore`의 `.project-continuity/LOCK*.json` 규칙을 제거해 향후 잘못 생성된 협업 잠금이 숨겨지지 않게 했다.
+
+## 2026-08-13 — PC·모바일 상용화 100% 목표 개발 후보
+
+### ① 자동 검사
+
+- `40_TESTS/test_mobile_readiness.py` — 13/13 통과: 8개 점검, 자동 근거·자가 확인 분리, 보호 확인 전 복구 훈련 차단, 가린 복구 증거 계약.
+- `40_TESTS/test_mobile_readiness_ui.py` — 실제 Chromium 13/13 통과: 390px 모바일 화면, PC 패널 숨김, 가로 넘침 0, 복구 증거 다운로드.
+- `40_TESTS/test_commercial_readiness.py` — 9/9 통과: 8개 공통 상용 관문, 문서화·외부 검증·차단 분리, 민감정보 제외 지원 묶음, 비파괴 사고 체크리스트.
+- `40_TESTS/test_commercial_readiness_ui.py` — 실제 Chromium 10/10 통과: PC·모바일 공통 관문과 지원·사고 자료 다운로드.
+- `40_TESTS/test_pwa_runtime_ui.py` — 35/35 통과: PC·모바일 점검 상태와 실제 보호 판정의 통합.
+- GitHub Pages 계약 23/23, 대시보드 1/1, 상용 계획 1/1, 진행 대시보드 7/7 통과.
+- 최종 전체 회귀 — 76/76 파일·811/811 항목·실패 0·387.8초. 로컬 근거 `60_OUTPUTS/checks/PC_MOBILE_COMMERCIAL_100_CANDIDATE_2026-08-13.json`.
+- 목록표 — 430/430 파일 SHA-256 왕복 일치. Git 저장 후보 431개 파일의 고위험 비밀값 패턴 0건.
+
+### ② 실제 기기·공개 검사
+
+- Windows 실제 VPN 프로필·터널·DNS·일반 웹·해제 뒤 복구는 미검증이다.
+- 기존 Android `ffvpn`의 DNS·경로 실패와 별도 검증 프로필의 과거 성공은 별도 상태다. 이번 작업에서는 프로필·항상 연결·차단 모드를 변경하지 않았다.
+- iPhone 실제 연결은 미검증이다. 결제·환불·법무·운영 감시·제한 공개의 실제 외부 증거도 없다.
+- 기존 공개 GCS 앱은 이전 판이며 최신 PC·모바일 후보는 미반영이다. 서비스 주소 QR은 기존 공개 주소를 가리키며 VPN 설정 QR이 아니다.
+
+### ③ 가상 사용자 분석·고객 설문
+
+- 새 가상 사용자 분석과 고객 설문은 없다. 자동 Chromium 검사를 실제 고객 조사로 표현하지 않는다.
+
 ## 2026-08-12 — 받는 AI 인계 수락 재현
 
 ### ① Release·내부 무결성
