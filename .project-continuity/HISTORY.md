@@ -11,6 +11,15 @@
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
 
+## 2026-08-13 — 범용 무손실 인계 v4.14 적용
+
+- 첨부 원문의 내장 helper가 마커 1회·11,497 bytes·지정 SHA-256과 일치함을 확인하고 사용자 공용 경로의 동일 정본을 재사용했다.
+- Auto는 누락된 `SITE-CAPABILITIES.json`과 `PERMISSION-BASELINE.json`만 생성했다. 연속 Auto 2회·ReadOnly는 HOT digest 동일, 쓰기 0, 활성 협업 잠금 0으로 통과했다.
+- GitHub 공식 API에서 저장소 admin/push와 활성 ruleset을 readback했고 PR #7·#8 및 최종 통합 CI `31708596676` 성공을 확인했다. Cloud 대상 프로젝트는 현재 주체로 접근할 수 없어 개발권한 동등성은 pass 7·fail 4·unknown 7의 incomplete로 기록했다.
+- immutable run `RUN-9e5d65a1bcef4fb482ca06c630dd4e95`로 변경·검사·다음 행동을 결속한다.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
+
 ## 2026-08-13 — 공동개발 v4.1 GitHub 통합
 
 - PR #7을 `shared-development`에 merge commit `3fabc3b`로 통합했다. 운영 기본 갈래와 실제 VPN 설정은 변경하지 않았다.
