@@ -15,6 +15,7 @@
 
 - 현재 브라우저 Cloud 계정의 접근 가능한 프로젝트 목록에 FreeFlexVPN 대상이 없고 Chrome에도 Cloud Console 탭이 없었다. 따라서 기존 승인 호스트·Secret Manager·영구 디스크·인터넷 HTTPS 주소는 미검증이며 배포 0건이다.
 - GitHub PR 중계와 Drive relay는 가짜 공급자 단위검사만 통과했다. 실제 서버 자격·실제 PR·실제 Drive readback 영수증은 미검증이다.
+- GitHub PR #7의 push CI `31707463674`와 PR CI `31707467916` 통과. `shared-development` 병합 HEAD `3fabc3b`의 최종 CI `31707826572`는 job `94472767845`에서 3분 1초에 전체 회귀·비밀 검사·산출물·provenance까지 통과했다.
 
 ### ③ 실제 기기·사용자
 
