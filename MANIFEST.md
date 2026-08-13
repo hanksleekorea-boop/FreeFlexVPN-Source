@@ -2,8 +2,8 @@
 
 | 항목 | 값 |
 |---|---|
-| 파일 수 | 431 |
-| 총 바이트 | 11,020,954 |
+| 파일 수 | 433 |
+| 총 바이트 | 11,030,746 |
 
 ## 지문 규칙
 
@@ -50,19 +50,19 @@
 | `.github/SECURITY.md` | 400 | 분류 확인 필요 | `f41a36fb39272bdd1db478debfe0d59a3d4d1c2f688aa4a4c106ef7c65f4df91` |
 | `.github/workflows/ci.yml` | 752 | 분류 확인 필요 | `530313b7759f7f2c246137c547b2516b8e08a10086dc333642e623fdc6323bb7` |
 | `.gitignore` | 353 | 버전 관리 제외 규칙 | `cfb777222d3cf05ca12e5b796c8f77a97ed349b47a50af1b1e67c8a506726872` |
-| `.project-continuity/APPROVALS.md` | 5,985 | 공동개발 연속성 기록 | `8e5b07879eb5a36f42c593a88029e52a2cff3674fd037360c7734fb9d40bde45` |
+| `.project-continuity/APPROVALS.md` | 6,518 | 공동개발 연속성 기록 | `632902e20c4952278193e0ed16e275aa52a0f6af79fd9b50f0d800f89a088dc5` |
 | `.project-continuity/COMPLETION.md` | 870 | 공동개발 연속성 기록 | `765ea806a447d93e183845a01db536ad3e78784947d82cedaf85bee8fb7a6254` |
 | `.project-continuity/CONSULTING.md` | 1,197 | 공동개발 연속성 기록 | `14a09f73550dae540cd58424d47dd9b2cc20eb2755b1827acd3267aafbbec04c` |
 | `.project-continuity/GITHUB_AUDIT.md` | 3,829 | 공동개발 연속성 기록 | `17ee203612fae3eed72923f6c52db79a38be9a455dda14889bc34221992a648e` |
-| `.project-continuity/HANDOFF_CAPSULE.json` | 1,927 | 공동개발 연속성 기록 | `ddbca4c10cd9f53654bd466f794a8e7a5d31d034c02c79142b4f1003db436941` |
-| `.project-continuity/HISTORY.md` | 61,318 | 공동개발 연속성 기록 | `b559e1e8e82fcded617934f5b49f856397e105a654305d36ecbd83be22fbb3a5` |
-| `.project-continuity/NO_LOCK_POLICY.md` | 1,181 | 공동개발 연속성 기록 | `3dde84e9e954f56d82a49e374398c8fcf3613464c37400061e310652bdfa03a7` |
-| `.project-continuity/STATE.md` | 27,668 | 공동개발 연속성 기록 | `692d26d2a1900e59e95a72a4c784924c34f82249bb4207b5d6184feda353da76` |
-| `.project-continuity/TEST_EVIDENCE.md` | 54,061 | 공동개발 연속성 기록 | `fbfc1f01037c9b2caa91bdb0db432a7788d45df7a007e1575cc2ec69535c61fc` |
+| `.project-continuity/HANDOFF_CAPSULE.json` | 1,967 | 공동개발 연속성 기록 | `839914aa92a0e41382468e9bf7cd1e9d1f916dbe0ab6dd78e0b7aa39d0bb8f79` |
+| `.project-continuity/HISTORY.md` | 62,831 | 공동개발 연속성 기록 | `1686198f75d4d8482ceeea128e78d58f548b9e3cc40e013914f5f86cf66492a3` |
+| `.project-continuity/NO_LOCK_POLICY.md` | 1,281 | 공동개발 연속성 기록 | `d91c91ca5378b30825c10879fb1e0b741f5ba130dfdc4f46385639397b470526` |
+| `.project-continuity/STATE.md` | 28,273 | 공동개발 연속성 기록 | `4b3383c15c65d9f38bd94bfa8cc485fa760df0f0618b1a1399e848c124f054c3` |
+| `.project-continuity/TEST_EVIDENCE.md` | 55,263 | 공동개발 연속성 기록 | `d62939e64c6d718a3b8e8478028a8fd8cfcfc5719dd2b7722a6d81fb249835ca` |
 | `00_START/DEVELOPMENT_DASHBOARD.md` | 17,531 | 시작·인수인계 | `06bd36b5ca9a3b35e9a10ee1b430b4a460be10c903fc599d748499a3b5aa509a` |
 | `00_START/HANDOFF_PROMPT.md` | 14,622 | 시작·인수인계 | `08e5083c7e875677743e1b0ee1cc6ee1fee40fd736f559c56fcd80c88ecfe26b` |
 | `00_START/NEW_CODEX_ACCOUNT_HANDOFF.md` | 3,678 | 시작·인수인계 | `d50d7220fbac6055d17fccf4f26ad8bced44574e7adda230c345be681d295e10` |
-| `00_START/NEW_PC_SETUP.md` | 1,912 | 시작·인수인계 | `6a49e9e01b220c7601d077e7c53c69073edce3f298754e8218facad8a42765bc` |
+| `00_START/NEW_PC_SETUP.md` | 3,182 | 시작·인수인계 | `06a56343b818fc603fb4beb4f2e5ad41db7b62b25c188cac2d37d9af77c7268a` |
 | `00_START/RECEIVER_HANDOFF_PROMPT.md` | 1,698 | 시작·인수인계 | `44933f584f1f66980f9148a23f020edb3e1c55a89571fadeb39c14bdeac4c9c4` |
 | `00_START/시작하세요.md` | 1,284 | 시작·인수인계 | `deb39335c1496c3fff1c06574cb91fe8dd843e2865ad5151006e66f329ccc44b` |
 | `10_PLAN/COMMERCIAL_RELEASE_GATE_PLAN_v1_2026-08-10.md` | 12,840 | 현재 기획·실행 정본 | `0af46461e35b3302a1dbf2316892b882deb771199694589bf16196597b6aecaf` |
@@ -294,6 +294,7 @@
 | `40_TESTS/test_commercial_release_plan.py` | 782 | 검사 | `cb38c71b617e30b6cba2fc7eed902096c920553b081b9c358b2d13957a8ed597` |
 | `40_TESTS/test_connection_check.py` | 4,119 | 검사 | `77eecf01476ce1450959c9c6c008f8f48a15690c2be17d0966975fdd06a4fc9e` |
 | `40_TESTS/test_contracts.py` | 7,356 | 검사 | `e72ec25e820ac6380887cdf5fb831bfeb2e108a9a9e393b7b6785d00d84437ea` |
+| `40_TESTS/test_contributor_access.py` | 2,028 | 검사 | `393e54393e79771f932f3d52200f960fab14ab9f3c685f89fae0c034e311a6b3` |
 | `40_TESTS/test_control_api.py` | 15,575 | 검사 | `02007f8052cc536191c540b2652e7fd0480de7bb30b4991fde13892885ada673` |
 | `40_TESTS/test_control_http.py` | 4,184 | 검사 | `78197064a5eb54e56f1b616f2adfb6bbb6023dff33088781992ccca25f4a3328` |
 | `40_TESTS/test_control_runtime.py` | 5,460 | 검사 | `0952794b5418fb863eff2c13ef478d232413204ad9d0e8fe8cefa03ab03e031e` |
@@ -448,13 +449,14 @@
 | `70_TOOLS/fkvpaths.py` | 1,710 | 생성·검증 도구 | `73014d2685a337fab53500c3e7792ace23096688b39d6309e55920ff3b364ec5` |
 | `70_TOOLS/gen_contracts.py` | 472 | 생성·검증 도구 | `dd9d2345d70938e4989ccdf87bed619cdf6637a9a328833d1481580bb57466c1` |
 | `70_TOOLS/gen_state.py` | 25,823 | 생성·검증 도구 | `6e5d6203fc4ecff6f947d78b466bffe11d901276d140cd88d938c8ab08187882` |
+| `70_TOOLS/grant_contributor_access.ps1` | 2,467 | 생성·검증 도구 | `05de9d3e7e4059020024740d4a3ac79677e5c3267cf97d18657363b4e8c130e5` |
 | `70_TOOLS/issue_peer_bundle.py` | 1,674 | 생성·검증 도구 | `82f9a0e843f2fcd65cc8ace23805e4bac16128fe91553310b3db9128111f6747` |
 | `70_TOOLS/make_manifest.py` | 6,857 | 생성·검증 도구 | `5c315559c6513b40748fc89b758f068d03c1add557f71349c19eba9d8f44de26` |
 | `70_TOOLS/make_public_qr.py` | 1,705 | 생성·검증 도구 | `0190d4beb4cdd7f2af5428829308091925b1b9cfa40521e274b2953798079113` |
 | `70_TOOLS/progress_dashboard.py` | 36,098 | 생성·검증 도구 | `0b55f50c93daf1cdefbe16b4481e3ac2bdb248707d0daa0f666924a094f67619` |
 | `70_TOOLS/reconcile_peer_bundle_address.py` | 3,217 | 생성·검증 도구 | `7413e37775a04e049c346e08c21df7057bd1516b11b3efbab65ce7f55624ed50` |
 | `70_TOOLS/run_abuse_candidate_checks.py` | 1,377 | 생성·검증 도구 | `be422b4ad1499589430e9fd1aa28245afc6fc2c001a82b097ca71a285b18e824` |
-| `70_TOOLS/run_all_tests.py` | 8,769 | 생성·검증 도구 | `574ef504a7c99f9fca2553565cd52aee79c31e03b1d9559675d040d082df8bba` |
+| `70_TOOLS/run_all_tests.py` | 8,803 | 생성·검증 도구 | `a660cb4e6897a79e873e92583e1461b7274f2539880c516197bad76dc0e6e581` |
 | `70_TOOLS/run_gcp_cost_review.py` | 1,382 | 생성·검증 도구 | `1788cc5a3a12579cac1aec8046010ba2355bc7839a3189d6b5b1ed4fe62d87d1` |
 | `70_TOOLS/run_gcp_node_admission.py` | 4,559 | 생성·검증 도구 | `b3312de7022a967b5e9570538d7f10df7500b6a41212f5ea23e44ead8ffde0f4` |
 | `70_TOOLS/run_r6_server_preflight.py` | 5,522 | 생성·검증 도구 | `f8ce98f6df5c699b9586648a8cdc83fd4e244fba4c051e8fe776f29779ff49f7` |

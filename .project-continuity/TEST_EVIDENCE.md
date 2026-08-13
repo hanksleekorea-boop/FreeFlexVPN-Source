@@ -1,5 +1,15 @@
 # 검사 증거
 
+## 2026-08-13 — 상위 무잠금·참여자 접근 검사
+
+- 전역 AI 규칙 판번호 `v10.6` 확인. 전역 AGENTS와 두 연속성 정책은 협업 잠금 생성 금지·Git 변경 경로 대조로 전환.
+- `continuity-guard.ps1`의 AcquireLock 호환 모드는 실제 잠금을 만들지 않고 `no_lock_policy_active`를 반환하도록 변경.
+- 계정 중립 진입 도구 2개는 `AcquireForMutation`에서 잠금 파일·임대 디렉터리를 만들지 않고 무잠금 준비 상태를 반환하도록 변경.
+- GitHub 원본: PRIVATE, 현재 관리자/편집자 1개, 초대 대기 0개, ruleset 1개, Actions 기본 권한 read.
+- 참여자 권한 계약: GitHub 사용자명 필수, GitHub `push`, 선택적 Google IAM 주체, 버킷 한정 `roles/storage.objectAdmin`, 기본 PLAN_ONLY, 익명 쓰기·공유 토큰 없음.
+- 임시 프로젝트 실행 검증: `continuity-guard AcquireLock`, 구형/신형 계정 중립 `AcquireForMutation` 세 경로 모두 협업 잠금 0개·임대 디렉터리 0개. 참여자 권한 계획 출력은 `PLAN_ONLY`, `anonymous_write=false`, `shared_token=false`.
+- 프로젝트 전체 회귀 — 77/77 파일·815/815 항목·실패 0·68.9초.
+
 ## 2026-08-13 — 프로젝트 잠금 해제 검사
 
 - `.project-continuity/LOCK*.json` 제거 전 19개, 제거 후 0개.

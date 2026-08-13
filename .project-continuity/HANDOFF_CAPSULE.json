@@ -25,7 +25,7 @@
   },
   "continuity": {
     "start_files": ["AGENTS.md", ".project-continuity/STATE.md", ".project-continuity/TEST_EVIDENCE.md", "00_START/DEVELOPMENT_DASHBOARD.md", "00_START/RECEIVER_HANDOFF_PROMPT.md"],
-    "lock_policy": "Check .project-continuity/LOCK*.json and do not overwrite another active worker.",
+    "lock_policy": "Do not create .project-continuity/LOCK*.json; compare git status, STATE.md, and HISTORY.md changed paths before editing.",
     "next_first_action": "Preserve the existing Android ffvpn profile and compare its server peer and reissue path before replacement."
   },
   "known_limits": [

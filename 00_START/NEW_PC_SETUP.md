@@ -16,7 +16,7 @@ Set-Location FreeFlexVPN-Source
 powershell -ExecutionPolicy Bypass -File .\70_TOOLS\bootstrap_dev.ps1 -Verify
 ```
 
-4. `.project-continuity/STATE.md`를 읽고, 새 기능 갈래를 만든 뒤 작업한다.
+4. `.project-continuity/STATE.md`를 읽고, 새 기능 갈래를 만든 뒤 작업한다. 협업 잠금 파일은 만들지 않고 `git status`와 STATE·HISTORY 변경 경로로 충돌을 피한다.
 
 ## 다른 GitHub 계정으로 시작
 
@@ -27,6 +27,24 @@ gh api -X PUT repos/hanksleekorea-boop/FreeFlexVPN-Source/collaborators/대상�
 ```
 
 초대할 계정의 정확한 사용자 이름을 확인한 경우에만 이 명령을 사용한다. 비밀키·토큰·개인 파일을 보관소에 올리지 않는다.
+
+## 다른 AI·다른 PC에 코드와 사이트 편집 권한 열기
+
+AI 자체에는 GitHub나 Google Cloud 권한을 부여할 수 없다. AI가 사용하는 **정확한 GitHub 사용자명**과 사이트 배포에 사용할 **Google IAM 주체**(`user:...`, `group:...`, `serviceAccount:...`)에 권한을 준다. 익명 공개 쓰기와 공유 토큰은 사용하지 않는다.
+
+먼저 실행 계획만 확인한다.
+
+```powershell
+.\70_TOOLS\grant_contributor_access.ps1 -GitHubUsername 대상사용자이름 -GooglePrincipal 'user:대상계정'
+```
+
+두 주체가 정확하면 관리자가 `-Execute`를 붙여 실행한다. GitHub에는 `push`, 공개 사이트에는 해당 버킷만 `roles/storage.objectAdmin`을 부여한다.
+
+```powershell
+.\70_TOOLS\grant_contributor_access.ps1 -GitHubUsername 대상사용자이름 -GooglePrincipal 'user:대상계정' -Execute
+```
+
+GitHub 대상자는 초대 수락 후 복제·push를 확인해야 한다. Google IAM 주체는 `gs://freeflexvpn-live-20260810-a31d7f` 버킷 읽기·업로드를 별도로 확인해야 한다. 소유 계정이나 프로젝트 전체 관리자 권한은 공유하지 않는다.
 
 ## 복제 완료 확인
 
