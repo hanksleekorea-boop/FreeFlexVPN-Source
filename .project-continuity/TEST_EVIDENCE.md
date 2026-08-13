@@ -104,14 +104,15 @@
 ### ① 자동 검사
 
 - `70_TOOLS/make_manifest.py --check` — 448/448 파일 해시 일치.
-- `70_TOOLS/run_all_tests.py --jobs 4 --timeout 120` — 83/83 파일·850/850 항목·실패 0, 최종 47.0초.
+- `70_TOOLS/run_all_tests.py --jobs 4 --timeout 120` — 병합 증거·Node.js 24 Actions 후보 반영 뒤 83/83 파일·850/850 항목·실패 0, 최종 51.5초.
 - `70_TOOLS/scan_secrets.py` — 허용 목록 밖 비밀값·개인정보 0건.
 - 게이트웨이 정책 10/10, HTTP 계약 5/5, 작업공간 4/4, CI 계약 4/4.
 - HTTPS Chromium 포털 UI — 360px·키보드·로그인·미연결 상태·200% 확대 7/7.
 
 ### ② 실제 외부 환경
 
-- GitHub 기능 갈래 `feature/owner-password-gateway` 원격 커밋 `fbef1a3`과 초안 PR #5(`shared-development` 대상)를 확인했다. 최초 push·PR 이벤트 `verify` 실행 `31702696480`·`31702778104`는 모두 통과했다.
+- GitHub 후보 HEAD `90330f1`의 PR #5를 `shared-development`에 병합했고 병합 커밋 `94081f6`을 원격 readback으로 확인했다. 병합 HEAD의 `verify` 실행 `31704121280`은 2분41초에 전체 회귀·비밀 검사·정적 산출물 업로드·provenance를 모두 통과했다.
+- 통합 CI에는 기존 `checkout@v4`, `setup-python@v5`, `upload-artifact@v4`의 Node.js 20 사용 중단 경고가 있었으나 실행 결론은 SUCCESS였다. 공식 릴리스 readback에서 `checkout@v7.0.1`, `setup-python@v7.0.0`, `upload-artifact@v7.0.1`의 `action.yml`이 Node.js 24를 사용함을 확인하고 워크플로를 각 v7, provenance를 v4로 갱신했다.
 - Drive 소유자 전용 문서 생성과 읽기 재확인은 완료했다. 서버 서명 영수증은 없어 `DRIVE_UPDATE_GATE_PENDING`이다.
 - 실제 게이트웨이 URL·호스팅 비밀 저장소·release broker·운영 배포·복구 시험은 미확인이다.
 

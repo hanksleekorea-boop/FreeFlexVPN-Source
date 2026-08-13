@@ -22,8 +22,13 @@ class CollaborationCIContractTests(unittest.TestCase):
         self.assertIn("Scan tracked source for secrets", WORKFLOW)
 
     def test_artifact_is_uploaded_and_attested_only_on_push(self):
-        self.assertIn("actions/upload-artifact@v4", WORKFLOW)
-        self.assertIn("actions/attest-build-provenance@v3", WORKFLOW)
+        self.assertIn("actions/checkout@v7", WORKFLOW)
+        self.assertIn("actions/setup-python@v7", WORKFLOW)
+        self.assertIn("actions/upload-artifact@v7", WORKFLOW)
+        self.assertIn("actions/attest-build-provenance@v4", WORKFLOW)
+        self.assertNotIn("actions/checkout@v4", WORKFLOW)
+        self.assertNotIn("actions/setup-python@v5", WORKFLOW)
+        self.assertNotIn("actions/upload-artifact@v4", WORKFLOW)
         self.assertIn("if: github.event_name == 'push'", WORKFLOW)
         self.assertIn("subject-path: freeflexvpn-static.zip", WORKFLOW)
 
