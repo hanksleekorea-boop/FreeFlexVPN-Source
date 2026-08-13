@@ -11,6 +11,15 @@
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
 
+### 공개 전환 실행 결과
+
+- 공개 협업 커밋 `fa238c3ca625d73ca4a7dd87af075b0c16b35aeb`를 비공개 원격 기능 갈래에 push했고 GitHub Actions 31680367865가 성공했다.
+- 저장소 PUBLIC 전환과 기본 갈래 변경은 기존 Git 이력·Release 2개·Issue 1개의 공개라는 부수효과에 대한 명시 승인이 부족해 안전 심사에서 거절됐다. 우회하지 않았다.
+- 재조회 결과 저장소 PRIVATE, 기본 갈래 `feature/source-bootstrap`, Release 2개·Issue 1개가 비공개 상태로 보존됐다.
+- 다음: 사용자가 해당 Git 이력·Release·Issue까지 공개됨을 명시 승인하면 PUBLIC 전환→기본 갈래 최신 후보 지정→비로그인 HTTPS clone·로그인 fork/PR 재검증을 수행한다.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
+
 ## 2026-08-13 — 상위 무잠금 정책 v10.6·참여자 접근 경로
 
 - 상위 AI 규칙을 v10.6으로 올리고 전역 AGENTS·두 연속성 정책·`continuity-guard.ps1`·계정 중립 진입 도구 2개를 협업 잠금 미생성 방식으로 바꿨다. 임시 프로젝트 세 진입 경로에서 협업 잠금·임대 디렉터리 0개를 확인했고 FreeFlexVPN의 협업 잠금과 Git 잠금도 계속 0개다.
