@@ -3,10 +3,10 @@
 - 잠금 정책: 사용자 지시에 따라 이 프로젝트의 `.project-continuity/LOCK*.json` 협업 잠금 19개를 제거했고 남은 협업 잠금과 Git 잠금은 각각 0개다. 상위 AI 규칙 v10.6·전역 AGENTS·연속성 정책·진입 도구도 협업 잠금을 생성하지 않도록 전환했다. 향후 Git 상태·STATE·HISTORY 변경 경로 대조로 충돌을 피한다. 외부 프로그램의 자체 데이터베이스 잠금은 협업 잠금이 아니다.
 - 참여 권한: 사용자 명시 승인에 따라 `hanksleekorea-boop/FreeFlexVPN-Source`를 PUBLIC으로 전환했고 기본 갈래를 `feature/pc-commercial-readiness-90`으로 지정했다. 로그인 없이 clone·Release 다운로드가 실제 성공했고, 로그인한 누구나 fork·Issue·Pull Request로 잠금 없이 참여할 수 있다. 현재 기본 갈래는 삭제·강제 갱신 차단과 승인 0명의 Pull Request 규칙을 적용한다. GitHub에는 불특정 로그인 사용자 전체의 원본 직접 push 권한이 없으므로 직접 push는 식별된 협업자만 가능하며, 공유 관리자 토큰·익명 쓰기는 사용하지 않는다.
 - 소유자 공동개발 v4.0: 별도 worktree `feature/owner-password-gateway`에서 비밀번호 원문 비저장, 15분 세션, 속도 제한, CSRF/same-origin, 대상 지문, 중복 영수증, 허용 경로 파일 작업, 비밀 입력 차단, 검증된 운영 기준 SHA 전용 배포 정책을 구현했다. localhost 비밀번호→기계 명세→읽기→수정→중복 저장→diff는 통과했지만 통합 요청·실제 인터넷 주소는 미연결이다. 판정은 `PASSWORD_GATEWAY_LOCAL_E2E`, 참여자 배포는 `POLICY_ONLY`다.
-- Git·Drive: `shared-development`를 검증 HEAD에서 만들고 운영 기준·통합 갈래 모두 PR·필수 `verify`·삭제/강제 push 차단을 적용했다. Drive 소유자 권한을 실제 확인하고 소유자 전용 상황판·9개 폴더·현재 상태 문서를 만들었으며 공개 링크 OFF·참여자 0명이다. 서버 영수증이 없어 `DRIVE_UPDATE_GATE_PENDING`이다.
+- Git·Drive: `shared-development`를 검증 HEAD에서 만들고 운영 기준·통합 갈래 모두 PR·필수 `verify`·삭제/강제 push 차단을 적용했다. 게이트웨이 후보 커밋 `fbef1a3`을 개발 갈래에 push하고 초안 PR #5를 `shared-development` 대상으로 열었으며 최초 push·PR `verify` 두 실행이 모두 통과했다. Drive 소유자 권한을 실제 확인하고 소유자 전용 상황판·9개 폴더·현재 상태 문서를 만들었으며 공개 링크 OFF·참여자 0명이다. 서버 영수증이 없어 `DRIVE_UPDATE_GATE_PENDING`이다.
 - 현재 버전/단계: PC·모바일 상용화 100% 목표의 로컬 개발 후보 · PC 60/100·모바일 58/100(증거 기반) · 공개·무잠금 GitHub 협업 후보 · 비밀번호 게이트웨이 전체 회귀 83/83 파일·850/850 항목 통과 · 전역 규칙 v10.6 적용 · 기존 Android `ffvpn` DNS·경로 실패와 별도 검증 프로필 성공을 분리 유지
 - 마지막 작업자 라벨: worker-owner-gateway
-- 마지막 갱신 시각: 2026-08-13T19:56:56+07:00
+- 마지막 갱신 시각: 2026-08-13T20:06:00+07:00
 - GitHub 원격: 공개 `hanksleekorea-boop/FreeFlexVPN-Source` · HTTPS · 기본 갈래 `feature/pc-commercial-readiness-90` · 익명 clone 확인 HEAD `cb8df1b367c6696875e6d5a4b4fa0f3c89f136ad`. Issues·fork·Pull Request·비공개 취약점 신고·secret scanning·push protection을 활성화했다.
 - 공개 정적 앱: `https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html`은 이전 공개판으로 HTTP 화면 로드·1280px/720 CSS px 가로 넘침 0을 확인했다. 새 PC·모바일 출시 점검과 공통 상용 관문은 **로컬·비공개 원격 후보이며 공개판 미반영**이다. PC는 같은 주소의 `?view=app`, 모바일은 기본 주소다.
 - 다음 첫 행동: 서버 실행·내구성 저장·비밀 저장을 지원하는 기존 승인 호스팅 대상을 소유자 권한으로 확인한다. 새 비용·새 공개 채널 없이 가능할 때만 게이트웨이 비밀을 공급자 저장소에 설정하고 새 브라우저 비밀번호 E2E를 진행한다. 기존 Android `ffvpn`은 삭제·덮어쓰기하지 않는다.

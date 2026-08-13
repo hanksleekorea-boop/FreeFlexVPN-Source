@@ -111,7 +111,7 @@
 
 ### ② 실제 외부 환경
 
-- GitHub 공개 저장소·갈래 보호는 읽어 확인했지만, 이 증거 작성 시점의 기능 갈래 원격 push·Pull Request·CI 결과는 아직 없다.
+- GitHub 기능 갈래 `feature/owner-password-gateway` 원격 커밋 `fbef1a3`과 초안 PR #5(`shared-development` 대상)를 확인했다. 최초 push·PR 이벤트 `verify` 실행 `31702696480`·`31702778104`는 모두 통과했다.
 - Drive 소유자 전용 문서 생성과 읽기 재확인은 완료했다. 서버 서명 영수증은 없어 `DRIVE_UPDATE_GATE_PENDING`이다.
 - 실제 게이트웨이 URL·호스팅 비밀 저장소·release broker·운영 배포·복구 시험은 미확인이다.
 
