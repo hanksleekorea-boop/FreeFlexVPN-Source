@@ -2,8 +2,8 @@
 
 | 항목 | 값 |
 |---|---|
-| 파일 수 | 448 |
-| 총 바이트 | 11,004,237 |
+| 파일 수 | 452 |
+| 총 바이트 | 11,038,836 |
 
 ## 지문 규칙
 
@@ -190,7 +190,8 @@
 | `20_SRC/app/__init__.py` | 150 | 현행 소스 | `8558798754cf10f51a8b405c87556ed5337ed3b60540435f936b3aa6406fdc7d` |
 | `20_SRC/app/client_keygen.js` | 6,030 | 현행 소스 | `829abf635971782969044a1d6295937110b80bee8fa328fda822f26a269e17f5` |
 | `20_SRC/app/collaboration_gateway.py` | 28,420 | 현행 소스 | `4f7e4a04fe66fde6ab69fa9110fa6e86fa4769f62d59766266f733125b5c2abd` |
-| `20_SRC/app/collaboration_http.py` | 16,704 | 현행 소스 | `47544a17c6b6edb287e98896edd1c37acfe71a35ec407bbfe31e22aa23bd38a1` |
+| `20_SRC/app/collaboration_http.py` | 19,186 | 현행 소스 | `a031101bb4807f8438d9e941ca8e1db95d753e926a8c08a85af21c150e9a0b96` |
+| `20_SRC/app/collaboration_runtime.py` | 11,816 | 현행 소스 | `5f73cbdaa2ea1140a9552f6ac36effdd36451c64c4bb6519a7c2d76a0ce440ad` |
 | `20_SRC/app/collaboration_workspace.py` | 10,228 | 현행 소스 | `dde9ffbafea4fb4dececee7761ce549c5fcc7cb5a4b9bd39aa295bc0434fb11f` |
 | `20_SRC/app/commercial_readiness.js` | 3,235 | 현행 소스 | `8471d1cc238317e6ee542c21f297cd5dd945a66dc9e9116fd8b5b76bcff8369d` |
 | `20_SRC/app/connection_check.py` | 3,971 | 현행 소스 | `fe2d3a41a005fd432a0e9a5aa078538c04d2a04c192657b48045fb18b4ce71f9` |
@@ -243,8 +244,8 @@
 | `20_SRC/github_pages/tools/verify_app.py` | 6,440 | 현행 소스 | `70a567d1935574d463d9ed3afe0af6af876be89eb22edcc7834e477435c12cb8` |
 | `20_SRC/html_templates/app_v1_1.html` | 54,972 | 현행 소스 | `d4d5c654f556593a074d565b6673f86c4fa1339e4382011536d6352746014d48` |
 | `20_SRC/html_templates/app_v2.html` | 192,634 | 현행 소스 | `ab06f0b0b9f264b2a429ef329bcc2c7d94d7d0ac023faf03e85e968c47054de7` |
-| `20_SRC/html_templates/collaboration-portal.js` | 1,613 | 현행 소스 | `e6e41aaf8115f64bb6a5afc2c9d7bd083914725098ab35bb42c562b8bd48b453` |
-| `20_SRC/html_templates/collaboration_portal.html` | 2,047 | 현행 소스 | `6b6ea7fd106728811d1e733633c2fcf1d75d38546cdeb8a11f8e42db495ab7da` |
+| `20_SRC/html_templates/collaboration-portal.js` | 5,776 | 현행 소스 | `af979c5ddfab78070b228e01efade57ad574cc4d870cd9b239d6f15189e791c7` |
+| `20_SRC/html_templates/collaboration_portal.html` | 3,703 | 현행 소스 | `39cac1da05bea77ccdf4392130d757cb78557992b68b81653c51b1b2d56af40a` |
 | `20_SRC/html_templates/country_tpl.html` | 13,787 | 현행 소스 | `30e02f15a09bc2d2888a07c46154963a0e5a65e256eb365aa68f905a9ab9109b` |
 | `20_SRC/html_templates/d1_tpl.html` | 14,952 | 현행 소스 | `1886c869c3885b801d46f5d2c2208b3adab38c1cd8eee76b5938236424ef9258` |
 | `20_SRC/html_templates/development_dashboard.html` | 8,355 | 현행 소스 | `4e252002afd8ddb3e046fbf22ade3852c95584381e25d2907c311a5731b38cdb` |
@@ -274,6 +275,8 @@
 | `30_DEPLOY/app-qr.png` | 2,996 | 공개용 결과물 | `bcad7f407d0f636ec0fb34a996b97e2c7cda5a7805b0dc367186b0b0292f6b12` |
 | `30_DEPLOY/app.html` | 295,739 | 공개용 결과물 | `7bf68c899471f4e7d700399a77f62846c0897ee5d77d93a78959ac38eb819b11` |
 | `30_DEPLOY/client_keygen.js` | 6,030 | 공개용 결과물 | `829abf635971782969044a1d6295937110b80bee8fa328fda822f26a269e17f5` |
+| `30_DEPLOY/collaboration-gateway/Dockerfile` | 836 | 공개용 결과물 | `41171d9cb9de7e3415cfd966671fca49e88ce19ae17a9000ad161a07d3b46a9a` |
+| `30_DEPLOY/collaboration-gateway/README.md` | 2,822 | 공개용 결과물 | `2c9ebdb01618c264dea7d206fa80d8842d07079fb3def7d5d1be2e13d73e1216` |
 | `30_DEPLOY/commercial_readiness.js` | 3,235 | 공개용 결과물 | `8471d1cc238317e6ee542c21f297cd5dd945a66dc9e9116fd8b5b76bcff8369d` |
 | `30_DEPLOY/development-dashboard.html` | 18,620 | 공개용 결과물 | `15a9005b07e95a7a1b2fa6de030f79a18e2acbd77906c6e9f61ad632e5c95ce6` |
 | `30_DEPLOY/FreeFlexVPN_1일오픈_체크리스트.html` | 37,953 | 공개용 결과물 | `8be9f9ae64bc908fa2b4dc1e893d5a42cadbc7820eb9d969660345a7176b2616` |
@@ -298,8 +301,9 @@
 | `40_TESTS/test_cloud_init.py` | 6,617 | 검사 | `9a9fff7ec329ceb5d788877eb1545dd6ce80d66e8036f3bc06438df8db9d5acb` |
 | `40_TESTS/test_collaboration_ci.py` | 2,138 | 검사 | `3895ba104836a2f0ac8a848d4d7351869dd968bfbcc0808343b1ad9042132c16` |
 | `40_TESTS/test_collaboration_gateway.py` | 12,013 | 검사 | `9d5faa27fa2927ce4ca66346464687f5e38ac958766910b15d03a1ef72e85b3e` |
-| `40_TESTS/test_collaboration_http.py` | 9,149 | 검사 | `815b236e11eeb6e5b8e0a3237927fe82e299d3684cd0f6f6bcb4b120971f0921` |
-| `40_TESTS/test_collaboration_portal_ui.py` | 5,231 | 검사 | `680e42ad6ba758f6aefd0873fe7e5510c8d36c26e6795a7dadf5bb0c1a58be60` |
+| `40_TESTS/test_collaboration_http.py` | 12,144 | 검사 | `120760d772d2e2ec1347a083112bc1376f394042fafbe1d2f45e9c6128311116` |
+| `40_TESTS/test_collaboration_portal_ui.py` | 7,025 | 검사 | `7333d8f2d732db285f93a83cce484437c17c5d4637ced9db00b91f02b4e8dca8` |
+| `40_TESTS/test_collaboration_runtime.py` | 6,035 | 검사 | `aed452c35f626bf82d4924262ae8298a437eb4f07da1843eb827de94ea9096a2` |
 | `40_TESTS/test_collaboration_workspace.py` | 4,627 | 검사 | `52255a14b75d50f460c00ffdf9805f35c57f078a387c4c3e1a41440ccd78f45f` |
 | `40_TESTS/test_commercial_readiness.py` | 3,243 | 검사 | `b76d809ff8b8c509a02e59ab48716d00654e3a4e74d5757765462ea4e74816d6` |
 | `40_TESTS/test_commercial_readiness_ui.py` | 3,382 | 검사 | `d794c2c7d755a34b5ba03050024f723dda6c6b4984f5de76768a67d8a383916d` |

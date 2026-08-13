@@ -4,6 +4,7 @@ from __future__ import annotations
 import pathlib
 import ipaddress
 import ssl
+import subprocess
 import sys
 import tempfile
 import threading
@@ -21,6 +22,7 @@ sys.path.insert(0, str(ROOT / "20_SRC"))
 
 from app.collaboration_gateway import CollaborationGateway, ProjectContext  # noqa: E402
 from app.collaboration_http import create_server  # noqa: E402
+from app.collaboration_workspace import SafeWorkspace  # noqa: E402
 
 
 PASSWORD = "correct horse battery staple 2026"
@@ -71,9 +73,21 @@ with tempfile.TemporaryDirectory(prefix="ffvpn_portal_ui_") as temp:
     gateway = CollaborationGateway(
         temp_path / "gateway.sqlite3", context=context, bootstrap_password=PASSWORD,
     )
+    repo = temp_path / "repo"; repo.mkdir()
+    for arguments in (
+        ("init",), ("config", "user.name", "Session Worker"),
+        ("config", "user.email", "session@invalid"), ("config", "core.autocrlf", "false"),
+    ):
+        subprocess.run(["git", *arguments], cwd=repo, check=True, capture_output=True)
+    (repo / "20_SRC" / "app").mkdir(parents=True)
+    (repo / "20_SRC" / "app" / "collaboration_runtime.py").write_text("VALUE = 1\n", encoding="utf-8")
+    subprocess.run(["git", "add", "."], cwd=repo, check=True, capture_output=True)
+    subprocess.run(["git", "commit", "-m", "baseline"], cwd=repo, check=True, capture_output=True)
+    subprocess.run(["git", "branch", "-M", "ai-session/ui/task"], cwd=repo, check=True, capture_output=True)
+    workspace = SafeWorkspace(repo, "ai-session/ui/task")
     server = create_server(
         gateway, portal_path=ROOT / "20_SRC" / "html_templates" / "collaboration_portal.html",
-        allowed_origin="https://placeholder.invalid", port=0,
+        allowed_origin="https://placeholder.invalid", port=0, workspace=workspace,
     )
     origin = f"https://127.0.0.1:{server.server_port}"
     server.RequestHandlerClass.allowed_origin = origin
@@ -99,6 +113,17 @@ with tempfile.TemporaryDirectory(prefix="ffvpn_portal_ui_") as temp:
             page.get_by_text("로그인 완료", exact=False).wait_for()
             check("로그인 성공 신호", page.locator("#message.ok").is_visible())
             check("미연결 기능 정직 표시", "policy_only" in page.locator("#status").inner_text())
+            page.get_by_role("button", name="최신 파일 읽기").click()
+            page.get_by_text("최신판을 읽었습니다", exact=False).wait_for()
+            check("브라우저 파일 읽기", page.locator("#file-content").input_value().replace("\r\n", "\n") == "VALUE = 1\n")
+            page.locator("#file-content").fill("VALUE = 2\n")
+            page.get_by_role("button", name="안전하게 저장").click()
+            page.get_by_text("격리 작업공간에 저장했습니다.", exact=True).wait_for()
+            page.get_by_role("button", name="현재 파일 커밋").click()
+            page.get_by_text("커밋 완료", exact=False).wait_for()
+            check("브라우저 저장·커밋", subprocess.run(
+                ["git", "status", "--porcelain"], cwd=repo, text=True, capture_output=True, check=True,
+            ).stdout == "")
             page.set_viewport_size({"width": 720, "height": 900})
             page.evaluate("document.documentElement.style.zoom='2'")
             check("200% 확대 핵심 입력 가시", page.get_by_label("공동개발 비밀번호").is_visible())

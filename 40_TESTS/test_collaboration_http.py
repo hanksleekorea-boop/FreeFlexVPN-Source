@@ -17,6 +17,7 @@ sys.path.insert(0, str(ROOT / "20_SRC"))
 
 from app.collaboration_gateway import CollaborationGateway, ProjectContext  # noqa: E402
 from app.collaboration_http import create_server  # noqa: E402
+from app.collaboration_runtime import GitHubIntegrationBroker  # noqa: E402
 from app.collaboration_workspace import SafeWorkspace  # noqa: E402
 
 
@@ -178,6 +179,58 @@ class CollaborationHTTPTests(unittest.TestCase):
         self.assertEqual(duplicate, written)
         self.assertEqual(diff_status, 200)
         self.assertIn("+VALUE = 2", diff["diff"])
+
+    def test_configured_integration_broker_is_advertised_and_receipted(self):
+        commands = []
+
+        def fake(command, cwd, timeout):
+            commands.append(tuple(command))
+            if tuple(command[:3]) == ("git", "status", "--porcelain"):
+                return subprocess.CompletedProcess(command, 0, "", "")
+            if tuple(command[:3]) == ("git", "rev-parse", "HEAD"):
+                return subprocess.CompletedProcess(command, 0, "f" * 40 + "\n", "")
+            if tuple(command[:2]) == ("git", "push"):
+                return subprocess.CompletedProcess(command, 0, "pushed\n", "")
+            return subprocess.CompletedProcess(
+                command, 0, "https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/pull/77\n", "",
+            )
+
+        broker = GitHubIntegrationBroker(
+            repository="hanksleekorea-boop/FreeFlexVPN-Source",
+            integration_branch="shared-development", runner=fake,
+        )
+        self.server.shutdown(); self.server.server_close(); self.thread.join(timeout=3)
+        session_branch = "ai-session/" + "c" * 20
+        subprocess.run(["git", "branch", "-M", session_branch], cwd=self.repo, check=True, capture_output=True)
+        workspace = SafeWorkspace(self.repo, session_branch)
+        self.server = create_server(
+            self.gateway,
+            portal_path=ROOT / "20_SRC" / "html_templates" / "collaboration_portal.html",
+            allowed_origin=ORIGIN, port=0, workspace=workspace, integration_broker=broker,
+        )
+        self.thread = threading.Thread(target=self.server.serve_forever, daemon=True)
+        self.thread.start(); self.base = f"http://127.0.0.1:{self.server.server_port}"
+        manifest_status, _, manifest = self.request("/.well-known/ai-development.json")
+        _, _, login, cookie = self.login()
+        request_body = {
+            "operation_id": "integration.request.http1",
+            "title": "Improve safe collaboration runtime", "body": "Automated participant request.",
+        }
+        status, _, submitted = self.request(
+            "/api/development/integration-request", method="POST", body=request_body,
+            headers={"Cookie": cookie, "Origin": ORIGIN, "X-FreeFlex-CSRF": login["csrf_token"]},
+        )
+        duplicate_status, _, duplicate = self.request(
+            "/api/development/integration-request", method="POST", body=request_body,
+            headers={"Cookie": cookie, "Origin": ORIGIN, "X-FreeFlex-CSRF": login["csrf_token"]},
+        )
+        self.assertEqual(manifest_status, 200)
+        self.assertTrue(manifest["capabilities"]["integration_request"])
+        self.assertEqual(status, 202)
+        self.assertEqual(duplicate_status, 202)
+        self.assertEqual(submitted, duplicate)
+        self.assertEqual(submitted["pull_request_number"], 77)
+        self.assertEqual(len([item for item in commands if item[:2] == ("git", "push")]), 1)
 
 
 if __name__ == "__main__":

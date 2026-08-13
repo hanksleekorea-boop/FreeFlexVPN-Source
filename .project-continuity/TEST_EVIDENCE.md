@@ -1,5 +1,25 @@
 # 검사 증거
 
+## 2026-08-13 — 공동개발 v4.1
+
+### ① 자동 검사
+
+- 세션 worktree·GitHub PR 중계·Drive 서명 영수증 단위 검사 3/3 통과.
+- HTTP 비밀번호·CSRF·세션 편집·통합 요청 중복 영수증 검사 6/6 통과.
+- 로컬 자체서명 HTTPS Chromium에서 로그인→파일 읽기→수정 저장→커밋 및 360px·200% 확대 9/9 통과.
+- `make_manifest.py --check` 452/452 해시 일치.
+- `run_all_tests.py --jobs 4 --timeout 120` 84/84 파일·856/856 항목·실패 0, 63.6초.
+- `scan_secrets.py` 허용 목록 외 비밀값·개인정보 0건.
+
+### ② 외부 운영 검사
+
+- 현재 브라우저 Cloud 계정의 접근 가능한 프로젝트 목록에 FreeFlexVPN 대상이 없고 Chrome에도 Cloud Console 탭이 없었다. 따라서 기존 승인 호스트·Secret Manager·영구 디스크·인터넷 HTTPS 주소는 미검증이며 배포 0건이다.
+- GitHub PR 중계와 Drive relay는 가짜 공급자 단위검사만 통과했다. 실제 서버 자격·실제 PR·실제 Drive readback 영수증은 미검증이다.
+
+### ③ 실제 기기·사용자
+
+- Android·iPhone·Windows VPN 설정 변경 0건. 실제 사용자 조사·고객 설문 없음.
+
 ## 2026-08-13 — GitHub 공개·무잠금 협업 전환 후보
 
 - 원격 사전 감사: PRIVATE, 현재 관리자 1개, 초대 0개, `allow_forking=true`, 기본 갈래 ruleset 1개, Actions 기본 권한 read.

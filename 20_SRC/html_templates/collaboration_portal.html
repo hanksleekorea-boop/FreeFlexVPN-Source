@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FreeFlexVPN 공동개발</title>
   <style>
-    :root{color-scheme:light dark;font:16px/1.55 system-ui,sans-serif}body{max-width:760px;margin:auto;padding:24px}main{display:grid;gap:18px}.card{border:1px solid #8886;border-radius:16px;padding:20px}label,input,button{display:block;width:100%;box-sizing:border-box}input,button{font:inherit;padding:12px;margin-top:8px}button{cursor:pointer;font-weight:700}.muted{opacity:.75}.ok{color:#168344}.warn{color:#b85c00}code{overflow-wrap:anywhere}ol{padding-left:24px}@media(max-width:420px){body{padding:12px}.card{padding:16px}}
+    :root{color-scheme:light dark;font:16px/1.55 system-ui,sans-serif}body{max-width:760px;margin:auto;padding:24px}main{display:grid;gap:18px}.card{border:1px solid #8886;border-radius:16px;padding:20px}label,input,textarea,button{display:block;width:100%;box-sizing:border-box}input,textarea,button{font:inherit;padding:12px;margin-top:8px}textarea{min-height:220px;resize:vertical;font-family:ui-monospace,monospace}button{cursor:pointer;font-weight:700}.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.muted{opacity:.75}.ok{color:#168344}.warn{color:#b85c00}code{overflow-wrap:anywhere}ol{padding-left:24px}@media(max-width:420px){body{padding:12px}.card{padding:16px}.actions{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -17,7 +17,23 @@
     <p id="message" role="status" aria-live="polite" class="muted">비밀번호 원문은 저장하지 않습니다.</p>
   </section>
   <section class="card" aria-labelledby="journey-title"><h2 id="journey-title">진행 단계</h2><ol><li>프로젝트 찾기</li><li>소유자 권한 확인</li><li>공동개발 방식 준비</li><li>안전장치 검사</li><li>참여자 시험</li><li>Drive 조건 확인</li><li>실제 개발 시험</li><li>사용법·복구 인계</li></ol></section>
-  <section class="card" id="status-card" hidden><h2>현재 상태</h2><pre id="status"></pre><p class="warn">파일 편집·Git 중계·운영 배포는 서버 중계 연결과 종단간 검사가 끝난 뒤에만 열립니다.</p></section>
+  <section class="card" id="status-card" hidden><h2>현재 상태</h2><pre id="status"></pre><p id="capability-message" class="warn">서버 기능을 확인하는 중입니다.</p></section>
+  <section class="card" id="workspace-card" hidden>
+    <h2>2. 격리 작업공간</h2>
+    <label for="file-path">파일 경로</label><input id="file-path" value="20_SRC/app/collaboration_runtime.py" autocomplete="off">
+    <label for="file-content">UTF-8 내용</label><textarea id="file-content" spellcheck="false"></textarea>
+    <div class="actions"><button id="read-file" type="button">최신 파일 읽기</button><button id="save-file" type="button">안전하게 저장</button></div>
+    <label for="commit-message">커밋 설명</label><input id="commit-message" value="Update collaboration contribution" maxlength="100">
+    <button id="commit-file" type="button">현재 파일 커밋</button>
+    <p id="workspace-message" role="status" aria-live="polite" class="muted">모든 변경은 이 로그인 세션 전용 갈래에만 저장됩니다.</p>
+  </section>
+  <section class="card" id="integration-card" hidden>
+    <h2>3. 소유자 검토 요청</h2>
+    <label for="pr-title">Pull Request 제목</label><input id="pr-title" value="Review collaboration contribution" maxlength="120">
+    <label for="pr-body">검토 설명</label><textarea id="pr-body" maxlength="2000">Password-gateway participant contribution.</textarea>
+    <button id="request-integration" type="button">shared-development에 검토 요청</button>
+    <p id="integration-message" role="status" aria-live="polite" class="muted">운영 갈래에 직접 쓰거나 강제 push하지 않습니다.</p>
+  </section>
 </main>
 <script src="/collaboration-portal.js" defer></script>
 </body>
