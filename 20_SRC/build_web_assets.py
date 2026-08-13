@@ -24,7 +24,7 @@ PROTOTYPE_OUTPUT = ROOT / "60_OUTPUTS" / "prototype" / "FreeFlexVPN_service_v2.6
 PUBLIC_ASSETS = ROOT / "20_SRC" / "github_pages"
 APP_SOURCE = ROOT / "20_SRC" / "app"
 SERVICE_GLOBAL_STYLES = TEMPLATES / "service_global.css"
-APP_MODULES = ("client_keygen.js", "pwa_api_client.js", "moment_catalog.js", "platform_support.js", "pc_readiness.js", "pwa_runtime.js")
+APP_MODULES = ("client_keygen.js", "pwa_api_client.js", "moment_catalog.js", "platform_support.js", "pc_readiness.js", "mobile_readiness.js", "commercial_readiness.js", "pwa_runtime.js")
 RUNTIME_SCRIPT_TAG = '<script type="module" src="./pwa_runtime.js"></script>'
 
 SERVICE_GLOBAL_NAV = """<header class="ff-global"><div class="ff-global-in"><a class="ff-global-brand" href="index.html"><span class="ff-global-mark">FF</span>FreeFlexVPN</a><nav class="ff-global-links" aria-label="서비스 이동"><a href="app.html">서비스 열기</a><a href="index.html">제품 소개</a><a href="development-dashboard.html">개발 현황</a></nav></div></header>"""
@@ -73,12 +73,16 @@ def bundled_runtime() -> str:
     moment_catalog = (APP_SOURCE / "moment_catalog.js").read_text(encoding="utf-8")
     platform_support = (APP_SOURCE / "platform_support.js").read_text(encoding="utf-8")
     pc_readiness = (APP_SOURCE / "pc_readiness.js").read_text(encoding="utf-8")
+    mobile_readiness = (APP_SOURCE / "mobile_readiness.js").read_text(encoding="utf-8")
+    commercial_readiness = (APP_SOURCE / "commercial_readiness.js").read_text(encoding="utf-8")
     runtime = (APP_SOURCE / "pwa_runtime.js").read_text(encoding="utf-8")
     api_client = re.sub(r"(?m)^export\s+", "", api_client)
     keygen = re.sub(r"(?m)^export\s+", "", keygen)
     moment_catalog = re.sub(r"(?m)^export\s+", "", moment_catalog)
     platform_support = re.sub(r"(?m)^export\s+", "", platform_support)
     pc_readiness = re.sub(r"(?m)^export\s+", "", pc_readiness)
+    mobile_readiness = re.sub(r"(?m)^export\s+", "", mobile_readiness)
+    commercial_readiness = re.sub(r"(?m)^export\s+", "", commercial_readiness)
     runtime = re.sub(r'(?m)^import\s+.*?\s+from\s+"\./[^\"]+";\s*$', "", runtime)
     return (
         '<script type="module" data-freeflex-runtime="inline">\n'
@@ -87,6 +91,8 @@ def bundled_runtime() -> str:
         f"// moment_catalog.js\n{moment_catalog}\n"
         f"// platform_support.js\n{platform_support}\n"
         f"// pc_readiness.js\n{pc_readiness}\n"
+        f"// mobile_readiness.js\n{mobile_readiness}\n"
+        f"// commercial_readiness.js\n{commercial_readiness}\n"
         f"// pwa_runtime.js\n{runtime}\n"
         "</script>"
     )

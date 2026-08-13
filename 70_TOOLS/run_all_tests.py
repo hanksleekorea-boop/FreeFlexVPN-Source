@@ -22,8 +22,10 @@ SUMMARY = re.compile(r"(\d+)/(\d+)(?:\s*(?:통과|PASS))?")
 # parallel pool so a fast machine cannot read a half-written app shell.
 SERIAL_FIRST = (
     "test_app_v2_contract.py",
+    "test_commercial_readiness_ui.py",
     "test_first_use_recovery_ui.py",
     "test_github_pages.py",
+    "test_mobile_readiness_ui.py",
     "test_pc_readiness_ui.py",
     "test_profile_replacement_guard.py",
     "test_protection_evidence_ui.py",

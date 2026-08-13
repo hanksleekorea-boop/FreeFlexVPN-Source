@@ -87,8 +87,8 @@ check(
 secret_pattern = re.compile(r"(?:gh[opsu]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,})")
 leaks = [p.relative_to(PUBLIC).as_posix() for p in PUBLIC.rglob("*") if p.is_file() and secret_pattern.search(p.read_text(encoding="utf-8", errors="ignore"))]
 check("G16 공개 묶음 비밀값 패턴 0", not leaks, str(leaks))
-modules = ("client_keygen.js", "pwa_api_client.js", "moment_catalog.js", "platform_support.js", "pc_readiness.js", "pwa_runtime.js")
-check("G17 PWA API 모듈 6종과 단일 파일 HTML 진입점", all((PUBLIC / name).is_file() for name in modules) and 'data-freeflex-runtime="inline"' in app_body and 'src="./pwa_runtime.js"' not in app_body)
+modules = ("client_keygen.js", "pwa_api_client.js", "moment_catalog.js", "platform_support.js", "pc_readiness.js", "mobile_readiness.js", "commercial_readiness.js", "pwa_runtime.js")
+check("G17 PWA API 모듈 8종과 단일 파일 HTML 진입점", all((PUBLIC / name).is_file() for name in modules) and 'data-freeflex-runtime="inline"' in app_body and 'src="./pwa_runtime.js"' not in app_body)
 check("G18 API 미설정 기본값은 무네트워크", '<meta name="freeflex-api-base" content="">' in app_body and 'data-api-mode="live"' not in app_body)
 check("G19 서비스워커가 API 모듈 앱 셸 보존", all(name in (PUBLIC / "sw.js").read_text(encoding="utf-8") for name in modules))
 check("G20 원격 CI가 API 모듈 구문 검사", all(f"node --check {name}" in workflow_text for name in modules))

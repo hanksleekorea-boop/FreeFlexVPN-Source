@@ -3,6 +3,8 @@ import { createDeviceProfile, manualFallback, supportsBrowserX25519 } from "./cl
 import { MOMENTS, TIER_LABELS, getCountryPolicy, recommendMoments } from "./moment_catalog.js";
 import { WIREGUARD_INSTALL_URL, detectBrowser, detectPlatform, getInstallGuidance, getPlatformProfile, getPlatformReadiness } from "./platform_support.js";
 import { createPcPreferenceBackup, createRedactedPcDiagnostic, evaluatePcReadiness, sanitizePcPreferenceBackup } from "./pc_readiness.js";
+import { createMobileRecoveryCard, evaluateMobileReadiness } from "./mobile_readiness.js";
+import { createIncidentChecklist, createRedactedSupportBundle, evaluateCommercialReadiness } from "./commercial_readiness.js";
 
 const apiMeta = document.querySelector('meta[name="freeflex-api-base"]');
 const apiBase = apiMeta?.content?.trim() || "";
@@ -40,6 +42,10 @@ const pcReadiness = document.querySelector("[data-pc-readiness]");
 const pcReadinessBadge = document.querySelector("[data-pc-readiness-badge]");
 const pcReadinessCopy = document.querySelector("[data-pc-readiness-copy]");
 const pcConfirmationInputs = [...document.querySelectorAll("[data-pc-confirm]")];
+const mobileReadiness = document.querySelector("[data-mobile-readiness]");
+const mobileReadinessBadge = document.querySelector("[data-mobile-readiness-badge]");
+const mobileReadinessCopy = document.querySelector("[data-mobile-readiness-copy]");
+const mobileConfirmationInputs = [...document.querySelectorAll("[data-mobile-confirm]")];
 let selectedServerId = null;
 let activeDeviceId = null;
 let candidateDeviceId = null;
@@ -51,6 +57,8 @@ let serverCatalogKnown = false;
 let selectedTier = "all";
 let pcProtectionState = "unverified";
 const PC_ACK_KEY = "freeflex-pc-readiness-v1";
+const MOBILE_ACK_KEY = "freeflex-mobile-readiness-v1";
+const COMMERCIAL_DOCUMENTED = ["privacy-rights", "support-diagnostic", "rollback-playbook"];
 const operationalNodes = {
   card: document.querySelector("[data-svc-operations-state]"),
   copy: document.querySelector("[data-svc-operations-copy]"),
@@ -147,6 +155,89 @@ function downloadJson(filename, value) {
 
 function browserFamily() {
   return detectedBrowserId === "chrome" || detectedBrowserId === "edge" ? "chromium" : detectedBrowserId;
+}
+
+function mobilePlatformFamily() {
+  return detectedPlatformId === "android" || detectedPlatformId === "ios" ? detectedPlatformId : "other";
+}
+
+function readMobileAcknowledgements() {
+  try {
+    const value = JSON.parse(safeLocalRead(MOBILE_ACK_KEY) || "{}");
+    return value && typeof value === "object" ? value : {};
+  } catch (_error) { return {}; }
+}
+
+function mobileReadinessInput() {
+  const acknowledgements = readMobileAcknowledgements();
+  return {
+    platform: mobilePlatformFamily(),
+    secureContext: globalThis.isSecureContext === true,
+    online: navigator.onLine !== false,
+    apiMode: root.dataset.apiMode || "unconfigured",
+    standalone: globalThis.freeflexIsStandalone === true,
+    wireguardClientConfirmed: acknowledgements.wireguardClient === true,
+    profileImportedConfirmed: acknowledgements.profileImport === true,
+    protectionState: pcProtectionState,
+    recoveryDrillConfirmed: acknowledgements.recoveryDrill === true && pcProtectionState === "protected",
+  };
+}
+
+function renderMobileReadiness() {
+  if (!mobileReadiness) return;
+  const result = evaluateMobileReadiness(mobileReadinessInput());
+  const details = {
+    "secure-context": { pass: "브라우저 보안 연결 확인됨", fail: "HTTPS 연결 필요" },
+    network: { pass: "기기 온라인", fail: "오프라인 · 저장한 복구 카드 사용" },
+    "service-api": { pass: "실제 서비스 API 응답", pending: "운영 API 연결 전" },
+    "install-mode": { pass: "홈 화면 설치 모드", pending: "브라우저에서 실행 중" },
+    "wireguard-client": { self_reported: "사용자가 공식 앱 확인 · 자동 증거 아님", pending: "사용자 확인 전" },
+    "profile-import": { self_reported: "사용자가 별도 설정 확인 · 원문은 읽지 않음", pending: "별도 모바일 설정 필요" },
+    protection: { pass: "서비스 보호 근거 확인", fail: "연결 끊김", pending: "실제 보호 근거 확인 전" },
+    "recovery-drill": { self_reported: "보호 뒤 일반망 복귀 자가 확인", pending: "실제 보호 확인 뒤 연습 가능" },
+  };
+  for (const item of result.checks) {
+    const row = mobileReadiness.querySelector(`[data-mobile-check="${item.id}"]`);
+    if (!row) continue;
+    row.dataset.state = item.state;
+    const detail = row.querySelector("small");
+    if (detail) detail.textContent = details[item.id]?.[item.state] || "확인 전";
+  }
+  const acknowledgements = readMobileAcknowledgements();
+  for (const input of mobileConfirmationInputs) {
+    const key = input.dataset.mobileConfirm === "wireguard-client" ? "wireguardClient" : input.dataset.mobileConfirm === "profile-import" ? "profileImport" : "recoveryDrill";
+    input.checked = acknowledgements[key] === true && (key !== "recoveryDrill" || pcProtectionState === "protected");
+    if (key === "recoveryDrill") input.disabled = pcProtectionState !== "protected";
+  }
+  if (mobileReadinessBadge) mobileReadinessBadge.textContent = `${result.completedCount} / ${result.checks.length} · ${result.readyForCandidateReview ? "후보 검토 가능" : "준비 중"}`;
+  if (mobileReadinessCopy) mobileReadinessCopy.textContent = result.readyForCandidateReview
+    ? "이 기기의 로컬 점검은 끝났습니다. Android·iPhone 실기기와 운영 증거를 별도로 확인해야 출시 후보가 됩니다."
+    : "자동 확인과 자가 확인을 분리합니다. 자가 확인은 상용 증거로 자동 승격되지 않습니다.";
+}
+
+function renderCommercialReadiness() {
+  const panel = document.querySelector("[data-commercial-readiness]");
+  if (!panel) return;
+  const result = evaluateCommercialReadiness({ documented: COMMERCIAL_DOCUMENTED });
+  const details = {
+    "privacy-rights": { documented: "로컬 자료 최소화·내보내기·삭제 경로 문서화" },
+    "support-diagnostic": { documented: "민감정보 없는 지원 묶음 준비" },
+    "rollback-playbook": { documented: "기존 설정 보존·일반망 복귀 절차 문서화" },
+    "payment-roundtrip": { blocked: "실제 결제 왕복 없음" },
+    "refund-roundtrip": { blocked: "실제 취소·환불 왕복 없음" },
+    "legal-review": { blocked: "개인정보·약관 최종 법률 검토 전" },
+    "operations-monitoring": { blocked: "독립 운영 감시·장애 훈련 전" },
+    "limited-release": { blocked: "최신 후보 제한 공개·관찰 전" },
+  };
+  for (const item of result.checks) {
+    const row = panel.querySelector(`[data-commercial-check="${item.id}"]`);
+    if (!row) continue;
+    row.dataset.state = item.state;
+    const detail = row.querySelector("small");
+    if (detail) detail.textContent = details[item.id]?.[item.state] || "외부 증거 확인 전";
+  }
+  const badge = panel.querySelector("[data-commercial-readiness-badge]");
+  if (badge) badge.textContent = `${result.documentedCount} / ${result.checks.length} 문서화 · 실제 검증 ${result.verifiedCount}`;
 }
 
 function setBanner(element, strong, copy, state = "") {
@@ -450,6 +541,7 @@ function setConnectionFromResult(result) {
     ? result.state : "limited";
   pcProtectionState = state;
   renderPcReadiness();
+  renderMobileReadiness();
   globalThis.setConnectionState?.(state);
   const checks = result?.checks || {};
   if (activeDeviceId && activeDeviceId === candidateDeviceId && candidateRuntimeEvidencePassed(result)) {
@@ -618,6 +710,37 @@ for (const input of pcConfirmationInputs) {
     renderPcReadiness();
   });
 }
+for (const input of mobileConfirmationInputs) {
+  input.addEventListener("change", () => {
+    const acknowledgements = readMobileAcknowledgements();
+    const key = input.dataset.mobileConfirm === "wireguard-client" ? "wireguardClient" : input.dataset.mobileConfirm === "profile-import" ? "profileImport" : "recoveryDrill";
+    if (key === "recoveryDrill" && pcProtectionState !== "protected") { input.checked = false; notify("실제 보호 근거가 확인된 뒤에만 일반망 복귀 연습을 기록할 수 있습니다."); return; }
+    acknowledgements[key] = input.checked;
+    safeLocalWrite(MOBILE_ACK_KEY, JSON.stringify(acknowledgements));
+    renderMobileReadiness();
+  });
+}
+document.querySelector("[data-mobile-download-recovery]")?.addEventListener("click", () => {
+  downloadJson("FreeFlexVPN-mobile-offline-recovery.json", createMobileRecoveryCard({ platform: mobilePlatformFamily() }));
+  notify("개인 설정·IP·계정 정보가 없는 오프라인 복구 카드를 저장했습니다.");
+});
+document.querySelector("[data-commercial-download-support]")?.addEventListener("click", () => {
+  downloadJson("FreeFlexVPN-redacted-support-bundle.json", createRedactedSupportBundle({
+    generatedAt: new Date().toISOString(),
+    platformFamily: ["android", "ios", "windows", "macos", "linux"].includes(detectedPlatformId) ? detectedPlatformId : "other",
+    browserFamily: browserFamily(),
+    online: navigator.onLine !== false,
+    standalone: globalThis.freeflexIsStandalone === true,
+    apiMode: root.dataset.apiMode || "unconfigured",
+    protectionState: pcProtectionState,
+    commercial: { documented: COMMERCIAL_DOCUMENTED },
+  }));
+  notify("IP·키·설정·계정·결제수단을 제외한 지원 묶음을 저장했습니다.");
+});
+document.querySelector("[data-commercial-download-incident]")?.addEventListener("click", () => {
+  downloadJson("FreeFlexVPN-incident-checklist.json", createIncidentChecklist({ platform: innerWidth <= 760 ? "mobile" : "pc" }));
+  notify("삭제·덮어쓰기 없는 장애 복구 체크리스트를 저장했습니다.");
+});
 document.querySelector("[data-pc-download-diagnostic]")?.addEventListener("click", () => {
   const diagnostic = createRedactedPcDiagnostic({
     ...pcReadinessInput(),
@@ -651,8 +774,9 @@ document.querySelector("[data-pc-import-preferences]")?.addEventListener("change
   event.target.value = "";
 });
 new MutationObserver(renderPcReadiness).observe(root, { attributes: true, attributeFilter: ["data-api-mode"] });
-window.addEventListener("online", renderPcReadiness);
-window.addEventListener("offline", renderPcReadiness);
+new MutationObserver(renderMobileReadiness).observe(root, { attributes: true, attributeFilter: ["data-api-mode"] });
+window.addEventListener("online", () => { renderPcReadiness(); renderMobileReadiness(); });
+window.addEventListener("offline", () => { renderPcReadiness(); renderMobileReadiness(); });
 for (const control of [currentCountrySelect, destinationCountrySelect, momentCategorySelect]) {
   control?.addEventListener("change", renderMomentRecommendations);
 }
@@ -673,4 +797,6 @@ renderMomentRecommendations();
 renderPlatformSupport();
 renderReplacementGuard();
 renderPcReadiness();
+renderMobileReadiness();
+renderCommercialReadiness();
 initialize();

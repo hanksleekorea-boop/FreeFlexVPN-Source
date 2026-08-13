@@ -29,6 +29,8 @@ jobs:
           node --check moment_catalog.js
           node --check platform_support.js
           node --check pc_readiness.js
+          node --check mobile_readiness.js
+          node --check commercial_readiness.js
           node --check pwa_runtime.js
           python3 tools/build_public_manifest.py --check
       - name: Verify primary actions are not occluded

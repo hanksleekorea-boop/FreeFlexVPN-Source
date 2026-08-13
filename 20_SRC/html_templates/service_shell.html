@@ -68,6 +68,22 @@
           </div>
           <div class="svc-local-history"><div><b>이 기기의 최근 안전 기록</b><p data-svc-history-copy>아직 기록이 없습니다.</p></div><button class="svc-secondary" type="button" data-svc-history-clear>이 기기 기록 지우기</button></div>
           </section>
+          <section class="svc-mobile-readiness" data-mobile-readiness aria-labelledby="svcMobileReadinessTitle">
+            <div class="svc-section-head"><div><h2 id="svcMobileReadinessTitle">모바일 출시 전 점검</h2><p>이 휴대폰의 자동 확인과 사용자의 자가 확인을 분리합니다. 실제 Android·iPhone VPN 증거를 대신하지 않습니다.</p></div><span class="svc-mobile-readiness-badge" data-mobile-readiness-badge>0 / 8 · 확인 전</span></div>
+            <div class="svc-mobile-readiness-grid" aria-label="모바일 출시 준비 항목">
+              <article data-mobile-check="secure-context" data-state="pending"><i></i><span><b>보안 연결</b><small>HTTPS 확인 전</small></span></article>
+              <article data-mobile-check="network" data-state="pending"><i></i><span><b>네트워크</b><small>온라인 확인 전</small></span></article>
+              <article data-mobile-check="service-api" data-state="pending"><i></i><span><b>서비스 API</b><small>운영 자료 연결 전</small></span></article>
+              <article data-mobile-check="install-mode" data-state="pending"><i></i><span><b>홈 화면 설치</b><small>설치 모드 확인 전</small></span></article>
+              <article data-mobile-check="wireguard-client" data-state="pending"><i></i><span><b>공식 WireGuard</b><small>사용자 확인 전</small></span></article>
+              <article data-mobile-check="profile-import" data-state="pending"><i></i><span><b>별도 모바일 설정</b><small>사용자 확인 전</small></span></article>
+              <article data-mobile-check="protection" data-state="pending"><i></i><span><b>실제 보호 근거</b><small>터널·외부 경로·DNS 확인 전</small></span></article>
+              <article data-mobile-check="recovery-drill" data-state="pending"><i></i><span><b>일반망 복귀</b><small>실제 보호 확인 뒤 연습 가능</small></span></article>
+            </div>
+            <div class="svc-mobile-confirmations"><label><input type="checkbox" data-mobile-confirm="wireguard-client"> 공식 WireGuard 앱을 직접 확인했습니다</label><label><input type="checkbox" data-mobile-confirm="profile-import"> 기존 설정을 보존한 별도 설정을 확인했습니다</label><label><input type="checkbox" data-mobile-confirm="recovery-drill" disabled> 보호 뒤 일반 웹 복귀를 직접 확인했습니다</label></div>
+            <div class="svc-mobile-readiness-actions"><button class="svc-secondary" type="button" data-mobile-download-recovery>오프라인 복구 카드 저장</button></div>
+            <p class="svc-mobile-readiness-copy" data-mobile-readiness-copy role="status">실제 VPN·운영 API 확인 전입니다. 자가 확인을 자동 증거로 바꾸지 않습니다.</p>
+          </section>
           <section class="svc-pc-readiness" data-pc-readiness aria-labelledby="svcPcReadinessTitle">
             <div class="svc-section-head"><div><h2 id="svcPcReadinessTitle">PC 출시 전 점검</h2><p>자동 확인과 사용자의 자가 확인을 분리합니다. 이 점검 수치는 상용 완성도나 실제 VPN 증거를 대신하지 않습니다.</p></div><span class="svc-pc-readiness-badge" data-pc-readiness-badge>0 / 7 · 확인 전</span></div>
             <div class="svc-pc-readiness-grid" aria-label="PC 출시 준비 항목">
@@ -82,6 +98,21 @@
             <div class="svc-pc-confirmations"><label><input type="checkbox" data-pc-confirm="wireguard-client"> 이 PC에 공식 WireGuard 설치를 직접 확인했습니다</label><label><input type="checkbox" data-pc-confirm="profile-import"> 별도 PC 설정을 직접 가져왔습니다</label><label><input type="checkbox" data-pc-confirm="recovery-drill" disabled> 후보를 끄고 일반 웹 복귀를 직접 확인했습니다</label></div>
             <div class="svc-pc-readiness-actions"><button class="svc-secondary" type="button" data-pc-download-diagnostic>가린 진단 내려받기</button><button class="svc-secondary" type="button" data-pc-export-preferences>읽기 설정 백업</button><label class="svc-secondary svc-file-action">읽기 설정 복원<input type="file" accept="application/json,.json" data-pc-import-preferences></label></div>
             <p class="svc-pc-readiness-copy" data-pc-readiness-copy role="status">실제 VPN·운영 API 확인 전입니다. 준비 항목을 자동으로 통과 처리하지 않습니다.</p>
+          </section>
+          <section class="svc-commercial-readiness" data-commercial-readiness aria-labelledby="svcCommercialReadinessTitle">
+            <div class="svc-section-head"><div><h2 id="svcCommercialReadinessTitle">상용 운영 관문</h2><p>PC·모바일 공통 운영 조건입니다. 문서화와 실제 외부 검증을 구분하고, 미완료를 자동 통과시키지 않습니다.</p></div><span class="svc-commercial-readiness-badge" data-commercial-readiness-badge>0 / 8 문서화 · 실제 검증 0</span></div>
+            <div class="svc-commercial-readiness-grid">
+              <article data-commercial-check="privacy-rights" data-state="blocked"><i></i><span><b>개인정보 권리</b><small>확인 전</small></span></article>
+              <article data-commercial-check="support-diagnostic" data-state="blocked"><i></i><span><b>지원 진단</b><small>확인 전</small></span></article>
+              <article data-commercial-check="rollback-playbook" data-state="blocked"><i></i><span><b>되돌리기 절차</b><small>확인 전</small></span></article>
+              <article data-commercial-check="payment-roundtrip" data-state="blocked"><i></i><span><b>결제 왕복</b><small>실제 증거 전</small></span></article>
+              <article data-commercial-check="refund-roundtrip" data-state="blocked"><i></i><span><b>취소·환불</b><small>실제 증거 전</small></span></article>
+              <article data-commercial-check="legal-review" data-state="blocked"><i></i><span><b>법률 검토</b><small>전문 검토 전</small></span></article>
+              <article data-commercial-check="operations-monitoring" data-state="blocked"><i></i><span><b>운영 감시</b><small>독립 감시 전</small></span></article>
+              <article data-commercial-check="limited-release" data-state="blocked"><i></i><span><b>제한 공개</b><small>최신 후보 관찰 전</small></span></article>
+            </div>
+            <div class="svc-commercial-actions"><button class="svc-secondary" type="button" data-commercial-download-support>가린 지원 묶음 저장</button><button class="svc-secondary" type="button" data-commercial-download-incident>장애 복구 체크리스트 저장</button></div>
+            <p class="svc-commercial-copy">문서화 3개는 실제 결제·환불·법률·감시·공개 증거를 대신하지 않습니다. 모든 관문이 실제 검증돼야 상업 운영 가능입니다.</p>
           </section>
           <section class="svc-network-safety" aria-labelledby="svcNetworkSafetyTitle">
             <div class="svc-section-head"><div><h2 id="svcNetworkSafetyTitle">망 전환과 차단 모드</h2><p>웹 화면은 운영체제의 항상 켜기·차단 모드를 대신 켜지 않습니다. 사용자가 공식 WireGuard 앱에서 직접 선택합니다.</p></div><span class="svc-network-state" data-svc-network-state>네트워크 상태 확인 전</span></div>
