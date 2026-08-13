@@ -34,5 +34,5 @@ STATE.md의 다음 첫 행동을 따르되, 기존 ffvpn의 사람 직접 스위
 ## 인계 판정
 
 - 같은 PC·같은 프로젝트 폴더: 위 프롬프트와 프로젝트 기록만으로 안전하게 이어갈 수 있다.
-- 다른 PC: 최신 비공개 GitHub Release `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/releases/tag/handoff-20260812T095152Z-4f7ec30`의 ZIP·TXT SHA-256과 `20_GIT/git_context.txt`의 HEAD를 확인한 뒤 새 안전 폴더에 풀면 같은 소스를 재현할 수 있다. ZIP SHA-256은 `22a10e20260929edec0cf02e3f9680c58ee5dedc1cb7385b76d58b2a83b0873b`이다. 전체 회귀와 외부 접근은 새 PC에서 다시 확인해야 한다.
-- GitHub 확인: 원격은 비공개이며, 인계 생성기는 깨끗한 작업 폴더·현재 작업 갈래와 원격 ahead/behind 0/0이 아니면 중단한다.
+- 다른 PC: 최신 공개 GitHub Release `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/releases/tag/handoff-20260812T095152Z-4f7ec30`의 ZIP·TXT SHA-256과 `20_GIT/git_context.txt`의 HEAD를 확인한 뒤 새 안전 폴더에 풀면 같은 소스를 재현할 수 있다. ZIP SHA-256은 `22a10e20260929edec0cf02e3f9680c58ee5dedc1cb7385b76d58b2a83b0873b`이다. 전체 회귀와 외부 접근은 새 PC에서 다시 확인해야 한다.
+- GitHub 확인: 원격은 공개이며 로그인 없는 clone도 가능하다. 인계 생성기는 깨끗한 작업 폴더·현재 작업 갈래와 원격 ahead/behind 0/0이 아니면 중단한다.

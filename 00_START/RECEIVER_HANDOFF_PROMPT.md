@@ -1,6 +1,6 @@
 # FreeFlexVPN — 받는 AI 인계 프롬프트
 
-아래 비공개 Release에서 TXT와 ZIP 두 파일만 받으세요.
+아래 공개 Release에서 TXT와 ZIP 두 파일만 받으세요. GitHub 로그인 없이도 받을 수 있습니다.
 
 `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/releases/tag/handoff-20260812T095152Z-4f7ec30`
 
