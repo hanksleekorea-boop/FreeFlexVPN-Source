@@ -2,8 +2,8 @@
 
 | 항목 | 값 |
 |---|---|
-| 파일 수 | 452 |
-| 총 바이트 | 11,042,741 |
+| 파일 수 | 455 |
+| 총 바이트 | 11,048,678 |
 
 ## 지문 규칙
 
@@ -55,11 +55,14 @@
 | `.project-continuity/CONSULTING.md` | 1,657 | 공동개발 연속성 기록 | `e722d2d3645fa317217eb33a7457be8809934d9e4c34c80355da40cb4dddbd52` |
 | `.project-continuity/GITHUB_AUDIT.md` | 5,070 | 공동개발 연속성 기록 | `b724bee35264ae43b82a0fb6021446eaf0f92565fe386254dae554ba2a1f5008` |
 | `.project-continuity/HANDOFF_CAPSULE.json` | 1,967 | 공동개발 연속성 기록 | `839914aa92a0e41382468e9bf7cd1e9d1f916dbe0ab6dd78e0b7aa39d0bb8f79` |
-| `.project-continuity/HISTORY.md` | 71,513 | 공동개발 연속성 기록 | `24526546da35cbcd0b13df8b29fff8ced32675e94fd8d86971ecd6c9fe1e9697` |
+| `.project-continuity/HISTORY.md` | 72,422 | 공동개발 연속성 기록 | `003d10f6b3c51da45c1350c3e5476acffd34dba223c75129c7dfd158372aaee8` |
 | `.project-continuity/NO_LOCK_POLICY.md` | 1,281 | 공동개발 연속성 기록 | `d91c91ca5378b30825c10879fb1e0b741f5ba130dfdc4f46385639397b470526` |
 | `.project-continuity/OWNER_CONTROL.md` | 3,517 | 공동개발 연속성 기록 | `0d99cbaa21aea7625d1f9e18f751f226311bc3526f405bc9a66981a1421d4817` |
-| `.project-continuity/STATE.md` | 29,795 | 공동개발 연속성 기록 | `46fe8aa72ebbb7eda99b0ece81d2605065f9c58ace1b51cffd7eb9a2cad5807d` |
-| `.project-continuity/TEST_EVIDENCE.md` | 61,248 | 공동개발 연속성 기록 | `4bdb24c156ed0e332136c4ac191ad2f231bf988f413becb2b034fe9655456acb` |
+| `.project-continuity/PERMISSION-BASELINE.json` | 461 | 공동개발 연속성 기록 | `0335bf1f68c7aa01aaf2b6c5ef4f0de03db994c411864b9b4b2de2c95327042f` |
+| `.project-continuity/runs/RUN-9e5d65a1bcef4fb482ca06c630dd4e95.json` | 1,642 | 공동개발 연속성 기록 | `e78dcec654a29779315a14771967b559d0ec98d32b42e7c4bf6029f46b0b1d27` |
+| `.project-continuity/SITE-CAPABILITIES.json` | 1,490 | 공동개발 연속성 기록 | `47be12234c407daaa469f938680a250e3b4f0391714d471a36679122d3a12fe0` |
+| `.project-continuity/STATE.md` | 30,350 | 공동개발 연속성 기록 | `bbc882d90038634dd171ec4ec1538726eb1079254e873addf40b04d5fa5cc26b` |
+| `.project-continuity/TEST_EVIDENCE.md` | 62,128 | 공동개발 연속성 기록 | `4b2c9ca76c352d3dcdf45c66fbaa94de9c649281b3f672f5786bca519339950a` |
 | `00_START/COLLABORATION_GATEWAY.md` | 1,964 | 시작·인수인계 | `d017dc34b6c7853c5d9cbf0dd1433677df9f1d0ec64a7c08200975fa23e1ad5d` |
 | `00_START/DEVELOPMENT_DASHBOARD.md` | 17,678 | 시작·인수인계 | `e6223b576fb5fd3203b14877584ff75c83b92ed9ca2d13f3b9bc9d4a37a87d62` |
 | `00_START/HANDOFF_PROMPT.md` | 14,622 | 시작·인수인계 | `08e5083c7e875677743e1b0ee1cc6ee1fee40fd736f559c56fcd80c88ecfe26b` |

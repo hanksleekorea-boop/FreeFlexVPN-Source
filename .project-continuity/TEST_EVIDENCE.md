@@ -1,5 +1,14 @@
 # 검사 증거
 
+## 2026-08-13 — 범용 인계 v4.14
+
+- `V414-HASH`: 내장 helper 마커 1/1, 11,497 bytes, SHA-256 `02fb55391fdb021e114a2457c68ef26b1a4056166b6f546b7314e50dd78de921` 일치.
+- `V414-AUTO`: 첫 Auto `READY`, missing-only 쓰기 2. 연속 Auto 2회와 ReadOnly는 HOT digest `f9949132...` 동일·쓰기 0.
+- `LOCK-GATE`: `.project-continuity/LOCK*.json` 0개.
+- `GH-FINAL-CI`: 원격 `shared-development` HEAD `1099af8`의 GitHub Actions `31708596676` success. 목록표·전체 회귀·비밀 검사·산출물·provenance 통과.
+- `PERMISSION-PARITY`: 필수 18개 중 pass 7·fail 4·unknown 7. GitHub source/branch/commit/PR/CI는 통과했지만 hosting·runtime·production 권한은 현재 Cloud 주체의 대상 접근 실패로 미충족. `NOT_READY`.
+- 실제 provider grant·호스팅 배포·Drive 두 계정 checkpoint·token 절감률은 `NOT_RUN/NOT_MEASURED`.
+
 ## 2026-08-13 — 공동개발 v4.1
 
 ### ① 자동 검사

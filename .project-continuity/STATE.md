@@ -1,12 +1,13 @@
 # 현재 작업 상태
 
+- 범용 인계 v4.14: 내장 helper 11,497 bytes·SHA-256 `02fb55391fdb021e114a2457c68ef26b1a4056166b6f546b7314e50dd78de921`을 사용자 공용 경로에서 확인했다. Auto 첫 실행은 누락 파일 2개만 생성했고, 연속 Auto 2회와 ReadOnly는 같은 HOT digest `f9949132...`·쓰기 0·협업 잠금 0으로 통과했다. GitHub 공식 권한·PR·CI는 7개 개발 capability를 확인했지만 Cloud 대상 접근 실패로 18개 기준은 pass 7·fail 4·unknown 7이며 `PERMISSION_PARITY_READY`가 아니다.
 - 잠금 정책: 사용자 지시에 따라 이 프로젝트의 `.project-continuity/LOCK*.json` 협업 잠금 19개를 제거했고 남은 협업 잠금과 Git 잠금은 각각 0개다. 상위 AI 규칙 v10.6·전역 AGENTS·연속성 정책·진입 도구도 협업 잠금을 생성하지 않도록 전환했다. 향후 Git 상태·STATE·HISTORY 변경 경로 대조로 충돌을 피한다. 외부 프로그램의 자체 데이터베이스 잠금은 협업 잠금이 아니다.
 - 참여 권한: 사용자 명시 승인에 따라 `hanksleekorea-boop/FreeFlexVPN-Source`를 PUBLIC으로 전환했고 기본 갈래를 `feature/pc-commercial-readiness-90`으로 지정했다. 로그인 없이 clone·Release 다운로드가 실제 성공했고, 로그인한 누구나 fork·Issue·Pull Request로 잠금 없이 참여할 수 있다. 현재 기본 갈래는 삭제·강제 갱신 차단과 승인 0명의 Pull Request 규칙을 적용한다. GitHub에는 불특정 로그인 사용자 전체의 원본 직접 push 권한이 없으므로 직접 push는 식별된 협업자만 가능하며, 공유 관리자 토큰·익명 쓰기는 사용하지 않는다.
 - 소유자 공동개발 v4.1: 비밀번호 원문 비저장, 15분 세션, 속도 제한, CSRF/same-origin, 대상 지문, 중복 영수증, 허용 경로 파일 작업, 비밀 입력 차단, 검증된 운영 기준 SHA 전용 배포 정책에 더해 로그인 세션별 격리 Git worktree, 고정 저장소·`shared-development` 전용 비강제 push/PR 중계, HMAC 서명 Drive outbox·readback 영수증, 컨테이너·복구 인계를 구현했다. 로컬 HTTPS 브라우저 로그인→읽기→수정→저장→커밋은 통과했다. 실제 인터넷 주소·서버 GitHub 자격·Drive relay는 아직 미연결이므로 판정은 `PASSWORD_GATEWAY_DEPLOYABLE_CANDIDATE`, 참여자 배포는 `POLICY_ONLY`다.
-- Git·Drive: 운영 기준·`shared-development` 모두 PR·필수 `verify`·삭제/강제 push 차단을 적용했다. 공동개발 v4.1 PR #7을 병합 커밋 `3fabc3be9210e7061fa2c5e7bd489da30089a3f1`로 통합했고, 병합 HEAD의 `verify` 실행 `31707826572`가 목록표·전체 회귀·비밀 검사·정적 산출물·provenance까지 3분 1초에 통과했다. Drive 소유자 전용 상황판·9개 폴더·상태 문서는 공개 링크 OFF·참여자 0명이다. 실제 서버 relay/readback 영수증이 없어 `DRIVE_UPDATE_GATE_PENDING`이다.
+- Git·Drive: 운영 기준·`shared-development` 모두 활성 ruleset `20545111`로 PR·필수 `verify`·삭제/강제 push 차단을 적용했다. 공동개발 v4.1 PR #7과 증거 PR #8을 통합한 원격 HEAD는 `1099af82a88c3cf8209c0044db407bea0b32e720`이며 최종 `verify` 실행 `31708596676`이 목록표·전체 회귀·비밀 검사·정적 산출물·provenance까지 통과했다. Drive 소유자 전용 상황판·9개 폴더·상태 문서는 공개 링크 OFF·참여자 0명이다. 실제 서버 relay/readback 영수증이 없어 `DRIVE_UPDATE_GATE_PENDING`이다.
 - 현재 버전/단계: PC·모바일 상용화 100% 목표의 로컬 개발 후보 · PC 60/100·모바일 58/100(증거 기반) · 공개·무잠금 GitHub 협업 후보 · 공동개발 v4.1 전체 회귀 84/84 파일·856/856 항목 및 목록표 452/452 통과 · 전역 규칙 v10.6 적용 · 기존 Android `ffvpn` DNS·경로 실패와 별도 검증 프로필 성공을 분리 유지
 - 마지막 작업자 라벨: worker-owner-gateway
-- 마지막 갱신 시각: 2026-08-13T21:04:10+07:00
+- 마지막 갱신 시각: 2026-08-13T21:14:04+07:00
 - GitHub 원격: 공개 `hanksleekorea-boop/FreeFlexVPN-Source` · HTTPS · 기본 갈래 `feature/pc-commercial-readiness-90` · 익명 clone 확인 HEAD `cb8df1b367c6696875e6d5a4b4fa0f3c89f136ad`. Issues·fork·Pull Request·비공개 취약점 신고·secret scanning·push protection을 활성화했다.
 - 공개 정적 앱: `https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html`은 이전 공개판으로 HTTP 화면 로드·1280px/720 CSS px 가로 넘침 0을 확인했다. 새 PC·모바일 출시 점검과 공통 상용 관문은 **로컬·비공개 원격 후보이며 공개판 미반영**이다. PC는 같은 주소의 `?view=app`, 모바일은 기본 주소다.
 - 다음 첫 행동: 사용자가 FreeFlexVPN 대상 프로젝트 소유 권한으로 Google Cloud Console/Cloud Shell을 연 상태에서 기존 승인 호스트·Secret Manager·영구 디스크를 읽기 확인한다. 새 비용·새 공개 채널 없이 가능할 때만 v4.1을 배포하고 새 브라우저 로그인→편집→커밋→PR 및 Drive readback E2E를 진행한다. 기존 Android `ffvpn`은 삭제·덮어쓰기하지 않는다.
