@@ -3,7 +3,7 @@
 | 항목 | 값 |
 |---|---|
 | 파일 수 | 452 |
-| 총 바이트 | 11,038,836 |
+| 총 바이트 | 11,042,083 |
 
 ## 지문 규칙
 
@@ -52,14 +52,14 @@
 | `.gitignore` | 374 | 버전 관리 제외 규칙 | `5bb0dde7ad78d5c4a281d1f4641f4cbff7f18f5557e36e8c024fb28b3d2a3d6a` |
 | `.project-continuity/APPROVALS.md` | 8,187 | 공동개발 연속성 기록 | `d1d8fda06ab505ecb88363139794a941a2151dbdb1408f85ce10ac0bc8af20ba` |
 | `.project-continuity/COMPLETION.md` | 870 | 공동개발 연속성 기록 | `765ea806a447d93e183845a01db536ad3e78784947d82cedaf85bee8fb7a6254` |
-| `.project-continuity/CONSULTING.md` | 1,197 | 공동개발 연속성 기록 | `14a09f73550dae540cd58424d47dd9b2cc20eb2755b1827acd3267aafbbec04c` |
+| `.project-continuity/CONSULTING.md` | 1,670 | 공동개발 연속성 기록 | `4df2f7c67b90b09dbd8c5cee9e4eee049898fd88dd87050b5c23ce43736beee3` |
 | `.project-continuity/GITHUB_AUDIT.md` | 5,070 | 공동개발 연속성 기록 | `b724bee35264ae43b82a0fb6021446eaf0f92565fe386254dae554ba2a1f5008` |
 | `.project-continuity/HANDOFF_CAPSULE.json` | 1,967 | 공동개발 연속성 기록 | `839914aa92a0e41382468e9bf7cd1e9d1f916dbe0ab6dd78e0b7aa39d0bb8f79` |
-| `.project-continuity/HISTORY.md` | 69,698 | 공동개발 연속성 기록 | `fbae1eb26efc5d958fed9f3a0843b3f1443d4addf4512e11fee416a2e7aa3665` |
+| `.project-continuity/HISTORY.md` | 70,890 | 공동개발 연속성 기록 | `29716da147ff9a2da0ae39a9a31aba112a4e6107e0e035b4c315ce5b2df78ac0` |
 | `.project-continuity/NO_LOCK_POLICY.md` | 1,281 | 공동개발 연속성 기록 | `d91c91ca5378b30825c10879fb1e0b741f5ba130dfdc4f46385639397b470526` |
 | `.project-continuity/OWNER_CONTROL.md` | 3,517 | 공동개발 연속성 기록 | `0d99cbaa21aea7625d1f9e18f751f226311bc3526f405bc9a66981a1421d4817` |
-| `.project-continuity/STATE.md` | 29,617 | 공동개발 연속성 기록 | `a15bbd901399457cf23e175bd9f0ec211e7a2b2571ed8c2c75acc7b9233b60a6` |
-| `.project-continuity/TEST_EVIDENCE.md` | 59,799 | 공동개발 연속성 기록 | `205e504fae86164f77218036c54b6ca1a77ee13b4aa3d50125e090d2ea38d5dc` |
+| `.project-continuity/STATE.md` | 30,000 | 공동개발 연속성 기록 | `0778b25ec65b2be83bfbcd7637414f348c5e024a7afa0e620ddece6550ffc60d` |
+| `.project-continuity/TEST_EVIDENCE.md` | 60,995 | 공동개발 연속성 기록 | `3d7ef8fe507b1eb459a07614e31681ff744bd7dabd603e54b8cfc2a59a96ddf4` |
 | `00_START/COLLABORATION_GATEWAY.md` | 1,964 | 시작·인수인계 | `d017dc34b6c7853c5d9cbf0dd1433677df9f1d0ec64a7c08200975fa23e1ad5d` |
 | `00_START/DEVELOPMENT_DASHBOARD.md` | 17,678 | 시작·인수인계 | `e6223b576fb5fd3203b14877584ff75c83b92ed9ca2d13f3b9bc9d4a37a87d62` |
 | `00_START/HANDOFF_PROMPT.md` | 14,622 | 시작·인수인계 | `08e5083c7e875677743e1b0ee1cc6ee1fee40fd736f559c56fcd80c88ecfe26b` |
@@ -275,7 +275,7 @@
 | `30_DEPLOY/app-qr.png` | 2,996 | 공개용 결과물 | `bcad7f407d0f636ec0fb34a996b97e2c7cda5a7805b0dc367186b0b0292f6b12` |
 | `30_DEPLOY/app.html` | 295,739 | 공개용 결과물 | `7bf68c899471f4e7d700399a77f62846c0897ee5d77d93a78959ac38eb819b11` |
 | `30_DEPLOY/client_keygen.js` | 6,030 | 공개용 결과물 | `829abf635971782969044a1d6295937110b80bee8fa328fda822f26a269e17f5` |
-| `30_DEPLOY/collaboration-gateway/Dockerfile` | 836 | 공개용 결과물 | `41171d9cb9de7e3415cfd966671fca49e88ce19ae17a9000ad161a07d3b46a9a` |
+| `30_DEPLOY/collaboration-gateway/Dockerfile` | 839 | 공개용 결과물 | `87b0168d86dd50235b9527a7615453bc061063b90a3402a237a493ba3ac781e3` |
 | `30_DEPLOY/collaboration-gateway/README.md` | 2,822 | 공개용 결과물 | `2c9ebdb01618c264dea7d206fa80d8842d07079fb3def7d5d1be2e13d73e1216` |
 | `30_DEPLOY/commercial_readiness.js` | 3,235 | 공개용 결과물 | `8471d1cc238317e6ee542c21f297cd5dd945a66dc9e9116fd8b5b76bcff8369d` |
 | `30_DEPLOY/development-dashboard.html` | 18,620 | 공개용 결과물 | `15a9005b07e95a7a1b2fa6de030f79a18e2acbd77906c6e9f61ad632e5c95ce6` |
