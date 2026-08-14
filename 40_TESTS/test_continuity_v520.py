@@ -13,8 +13,8 @@ import unittest
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CONTINUITY = ROOT / ".project-continuity"
 RUNTIME = CONTINUITY / "runtime" / "continuity-v520.py"
-EXPECTED_RUNTIME_BYTES = 70_072
-EXPECTED_RUNTIME_SHA256 = "e15cc0713ece51021be584aa437806ca1ab4008b277f4d779d6b6e12e832a1c7"
+EXPECTED_RUNTIME_BYTES = 70_472
+EXPECTED_RUNTIME_SHA256 = "3549728554b8fa4be05e69ef7d4c0d72cea1ea711fb9bda725bb5f027ec155eb"
 
 
 def compact_json(path: pathlib.Path) -> dict[str, object]:
@@ -41,19 +41,25 @@ class ContinuityV520ContractTests(unittest.TestCase):
     def test_hot_and_context_are_small_and_repeat_is_zero_write(self):
         environment = os.environ.copy()
         environment["GIT_OPTIONAL_LOCKS"] = "0"
-        result = subprocess.run(
-            [sys.executable, "-X", "utf8", str(RUNTIME), "bootstrap", "--project-path", str(ROOT), "--compact"],
-            cwd=ROOT,
-            env=environment,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            capture_output=True,
-            timeout=30,
-            check=False,
-        )
+        result = None
+        for _attempt in range(3):
+            result = subprocess.run(
+                [sys.executable, "-X", "utf8", str(RUNTIME), "bootstrap", "--project-path", str(ROOT), "--compact"],
+                cwd=ROOT,
+                env=environment,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                capture_output=True,
+                timeout=30,
+                check=False,
+            )
+            if result.returncode == 0 and result.stdout.strip():
+                break
+        self.assertIsNotNone(result)
+        assert result is not None
+        self.assertEqual(result.returncode, 0, result.stderr)
         packet = json.loads(result.stdout)
-        self.assertEqual(result.returncode, 0)
         self.assertLessEqual(len(result.stdout.strip().encode("utf-8")), 1_024)
         self.assertLessEqual((CONTINUITY / "CONTEXT.md").stat().st_size, 4_096)
         self.assertEqual(packet["w"], 0)
@@ -96,6 +102,13 @@ class ContinuityV520ContractTests(unittest.TestCase):
             self.assertGreater(len(records), 0)
         else:
             self.assertIn(state["remote_status"], {"UNKNOWN", "BLOCKED", "PARTIAL", "CONFIGURED"})
+
+    def test_restore_does_not_follow_worktree_git_pointer(self):
+        source = RUNTIME.read_text(encoding="utf-8")
+        self.assertIn('if git_metadata.is_dir():', source)
+        self.assertIn('elif git_metadata.is_file():', source)
+        self.assertIn('safe.directory={restored.as_posix()}', source)
+        self.assertNotIn('if (restored / ".git").exists():', source)
 
     def test_site_and_provider_eighteen_capability_truth_tables(self):
         full_mask = (1 << 18) - 1

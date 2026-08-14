@@ -935,9 +935,15 @@ def restore_test(root: Path, latest: dict[str, Any], remote: dict[str, Any], tes
         actual = scan_manifest_for_restore(restored)
         if set(actual) != set(final_map):
             return False
-        if (restored / ".git").exists():
-            git(restored, "fsck", "--full")
-            git(restored, "show-ref", "--head")
+        git_metadata = restored / ".git"
+        if git_metadata.is_dir():
+            safe_directory = f"safe.directory={restored.as_posix()}"
+            git(restored, "-c", safe_directory, "fsck", "--full")
+            git(restored, "-c", safe_directory, "show-ref", "--head")
+        elif git_metadata.is_file():
+            pointer = git_metadata.read_text(encoding="utf-8", errors="strict")
+            if not re.fullmatch(r"gitdir: [^\r\n]+\r?\n?", pointer):
+                raise RuntimeError("invalid git worktree pointer")
         return True
 
 

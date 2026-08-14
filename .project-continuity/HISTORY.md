@@ -11,6 +11,15 @@
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
 
+## 2026-08-14T16:47:10+07:00 · worker-v520-final-handoff
+
+- FreeFlexVPN 전용 crypt A/B를 기존 비공개 Drive 기반에 새 암호화 키로 구성하고 API로 `shared=false`·공개/도메인 권한 0을 확인했다. A/B 소유자는 같은 계정임을 비식별 비교로 분리 기록했다.
+- B OAuth 만료를 시스템 브라우저 재인증으로 복구했고, full 세대를 양쪽에 불변 업로드했다. Windows Git worktree 포인터를 외부 gitdir로 따라가던 복원 결함을 프로젝트 고정 runtime에서 보정해 A/B 재다운로드·해시·임시 복원을 `READY`로 닫았다.
+- 현재 Windows 사용자·제한 권한·매일 03:15의 `maintain --non-destructive` 예약 작업을 설치했다. 프로젝트 파일 삭제·cleanup 적용·VPN/Cloud/공개 배포 변경은 0건이다.
+- 다음 첫 행동: 기존 Android `ffvpn`을 보존한 서버 피어·재발급 경로 읽기 전용 비교다.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
+
 ## 2026-08-14 — 범용 지속개발 v5.2 최초 설치·검증
 
 - 첨부 원문의 Python fence를 UTF-8 without BOM/LF로 OS 임시 파일에 한 번만 기계 추출했다. 압축 16,004 bytes·SHA-256 `d1d17fa…f998`와 해제 runtime 70,072 bytes·SHA-256 `e15cc07…a1c7` 검증 뒤 `.project-continuity/runtime/continuity-v520.py`를 원자 설치했고 임시 bootstrap 파일은 제거했다.
@@ -693,5 +702,9 @@
 - 다음: ADB 사용이 0개이고 사람이 후보를 직접 켤 수 있을 때 G1-R 실제 증거 네 가지를 분리 검증한다.
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금해제 O]
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
+
+2026-08-14T16:47:10+07:00 · worker-v520-final-handoff · 상세 기록은 이 파일의 동명 절에 있으며, 실제 crypt Drive A/B full 복원 READY·제한권한 일일 예약·worktree 포인터 외부 미접근 보정을 완료했다. 다음 첫 행동은 기존 Android `ffvpn` 보존형 서버 피어·재발급 경로 비교다.
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]

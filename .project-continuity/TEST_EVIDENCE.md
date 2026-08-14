@@ -129,6 +129,21 @@
 
 - 없음.
 
+## 2026-08-14 — 실제 Drive A/B·Windows worktree 복원·예약 검증
+
+### ① 자동·무결성 검사
+
+- 프로젝트 고정 runtime을 70,472 bytes·SHA-256 `3549728554b8fa4be05e69ef7d4c0d72cea1ea711fb9bda725bb5f027ec155eb`로 보정했다. 임시 복원에서 `.git` 디렉터리에만 경로 한정 `safe.directory`를 적용하고, Git worktree 포인터 파일은 외부 gitdir를 따라가지 않는다. 계약 검사 9/9 통과.
+- 첫 full 백업은 B OAuth 만료, 두 번째는 복원본 worktree 소유권 검사 때문에 BLOCKED였으며 두 실행 모두 기존 파일 삭제 0건·불완전 세대 최신 승격 0건이다. 원인 수정 뒤 최신 full 세대를 A/B 각각 재다운로드하고 SHA-256·전체 복원 트리를 검증해 `drive=READY`, `restore_verified=true`를 확인했다.
+- A/B 전용 crypt 원격은 서로 다른 임의 암호화 키를 사용한다. Google Drive API readback에서 두 raw 폴더 모두 `shared=false`, `trashed=false`, 공개/도메인 권한 0건이었다. 소유자 메타데이터 비식별 비교 결과 같은 Google 계정이므로 계정 장애 독립성은 미달로 분리했다.
+- Windows 예약 작업 `FreeFlexVPN-Continuity-v520-68f171d594a1e9d944d19b79`은 현재 사용자·Limited·Interactive, 매일 03:15, `maintain --non-destructive`, 중복 실행 IgnoreNew로 설치됐고 다음 실행 시각 readback을 통과했다.
+- 최종 매니페스트 474/474 파일·11,252,448 bytes 왕복 일치, v5.2 9/9·계정 인계 5/5·AI 인계 7/7, 전체 회귀 86/86 파일·870/870 항목·실패 0·196.8초, 비밀값·개인정보 검사 허용 목록 외 0건을 확인했다.
+
+### ② 외부·보안 경계
+
+- OAuth 갱신은 시스템 브라우저에서 완료됐으며 토큰·이메일·계정 ID·crypt 비밀번호는 출력·프로젝트·Git 기록에 남기지 않았다.
+- 기반 Drive 원격은 rclone 공유 client ID의 2026년 중단 예고가 있어 별도 client ID 전환이 후속 위험이다. 서로 다른 Google 계정 A/B와 다른 물리 PC crypt 복구는 아직 `NOT_RUN`이다.
+
 ## 2026-08-14 — 같은 PC·다른 Codex 계정 인계 검증
 
 ### ① 자동 검사
