@@ -13,8 +13,8 @@ import unittest
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CONTINUITY = ROOT / ".project-continuity"
 RUNTIME = CONTINUITY / "runtime" / "continuity-v520.py"
-EXPECTED_RUNTIME_BYTES = 70_472
-EXPECTED_RUNTIME_SHA256 = "3549728554b8fa4be05e69ef7d4c0d72cea1ea711fb9bda725bb5f027ec155eb"
+EXPECTED_RUNTIME_BYTES = 70_672
+EXPECTED_RUNTIME_SHA256 = "7c08ebf5fed65e46a3bd99473fb33a48f7981d612f294da04e10d23b438537ba"
 
 
 def compact_json(path: pathlib.Path) -> dict[str, object]:
@@ -109,6 +109,11 @@ class ContinuityV520ContractTests(unittest.TestCase):
         self.assertIn('elif git_metadata.is_file():', source)
         self.assertIn('safe.directory={restored.as_posix()}', source)
         self.assertNotIn('if (restored / ".git").exists():', source)
+
+    def test_rclone_calls_are_throttled_and_retried(self):
+        source = RUNTIME.read_text(encoding="utf-8")
+        self.assertIn('RCLONE_RELIABILITY_FLAGS = ("--tpslimit", "1"', source)
+        self.assertEqual(source.count('*RCLONE_RELIABILITY_FLAGS)'), 2)
 
     def test_site_and_provider_eighteen_capability_truth_tables(self):
         full_mask = (1 << 18) - 1

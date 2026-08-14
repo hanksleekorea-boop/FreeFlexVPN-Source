@@ -61,7 +61,7 @@ HOT 결과와 `CONTEXT.md`를 우선 읽는다.
 
 로컬 개발은 다음을 모두 만족하면 이어갈 준비가 완료된 것이다.
 
-- runtime이 정확히 70,472 bytes이고 SHA-256이 `3549728554b8fa4be05e69ef7d4c0d72cea1ea711fb9bda725bb5f027ec155eb`이다. 이 값은 Windows Git worktree 독립 복원 보정이 적용된 프로젝트 고정판이다.
+- runtime이 정확히 70,672 bytes이고 SHA-256이 `7c08ebf5fed65e46a3bd99473fb33a48f7981d612f294da04e10d23b438537ba`이다. 이 값은 Windows Git worktree 독립 복원과 Drive 호출 제한 보정이 적용된 프로젝트 고정판이다.
 - 반복 HOT 결과의 쓰기 수 `w`가 `0`, 출력이 1,024 bytes 이하, `CONTEXT.md`가 4,096 bytes 이하이다.
 - `.project-continuity/LOCK*.json`이 0개다.
 - Git 작업 폴더가 깨끗하고 원격이 `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source.git`이다.

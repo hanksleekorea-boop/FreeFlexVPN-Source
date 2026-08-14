@@ -38,6 +38,7 @@ MARKER_END = "<!-- AI-CONTINUITY-V5 END -->"
 MAX_HOT_BYTES = 1024
 MAX_CONTEXT_BYTES = 4096
 DEFAULT_CHUNK_BYTES = 1024 * 1024 * 1024
+RCLONE_RELIABILITY_FLAGS = ("--tpslimit", "1", "--tpslimit-burst", "1", "--low-level-retries", "30", "--retries", "10", "--retries-sleep", "10s")
 LEGACY_LEASE_NAME = re.compile(r"^(?:lease(?:[-_.].+)?|leases|mutation[-_.]?lease(?:[-_.].+)?)$", re.IGNORECASE)
 INTERNAL_TEMP_NAME = re.compile(r"^\..+\.tmp-[0-9a-f]{32}$")
 SENSITIVE_NAMES = re.compile(r"(?:^|/)(?:\.env(?:\..*)?|[^/]+\.(?:pem|p12|pfx|key)|credentials?\.json|service[-_]?account[^/]*\.json|[^/]*\.(?:db|sql|sqlite3?|dump))$", re.IGNORECASE)
@@ -734,7 +735,7 @@ def put_remote(root: Path, remote: dict[str, Any], source: Path, relative: str, 
         shutil.copyfile(source, temporary)
         os.replace(temporary, target)
         return
-    run_tool(root, "rclone", "copyto", str(source), remote_path(remote, relative), "--immutable")
+    run_tool(root, "rclone", "copyto", str(source), remote_path(remote, relative), "--immutable", *RCLONE_RELIABILITY_FLAGS)
 
 
 def get_remote(root: Path, remote: dict[str, Any], relative: str, target: Path, test_mode: bool) -> None:
@@ -743,7 +744,7 @@ def get_remote(root: Path, remote: dict[str, Any], relative: str, target: Path, 
     if remote["kind"] == "file":
         shutil.copyfile(Path(remote["root"]) / PurePosixPath(relative), target)
         return
-    run_tool(root, "rclone", "copyto", remote_path(remote, relative), str(target), "--immutable")
+    run_tool(root, "rclone", "copyto", remote_path(remote, relative), str(target), "--immutable", *RCLONE_RELIABILITY_FLAGS)
 
 
 def zip_info(name: str, mode: int = 0o600) -> zipfile.ZipInfo:

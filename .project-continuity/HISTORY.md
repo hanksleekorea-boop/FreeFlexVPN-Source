@@ -708,3 +708,7 @@
 2026-08-14T16:47:10+07:00 · worker-v520-final-handoff · 상세 기록은 이 파일의 동명 절에 있으며, 실제 crypt Drive A/B full 복원 READY·제한권한 일일 예약·worktree 포인터 외부 미접근 보정을 완료했다. 다음 첫 행동은 기존 Android `ffvpn` 보존형 서버 피어·재발급 경로 비교다.
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
+
+2026-08-14T17:33:30+07:00 · worker-v520-final-handoff · 공유 Drive API 호출 제한으로 최종 증분은 COMPLETE 없이 보존하고, 마지막 검증 성공 full을 A/B에서 재복원해 READY로 복구했다. 런타임에 초당 1회·장기 재시도를 추가했으며 현재 변경은 GitHub 게시를 정본으로 한다.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
