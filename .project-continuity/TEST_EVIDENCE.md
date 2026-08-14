@@ -129,6 +129,35 @@
 
 - 없음.
 
+## 2026-08-14 — 같은 PC·다른 Codex 계정 인계 검증
+
+### ① 자동 검사
+
+- `40_TESTS/test_account_continuation.py` — 5/5 통과.
+- `40_TESTS/test_open_collaboration.py` — 5/5 통과.
+- `40_TESTS/test_contributor_access.py` — 4/4 통과.
+- `70_TOOLS/make_manifest.py --check` — 457/457 파일 SHA-256 일치.
+- `70_TOOLS/verify_account_continuation.py --json` 작업 중 실행 — helper 11,497 bytes·고정 SHA-256 일치, v4.14 ReadOnly `READY`, 쓰기 0, 잠금 0, 고정 원격 일치. 의도한 미커밋 파일 4개 때문에 local `hold`를 반환해 깨끗한 Git 관문이 작동함을 확인했다.
+- 로컬 커밋 `d6a82cfdca1511d3868e0dddb76a7a3bb4794a30`의 깨끗한 작업 폴더에서 같은 검증기를 재실행해 `local_continuation: ready`, 검사 9/9, helper 쓰기 0, 실행 전후 Git 변경 0, 협업 잠금 0, 종료 코드 0을 확인했다. 외부 권한은 만료로 `full_site_development: hold`를 유지했다.
+- 첫 전체 회귀 — 84/85 파일·860/861 항목. 유일한 실패는 새 검사·검증기가 stage 전이라 Git 추적 집합과 목록표가 달랐던 인계 계약 1건이다. 명시 stage 뒤 해당 계약은 7/7 통과했다.
+- 최종 전체 회귀 `run_all_tests.py --jobs 4 --timeout 120` — Git 추적·연속성 기록·목록표를 모두 반영한 상태에서 85/85 파일·861/861 항목·실패 0, 106.7초.
+
+### ② 외부 권한 readback
+
+- GitHub CLI 버전 2.97.0은 존재하지만 현재 저장된 GitHub 인증 토큰은 유효하지 않았다. 원격 변경은 실행하지 않았다.
+- 공개 저장소 URL의 `git ls-remote` readback — `shared-development` HEAD `1989aa89bdb5a3648201c26a9d4537543c94f5aa` 확인, `feature/owner-password-gateway` 원격 ref 없음. 로컬 새 커밋은 미게시다.
+- `PERMISSION-BASELINE.json`은 검사 시점에 만료됐고 `SITE-CAPABILITIES.json`은 18개 전체 통과가 아니다. 따라서 `full_site_development`는 `hold`가 정확하다.
+- Google Cloud·Google Drive는 새 계정 로그인 상태에서 다시 readback하기 전까지 쓰기 권한을 있다고 판정하지 않는다.
+
+### ③ 기기·비밀 보호
+
+- Android·iPhone·Windows VPN 설정 변경 0건. 기존 Android `ffvpn` 삭제·덮어쓰기 0건.
+- 계정명·토큰·이메일·실제 IP·VPN 개인 설정 원문을 새 도구와 기록에 포함하지 않았다.
+
+### ④ 고객 설문
+
+- 없음.
+
 ## 2026-08-13 — 비밀번호 공동개발 게이트웨이 후보
 
 ### ① 자동 검사

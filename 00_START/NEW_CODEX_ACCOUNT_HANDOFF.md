@@ -1,38 +1,77 @@
-# FreeFlexVPN — 새 Codex 계정 인계 프롬프트
+# FreeFlexVPN — 이 PC의 새 Codex 계정 인계
 
-아래 내용 전체를 이 PC에서 새로 로그인한 Codex 대화의 첫 메시지로 붙여넣으세요.
+이 문서는 **같은 Windows 사용자·같은 PC**에서 Codex를 로그아웃한 뒤 다른 ChatGPT 계정으로 로그인해 개발을 이어가기 위한 정본이다.
+
+OpenAI 공식 안내 기준으로 ChatGPT 웹의 계정 전환은 지원되지만 Codex 데스크톱 앱 안의 계정 전환은 지원되지 않는다. 따라서 Codex에서는 현재 계정을 로그아웃하고 다른 계정으로 로그인해야 한다. 계정을 바꿔도 채팅·메모리·설정·결제·워크스페이스는 합쳐지지 않는다. 반면 이 PC의 로컬 프로젝트 파일과 Git 작업 폴더는 계정 소유물이 아니므로, 새 계정이 아래의 **같은 폴더를 직접 열면** 그대로 읽을 수 있다.
+
+- OpenAI 계정 전환 안내: <https://help.openai.com/en/articles/20001068-use-multiple-accounts-with-account-switching>
+- Codex의 로컬 폴더 작업 안내: <https://help.openai.com/en/articles/20001275/>
+
+## 열어야 할 폴더
 
 ```text
-당신은 FreeFlexVPN의 새 담당 Codex입니다. 대화 기억은 정본이 아닙니다. 이 PC의 프로젝트 파일, Git 상태, 검사 증거, 공개 URL만 정본으로 사용하세요.
-
-프로젝트 경로:
-C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\handoff-check-cp949\FreeFlexVPN
-
-즉시 다음 순서로 시작하세요.
-1. 프로젝트의 AGENTS.md, %USERPROFILE%\.codex\GLOBAL_CONTINUITY_POLICY.md, %USERPROFILE%\.ai-global-rules\GLOBAL_RULES.md를 읽으세요.
-2. .project-continuity\STATE.md, HISTORY.md, TEST_EVIDENCE.md, 00_START\DEVELOPMENT_DASHBOARD.md, 00_START\시작하세요.md, 이 파일을 읽으세요.
-3. 수정 전에 git status --porcelain=v1, git branch --show-current, git rev-parse HEAD, git rev-list --left-right --count @{upstream}...HEAD를 실행해 실제 상태를 확인하세요.
-4. 인계 패키지는 생성 시점에 미저장 변경이 없고 원격 작업 갈래와 ahead/behind 0/0인 소스만 허용합니다. 실제 상태가 다르면 git reset, git checkout, git clean, stash, 강제 push로 숨기지 말고 변경 소유와 범위를 먼저 분류하세요.
-5. 원격 기준선은 인계 ZIP의 `20_GIT/git_context.txt`와 Release 자산의 SHA-256을 대조하세요. GitHub 인증·원격 읽기는 새 환경에서 다시 확인하되, 계정·토큰·이메일·실제 IP·개인 VPN 설정 내용은 출력하거나 기록하지 마세요.
-
-현재 핵심 사실:
-- 공개 반응형 앱: https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html
-- PC 화면: 위 주소의 ?view=app
-- 실제 A56에서 새 검증 터널 ffvpn-a56v는 일반 웹·DNS/도달성·서버 최근 악수까지 통과했다. 이 저장 터널은 현재 꺼져 있다.
-- 기존 ffvpn 터널의 이전 웹 실패는 미해결이며, 최신 자동 재현은 Android UI 자동화가 스위치를 실제로 켜지 못해 미확인이다. 두 터널·항상 연결·차단 모드는 현재 꺼져 있다.
-- 기존 ffvpn을 삭제·덮어쓰지 않는다. 실제 기기·비용·외부 공개·비밀값·삭제는 현재 대화의 명시 승인을 먼저 확인한다.
-
-첫 개발 행동:
-STATE.md의 다음 첫 행동을 따르되, 기존 ffvpn의 사람 직접 스위치 조작 가능 여부 또는 안전한 재발급/교체 계획을 읽기 전용으로 먼저 검토하세요. 새 검증 터널을 기존 사용자용 프로필로 임의 승격하지 마세요.
-
-종료 전:
-- 실제 실행·검사 결과를 STATE.md, HISTORY.md, TEST_EVIDENCE.md에 기록하세요.
-- 다음 작업자가 할 행동 하나를 남기고, 다른 작업자 잠금이 있으면 덮어쓰지 마세요.
-- 모든 보고는 R1~R8과 [보고 무결성 R1–R8: 8/8]로 끝내세요.
+C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gateway-v38
 ```
 
-## 인계 판정
+다른 `FreeFlexVPN` 복사본이나 과거 `handoff-check-*` 폴더를 열지 않는다.
 
-- 같은 PC·같은 프로젝트 폴더: 위 프롬프트와 프로젝트 기록만으로 안전하게 이어갈 수 있다.
-- 다른 PC: 최신 공개 GitHub Release `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/releases/tag/handoff-20260812T095152Z-4f7ec30`의 ZIP·TXT SHA-256과 `20_GIT/git_context.txt`의 HEAD를 확인한 뒤 새 안전 폴더에 풀면 같은 소스를 재현할 수 있다. ZIP SHA-256은 `22a10e20260929edec0cf02e3f9680c58ee5dedc1cb7385b76d58b2a83b0873b`이다. 전체 회귀와 외부 접근은 새 PC에서 다시 확인해야 한다.
-- GitHub 확인: 원격은 공개이며 로그인 없는 clone도 가능하다. 인계 생성기는 깨끗한 작업 폴더·현재 작업 갈래와 원격 ahead/behind 0/0이 아니면 중단한다.
+## 새 계정의 첫 메시지
+
+아래 내용을 새 Codex 작업의 첫 메시지로 붙여넣는다.
+
+```text
+FreeFlexVPN 개발을 같은 PC에서 인수합니다.
+
+프로젝트 폴더는 다음 하나입니다.
+C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gateway-v38
+
+대화 기억이나 이전 계정의 인증 상태를 정본으로 간주하지 마세요. 먼저 AGENTS.md와 전역 규칙을 읽고, 70_TOOLS/verify_account_continuation.py를 읽기 전용으로 실행하세요. 검증기의 local_continuation이 ready일 때만 .project-continuity/STATE.md의 다음 첫 행동부터 개발을 계속하세요.
+
+GitHub·Google Cloud·Google Drive 권한은 새 계정에 자동 승계되지 않습니다. 각 서비스의 현재 로그인 주체로 최소 readback을 한 뒤 provider_permission_parity를 갱신하세요. 미확인 권한을 있다고 가정하거나 토큰·이메일·실제 IP·VPN 개인 설정을 출력하지 마세요.
+
+기존 Android ffvpn 프로필을 삭제·덮어쓰지 마세요. git reset, checkout, clean, stash, 강제 push로 다른 작업자의 변경을 숨기지 말고, 협업 LOCK*.json도 만들지 마세요.
+```
+
+## 새 AI가 실행할 읽기 전용 시작 절차
+
+PowerShell에서 다음을 실행한다. 현재 설치된 Codex 번들 Python의 위치를 사용하며, 비밀값이나 계정 식별값은 출력하지 않는다.
+
+```powershell
+$project = 'C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gateway-v38'
+$python = 'C:\Users\x13\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+Set-Location -LiteralPath $project
+& $python -X utf8 70_TOOLS\verify_account_continuation.py --json
+```
+
+검증기가 `local_continuation: ready`를 반환하면 다음 파일만 우선 읽는다.
+
+1. `AGENTS.md`
+2. `.project-continuity/STATE.md`의 상단과 `다음 첫 행동`
+3. `.project-continuity/SITE-CAPABILITIES.json`
+4. `.project-continuity/PERMISSION-BASELINE.json`
+5. `.project-continuity/runs/`의 최신 `ai-handoff-run/v414` 한 건
+
+전체 `HISTORY.md`를 처음부터 읽을 필요는 없다. 필요한 과거 사실만 검색해 확인한다.
+
+## 준비 완료 판정
+
+로컬 개발은 다음을 모두 만족하면 이어갈 준비가 완료된 것이다.
+
+- 범용 helper가 정확히 11,497 bytes이고 SHA-256이 `02fb55391fdb021e114a2457c68ef26b1a4056166b6f546b7314e50dd78de921`이다.
+- helper의 `ReadOnly` 결과가 `READY`, 쓰기 수 `0`이다.
+- `.project-continuity/LOCK*.json`이 0개다.
+- Git 작업 폴더가 깨끗하고 원격이 `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source.git`이다.
+- 목록표와 전체 회귀가 통과한 통합 기준선이 기록되어 있다.
+
+외부 사이트를 포함한 **모든 개발 권한**은 별도 판정이다. 새 ChatGPT 계정, Codex 로그인, GitHub CLI, 브라우저의 GitHub·Google Cloud·Google Drive 로그인은 서로 같은 인증이라는 보장이 없다. `SITE-CAPABILITIES.json`의 18개 capability가 모두 유효한 `pass`가 되기 전에는 `full_site_development: ready`라고 보고하지 않는다. 권한 미확인 상태에서도 로컬 수정·검사·기능 갈래 커밋 준비는 계속할 수 있지만 push·PR·배포·Drive 쓰기는 해당 서비스 readback 뒤에만 한다.
+
+현재 확인된 통합 기준선은 다음과 같다.
+
+- `shared-development`: `1989aa89bdb5a3648201c26a9d4537543c94f5aa`
+- GitHub Actions 최종 통합 검사: `31713961554` 성공
+- 외부 권한 기준선: GitHub 개발 capability 7개 통과, Cloud 대상 접근 실패로 전체 18개 중 pass 7·fail 4·unknown 7
+- 기존 Android `ffvpn`: DNS·경로 실패 이력 보존, 별도 검증 프로필의 과거 성공과 분리
+
+## 다른 PC에서 받을 때
+
+다른 PC는 이 문서의 로컬 경로를 사용할 수 없다. 공개 Release <https://github.com/hanksleekorea-boop/FreeFlexVPN-Source/releases/tag/handoff-20260812T095152Z-4f7ec30>의 TXT와 ZIP을 새 안전 폴더에서 검증한다. 이 Release는 2026-08-12 기준선이므로, 검증 뒤 `shared-development`의 최신 통합 상태를 읽기 전용으로 대조해야 한다.
