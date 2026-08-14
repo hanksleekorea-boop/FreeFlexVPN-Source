@@ -25,14 +25,14 @@ FreeFlexVPN 개발을 같은 PC에서 인수합니다.
 프로젝트 폴더는 다음 하나입니다.
 C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gateway-v38
 
-대화 기억이나 이전 계정의 인증 상태를 정본으로 간주하지 마세요. 먼저 AGENTS.md와 전역 규칙을 읽고, 70_TOOLS/verify_account_continuation.py를 읽기 전용으로 실행하세요. 검증기의 local_continuation이 ready일 때만 .project-continuity/STATE.md의 다음 첫 행동부터 개발을 계속하세요.
+대화 기억이나 이전 계정의 인증 상태를 정본으로 간주하지 마세요. 먼저 AGENTS.md를 읽고 `.project-continuity/runtime/continuity-v520.py bootstrap --project-path . --compact`를 실행하세요. 출력 JCS 한 줄과 `.project-continuity/CONTEXT.md`만 읽고 현재 사용자 요청을 계속하세요. 원래 v5.2 원샷 프롬프트는 다시 요구하거나 읽지 마세요.
 
 GitHub·Google Cloud·Google Drive 권한은 새 계정에 자동 승계되지 않습니다. 각 서비스의 현재 로그인 주체로 최소 readback을 한 뒤 provider_permission_parity를 갱신하세요. 미확인 권한을 있다고 가정하거나 토큰·이메일·실제 IP·VPN 개인 설정을 출력하지 마세요.
 
 기존 Android ffvpn 프로필을 삭제·덮어쓰지 마세요. git reset, checkout, clean, stash, 강제 push로 다른 작업자의 변경을 숨기지 말고, 협업 LOCK*.json도 만들지 마세요.
 ```
 
-## 새 AI가 실행할 읽기 전용 시작 절차
+## 새 AI가 실행할 HOT 시작 절차
 
 PowerShell에서 다음을 실행한다. 현재 설치된 Codex 번들 Python의 위치를 사용하며, 비밀값이나 계정 식별값은 출력하지 않는다.
 
@@ -40,30 +40,34 @@ PowerShell에서 다음을 실행한다. 현재 설치된 Codex 번들 Python의
 $project = 'C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gateway-v38'
 $python = 'C:\Users\x13\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
 Set-Location -LiteralPath $project
-& $python -X utf8 70_TOOLS\verify_account_continuation.py --json
+& $python -X utf8 .project-continuity\runtime\continuity-v520.py bootstrap --project-path . --compact
 ```
 
-검증기가 `local_continuation: ready`를 반환하면 다음 파일만 우선 읽는다.
+출력의 `g`가 `READY`이면 현재 OS 사용자 범위 GitHub principal이 최초 기준선 이상의 권한을 가진다. GitHub 외부 작업 직전에는 다음을 다시 실행한다.
+
+```powershell
+& $python -X utf8 .project-continuity\runtime\continuity-v520.py github-verify --project-path .
+```
+
+HOT 결과와 `CONTEXT.md`를 우선 읽는다.
 
 1. `AGENTS.md`
-2. `.project-continuity/STATE.md`의 상단과 `다음 첫 행동`
-3. `.project-continuity/SITE-CAPABILITIES.json`
-4. `.project-continuity/PERMISSION-BASELINE.json`
-5. `.project-continuity/runs/`의 최신 `ai-handoff-run/v414` 한 건
+2. `.project-continuity/CONTEXT.md`
+3. 현재 사용자 요청이 없을 때만 `CONTEXT.md`의 `next`
 
-전체 `HISTORY.md`를 처음부터 읽을 필요는 없다. 필요한 과거 사실만 검색해 확인한다.
+전체 `HISTORY.md`와 `POLICY-v5.2.md`는 매번 읽지 않는다. 설치 영수증·runtime·schema 불일치, 복구·충돌·보안·고위험·정식 다른-PC 인수 때만 필요한 COLD 자료를 선택해 읽는다. v4.14 호환 감사가 필요할 때만 `70_TOOLS/verify_account_continuation.py --json`을 추가 실행한다.
 
 ## 준비 완료 판정
 
 로컬 개발은 다음을 모두 만족하면 이어갈 준비가 완료된 것이다.
 
-- 범용 helper가 정확히 11,497 bytes이고 SHA-256이 `02fb55391fdb021e114a2457c68ef26b1a4056166b6f546b7314e50dd78de921`이다.
-- helper의 `ReadOnly` 결과가 `READY`, 쓰기 수 `0`이다.
+- runtime이 정확히 70,072 bytes이고 SHA-256이 `e15cc0713ece51021be584aa437806ca1ab4008b277f4d779d6b6e12e832a1c7`이다.
+- 반복 HOT 결과의 쓰기 수 `w`가 `0`, 출력이 1,024 bytes 이하, `CONTEXT.md`가 4,096 bytes 이하이다.
 - `.project-continuity/LOCK*.json`이 0개다.
 - Git 작업 폴더가 깨끗하고 원격이 `https://github.com/hanksleekorea-boop/FreeFlexVPN-Source.git`이다.
 - 목록표와 전체 회귀가 통과한 통합 기준선이 기록되어 있다.
 
-외부 사이트를 포함한 **모든 개발 권한**은 별도 판정이다. 새 ChatGPT 계정, Codex 로그인, GitHub CLI, 브라우저의 GitHub·Google Cloud·Google Drive 로그인은 서로 같은 인증이라는 보장이 없다. `SITE-CAPABILITIES.json`의 18개 capability가 모두 유효한 `pass`가 되기 전에는 `full_site_development: ready`라고 보고하지 않는다. 권한 미확인 상태에서도 로컬 수정·검사·기능 갈래 커밋 준비는 계속할 수 있지만 push·PR·배포·Drive 쓰기는 해당 서비스 readback 뒤에만 한다.
+외부 사이트를 포함한 **모든 개발 권한**은 별도 판정이다. 새 ChatGPT 계정, Codex 로그인, GitHub CLI, 브라우저의 GitHub·Google Cloud·Google Drive 로그인은 서로 같은 인증이라는 보장이 없다. GitHub는 `github-verify`, Drive는 암호화 A/B의 독립 재다운로드·해시·복원, 사이트는 `SITE-CAPABILITIES.json` 18개 capability의 유효한 `pass`가 필요하다. 셋 중 하나라도 빠지면 `full_site_development: ready`라고 표기하지 않는다. 권한 미확인 상태에서도 로컬 수정·검사·기능 갈래 커밋 준비는 계속할 수 있지만 push·PR·배포·Drive 쓰기는 해당 서비스 readback 뒤에만 한다.
 
 현재 확인된 통합 기준선은 다음과 같다.
 

@@ -25,3 +25,10 @@
 
 정직성 우선: 실제 인터넷 공개 주소가 없거나 중지됐으면 QR·공개 URL을 만들어 낸 것처럼 표시하지 않는다. 공개 주소 요청이 현재 대화에서 명시되면 비공개 코드 보관소와 분리된 공개 정적 결과물로 제공한다.
 <!-- FREEFLEX-REPORT-DASHBOARD END -->
+
+<!-- AI-CONTINUITY-V5 BEGIN -->
+시작: `python .project-continuity/runtime/continuity-v520.py bootstrap --project-path <workspace> --compact`; 출력+CONTEXT만 읽고 현재 요청(없으면 next)을 계속한다.
+종료: 같은 실행기의 `checkpoint`. runtime/schema/복구/보안 이상 때만 POLICY-v5.2와 필요한 증거를 읽으며 원래 프롬프트는 다시 읽지 않는다.
+정본은 사용자 요청>프로젝트·Git>STATE>검증 Drive>대화다. 협업 LOCK과 타인 bytes 덮어쓰기는 금지한다.
+GitHub 작업 전 `github-verify`; 외부·파괴·비용 작업은 실제 권한+현재 승인이 필요하다. 예약은 `maintain --non-destructive`만 허용하며 삭제하지 않는다.
+<!-- AI-CONTINUITY-V5 END -->

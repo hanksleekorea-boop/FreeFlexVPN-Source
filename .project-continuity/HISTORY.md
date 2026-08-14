@@ -11,6 +11,18 @@
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
 
+## 2026-08-14 — 범용 지속개발 v5.2 최초 설치·검증
+
+- 첨부 원문의 Python fence를 UTF-8 without BOM/LF로 OS 임시 파일에 한 번만 기계 추출했다. 압축 16,004 bytes·SHA-256 `d1d17fa…f998`와 해제 runtime 70,072 bytes·SHA-256 `e15cc07…a1c7` 검증 뒤 `.project-continuity/runtime/continuity-v520.py`를 원자 설치했고 임시 bootstrap 파일은 제거했다.
+- 기존 AGENTS 세 블록을 보존하고 `AI-CONTINUITY-V5` managed block 하나만 추가했다. 설치 영수증의 runtime/policy/AGENTS block 해시와 실제 runtime을 대조했고 협업 잠금은 0개다.
+- 승인된 OS 사용자 범위 GitHub principal에서 최초 권한 기준선을 생성했다. 저장소 숫자 ID·공개 여부·저장소명 해시·admin/maintain/push/triage/pull만 기록했고 재검증은 `ADMIN/READY`, 비밀·계정 식별 필드는 0개다.
+- 반복 HOT 5회 쓰기 0·HOT 239B·CONTEXT 179B·p50 1,465.35ms·p95 1,607.35ms·해시/mtime 불변, 합성 AI 환경변수 2종 동일 packet/state를 통과했다. 실제 다른 ChatGPT 계정 전환은 `NOT_RUN`이다.
+- 임시 프로젝트에서 캡슐 정상/반복/손상/잘림/오해시/동시 설치/runtime 충돌 무덮어쓰기와 Drive A/B full→delta→tombstone→verify→restore를 통과했다. cleanup 1,024, site/provider 각 262,144, GitHub permission 1,024 상태도 통과했다.
+- Google Drive connector의 기존 비공개 FreeFlexVPN 자료와 문서 개정 이력 읽기는 확인했다. PC에 rclone 1.75.0을 사용자 범위 설치했지만 실제 crypt A/B 인증은 사용자 브라우저 동작이 필요해 백업·복원·예약을 실행하지 않았다. checkpoint는 GitHub READY·Drive BLOCKED를 정확히 기록했다.
+- 다음: 사용자가 공식 rclone 브라우저 인증으로 Drive 원격 두 개를 연결하면 privacy 0-public-link readback부터 실제 A/B 복원까지 진행한다.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
+
 ## 2026-08-14 — 같은 PC·다른 Codex 계정 연속 개발 준비
 
 - OpenAI 공식 안내를 대조해 Codex 데스크톱은 앱 안의 계정 전환을 지원하지 않고 로그아웃·다른 계정 로그인이 필요하며, 계정별 채팅·메모리·설정·워크스페이스는 합쳐지지 않음을 인계 문서에 반영했다.

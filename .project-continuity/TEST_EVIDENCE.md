@@ -1145,3 +1145,35 @@
 ### ④ 고객 설문
 
 - 없음.
+
+## 2026-08-14 — 범용 지속개발 v5.2 설치·실행 증거
+
+### ① 자동·무결성 검사
+
+- 원샷 원문: 37,429 bytes·357줄·SHA-256 `c0b58f36f288680cd8d535b889f45daa24d03a69a40135326a9bd48d40c89891`.
+- 추출 bootstrap: 24,483 bytes·SHA-256 `fc8f6c8b36bc895af896ffe64443ba4c068746234a746595511b61536425efe0`; 프로젝트에는 저장하지 않고 임시 원문을 제거했다.
+- 압축 capsule: 16,004 bytes·SHA-256 `d1d17fadf4e78ce371b5a1db643f136fc994adf16cbb2a1149db6e6ded69f998`; runtime: 70,072 bytes·SHA-256 `e15cc0713ece51021be584aa437806ca1ab4008b277f4d779d6b6e12e832a1c7`.
+- 정상·반복 설치, 1문자 손상 `CAPSULE_HASH`, 잘림 `CAPSULE_DECODE`, 잘못된 해시 `CAPSULE_HASH`, runtime conflict `RUNTIME_CONFLICT`·무덮어쓰기, 동시 최초 설치 2/2 통과.
+- 반복 HOT 5/5 쓰기 0, HOT 239B≤1,024B, CONTEXT 179B≤4,096B, p50 1,465.35ms·p95 1,607.35ms, 감시 파일 해시·mtime 불변. v5.1 동일 fixture 부재로 비교는 `NOT_RUN`, tokenizer는 `NOT_MEASURED`.
+- 합성 account/AI 환경변수 2종에서 packet·STATE·CONTEXT가 동일하고 쓰기 0. 실제 다른 ChatGPT 계정 수락은 `NOT_RUN`.
+- cleanup 10관문 1,024/1,024, site capability 262,144/262,144, provider permission 262,144/262,144, GitHub 5+5 permission 1,024/1,024 상태 통과.
+- `40_TESTS/test_continuity_v520.py` 8/8, 기존 계정 인계 계약 5/5 통과.
+- 최종 전체 회귀 `run_all_tests.py --jobs 4 --timeout 120` — 86/86 파일·869/869 항목·실패 0, 501.0초. 느린 환경에서도 개별 120초 제한 안에서 전부 통과했다.
+- 최종 목록표 — 469/469 파일 SHA-256 일치.
+
+### ② GitHub·Drive provider
+
+- GitHub 최초 기준선: 동일 공개 저장소 숫자 ID·이름 해시·5개 권한만 저장. 현재 admin/maintain/push/triage/pull 모두 true, `ADMIN/READY`, 재검증 쓰기 0. login·user ID·token·cookie·email·PAT 필드 0.
+- 임시 file remote A/B: full 1세대→변경/삭제 후 delta 1세대, tombstone `delete.txt`, 양쪽 COMPLETE 각 2개, verify·임시 restore 모두 통과. 실제 Drive 증거가 아닌 `test_mode`다.
+- 연결된 Drive 한 계정에서 기존 비공개 FreeFlexVPN 자료와 상태 문서의 개정 2개 접근을 확인했다. 계정 식별값은 기록하지 않았다. 이는 독립 crypt A/B·실제 복원 증거가 아니다.
+- rclone 1.75.0 사용자 범위 설치 완료. 실제 Drive remote 0개, config 미생성, A/B privacy/readback/backup/restore는 `BLOCKED`.
+- 비파괴 24시간 `schedule-spec` argv만 생성했고 Windows 예약은 Drive READY 전이라 설치하지 않았다.
+
+### ③ 실제 기기·보안
+
+- Android·iPhone·Windows VPN 설정, 기존 `ffvpn`, Cloud, DNS, 비용, 공개 배포 변경 0건.
+- 비밀번호·토큰·쿠키·MFA·복구코드·crypt 키·실제 IP를 프로젝트 기록에 저장하지 않았다.
+
+### ④ 고객 설문
+
+- 없음.
