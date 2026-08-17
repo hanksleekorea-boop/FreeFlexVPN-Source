@@ -9,9 +9,9 @@ OpenAI 공식 안내 기준으로 ChatGPT 웹의 계정 전환은 지원되지�
 
 ## 열어야 할 폴더
 
-```text
-C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gateway-v38
-```
+Codex에서 현재 작업 폴더로 지정한 `owner-gateway-v38` 폴더를 그대로 연다. 드라이브와 Windows
+사용자명은 PC마다 다르므로 이 문서의 과거 절대 경로를 복사하지 말고, 열린 터미널에서
+`Get-Location`으로 확인한다.
 
 다른 `FreeFlexVPN` 복사본이나 과거 `handoff-check-*` 폴더를 열지 않는다.
 
@@ -22,8 +22,8 @@ C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gatewa
 ```text
 FreeFlexVPN 개발을 같은 PC에서 인수합니다.
 
-프로젝트 폴더는 다음 하나입니다.
-C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gateway-v38
+프로젝트 폴더는 현재 Codex에서 작업 폴더로 연 owner-gateway-v38 하나입니다.
+현재 절대 경로는 Get-Location으로 확인하고, 다른 FreeFlexVPN 복사본으로 바꾸지 마세요.
 
 대화 기억이나 이전 계정의 인증 상태를 정본으로 간주하지 마세요. 먼저 AGENTS.md를 읽고 `.project-continuity/runtime/continuity-v520.py bootstrap --project-path . --compact`를 실행하세요. 출력 JCS 한 줄과 `.project-continuity/CONTEXT.md`만 읽고 현재 사용자 요청을 계속하세요. 원래 v5.2 원샷 프롬프트는 다시 요구하거나 읽지 마세요.
 
@@ -37,8 +37,10 @@ GitHub·Google Cloud·Google Drive 권한은 새 계정에 자동 승계되지 �
 PowerShell에서 다음을 실행한다. 현재 설치된 Codex 번들 Python의 위치를 사용하며, 비밀값이나 계정 식별값은 출력하지 않는다.
 
 ```powershell
-$project = 'C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gateway-v38'
-$python = 'C:\Users\x13\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+$project = (Get-Location).Path
+$python = Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
+if ((Split-Path -Leaf $project) -ne 'owner-gateway-v38') { throw 'Codex에서 owner-gateway-v38 폴더를 작업 폴더로 연 뒤 다시 실행하세요.' }
+if (-not (Test-Path -LiteralPath $python)) { throw 'Codex 번들 Python을 찾지 못했습니다. Codex의 작업공간 의존성 경로를 다시 확인하세요.' }
 Set-Location -LiteralPath $project
 & $python -X utf8 .project-continuity\runtime\continuity-v520.py bootstrap --project-path . --compact
 ```

@@ -17,9 +17,11 @@ SPEC.loader.exec_module(MODULE)
 
 
 class AccountContinuationContractTests(unittest.TestCase):
-    def test_handoff_points_to_the_current_same_pc_worktree(self):
+    def test_handoff_resolves_the_current_same_pc_worktree_portably(self):
         source = HANDOFF.read_text(encoding="utf-8")
-        self.assertIn(r"C:\Users\x13\Desktop\챗지피티프로젝트들\프리플렉스vpn\owner-gateway-v38", source)
+        self.assertIn("$project = (Get-Location).Path", source)
+        self.assertIn("$env:USERPROFILE", source)
+        self.assertNotIn(r"C:\Users\x13", source)
         self.assertNotIn("handoff-check-cp949", source)
         self.assertIn("verify_account_continuation.py", source)
 

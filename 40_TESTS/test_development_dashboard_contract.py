@@ -23,6 +23,7 @@ required = (
     "→ 이 그림의 뜻:",
     "⚠ 실제 Android 검사 필요",
     "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+    "공개 개발 진척 대시보드",
     "app-qr.png",
 )
 
@@ -33,4 +34,6 @@ assert "실제 Android 검사: **차단됨**" in TEXT
 assert "VPN 켬 → 일반 웹 미표시, VPN 끔 → 동일 웹 정상 표시" in TEXT
 assert "새 Android 검증 프로필 별도 발급·가져오기" in TEXT
 assert "예산 알림은 자동 지출 차단이 아니" in TEXT
+assert "(Resolve-Path .\\30_DEPLOY\\app-qr.png).Path" in TEXT
+assert "C:/Users/x13" not in TEXT
 print("개발·디자인·UX 대시보드 계약 1/1 통과")

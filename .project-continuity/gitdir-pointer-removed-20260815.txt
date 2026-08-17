@@ -1,0 +1,1 @@
+gitdir: C:/Users/x13/Desktop/챗지피티프로젝트들/프리플렉스vpn/handoff-check-cp949/FreeFlexVPN/.git/worktrees/owner-gateway-v38

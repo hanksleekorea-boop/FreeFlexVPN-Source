@@ -1,0 +1,52 @@
+{
+  "schema": "freeflexvpn-profile-reissue-decision/v1",
+  "read_only": true,
+  "status": "readback_required",
+  "next_action": "read_only_device_and_server_compare",
+  "legacy_profile_action": "preserve",
+  "server_peer_action": "none",
+  "device_setting_action": "none",
+  "mutation_performed": false,
+  "ready_for_candidate_issue_review": false,
+  "ready_for_legacy_retirement_review": false,
+  "blocking_reasons": [
+    "live_device_readback_required",
+    "historical_candidate_evidence_not_current_proof",
+    "server_readback_required"
+  ],
+  "snapshot": {
+    "device": {
+      "scope": "historical_record",
+      "legacy_profile_present": true,
+      "legacy_profile_enabled": false,
+      "candidate_profile_present": true,
+      "candidate_profile_enabled": false,
+      "always_on_enabled": false,
+      "lockdown_enabled": false
+    },
+    "server": {
+      "readback_available": false,
+      "peer_count": null,
+      "legacy_peer_state": "unknown",
+      "candidate_peer_state": "unknown",
+      "forwarding_ok": null,
+      "nat_ok": null,
+      "firewall_ok": null
+    },
+    "candidate_evidence": {
+      "scope": "historical_separate_profile",
+      "human_switch_confirmed": false,
+      "tunnel_ok": true,
+      "exit_path_ok": null,
+      "dns_ok": true,
+      "handshake_ok": true,
+      "return_path_ok": true
+    }
+  },
+  "evidence_boundary": {
+    "historical_candidate_is_current_proof": false,
+    "actual_device_change_performed": false,
+    "server_change_performed": false,
+    "contains_sensitive_data": false
+  }
+}
