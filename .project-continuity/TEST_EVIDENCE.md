@@ -1451,3 +1451,22 @@
 - 기존 공개 앱 `app.html` 200, PC 보기 `app.html?view=app` 200, `app-qr.png` 200. 모두 캐시 방지 응답. 공개 앱 HTML에서 `data-progress-dashboard`와 `개발 진행상황`을 실제 확인했다.
 - `development-dashboard.html`·`dashboard.html`은 404. 로컬 최신 `30_DEPLOY/development-dashboard.html`은 존재하지만 공개 반영 전이다.
 - 공개 업로드·GitHub push·PR 변경·서버·VPN·Android 설정·결제·운영 데이터 변경 0건. 실제 Android 보호 경로·Windows VPN·iPhone·결제·환불·법무·운영 감시는 새 증거 없음.
+
+## 2026-08-18 — GCP 읽기 권한 비식별 진단
+
+### ① 자동·보안 검사
+
+- `test_gcp_readback_access.py` 6/6 통과: 권한 부족 분류, 계정·프로젝트·실제 주소 원문 비저장, 정상 공급자 허용 목록, 구성 불일치 차단, TCP 51820 반례, 기존 영수증 무덮어쓰기를 확인했다.
+- 실제 `check_gcp_readback_access.py` 실행은 `permission_missing`·필요 권한 `compute.instances.get`·`mutation_count=0`의 비식별 영수증을 만들었다.
+- 최종 전체 재검사 `run_all_tests.py --jobs 4 --timeout 120`: 90/90 파일·912/912 항목·실패 0, 51.0초.
+
+### ② 외부·기기 변경
+
+- 서버·프로필·Android·VPN·비용 변경 0건. 기존 `ffvpn` 보존, 실제 Android 터널 검사는 서버 읽기 전까지 대기다.
+- 연결된 Drive 기술에는 파일 작업 명령이 노출되지 않았고 현재 Windows 계정의 rclone 원격은 0개라 새 Drive 복제·복원은 실행하지 않았다. 마지막 검증 성공 A/B full 영수증은 로컬 장부에 보존돼 있다.
+
+### ③ GitHub 게시 보류
+
+- 공식 REST API readback은 `admin`·`maintain`·`push`·`triage`·`pull`을 모두 true로 확인했고 원격 작업 갈래 HEAD 읽기도 성공했다.
+- 필수 `github-verify`는 저장소 권한 거절이 아니라 GitHub GraphQL HTTP 503으로 3회 연속 실패했다.
+- 저장 기록·원격 올리기·PR 변경은 0건이다. 서비스 회복 뒤 같은 공식 검사를 통과하기 전에는 게시하지 않는다.

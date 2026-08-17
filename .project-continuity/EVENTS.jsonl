@@ -6,3 +6,6 @@
 {"backup_id":"20260814T201559Z-fbf5b4657398-b6630d43","event":"checkpoint","remote_status":"READY","restore_verified":true,"time":"2026-08-14T20:29:10Z"}
 {"backup_id":"20260817T155604Z-74faffca4b5e-3182c0a2","event":"checkpoint","remote_status":"BLOCKED","restore_verified":false,"time":"2026-08-17T15:56:05Z"}
 {"backup_id":"20260817T171746Z-a6c5ceaf4ee3-7da418c5","event":"checkpoint","remote_status":"BLOCKED","restore_verified":false,"time":"2026-08-17T17:18:25Z"}
+{"backup_id":"20260817T175925Z-e5d55290274b-ad613c80","event":"checkpoint","remote_status":"BLOCKED","restore_verified":false,"time":"2026-08-17T17:59:56Z"}
+{"backup_id":"20260817T180107Z-c5e57ef66782-f9fb17fd","event":"checkpoint","remote_status":"BLOCKED","restore_verified":false,"time":"2026-08-17T18:01:43Z"}
+{"backup_id":"20260817T182337Z-e4dbeb4d41c3-0a56e813","event":"checkpoint","remote_status":"BLOCKED","restore_verified":false,"time":"2026-08-17T18:24:26Z"}

@@ -1,8 +1,8 @@
 # FreeFlexVPN 개발·디자인·UX 진척 대시보드
 
-마지막 갱신: 2026-08-17 · 판정 원칙: 자동 검사·실제 화면·실제 Android·가상 페르소나는 서로 다른 증거다. 확인하지 않은 항목은 **미확인**으로 남긴다. 고객 서비스와 개발 대시보드는 별도 페이지로 관리한다. 소스 저장소와 최신 인계 Release `handoff-20260812T095152Z-4f7ec30`는 공개되어 누구나 로그인 없이 복제·다운로드하고, 로그인한 사용자는 포크·Issue·Pull Request로 잠금 없이 참여할 수 있다.
+마지막 갱신: 2026-08-18 · 판정 원칙: 자동 검사·실제 화면·실제 Android·가상 페르소나는 서로 다른 증거다. 확인하지 않은 항목은 **미확인**으로 남긴다. 고객 서비스와 개발 대시보드는 별도 페이지로 관리한다. 소스 저장소와 최신 인계 Release `handoff-20260812T095152Z-4f7ec30`는 공개되어 누구나 로그인 없이 복제·다운로드하고, 로그인한 사용자는 포크·Issue·Pull Request로 잠금 없이 참여할 수 있다.
 
-> 최신 실행: 공식 Google Cloud 인증과 기존 버킷 IAM 읽기를 회복해 `30_DEPLOY` 루트의 명시된 정적 후보 18개만 공개했다. 공개 HTTP·SHA-256·`no-cache`는 각각 **18/18**, QR 실제 해독은 정본 앱 주소, 현재 고객 서비스 UI v3의 1280·1920px PC/390px 모바일·별도 대시보드는 **12/12** 통과했다. 숨은 구형 프로토타입을 재던 과거 v2.5 검사기는 현재 서비스 셸 기준으로 수정하고 계약 8/8을 추가했으며 최종 전체 회귀는 **89/89 파일·906/906 항목·실패 0**이다. 버킷의 과거 이름 인코딩 객체 6개는 삭제하지 않았고, 현재 Google 계정은 기존 VPN VM 읽기 권한이 없어 서버·Android 실제 터널 검사는 `readback_required`다. 모바일 **58%**, PC **60%**와 `출시 차단`은 유지한다.
+> 최신 실행: 기존 GCP VPN 노드의 읽기 상태를 계정·프로젝트명·실제 IP·키 없이 판정하는 비식별 점검 도구와 6개 보호 검사를 추가했다. 현재 적용 결과는 `compute.instances.get` 권한 미부여이며 서버·프로필·Android 변경은 0건이다. 공개 HTTP·SHA-256·`no-cache` 18/18, QR 실제 해독, 고객 UI v3·별도 대시보드 12/12는 유지되고 최종 전체 재검사는 **90/90 파일·912/912 항목·실패 0**이다. 모바일 **58%**, PC **60%**와 `출시 차단`은 유지한다.
 
 ## 서비스 요약
 
@@ -14,7 +14,7 @@ FreeFlexVPN은 공용망이나 여행 중에도 사용자가 공식 WireGuard �
 - 공개 개발 진척 대시보드: [FreeFlexVPN 앱 상단의 개발 진행상황](https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html) — 모바일·PC가 같은 반응형 주소를 사용한다.
 - 현재 공개 앱·모바일 웹: [FreeFlexVPN 앱](https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html)
 - 현재 공개 PC 웹: [FreeFlexVPN PC 화면](https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html?view=app)
-- 새 개발 대시보드(로컬 검증 완료·공개 반영 전): [development-dashboard.html](../30_DEPLOY/development-dashboard.html)
+- 별도 개발 대시보드(로컬·공개 검증 완료): [development-dashboard.html](https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/development-dashboard.html)
 - PC↔폰 이어보기 QR: ![FreeFlexVPN 서비스 주소 QR](https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app-qr.png)
 
 QR 해독값: `https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html` — 서비스 화면 주소이며 개인 VPN 설정 QR이 아니다.

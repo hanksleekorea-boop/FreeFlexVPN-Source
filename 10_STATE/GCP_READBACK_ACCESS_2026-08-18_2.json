@@ -1,0 +1,17 @@
+{
+  "schema": "FreeFlexVPNGCPReadbackAccessV1",
+  "checked_at": "2026-08-17T18:05:58.215564+00:00",
+  "target_fingerprint": "83aab2e2643306d9d5e351048a477698c1ccd95343cce49a13e5a76d64203b3f",
+  "provider": "gcp",
+  "contains_secrets": false,
+  "contains_account_identifier": false,
+  "contains_network_address": false,
+  "mutation_count": 0,
+  "status": "permission_missing",
+  "required_permissions": [
+    "compute.instances.get"
+  ],
+  "instance_readable": false,
+  "firewall_readable": false,
+  "server_internal_readback_ready": false
+}
