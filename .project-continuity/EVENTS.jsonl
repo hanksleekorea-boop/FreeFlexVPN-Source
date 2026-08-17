@@ -5,3 +5,4 @@
 {"backup_id":"20260814T162800Z-9ed343f353dc-4e66e763","event":"checkpoint","remote_status":"BLOCKED","restore_verified":false,"time":"2026-08-14T16:30:52Z"}
 {"backup_id":"20260814T201559Z-fbf5b4657398-b6630d43","event":"checkpoint","remote_status":"READY","restore_verified":true,"time":"2026-08-14T20:29:10Z"}
 {"backup_id":"20260817T155604Z-74faffca4b5e-3182c0a2","event":"checkpoint","remote_status":"BLOCKED","restore_verified":false,"time":"2026-08-17T15:56:05Z"}
+{"backup_id":"20260817T171746Z-a6c5ceaf4ee3-7da418c5","event":"checkpoint","remote_status":"BLOCKED","restore_verified":false,"time":"2026-08-17T17:18:25Z"}

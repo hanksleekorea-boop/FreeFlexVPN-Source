@@ -1,5 +1,15 @@
 # 검사 증거
 
+## 2026-08-18 — 기존 공개 버킷 18개 배포·현재 고객 UI 검증
+
+- 기존 버킷 설명과 IAM 정책 읽기 권한을 확인한 뒤 `30_DEPLOY` 루트의 명시된 정적 파일 18개만 같은 공개 이름으로 업로드했다. `collaboration-gateway`와 비밀값·서버 설정은 제외했다.
+- 공개 재다운로드 결과 HTTP 18/18, 로컬 SHA-256 일치 18/18, `Cache-Control: no-cache` 18/18이다. `app.html` SHA-256은 `7BF68C899471F4E7D700399A77F62846C0897EE5D77D93A78959AC38EB819B11`, 별도 개발 대시보드는 HTTP 200이다.
+- 공개 QR을 OpenCV로 실제 해독해 `https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html`과 일치했다.
+- 과거 `verify_public_pc_v2_5.py`는 최종 고객 서비스 셸이 숨긴 구형 `.phone`과 숨은 `.moment-grid`를 검사해 7/10으로 오판했다. 공개 파일은 로컬과 바이트 단위로 같았고, 실제 최종 화면은 `data-service-shell`이다. 검사기를 현재 `.svc-side/.svc-main/.svc-aside/.svc-mobile-nav`와 별도 대시보드 기준으로 고쳐 계약 8/8, 실제 공개 1280·1920px PC·390px 모바일·QR·대시보드 12/12를 통과했다. 성공 증거는 `10_STATE/PUBLIC_SERVICE_VERIFY_2026-08-18.json`, 기존 7/10 파일은 진단 원본으로 보존한다.
+- 업로드 전 객체 14개에서 이후 24개가 됐다. 과거 이름 인코딩이 다른 객체 6개는 사용자 승인 없는 삭제를 하지 않았다.
+- 대상 기존 VM 조회는 현재 로그인 계정의 `compute.instances.get` 권한 부족으로 차단됐다. 서버 내부·피어·NAT·방화벽·프로필·Android 변경은 0건이며 실제 VPN 검사는 `readback_required`다.
+- 공개 검증기 계약을 포함한 최종 전체 회귀는 **89/89 파일·906/906 항목·실패 0**, 107.8초다.
+
 ## 2026-08-17 — 복구 환경 전체 회귀·GitHub·Android live readback
 
 - Python 3.12.13 잠금 환경에 OpenCV 4.14.0, qrcode 8.2, Pillow 12.3.0, Playwright 1.61.0과 Chromium 1228을 복원했다. `run_all_tests.py --jobs 4 --timeout 120` 결과 **88/88 파일·898/898 항목·실패 0**, 73.4초다. 기계 영수증은 `.project-continuity/runs/regression-20260817T232601.json`이다.

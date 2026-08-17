@@ -1,5 +1,9 @@
 # 작업 인계 기록
 
+2026-08-18T00:10:43+07:00 · root-public-service-verify · 공식 Google Cloud 인증과 기존 버킷 IAM 읽기를 회복해 정적 후보 18개만 공개했다. HTTP·SHA-256·no-cache 18/18, QR 실제 해독, 현재 고객 서비스 UI v3·별도 개발 대시보드 12/12를 통과했다. 숨은 구형 프로토타입을 재던 v2.5 검사기는 현재 서비스 셸 기준으로 수정하고 계약 8/8을 추가했으며 최종 전체 회귀는 89/89 파일·906/906 항목·실패 0이다. 과거 이름 인코딩 객체 6개는 삭제하지 않았다. 현재 계정의 대상 VM 읽기 권한 부족으로 서버 readback은 차단됐고 서버·VPN·Android 변경은 0건이다.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
+
 2026-08-17T23:44:36+07:00 · root-recovery-live-readback · 공식 GitHub CLI·Google Cloud SDK·Android 플랫폼 도구와 잠금 검사환경을 복원했다. GitHub 공식 판정은 `ADMIN/READY`, 전체 회귀 88/88 파일·898/898 항목, 목록표 496/496, 비밀값 허용 목록 외 0건을 통과했다. SM-N960N의 Google Play 공식 WireGuard 빈 터널·항상 연결·차단 모드 꺼짐을 live readback으로 확인했고 A56·기존 `ffvpn`·서버 설정은 변경하지 않았다. Google Cloud 소유 계정의 사람 인증 뒤 기존 공개 버킷 정적 18개 갱신과 기존 VM 읽기 전용 확인을 계속한다.
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]

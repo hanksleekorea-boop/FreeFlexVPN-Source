@@ -1,0 +1,20 @@
+{
+  "schema": "FreeFlexVPNPublicPCV25EvidenceV1",
+  "measured_at": "2026-08-18T00:05:54+0700",
+  "public_url": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+  "version": "v2.5",
+  "bytes": 295739,
+  "sha256": "7BF68C899471F4E7D700399A77F62846C0897EE5D77D93A78959AC38EB819B11",
+  "qr_url": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app-qr.png",
+  "qr_decoded_payload": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+  "checks_passed": 7,
+  "checks_total": 10,
+  "failed": [
+    "1280px PC 넓은 화면",
+    "1920px PC 넓은 화면",
+    "390px 기존 전체 화면"
+  ],
+  "github_commit": "01b4ab894e45907900285e32b4614070c79c0986",
+  "github_actions_run": "https://github.com/hanksleekorea-boop/FreeFlexVPN/actions/runs/30919123045",
+  "github_actions_conclusion": "success"
+}
