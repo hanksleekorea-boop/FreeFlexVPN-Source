@@ -32,3 +32,9 @@
 정본은 사용자 요청>프로젝트·Git>STATE>검증 Drive>대화다. 협업 LOCK과 타인 bytes 덮어쓰기는 금지한다.
 GitHub 작업 전 `github-verify`; 외부·파괴·비용 작업은 실제 권한+현재 승인이 필요하다. 예약은 `maintain --non-destructive`만 허용하며 삭제하지 않는다.
 <!-- AI-CONTINUITY-V5 END -->
+
+<!-- OWNER-DRIVE-B-EXCLUSION BEGIN -->
+# 소유자 Drive B 영구 제외
+사용자 2026-08-19 지시: Drive B는 앞으로 연결·구성·읽기·쓰기·복제·재다운로드·복원·삭제 대상으로 삼지 않는다.
+과거 Drive B 영수증은 감사용으로 보존하며, 어떤 자동 작업도 `--remote-b`를 사용하지 않는다.
+<!-- OWNER-DRIVE-B-EXCLUSION END -->
