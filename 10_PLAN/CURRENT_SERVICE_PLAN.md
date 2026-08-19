@@ -115,6 +115,7 @@ FreeFlexVPN은 매달 구독을 관리하고 싶지 않은 사람이 여행·공
 - 정본 설계: `10_PLAN/KAKAOVPN_INTEGRATION_PLAN_v1_2026-08-19.md`
 - 자동 계약: `10_PLAN/KAKAOVPN_NON_REGRESSION_CONTRACT_v1.json`
 - 현재 상태: K0~K4 로컬 비공개 후보 통과. 정책·격리 미리보기·1,000명 모의 가설은 검증했지만 서버·가격·공개·실기기 증거는 늘지 않았다.
+- 실제 기기 안전선: 두 연결 Android가 모두 화면 켜짐으로 유휴 0/2여서 시험하지 않았다. 새 읽기 전용 선택기는 화면이 꺼진 비보호 기기 한 대만 선택하며, 일련번호·VPN 프로필명 없이 결과를 기록한다.
 - VLESS/REALITY·Hysteria2는 검증 전 연구 후보이며 WireGuard를 대체하지 않는다.
 - 카카오 인수 자료의 세 가격안은 미결정으로 보존하고 기존 FreeFlexVPN 가격을 바꾸지 않는다.
 - 중국 `specialized_required` 정책과 법률·실제 기기 통과 조건을 제거하지 않는다.
