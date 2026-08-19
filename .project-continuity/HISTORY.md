@@ -15,6 +15,8 @@
 - 최종 증거는 `10_STATE/KAKAOVPN_K1_K4_LOW_CONTENTION_REGRESSION_2026-08-19.json`, 시간 초과 감사 증거는 `10_STATE/KAKAOVPN_K1_K4_FINAL_REGRESSION_2026-08-19.json`이다. 공개·서버·폰·프로필·결제 변경은 0건이고 B드라이브는 사용하지 않았다.
 - 실제 기기 안전 선행: ADB `device` 두 대는 모두 화면 켜짐이라 유휴폰 0/2로 차단했고, 새 읽기 전용 유휴폰 선택기 계약 7/7을 통과했다. 비식별 영수증은 `10_STATE/ANDROID_IDLE_SELECTION_2026-08-19.json`이며 기기 변경은 0건이다. 공개 PC 1280px 실제 브라우저에서 가로 넘침 0·QR 로드·개발 현황 링크·준비 전 연결 행동 차단을 확인했다. 대상 GCP 문맥 불일치로 서버·K5·공개·결제 변경은 0건이다.
 - 새 안전 보강을 포함한 최종 전체 재검사는 94/94 파일·950/950 항목·실패 0(93.7초)으로 통과했고 증거 `10_STATE/ANDROID_IDLE_GUARD_FINAL_REGRESSION_2026-08-19.json`을 새로 보존했다.
+- GCP 대상 지문 선택기 계약 7/7을 추가했다. 실제 직접 Cloud CLI는 접근 가능 프로젝트 1개·대상 일치 0개여서 서버 읽기·후보 발급을 시작하지 않았고 변경 0건이다. 프로젝트·계정·주소를 쓰지 않는 영수증은 `10_STATE/GCP_TARGET_LOCATOR_CMD_2026-08-19.json`이며 PowerShell 래퍼 실행 불가 영수증은 별도로 보존했다.
+- GCP 대상 안전 보강을 포함한 최종 전체 재검사는 95/95 파일·957/957 항목·실패 0(367.0초)으로 통과했고 `10_STATE/GCP_TARGET_LOCATOR_FINAL_REGRESSION_2026-08-19.json`을 보존했다.
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
 
