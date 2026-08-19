@@ -154,7 +154,7 @@ K0~K4 완료로도 개발·모바일·PC 완성도 점수는 임의로 올리지
 
 - 2026-08-19 K5 안전 선행: `android_idle_guard.py`와 `select_idle_android_device.py`는 ADB 읽기 명령만 허용하고, 화면이 꺼지고 항상 연결·차단 모드가 모두 꺼진 기기가 정확히 한 대일 때만 후보로 고른다. 전용 계약 7/7을 통과했다. 실제 읽기 결과는 연결된 두 폰 모두 화면 켜짐으로 유휴 0/2·변경 0건이며 `10_STATE/ANDROID_IDLE_SELECTION_2026-08-19.json`에 일련번호·VPN 프로필명 없이 기록했다. 대상 GCP 지문도 현재 계정 문맥과 불일치하므로 K5 실제 카카오톡·LINE·통화 시험은 시작하지 않는다.
 - 이 안전 보강 뒤 최종 전체 재검사는 94/94 파일·950/950 항목·실패 0(93.7초)이며 증거는 `10_STATE/ANDROID_IDLE_GUARD_FINAL_REGRESSION_2026-08-19.json`이다. 이는 실제 K5·서버·결제 증거를 대체하지 않는다.
-- 2026-08-19 GCP 대상 식별 보강: `gcp_target_locator.py`와 `locate_gcp_target.py`는 대상 프로젝트 지문만 비교해 정확히 한 개가 일치할 때 기존 제공자 읽기 검사로 연결한다. 프로젝트·계정·주소를 출력·저장하지 않으며 변경은 0건이다. 계약 7/7을 통과했고 실제 직접 Cloud CLI 결과는 접근 가능 프로젝트 1개·대상 일치 0개(`target_not_accessible`)라 서버 읽기·후보 발급은 시작하지 않았다. PowerShell 진입점에는 같은 폴더의 `gcloud.cmd`를 자동 우선해 Windows 실행 형식 문제도 닫았다.
+- 2026-08-19 GCP 대상 식별 보강: `gcp_target_locator.py`와 `locate_gcp_target.py`는 대상 프로젝트 지문만 비교해 정확히 한 개가 일치할 때 기존 제공자 읽기 검사로 연결한다. 프로젝트·계정·주소를 출력·저장하지 않으며 변경은 0건이다. 계약 7/7을 통과했고 실제 직접 Cloud CLI의 최초 결과는 접근 가능 프로젝트 1개·대상 일치 0개(`target_not_accessible`)였다. 최신 읽기 전용 재확인도 접근 가능 프로젝트 3개·대상 일치 0개·변경 0건(`10_STATE/GCP_TARGET_LOCATOR_RECHECK_2026-08-19.json`)으로 서버 읽기·후보 발급을 시작하지 않았다. PowerShell 진입점에는 같은 폴더의 `gcloud.cmd`를 자동 우선해 Windows 실행 형식 문제도 닫았다.
 - 이 보강을 포함한 최종 전체 재검사는 95/95 파일·957/957 항목·실패 0(367.0초)이며 증거는 `10_STATE/GCP_TARGET_LOCATOR_FINAL_REGRESSION_2026-08-19.json`이다. 이 로컬 성공은 실제 GCP 서버·K5 Android·Windows VPN·결제·법무·운영 관문을 대신하지 않는다.
 
 ## 9. 완료 기록

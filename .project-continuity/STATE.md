@@ -148,3 +148,5 @@
 - 2026-08-19 GCP 대상 지문 안전 보강: `gcp_target_locator.py`는 프로젝트 이름을 내보내지 않고 대상 지문과 비교해 정확히 한 일치 때만 기존 제공자 읽기 검사를 호출한다. 계약 7/7을 통과했고 Windows PowerShell 진입점에는 같은 SDK의 `gcloud.cmd`를 자동 우선한다. 실제 비식별 결과는 접근 가능 프로젝트 1개·대상 일치 0개·변경 0건(`10_STATE/GCP_TARGET_LOCATOR_CMD_2026-08-19.json`)이라 서버 내부 readback·후보 발급·K5를 시작하지 않았다. PowerShell 래퍼의 목록 실행 불가 영수증도 `10_STATE/GCP_TARGET_LOCATOR_2026-08-19.json`으로 별도 보존한다.
 
 - 2026-08-19 GCP 대상 안전 보강 최종 검증: 전체 재검사는 95/95 파일·957/957 항목·실패 0, 367.0초로 통과했고 `10_STATE/GCP_TARGET_LOCATOR_FINAL_REGRESSION_2026-08-19.json`에 새 증거를 보존했다. 느린 실행은 동시 자원 경합이 있었던 관측이며 기능 실패로 해석하지 않는다. 서버·폰·프로필·결제·공개·B드라이브 변경은 0건이다.
+
+- 2026-08-19 GCP 대상 읽기 전용 재확인: 접근 가능한 프로젝트 수는 1개에서 3개로 바뀌었지만 대상 지문 일치는 여전히 0개였다. `10_STATE/GCP_TARGET_LOCATOR_RECHECK_2026-08-19.json`은 계정·프로젝트·주소를 남기지 않고 `target_not_accessible`·변경 0건을 기록한다. 따라서 서버 내부 readback·후보 발급·K5 실제 Android 시험은 시작하지 않았고 B드라이브도 사용하지 않았다.

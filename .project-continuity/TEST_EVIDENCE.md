@@ -1541,4 +1541,5 @@
 - 실제 공개 PC 1280×720 브라우저: 가로 넘침 0, QR 이미지 로드, 개발 현황 링크, 서버 미준비 연결 행동 비활성을 확인했다. 1920px·OS 200% 확대·화면읽기·Windows VPN은 아직 미확인이다.
 - 유휴폰 안전 보강 뒤 최종 전체 재검사: 94/94 파일·950/950 항목·실패 0, 93.7초. 새 증거 `10_STATE/ANDROID_IDLE_GUARD_FINAL_REGRESSION_2026-08-19.json`을 보존했다.
 - `test_gcp_target_locator.py` 7/7: 잘못된 지문·대상 없음·목록 오류를 닫고, 일치한 프로젝트 이름은 메모리에만 두며 제공자 읽기에는 생성 명령이 없음을 확인했다. 실제 직접 Cloud CLI는 접근 가능 프로젝트 1개·대상 일치 0개라 `target_not_accessible`로 닫혔고 변경 0건이다. Windows PowerShell 진입점은 같은 SDK의 `gcloud.cmd`를 자동 우선한다.
+- 최신 직접 Cloud CLI 재확인: 접근 가능 프로젝트 3개·대상 일치 0개·제공자 읽기 시도 0건·변경 0건으로 다시 `target_not_accessible`로 닫혔다. 새 비식별 영수증은 `10_STATE/GCP_TARGET_LOCATOR_RECHECK_2026-08-19.json`이며, 이 수 변화는 대상 서버 권한 회복을 뜻하지 않는다.
 - GCP 대상 안전 보강 뒤 최종 전체 재검사: 95/95 파일·957/957 항목·실패 0, 367.0초. 새 증거 `10_STATE/GCP_TARGET_LOCATOR_FINAL_REGRESSION_2026-08-19.json`을 보존했다.
