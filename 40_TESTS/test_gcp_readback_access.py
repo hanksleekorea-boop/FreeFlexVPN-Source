@@ -131,6 +131,33 @@ class GCPReadbackAccessTests(unittest.TestCase):
         self.assertEqual(receipt["status"], "provider_mismatch")
         self.assertEqual(receipt["enabled_wireguard_rule_count"], 0)
 
+    def test_malformed_provider_lists_fail_closed(self):
+        instance = {
+            "status": "RUNNING",
+            "canIpForward": True,
+            "tags": {"items": None},
+            "networkInterfaces": None,
+        }
+        malformed_rules = [{
+            "direction": "INGRESS",
+            "disabled": False,
+            "targetTags": ["freeflexvpn-exit"],
+            "allowed": [{"IPProtocol": "udp", "ports": None}],
+        }, {
+            "direction": "INGRESS",
+            "disabled": False,
+            "targetTags": ["freeflexvpn-exit"],
+            "allowed": None,
+        }]
+        runner = ScriptedRunner([
+            CommandResult(0, json.dumps(instance), ""),
+            CommandResult(0, json.dumps(malformed_rules), ""),
+        ])
+        receipt = self.check(runner)
+        self.assertEqual(receipt["status"], "provider_mismatch")
+        self.assertEqual(receipt["network_interface_count"], 0)
+        self.assertEqual(receipt["enabled_wireguard_rule_count"], 0)
+
     def test_receipts_never_overwrite(self):
         with tempfile.TemporaryDirectory() as temp:
             path = pathlib.Path(temp) / "receipt.json"

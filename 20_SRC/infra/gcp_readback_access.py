@@ -134,6 +134,8 @@ def check_readback_access(
     payload = _parse_json_object(instance_result.stdout, "instance")
     tags = payload.get("tags")
     tag_items = tags.get("items", []) if isinstance(tags, dict) else []
+    if not isinstance(tag_items, list):
+        tag_items = []
     interfaces = payload.get("networkInterfaces")
     interface_count = len(interfaces) if isinstance(interfaces, list) else 0
 
@@ -168,13 +170,15 @@ def check_readback_access(
             continue
         targets = candidate.get("targetTags", [])
         allowed = candidate.get("allowed", [])
-        udp_51820 = any(
-            isinstance(entry, dict)
-            and entry.get("IPProtocol") == "udp"
-            and "51820" in entry.get("ports", [])
-            for entry in allowed
-            if isinstance(allowed, list)
-        )
+        udp_51820 = False
+        if isinstance(allowed, list):
+            for entry in allowed:
+                if not isinstance(entry, dict):
+                    continue
+                ports = entry.get("ports", [])
+                if entry.get("IPProtocol") == "udp" and isinstance(ports, list) and "51820" in ports:
+                    udp_51820 = True
+                    break
         if (
             candidate.get("direction") == "INGRESS"
             and candidate.get("disabled") in (None, False)

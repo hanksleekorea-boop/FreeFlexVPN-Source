@@ -1470,3 +1470,14 @@
 - 공식 REST API readback은 `admin`·`maintain`·`push`·`triage`·`pull`을 모두 true로 확인했고 원격 작업 갈래 HEAD 읽기도 성공했다.
 - 필수 `github-verify`는 저장소 권한 거절이 아니라 GitHub GraphQL HTTP 503으로 3회 연속 실패했다.
 - 저장 기록·원격 올리기·PR 변경은 0건이다. 서비스 회복 뒤 같은 공식 검사를 통과하기 전에는 게시하지 않는다.
+
+## 2026-08-19 — GCP 비정상 목록 안전 차단
+
+### ① 자동·보안 검사
+
+- `test_gcp_readback_access.py` 7/7: `None` 태그·인터페이스·포트·허용 목록을 공급자 불일치로 닫고 예외를 내지 않음을 확인했다.
+- 전체 재검사 `run_all_tests.py --jobs 4 --timeout 120`: 90/90 파일·913/913 항목·실패 0, 154.1초. 새 영수증은 `10_STATE/GCP_READBACK_SAFETY_REGRESSION_2026-08-19.json`이다.
+
+### ② 외부·기기 변경
+
+- 서버·프로필·Android·VPN·비용 변경 0건. 현재 Android 개발 연결은 0대이며 대상 GCP 노드는 현재 접근 가능한 프로젝트에서 찾지 못했다.
