@@ -4,6 +4,18 @@
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
 
+## 2026-08-19 — Kakao Connect K1~K4 로컬 비공개 후보
+
+- `kakao_connect_policy.py`는 기존 FreeFlexVPN 원장·서버·프로필 보호 6종을 요구하고, 미검증 `billing_guard` 결합과 개인키·실제 IP·목적지·메시지·DNS 원문을 거부한다.
+- WireGuard를 기본 경로로 유지하고 VLESS/REALITY·Hysteria2를 서로 다른 구성·증거 이름공간의 `unverified_research_only`로 격리했다. 어떤 후보도 기존 프로필을 바꾸거나 공개·결제할 수 없다.
+- 로컬 비공개 미리보기는 상태 배지 3개와 비활성 버튼을 두고 390px 1열·1280px 2열, 가로 넘침 0을 확인했다. 공개 정적 앱은 변경하지 않았다.
+- 가상 사용자 1,000명 모형은 비공개 상태 95.2%·가격 미결정 97.3%·기존 설정 보존 95.2% 이해 가설을 냈고 비지원 목적 125/125를 차단했다. 실제 고객·중국망·Android 증거가 아니다.
+- 정책 14/14, 모의 8/8을 통과했다. GCP 대상 프로젝트와 ADB `device`가 없어 K5는 시작하지 않았고 서버·폰·VPN·결제·공개 변경은 0건이다.
+- 첫 병렬 전체 실행은 다른 작업과의 자원 경합으로 `test_mobile_readiness_ui.py`가 120초에 시간 초과했고, 실패 증거를 그대로 보존했다. 해당 파일 단독 13/13 통과 뒤 저부하 전체 재실행은 93/93 파일·943/943 항목·실패 0(402.5초)으로 통과했다.
+- 최종 증거는 `10_STATE/KAKAOVPN_K1_K4_LOW_CONTENTION_REGRESSION_2026-08-19.json`, 시간 초과 감사 증거는 `10_STATE/KAKAOVPN_K1_K4_FINAL_REGRESSION_2026-08-19.json`이다. 공개·서버·폰·프로필·결제 변경은 0건이고 B드라이브는 사용하지 않았다.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
+
 2026-08-17T23:44:36+07:00 · root-recovery-live-readback · 공식 GitHub CLI·Google Cloud SDK·Android 플랫폼 도구와 잠금 검사환경을 복원했다. GitHub 공식 판정은 `ADMIN/READY`, 전체 회귀 88/88 파일·898/898 항목, 목록표 496/496, 비밀값 허용 목록 외 0건을 통과했다. SM-N960N의 Google Play 공식 WireGuard 빈 터널·항상 연결·차단 모드 꺼짐을 live readback으로 확인했고 A56·기존 `ffvpn`·서버 설정은 변경하지 않았다. Google Cloud 소유 계정의 사람 인증 뒤 기존 공개 버킷 정적 18개 갱신과 기존 VM 읽기 전용 확인을 계속한다.
 
 [연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]

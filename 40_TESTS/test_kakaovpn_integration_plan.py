@@ -23,12 +23,14 @@ class KakaoVpnIntegrationPlanTests(unittest.TestCase):
         cls.plan = PLAN.read_text(encoding="utf-8")
         cls.contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
 
-    def test_additive_planning_only_contract(self) -> None:
+    def test_additive_private_local_candidate_contract(self) -> None:
         self.assertEqual(self.contract["schema"], "FreeFlexKakaoIntegrationContractV1")
-        self.assertEqual(self.contract["status"], "planning_only")
+        self.assertEqual(self.contract["status"], "private_local_candidate")
         self.assertEqual(self.contract["integration_mode"], "additive_specialized_profile")
         self.assertFalse(self.contract["public_release"])
         self.assertEqual(self.contract["pricing_status"], "unresolved")
+        self.assertEqual(self.contract["completed_stages"], ["K0", "K1", "K2", "K3", "K4"])
+        self.assertFalse(any(self.contract["actual_evidence"].values()))
 
     def test_existing_product_floor_is_preserved(self) -> None:
         preserve = self.contract["preserve"]
