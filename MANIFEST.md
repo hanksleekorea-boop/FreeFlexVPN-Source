@@ -2,8 +2,8 @@
 
 | 항목 | 값 |
 |---|---|
-| 파일 수 | 511 |
-| 총 바이트 | 12,212,271 |
+| 파일 수 | 516 |
+| 총 바이트 | 12,262,399 |
 
 ## 지문 규칙
 
@@ -65,7 +65,7 @@
 | `.project-continuity/GITHUB-ACCESS.json` | 105 | 공동개발 연속성 기록 | `eb769638ad75b177a6dbdde678e7c3a29c75a2d9495760d1544a134eace8ef11` |
 | `.project-continuity/GITHUB_AUDIT.md` | 5,070 | 공동개발 연속성 기록 | `b724bee35264ae43b82a0fb6021446eaf0f92565fe386254dae554ba2a1f5008` |
 | `.project-continuity/HANDOFF_CAPSULE.json` | 1,967 | 공동개발 연속성 기록 | `839914aa92a0e41382468e9bf7cd1e9d1f916dbe0ab6dd78e0b7aa39d0bb8f79` |
-| `.project-continuity/HISTORY.md` | 99,336 | 공동개발 연속성 기록 | `26651538167aaf722211f24285380dd79506338335e238f097c1f9ac18f72e02` |
+| `.project-continuity/HISTORY.md` | 101,001 | 공동개발 연속성 기록 | `b0cfc3bb97457625e5bdd689b9063eeda151569ed4cf1bbde9bc96f202795784` |
 | `.project-continuity/INSTALL-RECEIPT.json` | 341 | 공동개발 연속성 기록 | `78304aad40f0511e288305551c314e365b13a90fb793211c790db53c8dc6031d` |
 | `.project-continuity/MANIFEST-LATEST.json` | 816,031 | 공동개발 연속성 기록 | `554693c057ddecd3695222bc5f990df50f8da65f1a238daab0b4c3d3b0c24554` |
 | `.project-continuity/NO_LOCK_POLICY.md` | 1,281 | 공동개발 연속성 기록 | `d91c91ca5378b30825c10879fb1e0b741f5ba130dfdc4f46385639397b470526` |
@@ -91,18 +91,20 @@
 | `.project-continuity/SCHEMA_VERSION` | 4 | 공동개발 연속성 기록 | `01d0b2eba879dda9fd27bf01b46c7d1a34b92ecbb459d2d8dd3b3feebe933266` |
 | `.project-continuity/SITE-CAPABILITIES.json` | 1,490 | 공동개발 연속성 기록 | `47be12234c407daaa469f938680a250e3b4f0391714d471a36679122d3a12fe0` |
 | `.project-continuity/STATE.json` | 640 | 공동개발 연속성 기록 | `46cca1597e56ce43736b238f77e76701f6b8458b2fa27d937644c88c81d5b970` |
-| `.project-continuity/STATE.md` | 49,022 | 공동개발 연속성 기록 | `8ca3a44e6322dd664a115afec1d1fe5d4f87102298483dc8c6985784a58adf14` |
-| `.project-continuity/TEST_EVIDENCE.md` | 94,795 | 공동개발 연속성 기록 | `ddf97a11cc2cc1814b0a7be18766b3e9097d710e50cdfd95ef975d54adf4e3ce` |
+| `.project-continuity/STATE.md` | 50,194 | 공동개발 연속성 기록 | `36985fc86be0c6936372b7b4560dc28452c63984f955c7c1a6f6329b1fa3f19b` |
+| `.project-continuity/TEST_EVIDENCE.md` | 96,232 | 공동개발 연속성 기록 | `bdb152ac4dd28afa6b9736a73f8a7447dacbaaf3f312955cb1a029634bbd24c3` |
 | `00_START/COLLABORATION_GATEWAY.md` | 1,964 | 시작·인수인계 | `d017dc34b6c7853c5d9cbf0dd1433677df9f1d0ec64a7c08200975fa23e1ad5d` |
-| `00_START/DEVELOPMENT_DASHBOARD.md` | 18,185 | 시작·인수인계 | `7d680612364e4dbf1e9ab3f4c0ee4f190cb3029b60645c36c07cce9fc67410f9` |
+| `00_START/DEVELOPMENT_DASHBOARD.md` | 18,863 | 시작·인수인계 | `60e4db657035fade944726e39bce3693b8745ce63b84f2b9474a560d44cdf6eb` |
 | `00_START/HANDOFF_PROMPT.md` | 14,622 | 시작·인수인계 | `08e5083c7e875677743e1b0ee1cc6ee1fee40fd736f559c56fcd80c88ecfe26b` |
 | `00_START/NEW_CODEX_ACCOUNT_HANDOFF.md` | 6,646 | 시작·인수인계 | `9700eb7ea66e2e41f5070e2fcf56a7bc693b3c4401a20fa4ae4f65d74d14613e` |
 | `00_START/NEW_PC_SETUP.md` | 3,343 | 시작·인수인계 | `504e9f96a672697e8af10ca2afa76afa59df2e40da5590b87e0c5b38dbf06a21` |
 | `00_START/RECEIVER_HANDOFF_PROMPT.md` | 1,747 | 시작·인수인계 | `0ae6065e90ecc60cfdbbb312d1ed93d456e3900a6693489a9ade9310eca6203e` |
 | `00_START/시작하세요.md` | 1,904 | 시작·인수인계 | `011ccda4eb89087cad0d112aaf14a022c12203d03512b9c244f75277e1362c18` |
-| `10_PLAN/COMMERCIAL_RELEASE_GATE_PLAN_v1_2026-08-10.md` | 15,229 | 현재 기획·실행 정본 | `061b59f4190cbe3a93112d8fec93344838bb9a929232cd076ada57672ac3d400` |
-| `10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md` | 17,588 | 현재 기획·실행 정본 | `53577d0ad0f01322718bc76db922269771f4bace257f92459def4836527d9c5c` |
-| `10_PLAN/CURRENT_SERVICE_PLAN.md` | 9,454 | 현재 기획·실행 정본 | `e2ac2690da78937c4d8e38a8572296543865a43ad74e76a03001d89bc3bdf026` |
+| `10_PLAN/COMMERCIAL_RELEASE_GATE_PLAN_v1_2026-08-10.md` | 16,241 | 현재 기획·실행 정본 | `1fa3c567ba6fc676a81f6722c3dc79c94e38a8d35399aed71f32e84602afa8e5` |
+| `10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md` | 19,111 | 현재 기획·실행 정본 | `c5d40a9423a6d1c7e68254d0afa90f8ea6fa4665b918ddecf2dd491e0461fe7d` |
+| `10_PLAN/CURRENT_SERVICE_PLAN.md` | 10,380 | 현재 기획·실행 정본 | `8342012ed2fdff061795155f04e705c793dd02ce6066644b7534da7acc15177e` |
+| `10_PLAN/KAKAOVPN_INTEGRATION_PLAN_v1_2026-08-19.md` | 8,924 | 현재 기획·실행 정본 | `602c5213407709a15ec31e04ad499e7dd13bb9b5288a178a882fb42072ce09b8` |
+| `10_PLAN/KAKAOVPN_NON_REGRESSION_CONTRACT_v1.json` | 1,756 | 현재 기획·실행 정본 | `fc198e252bce37a0b36a9f3e07ce9099f309afe1346d92ae442c44288cf51309` |
 | `10_STATE/A56_TEST_AND_USABILITY_REPORT_2026-08-05.md` | 5,529 | 상태·근거·기록 | `5bc856a25e01ac9ca4d49138b8b992b555194124c313ce1688c5da292a3d5ca5` |
 | `10_STATE/ANDROID_DEVICE_SMOKE_2026-08-05.md` | 1,047 | 상태·근거·기록 | `87b2a3d33f05d34495fa64504b856affbbd2a5b7e2261fd5f4059a6c23a930e4` |
 | `10_STATE/ANDROID_USB_NETWORK_CHECK_2026-08-05.md` | 1,833 | 상태·근거·기록 | `1102130d42ef0884099db7e861ab943abbc3882fe5c254f5601ed90925543d45` |
@@ -142,6 +144,8 @@
 | `10_STATE/GENERATED_PROGRESS_V2_9_R2_2026-08-02.json` | 2,605 | 상태·근거·기록 | `ad96a802d19687d9d328e7aae8e1159536e8354478c9f691dfe1894a8ac0e8df` |
 | `10_STATE/GENERIC_REAL_DEVICE_PUBLIC_QA_PROMPT_v1_1.md` | 7,139 | 상태·근거·기록 | `164f9628ae0b58cb24ba72b1100b12316e8c19ff8669ccaac97d21cd693d28e2` |
 | `10_STATE/HANDOFF_EVIDENCE_2026-08-03.json` | 2,530 | 상태·근거·기록 | `c0c87a85672b434fc1b187c20b02650b644aa6da86d0a8f97bbeb1adab04dffe` |
+| `10_STATE/KAKAOVPN_INTEGRATION_FINAL_REGRESSION_2026-08-19.json` | 12,470 | 상태·근거·기록 | `1bd91f8ad5dbbbcebd9b80bfa9cf23c066716b2c7105fe66ab5b45d1ef191083` |
+| `10_STATE/KAKAOVPN_INTEGRATION_REGRESSION_2026-08-19.json` | 12,494 | 상태·근거·기록 | `c4059ab82c89488d967d9fd4f0ef5b4cdf7f836bf00dd444e802c8a1478d2f1c` |
 | `10_STATE/LESSONS.md` | 3,658 | 상태·근거·기록 | `8147772b181de559938177ca2269ef20a9188c12a975431c62e10f621b4c7a44` |
 | `10_STATE/LOCAL_EVIDENCE_CONTROL_SAFETY_V2_2026-08-02.json` | 4,862 | 상태·근거·기록 | `ba3240fdc7cbf1b0077305b40e78362c7c5dc8a99ec93453733b5923366c9e96` |
 | `10_STATE/LOCAL_EVIDENCE_FULL_REGRESSION_CURRENT_DEVICES_2026-08-05.json` | 7,389 | 상태·근거·기록 | `9f1a42c34d6118ecb7b4f1baba4eefaceed290df753dbd82a73846a61cf8ac26` |
@@ -380,6 +384,7 @@
 | `40_TESTS/test_gcp_readback_access.py` | 6,585 | 검사 | `d8de4a8bba3d36eb20dee33912802478d32853827cdc5dec0483ae11780ae91a` |
 | `40_TESTS/test_gcp_runtime_config.py` | 3,581 | 검사 | `9cdfe3c9606577d2364ba5be6f77c1172715727b6d8478bef027066f503d883a` |
 | `40_TESTS/test_github_pages.py` | 6,212 | 검사 | `1f001c704034b6db4b9bce98ba293913e72d2b258d87aec7803031c03a04c302` |
+| `40_TESTS/test_kakaovpn_integration_plan.py` | 5,433 | 검사 | `b6a4e700bb87ffe951d46580190cf2b30ca35ae4f699358da1961bcffa5d9733` |
 | `40_TESTS/test_keyboard.py` | 4,019 | 검사 | `bd669c45f0e95cfd10bccc3fba609cb6c182fa78f3b24cdc3d019609a8717469` |
 | `40_TESTS/test_mobile_readiness.py` | 3,587 | 검사 | `0d646649830469980fedd9465fb1d1c70dc5245f59199f53dfcf13cbc6f342ec` |
 | `40_TESTS/test_mobile_readiness_ui.py` | 4,125 | 검사 | `f0d06739e9214384267b581b71203e638fd4c605e651074fcab3388f8dbb9abe` |
@@ -547,7 +552,7 @@
 | `90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v2.0_2026-08-01.md` | 26,975 | 분류 확인 필요 | `e1424ac9f1e68e5d575d64c205186c8d0b37e33119f973242c4613f314f481d4` |
 | `90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v3.0_2026-08-05.md` | 11,921 | 분류 확인 필요 | `2ada1322c59674b8d12ea3481e11acdee1071ee0850f11cbef8b530715ef5071` |
 | `90_ARCHIVE/10_STATE_plans/DEV_EXECUTION_PLAN_v4.0_2026-08-06.md` | 15,009 | 분류 확인 필요 | `f59e38943882ea0e5aaade4aee0db454986a0751b3be844008f5f56085d0c367` |
-| `AGENTS.md` | 3,272 | 프로젝트 작업 규칙 | `9d8a3ee9dc00f4f165e7036217ae263e3da5c2938cbebc9ba33a3f3b6c2efebc` |
+| `AGENTS.md` | 3,910 | 프로젝트 작업 규칙 | `71dfce53e54209f9d3a0a7ec42b1937be05b5d7fda27487f6ee001e7d264b9ce` |
 | `CONTRIBUTING.md` | 1,594 | 분류 확인 필요 | `10af0afbc007ec022344eba9d71c07529f45740b821160dd5d08c6f78c8941b8` |
 | `README.md` | 1,832 | 분류 확인 필요 | `5763d01f7cac58ea835f5f944b1c80c08bf97442330bf927f7c777ac8e655d94` |
 | `requirements-dev.txt` | 176 | 분류 확인 필요 | `fbe3ca70753cfd98410986c7c8d6c284c743ead8904beaa62094d9abf8fd2c3c` |

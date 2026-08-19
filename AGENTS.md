@@ -38,3 +38,10 @@ GitHub 작업 전 `github-verify`; 외부·파괴·비용 작업은 실제 권�
 사용자 2026-08-19 지시: Drive B는 앞으로 연결·구성·읽기·쓰기·복제·재다운로드·복원·삭제 대상으로 삼지 않는다.
 과거 Drive B 영수증은 감사용으로 보존하며, 어떤 자동 작업도 `--remote-b`를 사용하지 않는다.
 <!-- OWNER-DRIVE-B-EXCLUSION END -->
+
+<!-- FREEFLEX-KAKAO-INTEGRATION BEGIN -->
+# 카카오 특화 비하향 통합
+`10_PLAN/KAKAOVPN_INTEGRATION_PLAN_v1_2026-08-19.md`와 `KAKAOVPN_NON_REGRESSION_CONTRACT_v1.json`을 따른다.
+카카오 특화 기능은 기존 FreeFlexVPN을 교체하지 않는 추가 프로필이다. 월 1GB·무기한 충전·공식 WireGuard·추천 원장·기존 프로필·공개 URL·QR·접근성·개인정보 보호를 낮추지 않는다.
+VLESS/REALITY·Hysteria2와 카카오 전용 가격은 실제·법률·비용 증거 전에는 연구 후보이며 공개·결제·완료로 표시하지 않는다.
+<!-- FREEFLEX-KAKAO-INTEGRATION END -->
