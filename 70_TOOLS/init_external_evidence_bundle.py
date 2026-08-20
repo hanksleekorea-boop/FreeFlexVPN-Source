@@ -22,6 +22,7 @@ sys.path.insert(0, str(ROOT / "20_SRC"))
 
 from app.platform_evidence import OBSERVATION_IDS, SCHEMA as PLATFORM_SCHEMA  # noqa: E402
 from app.release_95_gate import OPERATIONS_GATES, SCHEMA as RELEASE_SCHEMA  # noqa: E402
+from app.readiness_99_gate import DEVELOPMENT_GATES, SCHEMA as READINESS_99_SCHEMA  # noqa: E402
 
 
 def _is_within(path: pathlib.Path, parent: pathlib.Path) -> bool:
@@ -86,6 +87,18 @@ def _operations_guide() -> str:
     ))
 
 
+def _development_guide() -> str:
+    return "\n".join((
+        "FreeFlexVPN 99% 목표 개발 증거 수집 안내", "",
+        "이 파일은 검사 계획이며 개발 완료 선언이 아닙니다.",
+        "기록 금지: 계정·이메일·토큰·비밀번호·개인키·실제 IP·기기 식별값.",
+        "REGRESSION, MANIFEST, SECRET_SCAN, PUBLIC_BUILD의 실제 결과를 비식별 원본으로 추가하고,",
+        "각 통과 항목의 SHA-256과 gate_ids를 development-evidence.json에 결속합니다.",
+        "모바일·PC·상용 운영 증거는 별도 영수증으로 계속 검증해야 합니다.",
+        "완료 후 evaluate_readiness_99.py로 네 증거 묶음을 함께 검증합니다.", "",
+    ))
+
+
 def build_platform(destination: pathlib.Path, platform: str) -> dict[str, Any]:
     guide_name, guide_sha = _write(destination, "capture-guide.txt", _platform_guide(platform))
     payload = {
@@ -131,19 +144,41 @@ def build_operations(destination: pathlib.Path) -> dict[str, Any]:
     return {"kind": "operations", "ready": False, "status": "template_created"}
 
 
+def build_development(destination: pathlib.Path) -> dict[str, Any]:
+    guide_name, guide_sha = _write(destination, "capture-guide.txt", _development_guide())
+    payload = {
+        "schema": READINESS_99_SCHEMA,
+        "verified_at": datetime.now(timezone.utc).isoformat(),
+        "gates": {item: "not_run" for item in DEVELOPMENT_GATES},
+        "artifacts": [{
+            "artifact_id": "capture-guide-001", "kind": "document", "gate_ids": ["REGRESSION"],
+            "contains_secret": False, "contains_identifier": False, "path": guide_name, "sha256": guide_sha,
+        }],
+    }
+    (destination / "development-evidence.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
+    return {"kind": "development", "ready": False, "status": "template_created"}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="프로젝트 밖 비식별 출시 증거 초안 생성")
-    parser.add_argument("kind", choices=("platform", "operations"))
+    parser.add_argument("kind", choices=("platform", "operations", "development"))
     parser.add_argument("--output-dir", required=True, help="프로젝트 밖의 새 빈 폴더")
     parser.add_argument("--platform", choices=("android", "ios", "windows", "macos", "linux"))
     args = parser.parse_args()
     if args.kind == "platform" and not args.platform:
         parser.error("platform에는 --platform이 필요합니다")
-    if args.kind == "operations" and args.platform:
-        parser.error("operations에는 --platform을 함께 쓸 수 없습니다")
+    if args.kind in {"operations", "development"} and args.platform:
+        parser.error("operations/development에는 --platform을 함께 쓸 수 없습니다")
     try:
         destination = _prepare_directory(args.output_dir)
-        result = build_platform(destination, args.platform) if args.kind == "platform" else build_operations(destination)
+        if args.kind == "platform":
+            result = build_platform(destination, args.platform)
+        elif args.kind == "operations":
+            result = build_operations(destination)
+        else:
+            result = build_development(destination)
     except (OSError, ValueError) as exc:
         print(json.dumps({"ready": False, "error": str(exc)}, ensure_ascii=False))
         return 2

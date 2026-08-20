@@ -1543,3 +1543,23 @@
 - `test_gcp_target_locator.py` 7/7: 잘못된 지문·대상 없음·목록 오류를 닫고, 일치한 프로젝트 이름은 메모리에만 두며 제공자 읽기에는 생성 명령이 없음을 확인했다. 실제 직접 Cloud CLI는 접근 가능 프로젝트 1개·대상 일치 0개라 `target_not_accessible`로 닫혔고 변경 0건이다. Windows PowerShell 진입점은 같은 SDK의 `gcloud.cmd`를 자동 우선한다.
 - 최신 직접 Cloud CLI 재확인: 접근 가능 프로젝트 3개·대상 일치 0개·제공자 읽기 시도 0건·변경 0건으로 다시 `target_not_accessible`로 닫혔다. 새 비식별 영수증은 `10_STATE/GCP_TARGET_LOCATOR_RECHECK_2026-08-19.json`이며, 이 수 변화는 대상 서버 권한 회복을 뜻하지 않는다.
 - GCP 대상 안전 보강 뒤 최종 전체 재검사: 95/95 파일·957/957 항목·실패 0, 367.0초. 새 증거 `10_STATE/GCP_TARGET_LOCATOR_FINAL_REGRESSION_2026-08-19.json`을 보존했다.
+
+## 2026-08-20 — 준비도 제안·계획 통합 문서 검사
+
+### ① 문서 연결 검사
+
+- Node 기반 읽기 검사로 `CURRENT_SERVICE_PLAN.md`, `CURRENT_DEVELOPMENT_EXECUTION_PLAN.md`, `COMMERCIAL_RELEASE_GATE_PLAN_v1_2026-08-10.md`, `FREEFLEXVPN_READINESS_IMPROVEMENT_PROPOSAL_v1_2026-08-20.md`의 2026-08-20 통합 표기를 확인했다.
+- `rg`로 서비스 기획의 제안 채택 절, 상세 실행계획의 R01~R20 절, 출시 관문의 제안 반영 절, 제안서의 교차 참조를 확인했다.
+- Git `diff --check`를 실행해 문서 변경의 공백 오류가 없음을 확인했다.
+
+### ② 범위 확인
+
+- 이 검사는 문서 정합성만 확인한다. 실제 Android, 서버, 결제, 법률, 운영, 공개 배포 증거를 추가하지 않으며, 점수·출시 판정을 올리지 않는다.
+- 서버·프로필·Android·VPN·결제·비용·공개 파일 변경은 0건이고, Drive B를 사용하지 않았다.
+
+## 2026-08-20 — 99% 준비도 게이트·전체 재검사
+
+- `test_readiness_99_gate.py` 5/5 통과: 네 영역의 외부 증거 완결, 개발 미실시 차단, 원본 없는 통과 거부, 민감 필드와 프로젝트 안 증거 거부, 개발 증거 초안의 미통과 상태를 확인했다.
+- `test_ai_handoff.py` 7/7, `make_manifest.py --check` 554/554, `git diff --check` 통과.
+- `run_all_tests.py --jobs 2 --timeout 240`: 96/96 파일·962/962 항목·실패 0, 86.8초. 증거는 `10_STATE/FULL_REGRESSION_2026-08-20-99-GATE.json`이다.
+- 실제 Android/Windows VPN·서버·결제·환불·법무·제한 공개 검사는 이 자동 결과에 포함되지 않는다. Drive B 사용과 기기 변경은 0건이다.

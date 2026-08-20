@@ -1,0 +1,80 @@
+{
+  "schema": "freeflex-similarity-candidates/v1",
+  "assessedAt": "2026-08-20",
+  "catalog": {
+    "name": "내장 500개 서비스 도메인 카탈로그",
+    "limitation": "카탈로그에 VPN 전용 항목은 확인되지 않아 가장 가까운 일반 도메인으로만 분류했다. 점수는 시장 품질·순위가 아니라 제품 문제, 사용자, 핵심 흐름, 수익, 플랫폼의 내부 적합도다."
+  },
+  "matches": [
+    {
+      "id": 311,
+      "domain": "사이버보안",
+      "role": "primary",
+      "scores": {"problem": 40, "user": 20, "coreFlow": 20, "revenue": 10, "platform": 10, "total": 100},
+      "confidence": 0.9,
+      "reason": "암호화된 연결·네트워크 신뢰·보안 안내가 서비스의 핵심 가치와 사용자 여정에 직접 대응한다."
+    },
+    {
+      "id": 316,
+      "domain": "개인정보 보호",
+      "role": "secondary",
+      "scores": {"problem": 34, "user": 16, "coreFlow": 16, "revenue": 6, "platform": 10, "total": 82},
+      "confidence": 0.78,
+      "reason": "VPN의 개인정보·데이터 처리·삭제 고지와 맞닿지만, 연결 서비스 자체를 완전히 설명하지는 못한다."
+    },
+    {
+      "id": 371,
+      "domain": "통신 요금제",
+      "role": "secondary",
+      "scores": {"problem": 30, "user": 16, "coreFlow": 16, "revenue": 8, "platform": 10, "total": 80},
+      "confidence": 0.72,
+      "reason": "데이터 한도·체험·요금 전환의 구조와 유사하지만 네트워크 품질 책임 범위는 다르다."
+    },
+    {
+      "id": 289,
+      "domain": "여행 안전",
+      "role": "secondary",
+      "scores": {"problem": 22, "user": 12, "coreFlow": 12, "revenue": 4, "platform": 8, "total": 58},
+      "confidence": 0.58,
+      "reason": "여행·해외 체류 맥락에는 맞지만 제품의 주된 보안·연결 기능을 포괄하지 못한다."
+    }
+  ],
+  "directComparators": [
+    {
+      "name": "Proton VPN",
+      "relationship": "direct VPN competitor",
+      "officialSources": [
+        {"url": "https://protonvpn.com/features", "verifiedClaims": ["WireGuard", "kill switch", "always-on VPN", "Quick Connect", "오픈소스·감사 안내"]},
+        {"url": "https://protonvpn.com/support/proton-vpn-plans", "verifiedClaims": ["무료 요금제", "무료 1기기", "무제한 데이터 설명", "유료 최대 10기기 설명"]}
+      ],
+      "alignmentScore": 5,
+      "whySelected": "소비자용 앱, 연결 보호, 무료→유료 플랜, 다중 플랫폼이라는 핵심 흐름이 가장 직접적으로 겹친다."
+    },
+    {
+      "name": "Mullvad VPN",
+      "relationship": "direct VPN competitor",
+      "officialSources": [
+        {"url": "https://mullvad.net/en/help/faq", "verifiedClaims": ["WireGuard", "최대 5기기", "계정 번호 방식 FAQ"]},
+        {"url": "https://mullvad.net/en/help/terms-service", "verifiedClaims": ["WireGuard 앱·구성", "5기기", "월 €5 안내", "14일 관련 조건"]},
+        {"url": "https://mullvad.net/en/help/refunds", "verifiedClaims": ["환불 절차·예외 안내"]}
+      ],
+      "alignmentScore": 4,
+      "whySelected": "프로토콜 구성·계정 최소화·환불 경로를 공개적으로 설명하는 소비자 VPN으로, 신뢰·운영 기준 비교에 적합하다."
+    },
+    {
+      "name": "NordVPN",
+      "relationship": "direct VPN competitor",
+      "officialSources": [
+        {"url": "https://support.nordvpn.com/hc/en-us/articles/19509682644369-NordVPN-Kill-Switch-how-does-it-work", "verifiedClaims": ["플랫폼별 Kill Switch 작동 안내"]},
+        {"url": "https://meshnet.nordvpn.com/features/linking-devices-in-meshnet", "verifiedClaims": ["기기 연결형 Meshnet 안내"]}
+      ],
+      "alignmentScore": 4,
+      "whySelected": "소비자 VPN의 연결 보호와 기기 간 기능을 제공하며, 사용 중 안전 제어와 도움말 설계를 대조하기 좋다."
+    }
+  ],
+  "leaders": [
+    {"service": "Proton VPN", "focus": "첫 연결·항상 켜짐·Kill Switch 안내", "basis": "공식 기능·지원 문서"},
+    {"service": "Mullvad VPN", "focus": "구성 방식·기기 제한·환불/지원 경로의 명시성", "basis": "공식 FAQ·약관·환불 문서"}
+  ],
+  "comparisonCaution": "비교 대상 점수는 공식 공개 문서에서 확인 가능한 기능 가시성을 정규화한 [추정] 값이다. 독립 성능 시험, 보안 감사 결과의 재검증, 시장 점유율 또는 법적 적합성 순위가 아니다."
+}
