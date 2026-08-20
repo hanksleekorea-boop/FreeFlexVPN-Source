@@ -4,6 +4,8 @@
 
 - 2026-08-20 공개·가상 사용성 재검증과 QR 안정화: 공개 서비스·PC·모바일·개발 대시보드·QR은 실제 브라우저 12/12을 통과했고, 재현 가능한 가상 사용자 1,000명 분석을 새로 만들었다. CI의 무작위 WireGuard QR 해독 1회 실패는 QR 여백·밀도 후보와 축소 해독을 보강하고 반복 검사 12회로 강화했다. 실제 개인키·프로필·Android·서버 변경은 0건이다. 다음 첫 행동은 동일하게 GCP readback과 유휴 Android 한 대 조건이다.
 
+- 2026-08-20 Android 실제 시험 재시도 4회: 처음 세 번은 유휴 0/2, 마지막은 연결 1대·유휴 0대로 안전 선택기가 모두 차단했다. 최종 연결 기기는 화면 켜짐·상호작용 중이며, 네 번 모두 기기·VPN·프로필 변경 0건이다. 최신 GitHub PR #10 검증 두 건은 모두 통과했다. 다음 첫 행동은 정확히 한 대가 `asleep`일 때만 다시 선택하는 것이다.
+
 - 2026-08-20 준비도 분석 제안 채택·계획 통합: `.readiness-analysis/20260820T044021Z/`의 보수적 진단을 근거로 `10_PLAN/FREEFLEXVPN_READINESS_IMPROVEMENT_PROPOSAL_v1_2026-08-20.md`를 작성·채택했다. `CURRENT_SERVICE_PLAN.md`, `CURRENT_DEVELOPMENT_EXECUTION_PLAN.md`, `COMMERCIAL_RELEASE_GATE_PLAN_v1_2026-08-10.md`에 동일한 비하향 원칙과 R01~R20 실행선을 통합했다. 제품 코드·서버·프로필·Android·결제·비용·공개 파일 변경은 0건이며, 기존 `ffvpn`과 Drive B 제외 정책을 유지한다. 문서 연결·날짜 검사와 Git 차이 형식 검사는 통과했다. 다음 첫 행동은 대상 GCP의 비식별 읽기 권한이 실제로 회복된 경우 R01을 재실행하고, 유휴 Android 정확히 한 대가 확인된 경우에만 R02~R05를 진행하는 것이다.
 
 - 2026-08-18 GitHub 게시 보류: 공식 REST API와 원격 갈래 읽기는 관리자·쓰기 권한과 원격 HEAD 일치를 확인했지만, 필수 `github-verify`의 `gh repo view`가 GitHub GraphQL HTTP 503을 3회 연속 반환했다. 보안 통과 조건을 우회하지 않아 저장 기록·원격 올리기·PR 변경은 0건이며 이번 변경은 로컬 작업 폴더에 보존돼 있다. 다음 첫 행동은 GitHub 조회 회복 뒤 `github-verify`가 `ADMIN/READY`인지 다시 확인하고, 통과한 경우에만 명시된 9개 파일을 저장해 기존 초안 PR #10을 갱신하는 것이다.

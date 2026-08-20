@@ -2,8 +2,8 @@
 
 | 항목 | 값 |
 |---|---|
-| 파일 수 | 561 |
-| 총 바이트 | 14,651,442 |
+| 파일 수 | 565 |
+| 총 바이트 | 14,656,684 |
 
 ## 지문 규칙
 
@@ -65,7 +65,7 @@
 | `.project-continuity/GITHUB-ACCESS.json` | 105 | 공동개발 연속성 기록 | `eb769638ad75b177a6dbdde678e7c3a29c75a2d9495760d1544a134eace8ef11` |
 | `.project-continuity/GITHUB_AUDIT.md` | 5,070 | 공동개발 연속성 기록 | `b724bee35264ae43b82a0fb6021446eaf0f92565fe386254dae554ba2a1f5008` |
 | `.project-continuity/HANDOFF_CAPSULE.json` | 1,967 | 공동개발 연속성 기록 | `839914aa92a0e41382468e9bf7cd1e9d1f916dbe0ab6dd78e0b7aa39d0bb8f79` |
-| `.project-continuity/HISTORY.md` | 108,156 | 공동개발 연속성 기록 | `a2705ec70e01c16ed3528fee3e5ea51c342a5ff51b05518f6043811e9edd280c` |
+| `.project-continuity/HISTORY.md` | 108,715 | 공동개발 연속성 기록 | `03738e24fee13def43c6658a01811a3dce419c5d1d41dc0a31285f5c8d4e5716` |
 | `.project-continuity/INSTALL-RECEIPT.json` | 341 | 공동개발 연속성 기록 | `78304aad40f0511e288305551c314e365b13a90fb793211c790db53c8dc6031d` |
 | `.project-continuity/MANIFEST-LATEST.json` | 816,031 | 공동개발 연속성 기록 | `554693c057ddecd3695222bc5f990df50f8da65f1a238daab0b4c3d3b0c24554` |
 | `.project-continuity/NO_LOCK_POLICY.md` | 1,281 | 공동개발 연속성 기록 | `d91c91ca5378b30825c10879fb1e0b741f5ba130dfdc4f46385639397b470526` |
@@ -91,8 +91,8 @@
 | `.project-continuity/SCHEMA_VERSION` | 4 | 공동개발 연속성 기록 | `01d0b2eba879dda9fd27bf01b46c7d1a34b92ecbb459d2d8dd3b3feebe933266` |
 | `.project-continuity/SITE-CAPABILITIES.json` | 1,490 | 공동개발 연속성 기록 | `47be12234c407daaa469f938680a250e3b4f0391714d471a36679122d3a12fe0` |
 | `.project-continuity/STATE.json` | 640 | 공동개발 연속성 기록 | `46cca1597e56ce43736b238f77e76701f6b8458b2fa27d937644c88c81d5b970` |
-| `.project-continuity/STATE.md` | 56,819 | 공동개발 연속성 기록 | `525fdd1cd041bfb0eb5bda56cbe0ea22b87dbcddd3df2eef7e361acd92f43b23` |
-| `.project-continuity/TEST_EVIDENCE.md` | 103,415 | 공동개발 연속성 기록 | `73aa07a1bea2fc51976fd3099a7bf81f31da771435c39605d2300ba481653556` |
+| `.project-continuity/STATE.md` | 57,255 | 공동개발 연속성 기록 | `f8dc11c77813a9e6226d494012a1189b4073c65b3266c1697d990c7b6f311743` |
+| `.project-continuity/TEST_EVIDENCE.md` | 103,852 | 공동개발 연속성 기록 | `6c4a63e734e57df0083c8afcbf514c4952df22a0c83a8a5a89c83af79c380153` |
 | `.readiness-analysis/20260820T044021Z/best-practice-analysis.md` | 13,735 | 분류 확인 필요 | `45b2110cc283ff625711bea4f5e519fede355d659128c51a8d2f7587f0814929` |
 | `.readiness-analysis/20260820T044021Z/engine/lens-core-v2.1.json` | 97,832 | 분류 확인 필요 | `ba293f43a4e12c4f0eb58f654cfb9fa57a586a629b1fb51233a2a5b58d46c094` |
 | `.readiness-analysis/20260820T044021Z/engine/project-evidence.example.json` | 1,956 | 분류 확인 필요 | `f59c9aafa4ed0d7ac1e15eb4bc673b47fdde43d4e7d5c9b60d75d354fdf42db6` |
@@ -120,6 +120,10 @@
 | `10_STATE/ANDROID_DEVICE_SMOKE_2026-08-05.md` | 1,047 | 상태·근거·기록 | `87b2a3d33f05d34495fa64504b856affbbd2a5b7e2261fd5f4059a6c23a930e4` |
 | `10_STATE/ANDROID_IDLE_GUARD_FINAL_REGRESSION_2026-08-19.json` | 12,886 | 상태·근거·기록 | `6b60e4eca20c87cf6353240f7a703755251e2aa63297ec81338a7f9094e7d1a1` |
 | `10_STATE/ANDROID_IDLE_SELECTION_2026-08-19.json` | 1,035 | 상태·근거·기록 | `8fb8d3839e0836d145088e0aa19f2b073979354e94d88e98a613786ae0b81bf1` |
+| `10_STATE/ANDROID_IDLE_SELECTION_2026-08-20-TEST-RETRY-2.json` | 1,036 | 상태·근거·기록 | `ead5fa8ce13ebfd31bf31cd6197bfef275692c1c463302781f1a33aead653bb6` |
+| `10_STATE/ANDROID_IDLE_SELECTION_2026-08-20-TEST-RETRY-3.json` | 703 | 상태·근거·기록 | `92221f55f44d7c99655e2498d8a405426d932db092150350e202e527db2aa7fd` |
+| `10_STATE/ANDROID_IDLE_SELECTION_2026-08-20-TEST-RETRY.json` | 1,036 | 상태·근거·기록 | `8cb09c5a99d673ceed765df158ec0bf6000b6d66231fca31a2750ab737f14009` |
+| `10_STATE/ANDROID_IDLE_SELECTION_2026-08-20-TEST-START.json` | 1,035 | 상태·근거·기록 | `60b6bb86427750953bb101582b9f9ec8961fd3ba349a6c652fd526a681bce44e` |
 | `10_STATE/ANDROID_IDLE_SELECTION_2026-08-20.json` | 703 | 상태·근거·기록 | `90df92038d419c8cfe216d10d34ed77948980775d303936696198667be038282` |
 | `10_STATE/ANDROID_USB_NETWORK_CHECK_2026-08-05.md` | 1,833 | 상태·근거·기록 | `1102130d42ef0884099db7e861ab943abbc3882fe5c254f5601ed90925543d45` |
 | `10_STATE/CONTRACTS.json` | 1,889 | 상태·근거·기록 | `fbb44678c17ce84db11152ece70c5780c12b9954d223ab5e7405ca18118a2290` |
