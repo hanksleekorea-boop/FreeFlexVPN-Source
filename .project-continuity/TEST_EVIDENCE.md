@@ -1563,3 +1563,8 @@
 - `test_ai_handoff.py` 7/7, `make_manifest.py --check` 554/554, `git diff --check` 통과.
 - `run_all_tests.py --jobs 2 --timeout 240`: 96/96 파일·962/962 항목·실패 0, 86.8초. 증거는 `10_STATE/FULL_REGRESSION_2026-08-20-99-GATE.json`이다.
 - 실제 Android/Windows VPN·서버·결제·환불·법무·제한 공개 검사는 이 자동 결과에 포함되지 않는다. Drive B 사용과 기기 변경은 0건이다.
+
+## 2026-08-20 — Android·GCP 읽기 전용 재확인
+
+- `ANDROID_IDLE_SELECTION_2026-08-20.json`: 연결 1대, 유휴 0대, 변경 0. 화면 켜짐 상태이므로 실제 Android 시험을 시작하지 않았다.
+- `GCP_TARGET_LOCATOR_2026-08-20.json`: 접근 가능 프로젝트 4개, 대상 일치 0개, 제공자 읽기 시도 0, 변경 0. 대상 서버 식별값과 실제 주소는 기록하지 않았다.

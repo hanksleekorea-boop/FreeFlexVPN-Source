@@ -1,0 +1,14 @@
+{
+  "schema": "FreeFlexVPNGCPTargetLocatorV1",
+  "checked_at": "2026-08-20T06:30:07.837822+00:00",
+  "expected_target_fingerprint": "83aab2e2643306d9d5e351048a477698c1ccd95343cce49a13e5a76d64203b3f",
+  "contains_project_identifier": false,
+  "contains_account_identifier": false,
+  "contains_network_address": false,
+  "mutation_count": 0,
+  "status": "target_not_accessible",
+  "accessible_project_count": 4,
+  "matching_count": 0,
+  "provider_readback_attempted": false,
+  "server_internal_readback_ready": false
+}
