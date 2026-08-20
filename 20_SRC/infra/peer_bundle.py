@@ -106,14 +106,19 @@ def _qr_png(payload: str) -> bytes:
     import qrcode
     from qrcode.constants import ERROR_CORRECT_M, ERROR_CORRECT_Q
 
-    # OpenCV가 특정 무작위 키 조합에서 한 가지 QR 밀도를 간헐적으로 읽지 못할 수 있다.
-    # 소비자와 같은 디코더 왕복 검증을 유지한 채 더 큰 모듈/복원력 후보로 한 번씩 강화한다.
-    for box_size, error_correction in ((16, ERROR_CORRECT_M), (20, ERROR_CORRECT_M), (20, ERROR_CORRECT_Q)):
+    # OpenCV는 같은 내용이라도 QR 밀도·여백 조합에 따라 간헐적으로 읽지 못할 수 있다.
+    # 넉넉한 여백과 중간 크기 후보를 먼저 사용하고, 생성 뒤 소비자 디코더 왕복을 통과한 결과만 반환한다.
+    for box_size, border, error_correction in (
+        (12, 8, ERROR_CORRECT_M),
+        (16, 8, ERROR_CORRECT_M),
+        (16, 10, ERROR_CORRECT_Q),
+        (20, 10, ERROR_CORRECT_Q),
+    ):
         qr = qrcode.QRCode(
             version=None,
             error_correction=error_correction,
             box_size=box_size,
-            border=4,
+            border=border,
         )
         qr.add_data(payload)
         qr.make(fit=True)
@@ -122,9 +127,12 @@ def _qr_png(payload: str) -> bytes:
         image.save(buffer, format="PNG")
         raw = buffer.getvalue()
         decoded_image = cv2.imdecode(np.frombuffer(raw, dtype=np.uint8), cv2.IMREAD_COLOR)
-        decoded, points, _ = cv2.QRCodeDetector().detectAndDecode(decoded_image)
-        if points is not None and decoded == payload:
-            return raw
+        # 네모 격자는 nearest-neighbor 축소에도 정보가 보존된다. 큰 이미지에서의 OpenCV 탐지
+        # 편차를 없애기 위해 원본과 75% 축소본 모두를 검사한다.
+        for candidate in (decoded_image, cv2.resize(decoded_image, None, fx=0.75, fy=0.75, interpolation=cv2.INTER_NEAREST)):
+            decoded, points, _ = cv2.QRCodeDetector().detectAndDecode(candidate)
+            if points is not None and decoded == payload:
+                return raw
     raise RuntimeError("클라이언트 QR 왕복 디코드가 실패했습니다")
 
 

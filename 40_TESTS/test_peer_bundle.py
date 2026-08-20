@@ -108,7 +108,8 @@ class PeerBundleTests(unittest.TestCase):
     def test_three_random_key_qrs_roundtrip(self):
         with tempfile.TemporaryDirectory(prefix="ffvpn_peer_") as tmp:
             root = pathlib.Path(tmp)
-            for index in range(3):
+            # CI에서 드물게 보였던 QR 해독 편차를 한 번의 우연한 성공으로 숨기지 않는다.
+            for index in range(12):
                 target = root / f"bundle-{index}"
                 result = build_bundle(spec(name=f"random-{index}"), target)
                 self.assertTrue(result["qr_payload_match"])
