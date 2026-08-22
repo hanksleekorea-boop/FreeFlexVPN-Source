@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "test_id": "android-vpn-egress-2026-08-22",
+  "tested_at_local": "2026-08-22",
+  "timezone": "Asia/Bangkok",
+  "evidence_grade": "confirmed_on_physical_device",
+  "scope": {
+    "connected_device_count": 1,
+    "platform": "Android",
+    "android_version": "15",
+    "vpn_client": "WireGuard",
+    "tunnel_profile": "FreeFlexVPN",
+    "network_family_observed": "IPv4"
+  },
+  "privacy": {
+    "device_serial_recorded": false,
+    "public_ip_recorded": false,
+    "wifi_identifier_recorded": false,
+    "vpn_keys_or_endpoint_recorded": false
+  },
+  "results": [
+    {
+      "step": "off_baseline",
+      "vpn_switch": "off",
+      "observed_egress_country": "TH",
+      "result": "pass"
+    },
+    {
+      "step": "vpn_on",
+      "vpn_switch": "on",
+      "observed_egress_country": "US",
+      "result": "pass"
+    },
+    {
+      "step": "mobile_public_page",
+      "vpn_switch": "on",
+      "browser_error": false,
+      "product_content_visible": true,
+      "result": "pass"
+    },
+    {
+      "step": "pc_public_page",
+      "vpn_switch": "on",
+      "browser_error": false,
+      "product_content_visible": true,
+      "result": "pass"
+    },
+    {
+      "step": "development_dashboard",
+      "vpn_switch": "on",
+      "browser_error": false,
+      "product_content_visible": true,
+      "result": "pass"
+    },
+    {
+      "step": "off_restore",
+      "vpn_switch": "off",
+      "observed_egress_country": "TH",
+      "network_recovered": true,
+      "vpn_backend_running": false,
+      "result": "pass"
+    }
+  ],
+  "final_device_state": {
+    "vpn_switch": "off",
+    "observed_egress_country": "TH",
+    "network_ok": true
+  },
+  "limitations": [
+    "One physical Android 15 device was tested.",
+    "One configured US exit was tested.",
+    "IPv6 exit behavior was not verified.",
+    "Long-duration stability and network handoff were not tested in this run."
+  ]
+}
