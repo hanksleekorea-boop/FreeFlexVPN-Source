@@ -1632,3 +1632,9 @@
 
 - 연결 1대, 유휴 후보 0대, `blocked_no_idle_device`, 변경 0건이다. 화면이 켜진 사용 가능 기기를 시험 대상으로 선택하지 않았다.
 - 가린 영수증은 `10_STATE/ANDROID_IDLE_SELECTION_2026-08-24-RETRY2.json`이며 일련번호·VPN 프로필 이름·비밀값을 포함하지 않는다.
+
+## 2026-08-24 — CC-TASK-1-07 공개 확인
+
+- 공개 `app.html` 318,828바이트, `pwa_api_client.js` 7,920바이트, `pwa_runtime.js` 54,214바이트가 모두 HTTP 200이며 로컬 SHA-256과 3/3 일치했다.
+- 실제 공개 HTML에서 내보내기·삭제·영수증 불러오기·삭제 미완료 안내 표시 4/4를 확인했다.
+- 공개 범위·IAM·DNS·결제·QR 주소 변경은 0건이다. 영수증: `10_STATE/PUBLIC_DEPLOY_2026-08-24-CC-1-07.json`.

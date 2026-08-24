@@ -1,0 +1,15 @@
+{
+  "schema": "FreeFlexVPNPublicDeployReceiptV1",
+  "deployed_at": "2026-08-24",
+  "source_commit": "cef53039ccb2db600be64757101f58fe2016c3f6",
+  "public_root": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/",
+  "scope_changed": false,
+  "files": [
+    {"name": "app.html", "sha256": "53a2782f7e3e57b9d0026162b5ec95c25b197509d6e8ee497c4926051ff24284", "http_status": 200, "remote_matches_local": true},
+    {"name": "pwa_api_client.js", "sha256": "51fb0bb83fae18279dd6fbcfceb4a9df711d2396e90258abfd8280cbe3d1dbb4", "http_status": 200, "remote_matches_local": true},
+    {"name": "pwa_runtime.js", "sha256": "825320a2610f3e98af39bfebdff2a0815cd5b61834af7b6b455beabf49f76995", "http_status": 200, "remote_matches_local": true}
+  ],
+  "markers_verified": ["data-account-export", "data-account-delete", "data-deletion-receipt", "아직 삭제 완료가 아니며"],
+  "contains_credentials": false,
+  "notes": "기존 공개 버킷의 앱 파일 3개만 갱신했다. IAM, DNS, 공개 범위, 결제, QR 대상 주소는 변경하지 않았다."
+}
