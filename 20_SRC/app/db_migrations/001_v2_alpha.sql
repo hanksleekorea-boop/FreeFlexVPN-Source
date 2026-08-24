@@ -64,6 +64,12 @@ CREATE TABLE IF NOT EXISTS deletion_requests (
     completed_at TEXT,
     FOREIGN KEY(account_id) REFERENCES accounts(account_id)
 );
+CREATE TABLE IF NOT EXISTS deletion_status_tokens (
+    request_id TEXT PRIMARY KEY,
+    status_token_hash TEXT NOT NULL UNIQUE,
+    created_at TEXT NOT NULL,
+    FOREIGN KEY(request_id) REFERENCES deletion_requests(request_id)
+);
 
 CREATE TABLE IF NOT EXISTS wallet_entries (
     entry_id INTEGER PRIMARY KEY AUTOINCREMENT,

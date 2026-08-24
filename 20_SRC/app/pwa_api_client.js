@@ -67,7 +67,7 @@ export class FreeFlexApiClient {
     this.timeoutMs = timeoutMs;
   }
 
-  async request(path, { method = "GET", body, authenticated = false, deviceId } = {}) {
+  async request(path, { method = "GET", body, authenticated = false, deviceId, deletionToken } = {}) {
     if (!/^\/v1\/[a-z0-9/_-]+$/i.test(path)) throw new Error("API_PATH_INVALID");
     const headers = { "Accept": "application/json" };
     if (body !== undefined) headers["Content-Type"] = "application/json";
@@ -77,6 +77,7 @@ export class FreeFlexApiClient {
       headers.Authorization = `Bearer ${token}`;
     }
     if (deviceId) headers["X-FreeFlex-Device"] = deviceId;
+    if (deletionToken) headers["X-FreeFlex-Deletion-Token"] = deletionToken;
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), this.timeoutMs);
     let response;
@@ -117,6 +118,24 @@ export class FreeFlexApiClient {
   revokeDevice(deviceId) {
     if (!/^[a-f0-9]{32}$/.test(deviceId || "")) throw new Error("DEVICE_ID_INVALID");
     return this.request(`/v1/devices/${deviceId}`, { method: "DELETE", authenticated: true });
+  }
+  exportAccountData() {
+    return this.request("/v1/account/export", {
+      method: "POST", authenticated: true, body: { confirm: "EXPORT" },
+    });
+  }
+  async requestAccountDeletion() {
+    const result = await this.request("/v1/account/delete", {
+      method: "POST", authenticated: true, body: { confirm: "DELETE" },
+    });
+    this.vault.clear();
+    return result;
+  }
+  deletionStatus(requestId, statusToken) {
+    if (!/^[a-f0-9]{32}$/.test(requestId || "") || typeof statusToken !== "string" || statusToken.length < 32) {
+      throw new Error("DELETION_STATUS_CREDENTIAL_INVALID");
+    }
+    return this.request(`/v1/account/deletion-status/${requestId}`, { deletionToken: statusToken });
   }
 
   async exchangeClaim(claim, referralToken = null) {

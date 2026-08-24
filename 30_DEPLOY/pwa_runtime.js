@@ -805,6 +805,44 @@ document.querySelector("[data-commercial-download-incident]")?.addEventListener(
   downloadJson("FreeFlexVPN-incident-checklist.json", createIncidentChecklist({ platform: innerWidth <= 760 ? "mobile" : "pc" }));
   notify("삭제·덮어쓰기 없는 장애 복구 체크리스트를 저장했습니다.");
 });
+const accountRightsStatus = document.querySelector("[data-account-rights-status]");
+const setAccountRightsStatus = message => { if (accountRightsStatus) accountRightsStatus.textContent = message; };
+document.querySelector("[data-account-export]")?.addEventListener("click", async () => {
+  if (!client?.vault.get()) { setAccountRightsStatus("최근 로그인 수령 링크로 다시 확인해야 합니다."); return; }
+  try {
+    const exported = await client.exportAccountData();
+    downloadJson("FreeFlexVPN-account-export.json", exported);
+    setAccountRightsStatus("이 계정 자료를 JSON으로 저장했습니다. 개인키와 세션 열쇠는 포함하지 않았습니다.");
+  } catch (error) { setAccountRightsStatus(readableError(error)); }
+});
+document.querySelector("[data-account-delete]")?.addEventListener("click", async () => {
+  if (!client?.vault.get()) { setAccountRightsStatus("최근 로그인 수령 링크로 다시 확인해야 합니다."); return; }
+  if (!globalThis.confirm("계정과 VPN 피어 삭제를 요청할까요? 기존 설정은 요청 즉시 자동 삭제하지 않습니다.")) return;
+  if (!globalThis.confirm("삭제 요청 뒤 현재 로그인은 끝납니다. 계속할까요?")) return;
+  try {
+    const receipt = await client.requestAccountDeletion();
+    downloadJson("FreeFlexVPN-deletion-status-receipt.json", {
+      schema: "FreeFlexVPNDeletionStatusReceiptV1",
+      request_id: receipt.request_id,
+      status_token: receipt.status_token,
+      status_path: receipt.status_path,
+      requested_at: receipt.requested_at,
+      warning: "이 영수증은 삭제 상태 확인용입니다. 다른 사람에게 보내지 마세요.",
+    });
+    setAccountRightsStatus("삭제 요청을 접수했고 로그인은 끝났습니다. 아직 삭제 완료가 아니며 영수증으로 상태를 확인하세요.");
+  } catch (error) { setAccountRightsStatus(readableError(error)); }
+});
+document.querySelector("[data-deletion-receipt]")?.addEventListener("change", async event => {
+  const file = event.target.files?.[0];
+  if (!file || !client) return;
+  try {
+    const receipt = JSON.parse(await file.text());
+    if (receipt.schema !== "FreeFlexVPNDeletionStatusReceiptV1") throw new Error("DELETION_RECEIPT_INVALID");
+    const status = await client.deletionStatus(receipt.request_id, receipt.status_token);
+    setAccountRightsStatus(status.completion_is_verified ? "삭제 완료가 서버에서 확인됐습니다." : `현재 삭제 상태: ${status.status}. 아직 완료로 확인되지 않았습니다.`);
+  } catch (_error) { setAccountRightsStatus("올바른 삭제 상태 영수증이 아니거나 서버에서 상태를 확인하지 못했습니다."); }
+  event.target.value = "";
+});
 document.querySelector("[data-pc-download-diagnostic]")?.addEventListener("click", () => {
   const diagnostic = createRedactedPcDiagnostic({
     ...pcReadinessInput(),
