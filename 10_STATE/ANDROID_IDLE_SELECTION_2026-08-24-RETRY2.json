@@ -1,0 +1,25 @@
+{
+  "schema": "FreeFlexVPNAndroidIdleGuardV1",
+  "checked_at": "2026-08-24T10:05:58.661161+00:00",
+  "mutation_count": 0,
+  "contains_serial": false,
+  "contains_vpn_profile_name": false,
+  "device_count": 1,
+  "eligible_count": 0,
+  "status": "blocked_no_idle_device",
+  "selected_device_fingerprint": null,
+  "devices": [
+    {
+      "device_fingerprint": "29a8f2ea1adeeadc",
+      "model": "SM_G996N",
+      "adb_state": "device",
+      "wakefulness": "awake",
+      "foreground_interactive": false,
+      "always_on_configured": false,
+      "lockdown_enabled": false,
+      "eligible": false,
+      "reason": "not_idle_screen_awake_or_unknown"
+    }
+  ],
+  "next_action": "do_not_touch_any_phone"
+}
