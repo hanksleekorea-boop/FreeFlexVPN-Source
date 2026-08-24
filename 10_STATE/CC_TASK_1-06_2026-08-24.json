@@ -1,0 +1,17 @@
+{
+  "schema": "FreeFlexVPNCommercialTaskReceiptV2",
+  "task_id": "CC-TASK-1-06",
+  "status": "done_code",
+  "checked_at": "2026-08-24",
+  "changed_paths": ["20_SRC/app/wallet_ledger.py", "40_TESTS/test_wallet_ledger_v2.py"],
+  "preserved_contracts": ["CC-BASE-01", "CC-BASE-02", "CC-BASE-03", "CC-BASE-04", "CC-BASE-05", "CC-BASE-06", "CC-BASE-07", "CC-BASE-08", "CC-BASE-09", "CC-BASE-10"],
+  "evidence": {
+    "automatic": {"status": "pass", "passed": 71, "failed": 0},
+    "browser": {"status": "not_applicable", "viewports": []},
+    "device": {"status": "not_applicable", "platform": null},
+    "external": {"status": "not_run", "payment": "not_run", "legal": "not_run", "operations": "not_run"},
+    "rollback": {"status": "not_run", "tested": false}
+  },
+  "unknowns": ["실제 VPN 서버 계수와 사용량 원장의 표본 대조"],
+  "notes": "사건 ID를 계정·종류·용량에 결속하고 동시 중복 차감과 UTC 월 경계를 검증했다. 실제 잔액 변경은 없다."
+}

@@ -7,8 +7,9 @@ import sqlite3
 import sys
 import tempfile
 import unittest
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import closing
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from unittest import mock
 
 
@@ -20,6 +21,7 @@ from app.wallet_ledger import (  # noqa: E402
     GB,
     MB,
     InsufficientWalletBalance,
+    IdempotencyConflict,
     WalletLedger,
 )
 
@@ -117,6 +119,31 @@ class WalletLedgerV2Tests(unittest.TestCase):
     def test_low_balance_signal_uses_real_balances(self):
         result = self.ledger.consume(self.account, 950 * MB, event_id="usage-low", session_id="low", now=date(2026, 8, 1))
         self.assertEqual(result["low_balance"], "100mb")
+
+    def test_event_id_is_bound_to_account_type_and_amount(self):
+        self.ledger.credit(self.account, "paid", GB, event_id="bound-event", reason="topup")
+        with self.assertRaises(IdempotencyConflict):
+            self.ledger.credit("another-account", "paid", GB, event_id="bound-event", reason="topup")
+        with self.assertRaises(IdempotencyConflict):
+            self.ledger.credit(self.account, "paid", 2 * GB, event_id="bound-event", reason="topup")
+        with self.assertRaises(IdempotencyConflict):
+            self.ledger.consume(self.account, MB, event_id="bound-event", session_id="bound-session", now=date(2026, 8, 1))
+
+    def test_concurrent_duplicate_usage_is_charged_once(self):
+        def consume_once(_index: int):
+            ledger = WalletLedger(self.path)
+            return ledger.consume(self.account, 100 * MB, event_id="concurrent-usage", session_id="concurrent-session", now=date(2026, 8, 1))
+        with ThreadPoolExecutor(max_workers=6) as executor:
+            results = list(executor.map(consume_once, range(6)))
+        self.assertEqual(sum(result["duplicate"] is False for result in results), 1)
+        self.assertEqual(sum(result["duplicate"] is True for result in results), 5)
+        self.assertEqual(self.ledger.snapshot(self.account, now=date(2026, 8, 1))["balances"]["free"], 900 * MB)
+
+    def test_aware_datetime_month_uses_utc_boundary(self):
+        bangkok = timezone(timedelta(hours=7))
+        local_august = datetime(2026, 8, 1, 1, 0, tzinfo=bangkok)
+        state = self.ledger.snapshot(self.account, now=local_august)
+        self.assertEqual(state["month"], "2026-07")
 
 
 if __name__ == "__main__":

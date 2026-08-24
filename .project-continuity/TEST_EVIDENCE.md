@@ -1614,3 +1614,9 @@
 - 전체 재검사 101/102 파일·1024/1025 항목·1368.9초. 유일한 실패는 Git 인계 목록표 불일치이며 기능 실패 0건이다.
 - Android 선택기 7/7 통과, 실제 읽기 결과 유휴 0/1·변경 0. GitHub 확인은 READY·ADMIN, 비밀값 허용 목록 밖 0건이다.
 - 실패 후 교정 확인: 모든 의도된 파일을 추적하고 목록표를 갱신한 뒤 `test_ai_handoff.py` 7/7, `make_manifest.py --check` 632/632, `git diff --cached --check`를 통과했다. 따라서 앞선 전체 실행의 유일 실패는 해소됐으며 나머지 101개 파일과 결합해 102/102 파일의 통과 결과를 확인했다.
+
+## 2026-08-24 — CC-TASK-1-06
+
+- `test_wallet_ledger_v2.py` 13/13: 다계정·다른 종류·다른 용량 사건 충돌 거부, 동시 6회 중복 1회 차감, UTC 월 경계를 포함한다.
+- `test_quota_ledger.py` 7/7, `test_referral_ledger.py` 10/10, `test_usage_meter.py` 9/9, `test_quota_agent.py` 19/19, `test_control_api.py` 13/13. 합계 71/71이다.
+- 실제 서버 사용량 표본 대조와 실제 결제는 미실시다. 잔액·서버·기기·프로필·Drive B 변경은 0건이다.
