@@ -1,0 +1,47 @@
+{
+  "schema": "FreeFlexVPNRegressionReceiptV1",
+  "checked_at": "2026-08-24",
+  "scope": "CC-TASK-1-00 and CC-TASK-1-01 local candidate",
+  "runner": {
+    "files_passed": 99,
+    "files_total": 100,
+    "checks_passed": 992,
+    "checks_total": 993,
+    "duration_seconds": 215.9
+  },
+  "dedicated": {
+    "commercial_complete_contract": {"passed": 15, "total": 15},
+    "protection_card": {"passed": 17, "total": 17},
+    "legacy_protection_contracts": {"passed": 9, "total": 9},
+    "pc_workbench": {"passed": 10, "total": 10}
+  },
+  "failed_files": [
+    {
+      "name": "test_ai_handoff.py",
+      "reason": "Git 기준 인계 목록과 현재 미추적 분석·영수증·새 소스 목록 불일치",
+      "product_failure": false
+    }
+  ],
+  "secret_scan": {"status": "pass", "outside_allowlist": 0},
+  "diff_check": {"status": "pass"},
+  "manifest_check": {
+    "status": "fail",
+    "reason": "기존 사용자 미추적 파일과 현재 미저장 개발 파일을 보존해 목록표를 임의 재생성하지 않음"
+  },
+  "external_evidence": {
+    "android_current_network_safety": "not_run",
+    "public_deployment": "not_run",
+    "payment": "not_run",
+    "legal": "not_run",
+    "operations": "not_run"
+  },
+  "score_changed": false,
+  "mutations": {
+    "server": 0,
+    "device": 0,
+    "profile": 0,
+    "payment": 0,
+    "public_deployment": 0,
+    "drive_b": 0
+  }
+}

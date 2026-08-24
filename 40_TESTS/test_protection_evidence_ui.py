@@ -56,7 +56,7 @@ def main() -> None:
         ("DNS 실패는 protected가 아님", limited["state"] == "limited" and limited["checks"]["dns"] is False),
         ("고객용 5개 근거표", service_contract(html, shell, runtime, css)),
         ("음성 대조: 차단 스위치 행 제거 거부", not service_contract(html, shell.replace('data-svc-evidence="kill-switch"', 'data-removed="kill-switch"'), runtime, css)),
-        ("음성 대조: 실제 IP를 화면 전달값에 넣으면 거부", not service_contract(html, shell, runtime.replace('checked_at: result?.checked_at || null,', 'checked_at: result?.checked_at || null, observed_exit_ip: result?.observed_exit_ip,', 1), css)),
+        ("음성 대조: 실제 IP를 화면 전달값에 넣으면 거부", not service_contract(html, shell, runtime.replace('checked_at: presentation.checked_at,', 'checked_at: presentation.checked_at, observed_exit_ip: result?.observed_exit_ip,', 1), css)),
     ]
     failed = [name for name, passed in checks if not passed]
     for name, passed in checks:

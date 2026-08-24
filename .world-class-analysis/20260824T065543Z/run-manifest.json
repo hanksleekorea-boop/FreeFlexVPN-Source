@@ -1,0 +1,197 @@
+{
+  "run_id": "20260824T065543Z",
+  "generated_at": "2026-08-24T06:55:43Z",
+  "checked_at": "2026-08-24",
+  "project_path": "D:\\Desktop\\챗지피티프로젝트들\\프리플렉스vpn\\owner-gateway-v38",
+  "git": {
+    "is_git": true,
+    "branch": "feature/owner-password-gateway",
+    "head": "b7c8b60",
+    "status": "dirty-preserved",
+    "note": "기존 정본 통합 변경·분석 폴더·Android 선택 증거를 보존하고 이번 실행은 새 분석 폴더만 씀"
+  },
+  "public_urls": {
+    "mobile": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+    "pc": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html?view=app",
+    "dashboard": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/development-dashboard.html",
+    "qr": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app-qr.png"
+  },
+  "research_status": "analysis_complete",
+  "selected_services": 30,
+  "candidates_reviewed": 66,
+  "groups": {
+    "A": 10,
+    "B": 10,
+    "C": 10
+  },
+  "fields": 28,
+  "matrix_rows": 868,
+  "field_top10_complete": 26,
+  "field_top10_incomplete": [
+    {
+      "field_id": "FIELD-006",
+      "confirmed_top_count": 2,
+      "shortage": 8
+    },
+    {
+      "field_id": "FIELD-010",
+      "confirmed_top_count": 2,
+      "shortage": 8
+    }
+  ],
+  "overall_top10_complete": true,
+  "unknown_scope": [
+    "IPv6·DNS/WebRTC 누출·킬 스위치·장시간 안정성",
+    "iPhone·Windows 실제 VPN",
+    "실제 결제·취소·환불·복원",
+    "운영자 신원·지원·장애 훈련·법률 검토·실사용자 제한 공개"
+  ],
+  "files": [
+    {
+      "name": "best-practice-standard.json",
+      "purpose": "best-practice-standard.json",
+      "generated": true,
+      "sha256": "d1eea9d5d2a7ca8b0e61aa858ec6403e52ab9c23f0759037d7051138da1991c0"
+    },
+    {
+      "name": "best-practice-standard.md",
+      "purpose": "best-practice-standard.md",
+      "generated": true,
+      "sha256": "d6f46ee7c74aa1d596c4b2875d0c5ce3828a3f08f2a5284944c2f6eb3d044afc"
+    },
+    {
+      "name": "comparison-matrix.csv",
+      "purpose": "comparison-matrix.csv",
+      "generated": true,
+      "sha256": "a08772de5ab02bdbbafdb9b3d625296172862e85b6f42d4bdfcf2752355e2541"
+    },
+    {
+      "name": "comparison-matrix.json",
+      "purpose": "comparison-matrix.json",
+      "generated": true,
+      "sha256": "fab6405c7eb5722378544875101e4113fd093f4ed7cf8b2ff9e8e4258b5269c5"
+    },
+    {
+      "name": "detailed-development-plan-vNEXT.md",
+      "purpose": "detailed-development-plan-vNEXT.md",
+      "generated": true,
+      "sha256": "98465f0e2809983325fe1b31f8303c273cb98d871b852e39fc2902dee7907963"
+    },
+    {
+      "name": "evidence-index.md",
+      "purpose": "evidence-index.md",
+      "generated": true,
+      "sha256": "2ef50cc733bd57480957cb1902805b1dc29e8fa12f5a684740bf5a0589573637"
+    },
+    {
+      "name": "executive-summary.md",
+      "purpose": "executive-summary.md",
+      "generated": true,
+      "sha256": "f089d2b0539ec6269463bc28d76672dcca827e5ea23e7d87f4769a0ced74aa1e"
+    },
+    {
+      "name": "field-top10-benchmarks.json",
+      "purpose": "field-top10-benchmarks.json",
+      "generated": true,
+      "sha256": "3d93e8c3867ea0fa77ae97eb0743b9db85bf0626f22d9e4665dfe7a6f3f63d19"
+    },
+    {
+      "name": "field-top10-benchmarks.md",
+      "purpose": "field-top10-benchmarks.md",
+      "generated": true,
+      "sha256": "ecc2b333109bf9166d2ca4a22476e6a9b6e448e9dc80410ee58a311687eeffe5"
+    },
+    {
+      "name": "gap-analysis.json",
+      "purpose": "gap-analysis.json",
+      "generated": true,
+      "sha256": "7875fbf38460852724493130078eb05ff6fccd50c804f63742e4cfab653dea50"
+    },
+    {
+      "name": "gap-analysis.md",
+      "purpose": "gap-analysis.md",
+      "generated": true,
+      "sha256": "a4d33b94a1bd40bd43c92c96f69c1546eb2fb7a01aa71f9d74df097a703d1a6b"
+    },
+    {
+      "name": "integrated-product-spec-vNEXT.md",
+      "purpose": "integrated-product-spec-vNEXT.md",
+      "generated": true,
+      "sha256": "4fed52d1f6c9ac2344a33338b902ece91c2479156a9415350359b2a192887c14"
+    },
+    {
+      "name": "overall-top10-benchmark.json",
+      "purpose": "overall-top10-benchmark.json",
+      "generated": true,
+      "sha256": "f9b45ace4647b07b69a9f9a057b46f6dc8f516f23617e678cf92fd6033e52528"
+    },
+    {
+      "name": "overall-top10-benchmark.md",
+      "purpose": "overall-top10-benchmark.md",
+      "generated": true,
+      "sha256": "c340e49716847795217ccdd579dcf39183784f0e6584d23daeb2b119d43c6a0a"
+    },
+    {
+      "name": "quality-check.md",
+      "purpose": "quality-check.md",
+      "generated": true,
+      "sha256": "c1cee3978c809ac6de5236bce7651789a3280c73572aa977b8007c35c6ab785b"
+    },
+    {
+      "name": "run-manifest.json",
+      "purpose": "run-manifest.json",
+      "generated": true,
+      "sha256": null
+    },
+    {
+      "name": "service-profile.json",
+      "purpose": "service-profile.json",
+      "generated": true,
+      "sha256": "7e24cdf5228f64a2815649c75b3e47959c9bef90242cee34df3a5c5bd0e5aa89"
+    },
+    {
+      "name": "service-profile.md",
+      "purpose": "service-profile.md",
+      "generated": true,
+      "sha256": "6a397109ec8baee03bc2af0712fa904585891818dba7a9a119a3efd59c11999c"
+    },
+    {
+      "name": "source-register.md",
+      "purpose": "source-register.md",
+      "generated": true,
+      "sha256": "5693e477d1c8fb30c24227563346e728e4f150fca178b726f683b4550fdbb540"
+    },
+    {
+      "name": "top30-detailed-analysis.md",
+      "purpose": "top30-detailed-analysis.md",
+      "generated": true,
+      "sha256": "f5ac4c3956b5a473f8dedbf5ab628282d6f09ebb0ce3d481c63d322906a5b013"
+    },
+    {
+      "name": "top30-selection.json",
+      "purpose": "top30-selection.json",
+      "generated": true,
+      "sha256": "d4260079b7a461bc6874912bda84a77f0d70bbb15e3a483781f737687275d0b4"
+    },
+    {
+      "name": "top30-selection.md",
+      "purpose": "top30-selection.md",
+      "generated": true,
+      "sha256": "74352280842ce8abcb7ba0b5987363c5e889d2875feb1341a8d77be6552a5d49"
+    },
+    {
+      "name": "world-class-reinforcement-proposal.md",
+      "purpose": "world-class-reinforcement-proposal.md",
+      "generated": true,
+      "sha256": "76b3c94927c7d39909d3e78eef383d983b72644534871ecd595a29f13ab68103"
+    }
+  ],
+  "independent_validation": {
+    "status": "PASS",
+    "checks": 54,
+    "json_parse": "8/8",
+    "csv_rows": 868,
+    "local_links_checked": 0,
+    "broken_links": 0
+  }
+}

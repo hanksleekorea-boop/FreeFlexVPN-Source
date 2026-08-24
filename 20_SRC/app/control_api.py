@@ -336,6 +336,8 @@ class ControlAPI:
             {
                 "device_id": device_id,
                 "status": "active",
+                "issued_at": now.isoformat(),
+                "delivery_expires_at": (now + timedelta(minutes=10)).isoformat(),
                 "configuration": {
                     "addresses": [str(interface)],
                     "dns": server["dns"],

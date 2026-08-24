@@ -1,0 +1,14 @@
+{
+  "schema": "FreeFlexVPNRegressionReceiptV1",
+  "checked_at": "2026-08-24",
+  "scope": "CC-TASK-1-00 through CC-TASK-1-03 local candidate",
+  "runner": {"files_passed": 101, "files_total": 102, "checks_passed": 1024, "checks_total": 1025, "duration_seconds": 1368.9},
+  "dedicated": {"commercial_complete_contract": {"passed": 17, "total": 17}, "profile_lifecycle": {"passed": 15, "total": 15}, "error_recovery": {"passed": 14, "total": 14}, "protection_card": {"passed": 17, "total": 17}},
+  "failed_files": [{"name": "test_ai_handoff.py", "reason": "새 프로젝트 파일이 Git 기준 인계 목록에 아직 없음", "product_failure": false}],
+  "secret_scan": {"status": "pass", "outside_allowlist": 0},
+  "github_access": {"status": "ready", "role": "admin", "write_performed": false},
+  "android_idle_selection": {"status": "blocked_no_idle_device", "device_count": 1, "eligible_count": 0, "mutation_count": 0},
+  "external_evidence": {"android_current_network_safety": "not_run", "public_deployment": "not_run", "payment": "not_run", "legal": "not_run", "operations": "not_run"},
+  "score_changed": false,
+  "mutations": {"server": 0, "device": 0, "profile": 0, "payment": 0, "public_deployment": 0, "drive_b": 0}
+}

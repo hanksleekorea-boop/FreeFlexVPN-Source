@@ -1,5 +1,22 @@
 # 검사 증거
 
+
+## 2026-08-24 — Commercial-Complete v2 정본 계약
+
+- `test_canonical_commercial_complete_v2.py` 6/6: CC-BASE-01~10, CC-01~24, CC-GATE-1, Android 상용 1단계 범위, 결제·환불·법률·지원·높은 결함 0, CC-TASK 29개 고유성(1단계 17·2단계 7·3단계 5), 선행 작업 존재·역방향 참조 0·초기 거짓 DONE 0, 낮은 숙련도 AI 안전 계약, 실제 Android 시작점을 확인했다.
+- 기존 정본 보호: `test_canonical_plan_vnext_integration.py` 4/4, `test_kakaovpn_integration_plan.py` 8/8, `test_readiness_99_gate.py` 5/5, `test_development_dashboard_contract.py` 1/1 통과.
+- 프로젝트 `.test-venv`에서 전체 재검사 98개 파일·962개 항목을 실행해 **97/98 파일·961/962 항목 통과**했다. 유일한 실패는 `test_ai_handoff.py`의 인계 목록 일치 1건으로, Git 미추적 상태인 기존 `.world-class-analysis/` 두 실행 폴더·기존 미추적 검사/Android 영수증과 이번 새 검사 파일이 동적 목록에는 보이지만 Git 추적 인계 목록에는 없기 때문이다. 제품·기획 계약 실패가 아니며, 사용자의 기존 미추적 자료를 임의로 추적·제외하지 않았다. 영수증은 `10_STATE/FULL_REGRESSION_2026-08-24-COMMERCIAL-COMPLETE-V2.json`이다.
+- `git diff --check` 통과. 목록표 도구의 도움말 미지원으로 `MANIFEST.md`가 한 번 재생성됐으나, 즉시 HEAD와 같은 Git 객체 `2c0aab0...`로 복원했고 내용 차이는 0이다.
+- 제품 코드·서버·Android·결제·법률·운영·공개판 증거는 늘지 않았다. 기존 Android 15 한 대의 태국→미국 IPv4 출구와 종료 뒤 일반망 복귀만 부분 증거로 유지한다.
+- 정본·시작 안내·대시보드의 로컬 Markdown 링크 검사는 깨진 링크 0으로 통과했다.
+
+## 2026-08-24 — vNEXT 통합 정본 계약
+
+- `test_canonical_plan_vnext_integration.py` 4/4: REQ-001~028 정확한 순서, TASK 28개 정확한 순서, 선행 작업 존재·직전 순서·자기 참조 0, 시작 안내·대시보드·D67 정본 포인터를 확인했다.
+- 일부러 TASK-2-002가 자기 자신을 가리키고 TASK-3-001이 없는 TASK-2-010을 가리키게 만든 표본을 모두 거부했다.
+- 기존 보호 계약: Kakao Connect 14/14, 99% 준비도 5/5, 개발 대시보드 7/7 통과.
+- `scan_secrets.py`: 허용 목록 외 비밀값·개인정보 0건. `git diff --check`: 오류 0건.
+- 실제 Android·Windows·iPhone·결제·법률·운영 증거는 이 문서 통합으로 늘지 않는다. 2026-08-22 Android 15 한 대의 IPv4 출구 전환 증거만 기존 확인 범위로 연결했다.
 ## 2026-08-18 — 기존 공개 버킷 18개 배포·현재 고객 UI 검증
 
 - 기존 버킷 설명과 IAM 정책 읽기 권한을 확인한 뒤 `30_DEPLOY` 루트의 명시된 정적 파일 18개만 같은 공개 이름으로 업로드했다. `collaboration-gateway`와 비밀값·서버 설정은 제외했다.
@@ -1581,3 +1598,19 @@
 - `ANDROID_IDLE_SELECTION_2026-08-20-TEST-START.json` 및 재시도 3개: 유휴 0/2, 0/2, 0/2, 최종 0/1. 모든 영수증은 기기 식별 원문·프로필명 없이 변경 0건을 기록한다.
 - 마지막 연결 기기는 `awake`·상호작용 상태라 실제 Android VPN 시험은 미실시다.
 - PR #10의 최신 GitHub `verify` 두 건은 각각 통과했다.
+
+## 2026-08-24 — Commercial-Complete v2 정본·보호 카드
+
+- `test_commercial_complete_contract.py`: 정본·비하향·의존·영수증 정상/반례 15/15 통과.
+- `test_cc_protection_card.py`: 최신·부분·오래됨·누락·불일치·오류·취소·민감값 제거, 모바일·PC 동일 계산과 360·390·1280·1920px 17/17 통과.
+- 기존 `test_protection_evidence_ui.py` 4/4, `test_protection_status_ui.py` 5/5를 재통과했다.
+- 위 결과는 로컬 자동·브라우저 증거다. 실제 Android DNS·IPv6·WebRTC·차단 스위치·장시간 및 공개판 검증은 미실시다.
+- 전체 회귀 99/100 파일·992/993 검사. 유일한 실패는 미추적 분석·영수증·새 소스가 Git 기준 목록에 아직 없는 `test_ai_handoff.py` 목록표 불일치이며 다른 기능 실패는 0건이다. 비밀값·개인정보 허용 목록 외 0건, `git diff --check` 통과. 목록표는 사용자 미추적 파일을 임의 추적하거나 덮어쓰지 않아 보류했다.
+
+## 2026-08-24 — CC-TASK-1-02·1-03
+
+- 설정 수명주기 15/15, 클라이언트 키 11/11, 제어 API 13/13, 교체 보호 4/4, PWA 실행 35/35 통과.
+- 오류 복구 14/14, 첫 사용 복구 3/3, PWA 실행 35/35, 서비스 UI 33/33 통과.
+- 전체 재검사 101/102 파일·1024/1025 항목·1368.9초. 유일한 실패는 Git 인계 목록표 불일치이며 기능 실패 0건이다.
+- Android 선택기 7/7 통과, 실제 읽기 결과 유휴 0/1·변경 0. GitHub 확인은 READY·ADMIN, 비밀값 허용 목록 밖 0건이다.
+- 실패 후 교정 확인: 모든 의도된 파일을 추적하고 목록표를 갱신한 뒤 `test_ai_handoff.py` 7/7, `make_manifest.py --check` 632/632, `git diff --cached --check`를 통과했다. 따라서 앞선 전체 실행의 유일 실패는 해소됐으며 나머지 101개 파일과 결합해 102/102 파일의 통과 결과를 확인했다.

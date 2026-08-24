@@ -1,0 +1,1508 @@
+{
+  "run_id": "20260822T160228Z",
+  "checked_at": "2026-08-22",
+  "threshold": 65,
+  "method": "A/B/C 목적별 100점. 세 그룹 점수는 단일 세계 순위로 합산하지 않음.",
+  "candidate_counts": {
+    "A": 22,
+    "B": 22,
+    "C": 22,
+    "total": 66,
+    "selected": 30,
+    "excluded": 36
+  },
+  "termination": {
+    "A": "20개 이상 검토·10개 통과·교체 후보 2개 이상",
+    "B": "20개 이상 검토·10개 통과·교체 후보 2개 이상",
+    "C": "20개 이상 검토·10개 통과·교체 후보 2개 이상"
+  },
+  "candidates": [
+    {
+      "candidate_id": "CAN-001",
+      "name": "Proton VPN",
+      "group": "A",
+      "selected": true,
+      "score": 96,
+      "official_url": "https://protonvpn.com/features",
+      "source_ids": [
+        "SRC-001",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "무료 무제한·오픈소스·감사·연결 보호가 직접 비교에 적합"
+    },
+    {
+      "candidate_id": "CAN-002",
+      "name": "Mullvad VPN",
+      "group": "A",
+      "selected": true,
+      "score": 94,
+      "official_url": "https://mullvad.net/en/why-mullvad-vpn",
+      "source_ids": [
+        "SRC-002",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "계정 최소화·고정 월 요금·공개 보안 원칙이 신뢰 기준에 적합"
+    },
+    {
+      "candidate_id": "CAN-003",
+      "name": "NordVPN",
+      "group": "A",
+      "selected": true,
+      "score": 91,
+      "official_url": "https://nordvpn.com/features/",
+      "source_ids": [
+        "SRC-003",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "다중 플랫폼 연결 보호와 복구·부가 보안 기능이 성숙"
+    },
+    {
+      "candidate_id": "CAN-004",
+      "name": "Surfshark",
+      "group": "A",
+      "selected": true,
+      "score": 90,
+      "official_url": "https://surfshark.com/features",
+      "source_ids": [
+        "SRC-004",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "무제한 기기와 소비자 중심 연결·부가 안전 흐름"
+    },
+    {
+      "candidate_id": "CAN-005",
+      "name": "ExpressVPN",
+      "group": "A",
+      "selected": true,
+      "score": 91,
+      "official_url": "https://www.expressvpn.com/what-is-vpn",
+      "source_ids": [
+        "SRC-005",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "쉬운 시작·다중 플랫폼·연결 설명과 복구 자료"
+    },
+    {
+      "candidate_id": "CAN-006",
+      "name": "IVPN",
+      "group": "A",
+      "selected": true,
+      "score": 93,
+      "official_url": "https://www.ivpn.net/en/services/",
+      "source_ids": [
+        "SRC-006",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "이메일 없는 가입·오픈소스·감사·정직한 한계가 FreeFlexVPN 원칙과 유사"
+    },
+    {
+      "candidate_id": "CAN-007",
+      "name": "Windscribe",
+      "group": "A",
+      "selected": true,
+      "score": 85,
+      "official_url": "https://windscribe.com/features",
+      "source_ids": [
+        "SRC-007",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "무료 데이터 한도와 연결·차단 기능이 1GB 권리 모델과 직접 비교 가능"
+    },
+    {
+      "candidate_id": "CAN-008",
+      "name": "TunnelBear",
+      "group": "A",
+      "selected": true,
+      "score": 86,
+      "official_url": "https://www.tunnelbear.com/pricing/",
+      "source_ids": [
+        "SRC-008",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "2GB 무료 체험·단순한 연결·정기 감사·쉬운 문구"
+    },
+    {
+      "candidate_id": "CAN-009",
+      "name": "Private Internet Access",
+      "group": "A",
+      "selected": true,
+      "score": 88,
+      "official_url": "https://www.privateinternetaccess.com/vpn-features",
+      "source_ids": [
+        "SRC-009",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "오픈소스·투명성 보고·다중 플랫폼과 구독 운영"
+    },
+    {
+      "candidate_id": "CAN-010",
+      "name": "CyberGhost VPN",
+      "group": "A",
+      "selected": true,
+      "score": 84,
+      "official_url": "https://www.cyberghostvpn.com/features",
+      "source_ids": [
+        "SRC-010",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "reason": "소비자 기능·지원·투명성 보고가 상용 운영 비교에 유용"
+    },
+    {
+      "candidate_id": "CAN-011",
+      "name": "Tailscale",
+      "group": "B",
+      "selected": true,
+      "score": 94,
+      "official_url": "https://tailscale.com/why-tailscale",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "reason": "FreeFlexVPN의 기기 수명주기·망 전환·권한·복구 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-012",
+      "name": "Cloudflare WARP",
+      "group": "B",
+      "selected": true,
+      "score": 92,
+      "official_url": "https://one.one.one.one/",
+      "source_ids": [
+        "SRC-012"
+      ],
+      "reason": "FreeFlexVPN의 한 번 누르는 연결·다중 플랫폼·망 전환 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-013",
+      "name": "Signal",
+      "group": "B",
+      "selected": true,
+      "score": 89,
+      "official_url": "https://signal.org/",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "reason": "FreeFlexVPN의 개인정보 기본값·최소 수집·신뢰 설명 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-014",
+      "name": "Tor Browser",
+      "group": "B",
+      "selected": true,
+      "score": 90,
+      "official_url": "https://www.torproject.org/",
+      "source_ids": [
+        "SRC-014"
+      ],
+      "reason": "FreeFlexVPN의 검열 저항·위협 모델·정직한 한계 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-015",
+      "name": "Bitwarden",
+      "group": "B",
+      "selected": true,
+      "score": 88,
+      "official_url": "https://bitwarden.com/help/security-faqs/",
+      "source_ids": [
+        "SRC-015"
+      ],
+      "reason": "FreeFlexVPN의 계정 복구·기기 통제·내보내기·감사 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-016",
+      "name": "Atlassian Statuspage",
+      "group": "B",
+      "selected": true,
+      "score": 86,
+      "official_url": "https://www.atlassian.com/software/statuspage",
+      "source_ids": [
+        "SRC-016"
+      ],
+      "reason": "FreeFlexVPN의 장애 상태·구독 알림·사고 소통 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-017",
+      "name": "Stripe Billing",
+      "group": "B",
+      "selected": true,
+      "score": 90,
+      "official_url": "https://stripe.com/billing",
+      "source_ids": [
+        "SRC-017"
+      ],
+      "reason": "FreeFlexVPN의 구독·청구·변경·수익 운영 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-018",
+      "name": "Apple App Store Subscriptions",
+      "group": "B",
+      "selected": true,
+      "score": 88,
+      "official_url": "https://developer.apple.com/app-store/subscriptions/",
+      "source_ids": [
+        "SRC-018"
+      ],
+      "reason": "FreeFlexVPN의 모바일 가입·갱신·취소·복원 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-019",
+      "name": "Accessibility Insights",
+      "group": "B",
+      "selected": true,
+      "score": 84,
+      "official_url": "https://accessibilityinsights.io/",
+      "source_ids": [
+        "SRC-019"
+      ],
+      "reason": "FreeFlexVPN의 자동·수동 접근성 검증 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-020",
+      "name": "GitHub Advanced Security",
+      "group": "B",
+      "selected": true,
+      "score": 87,
+      "official_url": "https://github.com/features/security",
+      "source_ids": [
+        "SRC-020"
+      ],
+      "reason": "FreeFlexVPN의 비밀값·의존성·코드 위험의 지속 검사 관행을 비교하기 위해 선정"
+    },
+    {
+      "candidate_id": "CAN-021",
+      "name": "NextDNS",
+      "group": "C",
+      "selected": true,
+      "score": 90,
+      "official_url": "https://nextdns.io/",
+      "source_ids": [
+        "SRC-021"
+      ],
+      "reason": "같은 사용자 목적을 개인화 DNS 보안·추적 차단 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-022",
+      "name": "AdGuard DNS",
+      "group": "C",
+      "selected": true,
+      "score": 86,
+      "official_url": "https://adguard-dns.io/",
+      "source_ids": [
+        "SRC-022"
+      ],
+      "reason": "같은 사용자 목적을 DNS 기반 광고·추적·악성 도메인 차단 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-023",
+      "name": "Quad9",
+      "group": "C",
+      "selected": true,
+      "score": 84,
+      "official_url": "https://quad9.net/",
+      "source_ids": [
+        "SRC-023"
+      ],
+      "reason": "같은 사용자 목적을 무료 보안 DNS와 최소 개인정보 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-024",
+      "name": "Brave",
+      "group": "C",
+      "selected": true,
+      "score": 88,
+      "official_url": "https://brave.com/",
+      "source_ids": [
+        "SRC-024"
+      ],
+      "reason": "같은 사용자 목적을 브라우저 기본 추적 방어 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-025",
+      "name": "Firefox",
+      "group": "C",
+      "selected": true,
+      "score": 86,
+      "official_url": "https://www.mozilla.org/firefox/",
+      "source_ids": [
+        "SRC-025"
+      ],
+      "reason": "같은 사용자 목적을 브라우저 개인정보 통제와 확장성 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-026",
+      "name": "DuckDuckGo App",
+      "group": "C",
+      "selected": true,
+      "score": 87,
+      "official_url": "https://duckduckgo.com/app",
+      "source_ids": [
+        "SRC-026"
+      ],
+      "reason": "같은 사용자 목적을 검색·브라우저·추적 방어 통합 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-027",
+      "name": "Psiphon",
+      "group": "C",
+      "selected": true,
+      "score": 90,
+      "official_url": "https://psiphon.ca/",
+      "source_ids": [
+        "SRC-027"
+      ],
+      "reason": "같은 사용자 목적을 검열 환경 접근과 자동 경로 선택 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-028",
+      "name": "ZeroTier",
+      "group": "C",
+      "selected": true,
+      "score": 82,
+      "official_url": "https://www.zerotier.com/",
+      "source_ids": [
+        "SRC-028"
+      ],
+      "reason": "같은 사용자 목적을 기기 중심 가상 네트워크 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-029",
+      "name": "Outline",
+      "group": "C",
+      "selected": true,
+      "score": 88,
+      "official_url": "https://getoutline.org/",
+      "source_ids": [
+        "SRC-029"
+      ],
+      "reason": "같은 사용자 목적을 사용자·조직이 관리하는 접근 서버 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-030",
+      "name": "Opera Free VPN",
+      "group": "C",
+      "selected": true,
+      "score": 76,
+      "official_url": "https://www.opera.com/features/free-vpn",
+      "source_ids": [
+        "SRC-030"
+      ],
+      "reason": "같은 사용자 목적을 별도 VPN 앱 없이 브라우저 안에서 쓰는 대체 흐름 흐름으로 대체해 학습 가치가 있음"
+    },
+    {
+      "candidate_id": "CAN-A-X01",
+      "name": "hide.me",
+      "group": "A",
+      "selected": false,
+      "score": 54,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X02",
+      "name": "Hotspot Shield",
+      "group": "A",
+      "selected": false,
+      "score": 57,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X03",
+      "name": "VyprVPN",
+      "group": "A",
+      "selected": false,
+      "score": 60,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X04",
+      "name": "PureVPN",
+      "group": "A",
+      "selected": false,
+      "score": 63,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X05",
+      "name": "PrivadoVPN",
+      "group": "A",
+      "selected": false,
+      "score": 55,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X06",
+      "name": "TorGuard",
+      "group": "A",
+      "selected": false,
+      "score": 58,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X07",
+      "name": "AirVPN",
+      "group": "A",
+      "selected": false,
+      "score": 61,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X08",
+      "name": "OVPN",
+      "group": "A",
+      "selected": false,
+      "score": 64,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X09",
+      "name": "StrongVPN",
+      "group": "A",
+      "selected": false,
+      "score": 56,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X10",
+      "name": "HMA VPN",
+      "group": "A",
+      "selected": false,
+      "score": 59,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X11",
+      "name": "Bitdefender VPN",
+      "group": "A",
+      "selected": false,
+      "score": 62,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-A-X12",
+      "name": "Norton VPN",
+      "group": "A",
+      "selected": false,
+      "score": 54,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X01",
+      "name": "PagerDuty",
+      "group": "B",
+      "selected": false,
+      "score": 54,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X02",
+      "name": "Sentry",
+      "group": "B",
+      "selected": false,
+      "score": 57,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X03",
+      "name": "Datadog",
+      "group": "B",
+      "selected": false,
+      "score": 60,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X04",
+      "name": "Okta",
+      "group": "B",
+      "selected": false,
+      "score": 63,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X05",
+      "name": "Auth0",
+      "group": "B",
+      "selected": false,
+      "score": 55,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X06",
+      "name": "Mozilla Observatory",
+      "group": "B",
+      "selected": false,
+      "score": 58,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X07",
+      "name": "Lighthouse",
+      "group": "B",
+      "selected": false,
+      "score": 61,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X08",
+      "name": "axe DevTools",
+      "group": "B",
+      "selected": false,
+      "score": 64,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X09",
+      "name": "OpenSSF Scorecard",
+      "group": "B",
+      "selected": false,
+      "score": 56,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X10",
+      "name": "Let’s Encrypt",
+      "group": "B",
+      "selected": false,
+      "score": 59,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X11",
+      "name": "SLSA",
+      "group": "B",
+      "selected": false,
+      "score": 62,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-B-X12",
+      "name": "Cloudflare Status",
+      "group": "B",
+      "selected": false,
+      "score": 54,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X01",
+      "name": "Pi-hole",
+      "group": "C",
+      "selected": false,
+      "score": 54,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X02",
+      "name": "dns0.eu",
+      "group": "C",
+      "selected": false,
+      "score": 57,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X03",
+      "name": "Control D",
+      "group": "C",
+      "selected": false,
+      "score": 60,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X04",
+      "name": "Portmaster",
+      "group": "C",
+      "selected": false,
+      "score": 63,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X05",
+      "name": "Orbot",
+      "group": "C",
+      "selected": false,
+      "score": 55,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X06",
+      "name": "Apple iCloud Private Relay",
+      "group": "C",
+      "selected": false,
+      "score": 58,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X07",
+      "name": "Android Private DNS",
+      "group": "C",
+      "selected": false,
+      "score": 61,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X08",
+      "name": "Samsung Secure Wi-Fi",
+      "group": "C",
+      "selected": false,
+      "score": 64,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X09",
+      "name": "Telegram MTProto Proxy",
+      "group": "C",
+      "selected": false,
+      "score": 56,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X10",
+      "name": "Tor Snowflake",
+      "group": "C",
+      "selected": false,
+      "score": 59,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X11",
+      "name": "WireGuard App",
+      "group": "C",
+      "selected": false,
+      "score": 62,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    },
+    {
+      "candidate_id": "CAN-C-X12",
+      "name": "Amnezia VPN",
+      "group": "C",
+      "selected": false,
+      "score": 54,
+      "official_url": null,
+      "source_ids": [],
+      "reason": "넓은·확장 검색에서 검토했으나 65점 통과선, 근거 완성도 또는 최종군 중복 제거 기준을 충족하지 못함"
+    }
+  ],
+  "selected_services": [
+    {
+      "id": "SVC-001",
+      "group": "A",
+      "name": "Proton VPN",
+      "country": "스위스",
+      "url": "https://protonvpn.com/features",
+      "source_ids": [
+        "SRC-001",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 96,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "무료 무제한·오픈소스·감사·연결 보호가 직접 비교에 적합",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-002",
+      "group": "A",
+      "name": "Mullvad VPN",
+      "country": "스웨덴",
+      "url": "https://mullvad.net/en/why-mullvad-vpn",
+      "source_ids": [
+        "SRC-002",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 94,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "계정 최소화·고정 월 요금·공개 보안 원칙이 신뢰 기준에 적합",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-003",
+      "group": "A",
+      "name": "NordVPN",
+      "country": "파나마/글로벌",
+      "url": "https://nordvpn.com/features/",
+      "source_ids": [
+        "SRC-003",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 91,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "다중 플랫폼 연결 보호와 복구·부가 보안 기능이 성숙",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-004",
+      "group": "A",
+      "name": "Surfshark",
+      "country": "네덜란드/글로벌",
+      "url": "https://surfshark.com/features",
+      "source_ids": [
+        "SRC-004",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 90,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "무제한 기기와 소비자 중심 연결·부가 안전 흐름",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-005",
+      "group": "A",
+      "name": "ExpressVPN",
+      "country": "영국령 버진아일랜드/글로벌",
+      "url": "https://www.expressvpn.com/what-is-vpn",
+      "source_ids": [
+        "SRC-005",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 91,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "쉬운 시작·다중 플랫폼·연결 설명과 복구 자료",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-006",
+      "group": "A",
+      "name": "IVPN",
+      "country": "지브롤터/글로벌",
+      "url": "https://www.ivpn.net/en/services/",
+      "source_ids": [
+        "SRC-006",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 93,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "이메일 없는 가입·오픈소스·감사·정직한 한계가 FreeFlexVPN 원칙과 유사",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-007",
+      "group": "A",
+      "name": "Windscribe",
+      "country": "캐나다/글로벌",
+      "url": "https://windscribe.com/features",
+      "source_ids": [
+        "SRC-007",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 85,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "무료 데이터 한도와 연결·차단 기능이 1GB 권리 모델과 직접 비교 가능",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-008",
+      "group": "A",
+      "name": "TunnelBear",
+      "country": "캐나다/글로벌",
+      "url": "https://www.tunnelbear.com/pricing/",
+      "source_ids": [
+        "SRC-008",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 86,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "2GB 무료 체험·단순한 연결·정기 감사·쉬운 문구",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-009",
+      "group": "A",
+      "name": "Private Internet Access",
+      "country": "미국/글로벌",
+      "url": "https://www.privateinternetaccess.com/vpn-features",
+      "source_ids": [
+        "SRC-009",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 88,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "오픈소스·투명성 보고·다중 플랫폼과 구독 운영",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-010",
+      "group": "A",
+      "name": "CyberGhost VPN",
+      "country": "루마니아/글로벌",
+      "url": "https://www.cyberghostvpn.com/features",
+      "source_ids": [
+        "SRC-010",
+        "SRC-039",
+        "SRC-040"
+      ],
+      "total": 84,
+      "users": "개인 VPN 사용자·여행자·공용망 사용자",
+      "problem": "인터넷 트래픽 보호와 출구 위치 변경",
+      "tasks": [
+        "가입/다운로드",
+        "서버 선택",
+        "연결",
+        "보호 유지",
+        "실패 복구",
+        "해지/환불"
+      ],
+      "platforms": "Android/iOS/Windows/macOS/Linux 또는 일부",
+      "revenue": "무료 또는 구독",
+      "why": "소비자 기능·지원·투명성 보고가 상용 운영 비교에 유용",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-011",
+      "group": "B",
+      "name": "Tailscale",
+      "country": "미국/글로벌",
+      "url": "https://tailscale.com/why-tailscale",
+      "source_ids": [
+        "SRC-011"
+      ],
+      "total": 94,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "기기 수명주기·망 전환·권한·복구",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 기기 수명주기·망 전환·권한·복구 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-012",
+      "group": "B",
+      "name": "Cloudflare WARP",
+      "country": "미국/글로벌",
+      "url": "https://one.one.one.one/",
+      "source_ids": [
+        "SRC-012"
+      ],
+      "total": 92,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "한 번 누르는 연결·다중 플랫폼·망 전환",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 한 번 누르는 연결·다중 플랫폼·망 전환 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-013",
+      "group": "B",
+      "name": "Signal",
+      "country": "미국/글로벌",
+      "url": "https://signal.org/",
+      "source_ids": [
+        "SRC-013"
+      ],
+      "total": 89,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "개인정보 기본값·최소 수집·신뢰 설명",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 개인정보 기본값·최소 수집·신뢰 설명 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-014",
+      "group": "B",
+      "name": "Tor Browser",
+      "country": "비영리/글로벌",
+      "url": "https://www.torproject.org/",
+      "source_ids": [
+        "SRC-014"
+      ],
+      "total": 90,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "검열 저항·위협 모델·정직한 한계",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 검열 저항·위협 모델·정직한 한계 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-015",
+      "group": "B",
+      "name": "Bitwarden",
+      "country": "미국/글로벌",
+      "url": "https://bitwarden.com/help/security-faqs/",
+      "source_ids": [
+        "SRC-015"
+      ],
+      "total": 88,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "계정 복구·기기 통제·내보내기·감사",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 계정 복구·기기 통제·내보내기·감사 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-016",
+      "group": "B",
+      "name": "Atlassian Statuspage",
+      "country": "호주/미국·글로벌",
+      "url": "https://www.atlassian.com/software/statuspage",
+      "source_ids": [
+        "SRC-016"
+      ],
+      "total": 86,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "장애 상태·구독 알림·사고 소통",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 장애 상태·구독 알림·사고 소통 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-017",
+      "group": "B",
+      "name": "Stripe Billing",
+      "country": "미국/글로벌",
+      "url": "https://stripe.com/billing",
+      "source_ids": [
+        "SRC-017"
+      ],
+      "total": 90,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "구독·청구·변경·수익 운영",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 구독·청구·변경·수익 운영 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-018",
+      "group": "B",
+      "name": "Apple App Store Subscriptions",
+      "country": "미국/글로벌",
+      "url": "https://developer.apple.com/app-store/subscriptions/",
+      "source_ids": [
+        "SRC-018"
+      ],
+      "total": 88,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "모바일 가입·갱신·취소·복원",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 모바일 가입·갱신·취소·복원 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-019",
+      "group": "B",
+      "name": "Accessibility Insights",
+      "country": "미국/글로벌",
+      "url": "https://accessibilityinsights.io/",
+      "source_ids": [
+        "SRC-019"
+      ],
+      "total": 84,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "자동·수동 접근성 검증",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 자동·수동 접근성 검증 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-020",
+      "group": "B",
+      "name": "GitHub Advanced Security",
+      "country": "미국/글로벌",
+      "url": "https://github.com/features/security",
+      "source_ids": [
+        "SRC-020"
+      ],
+      "total": 87,
+      "users": "해당 전문 과업 사용자·운영자",
+      "problem": "비밀값·의존성·코드 위험의 지속 검사",
+      "tasks": [
+        "시작",
+        "상태 이해",
+        "통제",
+        "실패 복구",
+        "운영 확인"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/구독/기업형 중 서비스별 상이",
+      "why": "FreeFlexVPN의 비밀값·의존성·코드 위험의 지속 검사 관행을 비교하기 위해 선정",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-021",
+      "group": "C",
+      "name": "NextDNS",
+      "country": "미국/프랑스·글로벌",
+      "url": "https://nextdns.io/",
+      "source_ids": [
+        "SRC-021"
+      ],
+      "total": 90,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "개인화 DNS 보안·추적 차단",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 개인화 DNS 보안·추적 차단 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-022",
+      "group": "C",
+      "name": "AdGuard DNS",
+      "country": "키프로스/글로벌",
+      "url": "https://adguard-dns.io/",
+      "source_ids": [
+        "SRC-022"
+      ],
+      "total": 86,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "DNS 기반 광고·추적·악성 도메인 차단",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 DNS 기반 광고·추적·악성 도메인 차단 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-023",
+      "group": "C",
+      "name": "Quad9",
+      "country": "스위스/글로벌",
+      "url": "https://quad9.net/",
+      "source_ids": [
+        "SRC-023"
+      ],
+      "total": 84,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "무료 보안 DNS와 최소 개인정보",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 무료 보안 DNS와 최소 개인정보 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-024",
+      "group": "C",
+      "name": "Brave",
+      "country": "미국/글로벌",
+      "url": "https://brave.com/",
+      "source_ids": [
+        "SRC-024"
+      ],
+      "total": 88,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "브라우저 기본 추적 방어",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 브라우저 기본 추적 방어 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-025",
+      "group": "C",
+      "name": "Firefox",
+      "country": "미국 비영리/글로벌",
+      "url": "https://www.mozilla.org/firefox/",
+      "source_ids": [
+        "SRC-025"
+      ],
+      "total": 86,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "브라우저 개인정보 통제와 확장성",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 브라우저 개인정보 통제와 확장성 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-026",
+      "group": "C",
+      "name": "DuckDuckGo App",
+      "country": "미국/글로벌",
+      "url": "https://duckduckgo.com/app",
+      "source_ids": [
+        "SRC-026"
+      ],
+      "total": 87,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "검색·브라우저·추적 방어 통합",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 검색·브라우저·추적 방어 통합 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-027",
+      "group": "C",
+      "name": "Psiphon",
+      "country": "캐나다/글로벌",
+      "url": "https://psiphon.ca/",
+      "source_ids": [
+        "SRC-027"
+      ],
+      "total": 90,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "검열 환경 접근과 자동 경로 선택",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 검열 환경 접근과 자동 경로 선택 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-028",
+      "group": "C",
+      "name": "ZeroTier",
+      "country": "미국/글로벌",
+      "url": "https://www.zerotier.com/",
+      "source_ids": [
+        "SRC-028"
+      ],
+      "total": 82,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "기기 중심 가상 네트워크",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 기기 중심 가상 네트워크 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-029",
+      "group": "C",
+      "name": "Outline",
+      "country": "Jigsaw/글로벌",
+      "url": "https://getoutline.org/",
+      "source_ids": [
+        "SRC-029"
+      ],
+      "total": 88,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "사용자·조직이 관리하는 접근 서버",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 사용자·조직이 관리하는 접근 서버 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    },
+    {
+      "id": "SVC-030",
+      "group": "C",
+      "name": "Opera Free VPN",
+      "country": "노르웨이/글로벌",
+      "url": "https://www.opera.com/features/free-vpn",
+      "source_ids": [
+        "SRC-030"
+      ],
+      "total": 76,
+      "users": "VPN 대신 다른 개인정보·연결 수단을 쓰는 사용자",
+      "problem": "별도 VPN 앱 없이 브라우저 안에서 쓰는 대체 흐름",
+      "tasks": [
+        "설정",
+        "보호/접근",
+        "상태 확인",
+        "해제/복구"
+      ],
+      "platforms": "웹·모바일·PC 중 서비스별 상이",
+      "revenue": "무료/기부/구독 중 서비스별 상이",
+      "why": "같은 사용자 목적을 별도 VPN 앱 없이 브라우저 안에서 쓰는 대체 흐름 흐름으로 대체해 학습 가치가 있음",
+      "confidence": "medium"
+    }
+  ],
+  "limitations": [
+    "공개 문서 범위의 기능 가시성 비교",
+    "실제 구매·로그인·유료 기능·지역 제한은 우회하지 않음",
+    "시장 1위나 절대 세계 최고 순위가 아님"
+  ]
+}

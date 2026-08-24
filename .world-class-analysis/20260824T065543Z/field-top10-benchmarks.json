@@ -1,0 +1,5396 @@
+{
+  "run_id": "20260824T065543Z",
+  "generated_at": "2026-08-24T06:55:43Z",
+  "checked_at": "2026-08-24",
+  "calculation": "field top 10 from 30 selected services only; score desc, confidence, evidence completeness, checked date, service ID",
+  "fields": [
+    {
+      "field_id": "FIELD-001",
+      "field_name": "시작과 첫 가치",
+      "weight": 5,
+      "benchmark_id": "FIELD-T10-001",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 21,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-012",
+          "service_name": "Cloudflare WARP",
+          "group": "B",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-012"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-013",
+          "service_name": "Signal",
+          "group": "B",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-013"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-021",
+          "service_name": "NextDNS",
+          "group": "C",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-021"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-022",
+          "service_name": "AdGuard DNS",
+          "group": "C",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-022"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-023",
+          "service_name": "Quad9",
+          "group": "C",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-023"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-024",
+          "service_name": "Brave",
+          "group": "C",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-024"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-025",
+          "service_name": "Firefox",
+          "group": "C",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-025"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-026",
+          "service_name": "DuckDuckGo App",
+          "group": "C",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-026"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-027",
+          "service_name": "Psiphon",
+          "group": "C",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-027"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-029",
+          "service_name": "Outline",
+          "group": "C",
+          "score": 4,
+          "user_result": "시작과 첫 가치에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-029"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 4,
+      "top10_average_ratio": 100,
+      "median": 4,
+      "minimum": 4,
+      "maximum": 4,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 22,
+        "absolute_gap": -2,
+        "percentage_gap": -50,
+        "attainment_rate": 50,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-002",
+      "field_name": "핵심 과업 완성도",
+      "weight": 8,
+      "benchmark_id": "FIELD-T10-002",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 10,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "핵심 과업 완성도에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 4,
+      "top10_average_ratio": 100,
+      "median": 4,
+      "minimum": 4,
+      "maximum": 4,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 11,
+        "absolute_gap": -2,
+        "percentage_gap": -50,
+        "attainment_rate": 50,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-003",
+      "field_name": "개인화",
+      "weight": 2,
+      "benchmark_id": "FIELD-T10-003",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 15,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "개인화에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 1,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 16,
+        "absolute_gap": -2,
+        "percentage_gap": -50,
+        "attainment_rate": 33.3,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-004",
+      "field_name": "결과 이해와 설명",
+      "weight": 3,
+      "benchmark_id": "FIELD-T10-004",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 15,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "결과 이해와 설명에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 16,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 66.7,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-005",
+      "field_name": "오류·실패 복구",
+      "weight": 5,
+      "benchmark_id": "FIELD-T10-005",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 21,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "오류·실패 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 22,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 66.7,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-006",
+      "field_name": "저장·내보내기·공유",
+      "weight": 2,
+      "benchmark_id": "FIELD-T10-006",
+      "status": "FIELD_TOP10_INCOMPLETE",
+      "eligible_count": 2,
+      "confirmed_top_count": 2,
+      "shortage": 8,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-015",
+          "service_name": "Bitwarden",
+          "group": "B",
+          "score": 3,
+          "user_result": "저장·내보내기·공유에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-015"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-025",
+          "service_name": "Firefox",
+          "group": "C",
+          "score": 3,
+          "user_result": "저장·내보내기·공유에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-025"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": null,
+      "top10_average_ratio": null,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 1,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 3,
+        "absolute_gap": null,
+        "percentage_gap": null,
+        "attainment_rate": null,
+        "verdict": "NOT_ASSESSABLE"
+      }
+    },
+    {
+      "field_id": "FIELD-007",
+      "field_name": "모바일 경험",
+      "weight": 4,
+      "benchmark_id": "FIELD-T10-007",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 23,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "모바일 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 4,
+      "top10_average_ratio": 100,
+      "median": 4,
+      "minimum": 4,
+      "maximum": 4,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 3,
+        "confidence": "high",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 11,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 75,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-008",
+      "field_name": "PC 경험",
+      "weight": 4,
+      "benchmark_id": "FIELD-T10-008",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 23,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "PC 경험에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 4,
+      "top10_average_ratio": 100,
+      "median": 4,
+      "minimum": 4,
+      "maximum": 4,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 3,
+        "confidence": "high",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 11,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 75,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-009",
+      "field_name": "플랫폼 간 연속성",
+      "weight": 3,
+      "benchmark_id": "FIELD-T10-009",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 20,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "플랫폼 간 연속성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 21,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 66.7,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-010",
+      "field_name": "접근성",
+      "weight": 5,
+      "benchmark_id": "FIELD-T10-010",
+      "status": "FIELD_TOP10_INCOMPLETE",
+      "eligible_count": 2,
+      "confirmed_top_count": 2,
+      "shortage": 8,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-019",
+          "service_name": "Accessibility Insights",
+          "group": "B",
+          "score": 3,
+          "user_result": "접근성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-019"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-025",
+          "service_name": "Firefox",
+          "group": "C",
+          "score": 3,
+          "user_result": "접근성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-025"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": null,
+      "top10_average_ratio": null,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 3,
+        "absolute_gap": null,
+        "percentage_gap": null,
+        "attainment_rate": null,
+        "verdict": "NOT_ASSESSABLE"
+      }
+    },
+    {
+      "field_id": "FIELD-011",
+      "field_name": "성능과 안정성",
+      "weight": 7,
+      "benchmark_id": "FIELD-T10-011",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 17,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "성능과 안정성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 18,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 66.7,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-012",
+      "field_name": "개인정보·보안",
+      "weight": 7,
+      "benchmark_id": "FIELD-T10-012",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 26,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-011",
+          "service_name": "Tailscale",
+          "group": "B",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-011"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-012",
+          "service_name": "Cloudflare WARP",
+          "group": "B",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-012"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-013",
+          "service_name": "Signal",
+          "group": "B",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-013"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-014",
+          "service_name": "Tor Browser",
+          "group": "B",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-014"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-015",
+          "service_name": "Bitwarden",
+          "group": "B",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-015"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-020",
+          "service_name": "GitHub Advanced Security",
+          "group": "B",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-020"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-021",
+          "service_name": "NextDNS",
+          "group": "C",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-021"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-022",
+          "service_name": "AdGuard DNS",
+          "group": "C",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-022"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-023",
+          "service_name": "Quad9",
+          "group": "C",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-023"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-024",
+          "service_name": "Brave",
+          "group": "C",
+          "score": 4,
+          "user_result": "개인정보·보안에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-024"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 4,
+      "top10_average_ratio": 100,
+      "median": 4,
+      "minimum": 4,
+      "maximum": 4,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 3,
+        "confidence": "high",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 17,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 75,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-013",
+      "field_name": "계정·권한·삭제",
+      "weight": 4,
+      "benchmark_id": "FIELD-T10-013",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 17,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "계정·권한·삭제에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 18,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 66.7,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-014",
+      "field_name": "가격·결제·취소·환불",
+      "weight": 3,
+      "benchmark_id": "FIELD-T10-014",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 12,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "가격·결제·취소·환불에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": null,
+        "confidence": "low",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": null,
+        "absolute_gap": null,
+        "percentage_gap": null,
+        "attainment_rate": null,
+        "verdict": "NOT_ASSESSABLE"
+      }
+    },
+    {
+      "field_id": "FIELD-015",
+      "field_name": "고객지원·장애 대응",
+      "weight": 3,
+      "benchmark_id": "FIELD-T10-015",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 12,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-016",
+          "service_name": "Atlassian Statuspage",
+          "group": "B",
+          "score": 3,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-016"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-020",
+          "service_name": "GitHub Advanced Security",
+          "group": "B",
+          "score": 3,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-020"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 2,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 2,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 2,
+          "user_result": "고객지원·장애 대응에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 2.2,
+      "top10_average_ratio": 55,
+      "median": 2,
+      "minimum": 2,
+      "maximum": 3,
+      "standard_deviation": 0.4,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 1,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 13,
+        "absolute_gap": -1.2,
+        "percentage_gap": -30,
+        "attainment_rate": 45.5,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-016",
+      "field_name": "장기 사용과 유지",
+      "weight": 2,
+      "benchmark_id": "FIELD-T10-016",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 14,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "장기 사용과 유지에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 1,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 15,
+        "absolute_gap": -2,
+        "percentage_gap": -50,
+        "attainment_rate": 33.3,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-017",
+      "field_name": "팀·관리자·운영",
+      "weight": 1,
+      "benchmark_id": "FIELD-T10-017",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 16,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-011",
+          "service_name": "Tailscale",
+          "group": "B",
+          "score": 3,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-011"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-016",
+          "service_name": "Atlassian Statuspage",
+          "group": "B",
+          "score": 3,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-016"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-017",
+          "service_name": "Stripe Billing",
+          "group": "B",
+          "score": 3,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-017"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-020",
+          "service_name": "GitHub Advanced Security",
+          "group": "B",
+          "score": 3,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-020"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-028",
+          "service_name": "ZeroTier",
+          "group": "C",
+          "score": 3,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-028"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-029",
+          "service_name": "Outline",
+          "group": "C",
+          "score": 3,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-029"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 2,
+          "user_result": "팀·관리자·운영에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 2.6,
+      "top10_average_ratio": 65,
+      "median": 3,
+      "minimum": 2,
+      "maximum": 3,
+      "standard_deviation": 0.5,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 1,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 17,
+        "absolute_gap": -1.6,
+        "percentage_gap": -40,
+        "attainment_rate": 38.5,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-018",
+      "field_name": "차별화 요소",
+      "weight": 3,
+      "benchmark_id": "FIELD-T10-018",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 10,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "차별화 요소에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 3,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 1,
+        "absolute_gap": 0,
+        "percentage_gap": 0,
+        "attainment_rate": 100,
+        "verdict": "MEETS"
+      }
+    },
+    {
+      "field_id": "FIELD-019",
+      "field_name": "사용자 신뢰",
+      "weight": 5,
+      "benchmark_id": "FIELD-T10-019",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 29,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-011",
+          "service_name": "Tailscale",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-011"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-012",
+          "service_name": "Cloudflare WARP",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-012"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-013",
+          "service_name": "Signal",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-013"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-014",
+          "service_name": "Tor Browser",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-014"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-015",
+          "service_name": "Bitwarden",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-015"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-016",
+          "service_name": "Atlassian Statuspage",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-016"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-017",
+          "service_name": "Stripe Billing",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-017"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-018",
+          "service_name": "Apple App Store Subscriptions",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-018"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-019",
+          "service_name": "Accessibility Insights",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-019"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-020",
+          "service_name": "GitHub Advanced Security",
+          "group": "B",
+          "score": 4,
+          "user_result": "사용자 신뢰에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-020"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 4,
+      "top10_average_ratio": 100,
+      "median": 4,
+      "minimum": 4,
+      "maximum": 4,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 30,
+        "absolute_gap": -2,
+        "percentage_gap": -50,
+        "attainment_rate": 50,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-020",
+      "field_name": "도입하면 안 되는 부작용",
+      "weight": 1,
+      "benchmark_id": "FIELD-T10-020",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 15,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-013",
+          "service_name": "Signal",
+          "group": "B",
+          "score": 3,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-013"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-014",
+          "service_name": "Tor Browser",
+          "group": "B",
+          "score": 3,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-014"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-024",
+          "service_name": "Brave",
+          "group": "C",
+          "score": 3,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-024"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-026",
+          "service_name": "DuckDuckGo App",
+          "group": "C",
+          "score": 3,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-026"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-030",
+          "service_name": "Opera Free VPN",
+          "group": "C",
+          "score": 3,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-030"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 2,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "도입하면 안 되는 부작용에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 2.5,
+      "top10_average_ratio": 62.5,
+      "median": 2.5,
+      "minimum": 2,
+      "maximum": 3,
+      "standard_deviation": 0.5,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 1,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 16,
+        "absolute_gap": -1.5,
+        "percentage_gap": -37.5,
+        "attainment_rate": 40,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-021",
+      "field_name": "프로토콜 투명성",
+      "weight": 4,
+      "benchmark_id": "FIELD-T10-021",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 17,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 4,
+          "user_result": "프로토콜 투명성에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 4/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 4,
+      "top10_average_ratio": 100,
+      "median": 4,
+      "minimum": 4,
+      "maximum": 4,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 3,
+        "confidence": "high",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 11,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 75,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-022",
+      "field_name": "킬 스위치·항상 연결",
+      "weight": 4,
+      "benchmark_id": "FIELD-T10-022",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 10,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "킬 스위치·항상 연결에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": null,
+        "confidence": "low",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": null,
+        "absolute_gap": null,
+        "percentage_gap": null,
+        "attainment_rate": null,
+        "verdict": "NOT_ASSESSABLE"
+      }
+    },
+    {
+      "field_id": "FIELD-023",
+      "field_name": "DNS·IPv6·누출 확인",
+      "weight": 5,
+      "benchmark_id": "FIELD-T10-023",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 13,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "DNS·IPv6·누출 확인에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 14,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 66.7,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-024",
+      "field_name": "검열 환경 복구",
+      "weight": 2,
+      "benchmark_id": "FIELD-T10-024",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 15,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-012",
+          "service_name": "Cloudflare WARP",
+          "group": "B",
+          "score": 3,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-012"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-014",
+          "service_name": "Tor Browser",
+          "group": "B",
+          "score": 3,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-014"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-024",
+          "service_name": "Brave",
+          "group": "C",
+          "score": 3,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-024"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-027",
+          "service_name": "Psiphon",
+          "group": "C",
+          "score": 3,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-027"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-029",
+          "service_name": "Outline",
+          "group": "C",
+          "score": 3,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-029"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 2,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "검열 환경 복구에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 2.5,
+      "top10_average_ratio": 62.5,
+      "median": 2.5,
+      "minimum": 2,
+      "maximum": 3,
+      "standard_deviation": 0.5,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 1,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 16,
+        "absolute_gap": -1.5,
+        "percentage_gap": -37.5,
+        "attainment_rate": 40,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-025",
+      "field_name": "서버 상태·혼잡·대체",
+      "weight": 2,
+      "benchmark_id": "FIELD-T10-025",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 12,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-011",
+          "service_name": "Tailscale",
+          "group": "B",
+          "score": 3,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-011"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-016",
+          "service_name": "Atlassian Statuspage",
+          "group": "B",
+          "score": 3,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-016"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 2,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 2,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 2,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 2,
+          "user_result": "서버 상태·혼잡·대체에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 2/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 2.2,
+      "top10_average_ratio": 55,
+      "median": 2,
+      "minimum": 2,
+      "maximum": 3,
+      "standard_deviation": 0.4,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 1,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 13,
+        "absolute_gap": -1.2,
+        "percentage_gap": -30,
+        "attainment_rate": 45.5,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-026",
+      "field_name": "기기·프로필 발급·폐기",
+      "weight": 3,
+      "benchmark_id": "FIELD-T10-026",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 15,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "기기·프로필 발급·폐기에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 2,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 16,
+        "absolute_gap": -1,
+        "percentage_gap": -25,
+        "attainment_rate": 66.7,
+        "verdict": "BEHIND"
+      }
+    },
+    {
+      "field_id": "FIELD-027",
+      "field_name": "무료 데이터·사용량 권리",
+      "weight": 2,
+      "benchmark_id": "FIELD-T10-027",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 10,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "무료 데이터·사용량 권리에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 3,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 1,
+        "absolute_gap": 0,
+        "percentage_gap": 0,
+        "attainment_rate": 100,
+        "verdict": "MEETS"
+      }
+    },
+    {
+      "field_id": "FIELD-028",
+      "field_name": "관할·국가 지원 범위",
+      "weight": 1,
+      "benchmark_id": "FIELD-T10-028",
+      "status": "FIELD_TOP10_COMPLETE",
+      "eligible_count": 13,
+      "confirmed_top_count": 10,
+      "shortage": 0,
+      "top_services": [
+        {
+          "rank": 1,
+          "service_id": "SVC-001",
+          "service_name": "Proton VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-001",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 2,
+          "service_id": "SVC-002",
+          "service_name": "Mullvad VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-002",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 3,
+          "service_id": "SVC-003",
+          "service_name": "NordVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-003",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 4,
+          "service_id": "SVC-004",
+          "service_name": "Surfshark",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-004",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 5,
+          "service_id": "SVC-005",
+          "service_name": "ExpressVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-005",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 6,
+          "service_id": "SVC-006",
+          "service_name": "IVPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-006",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 7,
+          "service_id": "SVC-007",
+          "service_name": "Windscribe",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-007",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 8,
+          "service_id": "SVC-008",
+          "service_name": "TunnelBear",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-008",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 9,
+          "service_id": "SVC-009",
+          "service_name": "Private Internet Access",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-009",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        },
+        {
+          "rank": 10,
+          "service_id": "SVC-010",
+          "service_name": "CyberGhost VPN",
+          "group": "A",
+          "score": 3,
+          "user_result": "관할·국가 지원 범위에 대한 확인 가능한 사용자 결과",
+          "source_ids": [
+            "SRC-010",
+            "SRC-039",
+            "SRC-040"
+          ],
+          "confidence": "medium",
+          "checked_at": "2026-08-24",
+          "why_top": "점수 3/4·근거 medium·정렬 규칙 충족",
+          "adoption_caution": "외형이나 문구를 복제하지 않고 사용자 결과와 안전 원칙만 재설계"
+        }
+      ],
+      "top10_average_score": 3,
+      "top10_average_ratio": 75,
+      "median": 3,
+      "minimum": 3,
+      "maximum": 3,
+      "standard_deviation": 0,
+      "own": {
+        "service_id": "OWN-001",
+        "score": 1,
+        "confidence": "medium",
+        "source_ids": [
+          "SRC-031",
+          "SRC-032",
+          "SRC-033",
+          "SRC-034",
+          "SRC-045",
+          "SRC-046"
+        ],
+        "virtual_rank": 14,
+        "absolute_gap": -2,
+        "percentage_gap": -50,
+        "attainment_rate": 33.3,
+        "verdict": "BEHIND"
+      }
+    }
+  ]
+}

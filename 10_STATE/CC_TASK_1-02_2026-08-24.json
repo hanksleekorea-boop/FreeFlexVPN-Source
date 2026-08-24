@@ -1,0 +1,17 @@
+{
+  "schema": "FreeFlexVPNCommercialTaskReceiptV2",
+  "task_id": "CC-TASK-1-02",
+  "status": "done_code",
+  "checked_at": "2026-08-24",
+  "changed_paths": ["20_SRC/app/profile_lifecycle.js", "20_SRC/app/control_api.py", "20_SRC/app/client_keygen.js", "20_SRC/app/pwa_runtime.js", "20_SRC/build_app_v2.py", "20_SRC/build_web_assets.py", "40_TESTS/test_cc_profile_lifecycle.py", "30_DEPLOY/app.html", "30_DEPLOY/profile_lifecycle.js"],
+  "preserved_contracts": ["CC-BASE-01", "CC-BASE-02", "CC-BASE-03", "CC-BASE-04", "CC-BASE-05", "CC-BASE-06", "CC-BASE-07", "CC-BASE-08", "CC-BASE-09", "CC-BASE-10"],
+  "evidence": {
+    "automatic": {"status": "pass", "passed": 78, "failed": 0},
+    "browser": {"status": "pass", "viewports": [390, 1280]},
+    "device": {"status": "not_run", "platform": "android"},
+    "external": {"status": "not_run", "payment": "not_run", "legal": "not_run", "operations": "not_run"},
+    "rollback": {"status": "not_run", "tested": false}
+  },
+  "unknowns": ["신규 Android 실제 3분 발급·가져오기·연결", "실제 서버 후보 재발급·폐기 왕복"],
+  "notes": "10분은 설정 원문 수령 기간이며 VPN 이용 기간이 아니다. 기존 프로필 자동 폐기와 자동 활성화는 없다."
+}

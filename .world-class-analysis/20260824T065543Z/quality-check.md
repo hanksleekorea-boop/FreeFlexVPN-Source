@@ -1,0 +1,85 @@
+# 품질 검사
+
+실행 ID: 20260824T065543Z · 확인일: 2026-08-24
+
+- PASS · selected 30: 30
+- PASS · group A 10: 10
+- PASS · group B 10: 10
+- PASS · group C 10: 10
+- PASS · unique service ids: unique
+- PASS · matrix rows: 868
+- PASS · field weights 100: 100
+- PASS · field benchmark 28 assessed: 28
+- PASS · field top10 incomplete not force-filled: FIELD-006/FIELD-010 use confirmed top N only
+- PASS · overall top10 complete: 10
+- PASS · all source ids registered: rows
+- PASS · task 28: 28
+- PASS · predecessors 28: 28
+- PASS · no missing predecessor: all known
+- PASS · no self predecessor: zero self
+- PASS · linear predecessors: linear
+- PASS · no false DONE: zero DONE
+- PASS · negative duplicate caught: caught
+- PASS · negative missing source caught: caught
+- PASS · negative wrong sum caught: caught
+- PASS · negative missing predecessor caught: caught
+- PASS · negative false DONE caught: caught
+
+- JSON·CSV·파일 지문은 생성 뒤 독립 검사에서 다시 확인한다.
+- 제품 코드·설정·의존성·기존 기획서·운영 데이터·Git·공개 서비스 변경 없음.
+## 독립 재검증
+
+- PASS · 23 required and benchmark files exist: 23
+- PASS · all JSON parse: 8/8
+- PASS · 30 selected unique IDs: 30
+- PASS · 30 unique official URLs: 30
+- PASS · group A: 10
+- PASS · group B: 10
+- PASS · group C: 10
+- PASS · matrix 868 rows: 868
+- PASS · matrix fields 28: 28
+- PASS · weight total 100: 100
+- PASS · CSV header plus 868 rows: 869
+- PASS · all matrix source IDs registered: all registered
+- PASS · 28 field benchmark records: 28
+- PASS · 26 complete field top10: 26
+- PASS · 2 incomplete fields not force-filled: FIELD-006/FIELD-010
+- PASS · FIELD-001 average: 4
+- PASS · FIELD-002 average: 4
+- PASS · FIELD-003 average: 3
+- PASS · FIELD-004 average: 3
+- PASS · FIELD-005 average: 3
+- PASS · FIELD-007 average: 4
+- PASS · FIELD-008 average: 4
+- PASS · FIELD-009 average: 3
+- PASS · FIELD-011 average: 3
+- PASS · FIELD-012 average: 4
+- PASS · FIELD-013 average: 3
+- PASS · FIELD-014 average: 3
+- PASS · FIELD-015 average: 2.2
+- PASS · FIELD-016 average: 3
+- PASS · FIELD-017 average: 2.6
+- PASS · FIELD-018 average: 3
+- PASS · FIELD-019 average: 4
+- PASS · FIELD-020 average: 2.5
+- PASS · FIELD-021 average: 4
+- PASS · FIELD-022 average: 3
+- PASS · FIELD-023 average: 3
+- PASS · FIELD-024 average: 2.5
+- PASS · FIELD-025 average: 2.2
+- PASS · FIELD-026 average: 3
+- PASS · FIELD-027 average: 3
+- PASS · FIELD-028 average: 3
+- PASS · overall top10 complete: 10
+- PASS · overall average recomputes: 34.8
+- PASS · own score is marked numerical not market rank: 48.5/93
+- PASS · 28 task IDs unique: 28
+- PASS · 28 predecessors: 28
+- PASS · task dependencies exist and are acyclic linear: 0
+- PASS · no false DONE: 0
+- PASS · negative duplicate ID caught: caught
+- PASS · negative missing source caught: caught
+- PASS · negative wrong total caught: caught
+- PASS · negative missing predecessor caught: caught
+- PASS · negative false DONE caught: caught
+- PASS · Markdown local links resolve: 0 checked, 0 broken

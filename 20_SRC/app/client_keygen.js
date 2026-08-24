@@ -146,6 +146,8 @@ export async function createDeviceProfile(options) {
     config: renderWireGuardConfig(keyPair.privateKey, registration),
     publicKey: keyPair.publicKey,
     deviceId: registration.device_id || null,
+    issuedAt: registration.issued_at || null,
+    deliveryExpiresAt: registration.delivery_expires_at || null,
   });
 }
 

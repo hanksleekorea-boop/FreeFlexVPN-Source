@@ -1,0 +1,14 @@
+{
+  "schema": "FreeFlexVPNRegressionReceiptV1",
+  "checked_at": "2026-08-24",
+  "scope": "CC-TASK-1-00 through CC-TASK-1-03 final staged candidate",
+  "full_runner_initial": {"files_passed": 101, "files_total": 102, "checks_passed": 1024, "checks_total": 1025, "duration_seconds": 1368.9},
+  "corrected_failure_rerun": {"file": "test_ai_handoff.py", "passed": 7, "total": 7},
+  "combined_file_status": {"files_passed": 102, "files_total": 102, "unresolved_failures": 0},
+  "manifest": {"status": "pass", "files": 632},
+  "secret_scan": {"status": "pass", "outside_allowlist": 0},
+  "diff_check": {"status": "pass"},
+  "android_idle_selection": {"status": "blocked_no_idle_device", "device_count": 1, "eligible_count": 0, "mutation_count": 0},
+  "external_evidence": {"android_current_network_safety": "not_run", "public_deployment": "not_run", "payment": "not_run", "legal": "not_run", "operations": "not_run"},
+  "score_changed": false
+}

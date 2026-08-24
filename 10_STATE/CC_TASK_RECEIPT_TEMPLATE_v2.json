@@ -1,0 +1,20 @@
+{
+  "schema": "FreeFlexVPNCommercialTaskReceiptV2",
+  "task_id": "CC-TASK-1-00",
+  "status": "ready",
+  "checked_at": null,
+  "changed_paths": [],
+  "preserved_contracts": [
+    "CC-BASE-01", "CC-BASE-02", "CC-BASE-03", "CC-BASE-04", "CC-BASE-05",
+    "CC-BASE-06", "CC-BASE-07", "CC-BASE-08", "CC-BASE-09", "CC-BASE-10"
+  ],
+  "evidence": {
+    "automatic": {"status": "not_run", "passed": 0, "failed": 0},
+    "browser": {"status": "not_run", "viewports": []},
+    "device": {"status": "not_run", "platform": null},
+    "external": {"status": "not_run", "payment": "not_run", "legal": "not_run", "operations": "not_run"},
+    "rollback": {"status": "not_run", "tested": false}
+  },
+  "unknowns": ["증거를 실행한 뒤 실제 결과만 기록"],
+  "notes": "비밀번호·토큰·IP 원문·개인키·설정 원문·기기 일련번호를 넣지 않는다."
+}
