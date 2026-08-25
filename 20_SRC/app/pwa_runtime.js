@@ -538,9 +538,19 @@ function renderDevices(payload) {
     const dot = document.createElement("i");
     const content = document.createElement("div");
     const role = device.device_id === candidateDeviceId ? "새 교체 후보" : "기존 설정";
-    const title = document.createElement("b"); title.textContent = `${role} · ${device.server_id} · ${device.status}`;
-    const detail = document.createElement("small"); detail.textContent = `식별자 ${device.device_id.slice(0, 8)} · 주소와 키는 표시하지 않음`;
+    const title = document.createElement("b"); title.textContent = `${role} · ${device.display_name || "등록된 기기"} · ${device.status}`;
+    const verifiedAt = formatMeasuredAt(device.last_verified_at);
+    const detail = document.createElement("small"); detail.textContent = `${device.server_id} · 최근 확인 ${verifiedAt || "확인 전"} · 주소와 키는 표시하지 않음`;
     content.append(title, detail); row.append(dot, content);
+    const rename = document.createElement("button"); rename.type = "button"; rename.className = "text-btn"; rename.textContent = "이름 변경";
+    rename.addEventListener("click", async () => {
+      const nextName = globalThis.prompt("이 기기에서만 보일 이름을 입력하세요. 키·주소·개인정보는 넣지 마세요.", device.display_name || "등록된 기기");
+      if (nextName === null) return;
+      rename.disabled = true;
+      try { await client.renameDevice(device.device_id, nextName, Number(device.revision)); await syncAccount(); notify("기기 이름을 바꿨습니다."); }
+      catch (error) { notify(readableError(error)); rename.disabled = false; }
+    });
+    row.append(rename);
     if (device.status === "active") {
       const revoke = document.createElement("button"); revoke.type = "button"; revoke.className = "text-btn";
       const allowed = canRevokeDevice(device.device_id);
@@ -563,6 +573,16 @@ function renderDevices(payload) {
         catch (error) { notify(readableError(error)); revoke.disabled = false; }
       });
       row.append(revoke);
+    }
+    if (device.status === "revocation_pending") {
+      const cancel = document.createElement("button"); cancel.type = "button"; cancel.className = "text-btn"; cancel.textContent = "폐기 요청 취소";
+      cancel.addEventListener("click", async () => {
+        if (!globalThis.confirm("서버에서 실제 폐기가 확인되지 않은 대기 요청만 취소합니다. 계속할까요?")) return;
+        cancel.disabled = true;
+        try { await client.cancelPendingRevocation(device.device_id); await syncAccount(); notify("서버 폐기 전 대기 요청을 취소했습니다."); }
+        catch (error) { notify(readableError(error)); cancel.disabled = false; }
+      });
+      row.append(cancel);
     }
     deviceList.append(row);
   }

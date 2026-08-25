@@ -54,6 +54,8 @@ async def run() -> None:
                     if (url.endsWith('/v1/claims/exchange')) return {ok:true,status:200,json:async()=>({access_token:token,wallet:{}})};
                     if (url.endsWith('/v1/wallet')) return {ok:true,status:200,json:async()=>({balances:{free:1000000000,earned:0,paid:0},total_available_bytes:1000000000})};
                     if (url.endsWith('/v1/devices') && options.method === 'POST') return {ok:true,status:201,json:async()=>({device_id:'a'.repeat(32)})};
+                    if (url.endsWith('/v1/devices/'+'a'.repeat(32)) && options.method === 'PATCH') return {ok:true,status:200,json:async()=>({device_id:'a'.repeat(32),display_name:'업무용 Android',revision:2})};
+                    if (url.endsWith('/v1/devices/'+'a'.repeat(32)+'/cancel-revocation')) return {ok:true,status:200,json:async()=>({device_id:'a'.repeat(32),status:'active',cancelled_before_server_enforcement:true})};
                     if (url.endsWith('/v1/account/export')) return {ok:true,status:200,json:async()=>({schema:'FreeFlexVPNAccountExportV1',contains_private_keys:false})};
                     if (url.endsWith('/v1/account/delete')) return {ok:true,status:202,json:async()=>({request_id:'b'.repeat(32),status_token:'s'.repeat(43),status_path:'/v1/account/deletion-status/'+'b'.repeat(32)})};
                     if (url.includes('/v1/account/deletion-status/')) return {ok:true,status:200,json:async()=>({status:'requested',completion_is_verified:false})};
@@ -66,6 +68,8 @@ async def run() -> None:
                   const wallet = await client.wallet();
                   const tokenBefore401 = vault.get();
                   await client.registerDevice('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=', 'sg-edge-1');
+                  const renamed = await client.renameDevice('a'.repeat(32), '업무용 Android', 1);
+                  const cancelled = await client.cancelPendingRevocation('a'.repeat(32));
                   let apiError = null;
                   try { await client.usage(); } catch (error) { apiError = {name:error.name,code:error.code,status:error.status,message:error.message}; }
                   const tokenImmediatelyAfter401 = vault.get();
@@ -82,7 +86,7 @@ async def run() -> None:
                   const deletion=await client.requestAccountDeletion();
                   const tokenAfterDeletion=vault.get();
                   const deletionStatus=await client.deletionStatus(deletion.request_id,deletion.status_token);
-                  return {requests,exchange,wallet,exported,deletionStatus,persistence:vault.persistence,tokenBefore401,tokenImmediatelyAfter401,tokenAfterDeletion,apiError,invalidBase,invalidBytes,historyCalls,launchUrl};
+                  return {requests,exchange,wallet,exported,deletionStatus,renamed,cancelled,persistence:vault.persistence,tokenBefore401,tokenImmediatelyAfter401,tokenAfterDeletion,apiError,invalidBase,invalidBytes,historyCalls,launchUrl};
                 }""",
                 base,
             )
@@ -100,6 +104,8 @@ async def run() -> None:
     check("인증 헤더는 보호 API에만 전송", "Authorization" not in requests[0]["headers"] and wallet_request["headers"]["Authorization"].startswith("Bearer "))
     check("요청마다 쿠키·캐시 배제", all(item["credentials"] == "omit" and item["cache"] == "no-store" for item in requests))
     check("기기 등록은 공개키만 전송", "wg_public_key" in device_request["body"] and "private" not in device_request["body"].lower())
+    check("기기 이름 변경은 판번호와 함께 전송", '"display_name":"업무용 Android"' in requests[3]["body"] and '"revision":1' in requests[3]["body"] and result["renamed"]["revision"] == 2)
+    check("서버 미집행 폐기만 취소 API 사용", requests[4]["method"] == "POST" and result["cancelled"]["cancelled_before_server_enforcement"] is True)
     check("API 오류가 상태·코드로 분리", result["apiError"]["name"] == "FreeFlexApiError" and result["apiError"]["status"] == 401)
     check("401 뒤 만료 세션 즉시 폐기", result["tokenImmediatelyAfter401"] is None)
     check("HTTP API base 거부", result["invalidBase"] == "HTTPS_API_BASE_REQUIRED")

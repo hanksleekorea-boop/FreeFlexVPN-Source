@@ -100,6 +100,9 @@ class ControlRequestHandler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:  # noqa: N802
         self._dispatch()
 
+    def do_PATCH(self) -> None:  # noqa: N802
+        self._dispatch()
+
     def do_DELETE(self) -> None:  # noqa: N802
         self._dispatch()
 
@@ -112,7 +115,7 @@ class ControlRequestHandler(BaseHTTPRequestHandler):
         if origin in self.allowed_origins:
             self.send_header("Access-Control-Allow-Origin", origin)
             self.send_header("Vary", "Origin")
-        self.send_header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Authorization, Content-Type, X-FreeFlex-Device")
         self.send_header("Access-Control-Max-Age", "600")
         self.send_header("Content-Length", "0")

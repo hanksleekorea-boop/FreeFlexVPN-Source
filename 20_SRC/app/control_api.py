@@ -30,6 +30,7 @@ MAX_ACTIVE_DEVICES = 2
 SAFETY_MAX_AGE_HOURS = 24
 DATA_RIGHTS_REAUTH_MINUTES = 5
 _ACCOUNT_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{2,127}$")
+_DEVICE_LABEL = re.compile(r"^[^\x00-\x1f]{1,40}$")
 
 
 def utc_now() -> datetime:
@@ -333,6 +334,13 @@ class ControlAPI:
                 raise ApiError(409, "DEVICE_LIMIT", "활성 기기는 최대 2대입니다")
             if connection.execute("SELECT 1 FROM devices WHERE wg_public_key=?", (public_key,)).fetchone():
                 raise ApiError(409, "DUPLICATE_PUBLIC_KEY", "이미 등록된 공개키입니다")
+        requested_label = body.get("device_label")
+        if requested_label is None:
+            display_name = "새 기기"
+        elif not isinstance(requested_label, str) or not _DEVICE_LABEL.fullmatch(requested_label.strip()):
+            raise ApiError(400, "INVALID_DEVICE_LABEL", "기기 이름은 제어문자 없이 1~40자여야 합니다")
+        else:
+            display_name = requested_label.strip()
         device_id = uuid.uuid4().hex
         try:
             provisioned = self.peer_provisioner(account_id, device_id, public_key, server)
@@ -351,12 +359,18 @@ class ControlAPI:
                 "INSERT INTO devices VALUES (?,?,?,?,?,'active',?,NULL)",
                 (device_id, account_id, public_key, server_id, str(interface), now.isoformat()),
             )
+            connection.execute(
+                "INSERT INTO device_metadata VALUES (?,?,1,?)",
+                (device_id, display_name, now.isoformat()),
+            )
             connection.commit()
         return ApiResponse(
             201,
             {
                 "device_id": device_id,
                 "status": "active",
+                "display_name": display_name,
+                "revision": 1,
                 "issued_at": now.isoformat(),
                 "delivery_expires_at": (now + timedelta(minutes=10)).isoformat(),
                 "configuration": {
@@ -372,6 +386,64 @@ class ControlAPI:
                 "private_key_received": False,
             },
         )
+
+    def _rename_device(self, account_id: str, device_id: str, body: Mapping[str, Any], now: datetime) -> ApiResponse:
+        """Rename only the caller's device after matching the currently rendered revision."""
+        if set(body) != {"display_name", "revision"}:
+            raise ApiError(400, "DEVICE_RENAME_SHAPE_INVALID", "기기 이름과 현재 판번호만 전송할 수 있습니다")
+        display_name, revision = body.get("display_name"), body.get("revision")
+        if not isinstance(display_name, str) or not _DEVICE_LABEL.fullmatch(display_name.strip()):
+            raise ApiError(400, "INVALID_DEVICE_LABEL", "기기 이름은 제어문자 없이 1~40자여야 합니다")
+        if type(revision) is not int or revision < 1:
+            raise ApiError(400, "INVALID_DEVICE_REVISION", "현재 판번호가 필요합니다")
+        normalized = display_name.strip()
+        with closing(self._connect()) as connection:
+            connection.execute("BEGIN IMMEDIATE")
+            device = connection.execute(
+                "SELECT device_id,status FROM devices WHERE device_id=? AND account_id=?", (device_id, account_id)
+            ).fetchone()
+            if device is None:
+                connection.rollback()
+                raise ApiError(404, "DEVICE_NOT_FOUND", "기기를 찾을 수 없습니다")
+            connection.execute(
+                "INSERT OR IGNORE INTO device_metadata VALUES (?,?,1,?)",
+                (device_id, "등록된 기기", now.isoformat()),
+            )
+            metadata = connection.execute(
+                "SELECT display_name,revision FROM device_metadata WHERE device_id=?", (device_id,)
+            ).fetchone()
+            assert metadata is not None
+            current_revision = int(metadata["revision"])
+            if revision != current_revision:
+                connection.rollback()
+                raise ApiError(409, "STALE_DEVICE_REVISION", "다른 화면에서 바뀐 기기 정보입니다. 목록을 새로 확인하세요")
+            if str(metadata["display_name"]) == normalized:
+                connection.commit()
+                return ApiResponse(200, {"device_id": device_id, "display_name": normalized, "revision": current_revision, "duplicate": True})
+            next_revision = current_revision + 1
+            connection.execute(
+                "UPDATE device_metadata SET display_name=?,revision=?,updated_at=? WHERE device_id=?",
+                (normalized, next_revision, now.isoformat(), device_id),
+            )
+            connection.commit()
+        return ApiResponse(200, {"device_id": device_id, "display_name": normalized, "revision": next_revision, "duplicate": False})
+
+    def _cancel_pending_revocation(self, account_id: str, device_id: str) -> ApiResponse:
+        """Only cancel a request which the peer adapter did not enforce on the server."""
+        with closing(self._connect()) as connection:
+            connection.execute("BEGIN IMMEDIATE")
+            row = connection.execute(
+                "SELECT status FROM devices WHERE device_id=? AND account_id=?", (device_id, account_id)
+            ).fetchone()
+            if row is None:
+                connection.rollback()
+                raise ApiError(404, "DEVICE_NOT_FOUND", "기기를 찾을 수 없습니다")
+            if row["status"] != "revocation_pending":
+                connection.rollback()
+                raise ApiError(409, "REVOCATION_CANCEL_NOT_ALLOWED", "서버 폐기 대기 상태에서만 취소할 수 있습니다")
+            connection.execute("UPDATE devices SET status='active',revoked_at=NULL WHERE device_id=?", (device_id,))
+            connection.commit()
+        return ApiResponse(200, {"device_id": device_id, "status": "active", "cancelled_before_server_enforcement": True})
 
     def _revoke_device(self, account_id: str, device_id: str, now: datetime) -> ApiResponse:
         with closing(self._connect()) as connection:
@@ -407,9 +479,13 @@ class ControlAPI:
     def _devices(self, account_id: str) -> ApiResponse:
         with closing(self._connect()) as connection:
             rows = connection.execute(
-                """SELECT device_id,server_id,assigned_address,status,created_at,revoked_at
-                   FROM devices WHERE account_id=?
-                   ORDER BY created_at DESC,device_id DESC""",
+                """SELECT d.device_id,d.server_id,d.assigned_address,d.status,d.created_at,d.revoked_at,
+                          m.display_name,m.revision,p.observed_at AS last_verified_at
+                   FROM devices d
+                   LEFT JOIN device_metadata m ON m.device_id=d.device_id
+                   LEFT JOIN peer_runtime p ON p.device_id=d.device_id
+                   WHERE d.account_id=?
+                   ORDER BY d.created_at DESC,d.device_id DESC""",
                 (account_id,),
             ).fetchall()
         devices = [
@@ -420,6 +496,9 @@ class ControlAPI:
                 "status": str(row["status"]),
                 "created_at": str(row["created_at"]),
                 "revoked_at": str(row["revoked_at"]) if row["revoked_at"] is not None else None,
+                "display_name": str(row["display_name"]) if row["display_name"] is not None else "등록된 기기",
+                "revision": int(row["revision"]) if row["revision"] is not None else 1,
+                "last_verified_at": str(row["last_verified_at"]) if row["last_verified_at"] is not None else None,
             }
             for row in rows
         ]
@@ -813,6 +892,11 @@ class ControlAPI:
                 return self._devices(account_id)
             if verb == "POST" and clean_path == "/v1/devices":
                 return self._register_device(account_id, self._require_body(body), current)
+            if verb == "PATCH" and clean_path.startswith("/v1/devices/"):
+                return self._rename_device(account_id, clean_path.removeprefix("/v1/devices/"), self._require_body(body), current)
+            if verb == "POST" and clean_path.startswith("/v1/devices/") and clean_path.endswith("/cancel-revocation"):
+                device_id = clean_path.removesuffix("/cancel-revocation").removeprefix("/v1/devices/")
+                return self._cancel_pending_revocation(account_id, device_id)
             if verb == "DELETE" and clean_path.startswith("/v1/devices/"):
                 return self._revoke_device(account_id, clean_path.removeprefix("/v1/devices/"), current)
             if verb == "GET" and clean_path == "/v1/wallet":

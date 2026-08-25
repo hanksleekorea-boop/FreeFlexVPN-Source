@@ -2,8 +2,8 @@
 
 | 항목 | 값 |
 |---|---|
-| 파일 수 | 639 |
-| 총 바이트 | 17,590,552 |
+| 파일 수 | 641 |
+| 총 바이트 | 18,954,300 |
 
 ## 지문 규칙
 
@@ -65,7 +65,7 @@
 | `.project-continuity/GITHUB-ACCESS.json` | 105 | 공동개발 연속성 기록 | `eb769638ad75b177a6dbdde678e7c3a29c75a2d9495760d1544a134eace8ef11` |
 | `.project-continuity/GITHUB_AUDIT.md` | 5,070 | 공동개발 연속성 기록 | `b724bee35264ae43b82a0fb6021446eaf0f92565fe386254dae554ba2a1f5008` |
 | `.project-continuity/HANDOFF_CAPSULE.json` | 1,967 | 공동개발 연속성 기록 | `839914aa92a0e41382468e9bf7cd1e9d1f916dbe0ab6dd78e0b7aa39d0bb8f79` |
-| `.project-continuity/HISTORY.md` | 113,146 | 공동개발 연속성 기록 | `0209fb0ce56452a96e1304f28166aea475caa0d3dc70015b484806942548833a` |
+| `.project-continuity/HISTORY.md` | 114,023 | 공동개발 연속성 기록 | `4cbbefc9d4de069ed546dcebe570261c281bc2915c57e9b86b96c3829edac3ad` |
 | `.project-continuity/INSTALL-RECEIPT.json` | 341 | 공동개발 연속성 기록 | `78304aad40f0511e288305551c314e365b13a90fb793211c790db53c8dc6031d` |
 | `.project-continuity/MANIFEST-LATEST.json` | 816,031 | 공동개발 연속성 기록 | `554693c057ddecd3695222bc5f990df50f8da65f1a238daab0b4c3d3b0c24554` |
 | `.project-continuity/NO_LOCK_POLICY.md` | 1,281 | 공동개발 연속성 기록 | `d91c91ca5378b30825c10879fb1e0b741f5ba130dfdc4f46385639397b470526` |
@@ -91,7 +91,7 @@
 | `.project-continuity/SCHEMA_VERSION` | 4 | 공동개발 연속성 기록 | `01d0b2eba879dda9fd27bf01b46c7d1a34b92ecbb459d2d8dd3b3feebe933266` |
 | `.project-continuity/SITE-CAPABILITIES.json` | 1,490 | 공동개발 연속성 기록 | `47be12234c407daaa469f938680a250e3b4f0391714d471a36679122d3a12fe0` |
 | `.project-continuity/STATE.json` | 640 | 공동개발 연속성 기록 | `46cca1597e56ce43736b238f77e76701f6b8458b2fa27d937644c88c81d5b970` |
-| `.project-continuity/STATE.md` | 65,168 | 공동개발 연속성 기록 | `a47a7438ed8afbb3906298d041e67fceaddbb3db34283ed0e732fab7ab27e065` |
+| `.project-continuity/STATE.md` | 66,634 | 공동개발 연속성 기록 | `a64e77f258d93259710b1ec4f59309986d847e34197d1a18612865aa09a2f89c` |
 | `.project-continuity/TEST_EVIDENCE.md` | 110,409 | 공동개발 연속성 기록 | `c0ab70e069c97d92e4680a43d630a7f845ebea83568eb6cbf5ab8ebc656e1d25` |
 | `.readiness-analysis/20260820T044021Z/best-practice-analysis.md` | 13,735 | 분류 확인 필요 | `45b2110cc283ff625711bea4f5e519fede355d659128c51a8d2f7587f0814929` |
 | `.readiness-analysis/20260820T044021Z/engine/lens-core-v2.1.json` | 97,832 | 분류 확인 필요 | `ba293f43a4e12c4f0eb58f654cfb9fa57a586a629b1fb51233a2a5b58d46c094` |
@@ -146,14 +146,14 @@
 | `.world-class-analysis/20260824T065543Z/top30-selection.md` | 5,374 | 분류 확인 필요 | `85279fdde4622c8cb8150a8417ed23b5faf8054a7e698a3e2bf4cbb35df1d109` |
 | `.world-class-analysis/20260824T065543Z/world-class-reinforcement-proposal.md` | 18,164 | 분류 확인 필요 | `9d0cb3f0c7050a6e799c5977ca3490cdabdb8891b8a2f288a59003fa48b955ff` |
 | `00_START/COLLABORATION_GATEWAY.md` | 1,964 | 시작·인수인계 | `d017dc34b6c7853c5d9cbf0dd1433677df9f1d0ec64a7c08200975fa23e1ad5d` |
-| `00_START/DEVELOPMENT_DASHBOARD.md` | 21,787 | 시작·인수인계 | `2f058a2bb7d5af9318439a7f26218568e98888badf7749c2900d45f83cf80e55` |
+| `00_START/DEVELOPMENT_DASHBOARD.md` | 22,468 | 시작·인수인계 | `fa89ad959474d074ab8ed1b36a68ce148317e2052aa516c2e4c8dd1a099b16ec` |
 | `00_START/HANDOFF_PROMPT.md` | 14,622 | 시작·인수인계 | `08e5083c7e875677743e1b0ee1cc6ee1fee40fd736f559c56fcd80c88ecfe26b` |
 | `00_START/NEW_CODEX_ACCOUNT_HANDOFF.md` | 6,646 | 시작·인수인계 | `9700eb7ea66e2e41f5070e2fcf56a7bc693b3c4401a20fa4ae4f65d74d14613e` |
 | `00_START/NEW_PC_SETUP.md` | 3,343 | 시작·인수인계 | `504e9f96a672697e8af10ca2afa76afa59df2e40da5590b87e0c5b38dbf06a21` |
 | `00_START/RECEIVER_HANDOFF_PROMPT.md` | 1,747 | 시작·인수인계 | `0ae6065e90ecc60cfdbbb312d1ed93d456e3900a6693489a9ade9310eca6203e` |
 | `00_START/시작하세요.md` | 2,318 | 시작·인수인계 | `db3e7c6574bb92b398b892168924e37bfb07e02d03ba544eb2ac8406ba07c88f` |
 | `10_PLAN/COMMERCIAL_RELEASE_GATE_PLAN_v1_2026-08-10.md` | 17,362 | 현재 기획·실행 정본 | `380c3ba441e791578d91c62e7443b815a65f934a7ce991a8c7a4b6d2af6182d2` |
-| `10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md` | 65,976 | 현재 기획·실행 정본 | `98505b2fd1c787f1dfde9900c7b84b55c2d0b64bf5755121b08233247b6586c0` |
+| `10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md` | 66,516 | 현재 기획·실행 정본 | `fee6f485a127511a9692a8d3839c52e5fa5bfedaeb9a4cc27dd8e1c5c502be3c` |
 | `10_PLAN/CURRENT_SERVICE_PLAN.md` | 36,366 | 현재 기획·실행 정본 | `513a8b56ba3cf18565b0acc0f137595724a7e25ccd779fc805ecf744bb820947` |
 | `10_PLAN/FREEFLEXVPN_READINESS_IMPROVEMENT_PROPOSAL_v1_2026-08-20.md` | 9,720 | 현재 기획·실행 정본 | `20b9f4db5d02557dfb80ac4511f93818d3ccdca5c86092f0a01cf3771fa8512e` |
 | `10_PLAN/KAKAOVPN_INTEGRATION_PLAN_v1_2026-08-19.md` | 9,829 | 현재 기획·실행 정본 | `4e38988555d0ad43c328225247950ba620a81204af6fb3d60db5ca51ae8acf81` |
@@ -333,10 +333,10 @@
 | `20_SRC/app/commercial_complete_contract.py` | 8,115 | 현행 소스 | `82861f77f01f16de58e9773f40af13f5836289297d24e57aac6de7297b08c54d` |
 | `20_SRC/app/commercial_readiness.js` | 3,235 | 현행 소스 | `8471d1cc238317e6ee542c21f297cd5dd945a66dc9e9116fd8b5b76bcff8369d` |
 | `20_SRC/app/connection_check.py` | 3,971 | 현행 소스 | `fe2d3a41a005fd432a0e9a5aa078538c04d2a04c192657b48045fb18b4ce71f9` |
-| `20_SRC/app/control_api.py` | 39,671 | 현행 소스 | `152e427ee15d6c8ec48e9d273d86bb2e0d1602f8db508863ef30aa6eacb39667` |
-| `20_SRC/app/control_http.py` | 7,007 | 현행 소스 | `518454189416c605efeaa1b5dd1f3a0efb59ba364e58baa495351a989b77bc37` |
+| `20_SRC/app/control_api.py` | 45,289 | 현행 소스 | `80b7917c6610a379c746dfa15dac5639466dde6401637a12501e7c41f1d56a8c` |
+| `20_SRC/app/control_http.py` | 7,086 | 현행 소스 | `d08020b6a7b83bdfe9a944a2f15d8792b011324aa50f29b2e07bc7665746ba05` |
 | `20_SRC/app/control_runtime.py` | 5,935 | 현행 소스 | `6c4fad5ae0fc69fd7f87ac3932b867248d6aa26bccd0271babfdfffbb4a48058` |
-| `20_SRC/app/db_migrations/001_v2_alpha.sql` | 7,237 | 현행 소스 | `1352b66e161d1fe3ca39ef9fc0c4e070570e53e05cd459edbc65668ff7aa50f9` |
+| `20_SRC/app/db_migrations/001_v2_alpha.sql` | 7,646 | 현행 소스 | `958ff8782247a6da7cd6e0af85410430f7576be4344f33af32518645ad8c6273` |
 | `20_SRC/app/error_recovery.js` | 2,510 | 현행 소스 | `f86218fa99aec22bfa32e31a81e1ffa071b3f889f9c519785f914298ac30ec17` |
 | `20_SRC/app/gcp_node_admission.py` | 5,341 | 현행 소스 | `327d13b9e2910b822195521db12cc6156073dbd172243e8fc0eb66f5e81ceb55` |
 | `20_SRC/app/kakao_connect_policy.py` | 6,687 | 현행 소스 | `993f24859cc4329009be9b639f22651f08cf39590e582709dd0ce51dfd4faefb` |
@@ -350,8 +350,8 @@
 | `20_SRC/app/profile_lifecycle.js` | 2,909 | 현행 소스 | `f780f4b7c5b1b31c557ea95d25bd1e41ccfe5d3d0f91376e770258b4d7d40457` |
 | `20_SRC/app/profile_reissue.py` | 11,330 | 현행 소스 | `40c6cd74f76729b2b94d7e1f49a81cc01c622031e3029ae6e929206b534bb01c` |
 | `20_SRC/app/protection_evidence.js` | 4,497 | 현행 소스 | `36841b8d61c085fc2dc38dd480b7d5f7c961e00e58ccab47c1ac8e8ae079dcde` |
-| `20_SRC/app/pwa_api_client.js` | 7,920 | 현행 소스 | `51fb0bb83fae18279dd6fbcfceb4a9df711d2396e90258abfd8280cbe3d1dbb4` |
-| `20_SRC/app/pwa_runtime.js` | 54,214 | 현행 소스 | `825320a2610f3e98af39bfebdff2a0815cd5b61834af7b6b455beabf49f76995` |
+| `20_SRC/app/pwa_api_client.js` | 8,560 | 현행 소스 | `7798971a41e7910892bef845b9879904122e7cdf5b8545808e6613f082f8a229` |
+| `20_SRC/app/pwa_runtime.js` | 55,771 | 현행 소스 | `3f49fd1f7ca759b6faaa389d7ad6a9133b4cfe0d316c9417446106e0274b1c22` |
 | `20_SRC/app/quota_ledger.py` | 6,602 | 현행 소스 | `423aa37a289c40a4fd388215228f4a1a12dd430421e0f1dcb3451136e9980794` |
 | `20_SRC/app/r6_preflight.py` | 7,578 | 현행 소스 | `00759fdc8bde9f4d51ee2927a2b1b6a3bcc651ca55a6c76305645a46334e5948` |
 | `20_SRC/app/readiness_99_gate.py` | 8,946 | 현행 소스 | `ebfbcacf6be67cbfeb3e4eed03e1902ef7dd2cdf156085b84ba3b7c252bba2d2` |
@@ -438,8 +438,8 @@
 | `30_DEPLOY/platform_support.js` | 5,308 | 공개용 결과물 | `d176e36d3b325fbed581345b70bdb0ff6629952d7c7d565ecbde2b867a486e42` |
 | `30_DEPLOY/profile_lifecycle.js` | 2,909 | 공개용 결과물 | `f780f4b7c5b1b31c557ea95d25bd1e41ccfe5d3d0f91376e770258b4d7d40457` |
 | `30_DEPLOY/protection_evidence.js` | 4,497 | 공개용 결과물 | `36841b8d61c085fc2dc38dd480b7d5f7c961e00e58ccab47c1ac8e8ae079dcde` |
-| `30_DEPLOY/pwa_api_client.js` | 7,920 | 공개용 결과물 | `51fb0bb83fae18279dd6fbcfceb4a9df711d2396e90258abfd8280cbe3d1dbb4` |
-| `30_DEPLOY/pwa_runtime.js` | 54,214 | 공개용 결과물 | `825320a2610f3e98af39bfebdff2a0815cd5b61834af7b6b455beabf49f76995` |
+| `30_DEPLOY/pwa_api_client.js` | 8,560 | 공개용 결과물 | `7798971a41e7910892bef845b9879904122e7cdf5b8545808e6613f082f8a229` |
+| `30_DEPLOY/pwa_runtime.js` | 55,771 | 공개용 결과물 | `3f49fd1f7ca759b6faaa389d7ad6a9133b4cfe0d316c9417446106e0274b1c22` |
 | `30_DEPLOY/VPN_1000명_비용기간_대시보드.html` | 82,525 | 공개용 결과물 | `eb51afdca4cac3b263ff67cfe8873a2a50b6f1e7b7e2bc69ce01bea60b106fad` |
 | `30_DEPLOY/VPN_20개국_분산_비용최적화.html` | 36,939 | 공개용 결과물 | `86090b991dd08d8b93404bfaf326bdfe056927106e3fce58a79690575ae03a91` |
 | `30_DEPLOY/VPN_국가별_서버비용_50개국.html` | 36,780 | 공개용 결과물 | `9a2f2b0653433cc193d562b19422391c551f981ccb80906bc94c7dd5ad4ed47f` |
@@ -473,7 +473,7 @@
 | `40_TESTS/test_continuity_v520.py` | 6,438 | 검사 | `f53d5b1c77e0fb2ec015a7dcb65c926f26b37c2ca01a45ec2ebb7e3925c42106` |
 | `40_TESTS/test_contracts.py` | 7,356 | 검사 | `e72ec25e820ac6380887cdf5fb831bfeb2e108a9a9e393b7b6785d00d84437ea` |
 | `40_TESTS/test_contributor_access.py` | 2,028 | 검사 | `393e54393e79771f932f3d52200f960fab14ab9f3c685f89fae0c034e311a6b3` |
-| `40_TESTS/test_control_api.py` | 18,443 | 검사 | `07d2c648287d1ef909fd1a04723c4045c0cc78f9cd6f4ed2b592bc1b645a0a9c` |
+| `40_TESTS/test_control_api.py` | 20,118 | 검사 | `64b666382d51cc186b793272d3e2d6bb6d6c3d914bbb9ac71b47780cf64a6869` |
 | `40_TESTS/test_control_http.py` | 4,184 | 검사 | `78197064a5eb54e56f1b616f2adfb6bbb6023dff33088781992ccca25f4a3328` |
 | `40_TESTS/test_control_runtime.py` | 5,460 | 검사 | `0952794b5418fb863eff2c13ef478d232413204ad9d0e8fe8cefa03ab03e031e` |
 | `40_TESTS/test_cost_provider_contract.py` | 5,601 | 검사 | `76d710f52680791be92024fb70814f9f3118056ee4007160e84c6c5404a03127` |
@@ -523,7 +523,7 @@
 | `40_TESTS/test_protection_status_ui.py` | 2,754 | 검사 | `44675d374f99911e5cf9e85836a7b1ce9936e30d4f946ffd79345a294fb3742c` |
 | `40_TESTS/test_public_qr.py` | 1,553 | 검사 | `69ed7344d4c2d14276c1d33ebfdd97b433dba07d78584249c796ea27753e9911` |
 | `40_TESTS/test_public_verifier_contract.py` | 872 | 검사 | `8c302ef3457c1f7bd6bf3bc945ab650a3c4710762f9809e36fba77ef1df00cd3` |
-| `40_TESTS/test_pwa_api_client.py` | 8,257 | 검사 | `d53c111ac69e9ba5b2dbbe24dd7241727ee418ba7e40abc3b0bc7e83fb86d1b6` |
+| `40_TESTS/test_pwa_api_client.py` | 9,268 | 검사 | `f3907b26c378f6152dc6d20f2f4c9fee3135a8bcb87215fa3be92b8222ddd655` |
 | `40_TESTS/test_pwa_runtime_ui.py` | 16,432 | 검사 | `2cfcb80653f6971035e1fbd8981554d7b5049bcc2d1b6ff7d6534dac11cc426a` |
 | `40_TESTS/test_quota_agent.py` | 10,013 | 검사 | `190442d544b65640143177ced219afbee8abdb14f819242aaa7d7542a58f4547` |
 | `40_TESTS/test_quota_ledger.py` | 4,296 | 검사 | `ae6c677e372d4a2a1c5d06fcdd5aa9f2125689b1f89c2f1ee4698dab9c7a4f5d` |
@@ -623,6 +623,8 @@
 | `60_OUTPUTS/usability/PUBLIC_URL_40_REPORT_2026-08-10.md` | 5,223 | 생성 결과·참고 산출물 | `11d017120ceb3546615e220b41962c5a0d713fd4cc510ac7cb7683b7b2bdb315` |
 | `60_OUTPUTS/usability/usability-1000-20260811.json` | 1,305,911 | 생성 결과·참고 산출물 | `e028d3d1afcd2bf40c407d115ed34136b45f237443c2ddeb34b5c7eff5094562` |
 | `60_OUTPUTS/usability/usability-1000-20260811.md` | 5,258 | 생성 결과·참고 산출물 | `45c29d9f8f0341062de3a893aa8054f687d645f86cc4d51394c833800ab655d5` |
+| `60_OUTPUTS/usability/usability-1000-20260825.json` | 1,341,683 | 생성 결과·참고 산출물 | `0aee13978a2dae542139d9f21a85f112e843e1e021e93d3c06b118e7a14b872c` |
+| `60_OUTPUTS/usability/usability-1000-20260825.md` | 5,315 | 생성 결과·참고 산출물 | `45c29d9f8f0341062de3a893aa8054f687d645f86cc4d51394c833800ab655d5` |
 | `60_OUTPUTS/usability/USABILITY_SIMULATION_1000_2026-08-09.json` | 1,305,911 | 생성 결과·참고 산출물 | `3a2d2159d4dda5e81d014e7f40d7649c1bc8ffac17b50bcb5f859a508c0780d8` |
 | `60_OUTPUTS/usability/USABILITY_SIMULATION_1000_REPORT_2026-08-09.md` | 5,258 | 생성 결과·참고 산출물 | `45c29d9f8f0341062de3a893aa8054f687d645f86cc4d51394c833800ab655d5` |
 | `70_TOOLS/bootstrap_dev.ps1` | 2,404 | 생성·검증 도구 | `78b80cb8bea94de92bb82c83880c352a6207c280d75976c071a77188ddba0552` |

@@ -321,6 +321,36 @@ class ControlAPITests(unittest.TestCase):
         self.assertEqual(response.body["status"], "revocation_pending")
         self.assertEqual(response.body["enforcement"], "pending")
 
+    def test_device_label_revision_and_pending_cancel_are_scoped_and_fail_closed(self):
+        token = self.session("acct_device_lifecycle")
+        device = self.register_device(token).body["device_id"]
+        listed = self.api.handle("GET", "/v1/devices", headers=self.auth(token), now=NOW)
+        item = listed.body["devices"][0]
+        self.assertEqual(item["display_name"], "새 기기")
+        renamed = self.api.handle(
+            "PATCH", f"/v1/devices/{device}", headers=self.auth(token),
+            body={"display_name": "업무용 Android", "revision": item["revision"]}, now=NOW,
+        )
+        stale = self.api.handle(
+            "PATCH", f"/v1/devices/{device}", headers=self.auth(token),
+            body={"display_name": "오래된 화면", "revision": item["revision"]}, now=NOW,
+        )
+        pending = self.api.handle("DELETE", f"/v1/devices/{device}", headers=self.auth(token), now=NOW)
+        cancelled = self.api.handle(
+            "POST", f"/v1/devices/{device}/cancel-revocation", headers=self.auth(token), body={}, now=NOW
+        )
+        invalid_cancel = self.api.handle(
+            "POST", f"/v1/devices/{device}/cancel-revocation", headers=self.auth(token), body={}, now=NOW
+        )
+        self.assertEqual(renamed.status, 200)
+        self.assertEqual(renamed.body["revision"], 2)
+        self.assertEqual(stale.status, 409)
+        self.assertEqual(stale.body["error"], "STALE_DEVICE_REVISION")
+        self.assertEqual(pending.status, 202)
+        self.assertEqual(cancelled.status, 200)
+        self.assertTrue(cancelled.body["cancelled_before_server_enforcement"])
+        self.assertEqual(invalid_cancel.status, 409)
+
     def test_account_export_is_scoped_and_excludes_keys_and_sessions(self):
         token = self.session("acct_export_001")
         other_token = self.session("acct_export_other")

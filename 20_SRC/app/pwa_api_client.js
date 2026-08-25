@@ -110,14 +110,24 @@ export class FreeFlexApiClient {
   referrals() { return this.request("/v1/referrals", { authenticated: true }); }
   issueReferral() { return this.request("/v1/referrals", { method: "POST", authenticated: true }); }
   check(deviceId) { return this.request("/v1/check", { authenticated: Boolean(this.vault.get()), deviceId }); }
-  registerDevice(publicKey, serverId) {
+  registerDevice(publicKey, serverId, deviceLabel = undefined) {
+    const body = { wg_public_key: publicKey, server_id: serverId };
+    if (deviceLabel !== undefined) body.device_label = deviceLabel;
     return this.request("/v1/devices", {
-      method: "POST", authenticated: true, body: { wg_public_key: publicKey, server_id: serverId },
+      method: "POST", authenticated: true, body,
     });
   }
   revokeDevice(deviceId) {
     if (!/^[a-f0-9]{32}$/.test(deviceId || "")) throw new Error("DEVICE_ID_INVALID");
     return this.request(`/v1/devices/${deviceId}`, { method: "DELETE", authenticated: true });
+  }
+  renameDevice(deviceId, displayName, revision) {
+    if (!/^[a-f0-9]{32}$/.test(deviceId || "")) throw new Error("DEVICE_ID_INVALID");
+    return this.request(`/v1/devices/${deviceId}`, { method: "PATCH", authenticated: true, body: { display_name: displayName, revision } });
+  }
+  cancelPendingRevocation(deviceId) {
+    if (!/^[a-f0-9]{32}$/.test(deviceId || "")) throw new Error("DEVICE_ID_INVALID");
+    return this.request(`/v1/devices/${deviceId}/cancel-revocation`, { method: "POST", authenticated: true, body: {} });
   }
   exportAccountData() {
     return this.request("/v1/account/export", {
