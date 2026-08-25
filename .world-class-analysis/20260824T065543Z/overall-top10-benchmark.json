@@ -1,0 +1,452 @@
+{
+  "run_id": "20260824T065543Z",
+  "generated_at": "2026-08-24T06:55:43Z",
+  "checked_at": "2026-08-24",
+  "status": "OVERALL_TOP10_COMPLETE",
+  "weights": {
+    "FIELD-001": 5,
+    "FIELD-002": 8,
+    "FIELD-003": 2,
+    "FIELD-004": 3,
+    "FIELD-005": 5,
+    "FIELD-006": 2,
+    "FIELD-007": 4,
+    "FIELD-008": 4,
+    "FIELD-009": 3,
+    "FIELD-010": 5,
+    "FIELD-011": 7,
+    "FIELD-012": 7,
+    "FIELD-013": 4,
+    "FIELD-014": 3,
+    "FIELD-015": 3,
+    "FIELD-016": 2,
+    "FIELD-017": 1,
+    "FIELD-018": 3,
+    "FIELD-019": 5,
+    "FIELD-020": 1,
+    "FIELD-021": 4,
+    "FIELD-022": 4,
+    "FIELD-023": 5,
+    "FIELD-024": 2,
+    "FIELD-025": 2,
+    "FIELD-026": 3,
+    "FIELD-027": 2,
+    "FIELD-028": 1
+  },
+  "weight_total": 100,
+  "eligibility": {
+    "minimum_evidence_coverage": 70,
+    "essential_fields": [
+      "FIELD-001",
+      "FIELD-002",
+      "FIELD-005",
+      "FIELD-010",
+      "FIELD-011",
+      "FIELD-012",
+      "FIELD-013"
+    ]
+  },
+  "eligible_service_count": 20,
+  "top10": [
+    {
+      "service_id": "SVC-021",
+      "service_name": "NextDNS",
+      "group": "C",
+      "overall_score": 40.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 1
+    },
+    {
+      "service_id": "SVC-012",
+      "service_name": "Cloudflare WARP",
+      "group": "B",
+      "overall_score": 38.8,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 2
+    },
+    {
+      "service_id": "SVC-027",
+      "service_name": "Psiphon",
+      "group": "C",
+      "overall_score": 37.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 3
+    },
+    {
+      "service_id": "SVC-025",
+      "service_name": "Firefox",
+      "group": "C",
+      "overall_score": 35,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 4
+    },
+    {
+      "service_id": "SVC-024",
+      "service_name": "Brave",
+      "group": "C",
+      "overall_score": 34.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 5
+    },
+    {
+      "service_id": "SVC-029",
+      "service_name": "Outline",
+      "group": "C",
+      "overall_score": 34.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 6
+    },
+    {
+      "service_id": "SVC-011",
+      "service_name": "Tailscale",
+      "group": "B",
+      "overall_score": 33.8,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 7
+    },
+    {
+      "service_id": "SVC-015",
+      "service_name": "Bitwarden",
+      "group": "B",
+      "overall_score": 33,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 8
+    },
+    {
+      "service_id": "SVC-022",
+      "service_name": "AdGuard DNS",
+      "group": "C",
+      "overall_score": 30.5,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 9
+    },
+    {
+      "service_id": "SVC-028",
+      "service_name": "ZeroTier",
+      "group": "C",
+      "overall_score": 30.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true,
+      "rank": 10
+    }
+  ],
+  "statistics": {
+    "average": 34.8,
+    "median": 34.3,
+    "minimum": 30.3,
+    "maximum": 40.3,
+    "standard_deviation": 3.1
+  },
+  "own": {
+    "service_id": "OWN-001",
+    "service_name": "FreeFlexVPN",
+    "group": "OWN",
+    "overall_score": 48.5,
+    "evidence_coverage": 93,
+    "essential_fields_known": true,
+    "eligible": true,
+    "virtual_rank": 1,
+    "absolute_gap": 13.7,
+    "attainment_rate": 139.5
+  },
+  "all_services": [
+    {
+      "service_id": "OWN-001",
+      "service_name": "FreeFlexVPN",
+      "group": "OWN",
+      "overall_score": 48.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-001",
+      "service_name": "Proton VPN",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-002",
+      "service_name": "Mullvad VPN",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-003",
+      "service_name": "NordVPN",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-004",
+      "service_name": "Surfshark",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-005",
+      "service_name": "ExpressVPN",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-006",
+      "service_name": "IVPN",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-007",
+      "service_name": "Windscribe",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-008",
+      "service_name": "TunnelBear",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-009",
+      "service_name": "Private Internet Access",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-010",
+      "service_name": "CyberGhost VPN",
+      "group": "A",
+      "overall_score": 72.5,
+      "evidence_coverage": 93,
+      "essential_fields_known": false,
+      "eligible": false
+    },
+    {
+      "service_id": "SVC-011",
+      "service_name": "Tailscale",
+      "group": "B",
+      "overall_score": 33.8,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-012",
+      "service_name": "Cloudflare WARP",
+      "group": "B",
+      "overall_score": 38.8,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-013",
+      "service_name": "Signal",
+      "group": "B",
+      "overall_score": 29,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-014",
+      "service_name": "Tor Browser",
+      "group": "B",
+      "overall_score": 24,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-015",
+      "service_name": "Bitwarden",
+      "group": "B",
+      "overall_score": 33,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-016",
+      "service_name": "Atlassian Statuspage",
+      "group": "B",
+      "overall_score": 17,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-017",
+      "service_name": "Stripe Billing",
+      "group": "B",
+      "overall_score": 16.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-018",
+      "service_name": "Apple App Store Subscriptions",
+      "group": "B",
+      "overall_score": 18.5,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-019",
+      "service_name": "Accessibility Insights",
+      "group": "B",
+      "overall_score": 14.8,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-020",
+      "service_name": "GitHub Advanced Security",
+      "group": "B",
+      "overall_score": 20.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-021",
+      "service_name": "NextDNS",
+      "group": "C",
+      "overall_score": 40.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-022",
+      "service_name": "AdGuard DNS",
+      "group": "C",
+      "overall_score": 30.5,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-023",
+      "service_name": "Quad9",
+      "group": "C",
+      "overall_score": 29,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-024",
+      "service_name": "Brave",
+      "group": "C",
+      "overall_score": 34.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-025",
+      "service_name": "Firefox",
+      "group": "C",
+      "overall_score": 35,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-026",
+      "service_name": "DuckDuckGo App",
+      "group": "C",
+      "overall_score": 27.5,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-027",
+      "service_name": "Psiphon",
+      "group": "C",
+      "overall_score": 37.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-028",
+      "service_name": "ZeroTier",
+      "group": "C",
+      "overall_score": 30.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-029",
+      "service_name": "Outline",
+      "group": "C",
+      "overall_score": 34.3,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    },
+    {
+      "service_id": "SVC-030",
+      "service_name": "Opera Free VPN",
+      "group": "C",
+      "overall_score": 26.8,
+      "evidence_coverage": 100,
+      "essential_fields_known": true,
+      "eligible": true
+    }
+  ]
+}

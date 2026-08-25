@@ -1,0 +1,25 @@
+{
+  "schema": "FreeFlexVPNCommercialTaskReceiptV2",
+  "task_id": "CC-TASK-1-00",
+  "status": "done_code",
+  "checked_at": "2026-08-24",
+  "changed_paths": [
+    "20_SRC/app/commercial_complete_contract.py",
+    "40_TESTS/test_commercial_complete_contract.py",
+    "40_TESTS/test_canonical_commercial_complete_v2.py",
+    "10_STATE/CC_TASK_RECEIPT_TEMPLATE_v2.json"
+  ],
+  "preserved_contracts": [
+    "CC-BASE-01", "CC-BASE-02", "CC-BASE-03", "CC-BASE-04", "CC-BASE-05",
+    "CC-BASE-06", "CC-BASE-07", "CC-BASE-08", "CC-BASE-09", "CC-BASE-10"
+  ],
+  "evidence": {
+    "automatic": {"status": "pass", "passed": 13, "failed": 0},
+    "browser": {"status": "not_applicable", "viewports": []},
+    "device": {"status": "not_applicable", "platform": null},
+    "external": {"status": "not_applicable", "payment": "not_run", "legal": "not_run", "operations": "not_run"},
+    "rollback": {"status": "not_run", "tested": false}
+  },
+  "unknowns": ["전체 회귀·목록표 검사는 작업 묶음 종료 시 별도 실행"],
+  "notes": "제품·서버·기기 변경 0. DONE-CODE는 상용 완료가 아니다."
+}

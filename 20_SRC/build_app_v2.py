@@ -415,6 +415,12 @@ def build() -> Path:
     )
     text = replace_once(
         text,
+        '<button id="downloadProfileButton" class="secondary" type="button">.conf 파일로 이 기기에 저장</button><p class="fine">개인키가 포함된 파일입니다. 다른 사람에게 보내거나 클라우드에 올리지 마세요.</p>',
+        '<button id="downloadProfileButton" class="secondary" type="button">.conf 파일로 이 기기에 한 번 저장</button><p class="fine">개인키가 포함된 일회성 수령 자료입니다. 다른 사람에게 보내거나 클라우드에 올리지 마세요.</p><div id="profileLifecycle" class="demo-ribbon" data-profile-lifecycle="none"><strong>설정 수명주기</strong> — <span id="profileLifecycleCopy">서버 발급 전입니다. 기존 설정은 보존됩니다.</span></div>',
+        "profile lifecycle status",
+    )
+    text = replace_once(
+        text,
         '<div class="empty-catalog" data-catalog-source="runtime" data-server-count="0"><span class="flag">∅</span><b>현재 가동 서버가 없습니다</b><p>서버가 준비되면 실제 상태 확인을 통과한 국가와 도시만 이곳에 표시합니다. 예시 위치나 예상 지연시간은 보여주지 않습니다.</p></div>',
         '<div id="serverCatalog" class="empty-catalog" data-catalog-source="runtime" data-server-count="0"><span class="flag">∅</span><b>현재 가동 서버가 없습니다</b><p>서버가 준비되면 실제 상태 확인을 통과한 국가와 도시만 이곳에 표시합니다. 예시 위치나 예상 지연시간은 보여주지 않습니다.</p></div>',
         "runtime server catalog",

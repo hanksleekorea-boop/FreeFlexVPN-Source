@@ -1,0 +1,17 @@
+{
+  "schema": "FreeFlexVPNPublicServiceEvidenceV2",
+  "measured_at": "2026-08-18T00:10:43+07:00",
+  "public_url": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+  "service_version": "service-ui-v3",
+  "app_bytes": 295739,
+  "app_sha256": "7BF68C899471F4E7D700399A77F62846C0897EE5D77D93A78959AC38EB819B11",
+  "dashboard_url": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/development-dashboard.html",
+  "dashboard_bytes": 18620,
+  "dashboard_sha256": "15A9005B07E95A7A1B2FA6DE030F79A18E2ACBD77906C6E9F61AD632E5C95CE6",
+  "qr_url": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app-qr.png",
+  "qr_decoded_payload": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+  "checks_passed": 12,
+  "checks_total": 12,
+  "failed": [],
+  "contains_sensitive_data": false
+}

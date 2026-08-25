@@ -1,0 +1,36 @@
+{
+  "schema": "crh-project-evidence/v1",
+  "assessedAt": "2026-08-19",
+  "scope": "all",
+  "project": {
+    "name": "예시 프로젝트",
+    "repository": "owner/example-project",
+    "description": "엔진 입력 형식을 보여 주기 위한 예시 웹·모바일 서비스입니다.",
+    "urls": { "web": "https://example.com", "mobile": "https://example.com/m" },
+    "features": [
+      { "name": "가입과 핵심 사용자 여정", "platform": "공통", "status": "자동 검증", "evidence": "E2E 검사 결과" },
+      { "name": "반응형 PC 웹", "platform": "PC 웹", "status": "브라우저 검증", "evidence": "390px·1440px 화면 검사" }
+    ]
+  },
+  "direction": { "model": "b2b", "market": "kr", "pay": "pg", "pf": "web", "stage": "ga", "sens": "mid", "team": "s", "edge": "ux", "when": "m3" },
+  "evidence": {
+    "mobile": {
+      "f01": { "score": 3, "tier": "auto", "observedAt": "2026-08-19", "note": "핵심 흐름 자동 검사" },
+      "s03": { "score": 2, "tier": "self", "observedAt": "2026-07-01", "note": "개선 예정" },
+      "r05": "unknown"
+    },
+    "web": {
+      "f01": { "score": 4, "tier": "auto", "observedAt": "2026-08-19", "note": "E2E 통과" },
+      "p07": { "score": 3, "tier": "1", "observedAt": "2026-08-10", "note": "Lighthouse 검사" },
+      "s03": { "score": 2, "tier": "self", "observedAt": "2026-07-01", "note": "개선 예정" }
+    }
+  },
+  "benchmark": {
+    "ours": { "trust": 3, "reach": 1, "price": 4, "local": 4 },
+    "comparators": [
+      { "name": "비교 서비스 A", "scores": { "feat": 3, "ux": 3, "perf": 3, "trust": 4, "reach": 4, "price": 2, "monet": 3, "local": 3 } },
+      { "name": "비교 서비스 B", "scores": { "feat": 2, "ux": 4, "perf": 3, "trust": 3, "reach": 3, "price": 3, "monet": 2, "local": 2 } },
+      { "name": "비교 서비스 C", "scores": { "feat": 3, "ux": 3, "perf": 2, "trust": 2, "reach": 2, "price": 4, "monet": 3, "local": 4 } }
+    ]
+  }
+}

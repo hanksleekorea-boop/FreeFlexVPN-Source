@@ -1,0 +1,31 @@
+{
+  "schema": "freeflexvpn-profile-reissue-readback/v1",
+  "origin": "read_only",
+  "device": {
+    "scope": "live_readback",
+    "legacy_profile_present": false,
+    "legacy_profile_enabled": false,
+    "candidate_profile_present": false,
+    "candidate_profile_enabled": false,
+    "always_on_enabled": false,
+    "lockdown_enabled": false
+  },
+  "server": {
+    "readback_available": false,
+    "peer_count": null,
+    "legacy_peer_state": "unknown",
+    "candidate_peer_state": "unknown",
+    "forwarding_ok": null,
+    "nat_ok": null,
+    "firewall_ok": null
+  },
+  "candidate_evidence": {
+    "scope": "none",
+    "human_switch_confirmed": false,
+    "tunnel_ok": null,
+    "exit_path_ok": null,
+    "dns_ok": null,
+    "handshake_ok": null,
+    "return_path_ok": null
+  }
+}

@@ -1,0 +1,968 @@
+{
+  "run_id": "20260824T065543Z",
+  "formula": "weighted sum/5*100",
+  "weights": {
+    "user_impact": 0.25,
+    "safety_legal_trust": 0.25,
+    "core_task": 0.2,
+    "competition": 0.15,
+    "reach_frequency": 0.15
+  },
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "title": "보호 상태의 외부 근거 결속",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "실기기 미국 출구는 확인됐으나 화면과 서버 악수·DNS·IPv6·누출이 한 증거로 결속되지 않음",
+      "missing_user_result": "보호 상태의 외부 근거 결속",
+      "linked_bp_ids": [
+        "BP-001"
+      ],
+      "source_ids": [
+        "SRC-033",
+        "SRC-034"
+      ],
+      "benchmark_service_ids": [
+        "SVC-001",
+        "SVC-006",
+        "SVC-012"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 5,
+        "core_task": 5,
+        "competition": 4,
+        "reach_frequency": 5
+      },
+      "priority_score": 97,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-001",
+      "field_top10_id": "FIELD-T10-001",
+      "field_top10_service_ids": [
+        "SVC-012",
+        "SVC-013",
+        "SVC-021",
+        "SVC-022",
+        "SVC-023",
+        "SVC-024",
+        "SVC-025",
+        "SVC-026",
+        "SVC-027",
+        "SVC-029"
+      ],
+      "field_top10_average": 4,
+      "own_score": 2,
+      "attainment_rate": 50,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-008",
+      "title": "기기·프로필 수명주기 센터",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "후보 보존 계약은 있으나 사용자용 발급·재발급·폐기·분실 대응이 미완결",
+      "missing_user_result": "기기·프로필 수명주기 센터",
+      "linked_bp_ids": [
+        "BP-008"
+      ],
+      "source_ids": [
+        "SRC-034",
+        "SRC-046"
+      ],
+      "benchmark_service_ids": [
+        "SVC-011",
+        "SVC-015",
+        "SVC-028",
+        "SVC-029"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 5,
+        "core_task": 5,
+        "competition": 4,
+        "reach_frequency": 5
+      },
+      "priority_score": 97,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-002",
+      "field_top10_id": "FIELD-T10-002",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 4,
+      "own_score": 2,
+      "attainment_rate": 50,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-009",
+      "title": "무료 1GB 권리와 사용량 정합성",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "무료 권리는 확정됐으나 실제 사용량·잔액·소진·오류 원장이 운영 자료와 연결되지 않음",
+      "missing_user_result": "무료 1GB 권리와 사용량 정합성",
+      "linked_bp_ids": [
+        "BP-009"
+      ],
+      "source_ids": [
+        "SRC-032",
+        "SRC-045"
+      ],
+      "benchmark_service_ids": [
+        "SVC-001",
+        "SVC-007",
+        "SVC-008"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 4,
+        "core_task": 5,
+        "competition": 5,
+        "reach_frequency": 5
+      },
+      "priority_score": 95,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-003",
+      "field_top10_id": "FIELD-T10-003",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 3,
+      "own_score": 1,
+      "attainment_rate": 33.3,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-003",
+      "title": "킬 스위치·항상 연결 실제 검증",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "화면 안내는 있으나 Android·Windows 상태별 실제 검증이 없음",
+      "missing_user_result": "킬 스위치·항상 연결 실제 검증",
+      "linked_bp_ids": [
+        "BP-003"
+      ],
+      "source_ids": [
+        "SRC-032",
+        "SRC-038"
+      ],
+      "benchmark_service_ids": [
+        "SVC-001",
+        "SVC-003",
+        "SVC-006",
+        "SVC-008"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 5,
+        "core_task": 5,
+        "competition": 4,
+        "reach_frequency": 4
+      },
+      "priority_score": 94,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-004",
+      "field_top10_id": "FIELD-T10-004",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 3,
+      "own_score": 2,
+      "attainment_rate": 66.7,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-004",
+      "title": "DNS·IPv6·누출 검사",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "IPv4 국가 전환은 확인됐지만 IPv6과 누출은 미확인",
+      "missing_user_result": "DNS·IPv6·누출 검사",
+      "linked_bp_ids": [
+        "BP-004"
+      ],
+      "source_ids": [
+        "SRC-033",
+        "SRC-038"
+      ],
+      "benchmark_service_ids": [
+        "SVC-001",
+        "SVC-006",
+        "SVC-009"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 5,
+        "core_task": 5,
+        "competition": 4,
+        "reach_frequency": 4
+      },
+      "priority_score": 94,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-005",
+      "field_top10_id": "FIELD-T10-005",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 3,
+      "own_score": 2,
+      "attainment_rate": 66.7,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-006",
+      "title": "최소 계정·삭제·내보내기 실제 흐름",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "로컬 자료 삭제 안내는 있으나 운영 계정·서버 자료 삭제 왕복 없음",
+      "missing_user_result": "최소 계정·삭제·내보내기 실제 흐름",
+      "linked_bp_ids": [
+        "BP-006"
+      ],
+      "source_ids": [
+        "SRC-032",
+        "SRC-045"
+      ],
+      "benchmark_service_ids": [
+        "SVC-002",
+        "SVC-006",
+        "SVC-013",
+        "SVC-015"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 5,
+        "core_task": 4,
+        "competition": 4,
+        "reach_frequency": 5
+      },
+      "priority_score": 93,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-006",
+      "field_top10_id": "FIELD-T10-006",
+      "field_top10_service_ids": [
+        "SVC-015",
+        "SVC-025"
+      ],
+      "field_top10_average": null,
+      "own_score": 1,
+      "attainment_rate": null,
+      "field_verdict": "NOT_ASSESSABLE"
+    },
+    {
+      "id": "GAP-010",
+      "title": "결제·취소·환불·복원",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "가격 미확정이며 실제 결제 왕복 0건",
+      "missing_user_result": "결제·취소·환불·복원",
+      "linked_bp_ids": [
+        "BP-010"
+      ],
+      "source_ids": [
+        "SRC-017",
+        "SRC-018",
+        "SRC-046"
+      ],
+      "benchmark_service_ids": [
+        "SVC-017",
+        "SVC-018",
+        "SVC-006"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 5,
+        "core_task": 4,
+        "competition": 5,
+        "reach_frequency": 4
+      },
+      "priority_score": 93,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-007",
+      "field_top10_id": "FIELD-T10-007",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 4,
+      "own_score": 3,
+      "attainment_rate": 75,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-011",
+      "title": "고객지원·상태판·장애 훈련",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "개발 대시보드는 있으나 고객 상태판·응답 기준·훈련 증거 없음",
+      "missing_user_result": "고객지원·상태판·장애 훈련",
+      "linked_bp_ids": [
+        "BP-011"
+      ],
+      "source_ids": [
+        "SRC-016",
+        "SRC-032"
+      ],
+      "benchmark_service_ids": [
+        "SVC-016",
+        "SVC-011",
+        "SVC-020"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 5,
+        "core_task": 4,
+        "competition": 4,
+        "reach_frequency": 5
+      },
+      "priority_score": 93,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-008",
+      "field_top10_id": "FIELD-T10-008",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 4,
+      "own_score": 3,
+      "attainment_rate": 75,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-017",
+      "title": "개인정보 사실표·관할·국외이전",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "초안은 있으나 운영 주체·실제 처리자·보유·삭제·국외 이전 확정 없음",
+      "missing_user_result": "개인정보 사실표·관할·국외이전",
+      "linked_bp_ids": [
+        "BP-017"
+      ],
+      "source_ids": [
+        "SRC-032",
+        "SRC-045"
+      ],
+      "benchmark_service_ids": [
+        "SVC-002",
+        "SVC-006",
+        "SVC-013",
+        "SVC-015"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 5,
+        "core_task": 4,
+        "competition": 4,
+        "reach_frequency": 5
+      },
+      "priority_score": 93,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-009",
+      "field_top10_id": "FIELD-T10-009",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 3,
+      "own_score": 2,
+      "attainment_rate": 66.7,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-002",
+      "title": "첫 연결과 설정 발급의 종단 흐름",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "공개 UI와 WireGuard 실제 동작 사이 설정 발급·만료·복구가 사용자 흐름으로 완결되지 않음",
+      "missing_user_result": "첫 연결과 설정 발급의 종단 흐름",
+      "linked_bp_ids": [
+        "BP-002"
+      ],
+      "source_ids": [
+        "SRC-032",
+        "SRC-034"
+      ],
+      "benchmark_service_ids": [
+        "SVC-001",
+        "SVC-008",
+        "SVC-012"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 4,
+        "core_task": 5,
+        "competition": 4,
+        "reach_frequency": 5
+      },
+      "priority_score": 92,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-010",
+      "field_top10_id": "FIELD-T10-010",
+      "field_top10_service_ids": [
+        "SVC-019",
+        "SVC-025"
+      ],
+      "field_top10_average": null,
+      "own_score": 2,
+      "attainment_rate": null,
+      "field_verdict": "NOT_ASSESSABLE"
+    },
+    {
+      "id": "GAP-013",
+      "title": "1분 실패 복구 흐름",
+      "bucket": "선두 서비스 동등 수준",
+      "current_evidence": "오류 화면은 있으나 실제 터널 실패를 원인별 다음 행동으로 연결하지 못함",
+      "missing_user_result": "1분 실패 복구 흐름",
+      "linked_bp_ids": [
+        "BP-013"
+      ],
+      "source_ids": [
+        "SRC-034",
+        "SRC-046"
+      ],
+      "benchmark_service_ids": [
+        "SVC-008",
+        "SVC-011",
+        "SVC-012",
+        "SVC-015"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 4,
+        "core_task": 5,
+        "competition": 4,
+        "reach_frequency": 5
+      },
+      "priority_score": 92,
+      "confidence": "high",
+      "prerequisites": "앞 단계의 증거 결속",
+      "recommended_stage": 2,
+      "field_id": "FIELD-011",
+      "field_top10_id": "FIELD-T10-011",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 3,
+      "own_score": 2,
+      "attainment_rate": 66.7,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-019",
+      "title": "iPhone·Windows 실제 VPN",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "모바일 웹과 PC 웹은 있으나 iPhone·Windows 터널 증거 없음",
+      "missing_user_result": "iPhone·Windows 실제 VPN",
+      "linked_bp_ids": [
+        "BP-001",
+        "BP-005"
+      ],
+      "source_ids": [
+        "SRC-032",
+        "SRC-046"
+      ],
+      "benchmark_service_ids": [
+        "SVC-001",
+        "SVC-006",
+        "SVC-012"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 4,
+        "core_task": 5,
+        "competition": 4,
+        "reach_frequency": 5
+      },
+      "priority_score": 92,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-012",
+      "field_top10_id": "FIELD-T10-012",
+      "field_top10_service_ids": [
+        "SVC-011",
+        "SVC-012",
+        "SVC-013",
+        "SVC-014",
+        "SVC-015",
+        "SVC-020",
+        "SVC-021",
+        "SVC-022",
+        "SVC-023",
+        "SVC-024"
+      ],
+      "field_top10_average": 4,
+      "own_score": 3,
+      "attainment_rate": 75,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-020",
+      "title": "실제 사용자·운영·시장 검증",
+      "bucket": "장기 차별화 후보",
+      "current_evidence": "가상 1,000명은 있으나 실제 사용자·지원·유지·시장 결과 0",
+      "missing_user_result": "실제 사용자·운영·시장 검증",
+      "linked_bp_ids": [
+        "BP-018"
+      ],
+      "source_ids": [
+        "SRC-034",
+        "SRC-032"
+      ],
+      "benchmark_service_ids": [
+        "SVC-019",
+        "SVC-020",
+        "SVC-016"
+      ],
+      "scores": {
+        "user_impact": 5,
+        "safety_legal_trust": 4,
+        "core_task": 4,
+        "competition": 5,
+        "reach_frequency": 5
+      },
+      "priority_score": 91,
+      "confidence": "high",
+      "prerequisites": "앞 단계의 증거 결속",
+      "recommended_stage": 3,
+      "field_id": "FIELD-013",
+      "field_top10_id": "FIELD-T10-013",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 3,
+      "own_score": 2,
+      "attainment_rate": 66.7,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-007",
+      "title": "독립 보안 검토와 투명성 보고",
+      "bucket": "선두 서비스 동등 수준",
+      "current_evidence": "자동 검사만 있고 외부 감사·공개 조치 추적 없음",
+      "missing_user_result": "독립 보안 검토와 투명성 보고",
+      "linked_bp_ids": [
+        "BP-007"
+      ],
+      "source_ids": [
+        "SRC-037",
+        "SRC-048"
+      ],
+      "benchmark_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-006",
+        "SVC-008",
+        "SVC-009"
+      ],
+      "scores": {
+        "user_impact": 4,
+        "safety_legal_trust": 5,
+        "core_task": 4,
+        "competition": 5,
+        "reach_frequency": 4
+      },
+      "priority_score": 88,
+      "confidence": "high",
+      "prerequisites": "앞 단계의 증거 결속",
+      "recommended_stage": 2,
+      "field_id": "FIELD-014",
+      "field_top10_id": "FIELD-T10-014",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 3,
+      "own_score": null,
+      "attainment_rate": null,
+      "field_verdict": "NOT_ASSESSABLE"
+    },
+    {
+      "id": "GAP-016",
+      "title": "실제 서버 상태·혼잡·대체",
+      "bucket": "선두 서비스 동등 수준",
+      "current_evidence": "상태 UI는 있으나 운영 API·최신 시각·대체 경로가 미연결",
+      "missing_user_result": "실제 서버 상태·혼잡·대체",
+      "linked_bp_ids": [
+        "BP-016"
+      ],
+      "source_ids": [
+        "SRC-034",
+        "SRC-046"
+      ],
+      "benchmark_service_ids": [
+        "SVC-011",
+        "SVC-016",
+        "SVC-021"
+      ],
+      "scores": {
+        "user_impact": 4,
+        "safety_legal_trust": 4,
+        "core_task": 5,
+        "competition": 5,
+        "reach_frequency": 4
+      },
+      "priority_score": 87,
+      "confidence": "high",
+      "prerequisites": "앞 단계의 증거 결속",
+      "recommended_stage": 2,
+      "field_id": "FIELD-015",
+      "field_top10_id": "FIELD-T10-015",
+      "field_top10_service_ids": [
+        "SVC-016",
+        "SVC-020",
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008"
+      ],
+      "field_top10_average": 2.2,
+      "own_score": 1,
+      "attainment_rate": 45.5,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-014",
+      "title": "검열·국가별 지원의 정직한 범위",
+      "bucket": "선두 서비스 동등 수준",
+      "current_evidence": "Kakao Connect·연구 프로토콜은 비공개이나 국가별 실제 성공·법률 근거 없음",
+      "missing_user_result": "검열·국가별 지원의 정직한 범위",
+      "linked_bp_ids": [
+        "BP-014"
+      ],
+      "source_ids": [
+        "SRC-014",
+        "SRC-027",
+        "SRC-045"
+      ],
+      "benchmark_service_ids": [
+        "SVC-014",
+        "SVC-027",
+        "SVC-029"
+      ],
+      "scores": {
+        "user_impact": 4,
+        "safety_legal_trust": 5,
+        "core_task": 4,
+        "competition": 5,
+        "reach_frequency": 3
+      },
+      "priority_score": 85,
+      "confidence": "medium",
+      "prerequisites": "앞 단계의 증거 결속",
+      "recommended_stage": 2,
+      "field_id": "FIELD-016",
+      "field_top10_id": "FIELD-T10-016",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 3,
+      "own_score": 1,
+      "attainment_rate": 33.3,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-018",
+      "title": "증거 등급과 99% 판정 자동 결속",
+      "bucket": "최고 수준 후보",
+      "current_evidence": "99% 통과 조건은 있으나 최신 기기·공개·운영 증거가 자동으로 대시보드에 반영되지 않음",
+      "missing_user_result": "증거 등급과 99% 판정 자동 결속",
+      "linked_bp_ids": [
+        "BP-018"
+      ],
+      "source_ids": [
+        "SRC-032",
+        "SRC-046",
+        "SRC-047"
+      ],
+      "benchmark_service_ids": [
+        "SVC-019",
+        "SVC-020",
+        "SVC-016"
+      ],
+      "scores": {
+        "user_impact": 4,
+        "safety_legal_trust": 4,
+        "core_task": 4,
+        "competition": 5,
+        "reach_frequency": 4
+      },
+      "priority_score": 83,
+      "confidence": "high",
+      "prerequisites": "앞 단계의 증거 결속",
+      "recommended_stage": 3,
+      "field_id": "FIELD-017",
+      "field_top10_id": "FIELD-T10-017",
+      "field_top10_service_ids": [
+        "SVC-011",
+        "SVC-016",
+        "SVC-017",
+        "SVC-020",
+        "SVC-028",
+        "SVC-029",
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004"
+      ],
+      "field_top10_average": 2.6,
+      "own_score": 1,
+      "attainment_rate": 38.5,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-012",
+      "title": "보조기술과 200% 확대 실제 검증",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "자동 접근성은 있으나 화면 읽기·실사용 보조기술 증거 없음",
+      "missing_user_result": "보조기술과 200% 확대 실제 검증",
+      "linked_bp_ids": [
+        "BP-012"
+      ],
+      "source_ids": [
+        "SRC-019",
+        "SRC-035"
+      ],
+      "benchmark_service_ids": [
+        "SVC-019",
+        "SVC-015",
+        "SVC-025"
+      ],
+      "scores": {
+        "user_impact": 4,
+        "safety_legal_trust": 4,
+        "core_task": 4,
+        "competition": 4,
+        "reach_frequency": 4
+      },
+      "priority_score": 80,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-018",
+      "field_top10_id": "FIELD-T10-018",
+      "field_top10_service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005",
+        "SVC-006",
+        "SVC-007",
+        "SVC-008",
+        "SVC-009",
+        "SVC-010"
+      ],
+      "field_top10_average": 3,
+      "own_score": 3,
+      "attainment_rate": 100,
+      "field_verdict": "MEETS"
+    },
+    {
+      "id": "GAP-015",
+      "title": "공개판 버전·되돌리기·증거 동기화",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "공개판·로컬 후보·대시보드 시점이 어긋난 기록 존재",
+      "missing_user_result": "공개판 버전·되돌리기·증거 동기화",
+      "linked_bp_ids": [
+        "BP-015"
+      ],
+      "source_ids": [
+        "SRC-032",
+        "SRC-046"
+      ],
+      "benchmark_service_ids": [
+        "SVC-020",
+        "SVC-016",
+        "SVC-011"
+      ],
+      "scores": {
+        "user_impact": 4,
+        "safety_legal_trust": 4,
+        "core_task": 4,
+        "competition": 4,
+        "reach_frequency": 4
+      },
+      "priority_score": 80,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-019",
+      "field_top10_id": "FIELD-T10-019",
+      "field_top10_service_ids": [
+        "SVC-011",
+        "SVC-012",
+        "SVC-013",
+        "SVC-014",
+        "SVC-015",
+        "SVC-016",
+        "SVC-017",
+        "SVC-018",
+        "SVC-019",
+        "SVC-020"
+      ],
+      "field_top10_average": 4,
+      "own_score": 2,
+      "attainment_rate": 50,
+      "field_verdict": "BEHIND"
+    },
+    {
+      "id": "GAP-005",
+      "title": "네트워크 전환 증거의 정본 반영",
+      "bucket": "필수 출시 기준선",
+      "current_evidence": "Wi-Fi↔모바일 전환은 이번 세션에서 통과했으나 정본 영수증에 아직 반영되지 않음",
+      "missing_user_result": "네트워크 전환 증거의 정본 반영",
+      "linked_bp_ids": [
+        "BP-005"
+      ],
+      "source_ids": [
+        "SRC-033"
+      ],
+      "benchmark_service_ids": [
+        "SVC-011",
+        "SVC-012",
+        "SVC-027"
+      ],
+      "scores": {
+        "user_impact": 4,
+        "safety_legal_trust": 3,
+        "core_task": 4,
+        "competition": 3,
+        "reach_frequency": 4
+      },
+      "priority_score": 72,
+      "confidence": "high",
+      "prerequisites": "현재 파일·서버·기기 상태 읽기와 보존 조건",
+      "recommended_stage": 1,
+      "field_id": "FIELD-020",
+      "field_top10_id": "FIELD-T10-020",
+      "field_top10_service_ids": [
+        "SVC-013",
+        "SVC-014",
+        "SVC-024",
+        "SVC-026",
+        "SVC-030",
+        "SVC-001",
+        "SVC-002",
+        "SVC-003",
+        "SVC-004",
+        "SVC-005"
+      ],
+      "field_top10_average": 2.5,
+      "own_score": 1,
+      "attainment_rate": 40,
+      "field_verdict": "BEHIND"
+    }
+  ],
+  "generated_at": "2026-08-24T06:55:43Z"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "FreeFlexVPNCommercialTaskReceiptV2",
+  "task_id": "CC-TASK-1-01",
+  "status": "done_code",
+  "checked_at": "2026-08-24",
+  "changed_paths": [
+    "20_SRC/app/protection_evidence.js",
+    "20_SRC/app/pwa_runtime.js",
+    "20_SRC/build_web_assets.py",
+    "20_SRC/html_templates/service_shell.html",
+    "20_SRC/html_templates/service_shell.css",
+    "40_TESTS/test_cc_protection_card.py",
+    "40_TESTS/test_protection_evidence_ui.py",
+    "30_DEPLOY/app.html",
+    "30_DEPLOY/protection_evidence.js",
+    "30_DEPLOY/pwa_runtime.js",
+    "60_OUTPUTS/prototype/FreeFlexVPN_service_v2.6.html"
+  ],
+  "preserved_contracts": [
+    "CC-BASE-01", "CC-BASE-02", "CC-BASE-03", "CC-BASE-04", "CC-BASE-05",
+    "CC-BASE-06", "CC-BASE-07", "CC-BASE-08", "CC-BASE-09", "CC-BASE-10"
+  ],
+  "evidence": {
+    "automatic": {"status": "pass", "passed": 26, "failed": 0},
+    "browser": {"status": "pass", "viewports": [360, 390, 1280, 1920]},
+    "device": {"status": "not_run", "platform": "android"},
+    "external": {"status": "partial", "payment": "not_run", "legal": "not_run", "operations": "not_run"},
+    "rollback": {"status": "not_run", "tested": false}
+  },
+  "unknowns": [
+    "현재 Android DNS·IPv6·WebRTC·차단 스위치·장시간 안정성",
+    "공개판 배포와 공개 URL 재검증"
+  ],
+  "notes": "2026-08-22 실제 IPv4 기록은 현재 보호 상태가 아닌 부분 증거로만 표시한다. 주소·키·기기 식별 원문은 포함하지 않았다."
+}

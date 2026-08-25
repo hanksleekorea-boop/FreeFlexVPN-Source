@@ -1,0 +1,17 @@
+{
+  "schema": "FreeFlexVPNCommercialTaskReceiptV2",
+  "task_id": "CC-TASK-1-03",
+  "status": "done_code",
+  "checked_at": "2026-08-24",
+  "changed_paths": ["20_SRC/app/error_recovery.js", "20_SRC/app/pwa_runtime.js", "20_SRC/html_templates/service_shell.html", "20_SRC/build_web_assets.py", "40_TESTS/test_cc_error_recovery.py", "30_DEPLOY/app.html", "30_DEPLOY/error_recovery.js"],
+  "preserved_contracts": ["CC-BASE-01", "CC-BASE-02", "CC-BASE-03", "CC-BASE-04", "CC-BASE-05", "CC-BASE-06", "CC-BASE-07", "CC-BASE-08", "CC-BASE-09", "CC-BASE-10"],
+  "evidence": {
+    "automatic": {"status": "pass", "passed": 85, "failed": 0},
+    "browser": {"status": "pass", "viewports": [390, 1280]},
+    "device": {"status": "not_run", "platform": "android"},
+    "external": {"status": "not_run", "payment": "not_run", "legal": "not_run", "operations": "not_run"},
+    "rollback": {"status": "not_run", "tested": false}
+  },
+  "unknowns": ["Android 실제 NO_INTERNET·DNS_FAILED·EVIDENCE_STALE 60초 복구 측정"],
+  "notes": "오류 8종, 재시도 2회 상한, 결제 자동 재시도 금지, 기존 자료 무손실을 로컬 검증했다."
+}

@@ -1,5 +1,100 @@
 # 검사 증거
 
+
+## 2026-08-24 — Commercial-Complete v2 정본 계약
+
+- `test_canonical_commercial_complete_v2.py` 6/6: CC-BASE-01~10, CC-01~24, CC-GATE-1, Android 상용 1단계 범위, 결제·환불·법률·지원·높은 결함 0, CC-TASK 29개 고유성(1단계 17·2단계 7·3단계 5), 선행 작업 존재·역방향 참조 0·초기 거짓 DONE 0, 낮은 숙련도 AI 안전 계약, 실제 Android 시작점을 확인했다.
+- 기존 정본 보호: `test_canonical_plan_vnext_integration.py` 4/4, `test_kakaovpn_integration_plan.py` 8/8, `test_readiness_99_gate.py` 5/5, `test_development_dashboard_contract.py` 1/1 통과.
+- 프로젝트 `.test-venv`에서 전체 재검사 98개 파일·962개 항목을 실행해 **97/98 파일·961/962 항목 통과**했다. 유일한 실패는 `test_ai_handoff.py`의 인계 목록 일치 1건으로, Git 미추적 상태인 기존 `.world-class-analysis/` 두 실행 폴더·기존 미추적 검사/Android 영수증과 이번 새 검사 파일이 동적 목록에는 보이지만 Git 추적 인계 목록에는 없기 때문이다. 제품·기획 계약 실패가 아니며, 사용자의 기존 미추적 자료를 임의로 추적·제외하지 않았다. 영수증은 `10_STATE/FULL_REGRESSION_2026-08-24-COMMERCIAL-COMPLETE-V2.json`이다.
+- `git diff --check` 통과. 목록표 도구의 도움말 미지원으로 `MANIFEST.md`가 한 번 재생성됐으나, 즉시 HEAD와 같은 Git 객체 `2c0aab0...`로 복원했고 내용 차이는 0이다.
+- 제품 코드·서버·Android·결제·법률·운영·공개판 증거는 늘지 않았다. 기존 Android 15 한 대의 태국→미국 IPv4 출구와 종료 뒤 일반망 복귀만 부분 증거로 유지한다.
+- 정본·시작 안내·대시보드의 로컬 Markdown 링크 검사는 깨진 링크 0으로 통과했다.
+
+## 2026-08-24 — vNEXT 통합 정본 계약
+
+- `test_canonical_plan_vnext_integration.py` 4/4: REQ-001~028 정확한 순서, TASK 28개 정확한 순서, 선행 작업 존재·직전 순서·자기 참조 0, 시작 안내·대시보드·D67 정본 포인터를 확인했다.
+- 일부러 TASK-2-002가 자기 자신을 가리키고 TASK-3-001이 없는 TASK-2-010을 가리키게 만든 표본을 모두 거부했다.
+- 기존 보호 계약: Kakao Connect 14/14, 99% 준비도 5/5, 개발 대시보드 7/7 통과.
+- `scan_secrets.py`: 허용 목록 외 비밀값·개인정보 0건. `git diff --check`: 오류 0건.
+- 실제 Android·Windows·iPhone·결제·법률·운영 증거는 이 문서 통합으로 늘지 않는다. 2026-08-22 Android 15 한 대의 IPv4 출구 전환 증거만 기존 확인 범위로 연결했다.
+## 2026-08-18 — 기존 공개 버킷 18개 배포·현재 고객 UI 검증
+
+- 기존 버킷 설명과 IAM 정책 읽기 권한을 확인한 뒤 `30_DEPLOY` 루트의 명시된 정적 파일 18개만 같은 공개 이름으로 업로드했다. `collaboration-gateway`와 비밀값·서버 설정은 제외했다.
+- 공개 재다운로드 결과 HTTP 18/18, 로컬 SHA-256 일치 18/18, `Cache-Control: no-cache` 18/18이다. `app.html` SHA-256은 `7BF68C899471F4E7D700399A77F62846C0897EE5D77D93A78959AC38EB819B11`, 별도 개발 대시보드는 HTTP 200이다.
+- 공개 QR을 OpenCV로 실제 해독해 `https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html`과 일치했다.
+- 과거 `verify_public_pc_v2_5.py`는 최종 고객 서비스 셸이 숨긴 구형 `.phone`과 숨은 `.moment-grid`를 검사해 7/10으로 오판했다. 공개 파일은 로컬과 바이트 단위로 같았고, 실제 최종 화면은 `data-service-shell`이다. 검사기를 현재 `.svc-side/.svc-main/.svc-aside/.svc-mobile-nav`와 별도 대시보드 기준으로 고쳐 계약 8/8, 실제 공개 1280·1920px PC·390px 모바일·QR·대시보드 12/12를 통과했다. 성공 증거는 `10_STATE/PUBLIC_SERVICE_VERIFY_2026-08-18.json`, 기존 7/10 파일은 진단 원본으로 보존한다.
+- 업로드 전 객체 14개에서 이후 24개가 됐다. 과거 이름 인코딩이 다른 객체 6개는 사용자 승인 없는 삭제를 하지 않았다.
+- 대상 기존 VM 조회는 현재 로그인 계정의 `compute.instances.get` 권한 부족으로 차단됐다. 서버 내부·피어·NAT·방화벽·프로필·Android 변경은 0건이며 실제 VPN 검사는 `readback_required`다.
+- 공개 검증기 계약을 포함한 최종 전체 회귀는 **89/89 파일·906/906 항목·실패 0**, 107.8초다.
+
+## 2026-08-17 — 복구 환경 전체 회귀·GitHub·Android live readback
+
+- Python 3.12.13 잠금 환경에 OpenCV 4.14.0, qrcode 8.2, Pillow 12.3.0, Playwright 1.61.0과 Chromium 1228을 복원했다. `run_all_tests.py --jobs 4 --timeout 120` 결과 **88/88 파일·898/898 항목·실패 0**, 73.4초다. 기계 영수증은 `.project-continuity/runs/regression-20260817T232601.json`이다.
+- `make_manifest.py --check`는 496/496 파일 SHA-256 일치, `scan_secrets.py`는 허용 목록 외 비밀값·개인정보 0건, `git diff --check`는 오류 0건이다.
+- 공식 GitHub CLI `2.97.0` 인증을 확인했고 프로젝트 공식 `github-verify`는 `ADMIN/READY`, 현재 기능 갈래의 원격 앞섬/뒤처짐 0/0을 반환했다. 토큰·계정 원문은 증거에 기록하지 않는다.
+- 공식 Android 플랫폼 도구 `37.0.1`로 연결된 두 기기를 읽기 전용 확인했다. 두 기기 모두 `com.wireguard.android`가 설치돼 있고 항상 연결·차단 모드는 꺼짐이다. SM-N960N에서 Google Play 설치 공식 WireGuard `1.0.20260315`를 잠깐 열어 `아래 버튼을 사용하여 터널을 추가하세요`만 보이는 빈 목록을 확인한 뒤 Chrome으로 복귀했다. A56 앱·프로필·VPN은 조작하지 않았다.
+- 새 입력 `10_STATE/G1R_PROFILE_REISSUE_LIVE_INPUT_2026-08-17.json`과 판정 `10_STATE/G1R_PROFILE_REISSUE_LIVE_DECISION_2026-08-17.json`은 민감정보 없이 live device readback, 서버 readback 없음, 기기·서버 mutation 0을 기록한다. 판정은 `readback_required`, 기존 프로필 보존이며 실제 VPN 연결 증거로 승격하지 않는다.
+- 새 가상 사용자 분석이나 실제 고객 설문은 실행하지 않았다. 화면 제품 코드는 바뀌지 않았고 기존 1,000명 가상 페르소나 분석은 가설 증거로만 보존한다.
+
+## 2026-08-15 — 현재 계정 GCS 배포 재시도
+
+- 기존 공개 버킷 객체 목록(14개)과 업로드 메뉴가 현재 콘솔 세션에서 보였다.
+- `30_DEPLOY`의 정적 후보 18개만 선택해 파일 업로드를 시도했지만, 브라우저 자동화가 운영체제 파일 선택 창에 파일을 전달하지 못했다. 업로드 작업·공개 객체 변경은 0건이다.
+- `gcloud`·`gsutil` 실행 경로를 찾지 못했다. 최신 공개 URL의 SHA-256·QR 대조는 업로드 성공 뒤에만 수행한다.
+
+## 2026-08-14 — G1-R 피어·재발급 읽기 전용 판정
+
+### ① 수정 전후 자동 검사
+
+- 새 `profile_reissue.py`·CLI는 개인키·공개키·endpoint·주소·실제 IP·계정 필드를 거부하고, 기존 `ffvpn` 보존·서버/기기 mutation 0을 모든 결과에 고정한다.
+- 새 계약·음성 대조 12/12, 기존 G1-R 화면 보호 4/4, 보호 상태 8/8, 제어 API 13/13, 제어 런타임 8/8, SSH node adapter 10/10, OS 안전 계약 8/8 — 핵심 63/63 통과. 연속성 v5.2 10/10·계정 인계 5/5·AI 인계 7/7도 통과해 관련 합계 85/85다. 세 Python 파일 `py_compile` 통과.
+- 최종 목록표 `make_manifest.py --check` — 480/480 파일 SHA-256 일치. 비밀값·개인정보 검사는 허용 목록 외 0건.
+- 기계 판정 `10_STATE/G1R_PROFILE_REISSUE_READONLY_2026-08-14.json`은 `readback_required`, 기존 프로필 보존, 후보 발급·기존 피어 폐기 검토 모두 false, mutation 0, 민감정보 0으로 생성됐다.
+- 전체 회귀는 코드 실패 전에 환경 관문에서 중단됐다. 기존 `.test-venv`는 현재 제한환경에서 기반 Python 실행 권한이 거절됐고, 허용된 Python 3.12에는 Playwright·OpenCV·qrcode가 없다. 프로젝트 로컬 설치 재시도도 외부 네트워크 차단으로 실패했다. 따라서 이전 86/86·871/871 기준선은 보존하지만 새 87번째 파일을 포함한 전체 회귀는 `NOT_RUN`이다.
+
+### ② 실제 기기·서버 검사
+
+- 현재 명령 환경에서 ADB 실행 도구를 찾지 못해 live Android readback은 실행하지 않았다. 마지막 기기 상태는 `historical_record`로만 사용했다.
+- 현재 서버 live readback이 없어 피어 개수·기존/후보 대응·전달·NAT·방화벽은 `unknown/null`로 유지했다. 기존 `ffvpn`, 후보, 항상 연결, 차단 모드, 서버 피어 변경 0건이다.
+
+### ③ 새 계정·외부 권한
+
+- 같은 폴더에서 v5.2 bootstrap은 `READY`, 쓰기 0, HEAD `e82d298`을 반환했다. GitHub live verify는 현재 실행환경의 외부 네트워크 차단으로 `RUNTIME_ERROR`; 권한 실패로 단정하지 않고 `BLOCKED`로 분리한다.
+
+### ④ 가상 사용자·고객 설문
+
+- 새 가상 사용자 분석과 실제 고객 설문 없음.
+
+## 2026-08-13 — 범용 인계 v4.14
+
+- `V414-HASH`: 내장 helper 마커 1/1, 11,497 bytes, SHA-256 `02fb55391fdb021e114a2457c68ef26b1a4056166b6f546b7314e50dd78de921` 일치.
+- `V414-AUTO`: 첫 Auto `READY`, missing-only 쓰기 2. 연속 Auto 2회와 ReadOnly는 HOT digest `f9949132...` 동일·쓰기 0.
+- `LOCK-GATE`: `.project-continuity/LOCK*.json` 0개.
+- `GH-FINAL-CI`: 원격 `shared-development` HEAD `1099af8`의 GitHub Actions `31708596676` success. 목록표·전체 회귀·비밀 검사·산출물·provenance 통과.
+- `PERMISSION-PARITY`: 필수 18개 중 pass 7·fail 4·unknown 7. GitHub source/branch/commit/PR/CI는 통과했지만 hosting·runtime·production 권한은 현재 Cloud 주체의 대상 접근 실패로 미충족. `NOT_READY`.
+- 실제 provider grant·호스팅 배포·Drive 두 계정 checkpoint·token 절감률은 `NOT_RUN/NOT_MEASURED`.
+
+## 2026-08-13 — 공동개발 v4.1
+
+### ① 자동 검사
+
+- 세션 worktree·GitHub PR 중계·Drive 서명 영수증 단위 검사 3/3 통과.
+- HTTP 비밀번호·CSRF·세션 편집·통합 요청 중복 영수증 검사 6/6 통과.
+- 로컬 자체서명 HTTPS Chromium에서 로그인→파일 읽기→수정 저장→커밋 및 360px·200% 확대 9/9 통과.
+- `make_manifest.py --check` 452/452 해시 일치.
+- `run_all_tests.py --jobs 4 --timeout 120` 84/84 파일·856/856 항목·실패 0, 63.6초.
+- `scan_secrets.py` 허용 목록 외 비밀값·개인정보 0건.
+
+### ② 외부 운영 검사
+
+- 현재 브라우저 Cloud 계정의 접근 가능한 프로젝트 목록에 FreeFlexVPN 대상이 없고 Chrome에도 Cloud Console 탭이 없었다. 따라서 기존 승인 호스트·Secret Manager·영구 디스크·인터넷 HTTPS 주소는 미검증이며 배포 0건이다.
+- GitHub PR 중계와 Drive relay는 가짜 공급자 단위검사만 통과했다. 실제 서버 자격·실제 PR·실제 Drive readback 영수증은 미검증이다.
+- GitHub PR #7의 push CI `31707463674`와 PR CI `31707467916` 통과. `shared-development` 병합 HEAD `3fabc3b`의 최종 CI `31707826572`는 job `94472767845`에서 3분 1초에 전체 회귀·비밀 검사·산출물·provenance까지 통과했다.
+
+### ③ 실제 기기·사용자
+
+- Android·iPhone·Windows VPN 설정 변경 0건. 실제 사용자 조사·고객 설문 없음.
+
 ## 2026-08-13 — GitHub 공개·무잠금 협업 전환 후보
 
 - 원격 사전 감사: PRIVATE, 현재 관리자 1개, 초대 0개, `allow_forking=true`, 기본 갈래 ruleset 1개, Actions 기본 권한 read.
@@ -94,6 +189,217 @@
 ### ③ 가상 사용자 분석
 
 - 새 분석 없음.
+
+### ④ 고객 설문
+
+- 없음.
+
+## 2026-08-15 — G1-R 보존·재발급 및 실제 기기 연결 상태
+
+### ① 자동 검사
+
+- `test_profile_reissue.py`: 12/12 통과. 누락된 라이브 readback·민감 피어 자료·후보 실패 시 기존 `ffvpn` 보존을 강제한다.
+- `test_profile_replacement_guard.py`: 4/4 통과. 후보 우선 선택·마지막 취소·실제 주소 노출 회귀를 음성 대조로 잡는다.
+- `test_gcp_provider_readback.py`: 7/7 통과. VM·방화벽·전달·서비스 계정 readback 계약은 유효하되 실제 공급자 권한은 대체하지 않는다.
+
+### ② 실제 기기
+
+- ADB에서 A56(`SM-A5660`)이 `device` 상태인 것은 확인했다. 별도 ADB 자동화가 실행 중이어서 기기 화면·VPN 프로필·항상 연결·차단 모드는 변경 0건이며, 새 실제 터널 증거로 쓰지 않는다.
+
+## 2026-08-14 — 공개 버킷 권한 읽기 확인
+
+- Cloud Storage 구성 화면의 권한 오류: `storage.buckets.get` 및 `storage.buckets.getIamPolicy` 필요.
+- 해당 권한 부재는 18개 파일 모두 업로드 오류와 일치한다. 기존 공개판·서버·VPN·결제·비용 변경은 0건이다.
+
+## 2026-08-14 — 기존 공개 채널 업로드 실행 결과 (최신)
+
+- 승인된 기존 Cloud Storage 버킷에서 파일 업로드 선택·18개 파일 선택·동일 이름 덮어쓰기를 실행했다.
+- 콘솔 최종 알림은 `파일 0개를 업로드했습니다.`였고 업로드 작업 목록은 18개 모두 `오류`로 남았다. 따라서 새 `30_DEPLOY/app.html` SHA-256 `7bf68c899471f4e7d700399a77f62846c0897ee5d77d93a78959ac38eb819b11`은 공개 URL에 반영되지 않았다.
+- 버킷 소유 프로젝트/쓰기 권한이 현 콘솔 문맥에서 미확인이다. 연결되지 않은 후보 프로젝트 선택, 새 프로젝트, 새 비용 자원은 실행하지 않았다.
+
+## 2026-08-14 — 기존 공개 채널 업로드 실행 결과
+
+- 승인된 기존 Cloud Storage 버킷에서 파일 업로드 선택·18개 파일 선택·동일 이름 덮어쓰기를 실행했다.
+- 콘솔 최종 알림은 `파일 0개를 업로드했습니다.`였고 업로드 작업 목록은 18개 모두 `오류`로 남았다. 따라서 새 `30_DEPLOY/app.html` SHA-256 `7bf68c899471f4e7d700399a77f62846c0897ee5d77d93a78959ac38eb819b11`은 공개 URL에 반영되지 않았다.
+- 버킷 소유 프로젝트/쓰기 권한이 현 콘솔 문맥에서 미확인이다. 연결되지 않은 후보 프로젝트 선택, 새 프로젝트, 새 비용 자원은 실행하지 않았다.
+
+## 2026-08-14 — 95% 외부 증거 초안 생성기
+
+### ① 자동 검사
+
+- `init_external_evidence_bundle.py`는 Android/PC 플랫폼 또는 운영 증거를 프로젝트 밖의 새 빈 폴더에만 만들고, 모든 상태를 `not_run`으로 유지한다. 프로젝트 경로·심볼릭 링크·비어 있지 않은 폴더는 거부하며 기존 파일을 덮어쓰지 않는다.
+- `40_TESTS/test_platform_release_evidence.py` — 15/15 통과. 초안은 검증 가능한 형식이지만 `ready: false`이고, 임의 통과·경로 노출·프로젝트 내부 저장은 허용하지 않는 양·음성 대조를 포함한다.
+- `70_TOOLS/scan_secrets.py` — 저장 후보 비밀값·개인정보 0건.
+- 전체 회귀 — `NOT_RUN`: 현재 번들 Python에 Playwright·OpenCV·qrcode 의존성이 없고, 대체 설치 경로는 네트워크 제한으로 사용할 수 없다.
+
+### ② 실제 기기 검사
+
+- 이번 작업은 파일·검사 도구만 변경했다. Android 프로필·터널·항상 연결·차단 모드·서버·비용 변경은 0건이며 A56 `ffvpn`은 보존한다.
+
+### ③ 고객 설문
+
+- 없음.
+
+[연속성 자기검사: STATE갱신 O · 다음행동기재 O · 잠금없음 O]
+
+## 2026-08-14 — 대상 Cloud·기기 재대조 재시도
+
+### ① Cloud 읽기 대조
+
+- 계정·프로젝트·VM 이름·실제 IP를 출력하지 않고 3개 로그인 세션을 분리 확인했다. 올바른 세션에서 Compute VM 행 1개, 상태 `실행 중`, WireGuard/VPN 태그 존재를 확인했다.
+- 방화벽 화면에서 WireGuard UDP 포트 규칙 1개, 활성 상태 1개, VPN 태그 결속 1개를 확인했다.
+- 인앱 Cloud Shell, 직접 브라우저 SSH, Chrome 연결을 순서대로 시도했으나 승인 버튼 CDP 시간 초과, 보안 iframe 입력 불가, Chrome Compute 응답 시간 초과로 서버 내부 명령은 실행하지 못했다.
+- 서버 피어·NAT·최근 악수·새 프로필은 `NOT_RUN`; 서버·방화벽·비용 변경 0건. 비밀값·실제 IP·계정 원문 기록 0건.
+
+### ② 실제 기기
+
+- ADB server raw readback으로 준비 기기 2대를 확인했다. SM-N960N·SM-A5660 모두 공식 WireGuard 설치, 항상 연결 꺼짐, 차단 모드 꺼짐이다.
+- 새 프로필·터널·기기 설정 변경 0건. 기존 A56 `ffvpn`은 보존했다.
+
+### ③ 검사환경
+
+- 번들 Python의 누락 회귀 의존성을 프로젝트 로컬 대상으로 설치하려 했으나 PyPI 네트워크가 차단되어 설치 0건·전체 회귀 `NOT_RUN`을 유지한다.
+
+### ④ 고객 설문
+
+- 없음.
+
+## 2026-08-14 — 모바일·PC 95% 외부 증거 게이트
+
+### ① 구현·전용 검사
+
+- 새 파일: `20_SRC/app/platform_evidence.py`, `20_SRC/app/release_95_gate.py`, CLI 2개, 전용 검사 1개.
+- 플랫폼 영수증은 공식 클라이언트·프로필·터널·DNS·웹·서버 악수·연결 해제 복구·최종 안전 상태 8개를 분리한다. 각 `pass`에는 프로젝트 밖 원본 파일과 SHA-256 결속이 필요하다.
+- 95% 게이트는 모바일·PC 실제 연결과 접근성·개인정보/보안·지원/복구·결제·환불·법무·감시·제한 공개를 총 100점으로 계산한다. 95점 출시 후보와 100점 상업 운영을 분리한다.
+- `40_TESTS/test_platform_release_evidence.py` — 12/12 통과. 전체 통과, 설치만 부분 상태, 증거 없는 통과, 불가능한 순서, 민감 필드·실제 네트워크 주소, 원본 변조·오래된 영수증·프로젝트 내부 번들, CLI 경로 비노출, 95/100 분리, 모바일 부분 상태 차단, 플랫폼 역할 오류, 운영 증거 누락을 포함한다.
+- `40_TESTS/test_runtime_evidence.py` — 기존 T1~T10 원본 증거 무결성 8/8 통과.
+- 새 Python 4개 `py_compile` 통과.
+
+### ② 전체·무결성 검사
+
+- `70_TOOLS/make_manifest.py --check` — 485/485 파일 SHA-256 일치.
+- `70_TOOLS/scan_secrets.py` — 허용 목록 밖 0건.
+- `70_TOOLS/run_all_tests.py --jobs 4 --timeout 120` — 현재 번들 Python에 Playwright·OpenCV·qrcode가 없어 시작 전 차단. 실행 0건이며 통과로 해석하지 않는다. 기존 프로젝트 Python 3.13 실행 파일은 현재 제한 환경에서 접근 거절됐다.
+
+### ③ 실제 기기·외부 조건
+
+- SM-N960N의 공식 WireGuard 설치 증거는 보존하지만 프로필·터널·DNS·웹·서버 악수·복구는 `not_run`이다. A56 `ffvpn`은 변경 0건이다.
+- Windows 실제 영수증, 결제·환불·법무·감시·제한 공개 원본 증거는 없다. 모바일 58/100·PC 60/100을 유지하며 95% 달성으로 표시하지 않는다.
+
+### ④ 고객 설문
+
+- 없음.
+
+## 2026-08-14 — SM-N960N 공식 WireGuard 설치·초기 흐름 검사
+
+### ① 설치 무결성
+
+- Google Play의 공식 패키지 `com.wireguard.android`를 설치했고 설치자 `com.android.vending`, 버전 `1.0.20260315`를 기기에서 다시 확인했다.
+- 설치 전·후 기존 A56은 명령 대상으로 사용하지 않았고, `SM-N960N`의 항상 연결·차단 모드는 설정하지 않았다.
+
+### ② 실제 기기 흐름
+
+- 첫 실행에서 터널 0개와 `아래 버튼을 사용하여 터널을 추가하세요` 빈 상태를 확인했다.
+- 파일/압축파일 가져오기·QR 스캔·직접 만들기 3개 진입 경로가 표시됐다. 파일 선택기를 열었다가 선택 없이 복귀했고, 직접 만들기 화면의 이름·인터페이스·개인키·저장 항목을 확인한 뒤 저장 없이 복귀했다.
+- 최종 상태는 WireGuard 빈 터널 화면이며 프로필 가져오기·개인키 생성·VPN 켜기·항상 연결·차단 모드·기존 프로필 변경은 0건이다.
+
+### ③ 서버·권한 경계
+
+- 현재 Cloud Shell 로그인에서 선택 프로젝트는 없었고, 접근 가능한 프로젝트 중 실행 중 VM이 있는 후보는 0개였다. 계정·프로젝트·VM 식별값은 기록하지 않았다.
+- 서버 readback과 `SM-N960N` 전용 피어 발급이 불가능해 터널·DNS·일반 웹·서버 악수·해제 후 일반망 복귀는 `NOT_RUN`이다.
+
+### ④ 고객 설문
+
+- 없음.
+
+## 2026-08-14 — 새 USB Android 실제 기기 공개 화면 검사
+
+### ① 자동·연결 검사
+
+- ADB 서버의 민감정보 없는 판독에서 USB `device` 상태 2대를 확인하고, 새 기기만 transport로 고정했다. 기존 A56은 명령 대상으로 사용하지 않았다.
+- 사용자가 Galaxy S9이라고 부른 새 기기의 실제 모델은 `SM-N960N`·Android 10(SDK 29)이었다. 기기 식별번호는 기록하지 않았다.
+- 비행기 모드 꺼짐·Wi-Fi 켜짐, 외부 도달과 DNS 이름 해석은 각각 성공했다. 실제 IP·DNS 서버 주소·Wi-Fi 이름은 읽거나 기록하지 않았다.
+
+### ② 실제 기기 화면·VPN 검사
+
+- 공개 `app.html`을 Chrome에서 새로 열어 `FreeFlexVPN 서비스`와 안전한 HTTPS 표시를 실제 확인했다. 첫 실행의 빈 화면은 Chrome 프로세스를 재시작한 뒤 정상 표시로 복구됐다.
+- 유효 화면 720×1480·밀도 280에서 읽기 설정, 핵심 카드, 하단 메뉴가 화면 폭 안에 표시됐다. 홈·위치·사용량·내 정보 4개 화면 이동과 홈 복귀를 실제 확인했다.
+- 위치 화면은 운영 자료 미연결·가용성 판정 불가·검증 우선 상태를 정직하게 표시했다. 사용량·내 정보 화면도 미확인 자료를 실제값으로 꾸미지 않았다.
+- 이 기기에는 공식 WireGuard 앱이 없고 항상 연결·차단 모드도 설정되지 않았다. 앱 설치·프로필 가져오기·VPN 켜기·서버 변경은 0건이며, 터널·DNS 경로·서버 악수 검사는 `NOT_RUN`이다.
+
+### ③ 가상 사용자 분석
+
+- 없음. 이번 결과는 실제 USB 기기 검사다.
+
+### ④ 고객 설문
+
+- 없음.
+
+## 2026-08-14 — 실제 Drive A/B·Windows worktree 복원·예약 검증
+
+### ① 자동·무결성 검사
+
+- 프로젝트 고정 runtime을 70,672 bytes·SHA-256 `7c08ebf5fed65e46a3bd99473fb33a48f7981d612f294da04e10d23b438537ba`로 보정했다. 임시 복원에서 `.git` 디렉터리에만 경로 한정 `safe.directory`를 적용하고 Git worktree 포인터 파일은 외부 gitdir를 따라가지 않으며, Drive 호출은 초당 1회·저수준 최대 30회 재시도한다. 계약 검사 10/10 통과.
+- 첫 full 백업은 B OAuth 만료, 두 번째는 복원본 worktree 소유권 검사 때문에 BLOCKED였으며 두 실행 모두 기존 파일 삭제 0건·불완전 세대 최신 승격 0건이다. 원인 수정 뒤 최신 full 세대를 A/B 각각 재다운로드하고 SHA-256·전체 복원 트리를 검증해 `drive=READY`, `restore_verified=true`를 확인했다.
+- A/B 전용 crypt 원격은 서로 다른 임의 암호화 키를 사용한다. Google Drive API readback에서 두 raw 폴더 모두 `shared=false`, `trashed=false`, 공개/도메인 권한 0건이었다. 소유자 메타데이터 비식별 비교 결과 같은 Google 계정이므로 계정 장애 독립성은 미달로 분리했다.
+- Windows 예약 작업 `FreeFlexVPN-Continuity-v520-68f171d594a1e9d944d19b79`은 현재 사용자·Limited·Interactive, 매일 03:15, `maintain --non-destructive`, 중복 실행 IgnoreNew로 설치됐고 다음 실행 시각 readback을 통과했다.
+- 최종 매니페스트 475/475 파일·11,255,731 bytes 왕복 일치, v5.2 10/10·계정 인계 5/5·AI 인계 7/7, 전체 회귀 86/86 파일·871/871 항목·실패 0·187.8초, 비밀값·개인정보 검사 허용 목록 외 0건을 확인했다.
+
+### ② 외부·보안 경계
+
+- OAuth 갱신은 시스템 브라우저에서 완료됐으며 토큰·이메일·계정 ID·crypt 비밀번호는 출력·프로젝트·Git 기록에 남기지 않았다.
+- 기반 Drive 원격은 rclone 공유 client ID의 2026년 중단 예고가 있어 별도 client ID 전환이 후속 위험이다. 서로 다른 Google 계정 A/B와 다른 물리 PC crypt 복구는 아직 `NOT_RUN`이다.
+- 최종 커밋 뒤 증분은 공유 API 호출 제한으로 A 일부만 올라가 `COMPLETE`가 없고 최신으로 승격하지 않았다. 실패 영수증은 보존했으며 마지막 검증 성공 full 세대를 A/B에서 다시 내려받아 `READY`로 재확인했다. 이후 변경은 GitHub 게시가 정본이고 제한속도 일일 예약이 Drive 증분을 재시도한다.
+
+## 2026-08-14 — 같은 PC·다른 Codex 계정 인계 검증
+
+### ① 자동 검사
+
+- `40_TESTS/test_account_continuation.py` — 5/5 통과.
+- `40_TESTS/test_open_collaboration.py` — 5/5 통과.
+- `40_TESTS/test_contributor_access.py` — 4/4 통과.
+- `70_TOOLS/make_manifest.py --check` — 457/457 파일 SHA-256 일치.
+- `70_TOOLS/verify_account_continuation.py --json` 작업 중 실행 — helper 11,497 bytes·고정 SHA-256 일치, v4.14 ReadOnly `READY`, 쓰기 0, 잠금 0, 고정 원격 일치. 의도한 미커밋 파일 4개 때문에 local `hold`를 반환해 깨끗한 Git 관문이 작동함을 확인했다.
+- 로컬 커밋 `d6a82cfdca1511d3868e0dddb76a7a3bb4794a30`의 깨끗한 작업 폴더에서 같은 검증기를 재실행해 `local_continuation: ready`, 검사 9/9, helper 쓰기 0, 실행 전후 Git 변경 0, 협업 잠금 0, 종료 코드 0을 확인했다. 외부 권한은 만료로 `full_site_development: hold`를 유지했다.
+- 첫 전체 회귀 — 84/85 파일·860/861 항목. 유일한 실패는 새 검사·검증기가 stage 전이라 Git 추적 집합과 목록표가 달랐던 인계 계약 1건이다. 명시 stage 뒤 해당 계약은 7/7 통과했다.
+- 최종 전체 회귀 `run_all_tests.py --jobs 4 --timeout 120` — Git 추적·연속성 기록·목록표를 모두 반영한 상태에서 85/85 파일·861/861 항목·실패 0, 106.7초.
+
+### ② 외부 권한 readback
+
+- GitHub CLI 버전 2.97.0은 존재하지만 현재 저장된 GitHub 인증 토큰은 유효하지 않았다. 원격 변경은 실행하지 않았다.
+- 공개 저장소 URL의 `git ls-remote` readback — `shared-development` HEAD `1989aa89bdb5a3648201c26a9d4537543c94f5aa` 확인, `feature/owner-password-gateway` 원격 ref 없음. 로컬 새 커밋은 미게시다.
+- `PERMISSION-BASELINE.json`은 검사 시점에 만료됐고 `SITE-CAPABILITIES.json`은 18개 전체 통과가 아니다. 따라서 `full_site_development`는 `hold`가 정확하다.
+- Google Cloud·Google Drive는 새 계정 로그인 상태에서 다시 readback하기 전까지 쓰기 권한을 있다고 판정하지 않는다.
+
+### ③ 기기·비밀 보호
+
+- Android·iPhone·Windows VPN 설정 변경 0건. 기존 Android `ffvpn` 삭제·덮어쓰기 0건.
+- 계정명·토큰·이메일·실제 IP·VPN 개인 설정 원문을 새 도구와 기록에 포함하지 않았다.
+
+### ④ 고객 설문
+
+- 없음.
+
+## 2026-08-13 — 비밀번호 공동개발 게이트웨이 후보
+
+### ① 자동 검사
+
+- `70_TOOLS/make_manifest.py --check` — 448/448 파일 해시 일치.
+- `70_TOOLS/run_all_tests.py --jobs 4 --timeout 120` — 병합 증거·Node.js 24 Actions 후보 반영 뒤 83/83 파일·850/850 항목·실패 0, 최종 51.5초.
+- `70_TOOLS/scan_secrets.py` — 허용 목록 밖 비밀값·개인정보 0건.
+- 게이트웨이 정책 10/10, HTTP 계약 5/5, 작업공간 4/4, CI 계약 4/4.
+- HTTPS Chromium 포털 UI — 360px·키보드·로그인·미연결 상태·200% 확대 7/7.
+
+### ② 실제 외부 환경
+
+- GitHub 후보 HEAD `90330f1`의 PR #5를 `shared-development`에 병합했고 병합 커밋 `94081f6`을 원격 readback으로 확인했다. 병합 HEAD의 `verify` 실행 `31704121280`은 2분41초에 전체 회귀·비밀 검사·정적 산출물 업로드·provenance를 모두 통과했다.
+- 통합 CI에는 기존 `checkout@v4`, `setup-python@v5`, `upload-artifact@v4`의 Node.js 20 사용 중단 경고가 있었으나 실행 결론은 SUCCESS였다. 공식 릴리스 readback에서 `checkout@v7.0.1`, `setup-python@v7.0.0`, `upload-artifact@v7.0.1`의 `action.yml`이 Node.js 24를 사용함을 확인하고 워크플로를 각 v7, provenance를 v4로 갱신했다.
+- Drive 소유자 전용 문서 생성과 읽기 재확인은 완료했다. 서버 서명 영수증은 없어 `DRIVE_UPDATE_GATE_PENDING`이다.
+- 실제 게이트웨이 URL·호스팅 비밀 저장소·release broker·운영 배포·복구 시험은 미확인이다.
+
+### ③ 가상 사용자 분석
+
+- 새 분석 없음. 브라우저 자동 검사는 실제 외부 참여자 사용을 대체하지 않는다.
 
 ### ④ 고객 설문
 
@@ -1061,3 +1367,274 @@
 ### ④ 고객 설문
 
 - 없음.
+
+## 2026-08-14 — 범용 지속개발 v5.2 설치·실행 증거
+
+### ① 자동·무결성 검사
+
+- 원샷 원문: 37,429 bytes·357줄·SHA-256 `c0b58f36f288680cd8d535b889f45daa24d03a69a40135326a9bd48d40c89891`.
+- 추출 bootstrap: 24,483 bytes·SHA-256 `fc8f6c8b36bc895af896ffe64443ba4c068746234a746595511b61536425efe0`; 프로젝트에는 저장하지 않고 임시 원문을 제거했다.
+- 압축 capsule: 16,004 bytes·SHA-256 `d1d17fadf4e78ce371b5a1db643f136fc994adf16cbb2a1149db6e6ded69f998`; runtime: 70,072 bytes·SHA-256 `e15cc0713ece51021be584aa437806ca1ab4008b277f4d779d6b6e12e832a1c7`.
+- 정상·반복 설치, 1문자 손상 `CAPSULE_HASH`, 잘림 `CAPSULE_DECODE`, 잘못된 해시 `CAPSULE_HASH`, runtime conflict `RUNTIME_CONFLICT`·무덮어쓰기, 동시 최초 설치 2/2 통과.
+- 반복 HOT 5/5 쓰기 0, HOT 239B≤1,024B, CONTEXT 179B≤4,096B, p50 1,465.35ms·p95 1,607.35ms, 감시 파일 해시·mtime 불변. v5.1 동일 fixture 부재로 비교는 `NOT_RUN`, tokenizer는 `NOT_MEASURED`.
+- 합성 account/AI 환경변수 2종에서 packet·STATE·CONTEXT가 동일하고 쓰기 0. 실제 다른 ChatGPT 계정 수락은 `NOT_RUN`.
+- cleanup 10관문 1,024/1,024, site capability 262,144/262,144, provider permission 262,144/262,144, GitHub 5+5 permission 1,024/1,024 상태 통과.
+- `40_TESTS/test_continuity_v520.py` 8/8, 기존 계정 인계 계약 5/5 통과.
+- 최종 전체 회귀 `run_all_tests.py --jobs 4 --timeout 120` — 86/86 파일·869/869 항목·실패 0, 501.0초. 느린 환경에서도 개별 120초 제한 안에서 전부 통과했다.
+- 최종 목록표 — 469/469 파일 SHA-256 일치.
+
+### ② GitHub·Drive provider
+
+- GitHub 최초 기준선: 동일 공개 저장소 숫자 ID·이름 해시·5개 권한만 저장. 현재 admin/maintain/push/triage/pull 모두 true, `ADMIN/READY`, 재검증 쓰기 0. login·user ID·token·cookie·email·PAT 필드 0.
+- 임시 file remote A/B: full 1세대→변경/삭제 후 delta 1세대, tombstone `delete.txt`, 양쪽 COMPLETE 각 2개, verify·임시 restore 모두 통과. 실제 Drive 증거가 아닌 `test_mode`다.
+- 연결된 Drive 한 계정에서 기존 비공개 FreeFlexVPN 자료와 상태 문서의 개정 2개 접근을 확인했다. 계정 식별값은 기록하지 않았다. 이는 독립 crypt A/B·실제 복원 증거가 아니다.
+- rclone 1.75.0 사용자 범위 설치 완료. 실제 Drive remote 0개, config 미생성, A/B privacy/readback/backup/restore는 `BLOCKED`.
+- 비파괴 24시간 `schedule-spec` argv만 생성했고 Windows 예약은 Drive READY 전이라 설치하지 않았다.
+
+### ③ 실제 기기·보안
+
+- Android·iPhone·Windows VPN 설정, 기존 `ffvpn`, Cloud, DNS, 비용, 공개 배포 변경 0건.
+- 비밀번호·토큰·쿠키·MFA·복구코드·crypt 키·실제 IP를 프로젝트 기록에 저장하지 않았다.
+
+### ④ 고객 설문
+
+- 없음.
+
+## 2026-08-14 — 모바일·PC 공개 후보 재생성·격리 화면·전체 회귀
+
+### ① 자동·화면 검사
+
+- `20_SRC/build_web_assets.py`로 공개 정적 산출물 18개를 원본 템플릿에서 재생성했다. `30_DEPLOY/app.html` SHA-256은 `7bf68c899471f4e7d700399a77f62846c0897ee5d77d93a78959ac38eb819b11`이다.
+- 모바일 엔진 13/13·UI 13/13, PC 엔진 16/16·UI 13/13, 상용 운영 엔진 9/9·UI 10/10, 서비스 UI 33/33, PC 뷰포트 13/13, QR 4/4를 통과했다.
+- 최종 전체 회귀: 88/88 파일·898/898 항목·실패 0, 356.2초.
+- 고유 로컬 포트에서 모바일 390×844와 PC 1280×800을 확인했다. 두 화면 모두 FreeFlexVPN 제목·브랜드를 표시했고 `scrollWidth < innerWidth`로 가로 넘침이 없었다. 모바일에서는 모바일 점검이 표시되고 PC 점검이 숨겨지며, PC에서는 반대로 전환되고 공통 상용 운영 관문은 두 크기에 존재한다.
+- 최초 공용 포트에서 다른 프로젝트 화면이 보인 것은 원본 파일·직접 HTTP 응답·고유 포트 결과와 대조해 브라우저/포트 캐시 격리 문제로 판정했다. 공개 후보 파일 오염 증거는 없었다.
+
+### ② 실제 기기·공개 검사
+
+- 기존 공개 모바일·PC URL은 HTTP 화면 로드가 되지만 새 출시 점검·상용 관문이 반영되기 전 공개판이다.
+- 기존 공개 Cloud Storage 버킷의 객체 목록과 업로드 버튼까지 읽기 확인했다. 공개 파일 덮어쓰기는 외부 변경 직전 확인을 기다려 실행하지 않았다.
+- Android·Windows VPN, 서버 피어, 결제·환불·법무·운영 감시의 새 실제 증거는 없다.
+
+### ③ 가상 사용자 분석
+
+- 새 분석 없음. 기존 합성 페르소나 결과를 실제 사용자 증거로 사용하지 않았다.
+
+### ④ 고객 설문
+
+- 없음.
+
+## 2026-08-15 — G1-R 실행 증거 (최신)
+
+- G1-R 재발급 판정 12/12·교체 보호장치 4/4·Cloud 제공자 readback 계약 7/7을 통과했다.
+- A56(`SM-A5660`)은 ADB `device` 상태다. 별도 ADB 자동화가 있어 VPN·프로필·기기 설정 변경은 0건이며, 이 연결 상태를 새 터널 성공 증거로 사용하지 않는다.
+
+## 2026-08-15 — 최대 실행 후속 점검
+
+### ① 자동 검사
+
+- 공개 QR 4/4, 플랫폼·95% 출시 증거 15/15, 릴리스 차이 원장 7/7을 통과했다.
+
+### ② 실제 Android 기기
+
+- A56에서 공식 WireGuard 앱 설치, 항상 연결 미설정(`null`), 차단 모드 해제(`0`)를 읽기 전용으로 확인했다.
+- 공개 모바일 화면 자동 읽기는 시간 제한으로 성공·실패를 판정하지 않았다. 기기는 홈 화면으로 복귀했고 VPN·프로필·항상 연결·차단 모드 변경은 0건이다.
+
+### ③ 공개 채널
+
+- Cloud Storage 버킷 구성 화면은 계속 `storage.buckets.get`·`storage.buckets.getIamPolicy` 권한 부족을 표시한다. 최신 후보 18개 공개 반영과 공개 SHA-256 대조는 대기다.
+
+## 2026-08-15 — 현재 계정 GCS 배포 재시도
+
+- 기존 공개 버킷 객체 목록(14개)과 업로드 메뉴가 현재 콘솔 세션에서 보였다.
+- `30_DEPLOY`의 정적 후보 18개만 선택해 파일 업로드를 시도했지만, 브라우저 자동화가 운영체제 파일 선택 창에 파일을 전달하지 못했다. 업로드 작업·공개 객체 변경은 0건이다.
+- `gcloud`·`gsutil` 실행 경로를 찾지 못했다. 최신 공개 URL의 SHA-256·QR 대조는 업로드 성공 뒤에만 수행한다.
+## 2026-08-17 — 다른 PC 복구·GitHub·인계 이식성 증거
+
+### ① 로컬 복구·GitHub
+
+- 공식 `continuity-v520.py bootstrap --compact`: `READY`, 쓰기 0. `git fsck --no-progress`·`git diff --check` 통과. 현재 `feature/owner-password-gateway`는 원격과 앞섬/뒤처짐 0/0.
+- `git ls-remote`로 원격 갈래 5개·태그 2개를 읽었다. GitHub 공개 API: PUBLIC·비보관, 기본 갈래 `feature/pc-commercial-readiness-90`, 열린 초안 PR #10·#3, 최근 Actions 10건 모두 success, 활성 ruleset 1개.
+- 자격 증명 도우미의 저장 계정은 `hanksleekorea-boop`. `git push --dry-run origin HEAD:refs/heads/codex/restore-access-check` 성공 후 `ls-remote`에서 해당 갈래 부재를 확인했다. 최소 WRITE 판정이며 관리·Actions 재실행·보안 경고 상세 권한은 미확인이다.
+
+### ② 개발·자동 검사
+
+- 같은-PC 인계 경로 계약 5/5, 개발 대시보드 계약 1/1, G1-R 피어·재발급 판정 12/12, 플랫폼·95% 출시 증거 15/15 통과.
+- `scan_secrets.py`: 허용 목록 외 비밀값·개인정보 0건. `git diff --check`: 통과.
+- 전체 회귀 `run_all_tests.py --jobs 4 --timeout 120`: 시작 전 `NOT_RUN`. 현재 Codex Python에 `playwright`, `cv2`, `qrcode`가 없고 과거 `.test-venv`는 저장공간 정리로 의도적으로 제거됐다. 코드 실패로 판정하지 않는다.
+
+### ③ 공개 응답·외부 변경
+
+- 기존 공개 앱 `app.html` 200, PC 보기 `app.html?view=app` 200, `app-qr.png` 200. 모두 캐시 방지 응답. 공개 앱 HTML에서 `data-progress-dashboard`와 `개발 진행상황`을 실제 확인했다.
+- `development-dashboard.html`·`dashboard.html`은 404. 로컬 최신 `30_DEPLOY/development-dashboard.html`은 존재하지만 공개 반영 전이다.
+- 공개 업로드·GitHub push·PR 변경·서버·VPN·Android 설정·결제·운영 데이터 변경 0건. 실제 Android 보호 경로·Windows VPN·iPhone·결제·환불·법무·운영 감시는 새 증거 없음.
+
+## 2026-08-18 — GCP 읽기 권한 비식별 진단
+
+### ① 자동·보안 검사
+
+- `test_gcp_readback_access.py` 6/6 통과: 권한 부족 분류, 계정·프로젝트·실제 주소 원문 비저장, 정상 공급자 허용 목록, 구성 불일치 차단, TCP 51820 반례, 기존 영수증 무덮어쓰기를 확인했다.
+- 실제 `check_gcp_readback_access.py` 실행은 `permission_missing`·필요 권한 `compute.instances.get`·`mutation_count=0`의 비식별 영수증을 만들었다.
+- 최종 전체 재검사 `run_all_tests.py --jobs 4 --timeout 120`: 90/90 파일·912/912 항목·실패 0, 51.0초.
+
+### ② 외부·기기 변경
+
+- 서버·프로필·Android·VPN·비용 변경 0건. 기존 `ffvpn` 보존, 실제 Android 터널 검사는 서버 읽기 전까지 대기다.
+- 연결된 Drive 기술에는 파일 작업 명령이 노출되지 않았고 현재 Windows 계정의 rclone 원격은 0개라 새 Drive 복제·복원은 실행하지 않았다. 마지막 검증 성공 A/B full 영수증은 로컬 장부에 보존돼 있다.
+
+### ③ GitHub 게시 보류
+
+- 공식 REST API readback은 `admin`·`maintain`·`push`·`triage`·`pull`을 모두 true로 확인했고 원격 작업 갈래 HEAD 읽기도 성공했다.
+- 필수 `github-verify`는 저장소 권한 거절이 아니라 GitHub GraphQL HTTP 503으로 3회 연속 실패했다.
+- 저장 기록·원격 올리기·PR 변경은 0건이다. 서비스 회복 뒤 같은 공식 검사를 통과하기 전에는 게시하지 않는다.
+
+## 2026-08-19 — GCP 비정상 목록 안전 차단
+
+### ① 자동·보안 검사
+
+- `test_gcp_readback_access.py` 7/7: `None` 태그·인터페이스·포트·허용 목록을 공급자 불일치로 닫고 예외를 내지 않음을 확인했다.
+- 전체 재검사 `run_all_tests.py --jobs 4 --timeout 120`: 90/90 파일·913/913 항목·실패 0, 154.1초. 새 영수증은 `10_STATE/GCP_READBACK_SAFETY_REGRESSION_2026-08-19.json`이다.
+
+### ② 외부·기기 변경
+
+- 서버·프로필·Android·VPN·비용 변경 0건. 현재 Android 개발 연결은 0대이며 대상 GCP 노드는 현재 접근 가능한 프로젝트에서 찾지 못했다.
+
+## 2026-08-19 — Drive B 소유자 제외 정책
+
+### ① 범위 제약
+
+- 예약 작업에 Drive B 실제 사용은 발견되지 않았다. 앞으로 Drive B 연결·읽기·쓰기·복원은 사용자 영구 금지로 실행하지 않으며 과거 영수증은 보존한다.
+
+## 2026-08-19 — 카카오VPN 비하향 통합 검증
+
+### ① 통합 전용·기존 핵심 검사
+
+- `test_kakaovpn_integration_plan.py` 8/8 통과: 추가 특화 프로필, 기존 점수 하한, 지갑·추천 재사용, WireGuard 기본값, 가격 미결정, 중국 제한 상태, 개인정보·Drive B 금지를 확인했다.
+- 지갑·사용량·추천·순간 목록·상용화 관문·대시보드 계약을 합쳐 67/67 통과했다.
+
+### ② 실패 원인과 최종 전체 결과
+
+- 첫 전체 실행은 90/91 파일·920/921 항목이었다. 새 파일 3개가 아직 Git 추적 목록에 없어 인계 목록과 파일 목록이 달랐던 것이 유일한 원인이며 기능 실패는 아니었다.
+- 새 파일을 명시적으로 추적한 뒤 인계 계약 7/7을 통과했다. 최종 전체 재검사는 91/91 파일·921/921 항목·실패 0, 76.1초다.
+- 최종 성공 증거: `10_STATE/KAKAOVPN_INTEGRATION_FINAL_REGRESSION_2026-08-19.json`. 최초 실패 증거 `10_STATE/KAKAOVPN_INTEGRATION_REGRESSION_2026-08-19.json`은 덮어쓰지 않고 감사용으로 보존한다.
+
+### ③ 외부·기기 변경
+
+- 서버·프로필·Android·결제·비용·공개 파일 변경 0건. 기존 `ffvpn`은 보존했고 B드라이브는 연결·조회·기록하지 않았다.
+- 카카오톡·LINE·보이스톡과 중국 실제망은 실제 Android에서 아직 검증하지 않았으므로 완료로 판정하지 않는다.
+
+## 2026-08-19 — Kakao Connect K1~K4 로컬 후보
+
+### ① 정책·경로·개인정보
+
+- `test_kakao_connect_policy.py` 14/14: 기존 원장 6종 필수, 미검증 과금 결합 거부, 가격·공개·기존 프로필 변경 차단, WireGuard 기본값, 연구 경로 이름공간 격리, 민감 원문 거부를 확인했다.
+
+### ② 비공개 반응형 화면
+
+- 로컬 전용 미리보기를 390×844에서 1열, 1280×900에서 2열로 확인했다. 두 폭 모두 가로 넘침 0, 상태 배지 3개, `private` 표시, 비활성 버튼, 상태 안내 영역을 확인했다.
+- 로컬 HTTP 서버는 검사 뒤 종료했고 `30_DEPLOY`와 공개 Cloud Storage 객체는 변경하지 않았다.
+
+### ③ 가상 사용자 1,000명
+
+- `test_kakao_connect_simulation.py` 8/8. 고정 씨앗으로 가상 1,000명을 재현하고 실제 신원·주소·IP·메시지·키 필드를 두지 않았다.
+- [추정] 비공개 후보 상태 952/1,000, 가격 미결정 973/1,000, 기존 설정 보존 952/1,000 이해 가설. [확인] 모의 비지원 목적 125/125 차단, 공개·결제·실제 네트워크·Android 검사 0건.
+
+### ④ 실제 외부 조건
+
+- GCP 명령줄 접근 프로젝트 1개와 앱 내 Cloud 콘솔의 현재·선택 목록은 대상 지문과 불일치했다. 자원·권한·프로젝트 변경은 0건이다.
+- Windows는 USB A56을 식별했지만 ADB는 `offline` 뒤 0대로 바뀌었다. 불명확한 무선 ADB 후보와 다른 휴대폰에는 연결하지 않았고 두 폰 모두 설정 변경 0건이다.
+
+### ⑤ 최종 전체 재검사
+
+- 첫 병렬 실행은 다른 프로젝트 작업과의 자원 경합 상태에서 `test_mobile_readiness_ui.py`가 120초에 시간 초과했다. 결과 92/93 파일·실패 1이며 `10_STATE/KAKAOVPN_K1_K4_FINAL_REGRESSION_2026-08-19.json`으로 보존했다.
+- 시간 초과 파일을 단독 재실행해 13/13 통과를 확인했다.
+- 저부하 전체 재실행은 93/93 파일·943/943 항목·실패 0, 402.5초로 통과했다. 최종 성공 증거는 `10_STATE/KAKAOVPN_K1_K4_LOW_CONTENTION_REGRESSION_2026-08-19.json`이다.
+- 이 검사는 실제 Android·중국망·서버·결제·공개 배포를 대체하지 않는다. 해당 외부 변경은 0건이며 B드라이브는 사용하지 않았다.
+
+### ⑥ 실제 기기 안전 선행·공개 PC 화면
+
+- `test_android_idle_guard.py` 7/7: 화면 켜짐·ADB 비준비·항상 연결/차단 모드·두 대 유휴를 모두 차단하고, 정확히 한 대의 화면 꺼짐·비보호 기기만 고른다. 허용 명령은 `adb devices -l`, `dumpsys power/window`, VPN 항상 연결·차단 모드 읽기뿐이며 변경 명령은 음성 대조에서 거부했다.
+- 실제 ADB 읽기 영수증 `10_STATE/ANDROID_IDLE_SELECTION_2026-08-19.json`: 연결 기기 2대, 유휴 0대, 변경 0건, 일련번호·VPN 프로필명 0개 기록. 두 기기가 모두 화면 켜짐이어서 K5 시험은 시작하지 않았다.
+- 실제 공개 PC 1280×720 브라우저: 가로 넘침 0, QR 이미지 로드, 개발 현황 링크, 서버 미준비 연결 행동 비활성을 확인했다. 1920px·OS 200% 확대·화면읽기·Windows VPN은 아직 미확인이다.
+- 유휴폰 안전 보강 뒤 최종 전체 재검사: 94/94 파일·950/950 항목·실패 0, 93.7초. 새 증거 `10_STATE/ANDROID_IDLE_GUARD_FINAL_REGRESSION_2026-08-19.json`을 보존했다.
+- `test_gcp_target_locator.py` 7/7: 잘못된 지문·대상 없음·목록 오류를 닫고, 일치한 프로젝트 이름은 메모리에만 두며 제공자 읽기에는 생성 명령이 없음을 확인했다. 실제 직접 Cloud CLI는 접근 가능 프로젝트 1개·대상 일치 0개라 `target_not_accessible`로 닫혔고 변경 0건이다. Windows PowerShell 진입점은 같은 SDK의 `gcloud.cmd`를 자동 우선한다.
+- 최신 직접 Cloud CLI 재확인: 접근 가능 프로젝트 3개·대상 일치 0개·제공자 읽기 시도 0건·변경 0건으로 다시 `target_not_accessible`로 닫혔다. 새 비식별 영수증은 `10_STATE/GCP_TARGET_LOCATOR_RECHECK_2026-08-19.json`이며, 이 수 변화는 대상 서버 권한 회복을 뜻하지 않는다.
+- GCP 대상 안전 보강 뒤 최종 전체 재검사: 95/95 파일·957/957 항목·실패 0, 367.0초. 새 증거 `10_STATE/GCP_TARGET_LOCATOR_FINAL_REGRESSION_2026-08-19.json`을 보존했다.
+
+## 2026-08-20 — 준비도 제안·계획 통합 문서 검사
+
+### ① 문서 연결 검사
+
+- Node 기반 읽기 검사로 `CURRENT_SERVICE_PLAN.md`, `CURRENT_DEVELOPMENT_EXECUTION_PLAN.md`, `COMMERCIAL_RELEASE_GATE_PLAN_v1_2026-08-10.md`, `FREEFLEXVPN_READINESS_IMPROVEMENT_PROPOSAL_v1_2026-08-20.md`의 2026-08-20 통합 표기를 확인했다.
+- `rg`로 서비스 기획의 제안 채택 절, 상세 실행계획의 R01~R20 절, 출시 관문의 제안 반영 절, 제안서의 교차 참조를 확인했다.
+- Git `diff --check`를 실행해 문서 변경의 공백 오류가 없음을 확인했다.
+
+### ② 범위 확인
+
+- 이 검사는 문서 정합성만 확인한다. 실제 Android, 서버, 결제, 법률, 운영, 공개 배포 증거를 추가하지 않으며, 점수·출시 판정을 올리지 않는다.
+- 서버·프로필·Android·VPN·결제·비용·공개 파일 변경은 0건이고, Drive B를 사용하지 않았다.
+
+## 2026-08-20 — 99% 준비도 게이트·전체 재검사
+
+- `test_readiness_99_gate.py` 5/5 통과: 네 영역의 외부 증거 완결, 개발 미실시 차단, 원본 없는 통과 거부, 민감 필드와 프로젝트 안 증거 거부, 개발 증거 초안의 미통과 상태를 확인했다.
+- `test_ai_handoff.py` 7/7, `make_manifest.py --check` 554/554, `git diff --check` 통과.
+- `run_all_tests.py --jobs 2 --timeout 240`: 96/96 파일·962/962 항목·실패 0, 86.8초. 증거는 `10_STATE/FULL_REGRESSION_2026-08-20-99-GATE.json`이다.
+- 실제 Android/Windows VPN·서버·결제·환불·법무·제한 공개 검사는 이 자동 결과에 포함되지 않는다. Drive B 사용과 기기 변경은 0건이다.
+
+## 2026-08-20 — Android·GCP 읽기 전용 재확인
+
+- `ANDROID_IDLE_SELECTION_2026-08-20.json`: 연결 1대, 유휴 0대, 변경 0. 화면 켜짐 상태이므로 실제 Android 시험을 시작하지 않았다.
+- `GCP_TARGET_LOCATOR_2026-08-20.json`: 접근 가능 프로젝트 4개, 대상 일치 0개, 제공자 읽기 시도 0, 변경 0. 대상 서버 식별값과 실제 주소는 기록하지 않았다.
+
+## 2026-08-20 — 공개 화면·가상 사용자·QR 안정화
+
+- `PUBLIC_SERVICE_RECHECK_2026-08-20.json`: 공개 고객 서비스·PC 1280/1920px·모바일 390px·별도 대시보드·QR 12/12 통과.
+- `PERSONA_SIMULATION_1000_2026-08-20.json` 및 보고서: 실제 고객 0명의 재현 가능한 가상 여정 1,000개. P0 신호는 실제 보호 확인·기기별 설정 센터·1분 복구 흐름이다.
+- GitHub CI의 `test_peer_bundle.py` 무작위 QR 해독 실패 1건을 재현 가능한 12회 왕복 검사로 강화했다. 로컬 강화 전 8회 연속 9/9 통과, 비밀값·개인정보 검사 통과.
+- 강화 뒤 `run_all_tests.py --jobs 2 --timeout 240`: 96/96 파일·962/962 항목·실패 0, 122.0초.
+
+## 2026-08-20 — Android 시험 선택 재시도·GitHub 확인
+
+- `ANDROID_IDLE_SELECTION_2026-08-20-TEST-START.json` 및 재시도 3개: 유휴 0/2, 0/2, 0/2, 최종 0/1. 모든 영수증은 기기 식별 원문·프로필명 없이 변경 0건을 기록한다.
+- 마지막 연결 기기는 `awake`·상호작용 상태라 실제 Android VPN 시험은 미실시다.
+- PR #10의 최신 GitHub `verify` 두 건은 각각 통과했다.
+
+## 2026-08-24 — Commercial-Complete v2 정본·보호 카드
+
+- `test_commercial_complete_contract.py`: 정본·비하향·의존·영수증 정상/반례 15/15 통과.
+- `test_cc_protection_card.py`: 최신·부분·오래됨·누락·불일치·오류·취소·민감값 제거, 모바일·PC 동일 계산과 360·390·1280·1920px 17/17 통과.
+- 기존 `test_protection_evidence_ui.py` 4/4, `test_protection_status_ui.py` 5/5를 재통과했다.
+- 위 결과는 로컬 자동·브라우저 증거다. 실제 Android DNS·IPv6·WebRTC·차단 스위치·장시간 및 공개판 검증은 미실시다.
+- 전체 회귀 99/100 파일·992/993 검사. 유일한 실패는 미추적 분석·영수증·새 소스가 Git 기준 목록에 아직 없는 `test_ai_handoff.py` 목록표 불일치이며 다른 기능 실패는 0건이다. 비밀값·개인정보 허용 목록 외 0건, `git diff --check` 통과. 목록표는 사용자 미추적 파일을 임의 추적하거나 덮어쓰지 않아 보류했다.
+
+## 2026-08-24 — CC-TASK-1-02·1-03
+
+- 설정 수명주기 15/15, 클라이언트 키 11/11, 제어 API 13/13, 교체 보호 4/4, PWA 실행 35/35 통과.
+- 오류 복구 14/14, 첫 사용 복구 3/3, PWA 실행 35/35, 서비스 UI 33/33 통과.
+- 전체 재검사 101/102 파일·1024/1025 항목·1368.9초. 유일한 실패는 Git 인계 목록표 불일치이며 기능 실패 0건이다.
+- Android 선택기 7/7 통과, 실제 읽기 결과 유휴 0/1·변경 0. GitHub 확인은 READY·ADMIN, 비밀값 허용 목록 밖 0건이다.
+- 실패 후 교정 확인: 모든 의도된 파일을 추적하고 목록표를 갱신한 뒤 `test_ai_handoff.py` 7/7, `make_manifest.py --check` 632/632, `git diff --cached --check`를 통과했다. 따라서 앞선 전체 실행의 유일 실패는 해소됐으며 나머지 101개 파일과 결합해 102/102 파일의 통과 결과를 확인했다.
+
+## 2026-08-24 — CC-TASK-1-06
+
+- `test_wallet_ledger_v2.py` 13/13: 다계정·다른 종류·다른 용량 사건 충돌 거부, 동시 6회 중복 1회 차감, UTC 월 경계를 포함한다.
+- `test_quota_ledger.py` 7/7, `test_referral_ledger.py` 10/10, `test_usage_meter.py` 9/9, `test_quota_agent.py` 19/19, `test_control_api.py` 13/13. 합계 71/71이다.
+- 실제 서버 사용량 표본 대조와 실제 결제는 미실시다. 잔액·서버·기기·프로필·Drive B 변경은 0건이다.
+
+## 2026-08-24 — CC-TASK-1-07
+
+- 계정 권리 정적 계약 8/8, 제어 API 15/15, 자료 구조 변경 2/2, PWA API 클라이언트 실제 Chromium 18/18을 통과했다.
+- 생성 결정·앱 계약 19/19, GitHub Pages 23/23, PC·390px 실제 Chromium 서비스 UI 33/33을 통과했다. 합계 118/118이다.
+- 다른 계정 자료 혼입, 개인키·공개키·터널 주소·세션 열쇠 노출, 5분 초과 세션, 삭제 미확인, 잘못된 상태 열쇠를 거부했다.
+- 실제 시험 계정·시험 서버 삭제, 법정 보관 정책 확정, 실제 운영 API 공개는 미실시다. 실제 계정·서버·기기·Drive B 변경은 0건이다.
+
+## 2026-08-24 — Android 유휴 재판정 3차
+
+- 연결 1대, 유휴 후보 0대, `blocked_no_idle_device`, 변경 0건이다. 화면이 켜진 사용 가능 기기를 시험 대상으로 선택하지 않았다.
+- 가린 영수증은 `10_STATE/ANDROID_IDLE_SELECTION_2026-08-24-RETRY2.json`이며 일련번호·VPN 프로필 이름·비밀값을 포함하지 않는다.
+
+## 2026-08-24 — CC-TASK-1-07 공개 확인
+
+- 공개 `app.html` 318,828바이트, `pwa_api_client.js` 7,920바이트, `pwa_runtime.js` 54,214바이트가 모두 HTTP 200이며 로컬 SHA-256과 3/3 일치했다.
+- 실제 공개 HTML에서 내보내기·삭제·영수증 불러오기·삭제 미완료 안내 표시 4/4를 확인했다.
+- 공개 범위·IAM·DNS·결제·QR 주소 변경은 0건이다. 영수증: `10_STATE/PUBLIC_DEPLOY_2026-08-24-CC-1-07.json`.

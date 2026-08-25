@@ -321,17 +321,104 @@ class ControlAPITests(unittest.TestCase):
         self.assertEqual(response.body["status"], "revocation_pending")
         self.assertEqual(response.body["enforcement"], "pending")
 
-    def test_deletion_request_revokes_session_and_is_idempotent(self):
+    def test_device_label_revision_and_pending_cancel_are_scoped_and_fail_closed(self):
+        token = self.session("acct_device_lifecycle")
+        device = self.register_device(token).body["device_id"]
+        listed = self.api.handle("GET", "/v1/devices", headers=self.auth(token), now=NOW)
+        item = listed.body["devices"][0]
+        self.assertEqual(item["display_name"], "새 기기")
+        renamed = self.api.handle(
+            "PATCH", f"/v1/devices/{device}", headers=self.auth(token),
+            body={"display_name": "업무용 Android", "revision": item["revision"]}, now=NOW,
+        )
+        stale = self.api.handle(
+            "PATCH", f"/v1/devices/{device}", headers=self.auth(token),
+            body={"display_name": "오래된 화면", "revision": item["revision"]}, now=NOW,
+        )
+        pending = self.api.handle("DELETE", f"/v1/devices/{device}", headers=self.auth(token), now=NOW)
+        cancelled = self.api.handle(
+            "POST", f"/v1/devices/{device}/cancel-revocation", headers=self.auth(token), body={}, now=NOW
+        )
+        invalid_cancel = self.api.handle(
+            "POST", f"/v1/devices/{device}/cancel-revocation", headers=self.auth(token), body={}, now=NOW
+        )
+        self.assertEqual(renamed.status, 200)
+        self.assertEqual(renamed.body["revision"], 2)
+        self.assertEqual(stale.status, 409)
+        self.assertEqual(stale.body["error"], "STALE_DEVICE_REVISION")
+        self.assertEqual(pending.status, 202)
+        self.assertEqual(cancelled.status, 200)
+        self.assertTrue(cancelled.body["cancelled_before_server_enforcement"])
+        self.assertEqual(invalid_cancel.status, 409)
+
+    def test_account_export_is_scoped_and_excludes_keys_and_sessions(self):
+        token = self.session("acct_export_001")
+        other_token = self.session("acct_export_other")
+        self.register_device(token, seed=21)
+        self.register_device(other_token, seed=22)
+        missing_confirmation = self.api.handle(
+            "POST", "/v1/account/export", headers=self.auth(token), body={}, now=NOW
+        )
+        exported = self.api.handle(
+            "POST", "/v1/account/export", headers=self.auth(token),
+            body={"confirm": "EXPORT"}, now=NOW,
+        )
+        encoded = str(exported.body)
+        self.assertEqual(missing_confirmation.status, 400)
+        self.assertEqual(exported.status, 200)
+        self.assertEqual(exported.body["schema"], "FreeFlexVPNAccountExportV1")
+        self.assertEqual(exported.body["account"]["account_id"], "acct_export_001")
+        self.assertNotIn("acct_export_other", encoded)
+        self.assertFalse(exported.body["contains_private_keys"])
+        for forbidden in ("wg_public_key", "assigned_address", "session_hash", "claim_hash"):
+            self.assertNotIn(forbidden, encoded)
+
+    def test_data_rights_require_a_session_created_within_five_minutes(self):
+        token = self.session("acct_reauth_001")
+        later = NOW + timedelta(minutes=6)
+        exported = self.api.handle(
+            "POST", "/v1/account/export", headers=self.auth(token),
+            body={"confirm": "EXPORT"}, now=later,
+        )
+        deletion = self.api.handle(
+            "POST", "/v1/account/delete", headers=self.auth(token),
+            body={"confirm": "DELETE"}, now=later,
+        )
+        self.assertEqual(exported.body["error"], "RECENT_AUTH_REQUIRED")
+        self.assertEqual(deletion.body["error"], "RECENT_AUTH_REQUIRED")
+
+    def test_deletion_request_revokes_session_and_has_private_status_receipt(self):
         token = self.session("acct_delete_001")
+        unconfirmed = self.api.handle(
+            "POST", "/v1/account/delete", headers=self.auth(token), body={}, now=NOW
+        )
         first = self.api.handle(
-            "POST", "/v1/account/delete", headers=self.auth(token), now=NOW
+            "POST", "/v1/account/delete", headers=self.auth(token),
+            body={"confirm": "DELETE"}, now=NOW,
         )
         after = self.api.handle(
             "GET", "/v1/wallet", headers=self.auth(token), now=NOW
         )
+        status = self.api.handle(
+            "GET", first.body["status_path"],
+            headers={"X-FreeFlex-Deletion-Token": first.body["status_token"]}, now=NOW,
+        )
+        wrong = self.api.handle(
+            "GET", first.body["status_path"],
+            headers={"X-FreeFlex-Deletion-Token": "x" * 43}, now=NOW,
+        )
+        with closing(sqlite3.connect(self.path)) as connection:
+            stored = connection.execute("SELECT status_token_hash FROM deletion_status_tokens").fetchone()[0]
+        self.assertEqual(unconfirmed.status, 400)
         self.assertEqual(first.status, 202)
         self.assertTrue(first.body["session_revoked"])
         self.assertEqual(after.status, 401)
+        self.assertEqual(status.status, 200)
+        self.assertEqual(status.body["status"], "requested")
+        self.assertFalse(status.body["completion_is_verified"])
+        self.assertEqual(wrong.status, 404)
+        self.assertNotEqual(stored, first.body["status_token"])
+        self.assertEqual(len(stored), 64)
 
 
 if __name__ == "__main__":

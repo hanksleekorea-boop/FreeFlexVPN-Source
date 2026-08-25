@@ -28,7 +28,9 @@ CLAIM_TTL_MINUTES = 10
 SESSION_TTL_MINUTES = 30
 MAX_ACTIVE_DEVICES = 2
 SAFETY_MAX_AGE_HOURS = 24
+DATA_RIGHTS_REAUTH_MINUTES = 5
 _ACCOUNT_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{2,127}$")
+_DEVICE_LABEL = re.compile(r"^[^\x00-\x1f]{1,40}$")
 
 
 def utc_now() -> datetime:
@@ -286,6 +288,26 @@ class ControlAPI:
             raise ApiError(401, "AUTH_REQUIRED", "유효한 세션 인증이 필요합니다")
         return str(row["account_id"])
 
+    def _require_recent_session(self, headers: Mapping[str, str], now: datetime) -> str:
+        """자료 내보내기·삭제에 5분 이내의 새 세션을 다시 요구한다."""
+        account_id = self._authenticate(headers, now)
+        assert account_id is not None
+        authorization = self._header(headers, "Authorization")
+        assert authorization is not None
+        token = authorization[7:].strip()
+        with closing(self._connect()) as connection:
+            row = connection.execute(
+                "SELECT created_at FROM api_sessions WHERE session_hash=? AND account_id=?",
+                (_digest(token), account_id),
+            ).fetchone()
+        if row is None or _as_utc(str(row["created_at"])) < now - timedelta(minutes=DATA_RIGHTS_REAUTH_MINUTES):
+            raise ApiError(
+                401,
+                "RECENT_AUTH_REQUIRED",
+                "자료 내보내기·삭제 전 새 로그인 수령 링크로 다시 확인해야 합니다",
+            )
+        return account_id
+
     def _register_device(self, account_id: str, body: Mapping[str, Any], now: datetime) -> ApiResponse:
         if "private_key" in body or "wg_private_key" in body:
             raise ApiError(400, "PRIVATE_KEY_FORBIDDEN", "개인키는 기기 밖으로 전송하면 안 됩니다")
@@ -312,6 +334,13 @@ class ControlAPI:
                 raise ApiError(409, "DEVICE_LIMIT", "활성 기기는 최대 2대입니다")
             if connection.execute("SELECT 1 FROM devices WHERE wg_public_key=?", (public_key,)).fetchone():
                 raise ApiError(409, "DUPLICATE_PUBLIC_KEY", "이미 등록된 공개키입니다")
+        requested_label = body.get("device_label")
+        if requested_label is None:
+            display_name = "새 기기"
+        elif not isinstance(requested_label, str) or not _DEVICE_LABEL.fullmatch(requested_label.strip()):
+            raise ApiError(400, "INVALID_DEVICE_LABEL", "기기 이름은 제어문자 없이 1~40자여야 합니다")
+        else:
+            display_name = requested_label.strip()
         device_id = uuid.uuid4().hex
         try:
             provisioned = self.peer_provisioner(account_id, device_id, public_key, server)
@@ -330,12 +359,20 @@ class ControlAPI:
                 "INSERT INTO devices VALUES (?,?,?,?,?,'active',?,NULL)",
                 (device_id, account_id, public_key, server_id, str(interface), now.isoformat()),
             )
+            connection.execute(
+                "INSERT INTO device_metadata VALUES (?,?,1,?)",
+                (device_id, display_name, now.isoformat()),
+            )
             connection.commit()
         return ApiResponse(
             201,
             {
                 "device_id": device_id,
                 "status": "active",
+                "display_name": display_name,
+                "revision": 1,
+                "issued_at": now.isoformat(),
+                "delivery_expires_at": (now + timedelta(minutes=10)).isoformat(),
                 "configuration": {
                     "addresses": [str(interface)],
                     "dns": server["dns"],
@@ -349,6 +386,64 @@ class ControlAPI:
                 "private_key_received": False,
             },
         )
+
+    def _rename_device(self, account_id: str, device_id: str, body: Mapping[str, Any], now: datetime) -> ApiResponse:
+        """Rename only the caller's device after matching the currently rendered revision."""
+        if set(body) != {"display_name", "revision"}:
+            raise ApiError(400, "DEVICE_RENAME_SHAPE_INVALID", "기기 이름과 현재 판번호만 전송할 수 있습니다")
+        display_name, revision = body.get("display_name"), body.get("revision")
+        if not isinstance(display_name, str) or not _DEVICE_LABEL.fullmatch(display_name.strip()):
+            raise ApiError(400, "INVALID_DEVICE_LABEL", "기기 이름은 제어문자 없이 1~40자여야 합니다")
+        if type(revision) is not int or revision < 1:
+            raise ApiError(400, "INVALID_DEVICE_REVISION", "현재 판번호가 필요합니다")
+        normalized = display_name.strip()
+        with closing(self._connect()) as connection:
+            connection.execute("BEGIN IMMEDIATE")
+            device = connection.execute(
+                "SELECT device_id,status FROM devices WHERE device_id=? AND account_id=?", (device_id, account_id)
+            ).fetchone()
+            if device is None:
+                connection.rollback()
+                raise ApiError(404, "DEVICE_NOT_FOUND", "기기를 찾을 수 없습니다")
+            connection.execute(
+                "INSERT OR IGNORE INTO device_metadata VALUES (?,?,1,?)",
+                (device_id, "등록된 기기", now.isoformat()),
+            )
+            metadata = connection.execute(
+                "SELECT display_name,revision FROM device_metadata WHERE device_id=?", (device_id,)
+            ).fetchone()
+            assert metadata is not None
+            current_revision = int(metadata["revision"])
+            if revision != current_revision:
+                connection.rollback()
+                raise ApiError(409, "STALE_DEVICE_REVISION", "다른 화면에서 바뀐 기기 정보입니다. 목록을 새로 확인하세요")
+            if str(metadata["display_name"]) == normalized:
+                connection.commit()
+                return ApiResponse(200, {"device_id": device_id, "display_name": normalized, "revision": current_revision, "duplicate": True})
+            next_revision = current_revision + 1
+            connection.execute(
+                "UPDATE device_metadata SET display_name=?,revision=?,updated_at=? WHERE device_id=?",
+                (normalized, next_revision, now.isoformat(), device_id),
+            )
+            connection.commit()
+        return ApiResponse(200, {"device_id": device_id, "display_name": normalized, "revision": next_revision, "duplicate": False})
+
+    def _cancel_pending_revocation(self, account_id: str, device_id: str) -> ApiResponse:
+        """Only cancel a request which the peer adapter did not enforce on the server."""
+        with closing(self._connect()) as connection:
+            connection.execute("BEGIN IMMEDIATE")
+            row = connection.execute(
+                "SELECT status FROM devices WHERE device_id=? AND account_id=?", (device_id, account_id)
+            ).fetchone()
+            if row is None:
+                connection.rollback()
+                raise ApiError(404, "DEVICE_NOT_FOUND", "기기를 찾을 수 없습니다")
+            if row["status"] != "revocation_pending":
+                connection.rollback()
+                raise ApiError(409, "REVOCATION_CANCEL_NOT_ALLOWED", "서버 폐기 대기 상태에서만 취소할 수 있습니다")
+            connection.execute("UPDATE devices SET status='active',revoked_at=NULL WHERE device_id=?", (device_id,))
+            connection.commit()
+        return ApiResponse(200, {"device_id": device_id, "status": "active", "cancelled_before_server_enforcement": True})
 
     def _revoke_device(self, account_id: str, device_id: str, now: datetime) -> ApiResponse:
         with closing(self._connect()) as connection:
@@ -384,9 +479,13 @@ class ControlAPI:
     def _devices(self, account_id: str) -> ApiResponse:
         with closing(self._connect()) as connection:
             rows = connection.execute(
-                """SELECT device_id,server_id,assigned_address,status,created_at,revoked_at
-                   FROM devices WHERE account_id=?
-                   ORDER BY created_at DESC,device_id DESC""",
+                """SELECT d.device_id,d.server_id,d.assigned_address,d.status,d.created_at,d.revoked_at,
+                          m.display_name,m.revision,p.observed_at AS last_verified_at
+                   FROM devices d
+                   LEFT JOIN device_metadata m ON m.device_id=d.device_id
+                   LEFT JOIN peer_runtime p ON p.device_id=d.device_id
+                   WHERE d.account_id=?
+                   ORDER BY d.created_at DESC,d.device_id DESC""",
                 (account_id,),
             ).fetchall()
         devices = [
@@ -397,6 +496,9 @@ class ControlAPI:
                 "status": str(row["status"]),
                 "created_at": str(row["created_at"]),
                 "revoked_at": str(row["revoked_at"]) if row["revoked_at"] is not None else None,
+                "display_name": str(row["display_name"]) if row["display_name"] is not None else "등록된 기기",
+                "revision": int(row["revision"]) if row["revision"] is not None else 1,
+                "last_verified_at": str(row["last_verified_at"]) if row["last_verified_at"] is not None else None,
             }
             for row in rows
         ]
@@ -621,8 +723,70 @@ class ControlAPI:
                     )
         return result | {"referral_updates": referral_updates}
 
-    def _request_deletion(self, account_id: str, now: datetime) -> ApiResponse:
+    def _account_export(self, account_id: str, now: datetime) -> ApiResponse:
+        """인증 계정의 기계 판독용 자료만 반환하고 키·세션 원문은 제외한다."""
+        with closing(self._connect()) as connection:
+            account = connection.execute(
+                "SELECT account_id,status,created_at,updated_at FROM accounts WHERE account_id=?",
+                (account_id,),
+            ).fetchone()
+            devices = connection.execute(
+                """SELECT device_id,server_id,status,created_at,revoked_at
+                   FROM devices WHERE account_id=? ORDER BY created_at,device_id""",
+                (account_id,),
+            ).fetchall()
+            wallet_entries = connection.execute(
+                """SELECT bucket,delta_bytes,reason,free_month,created_at
+                   FROM wallet_entries WHERE account_id=? ORDER BY entry_id""",
+                (account_id,),
+            ).fetchall()
+            usage_receipts = connection.execute(
+                """SELECT session_id,used_bytes,created_at
+                   FROM session_receipts WHERE account_id=? ORDER BY created_at,session_id""",
+                (account_id,),
+            ).fetchall()
+            referrals = connection.execute(
+                """SELECT referral_id,inviter_id,invitee_id,status,created_at,protected_at,rewarded_at
+                   FROM referrals WHERE inviter_id=? OR invitee_id=? ORDER BY created_at,referral_id""",
+                (account_id, account_id),
+            ).fetchall()
+        if account is None:
+            raise ApiError(404, "ACCOUNT_NOT_FOUND", "계정을 찾을 수 없습니다")
+        return ApiResponse(
+            200,
+            {
+                "schema": "FreeFlexVPNAccountExportV1",
+                "format": "application/json",
+                "generated_at": now.isoformat(),
+                "account": dict(account),
+                "devices": [dict(row) for row in devices],
+                "wallet_entries": [dict(row) for row in wallet_entries],
+                "usage_receipts": [dict(row) for row in usage_receipts],
+                "referrals": [dict(row) for row in referrals],
+                "contains_private_keys": False,
+                "excluded": [
+                    "wireguard_private_keys",
+                    "wireguard_public_keys",
+                    "assigned_tunnel_addresses",
+                    "claim_tokens",
+                    "api_session_tokens",
+                    "deletion_status_tokens",
+                    "payment_credentials",
+                ],
+                "scope_notice": "이 인증 계정의 서비스 자료만 포함하며 다른 계정 자료는 포함하지 않습니다",
+            },
+        )
+
+    def _request_deletion(
+        self,
+        account_id: str,
+        body: Mapping[str, Any],
+        now: datetime,
+    ) -> ApiResponse:
+        if body.get("confirm") != "DELETE":
+            raise ApiError(400, "DELETION_CONFIRMATION_REQUIRED", "삭제 요청에는 confirm=DELETE가 필요합니다")
         request_id = uuid.uuid4().hex
+        status_token = secrets.token_urlsafe(32)
         with closing(self._connect()) as connection:
             connection.execute("BEGIN IMMEDIATE")
             existing = connection.execute(
@@ -631,10 +795,14 @@ class ControlAPI:
             ).fetchone()
             if existing:
                 connection.commit()
-                return ApiResponse(200, dict(existing) | {"duplicate": True})
+                return ApiResponse(200, dict(existing) | {"duplicate": True, "status_token_issued": False})
             connection.execute(
                 "INSERT INTO deletion_requests VALUES (?,?,'requested',?,NULL)",
                 (request_id, account_id, now.isoformat()),
+            )
+            connection.execute(
+                "INSERT INTO deletion_status_tokens VALUES (?,?,?)",
+                (request_id, _digest(status_token), now.isoformat()),
             )
             connection.execute(
                 "UPDATE accounts SET status='deletion_requested',updated_at=? WHERE account_id=?",
@@ -656,6 +824,36 @@ class ControlAPI:
                 "status": "requested",
                 "requested_at": now.isoformat(),
                 "session_revoked": True,
+                "status_token": status_token,
+                "status_path": f"/v1/account/deletion-status/{request_id}",
+                "status_token_delivery": "one_time",
+                "deletion_scope": ["account", "vpn_peers", "service_preferences"],
+                "legal_retention": {
+                    "status": "operator_decision_required",
+                    "notice": "법정 보관 대상·기간은 운영 주체 확정 전이며 삭제 완료로 표시하지 않습니다",
+                },
+            },
+        )
+
+    def _deletion_status(self, request_id: str, headers: Mapping[str, str]) -> ApiResponse:
+        token = self._header(headers, "X-FreeFlex-Deletion-Token")
+        if not re.fullmatch(r"[a-f0-9]{32}", request_id) or not token or len(token) < 32:
+            raise ApiError(404, "DELETION_REQUEST_NOT_FOUND", "삭제 요청을 찾을 수 없습니다")
+        with closing(self._connect()) as connection:
+            row = connection.execute(
+                """SELECT d.request_id,d.status,d.requested_at,d.completed_at
+                   FROM deletion_requests d JOIN deletion_status_tokens t ON t.request_id=d.request_id
+                   WHERE d.request_id=? AND t.status_token_hash=?""",
+                (request_id, _digest(token)),
+            ).fetchone()
+        if row is None:
+            raise ApiError(404, "DELETION_REQUEST_NOT_FOUND", "삭제 요청을 찾을 수 없습니다")
+        return ApiResponse(
+            200,
+            dict(row)
+            | {
+                "legal_retention_status": "operator_decision_required",
+                "completion_is_verified": row["status"] == "completed",
             },
         )
 
@@ -683,6 +881,10 @@ class ControlAPI:
                 return self._exchange_claim(self._require_body(body), current)
             if verb == "GET" and clean_path == "/v1/check":
                 return self._check(request_headers, remote_ip, current)
+            if verb == "GET" and clean_path.startswith("/v1/account/deletion-status/"):
+                return self._deletion_status(
+                    clean_path.removeprefix("/v1/account/deletion-status/"), request_headers
+                )
 
             account_id = self._authenticate(request_headers, current)
             assert account_id is not None
@@ -690,6 +892,11 @@ class ControlAPI:
                 return self._devices(account_id)
             if verb == "POST" and clean_path == "/v1/devices":
                 return self._register_device(account_id, self._require_body(body), current)
+            if verb == "PATCH" and clean_path.startswith("/v1/devices/"):
+                return self._rename_device(account_id, clean_path.removeprefix("/v1/devices/"), self._require_body(body), current)
+            if verb == "POST" and clean_path.startswith("/v1/devices/") and clean_path.endswith("/cancel-revocation"):
+                device_id = clean_path.removesuffix("/cancel-revocation").removeprefix("/v1/devices/")
+                return self._cancel_pending_revocation(account_id, device_id)
             if verb == "DELETE" and clean_path.startswith("/v1/devices/"):
                 return self._revoke_device(account_id, clean_path.removeprefix("/v1/devices/"), current)
             if verb == "GET" and clean_path == "/v1/wallet":
@@ -704,8 +911,14 @@ class ControlAPI:
                 return ApiResponse(201, issued | {"share_url": f"{self.share_base_url}?ref={token}"})
             if verb == "GET" and clean_path == "/v1/referrals":
                 return ApiResponse(200, {"referrals": self.referrals.list_for_account(account_id)})
+            if verb == "POST" and clean_path == "/v1/account/export":
+                account_id = self._require_recent_session(request_headers, current)
+                if self._require_body(body).get("confirm") != "EXPORT":
+                    raise ApiError(400, "EXPORT_CONFIRMATION_REQUIRED", "자료 내보내기에는 confirm=EXPORT가 필요합니다")
+                return self._account_export(account_id, current)
             if verb == "POST" and clean_path == "/v1/account/delete":
-                return self._request_deletion(account_id, current)
+                account_id = self._require_recent_session(request_headers, current)
+                return self._request_deletion(account_id, self._require_body(body), current)
             raise ApiError(404, "NOT_FOUND", "요청한 API 경로를 찾을 수 없습니다")
         except ApiError as exc:
             return ApiResponse(exc.status, {"error": exc.code, "message": exc.message})

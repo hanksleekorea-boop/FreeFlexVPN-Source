@@ -24,7 +24,7 @@ PROTOTYPE_OUTPUT = ROOT / "60_OUTPUTS" / "prototype" / "FreeFlexVPN_service_v2.6
 PUBLIC_ASSETS = ROOT / "20_SRC" / "github_pages"
 APP_SOURCE = ROOT / "20_SRC" / "app"
 SERVICE_GLOBAL_STYLES = TEMPLATES / "service_global.css"
-APP_MODULES = ("client_keygen.js", "pwa_api_client.js", "moment_catalog.js", "platform_support.js", "pc_readiness.js", "mobile_readiness.js", "commercial_readiness.js", "pwa_runtime.js")
+APP_MODULES = ("client_keygen.js", "pwa_api_client.js", "moment_catalog.js", "platform_support.js", "pc_readiness.js", "mobile_readiness.js", "commercial_readiness.js", "protection_evidence.js", "profile_lifecycle.js", "error_recovery.js", "pwa_runtime.js")
 RUNTIME_SCRIPT_TAG = '<script type="module" src="./pwa_runtime.js"></script>'
 
 SERVICE_GLOBAL_NAV = """<header class="ff-global"><div class="ff-global-in"><a class="ff-global-brand" href="index.html"><span class="ff-global-mark">FF</span>FreeFlexVPN</a><nav class="ff-global-links" aria-label="서비스 이동"><a href="app.html">서비스 열기</a><a href="index.html">제품 소개</a><a href="development-dashboard.html">개발 현황</a></nav></div></header>"""
@@ -75,6 +75,9 @@ def bundled_runtime() -> str:
     pc_readiness = (APP_SOURCE / "pc_readiness.js").read_text(encoding="utf-8")
     mobile_readiness = (APP_SOURCE / "mobile_readiness.js").read_text(encoding="utf-8")
     commercial_readiness = (APP_SOURCE / "commercial_readiness.js").read_text(encoding="utf-8")
+    protection_evidence = (APP_SOURCE / "protection_evidence.js").read_text(encoding="utf-8")
+    profile_lifecycle = (APP_SOURCE / "profile_lifecycle.js").read_text(encoding="utf-8")
+    error_recovery = (APP_SOURCE / "error_recovery.js").read_text(encoding="utf-8")
     runtime = (APP_SOURCE / "pwa_runtime.js").read_text(encoding="utf-8")
     api_client = re.sub(r"(?m)^export\s+", "", api_client)
     keygen = re.sub(r"(?m)^export\s+", "", keygen)
@@ -83,6 +86,9 @@ def bundled_runtime() -> str:
     pc_readiness = re.sub(r"(?m)^export\s+", "", pc_readiness)
     mobile_readiness = re.sub(r"(?m)^export\s+", "", mobile_readiness)
     commercial_readiness = re.sub(r"(?m)^export\s+", "", commercial_readiness)
+    protection_evidence = re.sub(r"(?m)^export\s+", "", protection_evidence)
+    profile_lifecycle = re.sub(r"(?m)^export\s+", "", profile_lifecycle)
+    error_recovery = re.sub(r"(?m)^export\s+", "", error_recovery)
     runtime = re.sub(r'(?m)^import\s+.*?\s+from\s+"\./[^\"]+";\s*$', "", runtime)
     return (
         '<script type="module" data-freeflex-runtime="inline">\n'
@@ -93,6 +99,9 @@ def bundled_runtime() -> str:
         f"// pc_readiness.js\n{pc_readiness}\n"
         f"// mobile_readiness.js\n{mobile_readiness}\n"
         f"// commercial_readiness.js\n{commercial_readiness}\n"
+        f"// protection_evidence.js\n{protection_evidence}\n"
+        f"// profile_lifecycle.js\n{profile_lifecycle}\n"
+        f"// error_recovery.js\n{error_recovery}\n"
         f"// pwa_runtime.js\n{runtime}\n"
         "</script>"
     )

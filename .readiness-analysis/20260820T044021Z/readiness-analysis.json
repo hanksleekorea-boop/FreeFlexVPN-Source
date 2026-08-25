@@ -1,0 +1,2347 @@
+{
+  "schema": "crh-analysis-result/v1",
+  "engineVersion": "1.0.1",
+  "generatedAt": "2026-08-20T04:45:43.783Z",
+  "assessedAt": "2026-08-20",
+  "project": {
+    "name": "FreeFlexVPN",
+    "repository": "hanksleekorea-boop/FreeFlexVPN-Source",
+    "description": "한국어 중심의 소비자 VPN/PWA 준비 프로젝트. 공개 정적 앱과 개발 대시보드는 확인했으나, 실제 VPN 접속망·결제·운영 지원은 이 분석에서 검증하지 않았다.",
+    "urls": {
+      "web": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html?view=app",
+      "mobile": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html"
+    },
+    "features": [
+      {
+        "name": "공개 반응형 앱 진입",
+        "platform": "모바일·PC 웹",
+        "status": "브라우저 확인",
+        "evidence": "공개 GCS URL HTTP 응답 및 로컬 배포 산출물"
+      },
+      {
+        "name": "PWA/서비스 워커 기반 임시 오프라인 표면",
+        "platform": "모바일 웹",
+        "status": "코드·자동 검사",
+        "evidence": "배포 산출물과 기존 자동 검사 기록; 실기기 오프라인 시험은 미실시"
+      },
+      {
+        "name": "연결/체험 UI",
+        "platform": "모바일·PC 웹",
+        "status": "코드·브라우저 확인",
+        "evidence": "공개 앱 UI와 회귀 검사"
+      },
+      {
+        "name": "Android 실제 설치·VPN 연결",
+        "platform": "Android",
+        "status": "미실시",
+        "evidence": "유휴 기기 미확인으로 단일 기기 시험을 실행하지 않음"
+      },
+      {
+        "name": "결제·환불·운영 지원",
+        "platform": "공통",
+        "status": "미확인",
+        "evidence": "실거래, 고객 지원 SLA, 법률 검토 증거를 이 분석에서 확인하지 않음"
+      }
+    ]
+  },
+  "lens": {
+    "name": "core",
+    "version": "2.1.0",
+    "itemCount": 197,
+    "gateCount": 40
+  },
+  "scope": {
+    "id": "core",
+    "selectedItems": 58
+  },
+  "direction": {
+    "score": 50,
+    "status": "calculated",
+    "total": 42,
+    "rated": 12,
+    "critical": [
+      "m02",
+      "m03",
+      "m04",
+      "m06",
+      "l07",
+      "l08",
+      "s12",
+      "f07",
+      "l03",
+      "b04",
+      "b10",
+      "s03",
+      "s05",
+      "s08",
+      "q06",
+      "o01",
+      "o05",
+      "q01",
+      "u04",
+      "u05",
+      "p07",
+      "r03"
+    ],
+    "selected": [
+      "model",
+      "market",
+      "pay",
+      "pf",
+      "stage",
+      "sens",
+      "team",
+      "edge",
+      "when"
+    ],
+    "target": 60,
+    "platformMix": {
+      "mobile": 0.5,
+      "web": 0.5
+    }
+  },
+  "mobile": {
+    "score": 45.01,
+    "domains": [
+      {
+        "id": "d1",
+        "name": "핵심 기능 완성도",
+        "weight": 10,
+        "score": 75,
+        "total": 4,
+        "done": 1,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d2",
+        "name": "품질 & 안정성",
+        "weight": 10,
+        "score": 58.33,
+        "total": 4,
+        "done": 2,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d3",
+        "name": "성능",
+        "weight": 7,
+        "score": null,
+        "total": 0,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d4",
+        "name": "보안",
+        "weight": 17,
+        "score": 62.5,
+        "total": 6,
+        "done": 3,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d5",
+        "name": "결제 & 수익화",
+        "weight": 15,
+        "score": 25,
+        "total": 9,
+        "done": 1,
+        "unknown": 4,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d6",
+        "name": "법규 & 개인정보",
+        "weight": 14,
+        "score": 25,
+        "total": 12,
+        "done": 2,
+        "unknown": 3,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d7",
+        "name": "출시 & 심사 준비",
+        "weight": 6,
+        "score": 50,
+        "total": 2,
+        "done": 1,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d8",
+        "name": "접근성 & UX 완성도",
+        "weight": 4,
+        "score": 50,
+        "total": 4,
+        "done": 2,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d9",
+        "name": "운영 & 고객지원",
+        "weight": 10,
+        "score": 25,
+        "total": 3,
+        "done": 1,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d10",
+        "name": "비즈니스 & 그로스",
+        "weight": 7,
+        "score": null,
+        "total": 3,
+        "done": 0,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d11",
+        "name": "정보구조 & 내비게이션",
+        "weight": 5,
+        "score": null,
+        "total": 2,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d12",
+        "name": "검색 & 발견",
+        "weight": 5,
+        "score": null,
+        "total": 2,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d13",
+        "name": "추천 & 개인화",
+        "weight": 4,
+        "score": null,
+        "total": 1,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d14",
+        "name": "광고 & 제휴 수익",
+        "weight": 4,
+        "score": null,
+        "total": 2,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d15",
+        "name": "콘텐츠 & 이용자 생성물 운영",
+        "weight": 5,
+        "score": null,
+        "total": 2,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      }
+    ],
+    "total": 56,
+    "done": 13,
+    "unknown": 12,
+    "stale": 0,
+    "progress": 0.23,
+    "selfShare": 0.76,
+    "externalScore": 45,
+    "selfScore": 48.33,
+    "gates": {
+      "items": [
+        {
+          "id": "f01",
+          "title": "핵심 사용자 여정 E2E 동작",
+          "domain": "핵심 기능 완성도",
+          "score": 3,
+          "status": "pass"
+        },
+        {
+          "id": "f03",
+          "title": "회원 탈퇴 및 계정·데이터 삭제 플로우",
+          "domain": "핵심 기능 완성도",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "f16",
+          "title": "알림 수신 설정 세분화",
+          "domain": "핵심 기능 완성도",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "q02",
+          "title": "크래시·에러 모니터링 연동",
+          "domain": "품질 & 안정성",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "q04",
+          "title": "QA 사이클 완료 및 P1/P2 결함 0건",
+          "domain": "품질 & 안정성",
+          "score": 2,
+          "status": "fail"
+        },
+        {
+          "id": "s01",
+          "title": "전 구간 HTTPS/TLS 1.2+ 및 인증서 자동 갱신",
+          "domain": "보안",
+          "score": 3,
+          "status": "pass"
+        },
+        {
+          "id": "s02",
+          "title": "인증·인가 체계",
+          "domain": "보안",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "s04",
+          "title": "OWASP Top 10 / MASVS 기준 점검 완료",
+          "domain": "보안",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "m01",
+          "title": "가격 정책·요금제 확정 및 시스템 반영",
+          "domain": "결제 & 수익화",
+          "score": 1,
+          "status": "fail"
+        },
+        {
+          "id": "m02",
+          "title": "PG 실거래 테스트 완료",
+          "domain": "결제 & 수익화",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "m10",
+          "title": "인앱결제(IAP) 연동 및 영수증 서버 검증",
+          "domain": "결제 & 수익화",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "m13",
+          "title": "정기결제 사전 동의 (법정)",
+          "domain": "결제 & 수익화",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "m14",
+          "title": "총액 표시 (법정)",
+          "domain": "결제 & 수익화",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "m15",
+          "title": "다크패턴 금지 준수",
+          "domain": "결제 & 수익화",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l01",
+          "title": "이용약관·개인정보처리방침 법률 검토 완료",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "l02",
+          "title": "개인정보 수집·이용 동의 및 동의 이력 보관",
+          "domain": "법규 & 개인정보",
+          "score": 1,
+          "status": "fail"
+        },
+        {
+          "id": "l07",
+          "title": "사업자 정보 표시 의무 준수",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "l10",
+          "title": "지식재산권 정리",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l11",
+          "title": "ATT 및 Play 데이터 안전 섹션 정확 작성",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l13",
+          "title": "위치기반서비스 신고·약관 (법정)",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l16",
+          "title": "광고성 정보 전송 규정 (법정)",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l17",
+          "title": "야간 광고 전송 제한 (법정)",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l19",
+          "title": "권리침해 게시물 임시조치 (법정)",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l21",
+          "title": "개인정보처리방침 필수 15항목",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "r02",
+          "title": "릴리스 버전 관리 및 롤백 계획",
+          "domain": "출시 & 심사 준비",
+          "score": 2,
+          "status": "fail"
+        },
+        {
+          "id": "u14",
+          "title": "한국형 웹 접근성 (법정)",
+          "domain": "접근성 & UX 완성도",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "u15",
+          "title": "모바일 앱 접근성 (법정)",
+          "domain": "접근성 & UX 완성도",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "o01",
+          "title": "모니터링·알럿 및 임계치 설정",
+          "domain": "운영 & 고객지원",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "o02",
+          "title": "온콜 로테이션·에스컬레이션·인시던트 런북",
+          "domain": "운영 & 고객지원",
+          "score": 1,
+          "status": "fail"
+        },
+        {
+          "id": "b02",
+          "title": "수익 모델 및 단위경제 검증",
+          "domain": "비즈니스 & 그로스",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "n01",
+          "title": "분류 체계(택소노미) 설계",
+          "domain": "정보구조 & 내비게이션",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "n02",
+          "title": "주 내비게이션",
+          "domain": "정보구조 & 내비게이션",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "s101",
+          "title": "검색 진입점",
+          "domain": "검색 & 발견",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "s104",
+          "title": "결과 없음 처리",
+          "domain": "검색 & 발견",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "r101",
+          "title": "연관 추천",
+          "domain": "추천 & 개인화",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "a102",
+          "title": "광고와 콘텐츠 구분 표시",
+          "domain": "광고 & 제휴 수익",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "a107",
+          "title": "광고 식별자 동의",
+          "domain": "광고 & 제휴 수익",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "g102",
+          "title": "신고 기능",
+          "domain": "콘텐츠 & 이용자 생성물 운영",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "g104",
+          "title": "콘텐츠 모더레이션",
+          "domain": "콘텐츠 & 이용자 생성물 운영",
+          "score": null,
+          "status": "unrated"
+        }
+      ],
+      "pass": 2,
+      "fail": 5,
+      "unrated": 32,
+      "na": 0
+    },
+    "grade": {
+      "code": "L2?",
+      "name": "판정 보류",
+      "score": 45.01,
+      "blockers": 5,
+      "confidence": "low",
+      "reason": "평가 진행률 23%가 70% 미만"
+    }
+  },
+  "web": {
+    "score": 45.01,
+    "domains": [
+      {
+        "id": "d1",
+        "name": "핵심 기능 완성도",
+        "weight": 10,
+        "score": 75,
+        "total": 4,
+        "done": 1,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d2",
+        "name": "품질 & 안정성",
+        "weight": 10,
+        "score": 58.33,
+        "total": 4,
+        "done": 2,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d3",
+        "name": "성능",
+        "weight": 7,
+        "score": null,
+        "total": 1,
+        "done": 0,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d4",
+        "name": "보안",
+        "weight": 17,
+        "score": 62.5,
+        "total": 7,
+        "done": 3,
+        "unknown": 2,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d5",
+        "name": "결제 & 수익화",
+        "weight": 15,
+        "score": 25,
+        "total": 8,
+        "done": 1,
+        "unknown": 4,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d6",
+        "name": "법규 & 개인정보",
+        "weight": 14,
+        "score": 25,
+        "total": 11,
+        "done": 2,
+        "unknown": 3,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d7",
+        "name": "출시 & 심사 준비",
+        "weight": 6,
+        "score": 50,
+        "total": 2,
+        "done": 1,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d8",
+        "name": "접근성 & UX 완성도",
+        "weight": 4,
+        "score": 50,
+        "total": 3,
+        "done": 2,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d9",
+        "name": "운영 & 고객지원",
+        "weight": 10,
+        "score": 25,
+        "total": 3,
+        "done": 1,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d10",
+        "name": "비즈니스 & 그로스",
+        "weight": 7,
+        "score": null,
+        "total": 3,
+        "done": 0,
+        "unknown": 1,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d11",
+        "name": "정보구조 & 내비게이션",
+        "weight": 5,
+        "score": null,
+        "total": 2,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d12",
+        "name": "검색 & 발견",
+        "weight": 5,
+        "score": null,
+        "total": 2,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d13",
+        "name": "추천 & 개인화",
+        "weight": 4,
+        "score": null,
+        "total": 1,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d14",
+        "name": "광고 & 제휴 수익",
+        "weight": 4,
+        "score": null,
+        "total": 2,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      },
+      {
+        "id": "d15",
+        "name": "콘텐츠 & 이용자 생성물 운영",
+        "weight": 5,
+        "score": null,
+        "total": 2,
+        "done": 0,
+        "unknown": 0,
+        "na": 0,
+        "stale": 0
+      }
+    ],
+    "total": 55,
+    "done": 13,
+    "unknown": 14,
+    "stale": 0,
+    "progress": 0.24,
+    "selfShare": 0.76,
+    "externalScore": 45,
+    "selfScore": 48.33,
+    "gates": {
+      "items": [
+        {
+          "id": "f01",
+          "title": "핵심 사용자 여정 E2E 동작",
+          "domain": "핵심 기능 완성도",
+          "score": 3,
+          "status": "pass"
+        },
+        {
+          "id": "f03",
+          "title": "회원 탈퇴 및 계정·데이터 삭제 플로우",
+          "domain": "핵심 기능 완성도",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "f16",
+          "title": "알림 수신 설정 세분화",
+          "domain": "핵심 기능 완성도",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "q02",
+          "title": "크래시·에러 모니터링 연동",
+          "domain": "품질 & 안정성",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "q04",
+          "title": "QA 사이클 완료 및 P1/P2 결함 0건",
+          "domain": "품질 & 안정성",
+          "score": 2,
+          "status": "fail"
+        },
+        {
+          "id": "p07",
+          "title": "Core Web Vitals — LCP ≤ 2.5초",
+          "domain": "성능",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "s01",
+          "title": "전 구간 HTTPS/TLS 1.2+ 및 인증서 자동 갱신",
+          "domain": "보안",
+          "score": 3,
+          "status": "pass"
+        },
+        {
+          "id": "s02",
+          "title": "인증·인가 체계",
+          "domain": "보안",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "s04",
+          "title": "OWASP Top 10 / MASVS 기준 점검 완료",
+          "domain": "보안",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "m01",
+          "title": "가격 정책·요금제 확정 및 시스템 반영",
+          "domain": "결제 & 수익화",
+          "score": 1,
+          "status": "fail"
+        },
+        {
+          "id": "m02",
+          "title": "PG 실거래 테스트 완료",
+          "domain": "결제 & 수익화",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "m13",
+          "title": "정기결제 사전 동의 (법정)",
+          "domain": "결제 & 수익화",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "m14",
+          "title": "총액 표시 (법정)",
+          "domain": "결제 & 수익화",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "m15",
+          "title": "다크패턴 금지 준수",
+          "domain": "결제 & 수익화",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l01",
+          "title": "이용약관·개인정보처리방침 법률 검토 완료",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "l02",
+          "title": "개인정보 수집·이용 동의 및 동의 이력 보관",
+          "domain": "법규 & 개인정보",
+          "score": 1,
+          "status": "fail"
+        },
+        {
+          "id": "l07",
+          "title": "사업자 정보 표시 의무 준수",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "l10",
+          "title": "지식재산권 정리",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l13",
+          "title": "위치기반서비스 신고·약관 (법정)",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l16",
+          "title": "광고성 정보 전송 규정 (법정)",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l17",
+          "title": "야간 광고 전송 제한 (법정)",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l19",
+          "title": "권리침해 게시물 임시조치 (법정)",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "l21",
+          "title": "개인정보처리방침 필수 15항목",
+          "domain": "법규 & 개인정보",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "r02",
+          "title": "릴리스 버전 관리 및 롤백 계획",
+          "domain": "출시 & 심사 준비",
+          "score": 2,
+          "status": "fail"
+        },
+        {
+          "id": "u14",
+          "title": "한국형 웹 접근성 (법정)",
+          "domain": "접근성 & UX 완성도",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "o01",
+          "title": "모니터링·알럿 및 임계치 설정",
+          "domain": "운영 & 고객지원",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "o02",
+          "title": "온콜 로테이션·에스컬레이션·인시던트 런북",
+          "domain": "운영 & 고객지원",
+          "score": 1,
+          "status": "fail"
+        },
+        {
+          "id": "b02",
+          "title": "수익 모델 및 단위경제 검증",
+          "domain": "비즈니스 & 그로스",
+          "score": null,
+          "status": "unknown"
+        },
+        {
+          "id": "n01",
+          "title": "분류 체계(택소노미) 설계",
+          "domain": "정보구조 & 내비게이션",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "n02",
+          "title": "주 내비게이션",
+          "domain": "정보구조 & 내비게이션",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "s101",
+          "title": "검색 진입점",
+          "domain": "검색 & 발견",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "s104",
+          "title": "결과 없음 처리",
+          "domain": "검색 & 발견",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "r101",
+          "title": "연관 추천",
+          "domain": "추천 & 개인화",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "a102",
+          "title": "광고와 콘텐츠 구분 표시",
+          "domain": "광고 & 제휴 수익",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "a107",
+          "title": "광고 식별자 동의",
+          "domain": "광고 & 제휴 수익",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "g102",
+          "title": "신고 기능",
+          "domain": "콘텐츠 & 이용자 생성물 운영",
+          "score": null,
+          "status": "unrated"
+        },
+        {
+          "id": "g104",
+          "title": "콘텐츠 모더레이션",
+          "domain": "콘텐츠 & 이용자 생성물 운영",
+          "score": null,
+          "status": "unrated"
+        }
+      ],
+      "pass": 2,
+      "fail": 5,
+      "unrated": 30,
+      "na": 0
+    },
+    "grade": {
+      "code": "L2?",
+      "name": "판정 보류",
+      "score": 45.01,
+      "blockers": 5,
+      "confidence": "low",
+      "reason": "평가 진행률 24%가 70% 미만"
+    }
+  },
+  "axes": {
+    "general": 45.01,
+    "benchmark": 16.67,
+    "direction": 50,
+    "weights": {
+      "a1": 50,
+      "a2": 25,
+      "a3": 25
+    }
+  },
+  "benchmark": {
+    "score": 16.67,
+    "status": "calculated",
+    "confidence": "low",
+    "caution": "준비도에서 자동 유도한 4개 차원의 증거 진행률이 70% 미만입니다.",
+    "comparators": 3,
+    "dimensions": [
+      {
+        "key": "feat",
+        "name": "기능 폭·깊이",
+        "ours": 3.75,
+        "percentile": 0,
+        "comparisonCount": 3,
+        "source": "derived-from-readiness",
+        "readinessCoverage": 0.25
+      },
+      {
+        "key": "ux",
+        "name": "UX 완성도",
+        "ours": 2.5,
+        "percentile": 0,
+        "comparisonCount": 3,
+        "source": "derived-from-readiness",
+        "readinessCoverage": 0.58
+      },
+      {
+        "key": "perf",
+        "name": "성능·안정성",
+        "ours": 2.92,
+        "percentile": 66.67,
+        "comparisonCount": 3,
+        "source": "derived-from-readiness",
+        "readinessCoverage": 0.25
+      },
+      {
+        "key": "trust",
+        "name": "평점·신뢰",
+        "ours": 1,
+        "percentile": 0,
+        "comparisonCount": 3,
+        "source": "input",
+        "readinessCoverage": null
+      },
+      {
+        "key": "reach",
+        "name": "사용자 규모·도달",
+        "ours": 1,
+        "percentile": 0,
+        "comparisonCount": 3,
+        "source": "input",
+        "readinessCoverage": null
+      },
+      {
+        "key": "price",
+        "name": "가격 경쟁력",
+        "ours": 1,
+        "percentile": 0,
+        "comparisonCount": 3,
+        "source": "input",
+        "readinessCoverage": null
+      },
+      {
+        "key": "monet",
+        "name": "수익모델 성숙도",
+        "ours": 1.25,
+        "percentile": 0,
+        "comparisonCount": 3,
+        "source": "derived-from-readiness",
+        "readinessCoverage": 0.12
+      },
+      {
+        "key": "local",
+        "name": "현지화·접근성",
+        "ours": 3,
+        "percentile": 66.67,
+        "comparisonCount": 3,
+        "source": "input",
+        "readinessCoverage": null
+      }
+    ]
+  },
+  "composite": {
+    "score": 39.17,
+    "axesUsed": 3,
+    "blockers": 10,
+    "grade": {
+      "code": "L1",
+      "name": "기획·초기 구축"
+    }
+  },
+  "gaps": [
+    {
+      "platform": "mobile",
+      "id": "s02",
+      "title": "인증·인가 체계",
+      "domain": "보안",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 150.37,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "s04",
+      "title": "OWASP Top 10 / MASVS 기준 점검 완료",
+      "domain": "보안",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 150.37,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "s02",
+      "title": "인증·인가 체계",
+      "domain": "보안",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 150.37,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "s04",
+      "title": "OWASP Top 10 / MASVS 기준 점검 완료",
+      "domain": "보안",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 150.37,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "m02",
+      "title": "PG 실거래 테스트 완료",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 132.68,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "m10",
+      "title": "인앱결제(IAP) 연동 및 영수증 서버 검증",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 132.68,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "m13",
+      "title": "정기결제 사전 동의 (법정)",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 132.68,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "m14",
+      "title": "총액 표시 (법정)",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 132.68,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "m15",
+      "title": "다크패턴 금지 준수",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 132.68,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "m02",
+      "title": "PG 실거래 테스트 완료",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 132.68,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "m13",
+      "title": "정기결제 사전 동의 (법정)",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 132.68,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "m14",
+      "title": "총액 표시 (법정)",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 132.68,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "m15",
+      "title": "다크패턴 금지 준수",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 132.68,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l01",
+      "title": "이용약관·개인정보처리방침 법률 검토 완료",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l07",
+      "title": "사업자 정보 표시 의무 준수",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l10",
+      "title": "지식재산권 정리",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l11",
+      "title": "ATT 및 Play 데이터 안전 섹션 정확 작성",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l13",
+      "title": "위치기반서비스 신고·약관 (법정)",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l16",
+      "title": "광고성 정보 전송 규정 (법정)",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l17",
+      "title": "야간 광고 전송 제한 (법정)",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l19",
+      "title": "권리침해 게시물 임시조치 (법정)",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l21",
+      "title": "개인정보처리방침 필수 15항목",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "l01",
+      "title": "이용약관·개인정보처리방침 법률 검토 완료",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "l07",
+      "title": "사업자 정보 표시 의무 준수",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "l10",
+      "title": "지식재산권 정리",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "l13",
+      "title": "위치기반서비스 신고·약관 (법정)",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "l16",
+      "title": "광고성 정보 전송 규정 (법정)",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "l17",
+      "title": "야간 광고 전송 제한 (법정)",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "l19",
+      "title": "권리침해 게시물 임시조치 (법정)",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "l21",
+      "title": "개인정보처리방침 필수 15항목",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 123.84,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "m01",
+      "title": "가격 정책·요금제 확정 및 시스템 반영",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 117.07,
+      "evidence": "체험/한도 관련 설계는 있으나 확정 가격과 운영 반영은 확인하지 못함."
+    },
+    {
+      "platform": "web",
+      "id": "m01",
+      "title": "가격 정책·요금제 확정 및 시스템 반영",
+      "domain": "결제 & 수익화",
+      "gate": true,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 117.07,
+      "evidence": "체험/한도 설계 흔적만 확인; 확정 가격/운영 반영은 미확인."
+    },
+    {
+      "platform": "mobile",
+      "id": "l02",
+      "title": "개인정보 수집·이용 동의 및 동의 이력 보관",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 109.27,
+      "evidence": "동의/법적 문서 초안 흔적은 있으나 법률 검토와 이력 보관 운영은 미확인."
+    },
+    {
+      "platform": "web",
+      "id": "l02",
+      "title": "개인정보 수집·이용 동의 및 동의 이력 보관",
+      "domain": "법규 & 개인정보",
+      "gate": true,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 109.27,
+      "evidence": "초안 수준의 동의·법적 문서 흔적; 검토/이력 보관은 미확인."
+    },
+    {
+      "platform": "mobile",
+      "id": "f03",
+      "title": "회원 탈퇴 및 계정·데이터 삭제 플로우",
+      "domain": "핵심 기능 완성도",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 88.46,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "f16",
+      "title": "알림 수신 설정 세분화",
+      "domain": "핵심 기능 완성도",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 88.46,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "q02",
+      "title": "크래시·에러 모니터링 연동",
+      "domain": "품질 & 안정성",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 88.46,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "o01",
+      "title": "모니터링·알럿 및 임계치 설정",
+      "domain": "운영 & 고객지원",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 88.46,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "f03",
+      "title": "회원 탈퇴 및 계정·데이터 삭제 플로우",
+      "domain": "핵심 기능 완성도",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 88.46,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "f16",
+      "title": "알림 수신 설정 세분화",
+      "domain": "핵심 기능 완성도",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 88.46,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "q02",
+      "title": "크래시·에러 모니터링 연동",
+      "domain": "품질 & 안정성",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 88.46,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "o01",
+      "title": "모니터링·알럿 및 임계치 설정",
+      "domain": "운영 & 고객지원",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 88.46,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "o02",
+      "title": "온콜 로테이션·에스컬레이션·인시던트 런북",
+      "domain": "운영 & 고객지원",
+      "gate": true,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 78.05,
+      "evidence": "인수인계/운영 문서가 있으나 온콜·실제 장애 대응은 미확인."
+    },
+    {
+      "platform": "web",
+      "id": "o02",
+      "title": "온콜 로테이션·에스컬레이션·인시던트 런북",
+      "domain": "운영 & 고객지원",
+      "gate": true,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 78.05,
+      "evidence": "운영 문서는 있으나 실제 온콜/장애 대응 미확인."
+    },
+    {
+      "platform": "mobile",
+      "id": "b02",
+      "title": "수익 모델 및 단위경제 검증",
+      "domain": "비즈니스 & 그로스",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 61.92,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "p07",
+      "title": "Core Web Vitals — LCP ≤ 2.5초",
+      "domain": "성능",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 61.92,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "b02",
+      "title": "수익 모델 및 단위경제 검증",
+      "domain": "비즈니스 & 그로스",
+      "gate": true,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 61.92,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "q04",
+      "title": "QA 사이클 완료 및 P1/P2 결함 0건",
+      "domain": "품질 & 안정성",
+      "gate": true,
+      "currentScore": 2,
+      "status": "rated",
+      "impact": 52.03,
+      "evidence": "자동 검사 통과는 확인되나 알려진 P1/운영 결함이 완전히 해소됐다는 증거는 없다."
+    },
+    {
+      "platform": "web",
+      "id": "q04",
+      "title": "QA 사이클 완료 및 P1/P2 결함 0건",
+      "domain": "품질 & 안정성",
+      "gate": true,
+      "currentScore": 2,
+      "status": "rated",
+      "impact": 52.03,
+      "evidence": "자동 검사 통과는 확인되나 P1/P2 0건을 보장하는 운영 증거는 없음."
+    },
+    {
+      "platform": "mobile",
+      "id": "s05",
+      "title": "외부 모의해킹·취약점 진단 및 조치 완료",
+      "domain": "보안",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 46.99,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "s05",
+      "title": "외부 모의해킹·취약점 진단 및 조치 완료",
+      "domain": "보안",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 46.99,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "s12",
+      "title": "결제 페이지 스크립트 무결성 관리",
+      "domain": "보안",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 46.99,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "s01",
+      "title": "전 구간 HTTPS/TLS 1.2+ 및 인증서 자동 갱신",
+      "domain": "보안",
+      "gate": true,
+      "currentScore": 3,
+      "status": "rated",
+      "impact": 44.23,
+      "evidence": "공개 앱 URL이 HTTPS로 응답함을 외부에서 확인. TLS 설정 전체는 별도 검사 필요."
+    },
+    {
+      "platform": "mobile",
+      "id": "n01",
+      "title": "분류 체계(택소노미) 설계",
+      "domain": "정보구조 & 내비게이션",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "n02",
+      "title": "주 내비게이션",
+      "domain": "정보구조 & 내비게이션",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "s101",
+      "title": "검색 진입점",
+      "domain": "검색 & 발견",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "s104",
+      "title": "결과 없음 처리",
+      "domain": "검색 & 발견",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "g102",
+      "title": "신고 기능",
+      "domain": "콘텐츠 & 이용자 생성물 운영",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "g104",
+      "title": "콘텐츠 모더레이션",
+      "domain": "콘텐츠 & 이용자 생성물 운영",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "s01",
+      "title": "전 구간 HTTPS/TLS 1.2+ 및 인증서 자동 갱신",
+      "domain": "보안",
+      "gate": true,
+      "currentScore": 3,
+      "status": "rated",
+      "impact": 44.23,
+      "evidence": "공개 PC URL HTTPS 응답 확인; 전체 TLS 정책은 별도 검사 필요."
+    },
+    {
+      "platform": "web",
+      "id": "n01",
+      "title": "분류 체계(택소노미) 설계",
+      "domain": "정보구조 & 내비게이션",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "n02",
+      "title": "주 내비게이션",
+      "domain": "정보구조 & 내비게이션",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "s101",
+      "title": "검색 진입점",
+      "domain": "검색 & 발견",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "s104",
+      "title": "결과 없음 처리",
+      "domain": "검색 & 발견",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "g102",
+      "title": "신고 기능",
+      "domain": "콘텐츠 & 이용자 생성물 운영",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "g104",
+      "title": "콘텐츠 모더레이션",
+      "domain": "콘텐츠 & 이용자 생성물 운영",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 44.23,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "m03",
+      "title": "환불·청약철회 정책 및 처리 자동화",
+      "domain": "결제 & 수익화",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 41.46,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "m04",
+      "title": "영수증·세금계산서·현금영수증 발행",
+      "domain": "결제 & 수익화",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 41.46,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "m06",
+      "title": "정산·대사(Reconciliation) 프로세스",
+      "domain": "결제 & 수익화",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 41.46,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "m03",
+      "title": "환불·청약철회 정책 및 처리 자동화",
+      "domain": "결제 & 수익화",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 41.46,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "m04",
+      "title": "영수증·세금계산서·현금영수증 발행",
+      "domain": "결제 & 수익화",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 41.46,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "m06",
+      "title": "정산·대사(Reconciliation) 프로세스",
+      "domain": "결제 & 수익화",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 41.46,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l08",
+      "title": "전자상거래법 표시·광고 및 청약철회 안내",
+      "domain": "법규 & 개인정보",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 38.7,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "l08",
+      "title": "전자상거래법 표시·광고 및 청약철회 안내",
+      "domain": "법규 & 개인정보",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 38.7,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "u14",
+      "title": "한국형 웹 접근성 (법정)",
+      "domain": "접근성 & UX 완성도",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 35.38,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "u15",
+      "title": "모바일 앱 접근성 (법정)",
+      "domain": "접근성 & UX 완성도",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 35.38,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "r101",
+      "title": "연관 추천",
+      "domain": "추천 & 개인화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 35.38,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "a102",
+      "title": "광고와 콘텐츠 구분 표시",
+      "domain": "광고 & 제휴 수익",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 35.38,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "a107",
+      "title": "광고 식별자 동의",
+      "domain": "광고 & 제휴 수익",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 35.38,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "u14",
+      "title": "한국형 웹 접근성 (법정)",
+      "domain": "접근성 & UX 완성도",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 35.38,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "r101",
+      "title": "연관 추천",
+      "domain": "추천 & 개인화",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 35.38,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "a102",
+      "title": "광고와 콘텐츠 구분 표시",
+      "domain": "광고 & 제휴 수익",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 35.38,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "a107",
+      "title": "광고 식별자 동의",
+      "domain": "광고 & 제휴 수익",
+      "gate": true,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 35.38,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "l03",
+      "title": "처리 위탁·국외이전 고지 및 처리방침 공개",
+      "domain": "법규 & 개인정보",
+      "gate": false,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 34.15,
+      "evidence": "고지 초안 수준; 실제 위탁·국외 이전 여부 및 공개 적합성은 미확인."
+    },
+    {
+      "platform": "web",
+      "id": "l03",
+      "title": "처리 위탁·국외이전 고지 및 처리방침 공개",
+      "domain": "법규 & 개인정보",
+      "gate": false,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 34.15,
+      "evidence": "위탁·국외이전 실제성 및 고지 적합성 미확인."
+    },
+    {
+      "platform": "mobile",
+      "id": "r02",
+      "title": "릴리스 버전 관리 및 롤백 계획",
+      "domain": "출시 & 심사 준비",
+      "gate": true,
+      "currentScore": 2,
+      "status": "rated",
+      "impact": 31.22,
+      "evidence": "Git 저장 기록과 배포 산출물은 확인. 실제 롤백 리허설은 미실시."
+    },
+    {
+      "platform": "web",
+      "id": "r02",
+      "title": "릴리스 버전 관리 및 롤백 계획",
+      "domain": "출시 & 심사 준비",
+      "gate": true,
+      "currentScore": 2,
+      "status": "rated",
+      "impact": 31.22,
+      "evidence": "저장 기록과 배포 산출물 확인; 롤백 리허설은 미실시."
+    },
+    {
+      "platform": "mobile",
+      "id": "f07",
+      "title": "다국어·통화·시간대·단위 처리",
+      "domain": "핵심 기능 완성도",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 27.64,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "q06",
+      "title": "데이터 백업·복구(RPO/RTO) 실제 복구 훈련",
+      "domain": "품질 & 안정성",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 27.64,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "s03",
+      "title": "저장·전송 민감정보 암호화",
+      "domain": "보안",
+      "gate": false,
+      "currentScore": 2,
+      "status": "rated",
+      "impact": 27.64,
+      "evidence": "정적 UI와 민감값 노출 방지 점검은 확인했으나 실제 VPN 데이터 경로 암호화는 미확인."
+    },
+    {
+      "platform": "mobile",
+      "id": "s08",
+      "title": "접근제어·감사로그",
+      "domain": "보안",
+      "gate": false,
+      "currentScore": 2,
+      "status": "rated",
+      "impact": 27.64,
+      "evidence": "권한·감사 관련 코드/문서는 있으나 실제 운영 계정과 로그 검증은 미실시."
+    },
+    {
+      "platform": "mobile",
+      "id": "o05",
+      "title": "CS용 어드민 도구",
+      "domain": "운영 & 고객지원",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 27.64,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "f07",
+      "title": "다국어·통화·시간대·단위 처리",
+      "domain": "핵심 기능 완성도",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 27.64,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "q06",
+      "title": "데이터 백업·복구(RPO/RTO) 실제 복구 훈련",
+      "domain": "품질 & 안정성",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 27.64,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "s03",
+      "title": "저장·전송 민감정보 암호화",
+      "domain": "보안",
+      "gate": false,
+      "currentScore": 2,
+      "status": "rated",
+      "impact": 27.64,
+      "evidence": "정적 UI의 민감값 노출 방지 점검은 확인했으나 실제 서비스 데이터 암호화는 미확인."
+    },
+    {
+      "platform": "web",
+      "id": "s08",
+      "title": "접근제어·감사로그",
+      "domain": "보안",
+      "gate": false,
+      "currentScore": 2,
+      "status": "rated",
+      "impact": 27.64,
+      "evidence": "권한·감사 코드/문서는 있으나 실제 운영 검증 없음."
+    },
+    {
+      "platform": "web",
+      "id": "o05",
+      "title": "CS용 어드민 도구",
+      "domain": "운영 & 고객지원",
+      "gate": false,
+      "currentScore": null,
+      "status": "unknown",
+      "impact": 27.64,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "f01",
+      "title": "핵심 사용자 여정 E2E 동작",
+      "domain": "핵심 기능 완성도",
+      "gate": true,
+      "currentScore": 3,
+      "status": "rated",
+      "impact": 26.02,
+      "evidence": "기존 정적 앱 회귀 검사에서 핵심 화면/흐름을 확인했으나 실제 VPN 터널은 범위 밖이다."
+    },
+    {
+      "platform": "web",
+      "id": "f01",
+      "title": "핵심 사용자 여정 E2E 동작",
+      "domain": "핵심 기능 완성도",
+      "gate": true,
+      "currentScore": 3,
+      "status": "rated",
+      "impact": 26.02,
+      "evidence": "공개 정적 앱 핵심 화면/흐름 회귀 검사. 실제 VPN 터널은 범위 밖."
+    },
+    {
+      "platform": "mobile",
+      "id": "b04",
+      "title": "이벤트 택소노미·퍼널 계측 검증",
+      "domain": "비즈니스 & 그로스",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 19.35,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "b10",
+      "title": "어트리뷰션·광고 추적 준비",
+      "domain": "비즈니스 & 그로스",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 19.35,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "b04",
+      "title": "이벤트 택소노미·퍼널 계측 검증",
+      "domain": "비즈니스 & 그로스",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 19.35,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "b10",
+      "title": "어트리뷰션·광고 추적 준비",
+      "domain": "비즈니스 & 그로스",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 19.35,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "r03",
+      "title": "스테이지드 롤아웃·피처 플래그",
+      "domain": "출시 & 심사 준비",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 16.59,
+      "evidence": null
+    },
+    {
+      "platform": "web",
+      "id": "r03",
+      "title": "스테이지드 롤아웃·피처 플래그",
+      "domain": "출시 & 심사 준비",
+      "gate": false,
+      "currentScore": null,
+      "status": "unrated",
+      "impact": 16.59,
+      "evidence": null
+    },
+    {
+      "platform": "mobile",
+      "id": "u04",
+      "title": "사용성 테스트 실시 및 이슈 반영",
+      "domain": "접근성 & UX 완성도",
+      "gate": false,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 9.76,
+      "evidence": "가상 페르소나 분석은 있으나 실제 사용자 사용성 시험은 미확인."
+    },
+    {
+      "platform": "web",
+      "id": "u04",
+      "title": "사용성 테스트 실시 및 이슈 반영",
+      "domain": "접근성 & UX 완성도",
+      "gate": false,
+      "currentScore": 1,
+      "status": "rated",
+      "impact": 9.76,
+      "evidence": "가상 페르소나는 실제 사용성 시험이 아니다."
+    },
+    {
+      "platform": "mobile",
+      "id": "q01",
+      "title": "자동화 회귀 테스트 스위트",
+      "domain": "품질 & 안정성",
+      "gate": false,
+      "currentScore": 3,
+      "status": "rated",
+      "impact": 8.13,
+      "evidence": "기존 검사 기록 95 passed / 957 assertions."
+    },
+    {
+      "platform": "web",
+      "id": "q01",
+      "title": "자동화 회귀 테스트 스위트",
+      "domain": "품질 & 안정성",
+      "gate": false,
+      "currentScore": 3,
+      "status": "rated",
+      "impact": 8.13,
+      "evidence": "기존 검사 기록 95 passed / 957 assertions."
+    },
+    {
+      "platform": "mobile",
+      "id": "u05",
+      "title": "온보딩·최초 사용자 경험(FTUE) 설계",
+      "domain": "접근성 & UX 완성도",
+      "gate": false,
+      "currentScore": 3,
+      "status": "rated",
+      "impact": 3.25,
+      "evidence": "초기 진입/안내 UI 자동 검사 기록."
+    },
+    {
+      "platform": "web",
+      "id": "u05",
+      "title": "온보딩·최초 사용자 경험(FTUE) 설계",
+      "domain": "접근성 & UX 완성도",
+      "gate": false,
+      "currentScore": 3,
+      "status": "rated",
+      "impact": 3.25,
+      "evidence": "초기 진입/안내 UI 자동 검사 기록."
+    }
+  ],
+  "warnings": []
+}

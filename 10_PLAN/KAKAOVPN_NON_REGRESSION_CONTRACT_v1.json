@@ -1,0 +1,82 @@
+{
+  "schema": "FreeFlexKakaoIntegrationContractV1",
+  "status": "private_local_candidate",
+  "integration_mode": "additive_specialized_profile",
+  "core_product": "FreeFlexVPN",
+  "specialized_profile": "kakao_connect",
+  "public_release": false,
+  "pricing_status": "unresolved",
+  "completed_stages": [
+    "K0",
+    "K1",
+    "K2",
+    "K3",
+    "K4"
+  ],
+  "actual_evidence": {
+    "gcp_target_readback": false,
+    "android_kakao_message": false,
+    "android_line_message": false,
+    "android_voice_call": false,
+    "china_network": false,
+    "bounded_pilot": false
+  },
+  "score_floors": {
+    "development_percent": 75,
+    "mobile_percent": 58,
+    "pc_percent": 60
+  },
+  "preserve": {
+    "monthly_free_gb": 1,
+    "topup_expires": false,
+    "automatic_payment": false,
+    "default_transport": "wireguard",
+    "existing_profile_mutation": false,
+    "existing_public_urls": true,
+    "existing_service_qr": true,
+    "referral_reward_mb_each": 500,
+    "referral_qualification_mb": 100,
+    "referral_monthly_cap": 5,
+    "protected_requires_evidence": true,
+    "raw_ip_storage": false,
+    "private_key_storage": false,
+    "raw_destination_log_storage": false
+  },
+  "reuse": [
+    "wallet_ledger",
+    "quota_ledger",
+    "quota_agent",
+    "referral_ledger",
+    "server_catalog",
+    "profile_replacement_guard"
+  ],
+  "research_transports": [
+    {
+      "id": "vless_xtls_reality",
+      "state": "unverified_research_only",
+      "replaces_wireguard": false
+    },
+    {
+      "id": "hysteria2",
+      "state": "unverified_research_only",
+      "replaces_wireguard": false
+    }
+  ],
+  "kakao_pricing_candidates": [
+    "pack_1_5gb_1500krw",
+    "pack_1_5gb_1800krw",
+    "metered_500krw_per_gb"
+  ],
+  "promotion_gates": [
+    "legal_review",
+    "isolated_provider_validation",
+    "android_kakao_message_test",
+    "android_line_message_test",
+    "android_voice_call_test",
+    "dns_and_web_path_test",
+    "disconnect_recovery_test",
+    "existing_profile_preservation",
+    "bounded_pilot_evidence"
+  ],
+  "drive_b_allowed": false
+}

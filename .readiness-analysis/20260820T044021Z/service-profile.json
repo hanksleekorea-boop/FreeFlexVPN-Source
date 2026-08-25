@@ -1,0 +1,53 @@
+{
+  "schema": "freeflex-service-profile/v1",
+  "assessedAt": "2026-08-20",
+  "analysisMode": "read-only",
+  "evidenceGrades": {
+    "confirmed": "실행·측정·외부 응답으로 확인됨",
+    "estimated": "코드·문서·자동 검사에 근거한 분석값이며 현장 검증은 아님",
+    "unconfirmed": "가정 또는 미측정 상태"
+  },
+  "service": {
+    "name": "FreeFlexVPN",
+    "oneLine": "공용망·여행 환경에서 안전한 연결과 사용량 중심 체험을 제공하려는 소비자 VPN/PWA 서비스",
+    "repository": "hanksleekorea-boop/FreeFlexVPN-Source",
+    "productForm": ["반응형 웹", "PWA", "Android 배포 후보"],
+    "targetUsers": ["공용 Wi-Fi 이용자", "여행·해외 체류자", "한국어 우선 소비자"],
+    "coreJourney": ["공개 앱 진입", "연결/체험 상태 확인", "요금·한도 이해", "도움말·문의 또는 복구 경로 확인"],
+    "currentDelivery": "정적 공개 앱과 소스 기반의 준비 단계; 실제 VPN 접속망·결제·운영 지원의 상용 검증은 확인되지 않음"
+  },
+  "direction": {
+    "model": "com",
+    "market": "kr2g",
+    "pay": "none",
+    "platform": "eq",
+    "stage": "cb",
+    "sensitivity": "high",
+    "team": "s",
+    "edge": "ux",
+    "horizon": "m3",
+    "rationale": "한국어 중심 UI와 여행/해외 연결 맥락은 코드·기획 흔적에서 확인되나, 실제 유료 결제와 정식 출시 운영은 아직 확인되지 않아 폐쇄 베타·무결제 상태로 보수적으로 분류했다."
+  },
+  "verificationBoundary": {
+    "androidRealDevice": {
+      "status": "not_run",
+      "reason": "연결된 Android 기기 중 유휴 상태가 확인된 기기가 없어, 한 기기만 쓰는 안전 규칙에 따라 실기기 시험을 실행하지 않았다."
+    },
+    "networkService": "unconfirmed",
+    "payment": "unconfirmed",
+    "legalReview": "unconfirmed",
+    "customerOperations": "unconfirmed"
+  },
+  "localEvidence": [
+    {"path": "README.md", "use": "프로젝트 개요와 실행 진입점"},
+    {"path": "00_START/DEVELOPMENT_DASHBOARD.md", "use": "현재 단계·병목·다음 행동"},
+    {"path": ".project-continuity/", "use": "연속성 기록과 제약"},
+    {"path": "30_DEPLOY/", "use": "공개 앱·PWA·QR 산출물"},
+    {"path": ".github/workflows/", "use": "자동 검사·배포 워크플로"}
+  ],
+  "publicUrls": {
+    "mobile": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+    "pc": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html?view=app",
+    "dashboard": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/development-dashboard.html"
+  }
+}

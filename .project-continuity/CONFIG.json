@@ -1,0 +1,1 @@
+{"backup_changed_bytes":500000000,"backup_interval_hours":24,"chunk_max_bytes":1073741824,"cleanup_level":"moderate","context_max_bytes":4096,"drive_history":"all_immutable","full_checkpoint_days":30,"minimum_verified_copies_for_cleanup":2,"project_id":"68f171d594a1e9d944d19b79","project_name":"owner-gateway-v38","protected_paths":[],"schema":"ai-continuity-config/v500"}

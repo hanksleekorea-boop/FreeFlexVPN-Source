@@ -1,0 +1,63 @@
+{
+  "schema": "FreeFlexVPNRegressionEvidenceV1",
+  "status": "failed",
+  "files_passed": 92,
+  "files_total": 93,
+  "checks_passed": 64,
+  "checks_total": 64,
+  "failed_files": [
+    "test_mobile_readiness_ui.py"
+  ],
+  "elapsed_seconds": 349.641,
+  "results": [
+    {
+      "file": "test_app_v2_contract.py",
+      "ok": true,
+      "passed": 19,
+      "total": 19,
+      "seconds": 16.547
+    },
+    {
+      "file": "test_commercial_readiness_ui.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 109.703
+    },
+    {
+      "file": "test_contributor_access.py",
+      "ok": true,
+      "passed": 4,
+      "total": 4,
+      "seconds": 25.688
+    },
+    {
+      "file": "test_first_use_recovery_ui.py",
+      "ok": true,
+      "passed": 3,
+      "total": 3,
+      "seconds": 14.422
+    },
+    {
+      "file": "test_github_pages.py",
+      "ok": true,
+      "passed": 23,
+      "total": 23,
+      "seconds": 36.875
+    },
+    {
+      "file": "test_mobile_readiness_ui.py",
+      "ok": false,
+      "passed": 0,
+      "total": 0,
+      "seconds": 132.562
+    },
+    {
+      "file": "test_open_collaboration.py",
+      "ok": true,
+      "passed": 5,
+      "total": 5,
+      "seconds": 13.828
+    }
+  ]
+}

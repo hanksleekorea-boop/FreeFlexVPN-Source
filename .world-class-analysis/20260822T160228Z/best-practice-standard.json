@@ -1,0 +1,447 @@
+{
+  "run_id": "20260822T160228Z",
+  "count": 18,
+  "standards": [
+    {
+      "id": "BP-001",
+      "title": "보호 상태를 실제 근거로 표시",
+      "ideal_user_result": "보호 상태를 실제 근거로 표시",
+      "why": "연결됨과 실제 보호됨을 구분",
+      "service_ids": [
+        "SVC-001",
+        "SVC-006",
+        "SVC-012"
+      ],
+      "source_ids": [
+        "SRC-001",
+        "SRC-006",
+        "SRC-012",
+        "SRC-033"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-001",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 보호 상태를 실제 근거로 표시 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-002",
+      "title": "한 번 누르는 첫 연결과 취소 가능한 안내",
+      "ideal_user_result": "한 번 누르는 첫 연결과 취소 가능한 안내",
+      "why": "첫 가치까지 단계를 줄임",
+      "service_ids": [
+        "SVC-001",
+        "SVC-008",
+        "SVC-012"
+      ],
+      "source_ids": [
+        "SRC-001",
+        "SRC-008",
+        "SRC-012"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-002",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 한 번 누르는 첫 연결과 취소 가능한 안내 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-003",
+      "title": "킬 스위치·항상 연결의 효과와 해제 경로",
+      "ideal_user_result": "킬 스위치·항상 연결의 효과와 해제 경로",
+      "why": "끊김 노출과 인터넷 잠김을 함께 방지",
+      "service_ids": [
+        "SVC-001",
+        "SVC-003",
+        "SVC-006",
+        "SVC-008"
+      ],
+      "source_ids": [
+        "SRC-001",
+        "SRC-003",
+        "SRC-006",
+        "SRC-008"
+      ],
+      "freeflex_current": "missing",
+      "gap_id": "GAP-003",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 킬 스위치·항상 연결의 효과와 해제 경로 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-004",
+      "title": "DNS·IPv6·경로 누출을 따로 검사",
+      "ideal_user_result": "DNS·IPv6·경로 누출을 따로 검사",
+      "why": "터널 아이콘만으로 보호를 오인하지 않음",
+      "service_ids": [
+        "SVC-001",
+        "SVC-006",
+        "SVC-009"
+      ],
+      "source_ids": [
+        "SRC-001",
+        "SRC-006",
+        "SRC-009",
+        "SRC-038"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-004",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 DNS·IPv6·경로 누출을 따로 검사 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-005",
+      "title": "Wi-Fi↔모바일 전환과 자동 복구",
+      "ideal_user_result": "Wi-Fi↔모바일 전환과 자동 복구",
+      "why": "이동 중 연결 지속",
+      "service_ids": [
+        "SVC-011",
+        "SVC-012",
+        "SVC-027"
+      ],
+      "source_ids": [
+        "SRC-011",
+        "SRC-012",
+        "SRC-027",
+        "SRC-033"
+      ],
+      "freeflex_current": "confirmed-limited",
+      "gap_id": "GAP-005",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 Wi-Fi↔모바일 전환과 자동 복구 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-006",
+      "title": "최소 계정·최소 기록·명시적 삭제",
+      "ideal_user_result": "최소 계정·최소 기록·명시적 삭제",
+      "why": "VPN 신뢰 이전을 줄임",
+      "service_ids": [
+        "SVC-002",
+        "SVC-006",
+        "SVC-013",
+        "SVC-015"
+      ],
+      "source_ids": [
+        "SRC-002",
+        "SRC-006",
+        "SRC-013",
+        "SRC-015",
+        "SRC-038"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-006",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 최소 계정·최소 기록·명시적 삭제 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-007",
+      "title": "오픈소스·감사·투명성 보고의 분리",
+      "ideal_user_result": "오픈소스·감사·투명성 보고의 분리",
+      "why": "회사 주장과 독립 검증을 구분",
+      "service_ids": [
+        "SVC-001",
+        "SVC-002",
+        "SVC-006",
+        "SVC-008",
+        "SVC-009"
+      ],
+      "source_ids": [
+        "SRC-001",
+        "SRC-002",
+        "SRC-006",
+        "SRC-042",
+        "SRC-043",
+        "SRC-048"
+      ],
+      "freeflex_current": "missing",
+      "gap_id": "GAP-007",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 오픈소스·감사·투명성 보고의 분리 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-008",
+      "title": "기기별 설정 발급·재발급·폐기",
+      "ideal_user_result": "기기별 설정 발급·재발급·폐기",
+      "why": "분실·교체 때 기존 권리를 안전하게 유지",
+      "service_ids": [
+        "SVC-011",
+        "SVC-015",
+        "SVC-028",
+        "SVC-029"
+      ],
+      "source_ids": [
+        "SRC-011",
+        "SRC-015",
+        "SRC-028",
+        "SRC-029",
+        "SRC-034"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-008",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 기기별 설정 발급·재발급·폐기 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-009",
+      "title": "무료 권리와 유료 차이를 한 화면에 표시",
+      "ideal_user_result": "무료 권리와 유료 차이를 한 화면에 표시",
+      "why": "무료 사용자를 압박하지 않고 예측 가능성 제공",
+      "service_ids": [
+        "SVC-001",
+        "SVC-007",
+        "SVC-008"
+      ],
+      "source_ids": [
+        "SRC-001",
+        "SRC-007",
+        "SRC-008",
+        "SRC-045"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-009",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 무료 권리와 유료 차이를 한 화면에 표시 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-010",
+      "title": "가입·갱신·취소·환불·복원의 왕복",
+      "ideal_user_result": "가입·갱신·취소·환불·복원의 왕복",
+      "why": "금전 피해와 다크패턴 방지",
+      "service_ids": [
+        "SVC-017",
+        "SVC-018",
+        "SVC-006"
+      ],
+      "source_ids": [
+        "SRC-017",
+        "SRC-018",
+        "SRC-006"
+      ],
+      "freeflex_current": "missing",
+      "gap_id": "GAP-010",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 가입·갱신·취소·환불·복원의 왕복 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-011",
+      "title": "공개 상태판과 장애 구독 알림",
+      "ideal_user_result": "공개 상태판과 장애 구독 알림",
+      "why": "장애 때 원인·대안·복구 시점을 이해",
+      "service_ids": [
+        "SVC-016",
+        "SVC-011",
+        "SVC-020"
+      ],
+      "source_ids": [
+        "SRC-016",
+        "SRC-011",
+        "SRC-020"
+      ],
+      "freeflex_current": "missing",
+      "gap_id": "GAP-011",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 공개 상태판과 장애 구독 알림 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-012",
+      "title": "WCAG 2.2 기반 모바일·PC 접근성",
+      "ideal_user_result": "WCAG 2.2 기반 모바일·PC 접근성",
+      "why": "보조기술·확대·키보드 사용자도 완료",
+      "service_ids": [
+        "SVC-019",
+        "SVC-015",
+        "SVC-025"
+      ],
+      "source_ids": [
+        "SRC-019",
+        "SRC-015",
+        "SRC-025",
+        "SRC-035"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-012",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 WCAG 2.2 기반 모바일·PC 접근성 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-013",
+      "title": "실패 시 다음 행동 하나와 안전한 되돌리기",
+      "ideal_user_result": "실패 시 다음 행동 하나와 안전한 되돌리기",
+      "why": "전문용어 없이 1분 내 복구",
+      "service_ids": [
+        "SVC-008",
+        "SVC-011",
+        "SVC-012",
+        "SVC-015"
+      ],
+      "source_ids": [
+        "SRC-008",
+        "SRC-011",
+        "SRC-012",
+        "SRC-015",
+        "SRC-034"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-013",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 실패 시 다음 행동 하나와 안전한 되돌리기 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-014",
+      "title": "검열 대응의 범위와 실패 가능성을 정직하게 표시",
+      "ideal_user_result": "검열 대응의 범위와 실패 가능성을 정직하게 표시",
+      "why": "접속 성공을 보장하거나 위험 행동을 조장하지 않음",
+      "service_ids": [
+        "SVC-014",
+        "SVC-027",
+        "SVC-029"
+      ],
+      "source_ids": [
+        "SRC-014",
+        "SRC-027",
+        "SRC-029",
+        "SRC-038"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-014",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 검열 대응의 범위와 실패 가능성을 정직하게 표시 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-015",
+      "title": "버전·단계·되돌리기 증거를 결속",
+      "ideal_user_result": "버전·단계·되돌리기 증거를 결속",
+      "why": "잘못된 공개판을 빠르게 복구",
+      "service_ids": [
+        "SVC-020",
+        "SVC-016",
+        "SVC-011"
+      ],
+      "source_ids": [
+        "SRC-020",
+        "SRC-016",
+        "SRC-011",
+        "SRC-046"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-015",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 버전·단계·되돌리기 증거를 결속 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-016",
+      "title": "서버 상태·혼잡·대체 경로를 최신 시각과 함께 표시",
+      "ideal_user_result": "서버 상태·혼잡·대체 경로를 최신 시각과 함께 표시",
+      "why": "가짜 실시간과 실패 반복 방지",
+      "service_ids": [
+        "SVC-011",
+        "SVC-016",
+        "SVC-021"
+      ],
+      "source_ids": [
+        "SRC-011",
+        "SRC-016",
+        "SRC-021",
+        "SRC-034"
+      ],
+      "freeflex_current": "missing",
+      "gap_id": "GAP-016",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 서버 상태·혼잡·대체 경로를 최신 시각과 함께 표시 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-017",
+      "title": "개인정보 사실표와 관할·국외이전 분리",
+      "ideal_user_result": "개인정보 사실표와 관할·국외이전 분리",
+      "why": "법률 준수 보장이 아닌 실제 데이터 흐름 설명",
+      "service_ids": [
+        "SVC-002",
+        "SVC-006",
+        "SVC-013",
+        "SVC-015"
+      ],
+      "source_ids": [
+        "SRC-002",
+        "SRC-006",
+        "SRC-013",
+        "SRC-015"
+      ],
+      "freeflex_current": "missing",
+      "gap_id": "GAP-017",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 개인정보 사실표와 관할·국외이전 분리 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    },
+    {
+      "id": "BP-018",
+      "title": "자동·브라우저·실기기·사용자·운영 증거 분리",
+      "ideal_user_result": "자동·브라우저·실기기·사용자·운영 증거 분리",
+      "why": "낮은 증거를 높은 완료로 부풀리지 않음",
+      "service_ids": [
+        "SVC-019",
+        "SVC-020",
+        "SVC-016"
+      ],
+      "source_ids": [
+        "SRC-019",
+        "SRC-020",
+        "SRC-016",
+        "SRC-032"
+      ],
+      "freeflex_current": "partial",
+      "gap_id": "GAP-018",
+      "recommendation": "FreeFlexVPN 정체와 무료 권리를 보존해 자동·브라우저·실기기·사용자·운영 증거 분리 요구사항으로 재설계",
+      "expected_effect": "신뢰·복구·과업 완료율 향상",
+      "side_effect": "복잡도·운영 비용 증가 가능",
+      "verification": "자동 검사 뒤 실제 브라우저·기기·사용자·운영 증거를 별도로 남김",
+      "decision": "adopt"
+    }
+  ]
+}

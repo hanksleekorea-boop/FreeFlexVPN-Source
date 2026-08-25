@@ -5,6 +5,9 @@ import { WIREGUARD_INSTALL_URL, detectBrowser, detectPlatform, getInstallGuidanc
 import { createPcPreferenceBackup, createRedactedPcDiagnostic, evaluatePcReadiness, sanitizePcPreferenceBackup } from "./pc_readiness.js";
 import { createMobileRecoveryCard, evaluateMobileReadiness } from "./mobile_readiness.js";
 import { createIncidentChecklist, createRedactedSupportBundle, evaluateCommercialReadiness } from "./commercial_readiness.js";
+import { deriveProtectionEvidencePresentation } from "./protection_evidence.js";
+import { evaluateProfileLifecycle } from "./profile_lifecycle.js";
+import { createRecoveryAction } from "./error_recovery.js";
 
 const apiMeta = document.querySelector('meta[name="freeflex-api-base"]');
 const apiBase = apiMeta?.content?.trim() || "";
@@ -15,6 +18,8 @@ const createProfileButton = document.getElementById("createProfileButton");
 const profilePanel = document.getElementById("profilePanel");
 const profileConfig = document.getElementById("profileConfig");
 const downloadProfileButton = document.getElementById("downloadProfileButton");
+const profileLifecycle = document.getElementById("profileLifecycle");
+const profileLifecycleCopy = document.getElementById("profileLifecycleCopy");
 const serverCatalog = document.getElementById("serverCatalog");
 const shareButton = document.getElementById("shareReferralButton");
 const shareOutput = document.getElementById("shareReferralOutput");
@@ -52,6 +57,8 @@ let candidateDeviceId = null;
 let replacementPhase = "idle";
 let lastDevicesPayload = null;
 let currentConfig = null;
+let currentProfileDelivery = { delivery_state: "none", existing_profile_count: 0, protection_grade: "unconfirmed", return_path_confirmed: false };
+let profileDeliveryTimer = null;
 let availableServers = [];
 let serverCatalogKnown = false;
 let selectedTier = "all";
@@ -84,6 +91,27 @@ const detectedBrowserId = detectBrowser(navigator.userAgent);
 
 function notify(message) {
   if (typeof globalThis.toast === "function") globalThis.toast(message);
+}
+
+function renderProfileLifecycle() {
+  const result = evaluateProfileLifecycle(currentProfileDelivery);
+  if (result.state === "expired" && currentConfig) { currentConfig = null; profileConfig.value = ""; downloadProfileButton.disabled = true; }
+  if (!profileLifecycle || !profileLifecycleCopy) return result;
+  const copy = {
+    ready_to_issue: "서버 발급 전입니다. 기존 설정은 보존됩니다.", issuing: "중복 요청 없이 발급 결과를 기다립니다.",
+    download_required: `10분 안에 이 기기에 한 번 저장하세요. 기존 설정 ${result.existing_profile_count}개는 그대로입니다.`,
+    import_required: "저장한 파일을 공식 WireGuard에서 직접 가져오세요. 자동으로 켜지지 않습니다.",
+    protection_required: "후보를 직접 켠 뒤 최신 보호 확인을 실행하세요. 기존 설정은 아직 보존됩니다.",
+    return_path_required: "후보를 끄고 일반 인터넷 복귀를 확인하세요. 기존 설정은 아직 보존됩니다.",
+    candidate_verified: "후보와 일반 인터넷 복귀가 확인됐습니다. 기존 설정 폐기는 별도 검토입니다.",
+    expired: "일회성 수령 시간이 끝나 화면의 설정 원문을 지웠습니다. 기존 설정은 보존됩니다.",
+    cancelled: "발급을 취소했습니다. 기존 설정은 보존되며 새 후보를 다시 만들 수 있습니다.",
+    issue_failed: "발급에 실패했습니다. 기존 설정을 지우지 말고 복구 안내를 확인하세요.",
+    invalid_evidence: "발급 시각을 확인할 수 없어 설정 원문을 표시하지 않습니다.",
+  };
+  profileLifecycle.dataset.profileLifecycle = result.state;
+  profileLifecycleCopy.textContent = copy[result.state] || copy.ready_to_issue;
+  return result;
 }
 
 function safeLocalRead(key) {
@@ -275,7 +303,11 @@ function renderUsageEmptyState({ state, source, copy, updated = null }) {
 }
 
 function readableError(error) {
-  if (error instanceof FreeFlexApiError) return error.message;
+  if (error instanceof FreeFlexApiError) {
+    const recovery = createRecoveryAction(error.code, 0);
+    globalThis.dispatchEvent(new CustomEvent("freeflex:recovery-action", { detail: recovery }));
+    return `${recovery.title} · ${recovery.next_action}`;
+  }
   return "요청을 안전하게 완료하지 못했습니다.";
 }
 
@@ -506,9 +538,19 @@ function renderDevices(payload) {
     const dot = document.createElement("i");
     const content = document.createElement("div");
     const role = device.device_id === candidateDeviceId ? "새 교체 후보" : "기존 설정";
-    const title = document.createElement("b"); title.textContent = `${role} · ${device.server_id} · ${device.status}`;
-    const detail = document.createElement("small"); detail.textContent = `식별자 ${device.device_id.slice(0, 8)} · 주소와 키는 표시하지 않음`;
+    const title = document.createElement("b"); title.textContent = `${role} · ${device.display_name || "등록된 기기"} · ${device.status}`;
+    const verifiedAt = formatMeasuredAt(device.last_verified_at);
+    const detail = document.createElement("small"); detail.textContent = `${device.server_id} · 최근 확인 ${verifiedAt || "확인 전"} · 주소와 키는 표시하지 않음`;
     content.append(title, detail); row.append(dot, content);
+    const rename = document.createElement("button"); rename.type = "button"; rename.className = "text-btn"; rename.textContent = "이름 변경";
+    rename.addEventListener("click", async () => {
+      const nextName = globalThis.prompt("이 기기에서만 보일 이름을 입력하세요. 키·주소·개인정보는 넣지 마세요.", device.display_name || "등록된 기기");
+      if (nextName === null) return;
+      rename.disabled = true;
+      try { await client.renameDevice(device.device_id, nextName, Number(device.revision)); await syncAccount(); notify("기기 이름을 바꿨습니다."); }
+      catch (error) { notify(readableError(error)); rename.disabled = false; }
+    });
+    row.append(rename);
     if (device.status === "active") {
       const revoke = document.createElement("button"); revoke.type = "button"; revoke.className = "text-btn";
       const allowed = canRevokeDevice(device.device_id);
@@ -524,13 +566,23 @@ function renderDevices(payload) {
         revoke.disabled = true;
         try {
           await client.revokeDevice(device.device_id);
-          if (isCandidate) { candidateDeviceId = null; replacementPhase = "idle"; activeDeviceId = null; }
+          if (isCandidate) { candidateDeviceId = null; replacementPhase = "idle"; activeDeviceId = null; currentProfileDelivery = { ...currentProfileDelivery, delivery_state: "cancelled" }; renderProfileLifecycle(); }
           else replacementPhase = "replacement_completed";
           await syncAccount(); renderReplacementGuard(); notify("기기 폐기 상태를 확인했습니다.");
         }
         catch (error) { notify(readableError(error)); revoke.disabled = false; }
       });
       row.append(revoke);
+    }
+    if (device.status === "revocation_pending") {
+      const cancel = document.createElement("button"); cancel.type = "button"; cancel.className = "text-btn"; cancel.textContent = "폐기 요청 취소";
+      cancel.addEventListener("click", async () => {
+        if (!globalThis.confirm("서버에서 실제 폐기가 확인되지 않은 대기 요청만 취소합니다. 계속할까요?")) return;
+        cancel.disabled = true;
+        try { await client.cancelPendingRevocation(device.device_id); await syncAccount(); notify("서버 폐기 전 대기 요청을 취소했습니다."); }
+        catch (error) { notify(readableError(error)); cancel.disabled = false; }
+      });
+      row.append(cancel);
     }
     deviceList.append(row);
   }
@@ -544,21 +596,36 @@ function setConnectionFromResult(result) {
   renderMobileReadiness();
   globalThis.setConnectionState?.(state);
   const checks = result?.checks || {};
+  const presentation = deriveProtectionEvidencePresentation({
+    state,
+    checked_at: result?.checked_at || null,
+    expires_at: result?.expires_at || null,
+    checks: {
+      tunnel: checks.tunnel,
+      external_ipv4_country: checks.exit_ip,
+      dns_reachable: checks.dns,
+      ipv6: checks.ipv6,
+      webrtc: checks.webrtc,
+      kill_switch: checks.kill_switch,
+    },
+  });
   if (activeDeviceId && activeDeviceId === candidateDeviceId && candidateRuntimeEvidencePassed(result)) {
     replacementPhase = "candidate_live_verified";
+    currentProfileDelivery = { ...currentProfileDelivery, delivery_state: "imported", protection_grade: "confirmed" };
+    renderProfileLifecycle();
     renderReplacementGuard();
   }
   globalThis.dispatchEvent(new CustomEvent("freeflex:protection-evidence", {
     detail: {
       state,
-      checks: {
-        tunnel: checks.tunnel,
-        exit_ip: checks.exit_ip,
-        dns: checks.dns,
-        ipv6: checks.ipv6,
-        kill_switch: checks.kill_switch,
-      },
-      checked_at: result?.checked_at || null,
+      presentation: presentation.presentation,
+      evidence_grade: presentation.evidence_grade,
+      freshness: presentation.freshness,
+      title: presentation.title,
+      copy: presentation.copy,
+      checks: presentation.checks,
+      checked_at: presentation.checked_at,
+      expires_at: presentation.expires_at,
     },
   }));
   const map = {
@@ -602,6 +669,8 @@ function renderUsage(payload) {
 async function createProfile() {
   if (!selectedServerId || !client.vault.get()) return;
   createProfileButton.disabled = true;
+  currentProfileDelivery = { ...currentProfileDelivery, delivery_state: "issuing" };
+  renderProfileLifecycle();
   setBanner(setupBanner, "기기 키 생성 중", "개인키는 이 브라우저 메모리 안에서만 사용합니다.", "working");
   try {
     const profile = await createDeviceProfile({
@@ -609,15 +678,26 @@ async function createProfile() {
       registerPublicKeyImpl: (publicKey, serverId) => client.registerDevice(publicKey, serverId),
     });
     currentConfig = profile.config;
+    currentProfileDelivery = {
+      delivery_state: "ready", issued_at: profile.issuedAt, delivery_expires_at: profile.deliveryExpiresAt,
+      existing_profile_count: (lastDevicesPayload?.devices || []).filter(device => device.status === "active").length,
+      protection_grade: "unconfirmed", return_path_confirmed: false,
+    };
     profileConfig.value = profile.config;
     profilePanel.hidden = false;
     activeDeviceId = profile.deviceId;
     candidateDeviceId = profile.deviceId;
     replacementPhase = "candidate_unverified";
+    clearTimeout(profileDeliveryTimer);
+    const expiryDelay = Date.parse(profile.deliveryExpiresAt || "") - Date.now();
+    if (Number.isFinite(expiryDelay) && expiryDelay > 0) profileDeliveryTimer = setTimeout(renderProfileLifecycle, Math.min(expiryDelay + 50, 10 * 60 * 1000));
+    renderProfileLifecycle();
     renderReplacementGuard();
     setBanner(setupBanner, "기기 구성 준비됨", "아래 파일을 이 기기에 저장해 공식 WireGuard 앱으로 가져오세요.", "ready");
     syncAccount().catch(() => notify("구성은 준비됐지만 기기 목록 새로고침은 다음 연결에서 다시 시도합니다."));
   } catch (error) {
+    currentProfileDelivery = { ...currentProfileDelivery, delivery_state: "error" };
+    renderProfileLifecycle();
     setBanner(setupBanner, "구성 생성 중단", readableError(error), "error");
     createProfileButton.disabled = false;
   }
@@ -629,6 +709,8 @@ function downloadProfile() {
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url; anchor.download = `FreeFlexVPN-${selectedServerId || "device"}.conf`; anchor.click();
+  currentProfileDelivery = { ...currentProfileDelivery, delivery_state: "downloaded" };
+  currentConfig = null; profileConfig.value = ""; downloadProfileButton.disabled = true; renderProfileLifecycle();
   setTimeout(() => URL.revokeObjectURL(url), 1_000);
 }
 
@@ -679,6 +761,8 @@ downloadProfileButton?.addEventListener("click", downloadProfile);
 confirmReturnPathButton?.addEventListener("click", () => {
   if (!candidateDeviceId || replacementPhase !== "candidate_live_verified") return;
   replacementPhase = "ready_to_replace";
+  currentProfileDelivery = { ...currentProfileDelivery, return_path_confirmed: true };
+  renderProfileLifecycle();
   renderReplacementGuard();
   if (lastDevicesPayload) renderDevices(lastDevicesPayload);
   notify("일반망 복귀 확인을 기록했습니다. 기존 설정은 아직 보존 중입니다.");
@@ -741,6 +825,44 @@ document.querySelector("[data-commercial-download-incident]")?.addEventListener(
   downloadJson("FreeFlexVPN-incident-checklist.json", createIncidentChecklist({ platform: innerWidth <= 760 ? "mobile" : "pc" }));
   notify("삭제·덮어쓰기 없는 장애 복구 체크리스트를 저장했습니다.");
 });
+const accountRightsStatus = document.querySelector("[data-account-rights-status]");
+const setAccountRightsStatus = message => { if (accountRightsStatus) accountRightsStatus.textContent = message; };
+document.querySelector("[data-account-export]")?.addEventListener("click", async () => {
+  if (!client?.vault.get()) { setAccountRightsStatus("최근 로그인 수령 링크로 다시 확인해야 합니다."); return; }
+  try {
+    const exported = await client.exportAccountData();
+    downloadJson("FreeFlexVPN-account-export.json", exported);
+    setAccountRightsStatus("이 계정 자료를 JSON으로 저장했습니다. 개인키와 세션 열쇠는 포함하지 않았습니다.");
+  } catch (error) { setAccountRightsStatus(readableError(error)); }
+});
+document.querySelector("[data-account-delete]")?.addEventListener("click", async () => {
+  if (!client?.vault.get()) { setAccountRightsStatus("최근 로그인 수령 링크로 다시 확인해야 합니다."); return; }
+  if (!globalThis.confirm("계정과 VPN 피어 삭제를 요청할까요? 기존 설정은 요청 즉시 자동 삭제하지 않습니다.")) return;
+  if (!globalThis.confirm("삭제 요청 뒤 현재 로그인은 끝납니다. 계속할까요?")) return;
+  try {
+    const receipt = await client.requestAccountDeletion();
+    downloadJson("FreeFlexVPN-deletion-status-receipt.json", {
+      schema: "FreeFlexVPNDeletionStatusReceiptV1",
+      request_id: receipt.request_id,
+      status_token: receipt.status_token,
+      status_path: receipt.status_path,
+      requested_at: receipt.requested_at,
+      warning: "이 영수증은 삭제 상태 확인용입니다. 다른 사람에게 보내지 마세요.",
+    });
+    setAccountRightsStatus("삭제 요청을 접수했고 로그인은 끝났습니다. 아직 삭제 완료가 아니며 영수증으로 상태를 확인하세요.");
+  } catch (error) { setAccountRightsStatus(readableError(error)); }
+});
+document.querySelector("[data-deletion-receipt]")?.addEventListener("change", async event => {
+  const file = event.target.files?.[0];
+  if (!file || !client) return;
+  try {
+    const receipt = JSON.parse(await file.text());
+    if (receipt.schema !== "FreeFlexVPNDeletionStatusReceiptV1") throw new Error("DELETION_RECEIPT_INVALID");
+    const status = await client.deletionStatus(receipt.request_id, receipt.status_token);
+    setAccountRightsStatus(status.completion_is_verified ? "삭제 완료가 서버에서 확인됐습니다." : `현재 삭제 상태: ${status.status}. 아직 완료로 확인되지 않았습니다.`);
+  } catch (_error) { setAccountRightsStatus("올바른 삭제 상태 영수증이 아니거나 서버에서 상태를 확인하지 못했습니다."); }
+  event.target.value = "";
+});
 document.querySelector("[data-pc-download-diagnostic]")?.addEventListener("click", () => {
   const diagnostic = createRedactedPcDiagnostic({
     ...pcReadinessInput(),
@@ -796,6 +918,7 @@ platformInstallButton?.addEventListener("click", async () => {
 renderMomentRecommendations();
 renderPlatformSupport();
 renderReplacementGuard();
+renderProfileLifecycle();
 renderPcReadiness();
 renderMobileReadiness();
 renderCommercialReadiness();

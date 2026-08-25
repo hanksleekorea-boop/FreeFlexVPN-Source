@@ -1,0 +1,180 @@
+{
+  "run_id": "20260824T065543Z",
+  "generated_at": "2026-08-24T06:55:43Z",
+  "project_path": "D:\\Desktop\\챗지피티프로젝트들\\프리플렉스vpn\\owner-gateway-v38",
+  "git": {
+    "is_git": true,
+    "branch": "feature/owner-password-gateway",
+    "head": "b7c8b60",
+    "status": "dirty-preserved",
+    "note": "기존 정본 통합 변경·분석 폴더·Android 선택 증거를 보존하고 이번 실행은 새 분석 폴더만 씀"
+  },
+  "service": {
+    "id": "OWN-001",
+    "name": "FreeFlexVPN",
+    "one_line": "여행·공용망에서 공식 WireGuard를 이용해 안전한 인터넷 통로와 무료 1GB 권리를 제공하려는 한국어 우선 소비자 VPN/PWA",
+    "primary_domain": "소비자 VPN·개인정보 보호",
+    "secondary_domains": [
+      "여행 연결",
+      "저비용 데이터 권리",
+      "기기 간 설정·상태 관리"
+    ],
+    "core_users": [
+      "해외 체류·여행자",
+      "공용 Wi-Fi 사용자",
+      "한국어 우선 초보 VPN 사용자"
+    ],
+    "buyers": [
+      "개인 사용자",
+      "향후 소규모 팀·가족 가능"
+    ],
+    "problems": [
+      "신뢰하기 어려운 네트워크",
+      "국가 간 연결 필요",
+      "복잡한 VPN 설정",
+      "사용량·무료 권리 이해",
+      "실패 복구"
+    ],
+    "core_tasks": [
+      "공개 앱 진입",
+      "지원 범위 이해",
+      "WireGuard 설치",
+      "설정 가져오기",
+      "VPN 연결",
+      "보호 상태 확인",
+      "망 전환",
+      "사용량 확인",
+      "실패 복구",
+      "설정 폐기·삭제"
+    ],
+    "journey": [
+      "유입",
+      "공개 앱 시작",
+      "제한·무료 권리 이해",
+      "설정 발급/가져오기",
+      "첫 연결",
+      "보호 결과 이해",
+      "반복 연결·망 전환",
+      "사용량/지원",
+      "취소·삭제·이탈"
+    ],
+    "platforms": {
+      "mobile_web": "confirmed",
+      "pwa": "file_and_browser_evidence",
+      "android_vpn": "confirmed on one Android 15 device for TH-US-TH IPv4",
+      "pc_web": "confirmed responsive public page",
+      "windows_vpn": "unconfirmed",
+      "ios_vpn": "unconfirmed"
+    },
+    "current_features": [
+      "반응형 모바일·PC 앱",
+      "PWA 표면",
+      "공식 WireGuard 안내",
+      "공개 QR",
+      "개발 대시보드",
+      "무료 1GB·무기한 충전 설계",
+      "여행·망 안전·복구 안내",
+      "Kakao Connect 비공개 추가 프로필"
+    ],
+    "introduced_not_verified": [
+      "실제 서버 상태·혼잡",
+      "실제 사용량 원장",
+      "결제·환불",
+      "운영 지원",
+      "국가별 접속·법률 범위",
+      "Windows/iPhone VPN"
+    ],
+    "planned": [
+      "기기별 설정 수명주기",
+      "실제 보호 상태",
+      "결제·지원·운영",
+      "제한 파일럿"
+    ],
+    "business": {
+      "model": "무료 1GB 이후 미확정 유료 후보",
+      "launch_stage": "시험 서비스",
+      "regions": "한국어 우선·태국 실기기에서 미국 출구 확인; 기타 국가 미확인",
+      "languages": [
+        "한국어",
+        "영문 준비"
+      ]
+    },
+    "technology": {
+      "web": "정적 반응형 웹/PWA",
+      "vpn": "공식 WireGuard 클라이언트",
+      "infrastructure": "GCP 후보·서버 readback 접근 병목 기록",
+      "storage": "브라우저 로컬 상태와 향후 원장 분리",
+      "integration": "공개 GCS·GitHub·연구 중 Kakao Connect"
+    },
+    "rights": {
+      "preserve": [
+        "월 무료 1GB",
+        "무기한 충전",
+        "기존 프로필",
+        "공식 WireGuard",
+        "QR·공개 URL",
+        "접근성",
+        "최소 개인정보"
+      ],
+      "privacy_surface": "위치·IP·키를 필요 이상 저장하지 않음",
+      "delete_export_restore": "로컬 일부만 확인; 운영 종단 미확인"
+    },
+    "commerce": {
+      "pricing": "미확정",
+      "payment": "미확인",
+      "renewal_cancel_refund": "미확인",
+      "support": "미확인"
+    },
+    "strengths": [
+      "증거 등급 분리",
+      "실기기 국가 전환 확인",
+      "기존 프로필 보존 계약",
+      "반응형 공개 앱·QR",
+      "광범위 자동 검사와 가상 1,000명 위험 탐색"
+    ],
+    "defects": [
+      "실제 보호 상태 결속 부족",
+      "IPv6·누출·킬 스위치 미검증",
+      "기기 설정 수명주기 미완결",
+      "결제·법률·지원·운영 미완료",
+      "Windows·iPhone 실VPN 미확인"
+    ],
+    "public_urls": {
+      "mobile": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+      "pc": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html?view=app",
+      "dashboard": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/development-dashboard.html",
+      "qr": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app-qr.png"
+    },
+    "evidence_ids": [
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034",
+      "SRC-045",
+      "SRC-046"
+    ],
+    "status_labels": {
+      "confirmed": "파일·자동·브라우저·실기기 등 명시된 증거로 확인",
+      "estimated": "계산·문서·모의시험",
+      "unconfirmed": "근거 없음 또는 외부 검증 대기"
+    },
+    "current_confirmed": [
+      "Android 15 한 대에서 TH→US→TH IPv4 출구와 공개 화면·일반망 복귀",
+      "모바일·PC 반응형 공개 화면, 별도 개발 대시보드, 서비스 URL QR",
+      "월 무료 1GB·무기한 충전·공식 WireGuard·Kakao Connect 비하향 계약"
+    ],
+    "still_unverified": [
+      "IPv6·DNS/WebRTC 누출·킬 스위치·장시간 안정성",
+      "iPhone·Windows 실제 VPN",
+      "실제 결제·취소·환불·복원",
+      "운영자 신원·지원·장애 훈련·법률 검토·실사용자 제한 공개"
+    ]
+  },
+  "analysis_scope": {
+    "mode": "research_analysis_planning_only",
+    "canonical_product_plan": "10_PLAN/CURRENT_SERVICE_PLAN.md",
+    "canonical_development_plan": "10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md",
+    "product_changes": false,
+    "drive_b_used": false
+  }
+}

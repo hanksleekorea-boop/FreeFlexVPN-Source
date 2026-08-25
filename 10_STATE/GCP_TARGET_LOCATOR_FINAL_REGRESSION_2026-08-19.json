@@ -1,0 +1,677 @@
+{
+  "schema": "FreeFlexVPNRegressionEvidenceV1",
+  "status": "passed",
+  "files_passed": 95,
+  "files_total": 95,
+  "checks_passed": 957,
+  "checks_total": 957,
+  "failed_files": [],
+  "elapsed_seconds": 366.984,
+  "results": [
+    {
+      "file": "test_abuse_controls.py",
+      "ok": true,
+      "passed": 14,
+      "total": 14,
+      "seconds": 1.985
+    },
+    {
+      "file": "test_account_continuation.py",
+      "ok": true,
+      "passed": 5,
+      "total": 5,
+      "seconds": 2.094
+    },
+    {
+      "file": "test_ai_handoff.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 1.265
+    },
+    {
+      "file": "test_android_idle_guard.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 1.0
+    },
+    {
+      "file": "test_app_v2_contract.py",
+      "ok": true,
+      "passed": 19,
+      "total": 19,
+      "seconds": 1.953
+    },
+    {
+      "file": "test_client_keygen.py",
+      "ok": true,
+      "passed": 11,
+      "total": 11,
+      "seconds": 9.438
+    },
+    {
+      "file": "test_cloud_init.py",
+      "ok": true,
+      "passed": 29,
+      "total": 29,
+      "seconds": 1.282
+    },
+    {
+      "file": "test_collaboration_ci.py",
+      "ok": true,
+      "passed": 4,
+      "total": 4,
+      "seconds": 1.5
+    },
+    {
+      "file": "test_collaboration_gateway.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 18.046
+    },
+    {
+      "file": "test_collaboration_http.py",
+      "ok": true,
+      "passed": 6,
+      "total": 6,
+      "seconds": 20.0
+    },
+    {
+      "file": "test_collaboration_portal_ui.py",
+      "ok": true,
+      "passed": 9,
+      "total": 9,
+      "seconds": 17.016
+    },
+    {
+      "file": "test_collaboration_runtime.py",
+      "ok": true,
+      "passed": 3,
+      "total": 3,
+      "seconds": 10.546
+    },
+    {
+      "file": "test_collaboration_workspace.py",
+      "ok": true,
+      "passed": 4,
+      "total": 4,
+      "seconds": 8.281
+    },
+    {
+      "file": "test_commercial_readiness.py",
+      "ok": true,
+      "passed": 9,
+      "total": 9,
+      "seconds": 4.938
+    },
+    {
+      "file": "test_commercial_readiness_ui.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 36.234
+    },
+    {
+      "file": "test_commercial_release_plan.py",
+      "ok": true,
+      "passed": 1,
+      "total": 1,
+      "seconds": 0.281
+    },
+    {
+      "file": "test_connection_check.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 1.516
+    },
+    {
+      "file": "test_continuity_v520.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 4.157
+    },
+    {
+      "file": "test_contracts.py",
+      "ok": true,
+      "passed": 35,
+      "total": 35,
+      "seconds": 5.344
+    },
+    {
+      "file": "test_contributor_access.py",
+      "ok": true,
+      "passed": 4,
+      "total": 4,
+      "seconds": 1.265
+    },
+    {
+      "file": "test_control_api.py",
+      "ok": true,
+      "passed": 13,
+      "total": 13,
+      "seconds": 4.328
+    },
+    {
+      "file": "test_control_http.py",
+      "ok": true,
+      "passed": 3,
+      "total": 3,
+      "seconds": 2.953
+    },
+    {
+      "file": "test_control_runtime.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 2.718
+    },
+    {
+      "file": "test_cost_provider_contract.py",
+      "ok": true,
+      "passed": 11,
+      "total": 11,
+      "seconds": 1.687
+    },
+    {
+      "file": "test_daily_safety_ui.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 0.25
+    },
+    {
+      "file": "test_desktop_app_mode.py",
+      "ok": true,
+      "passed": 11,
+      "total": 11,
+      "seconds": 32.75
+    },
+    {
+      "file": "test_development_dashboard_contract.py",
+      "ok": true,
+      "passed": 1,
+      "total": 1,
+      "seconds": 0.375
+    },
+    {
+      "file": "test_device_handoff_ui.py",
+      "ok": true,
+      "passed": 13,
+      "total": 13,
+      "seconds": 1.016
+    },
+    {
+      "file": "test_exit_admin.py",
+      "ok": true,
+      "passed": 9,
+      "total": 9,
+      "seconds": 7.031
+    },
+    {
+      "file": "test_first_use_recovery_ui.py",
+      "ok": true,
+      "passed": 3,
+      "total": 3,
+      "seconds": 0.891
+    },
+    {
+      "file": "test_gcp_billing_review.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 5.719
+    },
+    {
+      "file": "test_gcp_cloud_shell_bundle.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 3.203
+    },
+    {
+      "file": "test_gcp_cost_review.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 2.5
+    },
+    {
+      "file": "test_gcp_node_admission.py",
+      "ok": true,
+      "passed": 5,
+      "total": 5,
+      "seconds": 2.828
+    },
+    {
+      "file": "test_gcp_node_admission_cli.py",
+      "ok": true,
+      "passed": 3,
+      "total": 3,
+      "seconds": 3.313
+    },
+    {
+      "file": "test_gcp_node_plan.py",
+      "ok": true,
+      "passed": 6,
+      "total": 6,
+      "seconds": 2.89
+    },
+    {
+      "file": "test_gcp_provider_readback.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 1.797
+    },
+    {
+      "file": "test_gcp_readback_access.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 1.063
+    },
+    {
+      "file": "test_gcp_runtime_config.py",
+      "ok": true,
+      "passed": 3,
+      "total": 3,
+      "seconds": 9.859
+    },
+    {
+      "file": "test_gcp_target_locator.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 1.594
+    },
+    {
+      "file": "test_github_pages.py",
+      "ok": true,
+      "passed": 23,
+      "total": 23,
+      "seconds": 7.453
+    },
+    {
+      "file": "test_kakao_connect_policy.py",
+      "ok": true,
+      "passed": 14,
+      "total": 14,
+      "seconds": 1.391
+    },
+    {
+      "file": "test_kakao_connect_simulation.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 1.546
+    },
+    {
+      "file": "test_kakaovpn_integration_plan.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 1.516
+    },
+    {
+      "file": "test_keyboard.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 36.313
+    },
+    {
+      "file": "test_mobile_readiness.py",
+      "ok": true,
+      "passed": 13,
+      "total": 13,
+      "seconds": 11.375
+    },
+    {
+      "file": "test_mobile_readiness_ui.py",
+      "ok": true,
+      "passed": 13,
+      "total": 13,
+      "seconds": 22.266
+    },
+    {
+      "file": "test_moment_catalog.py",
+      "ok": true,
+      "passed": 21,
+      "total": 21,
+      "seconds": 9.25
+    },
+    {
+      "file": "test_network_safety_ui.py",
+      "ok": true,
+      "passed": 15,
+      "total": 15,
+      "seconds": 1.203
+    },
+    {
+      "file": "test_open_collaboration.py",
+      "ok": true,
+      "passed": 5,
+      "total": 5,
+      "seconds": 0.719
+    },
+    {
+      "file": "test_pc_handoff.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 23.219
+    },
+    {
+      "file": "test_pc_home.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 44.734
+    },
+    {
+      "file": "test_pc_productivity_ui.py",
+      "ok": true,
+      "passed": 18,
+      "total": 18,
+      "seconds": 19.672
+    },
+    {
+      "file": "test_pc_readiness.py",
+      "ok": true,
+      "passed": 16,
+      "total": 16,
+      "seconds": 12.937
+    },
+    {
+      "file": "test_pc_readiness_ui.py",
+      "ok": true,
+      "passed": 13,
+      "total": 13,
+      "seconds": 15.89
+    },
+    {
+      "file": "test_pc_viewport.py",
+      "ok": true,
+      "passed": 13,
+      "total": 13,
+      "seconds": 18.422
+    },
+    {
+      "file": "test_pc_workbench_ui.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 1.469
+    },
+    {
+      "file": "test_peer_bundle.py",
+      "ok": true,
+      "passed": 9,
+      "total": 9,
+      "seconds": 11.156
+    },
+    {
+      "file": "test_platform_release_evidence.py",
+      "ok": true,
+      "passed": 15,
+      "total": 15,
+      "seconds": 6.078
+    },
+    {
+      "file": "test_platform_support.py",
+      "ok": true,
+      "passed": 22,
+      "total": 22,
+      "seconds": 4.922
+    },
+    {
+      "file": "test_policy_consistency.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 0.891
+    },
+    {
+      "file": "test_priority_100_planning_v3.py",
+      "ok": true,
+      "passed": 0,
+      "total": 0,
+      "seconds": 0.922
+    },
+    {
+      "file": "test_priority_100_planning_v4.py",
+      "ok": true,
+      "passed": 0,
+      "total": 0,
+      "seconds": 1.031
+    },
+    {
+      "file": "test_profile_reissue.py",
+      "ok": true,
+      "passed": 12,
+      "total": 12,
+      "seconds": 2.469
+    },
+    {
+      "file": "test_profile_replacement_guard.py",
+      "ok": true,
+      "passed": 4,
+      "total": 4,
+      "seconds": 0.735
+    },
+    {
+      "file": "test_progress_dashboard.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 2.719
+    },
+    {
+      "file": "test_protection_evidence_ui.py",
+      "ok": true,
+      "passed": 4,
+      "total": 4,
+      "seconds": 0.656
+    },
+    {
+      "file": "test_protection_status_ui.py",
+      "ok": true,
+      "passed": 5,
+      "total": 5,
+      "seconds": 0.781
+    },
+    {
+      "file": "test_public_qr.py",
+      "ok": true,
+      "passed": 4,
+      "total": 4,
+      "seconds": 2.171
+    },
+    {
+      "file": "test_public_verifier_contract.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 1.266
+    },
+    {
+      "file": "test_pwa_api_client.py",
+      "ok": true,
+      "passed": 14,
+      "total": 14,
+      "seconds": 10.625
+    },
+    {
+      "file": "test_pwa_runtime_ui.py",
+      "ok": true,
+      "passed": 35,
+      "total": 35,
+      "seconds": 9.781
+    },
+    {
+      "file": "test_quota_agent.py",
+      "ok": true,
+      "passed": 19,
+      "total": 19,
+      "seconds": 1.438
+    },
+    {
+      "file": "test_quota_ledger.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 1.265
+    },
+    {
+      "file": "test_r6_preflight.py",
+      "ok": true,
+      "passed": 9,
+      "total": 9,
+      "seconds": 0.656
+    },
+    {
+      "file": "test_r6_preflight_cli.py",
+      "ok": true,
+      "passed": 5,
+      "total": 5,
+      "seconds": 3.407
+    },
+    {
+      "file": "test_referral_ledger.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 4.344
+    },
+    {
+      "file": "test_release_diff.py",
+      "ok": true,
+      "passed": 7,
+      "total": 7,
+      "seconds": 4.515
+    },
+    {
+      "file": "test_runtime_acceptance.py",
+      "ok": true,
+      "passed": 15,
+      "total": 15,
+      "seconds": 1.484
+    },
+    {
+      "file": "test_runtime_evidence.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 6.532
+    },
+    {
+      "file": "test_runtime_evidence_workbench.py",
+      "ok": true,
+      "passed": 6,
+      "total": 6,
+      "seconds": 3.407
+    },
+    {
+      "file": "test_safety_contract.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 0.828
+    },
+    {
+      "file": "test_schema_migration.py",
+      "ok": true,
+      "passed": 2,
+      "total": 2,
+      "seconds": 1.547
+    },
+    {
+      "file": "test_server_catalog.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 2.593
+    },
+    {
+      "file": "test_server_usage_empty_ui.py",
+      "ok": true,
+      "passed": 8,
+      "total": 8,
+      "seconds": 9.141
+    },
+    {
+      "file": "test_service_ui_v2_6.py",
+      "ok": true,
+      "passed": 14,
+      "total": 14,
+      "seconds": 14.625
+    },
+    {
+      "file": "test_service_ui_v3.py",
+      "ok": true,
+      "passed": 33,
+      "total": 33,
+      "seconds": 11.594
+    },
+    {
+      "file": "test_ssh_node_adapter.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 5.078
+    },
+    {
+      "file": "test_telegram_onboarding.py",
+      "ok": true,
+      "passed": 15,
+      "total": 15,
+      "seconds": 5.25
+    },
+    {
+      "file": "test_test_runner.py",
+      "ok": true,
+      "passed": 5,
+      "total": 5,
+      "seconds": 1.687
+    },
+    {
+      "file": "test_travel_safety_ui.py",
+      "ok": true,
+      "passed": 14,
+      "total": 14,
+      "seconds": 0.266
+    },
+    {
+      "file": "test_ui_design_contract.py",
+      "ok": true,
+      "passed": 14,
+      "total": 14,
+      "seconds": 0.578
+    },
+    {
+      "file": "test_usability_simulation.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 0.703
+    },
+    {
+      "file": "test_usage_meter.py",
+      "ok": true,
+      "passed": 9,
+      "total": 9,
+      "seconds": 3.25
+    },
+    {
+      "file": "test_wallet_ledger_v2.py",
+      "ok": true,
+      "passed": 10,
+      "total": 10,
+      "seconds": 1.313
+    }
+  ]
+}

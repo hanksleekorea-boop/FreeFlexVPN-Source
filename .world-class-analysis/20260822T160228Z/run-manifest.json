@@ -1,0 +1,168 @@
+{
+  "run_id": "20260822T160228Z",
+  "generated_at": "2026-08-22T16:02:28Z",
+  "checked_at": "2026-08-22",
+  "project_path": "D:\\Desktop\\챗지피티프로젝트들\\프리플렉스vpn\\owner-gateway-v38",
+  "git": {
+    "branch": "feature/owner-password-gateway",
+    "head": "b7c8b60",
+    "writes_outside_analysis": false,
+    "commit_created": false,
+    "push_performed": false
+  },
+  "public_urls": {
+    "mobile": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html",
+    "pc": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app.html?view=app",
+    "dashboard": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/development-dashboard.html",
+    "qr": "https://storage.googleapis.com/freeflexvpn-live-20260810-a31d7f/app-qr.png"
+  },
+  "research_status": "analysis_complete",
+  "selected_services": 30,
+  "candidates_reviewed": 66,
+  "groups": {
+    "A": 10,
+    "B": 10,
+    "C": 10
+  },
+  "unknown_scope": [
+    "외부 공개 문서와 프로젝트 증거 기반",
+    "실제 유료 가입·결제·환불·지원은 미실행",
+    "일부 서비스 세부 분야는 미확인 또는 적용 제외",
+    "세계 선두는 이번 비교 기준 안의 학습 기준일 뿐 절대 순위가 아님"
+  ],
+  "files": [
+    {
+      "name": "run-manifest.json",
+      "purpose": "실행 목록",
+      "created": true,
+      "check": "pass",
+      "sha256": null
+    },
+    {
+      "name": "service-profile.json",
+      "purpose": "서비스 프로필 기계판독",
+      "created": true,
+      "check": "pass",
+      "sha256": "616980c927805bae3ac5759ca6fb9e08be608161dc0a985b8d140ddeb586035b"
+    },
+    {
+      "name": "service-profile.md",
+      "purpose": "서비스 프로필",
+      "created": true,
+      "check": "pass",
+      "sha256": "93e81e8d8984f1ae42a8b580c13603be235e2cbdd39e42c59c48955ab1f7bd4f"
+    },
+    {
+      "name": "top30-selection.json",
+      "purpose": "후보·선정 기계판독",
+      "created": true,
+      "check": "pass",
+      "sha256": "93a01ad8456477693d55e1ed9fe63d1af10a83913e161c8032914ff94c16c451"
+    },
+    {
+      "name": "top30-selection.md",
+      "purpose": "30개 선정표",
+      "created": true,
+      "check": "pass",
+      "sha256": "ae2f51c0934fa52a1a27bf6c9f43136b03c6c061941bbb9a0937597b7ea7e120"
+    },
+    {
+      "name": "source-register.md",
+      "purpose": "근거 등록",
+      "created": true,
+      "check": "pass",
+      "sha256": "2e6bd1304c8edcd6625998b36f6a33fe83d1a6b05f4b9ee2f409fe979e919980"
+    },
+    {
+      "name": "evidence-index.md",
+      "purpose": "근거-ID 연결",
+      "created": true,
+      "check": "pass",
+      "sha256": "76aceab48027b7f25d6b2816db6ddc9e96993c320cf9557a2141ee696adb046c"
+    },
+    {
+      "name": "comparison-matrix.json",
+      "purpose": "비교 행렬 기계판독",
+      "created": true,
+      "check": "pass",
+      "sha256": "9bc31ceb57749e6defe3d7f2c3fbaa32c99dec3f8bbe4d3d2d9c2186f3f251df"
+    },
+    {
+      "name": "comparison-matrix.csv",
+      "purpose": "비교 행렬 표",
+      "created": true,
+      "check": "pass",
+      "sha256": "d0f28d71e3073916f77db78d186ac1b1324b0c794e7f33a2bea0dc65aef107d4"
+    },
+    {
+      "name": "top30-detailed-analysis.md",
+      "purpose": "상세 분석",
+      "created": true,
+      "check": "pass",
+      "sha256": "7a153b73e6ae634055ad64ab319d88537f79ab8bc34c26fc542c35c6085a4f3d"
+    },
+    {
+      "name": "best-practice-standard.json",
+      "purpose": "우수 관행 기계판독",
+      "created": true,
+      "check": "pass",
+      "sha256": "18ca830dcdd5db3fe6a2be141b93df968ccb9455e879002eeb2cb600cadc1940"
+    },
+    {
+      "name": "best-practice-standard.md",
+      "purpose": "우수 관행",
+      "created": true,
+      "check": "pass",
+      "sha256": "d92d1f26dc6e1cf7a64fbb8b29a9271af0961e1a44854abac4a02bf5cc4bb990"
+    },
+    {
+      "name": "gap-analysis.json",
+      "purpose": "갭 계산",
+      "created": true,
+      "check": "pass",
+      "sha256": "3d4cbf0bfcbda21b725dce26fd87761ef70f2625379f3cc2b4a243a397ad21cd"
+    },
+    {
+      "name": "gap-analysis.md",
+      "purpose": "갭 보고",
+      "created": true,
+      "check": "pass",
+      "sha256": "54458a56f94626e0e99961700a754e461245e120ab4a4cc7743b6432454d155e"
+    },
+    {
+      "name": "world-class-reinforcement-proposal.md",
+      "purpose": "보강 제안",
+      "created": true,
+      "check": "pass",
+      "sha256": "11e3077f9cf8b8c522ed3f11cc8f95fda55c02a32f6c0bdba0bf5f510096a02e"
+    },
+    {
+      "name": "integrated-product-spec-vNEXT.md",
+      "purpose": "통합 기획",
+      "created": true,
+      "check": "pass",
+      "sha256": "054d2b95fa821f46e7b31a33abed358778bf0a05a3650f267c3a07e5c9bf807b"
+    },
+    {
+      "name": "detailed-development-plan-vNEXT.md",
+      "purpose": "3단계 개발계획",
+      "created": true,
+      "check": "pass",
+      "sha256": "9a9d48a995ff5eed38231aec332f6463c2fa769eb9fe1fc86bc07f409c8dce0f"
+    },
+    {
+      "name": "quality-check.md",
+      "purpose": "품질 검사",
+      "created": true,
+      "check": "pass",
+      "sha256": "d9ece7b94720cea5fabce0538aa103d946be39a39d3bab479bc14b52cd765653"
+    },
+    {
+      "name": "executive-summary.md",
+      "purpose": "종합 요약",
+      "created": true,
+      "check": "pass",
+      "sha256": "39a52bafe0c2d0408aadda36329abe5a596b4b42d572e1641266b9866a3e445f"
+    }
+  ]
+}

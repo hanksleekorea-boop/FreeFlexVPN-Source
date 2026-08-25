@@ -23,8 +23,14 @@ class InsufficientWalletBalance(ValueError):
     """세 지갑의 합보다 큰 사용량을 요청했을 때 발생한다."""
 
 
+class IdempotencyConflict(ValueError):
+    """같은 사건 ID를 다른 계정·종류·요청 값으로 재사용했을 때 발생한다."""
+
+
 def month_key(value: date | datetime | None = None) -> str:
     current = value or datetime.now(timezone.utc)
+    if isinstance(current, datetime) and current.tzinfo is not None:
+        current = current.astimezone(timezone.utc)
     return f"{current.year:04d}-{current.month:02d}"
 
 
@@ -190,12 +196,20 @@ class WalletLedger:
         return None
 
     @staticmethod
-    def _stored_event(connection: sqlite3.Connection, event_id: str) -> dict[str, Any] | None:
+    def _stored_event(
+        connection: sqlite3.Connection,
+        event_id: str,
+        *,
+        account_id: str,
+        event_type: str,
+    ) -> dict[str, Any] | None:
         row = connection.execute(
-            "SELECT result_json FROM wallet_events WHERE event_id=?", (event_id,)
+            "SELECT account_id,event_type,result_json FROM wallet_events WHERE event_id=?", (event_id,)
         ).fetchone()
         if row is None:
             return None
+        if str(row["account_id"]) != account_id or str(row["event_type"]) != event_type:
+            raise IdempotencyConflict("사건 ID는 다른 계정이나 사건 종류에 재사용할 수 없습니다")
         result = json.loads(str(row["result_json"]))
         result["duplicate"] = True
         return result
@@ -224,8 +238,10 @@ class WalletLedger:
         try:
             with closing(self._connect()) as connection:
                 connection.execute("BEGIN IMMEDIATE")
-                stored = self._stored_event(connection, event_id)
+                stored = self._stored_event(connection, event_id, account_id=account_id, event_type="credit")
                 if stored is not None:
+                    if stored.get("credited_bucket") != bucket or stored.get("credited_bytes") != amount_bytes:
+                        raise IdempotencyConflict("같은 지급 사건 ID의 지갑이나 용량이 다릅니다")
                     connection.commit()
                     return stored
                 self._ensure_month(connection, account_id, month)
@@ -254,6 +270,8 @@ class WalletLedger:
                 )
                 connection.commit()
                 return result
+        except IdempotencyConflict:
+            raise
         except (OSError, sqlite3.Error) as exc:
             return self._failure(exc)
 
@@ -277,8 +295,10 @@ class WalletLedger:
         try:
             with closing(self._connect()) as connection:
                 connection.execute("BEGIN IMMEDIATE")
-                stored = self._stored_event(connection, event_id)
+                stored = self._stored_event(connection, event_id, account_id=account_id, event_type="usage")
                 if stored is not None:
+                    if stored.get("used_bytes") != amount_bytes:
+                        raise IdempotencyConflict("같은 사용 사건 ID의 용량이 다릅니다")
                     connection.commit()
                     return stored
                 if connection.execute(
@@ -340,7 +360,7 @@ class WalletLedger:
                 )
                 connection.commit()
                 return result
-        except InsufficientWalletBalance:
+        except (InsufficientWalletBalance, IdempotencyConflict):
             raise
         except (OSError, sqlite3.Error) as exc:
             return self._failure(exc)

@@ -1,0 +1,17 @@
+{
+  "schema": "FreeFlexVPNCommercialTaskReceiptV2",
+  "task_id": "CC-TASK-1-07",
+  "status": "done_code",
+  "checked_at": "2026-08-24",
+  "changed_paths": ["20_SRC/app/control_api.py", "20_SRC/app/pwa_api_client.js", "20_SRC/app/pwa_runtime.js", "20_SRC/html_templates/service_shell.html", "40_TESTS/test_account_data_rights.py"],
+  "preserved_contracts": ["CC-BASE-01", "CC-BASE-02", "CC-BASE-03", "CC-BASE-04", "CC-BASE-05", "CC-BASE-06", "CC-BASE-07", "CC-BASE-08", "CC-BASE-09", "CC-BASE-10"],
+  "evidence": {
+    "automatic": {"status": "pass", "passed": 118, "failed": 0},
+    "browser": {"status": "pass", "viewports": ["390px", "desktop"]},
+    "device": {"status": "not_applicable", "platform": null},
+    "external": {"status": "not_run", "payment": "not_run", "legal": "not_run", "operations": "not_run"},
+    "rollback": {"status": "not_run", "tested": false}
+  },
+  "unknowns": ["실제 시험 계정·시험 서버 삭제 왕복", "운영 주체의 법정 보관 대상과 기간"],
+  "notes": "최근 5분 세션 재확인, 계정 범위 JSON 내보내기, 개인키·세션 열쇠 제외, 두 번 확인 삭제 요청, 해시 저장 상태 영수증과 완료 과장 금지를 구현했다. 실제 계정 삭제는 없다."
+}
