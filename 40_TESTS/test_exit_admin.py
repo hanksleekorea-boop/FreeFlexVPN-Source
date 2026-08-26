@@ -83,6 +83,19 @@ class ExitAdminTests(unittest.TestCase):
         self.assertTrue(second["duplicate"])
         self.assertEqual(second["assigned_address"], "10.66.0.2/32")
 
+    def test_unmanaged_runtime_peer_stops_before_any_state_or_runtime_mutation(self):
+        with (
+            mock.patch.object(ea.qa, "read_wg", return_value=observed(OTHER_KEY)),
+            mock.patch.object(ea.qa, "sync_firewall") as sync_firewall,
+            mock.patch.object(ea.qa, "sync_wireguard") as sync_wireguard,
+        ):
+            with self.assertRaisesRegex(RuntimeError, "명시적 기존 피어 이관"):
+                self.admin.provision(ACCOUNT, DEVICE, KEY)
+        self.assertFalse(self.state.exists())
+        self.assertFalse(self.quota.exists())
+        sync_firewall.assert_not_called()
+        sync_wireguard.assert_not_called()
+
     def test_readback_mismatch_never_marks_active_negative_control(self):
         with (
             mock.patch.object(ea.qa, "read_wg", side_effect=[{}, {}]),
