@@ -99,8 +99,15 @@ def write_state_atomic(path: pathlib.Path, state: dict[str, Any]) -> None:
         ) from exc
 
 
-def _next_address(state: dict[str, Any]) -> str:
+def _next_address(
+    state: dict[str, Any], observed: dict[str, dict[str, Any]] | None = None
+) -> str:
     used = {str(peer["allowed_ip"]) for peer in state["peers"].values()}
+    used.update(
+        str(peer.get("allowed_ip", ""))
+        for peer in (observed or {}).values()
+        if peer.get("allowed_ip")
+    )
     # 폐기된 주소도 A0에서는 재사용하지 않아 오래된 QR과 새 피어의 충돌을 막는다.
     for host in qa.ipaddress.ip_network("10.66.0.0/24").hosts():
         if str(host) == "10.66.0.1":
@@ -157,7 +164,20 @@ class ExitAdmin:
                     raise ValueError("계정당 활성 기기 2대 제한을 초과했습니다")
                 if any(peer["public_key"] == public_key for peer in state["peers"].values()):
                     raise ValueError("이미 등록 또는 폐기된 WireGuard 공개키입니다")
-                allowed_ip = _next_address(state)
+                allowed_ip = ""
+                duplicate = False
+
+            quota = qa.load_state(self.quota_path)
+            before = qa.read_wg()
+            unmanaged_runtime = set(before) - set(quota["peers"])
+            if unmanaged_runtime:
+                raise RuntimeError(
+                    "관리 원장 밖의 기존 WireGuard 피어가 있어 발급을 중단합니다. "
+                    "명시적 기존 피어 이관이 필요합니다"
+                )
+
+            if existing is None:
+                allowed_ip = _next_address(state, before)
                 state["peers"][device_id] = {
                     "account_id": account_id,
                     "public_key": public_key,
@@ -166,11 +186,8 @@ class ExitAdmin:
                     "created_at": datetime.now(timezone.utc).isoformat(),
                     "revoked_at": None,
                 }
-                duplicate = False
                 write_state_atomic(self.state_path, state)
 
-            quota = qa.load_state(self.quota_path)
-            before = qa.read_wg()
             qa.enroll(quota, account_id, public_key, allowed_ip, before)
             qa.write_state_atomic(self.quota_path, quota)
             qa.sync_firewall(quota)
