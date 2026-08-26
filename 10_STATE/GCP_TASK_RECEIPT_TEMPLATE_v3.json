@@ -1,0 +1,21 @@
+{
+  "task_id": "GCP-TASK-0-00",
+  "status": "ready",
+  "checked_at": null,
+  "program": "all",
+  "changed_paths": [],
+  "automatic_checks": [],
+  "browser_checks": [],
+  "device_checks": [],
+  "operation_checks": [],
+  "unverified": [],
+  "non_regression": {
+    "free_1gb": true,
+    "topup_no_expiry": true,
+    "wireguard_default": true,
+    "existing_profiles_preserved": true,
+    "public_urls_and_qr_preserved": true,
+    "drive_b_unused": true
+  },
+  "next_task": "GCP-TASK-0-01"
+}

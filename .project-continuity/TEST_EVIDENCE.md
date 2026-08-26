@@ -1,5 +1,36 @@
 # 검사 증거
 
+## 2026-08-25 — GCP-TASK-1-01 보호 카드 출처 분리 진행 중
+
+- `test_connection_check.py` 8/8, 보호 출처 원본 계약 1/1, 아이콘 대체 생성 계약 1/1을 확인했다. 실제 공개 앱은 아직 이전 생성 결과이므로 새 출처 표시의 공개 브라우저 검증은 미실시다.
+- `build_web_assets.py`는 Pillow 네이티브 화면 라이브러리 차단 뒤, 기존 공개 PNG 아이콘을 읽는 제한된 대체 경로로 `30_DEPLOY`를 재생성했다. 로컬 파일 URL은 브라우저 보안 정책으로 열 수 없어 대화형 새 결과 검사는 GitHub 검사·공개 후보로 넘겼다.
+
+## 2026-08-25 — GCP-TASK-0-02 증거·점수 자동 결속
+
+- `test_readiness_99_gate.py` 확장: 직접 최신 증거가 모두 있을 때만 100점, 증거 누락·만료·자동 출처의 Android 가장에서는 점수 상승 불가, 계산 시각·근거 ID 출력 확인.
+- 집중 검사 32/32, `scan_secrets.py` 허용 목록 외 0건, `make_manifest.py --check`, `git diff --check` 통과. 실제 브라우저·기기·거래·운영 검사는 이번 카드에서 실행하지 않았다.
+
+## 2026-08-25 — GCP-TASK-0-01 공통 증거 계약·신선도 엔진
+
+- `test_evidence_contract.py` 5/5: 유효 비식별 요약, 형식 누락/임의 필드, 미래·만료·보존기간 없는 신선도, 중첩 민감 필드, 자동 출처의 실기기·거래 판정 승격 차단을 확인했다.
+- `python -X utf8 -m unittest 40_TESTS.test_evidence_contract 40_TESTS.test_gap_compression_plan_v3 40_TESTS.test_canonical_commercial_complete_v2 40_TESTS.test_canonical_plan_vnext_integration` 24/24 통과. 브라우저·실기기·거래·운영 검사는 이번 카드에 실행하지 않았다.
+
+## 2026-08-25 — Gap-Compression v3 정본·상세개발계획
+
+- `test_gap_compression_plan_v3.py` 8/8: 채택·7개 프로그램·비하향·31개 고유 작업·상태표·낮은 숙련도 AI 지시·Android/외부 조건·정본 포인터·안전 영수증을 확인했다.
+- `test_canonical_commercial_complete_v2.py` 7/7, `test_canonical_plan_vnext_integration.py` 4/4, Commercial-Complete 계약 19/19, Kakao 비하향 8/8, 99% 통과 조건 5/5, 대시보드 1/1 통과.
+- 비밀값·개인정보 검사 허용 목록 외 0건, `MANIFEST.md` 647/647, `git diff --check` 통과.
+- 시스템 Python 전체 발견: 488개 실행, 실패 1·불러오기 오류 27. 오류는 Windows 응용 프로그램 제어 정책이 Playwright greenlet·NumPy/OpenCV·Pillow·암호화 네이티브 확장을 차단한 환경 문제다. 프로젝트 `.test-venv`와 번들 Python 실행 파일도 같은 정책으로 시작되지 않았다.
+- 실패 1건은 `test_ai_handoff.py`의 Git 추적 인계 목록과 현재 파일 목록 차이로, 새 문서/검사/영수증과 기존 미추적 연속성 run이 아직 저장 기록에 포함되지 않은 상태를 정확히 잡았다. 제품·기획 계약 실패가 아니다.
+- 실제 Android·실서버·실결제·법률·외부 보안·지원 훈련·공개 변경은 이번 검사에 포함되지 않는다.
+
+## 2026-08-25 — 상위 10대 격차 압축 기획안
+
+- 제안서 구조: 463줄, GCP 프로그램 7/7, 다음 실행 순위 20/20, AI 단독 준비 순위 20/20.
+- `python -X utf8 -m unittest 40_TESTS.test_canonical_plan_vnext_integration 40_TESTS.test_canonical_commercial_complete_v2`: 11/11 통과.
+- `python -X utf8 40_TESTS/test_commercial_complete_contract.py`: 19/19 통과. 무료 1GB·WireGuard·기존 프로필·Drive B 제외와 거짓 완료·민감 필드 거부 계약을 유지했다.
+- `git diff --check`: 통과. 실제 Android·서버·결제·법률·공개판 검사는 실행하지 않았으며 제안 상태와 현재 점수를 유지했다.
+
 
 ## 2026-08-24 — Commercial-Complete v2 정본 계약
 

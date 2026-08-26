@@ -11,7 +11,11 @@ from pathlib import Path
 
 import cost_model
 import build_app_v2
-from icons import encoded_icons
+
+try:
+    from icons import encoded_icons as _generated_icons
+except ImportError:
+    _generated_icons = None
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -26,6 +30,19 @@ APP_SOURCE = ROOT / "20_SRC" / "app"
 SERVICE_GLOBAL_STYLES = TEMPLATES / "service_global.css"
 APP_MODULES = ("client_keygen.js", "pwa_api_client.js", "moment_catalog.js", "platform_support.js", "pc_readiness.js", "mobile_readiness.js", "commercial_readiness.js", "protection_evidence.js", "profile_lifecycle.js", "error_recovery.js", "pwa_runtime.js")
 RUNTIME_SCRIPT_TAG = '<script type="module" src="./pwa_runtime.js"></script>'
+
+
+def encoded_icons() -> dict[int, str]:
+    """화면 라이브러리가 막힌 PC에서도 이미 검증한 PNG 아이콘으로 안전하게 재생성한다."""
+    if _generated_icons is not None:
+        return _generated_icons()
+    result: dict[int, str] = {}
+    for size in (192, 512):
+        source = PUBLIC_ASSETS / f"icon-{size}.png"
+        if not source.is_file() or source.stat().st_size <= 0:
+            raise RuntimeError(f"아이콘 생성 라이브러리와 기존 아이콘을 모두 사용할 수 없습니다: {source}")
+        result[size] = base64.b64encode(source.read_bytes()).decode("ascii")
+    return result
 
 SERVICE_GLOBAL_NAV = """<header class="ff-global"><div class="ff-global-in"><a class="ff-global-brand" href="index.html"><span class="ff-global-mark">FF</span>FreeFlexVPN</a><nav class="ff-global-links" aria-label="서비스 이동"><a href="app.html">서비스 열기</a><a href="index.html">제품 소개</a><a href="development-dashboard.html">개발 현황</a></nav></div></header>"""
 

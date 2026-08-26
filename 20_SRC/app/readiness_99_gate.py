@@ -9,11 +9,18 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from typing import Any, Mapping
 
+from app.evidence_contract import EvidenceContractError, evidence_freshness, validate_evidence_record
 from app.release_95_gate import Release95EvidenceError, verify_and_evaluate_release_95
 
 
 SCHEMA = "FreeFlexVPNReadiness99EvidenceV1"
 DEVELOPMENT_GATES = ("REGRESSION", "MANIFEST", "SECRET_SCAN", "PUBLIC_BUILD")
+AREA_EVIDENCE_REQUIREMENTS = {
+    "mobile": frozenset({"android"}),
+    "pc": frozenset({"windows"}),
+    "commercial": frozenset({"operation", "transaction", "expert"}),
+    "development": frozenset({"automatic"}),
+}
 ALLOWED_STATES = frozenset({"pass", "fail", "not_run"})
 ALLOWED_KINDS = frozenset({"log", "screenshot", "measurement", "receipt", "document"})
 MAX_BUNDLE_BYTES = 500_000
@@ -135,18 +142,56 @@ def verify_development_evidence(bundle_path: pathlib.Path | str, *, project_root
     return VerifiedDevelopmentEvidence(_sha(source), captured.isoformat(), dict(gates), len(artifacts))
 
 
-def verify_and_evaluate_readiness_99(*, mobile_receipt: pathlib.Path | str, pc_receipt: pathlib.Path | str, operations_bundle: pathlib.Path | str, development_bundle: pathlib.Path | str, project_root: pathlib.Path | str, now: datetime | None = None) -> dict[str, Any]:
-    """모바일·PC·상용화·개발이 모두 실제 증거로 99% 기준을 넘는지 반환한다."""
+def _verify_evidence_basis(
+    evidence_records: Mapping[str, Any] | None, *, now: datetime
+) -> tuple[dict[str, bool], dict[str, tuple[str, ...]], dict[str, str]]:
+    """영역별 직접 출처·통과·신선도를 확인한다. 누락은 점수 0이지 예외가 아니다."""
+    if evidence_records is None:
+        return ({area: False for area in AREA_EVIDENCE_REQUIREMENTS}, {area: () for area in AREA_EVIDENCE_REQUIREMENTS}, {area: "missing" for area in AREA_EVIDENCE_REQUIREMENTS})
+    if not isinstance(evidence_records, Mapping) or set(evidence_records) - set(AREA_EVIDENCE_REQUIREMENTS):
+        raise Readiness99EvidenceError("증거 기준표의 영역이 올바르지 않습니다")
+    eligible: dict[str, bool] = {}
+    ids: dict[str, tuple[str, ...]] = {}
+    freshness: dict[str, str] = {}
+    for area, required_sources in AREA_EVIDENCE_REQUIREMENTS.items():
+        raw_records = evidence_records.get(area, [])
+        if not isinstance(raw_records, list):
+            raise Readiness99EvidenceError(f"{area} 증거 목록은 배열이어야 합니다")
+        try:
+            verified = [validate_evidence_record(item, now=now) for item in raw_records]
+        except EvidenceContractError as exc:
+            raise Readiness99EvidenceError(f"{area} 공통 증거 계약 오류: {exc}") from exc
+        ids[area] = tuple(record.evidence_id for record in verified)
+        current = [record for record in verified if record.result == "pass" and evidence_freshness(record, now=now) == "fresh"]
+        eligible[area] = required_sources <= {record.source_class for record in current}
+        freshness[area] = "fresh" if eligible[area] else ("stale_or_missing" if verified else "missing")
+    return eligible, ids, freshness
+
+
+def verify_and_evaluate_readiness_99(*, mobile_receipt: pathlib.Path | str, pc_receipt: pathlib.Path | str, operations_bundle: pathlib.Path | str, development_bundle: pathlib.Path | str, project_root: pathlib.Path | str, evidence_records: Mapping[str, Any] | None = None, now: datetime | None = None) -> dict[str, Any]:
+    """모바일·PC·상용화·개발이 최신의 직접 출처 증거로 99%를 넘는지 반환한다."""
     try:
         release = verify_and_evaluate_release_95(mobile_receipt=mobile_receipt, pc_receipt=pc_receipt, operations_bundle=operations_bundle, project_root=project_root, now=now)
     except Release95EvidenceError as exc:
         raise Readiness99EvidenceError(str(exc)) from exc
-    development = verify_development_evidence(development_bundle, project_root=project_root, now=now)
+    clock = (now or datetime.now(timezone.utc)).astimezone(timezone.utc)
+    development = verify_development_evidence(development_bundle, project_root=project_root, now=clock)
+    basis_ready, basis_ids, basis_freshness = _verify_evidence_basis(evidence_records, now=clock)
     areas = {
-        "mobile": 100 if release["states"]["MOBILE_CONNECTION"] == "pass" else 0,
-        "pc": 100 if release["states"]["PC_CONNECTION"] == "pass" else 0,
-        "commercial": 100 if release["commercial_100_ready"] else 0,
-        "development": 100 if development.ready else 0,
+        "mobile": 100 if release["states"]["MOBILE_CONNECTION"] == "pass" and basis_ready["mobile"] else 0,
+        "pc": 100 if release["states"]["PC_CONNECTION"] == "pass" and basis_ready["pc"] else 0,
+        "commercial": 100 if release["commercial_100_ready"] and basis_ready["commercial"] else 0,
+        "development": 100 if development.ready and basis_ready["development"] else 0,
     }
     blockers = [name for name, score in areas.items() if score < 99]
-    return {"schema": SCHEMA, "areas": areas, "target_99_ready": not blockers, "blockers": blockers, "release_evidence_gate_score": release["evidence_gate_score"], "development_states": dict(development.states), "evidence_hashes": {**release["evidence_hashes"], "development": development.bundle_sha256}}
+    return {
+        "schema": SCHEMA,
+        "computed_at": clock.isoformat(),
+        "areas": areas,
+        "target_99_ready": not blockers,
+        "blockers": blockers,
+        "release_evidence_gate_score": release["evidence_gate_score"],
+        "development_states": dict(development.states),
+        "evidence_basis": {area: {"required_sources": sorted(AREA_EVIDENCE_REQUIREMENTS[area]), "evidence_ids": list(basis_ids[area]), "freshness": basis_freshness[area]} for area in AREA_EVIDENCE_REQUIREMENTS},
+        "evidence_hashes": {**release["evidence_hashes"], "development": development.bundle_sha256},
+    }

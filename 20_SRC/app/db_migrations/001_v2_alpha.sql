@@ -37,6 +37,15 @@ CREATE TABLE IF NOT EXISTS devices (
     FOREIGN KEY(account_id) REFERENCES accounts(account_id)
 );
 CREATE INDEX IF NOT EXISTS devices_account ON devices(account_id, status);
+-- Customer-facing labels are deliberately separated from WireGuard material.
+-- Existing rows can remain without metadata; the API supplies a safe fallback.
+CREATE TABLE IF NOT EXISTS device_metadata (
+    device_id TEXT PRIMARY KEY,
+    display_name TEXT NOT NULL,
+    revision INTEGER NOT NULL CHECK(revision >= 1),
+    updated_at TEXT NOT NULL,
+    FOREIGN KEY(device_id) REFERENCES devices(device_id)
+);
 CREATE TABLE IF NOT EXISTS peer_runtime (
     device_id TEXT PRIMARY KEY,
     server_id TEXT NOT NULL,

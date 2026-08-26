@@ -38,9 +38,11 @@ with local_server() as base, sync_playwright() as pw:
       const {deriveProtectionEvidencePresentation,sanitizeProtectionEvidence}=await import(url);
       const out=[];const check=(name,ok)=>out.push([name,Boolean(ok)]);
       const now='2026-08-24T12:00:00Z';
-      const full={state:'protected',checked_at:'2026-08-24T11:59:00Z',checks:{tunnel:true,exit_ip:true,dns:true,ipv6:true,webrtc:true,kill_switch:true}};
+      const full={state:'protected',checked_at:'2026-08-24T11:59:00Z',evidence_id:'android-check-001',source_class:'android',checks:{tunnel:true,exit_ip:true,dns:true,ipv6:true,webrtc:true,kill_switch:true}};
       const protectedResult=deriveProtectionEvidencePresentation(full,{now});
       check('최신 전체 근거만 보호됨',protectedResult.presentation==='protected'&&protectedResult.evidence_grade==='confirmed'&&protectedResult.counts.passed===5);
+      const automatic=deriveProtectionEvidencePresentation({...full,source_class:'automatic'},{now});
+      check('자동 결과는 실제 Android 보호로 승격 불가',automatic.presentation==='partial'&&automatic.title==='직접 확인 필요');
       const partial=deriveProtectionEvidencePresentation({state:'limited',checked_at:'2026-08-24T11:59:00Z',checks:{tunnel:true,exit_ip:true}},{now});
       check('2026-08-22형 IPv4 부분 증거',partial.presentation==='partial'&&partial.evidence_grade==='partial'&&partial.counts.missing===3);
       const stale=deriveProtectionEvidencePresentation({...full,checked_at:'2026-08-24T10:00:00Z'},{now});
@@ -72,7 +74,7 @@ with local_server() as base, sync_playwright() as pw:
 
 shell = (ROOT / "20_SRC" / "html_templates" / "service_shell.html").read_text(encoding="utf-8")
 checks.extend([
-    ("현재 근거 등급 UI", "data-svc-evidence-grade" in shell and "현재 기기 · 최신 자료 없음" in shell),
+    ("현재 근거 등급 UI", "data-svc-evidence-grade" in shell and "직접 기기 근거 없음" in shell),
     ("모바일·PC 같은 계산 사용", "data-svc-workbench-protection" in shell and "workbenchTitle.textContent=detail.title" in shell),
     ("과거 기록을 현재와 분리", "지난 실제 확인 기록 · 현재 상태가 아님" in shell and "부분 증거:" in shell),
     ("과거 미확인 범위 공개", all(value in shell for value in ("DNS·IPv6·WebRTC·차단 스위치·장시간 안정성은 미확인", "태국에서 미국 IPv4 경로"))),

@@ -45,7 +45,8 @@ class CanonicalPlanIntegrationTest(unittest.TestCase):
         reqs = re.findall(r"^\| (REQ-\d{3}) \|", text, re.MULTILINE)
         expected = [f"REQ-{number:03d}" for number in range(1, 29)]
         self.assertEqual(reqs, expected)
-        self.assertIn("최종 통합일: 2026-08-24", text)
+        self.assertIn("최종 통합일: 2026-08-25", text)
+        self.assertIn("Gap-Compression v3", text)
         self.assertIn("이 파일만 현재 제품 기획 정본", text)
         self.assertIn("integrated-product-spec-vNEXT.md", text)
 
@@ -60,7 +61,8 @@ class CanonicalPlanIntegrationTest(unittest.TestCase):
         self.assertEqual([row[0] for row in rows], expected_tasks)
         self.assertEqual([row[1] for row in rows], [f"REQ-{number:03d}" for number in range(1, 29)])
         self.assertEqual(dependency_errors(rows), [])
-        self.assertIn("최종 통합일: 2026-08-24", text)
+        self.assertIn("최종 통합일: 2026-08-25", text)
+        self.assertIn("Gap-Compression v3", text)
         self.assertIn("이 파일만 현재 상세 개발실행계획 정본", text)
         self.assertIn("detailed-development-plan-vNEXT.md", text)
 
@@ -86,7 +88,7 @@ class CanonicalPlanIntegrationTest(unittest.TestCase):
         self.assertIn("D67", decisions)
         self.assertIn("REQ-001~028", decisions)
         self.assertIn("TASK 28개", decisions)
-        self.assertIn("2026-08-24", dashboard)
+        self.assertIn("정본 기준: 2026-08-25 Gap-Compression v3", dashboard)
 
 
 if __name__ == "__main__":

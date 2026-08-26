@@ -1,0 +1,48 @@
+{
+  "task_id": "GCP-TASK-0-00",
+  "status": "done_code",
+  "checked_at": "2026-08-25",
+  "program": "all",
+  "changed_paths": [
+    "00_START/DEVELOPMENT_DASHBOARD.md",
+    "00_START/시작하세요.md",
+    "10_PLAN/CURRENT_DEVELOPMENT_EXECUTION_PLAN.md",
+    "10_PLAN/CURRENT_SERVICE_PLAN.md",
+    "10_PLAN/DETAILED_DEVELOPMENT_PLAN_GAP_COMPRESSION_v3_2026-08-25.md",
+    "10_PLAN/FREEFLEXVPN_TOP10_GAP_COMPRESSION_PROPOSAL_v1_2026-08-25.md",
+    "10_STATE/DECISIONS.md",
+    "10_STATE/GCP_TASK_RECEIPT_TEMPLATE_v3.json",
+    "40_TESTS/test_canonical_plan_vnext_integration.py",
+    "40_TESTS/test_gap_compression_plan_v3.py"
+  ],
+  "automatic_checks": [
+    "gap_compression_plan_v3 8/8",
+    "canonical_plans 11/11",
+    "commercial_complete_contract 19/19",
+    "kakao_non_regression 8/8",
+    "readiness_99_gate 5/5",
+    "development_dashboard 1/1",
+    "unittest_discovery ran 488; environment errors 27; untracked_inventory_failure 1",
+    "git_diff_check pass"
+  ],
+  "browser_checks": [],
+  "device_checks": [],
+  "operation_checks": [],
+  "unverified": [
+    "actual_android_current_protection",
+    "actual_payment_and_refund",
+    "operator_legal_identity",
+    "external_security_review",
+    "real_support_and_incident_drill",
+    "full_browser_image_crypto_suite_blocked_by_windows_application_control"
+  ],
+  "non_regression": {
+    "free_1gb": true,
+    "topup_no_expiry": true,
+    "wireguard_default": true,
+    "existing_profiles_preserved": true,
+    "public_urls_and_qr_preserved": true,
+    "drive_b_unused": true
+  },
+  "next_task": "GCP-TASK-0-01"
+}

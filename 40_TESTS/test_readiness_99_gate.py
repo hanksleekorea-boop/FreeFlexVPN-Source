@@ -9,6 +9,7 @@ import pathlib
 import sys
 import tempfile
 import unittest
+from datetime import timedelta
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -51,6 +52,27 @@ def development_bundle(folder: pathlib.Path, *, all_pass: bool = True) -> pathli
     return target
 
 
+def evidence_records(*, stale: bool = False, mobile_source: str = "android"):
+    expires = (FIXTURES.NOW - timedelta(minutes=1) if stale else FIXTURES.NOW + timedelta(days=1)).isoformat()
+    observed = (FIXTURES.NOW - timedelta(minutes=2) if stale else FIXTURES.NOW).isoformat()
+
+    def item(evidence_id: str, source: str, scope: str):
+        return {
+            "schema": "FreeFlexVPNEvidenceContractV1", "evidence_id": evidence_id,
+            "subject_scope": scope, "observed_at": observed, "expires_at": expires,
+            "source_class": source, "result": "pass",
+            "redaction": ["account", "identifier", "ip", "key"],
+            "version": {"app": "test", "policy": "test"},
+        }
+
+    return {
+        "mobile": [item("mobile-proof-001", mobile_source, "device")],
+        "pc": [item("pc-proof-001", "windows", "device")],
+        "commercial": [item("ops-proof-001", "operation", "release"), item("pay-proof-001", "transaction", "account"), item("expert-proof-001", "expert", "release")],
+        "development": [item("dev-proof-001", "automatic", "release")],
+    }
+
+
 class Readiness99GateTests(unittest.TestCase):
     def test_all_external_evidence_reaches_99_target(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -61,10 +83,31 @@ class Readiness99GateTests(unittest.TestCase):
                 mobile_receipt=FIXTURES._platform_receipt(mobile_dir, "android"),
                 pc_receipt=FIXTURES._platform_receipt(pc_dir, "windows"),
                 operations_bundle=FIXTURES._operations_bundle(ops_dir),
-                development_bundle=development_bundle(dev_dir), project_root=ROOT, now=FIXTURES.NOW,
+                development_bundle=development_bundle(dev_dir), evidence_records=evidence_records(), project_root=ROOT, now=FIXTURES.NOW,
             )
             self.assertTrue(result["target_99_ready"])
             self.assertEqual(result["areas"], {"mobile": 100, "pc": 100, "commercial": 100, "development": 100})
+            self.assertEqual(result["evidence_basis"]["mobile"]["evidence_ids"], ["mobile-proof-001"])
+            self.assertEqual(result["computed_at"], FIXTURES.NOW.isoformat())
+
+    def test_missing_stale_or_spoofed_common_evidence_cannot_raise_score(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = pathlib.Path(temporary)
+            mobile_dir, pc_dir, ops_dir, dev_dir = (root / name for name in ("mobile", "pc", "ops", "development"))
+            for folder in (mobile_dir, pc_dir, ops_dir, dev_dir):
+                folder.mkdir()
+            kwargs = dict(
+                mobile_receipt=FIXTURES._platform_receipt(mobile_dir, "android"),
+                pc_receipt=FIXTURES._platform_receipt(pc_dir, "windows"),
+                operations_bundle=FIXTURES._operations_bundle(ops_dir),
+                development_bundle=development_bundle(dev_dir), project_root=ROOT, now=FIXTURES.NOW,
+            )
+            missing = verify_and_evaluate_readiness_99(**kwargs)
+            self.assertEqual(missing["areas"], {"mobile": 0, "pc": 0, "commercial": 0, "development": 0})
+            stale = verify_and_evaluate_readiness_99(**kwargs, evidence_records=evidence_records(stale=True))
+            self.assertFalse(stale["target_99_ready"])
+            spoofed = verify_and_evaluate_readiness_99(**kwargs, evidence_records=evidence_records(mobile_source="automatic"))
+            self.assertEqual(spoofed["areas"]["mobile"], 0)
 
     def test_missing_development_evidence_blocks_target(self):
         with tempfile.TemporaryDirectory() as temporary:

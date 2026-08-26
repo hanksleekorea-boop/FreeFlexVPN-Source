@@ -168,7 +168,7 @@ async def run() -> None:
             candidate_row = page.locator(f'[data-device-id="{candidate_id}"]')
             check("새 후보와 기존 설정을 분리 표시", await existing_row.get_attribute("data-device-role") == "existing" and await candidate_row.get_attribute("data-device-role") == "candidate")
             check("기기 목록에서 실제 주소 숨김", "10.66." not in (await page.text_content("#deviceList") or ""))
-            check("후보 확인 전 기존 설정 폐기 차단", await existing_row.locator("button").is_disabled())
+            check("후보 확인 전 기존 설정 폐기 차단", await existing_row.get_by_text("후보 확인 전 보존", exact=True).is_disabled())
             print("PWA UI 단계 3/4: 기기 키·구성 생성", flush=True)
 
             await page.evaluate("go('home')")
@@ -176,7 +176,7 @@ async def run() -> None:
             await page.wait_for_function("document.getElementById('statusCard').dataset.connectionState === 'protected'")
             await page.wait_for_timeout(800)
             check("실측 protected가 가짜 타이머에 덮이지 않음", await page.get_attribute("#statusCard", "data-connection-state") == "protected")
-            check("보호 증거 뒤에도 기존 설정 보존", await page.get_attribute("#replacementGuard", "data-replacement-state") == "candidate_live_verified" and await existing_row.locator("button").is_disabled())
+            check("보호 증거 뒤에도 기존 설정 보존", await page.get_attribute("#replacementGuard", "data-replacement-state") == "candidate_live_verified" and await existing_row.get_by_text("후보 확인 전 보존", exact=True).is_disabled())
             await page.locator('[data-svc-go="account"]').first.dispatch_event("click")
             check("PC 자동 근거 4종 통과", await page.locator('[data-pc-check][data-state="pass"]').count() == 4)
             recovery = page.locator('[data-pc-confirm="recovery-drill"]')

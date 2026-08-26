@@ -1,0 +1,35 @@
+{
+  "task_id": "GCP-TASK-0-01",
+  "status": "done_code",
+  "checked_at": "2026-08-25",
+  "program": ["GCP-1", "GCP-7"],
+  "changed_paths": [
+    "20_SRC/app/evidence_contract.py",
+    "40_TESTS/test_evidence_contract.py",
+    "40_TESTS/test_gap_compression_plan_v3.py",
+    "10_PLAN/DETAILED_DEVELOPMENT_PLAN_GAP_COMPRESSION_v3_2026-08-25.md"
+  ],
+  "automatic_checks": [
+    "evidence_contract positive and negative tests 5/5",
+    "gap_compression_plan_v3 plus canonical plan tests 20/20 before receipt linkage; final focused suite 25/25"
+  ],
+  "browser_checks": [],
+  "device_checks": [],
+  "operation_checks": [],
+  "unverified": [
+    "common_contract_not_yet_bound_to_dashboard_or_score",
+    "actual_android_current_protection",
+    "actual_payment_and_refund",
+    "operator_legal_identity",
+    "external_security_review"
+  ],
+  "non_regression": {
+    "free_1gb": true,
+    "topup_no_expiry": true,
+    "wireguard_default": true,
+    "existing_profiles_preserved": true,
+    "public_urls_and_qr_preserved": true,
+    "drive_b_unused": true
+  },
+  "next_task": "GCP-TASK-0-02"
+}
