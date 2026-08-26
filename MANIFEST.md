@@ -3,7 +3,7 @@
 | 항목 | 값 |
 |---|---|
 | 파일 수 | 652 |
-| 총 바이트 | 19,018,847 |
+| 총 바이트 | 19,020,120 |
 
 ## 지문 규칙
 
@@ -416,7 +416,7 @@
 | `20_SRC/icons.py` | 1,561 | 현행 소스 | `b3a87e9149f2428b257fdafbf0e802111692a17992b47848f578c28e8d5a8742` |
 | `20_SRC/infra/__init__.py` | 58 | 현행 소스 | `92a7d5c6a6b882fe54d1efac554fc018907d3151dbcaf961444118f8eddc77d8` |
 | `20_SRC/infra/cloud_init.py` | 12,865 | 현행 소스 | `d3ce77f0645fa865517d385525f18dd601fcc431361ca2276dc3408798a5aadb` |
-| `20_SRC/infra/exit_admin.py` | 13,684 | 현행 소스 | `0782229826da1e0f8a0a2fc1d941992441d16ea54b22a5768a3d26668f3236c9` |
+| `20_SRC/infra/exit_admin.py` | 14,290 | 현행 소스 | `fa776edee0d82a9114a25b283ad7314d960dcca147f82c27558952a8da501b42` |
 | `20_SRC/infra/gcp_cloud_shell_bundle.py` | 15,393 | 현행 소스 | `df6f4c14b19e0035d4b8019d6d2dd5eb6ebf235c1b290c6258bbf13941b12ed9` |
 | `20_SRC/infra/gcp_cost_review.py` | 5,439 | 현행 소스 | `ec8c63514ad07f3c9ea034fc9f278f6890b98181a8f5c524614c5f8a473a6c78` |
 | `20_SRC/infra/gcp_node_plan.py` | 5,460 | 현행 소스 | `6cab609f9de47526ae75b7c9e0bb3871fa27fe536ce0a4b7e827ecfce484e2f9` |
@@ -490,7 +490,7 @@
 | `40_TESTS/test_development_dashboard_contract.py` | 1,613 | 검사 | `3f278bcf38ba3b0accef82a9623a89a2d62fbd13015073c81a7276ed9d156e21` |
 | `40_TESTS/test_device_handoff_ui.py` | 1,747 | 검사 | `f9cc7654401ca24a12d34e569c0981526fec835d69270edb82ba86ce403cba70` |
 | `40_TESTS/test_evidence_contract.py` | 3,735 | 검사 | `0efae4863983e15499e4ecef56145847ecb3c7e19fa8f43c32086cd68690193c` |
-| `40_TESTS/test_exit_admin.py` | 6,544 | 검사 | `3c89ae4b7204b521385bf128308fac1c7fd2cba4561b24d863da525fff389426` |
+| `40_TESTS/test_exit_admin.py` | 7,211 | 검사 | `19ceabc10c2be281287bfa1e9ef7d087a9e3758644f6a2abda288a7c69dbcb29` |
 | `40_TESTS/test_first_use_recovery_ui.py` | 2,117 | 검사 | `045d2d69a66c8cb1384f42ff3c11a72ec16727f867ca9b58f852b214c0b8f639` |
 | `40_TESTS/test_gap_compression_plan_v3.py` | 6,032 | 검사 | `ffa9153acf07850dead46681bb35319ed2948d27382fd00304e37e586b162d66` |
 | `40_TESTS/test_gcp_billing_review.py` | 4,191 | 검사 | `0220a1c93666693287b2ad07400c707249056940bca87506ff18bc57fcfa5e11` |
